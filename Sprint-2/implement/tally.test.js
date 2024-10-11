@@ -1,3 +1,5 @@
+const tally = require("./tally.js");
+
 /**
  * tally array
  *
@@ -8,8 +10,8 @@
  * For example:
  *
  * tally(['a']), target output: { a: 1 }
- * tally(['a','a','a']), target output: { a: 3 }
- * tally(['a','a','b','c']), target output: { a : 2, b: 1, c: 1 }
+ * tally(['a', 'a', 'a']), target output: { a: 3 }
+ * tally(['a', 'a', 'b', 'c']), target output: { a : 2, b: 1, c: 1 }
  */
 
 // Acceptance criteria:
@@ -21,6 +23,7 @@
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
+test.todo("tally on an empty array returns an empty object");
 
 // Given an array with duplicate items
 // When passed to tally
