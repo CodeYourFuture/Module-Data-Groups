@@ -21,6 +21,7 @@ Here is a recommended order:
 1. `contains.test.js`
 2. `lookup.test.js`
 3. `tally.test.js`
+4. `querystring.test.js`
 
 ## Interpret
 
