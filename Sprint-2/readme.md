@@ -1,18 +1,12 @@
-# 🧭 Guide to Week 2 exercises
+# 🧭 Guide to Sprint 2 exercises
 
-This README will guide you through the different sections for this week.
+This README will guide you through the different sections for this sprint.
 
 ## Setup
 
-Go to the **root of this repository**. Double check you're there with `pwd`. Also double check with `ls`.
-**If you're in the root you should be able to see the `week-1`, `week-2` and `week-3` directories**
+Make sure your terminal is in the `Sprint-2` directory of this repository.
 
-Run the command `npm install` in the root of this repo.
-
-To run tests in the `week-2` directory you can:
-
-1. Change directory into `week-2`
-2. Run the tests using `npm test`
+Run the command `npm install` to install any dependencies you need.
 
 ## 🐛 Debug
 
@@ -27,6 +21,7 @@ Here is a recommended order:
 1. `contains.test.js`
 2. `lookup.test.js`
 3. `tally.test.js`
+4. `querystring.test.js`
 
 ## Interpret
 

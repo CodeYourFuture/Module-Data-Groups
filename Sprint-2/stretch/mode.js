@@ -13,7 +13,9 @@ function calculateMode(list) {
   let freqs = new Map();
 
   for (let num of list) {
-    if (typeof num !== "number") continue;
+    if (typeof num !== "number") {
+      continue;
+    }
 
     freqs.set(num, (freqs.get(num) || 0) + 1);
   }

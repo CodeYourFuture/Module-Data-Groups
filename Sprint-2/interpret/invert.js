@@ -25,3 +25,5 @@ function invert(obj) {
 // c) What does Object.entries return? Why is it needed in this program?
 
 // d) Explain why the current return value is different from the target output
+
+// e) Fix the implementation of invert (and write tests to prove it's fixed!)

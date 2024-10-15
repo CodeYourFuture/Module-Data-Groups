@@ -8,7 +8,6 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    console.log(coin * quantity);
     total += coin * quantity;
   }
 
