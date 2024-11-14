@@ -25,3 +25,33 @@ test.todo("given an empty array, it returns an empty array");
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+describe("calculateMedian", () => {
+  test("removes duplicates from an array with duplicates", () => {
+    expect(dedupe([1, 2, 2, 3, 4, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  test("returns the same array when all elements are unique", () => {
+    expect(dedupe([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  test("returns an empty array when input is an empty array", () => {
+    expect(dedupe([])).toEqual(
+      "given an empty array, it returns an empty array"
+    );
+  });
+
+  test("returns undefined when input is undefined", () => {
+    expect(dedupe(undefined)).toBeUndefined();
+  });
+
+  test("works with mixed data types in the array", () => {
+    expect(dedupe([1, "1", 2, "2", 3, 3, "3"])).toEqual([
+      1,
+      "1",
+      2,
+      "2",
+      3,
+      "3",
+    ]);
+  });
+});
