@@ -1,15 +1,5 @@
-// You are given an implementation of calculateMode
-
-// calculateMode's implementation can be broken down into two stages:
-
-// Stage 1. One part of the code tracks the frequency of each value
-// Stage 2. The other part finds the value with the highest frequency
-
-// refactor calculateMode by splitting up the code
-// into smaller functions using the stages above
-
-function calculateMode(list) {
-  // track frequency of each value
+// Stage 1: Function to track frequency of each value
+function trackFrequencies(list) {
   let freqs = new Map();
 
   for (let num of list) {
@@ -20,9 +10,14 @@ function calculateMode(list) {
     freqs.set(num, (freqs.get(num) || 0) + 1);
   }
 
-  // Find the value with the highest frequency
+  return freqs;
+}
+
+// Stage 2: Function to find the mode (the value with the highest frequency)
+function findMode(freqs) {
   let maxFreq = 0;
   let mode;
+
   for (let [num, freq] of freqs) {
     if (freq > maxFreq) {
       mode = num;
@@ -31,6 +26,12 @@ function calculateMode(list) {
   }
 
   return maxFreq === 0 ? NaN : mode;
+}
+
+// Main function that uses both stages to calculate the mode
+function calculateMode(list) {
+  const freqs = trackFrequencies(list); // Track frequencies of values
+  return findMode(freqs); // Find and return the mode
 }
 
 module.exports = calculateMode;
