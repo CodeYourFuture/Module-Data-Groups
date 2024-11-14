@@ -16,7 +16,7 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+// test.todo("given an empty array, it returns an empty array");
 
 // Given an array with no duplicates
 // When passed to the dedupe function
@@ -33,7 +33,9 @@ describe("calculateMedian", () => {
   test("returns the same array when all elements are unique", () => {
     expect(dedupe([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
   });
-
+  test("returns the same array when all elements are unique", () => {
+    expect(dedupe(["A", "A", "b", "b", "c"])).toEqual(["A", "b", "c"]);
+  });
   test("returns an empty array when input is an empty array", () => {
     expect(dedupe([])).toEqual(
       "given an empty array, it returns an empty array"
