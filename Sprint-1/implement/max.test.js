@@ -12,32 +12,32 @@ We have set things up already so that this file can see your function from the o
 
 const findMax = require("./max.js");
 
-// Given an empty array
-// When passed to the max function
-// Then it should return -Infinity
-// Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("Given an empty array then it should return -Infinity", () => {
+  expect(max([])).toBe("-Infinity");
+});
 
-// Given an array with one number
-// When passed to the max function
-// Then it should return that number
+test("Given an array with one number then it should return that number", () => {
+  expect(max([1])).toBe(1);
+});
 
-// Given an array with both positive and negative numbers
-// When passed to the max function
-// Then it should return the largest number overall
 
-// Given an array with just negative numbers
-// When passed to the max function
-// Then it should return the closest one to zero
+test("Given an array with both positive and negative numbers then it should return the largest number overall", () => {
+  expect(max([1,4,5,-4])).toBe(5);
+})
 
-// Given an array with decimal numbers
-// When passed to the max function
-// Then it should return the largest decimal number
+test("Given an array with just negative numbers then it should return the closest one to zero", () => {
+  expect(max([-1, -4, -5, -4])).toBe(-1);
+});
 
-// Given an array with non-number values
-// When passed to the max function
-// Then it should return the max and ignore non-numeric values
+test("Given an array with decimal numbers then it should return the largest decimal number", () => {
+  expect(max([-1.45, -4.4, -5.6, -4.1])).toBe(-1.45);
+});
 
-// Given an array with only non-number values
-// When passed to the max function
-// Then it should return the least surprising value given how it behaves for all other inputs
+
+test("Given an array with non-number values then it should return the max and ignore non-numeric values", () => {
+  expect(max([-1.45, 'dd', -5.6, 90])).toBe(90);
+});
+
+test("Given an array with only non-number values then it should return the least surprising value given how it behaves for all other inputs", () => {
+  expect(max(["dd", "90"])).toBe("Input has only non-number values");
+});

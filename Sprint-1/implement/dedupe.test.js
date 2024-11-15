@@ -13,15 +13,15 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 
 // Acceptance Criteria:
 
-// Given an empty array
-// When passed to the dedupe function
-// Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+test("Given an empty array then it should return an empty array", () => {
+  expect(dedupe([])).toBe([]);
+});
 
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
 
-// Given an array with strings or numbers
-// When passed to the dedupe function
-// Then it should remove the duplicate values, preserving the first occurence of each element
+test("Given an array with no duplicates then it should return a copy of the original array", () => {
+  expect(dedupe([1,2,3])).toBe([1,2,3]);
+});
+
+test("Given an array with strings or numbers then it should remove the duplicate values, preserving the first occurence of each element", () => {
+  expect(dedupe([1, 2, 3, 1, 2, 3])).toBe([1, 2, 3]);
+});
