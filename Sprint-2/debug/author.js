@@ -11,6 +11,5 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
-}
+  console.log(author);
+
