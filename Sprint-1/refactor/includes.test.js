@@ -16,6 +16,7 @@ test("returns false when target not in array", () => {
   expect(currentOutput).toEqual(targetOutput);
 });
 
+
 test("returns true when the target is in array multiple times", () => {
   const currentOutput = includes([1, 2, 2, 3], 2);
   const targetOutput = true;
