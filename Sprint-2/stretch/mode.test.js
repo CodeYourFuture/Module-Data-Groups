@@ -30,3 +30,4 @@ describe("calculateMode()", () => {
     expect(calculateMode(nums)).toEqual(3);
   });
 });
+

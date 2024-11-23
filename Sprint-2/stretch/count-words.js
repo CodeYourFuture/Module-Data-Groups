@@ -26,3 +26,29 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+function countword(sentence){
+    let str = "";
+    str = sentence.replace(/[.,!?"]/g, '');
+    str = str.toLowerCase();
+    let words = str.split(" ").filter(word => word !== "");
+    let obj = {};
+    for (let item of words) {
+      obj[item] = (obj[item] || 0) + 1;
+    }
+    const keys = Object.keys(obj);
+  for (let i = 0; i < keys.length; i++) {
+    for (let j = i + 1; j < keys.length; j++) {
+      if (obj[keys[i]] < obj[keys[j]]) {
+        const temp = keys[i];
+        keys[i] = keys[j];
+        keys[j] = temp;
+      }
+    }
+  }
+  const sortedObject = {};
+  for (let key of keys) {
+    sortedObject[key] = obj[key];
+  }
+  return sortedObject;
+}
+console.log(countword("yOU! ANd? ME and you. you you me me me me me"));
