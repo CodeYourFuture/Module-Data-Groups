@@ -10,6 +10,11 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
+ing = ''
+for (const value of recipe.ingredients) {
+  ing += value + '\n'
+}
+
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${ing}`);
