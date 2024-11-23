@@ -10,7 +10,7 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value]= key;
   }
 
   return invertedObj;
@@ -18,12 +18,26 @@ function invert(obj) {
 
 // a) What is the current return value when invert is called with { a : 1 }
 
+/* 
+console.log(invert({ a: 1 }));
+{key: 1} */
+
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
+
+/* 
+console.log(invert({ a: 1, b: 2 }));
+{key: 2} */
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 
+/* {1: a, 2: b} */
+
 // c) What does Object.entries return? Why is it needed in this program?
+
+/* Object.entries() returns an array whose elements are arrays corresponding to the enumerable string-keyed property key-value pairs found directly upon object . 
+It used here to take property key and its  value */
 
 // d) Explain why the current return value is different from the target output
 
+/* The key and value are swapped and  key is intepretered as string. */
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
