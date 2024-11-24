@@ -33,3 +33,20 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+
+est(
+  "return object representing country code and currency code pairs",
+  () => {
+    const currentOutput = createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ]);
+    const targetOutput = {
+      US: "USD",
+      CA: "CAD",
+    };
+
+    expect(currentOutput).toEqual(targetOutput);
+  }
+);
