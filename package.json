@@ -1,0 +1,12 @@
+{
+  "name": "module-data-groups",
+  "version": "1.0.0",
+  "description": "Like learning a musical instrument, programming requires daily practice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
