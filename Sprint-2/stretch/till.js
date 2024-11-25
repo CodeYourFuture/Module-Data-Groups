@@ -39,22 +39,26 @@
 function totalTill(till) {
   let total = 0;
 
+  // Coin values in pence (1p = 1, 5p = 5, etc.)
   const coinValues = {
     "1p": 1,
     "5p": 5,
     "20p": 20,
     "50p": 50,
-    "1": 100, // Assuming we might have full pound coins
+    "1": 100, // Full pound coin (if included)
   };
 
   for (const [coin, quantity] of Object.entries(till)) {
+    // Check if the coin is a valid key in the coinValues object
     const coinValue = coinValues[coin];
 
+    // Only add valid coins (those that exist in the coinValues object)
     if (coinValue !== undefined) {
       total += coinValue * quantity;
     }
   }
 
+  // Return the total amount in pounds, formatted to two decimal places
   return `£${(total / 100).toFixed(2)}`;
 }
 
