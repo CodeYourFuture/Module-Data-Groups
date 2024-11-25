@@ -9,14 +9,18 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-
     // Split only at the first '=' to handle values with '='
     const indexOfEqual = pair.indexOf("=");
     const key = indexOfEqual > -1 ? pair.slice(0, indexOfEqual) : pair;
-    const value = indexOfEqual > -1 ? pair.slice(indexOfEqual + 1) : null; // If no '=', value is null
-    queryParams[key] = decodeURIComponent(value); // Handle URL-encoded values
+    const value =
+      indexOfEqual > -1
+        ? decodeURIComponent(pair.slice(indexOfEqual + 1))
+        : null; // If no '=', treat value as null
+    queryParams[key] = value === null ? "" : value; // Ensure empty values are ""
   }
 
   return queryParams;
 }
+
 module.exports = parseQueryString;
+
