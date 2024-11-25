@@ -21,3 +21,26 @@ const books = [
   },
 ];
 
+let list = document.querySelector("#reading-list");
+
+books.forEach(item => {
+  let book = document.createElement('li')
+  book.innerHTML = `<div class="book-title">"${item.title}"</div>
+  <img src = ${item.bookCoverImage} alt= "book cover">
+  <button class= "btn">change status</button>`;
+  book.classList.add('book')
+  if (item.alreadyRead) {
+    book.classList.add("been-read");
+  } else {
+    book.classList.add("not-read");
+  }
+  list.appendChild(book)
+})
+
+const buttons = document.querySelectorAll('.btn')
+buttons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.target.parentElement.classList.toggle("been-read");
+    e.target.parentElement.classList.toggle("not-read");
+  })
+})
