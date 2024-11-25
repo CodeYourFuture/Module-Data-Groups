@@ -1,6 +1,5 @@
 // till.test.js
-
-const totalTill = require('./totalTill');  // Ensure the path is correct
+const totalTill = require('./till');
 
 describe("totalTill()", () => {
   test("calculates the total amount of coins in pounds", () => {

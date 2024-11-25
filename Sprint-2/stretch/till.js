@@ -39,26 +39,21 @@
 function totalTill(till) {
   let total = 0;
 
-  // Coin values in pence (1p = 1, 5p = 5, etc.)
-  const coinValues = {
-    "1p": 1,
-    "5p": 5,
-    "20p": 20,
-    "50p": 50,
-    "1": 100, // Full pound coin (if included)
-  };
-
+  // Iterate over each coin in the till
   for (const [coin, quantity] of Object.entries(till)) {
-    // Check if the coin is a valid key in the coinValues object
-    const coinValue = coinValues[coin];
+    // Extract the numeric value by removing the 'p' at the end (e.g., "1p" -> 1, "5p" -> 5)
+    const coinValue = parseInt(coin);
 
-    // Only add valid coins (those that exist in the coinValues object)
-    if (coinValue !== undefined) {
-      total += coinValue * quantity;
+    // Skip if the coin is not a valid number or can't be parsed
+    if (isNaN(coinValue)) {
+      continue;
     }
+
+    // Add the value of the coin multiplied by its quantity to the total
+    total += coinValue * quantity;
   }
 
-  // Return the total amount in pounds, formatted to two decimal places
+  // Return the total in pounds, formatted to two decimal places
   return `£${(total / 100).toFixed(2)}`;
 }
 
