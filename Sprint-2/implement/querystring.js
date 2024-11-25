@@ -13,14 +13,13 @@ function parseQueryString(queryString) {
     const indexOfEqual = pair.indexOf("=");
     const key = indexOfEqual > -1 ? pair.slice(0, indexOfEqual) : pair;
     const value =
-      indexOfEqual > -1
-        ? decodeURIComponent(pair.slice(indexOfEqual + 1))
-        : null; // If no '=', treat value as null
-    queryParams[key] = value === null ? "" : value; // Ensure empty values are ""
+      indexOfEqual === -1
+        ? null // No '=' means value is null
+        : decodeURIComponent(pair.slice(indexOfEqual + 1)); // Decode the value
+    queryParams[key] = value;
   }
 
   return queryParams;
 }
 
 module.exports = parseQueryString;
-
