@@ -491,3 +491,17 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+let quoteText = document.querySelector("#quote"),
+  quoteAuthor = document.querySelector("#author"),
+  nextQuote = document.querySelector("#new-quote");
+
+function generateQuote() {
+
+  randomQuote = pickFromArray(quotes);
+  quoteText.textContent = `" ` + randomQuote.quote + ` "`;
+  quoteAuthor.textContent = '@' + randomQuote.author;
+}
+nextQuote.addEventListener("click", () => {
+  generateQuote();
+});
+window.onload = generateQuote;
