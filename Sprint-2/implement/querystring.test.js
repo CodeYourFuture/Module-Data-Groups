@@ -1,7 +1,3 @@
-// In the prep, we implemented a function to parse query strings.
-// Unfortunately, it contains several bugs!
-// Below is one test case for an edge case the implementation doesn't handle well.
-// Fix the implementation for this test, and try to think of as many other edge cases as possible - write tests and fix those too.
 const parseQueryString = require("./querystring.js");
 
 describe("parseQueryString function", () => {
@@ -25,14 +21,14 @@ describe("parseQueryString function", () => {
   test("handles keys without values", () => {
     expect(parseQueryString("key1=value1&key2=")).toEqual({
       key1: "value1",
-      key2: null,
+      key2: null,  // Expect null for an empty value
     });
   });
 
   test("handles keys with no equals sign", () => {
     expect(parseQueryString("key1=value1&key2")).toEqual({
       key1: "value1",
-      key2: null,
+      key2: null,  // Expect null for key without an equal sign
     });
   });
 
@@ -53,7 +49,7 @@ describe("parseQueryString function", () => {
     ).toEqual({
       key1: "value1",
       equation: "x=y+1",
-      empty: null,
+      empty: null, // Expect null for empty
       key3: "3",
     });
   });

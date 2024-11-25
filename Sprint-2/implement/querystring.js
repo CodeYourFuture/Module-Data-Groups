@@ -9,13 +9,12 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    // Split only at the first '=' to handle values with '='
     const indexOfEqual = pair.indexOf("=");
     const key = indexOfEqual > -1 ? pair.slice(0, indexOfEqual) : pair;
-    const value =
-      indexOfEqual === -1
-        ? null // No '=' means value is null
-        : decodeURIComponent(pair.slice(indexOfEqual + 1)); // Decode the value
+    const value = indexOfEqual === -1 
+      ? null // If there's no '=', treat the value as null
+      : decodeURIComponent(pair.slice(indexOfEqual + 1)) || null; // Handle empty value case
+
     queryParams[key] = value;
   }
 
