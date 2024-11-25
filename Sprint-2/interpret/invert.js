@@ -38,10 +38,13 @@
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
 function invert(obj) {
   const invertedObj = {};
+
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj[value] = key;  
+    invertedObj[value] = key;
+  }
 
   return invertedObj;
 }
 
 module.exports = invert;
+
