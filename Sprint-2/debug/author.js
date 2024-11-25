@@ -11,6 +11,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) { //author is not iterable. 
   console.log(value);
 }
+//for...of loop is designed to iterate over iterable objects such as arrays and strings.
