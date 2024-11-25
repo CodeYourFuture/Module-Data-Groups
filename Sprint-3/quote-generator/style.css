@@ -1,1 +1,38 @@
-/** Write your CSS in here **/
+/* Center content on the page */
+body {
+    background-color: lightblue;
+    /* Set background color to light blue */
+    text-align: center;
+    display: flex;
+    /* Use flexbox for centering */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    height: 100vh;
+    /* Make sure the body takes up the full viewport height */
+    margin: 0;
+    /* Remove default margin */
+}
+
+/* Style the container for the quotes */
+#quote-container {
+    border: 2px solid black;
+    /* Add a black border */
+    padding: 20px;
+    /* Add some padding inside the border */
+    background-color: white;
+    /* Set a white background for the content */
+    border-radius: 10px;
+    /* Optional: add rounded corners */
+    width: 500px;
+    /* Set a fixed width for the container */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 10px 0;
+}

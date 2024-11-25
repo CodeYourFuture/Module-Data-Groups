@@ -490,4 +490,14 @@ const quotes = [
   },
 ];
 
-// call pickFromArray with the quotes array to check you get a random quote
+function checkCheckbox() {
+	const checkbox = document.getElementById('myCheckbox');
+      if (checkbox.checked) {
+      	let quote = pickFromArray(quotes)
+		document.getElementById("quote").innerHTML = quote.quote;
+		document.getElementById("author").innerHTML = quote.author;
+      } 
+}
+let intervalId = setInterval(function() {
+	checkCheckbox();
+ }, 4000);
