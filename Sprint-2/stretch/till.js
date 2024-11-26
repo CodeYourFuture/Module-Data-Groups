@@ -37,25 +37,22 @@
 // totalTill.js
 
 function totalTill(till) {
-  let total = 0;
-
-  // Iterate over each coin in the till
-  for (const [coin, quantity] of Object.entries(till)) {
-    // Extract the numeric value by removing the 'p' at the end (e.g., "1p" -> 1, "5p" -> 5)
-    const coinValue = parseInt(coin);
-
-    // Skip if the coin is not a valid number or can't be parsed
-    if (isNaN(coinValue)) {
-      continue;
-    }
-
-    // Add the value of the coin multiplied by its quantity to the total
-    total += coinValue * quantity;
+  if (!Array.isArray(till)) {
+    throw new Error("Invalid input: till must be an array");
   }
 
-  // Return the total in pounds, formatted to two decimal places
-  return `£${(total / 100).toFixed(2)}`;
+  // Filter out non-numeric values and ensure they are numbers
+  const validCoins = till.filter(coin => typeof coin === 'number' && !isNaN(coin));
+
+  // Sum up the valid coins
+  const totalPence = validCoins.reduce((sum, coin) => sum + coin, 0);
+
+  // Convert pence to pounds and format
+  const totalPounds = (totalPence / 100).toFixed(2);
+
+  return `£${totalPounds}`;
 }
+
 
 module.exports = totalTill;
 
