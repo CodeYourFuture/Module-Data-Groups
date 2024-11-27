@@ -14,7 +14,7 @@ describe("sum", () => {
     // When passed to the sum function
     // Then it should return 0
     test("given an empty array, returns 0", () => {
-        expected(sum([])).toBe(0);
+        expect(sum([])).toBe(0);
     });
 
     // Given an array with just one number
@@ -22,7 +22,7 @@ describe("sum", () => {
     // Then it should return that number
 
     test("given an array with just one number", () => {
-        expected(sum([7])).toBe(7);
+        expect(sum([7])).toBe(7);
     });
 
     // Given an array containing negative numbers
@@ -30,8 +30,8 @@ describe("sum", () => {
     // Then it should still return the correct total sum
 
     test("given an array containing negative numbers", () => {
-        expected(sum([7, -6, 0, 8, 10, -5 ])).toBe(14);
-        expected(sum([-7, -20, 8, 8, 10, -7])).toBe(-8);
+        expect(sum([7, -6, 0, 8, 10, -5 ])).toBe(14);
+        expect(sum([-7, -20, 8, 8, 10, -7])).toBe(-8);
     });
 
     // Given an array with decimal/float numbers
@@ -39,8 +39,8 @@ describe("sum", () => {
     // Then it should return the correct total sum
 
     test("given an array containing negative numbers", () => {
-        expected(sum([7, -6, 0, 8, 10, -5])).toBe(14);
-        expected(sum([-7, -20, 8, 8, 10, -7])).toBe(-8);
+        expect(sum([7, -6, 0, 8, 10, -5])).toBe(14);
+        expect(sum([-7, -20, 8, 8, 10, -7])).toBe(-8);
     });
 
     // Given an array containing non-number values
@@ -48,15 +48,15 @@ describe("sum", () => {
     // Then it should ignore the non-numerical values and return the sum of the numerical elements
 
         test("given an array containing non-number values, ignore the non-numerical values and return the sum of the numerical elements", () => {
-        expected(sum([7, -6, , "Hello", "world", 0, 8, 10, -5])).toBe(14);
-        expected(sum(["Seven", 2, 20, 8, 8, "Green", 10, -7])).toBe(41);
+        expect(sum([7, -6, , "Hello", "world", 0, 8, 10, -5])).toBe(14);
+        expect(sum(["Seven", 2, 20, 8, 8, "Green", 10, -7])).toBe(41);
     });
 
     // Given an array with only non-number values
     // When passed to the sum function
     // Then it should return the least surprising value given how it behaves for all other inputs
     test("given an array containing non-number values, return the least surprising value given how it behaves for all other inputs", () => {
-        expected(sum(["Hello", "world", "Happy"])).toBe("Happy");
-        expected(sum(["Seven", "Odd", "True", "Love"])).toBe("Love");
+        expect(sum(["Hello", "world", "Happy"])).toBe("Happy");
+        expect(sum(["Seven", "Odd", "True", "Love"])).toBe("Love");
     });
 });
