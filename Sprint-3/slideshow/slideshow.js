@@ -6,12 +6,15 @@ const imagesForSlider = [
   "./assets/cute-cat-c.jpg",
 ];
 
+let seconds = 1;
+
 const prevButton = document.querySelector("#backward-btn"),
   nextButton = document.querySelector("#forward-btn"),
   autoForward = document.querySelector("#autoforward-btn"),
   autoBack = document.querySelector("#auto"),
   stopButton = document.querySelector("#stop-btn"),
-  image = document.querySelector("#carousel-img");
+  image = document.querySelector("#carousel-img"),
+  secondsDelay = document.getElementById("seconds-input");
 
 let curIndex = 1;
 
@@ -41,15 +44,21 @@ prevButton.addEventListener("click", () => {
 });
 
 autoBack.addEventListener("click", () => {
-  autoBackInterval = setInterval(prevImage, 2000);
+  autoBackInterval = setInterval(prevImage, seconds * 1000);
 });
 
 autoForward.addEventListener("click", () => {
-  autoforwardInterval = setInterval(nextImage, 2000);
+  autoforwardInterval = setInterval(nextImage, seconds * 1000);
 });
 
 stopButton.addEventListener("click", () => {
   clearInterval(autoBackInterval);
   clearInterval(autoforwardInterval);
 });
+
+secondsDelay.addEventListener('input', () => {
+  seconds = secondsDelay.value;
+} )
+
+
 showSlide(curIndex);
