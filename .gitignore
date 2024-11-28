@@ -4,3 +4,5 @@ node_modules
 **/.DS_Store
 Sprint-2/implement/package-lock.json
 Sprint-2/implement/package.json
+package-lock.json
+package.json

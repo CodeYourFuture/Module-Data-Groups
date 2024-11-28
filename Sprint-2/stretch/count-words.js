@@ -6,7 +6,38 @@
     - returns an object where
           - the keys are the words from the string and
           - the values are the number of times the word appears in the string
+*/
+function countWords(sentence) {
+  if (!sentence.trim()) {
+    return {};
+  }
+  const wordCounts = {};
 
+  // Remove punctuation and convert to lowercase
+  const cleanedSentence = sentence.replace(/[.,!?]/g, "").toLowerCase();
+
+  // Split the sentence into words
+  const words = cleanedSentence.split(/\s+/); // Split on any whitespace
+
+  words.forEach((word) => {
+    wordCounts[word] = (wordCounts[word] || 0) + 1; // Increment the count
+  });
+
+  // Sort by frequency and return as an object
+  const sortedWordCounts = Object.entries(wordCounts)
+    .sort((a, b) => b[1] - a[1]) // Sort by frequency
+    .reduce((acc, [word, count]) => {
+      acc[word] = count; // Convert back to an object
+      return acc;
+    }, {});
+
+  return sortedWordCounts;
+}
+
+module.exports = countWords;
+
+module.exports = countWords;
+/*
   Example
   If we call countWords like this:
 
