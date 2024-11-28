@@ -12,4 +12,5 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address["houseNumber"]}`);
+// To find value of the key in the object, we need to use "houseNumber" key in the bracket []
