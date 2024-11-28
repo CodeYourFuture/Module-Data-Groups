@@ -14,3 +14,5 @@ const author = {
 for (const value of author) {
   console.log(value);
 }
+
+// An object is not iterable with for ... of loop. Instead, to enumerate over an object's keys, we can use a for...in loop
