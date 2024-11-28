@@ -48,5 +48,4 @@ describe("tally", () => {
         expect(tally("Hello")).toStrictEqual("Error");
         expect(tally(2)).toStrictEqual("Error");
     });
-
 });
