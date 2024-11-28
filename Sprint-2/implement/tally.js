@@ -1,7 +1,7 @@
 function tally(frequencyArray) {
     let frequencyObject = {};
     // declare an object to use it later
-    if (Array.isArray(frequencyArray)) {
+    if (!(Array.isArray(frequencyArray))) {
         return "Error";
     }
     // check if input isn't array
