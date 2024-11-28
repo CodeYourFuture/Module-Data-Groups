@@ -21,15 +21,11 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
-const contentDiv = document.getElementById("content");
 
-// Create a container for the books
-const booksContainer = document.createElement("ul");
-booksContainer.id = "books-container";
-contentDiv.appendChild(booksContainer);
+const booksContainer = document.getElementById("content");
 
 books.forEach((book) => {
-  const bookElement = document.createElement("div");
+  const bookElement = document.createElement("ul");
   bookElement.style.border = "1px solid #ccc";
   bookElement.style.margin = "10px";
   bookElement.style.padding = "10px";
