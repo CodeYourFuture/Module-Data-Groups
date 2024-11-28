@@ -1,9 +1,3 @@
-// median.test.js
-
-// Someone has implemented calculateMedian but it isn't
-// passing all the tests...
-// Fix the implementation of calculateMedian so it passes all tests
-
 const calculateMedian = require("./median.js");
 
 describe("calculateMedian", () => {
@@ -20,7 +14,12 @@ describe("calculateMedian", () => {
   test("doesn't modify the input", () => {
     const list = [1, 2, 3];
     calculateMedian(list);
-
     expect(list).toEqual([1, 2, 3]);
+  });
+
+  test("throws an error when input is not a valid array", () => {
+    expect(() => calculateMedian([])).toThrow("Input must be a non-empty array.");
+    expect(() => calculateMedian(null)).toThrow("Input must be a non-empty array.");
+    expect(() => calculateMedian("string")).toThrow("Input must be a non-empty array.");
   });
 });
