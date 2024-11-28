@@ -33,3 +33,11 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+describe("lookup", () => {
+  test("given 2D array, return object the keys are the country codes and the values are the corresponding currency codes", () => {
+    expect(createLookup([['US', 'USD'], ['CA', 'CAD']])).toStrictEqual({'US': 'USD','CA': 'CAD'});
+  });
+});
+
+// Change to .toStrictEqual, because .toBe works for primitives (strings, numbers).
