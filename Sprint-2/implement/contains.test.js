@@ -13,23 +13,44 @@ as the object doesn't contains a key of 'c'
 
 // Acceptance criteria:
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
+describe("contains", () => {
+    // Given a contains function
+    // When passed an object and a property name
+    // Then it should return true if the object contains the property, false otherwise
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
+    test("given a contains function, return true if the object contains the property, false otherwise", () => {
+        expect(contains({a: "Red", b: "Green",}, "a")).toBe(true);
+        expect(contains({ a: "Red", b: "Green", c: "Brown", }, "f")).toBe(false);
+    });
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
+    // Given an empty object
+    // When passed to contains
+    // Then it should return false
+    test("contains on empty object returns false", () => {
+        expect(contains({})).toBe(false);    
+    });
 
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
+    // Given an object with properties
+    // When passed to contains with an existing property name
+    // Then it should return true
+    test("given an object with properties and contains with an existing property name, return true", () => {
+        expect(contains({ name: "Tom", b: "Green", }, "name")).toBe(true);
+    });
 
-// Given invalid parameters like an array
-// When passed to contains
-// Then it should return false or throw an error
+    // Given an object with properties
+    // When passed to contains with a non-existent property name
+    // Then it should return false
+
+    test("given an object with properties and contains with a non-existent property name, return true", () => {
+        expect(contains({ name: "Tom", b: "Green", }, "colour")).toBe(false);
+    });
+
+    // Given invalid parameters like an array
+    // When passed to contains
+    // Then it should return false or throw an error
+
+    test("given invalid parameters like an array, return false or throw an error", () => {
+        expect(contains([])).toBe(false);
+        expect(contains("Name", "a")).toBe(false);        
+    });
+});
