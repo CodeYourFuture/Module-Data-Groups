@@ -21,3 +21,16 @@ const books = [
   },
 ];
 
+let book_list = document.querySelector("#reading-list");
+
+for(let obj of books){
+  if(obj["alreadyRead"]){
+    book_list.innerHTML += (`<li class="red"><p>${obj["title"]} by ${obj["author"]}</p><img src="${obj["bookCoverImage"]}" /></li>`);
+}
+  else{
+
+ 
+  book_list.innerHTML += (`<li class="green"><p>${obj["title"]} by ${obj["author"]}</p><img src="${obj["bookCoverImage"]}" /></li>`);
+} }
+
+
