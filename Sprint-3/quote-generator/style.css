@@ -1,1 +1,22 @@
 /** Write your CSS in here **/
+body{
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: orange;
+    
+}
+
+.qoute-div{
+    background-color: white;
+    width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+#new-quote{
+    color: white;
+    background-color: orange;
+    border: 0cap;
+    
+}
