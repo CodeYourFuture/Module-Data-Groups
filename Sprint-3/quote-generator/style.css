@@ -10,13 +10,36 @@ body{
 
 .qoute-div{
     background-color: white;
-    width: 600px;
+    width: 60%;
     padding: 20px;
     text-align: center;
+    margin-top: 10%;
+    border-radius: 10px;
+    box-shadow: 20px 20px 5px rgb(137, 88, 3);
 }
+#quote{
+    font-size: 40px;
+    text-shadow: 1px 1px rgb(171, 112, 9);
+}
+#author{
+    margin-right: 0px;
+    margin-left: 75%;
+    padding: 20px;
+    font-size: 20px;
+    text-shadow: 1px 1px rgb(171, 112, 9);
+}
+h1{
+    margin-right: 65%;
+    text-shadow: 2px 2px rgb(171, 112, 9);
+}
+
 #new-quote{
     color: white;
     background-color: orange;
     border: 0cap;
+    margin-left: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px rgb(171, 112, 9);
     
 }
