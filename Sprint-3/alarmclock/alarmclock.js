@@ -1,7 +1,7 @@
 var input_time = document.querySelector("#alarmSet");
 var title_time = document.querySelector("#titleTime");
 var timeRemaining = document.querySelector("#timeRemaining");
-
+var bUserStopped = false;
 function setAlarm() {
   
   let totalSeconds = parseInt(input_time.value, 10);
@@ -23,13 +23,19 @@ function setAlarm() {
     if(totalSeconds <= 0){
       clearInterval(timer);
       playAlarm();
+      document.getElementById("set").disabled = false;
+    }
+    else if(bUserStopped){
+      clearInterval(timer);
+      document.getElementById("set").disabled = false;
+
     }
     else{
+      document.getElementById("set").disabled = true;
       totalSeconds--;
     }
     
   }, 1000);
-
 
 }
 
@@ -39,11 +45,14 @@ var audio = new Audio("alarmsound.mp3");
 
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
+    bUserStopped = false;
     setAlarm();
+    pauseAlarm();
   });
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
+    bUserStopped = true;
   });
 }
 
