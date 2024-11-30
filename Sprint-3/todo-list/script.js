@@ -2,11 +2,16 @@ let list = document.getElementById("todo-list");
 function populateTodoList(todos) {
   
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  let count = 0;
   for(let todo in todos){
-    list.innerHTML += `<li>${todos[todo].task}. <input type="checkbox" class="check-list"}> <button type="">🗑️</button></li>`;
+    count++;
+    list.innerHTML += `<li id=${count}-todo>${todos[todo].task}. <input id=${count}-check type="checkbox" class="check-list"}> <button type="">🗑️</button></li>`;
   }
 }
+
+
 document.getElementById("submit").addEventListener("click", addNewTodo);
+document.getElementById("remove-all-completed").addEventListener("click", deleteAllCompletedTodos);
 // These are the same todos that currently display in the HTML
 // You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
@@ -32,16 +37,33 @@ function addNewTodo(event) {
 }
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
+function deleteAllCompletedTodos(event) {
   // Write your code here...
-  let check_list = document.querySelectorAll('.check-list'); // input[type="checkbox"]
-  check_list.forEach((checkbox, index) => {
-    if (checkbox.checked) {
-      checkbox.parentElement.remove();
-      todos.splice(index, 1); // Remove from the todos array
+  var elements = document.getElementById('todo-list');
+  var todos_checkboxes = elements.getElementsByTagName('input'); // we use this to get the value of the checkbox
+  var li_elements = elements.getElementsByTagName('li'); // we use this to get name of task in the html
+  console.log(elements);
+  console.log(todos_checkboxes);
+
+  for (check of todos_checkboxes){
+    console.log(check.id);
+    var is_checked = document.getElementById(check.id).checked;
+    console.log(is_checked);
+    for(todo of todos){
+      var name = todo.task;
+      for(li_elem of li_elements){
+        var name_task = li_elem.innerHTML.split('.')[0];
+        if (is_checked && name == name_task){
+          console.log(name_task + ' is checked and in the list');
+        }
+      }
     }
-  });
+      }
+
   }
+
+  // delete from array
+
 
 
 
