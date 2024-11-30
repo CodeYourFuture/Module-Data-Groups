@@ -49,7 +49,7 @@ createButton("auto_Back", "Auto Back", () => {
       currentIndex--;
       imgElement.src = images[currentIndex];
     } else {
-      clearInterval(interval); // Stop when the beginning is reached
+      clearInterval(interval);
     }
   }, 1000);
 });
@@ -60,7 +60,7 @@ createButton("auto_Forward", "Auto Forward", () => {
       currentIndex++;
       imgElement.src = images[currentIndex];
     } else {
-      clearInterval(interval); // Stop when the end is reached
+      clearInterval(interval);
     }
   }, 1000);
 });
