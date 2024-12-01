@@ -513,3 +513,4 @@ displayRandomQuote();
 
 // Add event listener to change quote when button is clicked
 newQuoteBtn.addEventListener("click", displayRandomQuote);
+
