@@ -37,7 +37,7 @@ function setAlarm() {
     pauseAlarm();
   });
 }
-
+module.exports=setAlarm;
 
 // DO NOT EDIT BELOW HERE
 

@@ -2,7 +2,7 @@
 There are some Tests in this file that will help you work out if your code is working.
 */
 
-const path = require("path");
+const path = require("./alarmclock.js");
 const { JSDOM } = require("jsdom");
 
 let page = null;
