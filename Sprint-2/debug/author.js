@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+    //I think the problem in this problem is the for loop syntax,,,(for in) is used for object iteration and accessing the values we can use author[key]
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -11,6 +11,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const value in author) {
+  
+  console.log(author[value]);
 }
