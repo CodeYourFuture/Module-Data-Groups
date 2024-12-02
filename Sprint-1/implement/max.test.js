@@ -31,19 +31,34 @@ test("Given an array including only one number,  it should return the number", (
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("Given an array including positive and negative numbers,  it should return the largest number overall", () => {
+  expect(findMax([3, -20, 20, 100])).toEqual(100);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("Given an array including negative numbers,  it should return the closest number to zero", () => {
+  expect(findMax([-3, -20, -20, -100])).toEqual(-3);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("Given an array including decimal numbers,  it should return the largest decimal number", () => {
+  expect(findMax([3.04, 21.78, 20.7, 3.5])).toEqual(21.78);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("Given an array including non-number values,  it should return the max and ignore non-numeric values", () => {
+  expect(findMax([3.04, "fsv", "20.7", 3.5])).toEqual(3.5);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("Given an array including only non-number values, it should return -Infinity", () => {
+  expect(findMax(["hello", "world", {}, []])).toEqual(-Infinity);
+});
