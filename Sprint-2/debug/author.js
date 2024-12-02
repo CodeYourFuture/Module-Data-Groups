@@ -1,7 +1,9 @@
 // Predict and explain first...
+// Object is not iterable
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
+// The object key and value must be refered first
 
 const author = {
   firstName: "Zadie",
@@ -11,6 +13,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const [key,value] of Object.entries(author)) {
+  console.log(`${key}: ${value}`);
 }
