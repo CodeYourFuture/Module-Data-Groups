@@ -1,23 +1,56 @@
-let a= [3,5,7,9,10]
+let a = [3, 5, 9, 12];
 let result= Math.max(...a)
 console.log (result)
 
+function findMax(elements) {
+  // If the array is empty, return -Infinity right away
+  if (elements.length === 0) {
+    return -Infinity;
+  }
 
-function findMax(elements) {
-}
-function findMax(elements) {
-  let max = elements[0]; // Start with the first element as the largest
-  for (let i = 1; i < elements.length; i++) {
-    if (elements[i] > max) {
-      // If the current element is larger
-      max = elements[i]; // Update max to this new value
+  // Start with the smallest possible number as the largest so far
+  let largest = -Infinity;
+
+  // Go through each item in the array
+  for (let i = 0; i < elements.length; i++) {
+    let currentElement = elements[i]; // Get the current item
+
+    // Check if this item is a valid number
+    if (typeof currentElement === "number" && !isNaN(currentElement)) {
+      // If the number is bigger than the current largest, update it
+      if (currentElement > largest) {
+        largest = currentElement;
+      }
     }
   }
-  return max; // Return the largest value found
+
+  // Return the biggest number found
+  return largest;
 }
 
-const elements = [3, 5, 9, 1];
-console.log(findMax(elements));
+
+
+
+
+
+
+//const elements = [3, 5, 9, 1];
+//console.log(findMax(elements));
+
+//const elements = [-3, -5, 9, 1];
+//console.log(findMax(elements));
+
+//const elements = [-3, -5, -9, -11];
+//console.log(findMax(elements));
+
+//const elements = [3.4, 5.2, 9.3, 1.2];
+//console.log(findMax(elements));
+
+//const elements = [a, 2, c, 4];
+//console.log(findMax(elements));
+
+//const elements = [a, b, c, d];
+//console.log(findMax(elements));
 
 module.exports = findMax;
 

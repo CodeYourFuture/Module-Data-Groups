@@ -54,7 +54,7 @@ const findMax = require("./max.js"); // Assuming the function is in a file named
   test("should return -Infinity when the array contains only non-numeric values", () => {
     expect(findMax(["a", "b", null, undefined])).toBe(-Infinity);
   });
-});
+
 
 
 // Given an array with one number
