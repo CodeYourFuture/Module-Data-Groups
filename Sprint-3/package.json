@@ -1,0 +1,35 @@
+{
+  "name": "module-data-groups",
+  "version": "1.0.0",
+  "license": "CC-BY-SA-4.0",
+  "description": "",
+  "scripts": {
+    "test": "jest --testMatch='**/*.js'",
+    "format": "prettier --write ."
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "alarmclock",
+      "highlight-words",
+      "slideshow",
+      "reading-list",
+      "todo-list",
+      "quote-generator"
+    ]
+  },
+  "workspaces": [
+    "alarmclock",
+    "reading-list",
+    "highlight-words",
+    "todo-list",
+    "slideshow"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeYourFuture/Module-Data-Groups.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CodeYourFuture/Module-Data-Groups/issues"
+  },
+  "homepage": "https://github.com/CodeYourFuture/Module-Data-Groups#readme"
+}
