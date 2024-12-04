@@ -23,11 +23,13 @@ test ("given an empty array, it returns an empty array", () => {
 });
 
 
-
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
-
-// Given an array with strings or numbers
-// When passed to the dedupe function
-// Then it should remove the duplicate values, preserving the first occurence of each element
+test ("Given an array with no duplicates,it should return a copy of the original array", () => {
+  expect(dedupe([])).toStrictEqual([]);;
+  expect (dedupe (["a", "b", "c"]).toStrictEqual(["a", "b", "c"]));
+});
+test("given an array with duplicates, it removes the duplicate values, preserving the first occurrence of each element", () => {
+    expect(dedupe(['a', 'a', 'a', 'b', 'b', 'c'])).toStrictEqual(['a', 'b', 'c']);
+    expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toStrictEqual([5, 1, 2, 3, 8]);
+    expect(dedupe([1, 2, 1])).toStrictEqual([1, 2]);
+  });
+});
