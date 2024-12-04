@@ -1,6 +1,9 @@
-function dedupe() {
+function dedupe(list) {
+  if (list.length === 0){
+    return [];
+  }
 
-  
+
 }
 // Given an empty array
 // When passed to the dedupe function
