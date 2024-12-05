@@ -22,14 +22,10 @@ function findMax(elements) {
     let maxNumber = numericElements[0]; // here we are checking the initial value of maxNumber to the first element of the array numericElements[0], [0] is the first index, because before comparing numbers, we need a starting point and we have a valid number to compare with
     for (const number of numericElements) {
         if (number > maxNumber) {// it checks if the current number is greater than maxNumber, if a larger number is found, we need to update maxNumber, if maxNu,=mber = 10, number =20, since 20>10, this condition is true
-            maxNumber = number; // Update maxNumber if a larger number is found.
+            maxNumber = number; // if the condition number >maxNumber is true, it assigns the value of number to maxNumber. this ensures that the largest number is in the loop
         }
     }
 
-    return maxNumber; // Return the largest number.
-}
+    return maxNumber; // after the loop is finished, it returns the value of maxNumber
 
-// Exporting the function to be used in test files
-
-
-module.exports = findMax;
+  module.exports = findMax;
