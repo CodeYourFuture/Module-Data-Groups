@@ -6,15 +6,26 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
+// function invert(obj) {
+//   const invertedObj = {};
+
+//   for (const [key, value] of Object.entries(obj)) {
+//     invertedObj.key = value;
+//   }
+
+//   return invertedObj;
+// }
+
 function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key;  // This swaps the key and value
   }
 
   return invertedObj;
 }
+
 
 // a) What is the current return value when invert is called with { a : 1 }
 
@@ -27,3 +38,5 @@ function invert(obj) {
 // d) Explain why the current return value is different from the target output
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+
+module.exports = invert;
