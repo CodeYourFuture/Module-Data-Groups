@@ -30,30 +30,46 @@ E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
 
-const sum = require('./sum'); // Make sure the path is correct
+const sum = require('./sum'); 
 
 describe('sum function', () => {
-  test('returns 0 for an empty array', () => {
-    expect(sum([])).toBe(0);
-  });
+    test('returns 0 for an empty array', () => {
+        expect(sum([])).toBe(0);
+    });
 
-  test('returns the single number for an array with one number', () => {
-    expect(sum([42])).toBe(42);
-  });
+    test('returns the single number for an array with one number', () => {
+        expect(sum([42])).toBe(42);
+    });
 
-  test('returns the correct sum for an array containing negative numbers', () => {
-    expect(sum([-10, -5, -20])).toBe(-35);
-  });
+    test('returns the correct sum for an array containing negative numbers', () => {
+        expect(sum([-10, -5, -20])).toBe(-35);
+    });
 
-  test('returns the correct sum for an array with decimal/float numbers', () => {
-    expect(sum([1.1, 2.2, 3.3])).toBeCloseTo(6.6);
-  });
+    test('returns the correct sum for an array with decimal/float numbers', () => {
+        expect(sum([1.1, 2.2, 3.3])).toBeCloseTo(6.6);
+    });
 
-  test('ignores non-number values and returns the sum of numerical elements', () => {
-    expect(sum(['a', 10, 'b', 20, null, 30])).toBe(60);
-  });
+    test('ignores non-number values and returns the sum of numerical elements', () => {
+        expect(sum(['a', 10, 'b', 20, null, 30])).toBe(60);
+    });
 
-  test('returns 0 for an array with only non-number values', () => {
-    expect(sum(['a', 'b', {}, [], null])).toBe(0);
-  });
+    test('returns 0 for an array with only non-number values', () => {
+        expect(sum(['a', 'b', {}, [], null])).toBe(0);
+    });
+
+    test('returns Infinity when array contains [Infinity, 1]', () => {
+        expect(sum([Infinity, 1])).toBe(Infinity);
+    });
+
+    test('returns Infinity when array contains [Infinity, Infinity]', () => {
+        expect(sum([Infinity, Infinity])).toBe(Infinity);
+    });
+
+    test('returns NaN when array contains [NaN, 1]', () => {
+        expect(sum([NaN, 1])).toBeNaN();
+    });
+
+    test('returns NaN when array contains [Infinity, -Infinity]', () => {
+        expect(sum([Infinity, -Infinity])).toBeNaN();
+    });
 });
