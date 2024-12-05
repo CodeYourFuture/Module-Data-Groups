@@ -62,4 +62,8 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
-module.exports=setAlarm;
+module.exports = {
+  setAlarm,
+  playAlarm,
+  pauseAlarm,
+};
