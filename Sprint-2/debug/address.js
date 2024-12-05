@@ -13,7 +13,10 @@ const address ={
  
 };
 
-console.log(`My house number is ${address (houseNumber[0])}`);
+//console.log(`My house number is ${address(houseNumber[0])}`);
+
+console.log(`My house number is ${address.houseNumber}`);
+//My house number is 42
 
 
 
