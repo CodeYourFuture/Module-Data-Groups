@@ -1,5 +1,5 @@
 function dedupe(array) {
-    return [...new set (array)];
+    return [...new Set (array)];
 }
 
 
