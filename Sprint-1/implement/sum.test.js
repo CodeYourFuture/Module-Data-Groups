@@ -14,7 +14,12 @@ const sum = require("./sum.js");
 // When passed to the sum function
 // Then it should return 0
 test.todo("given an empty array, returns 0")
-
+test("handles decimal numbers with appropriate precision", () => {
+    const result = sum([1.1, 1.1, 1.1]);
+    const expected = 3.3;
+    const epsilon = 0.00001; // Define a small tolerance
+    expect(Math.abs(result - expected)).toBeLessThan(epsilon); // Check if the difference is within the tolerance
+});
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
