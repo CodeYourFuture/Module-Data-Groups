@@ -32,6 +32,14 @@ test("given an array with only non-number values, returns 0", () => {
   expect(sum(['hey', 'hi', 'hello'])).toBe(0);
 });
 
+test("sum of decimals should be correct", () => {
+  const result = sum([1.1, 1.1, 1.1]);  // This gives something close to 3.3
+  const expected = 3.3;  // The expected result
+  const tolerance = 1e-10;  // Small tolerance for floating-point errors
+
+  // Check if the difference is smaller than the tolerance
+  expect(Math.abs(result - expected)).toBeLessThan(tolerance);
+});
 
 
 
