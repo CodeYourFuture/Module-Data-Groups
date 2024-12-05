@@ -2,8 +2,8 @@
 There are some Tests in this file that will help you work out if your code is working.
 */
 
-const path = require("./alarmclock.js");
 const { JSDOM } = require("jsdom");
+const { setAlarm, playAlarm, pauseAlarm } = require("./alarmclock");
 
 let page = null;
 
