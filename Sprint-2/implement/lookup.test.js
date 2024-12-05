@@ -1,6 +1,6 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+// test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
@@ -33,3 +33,14 @@ It should return:
    'CA': 'CAD'
  }
 */
+describe ("lookup",()=>{
+test('creates a lookup object from country-currency pairs', () => {
+  const countryCurrencyPairs = [['US', 'USD'], ['CA', 'CAD']];
+  const result = createLookup(countryCurrencyPairs);
+  
+  expect(result).toStrictEqual({
+    'US': 'USD',
+    'CA': 'CAD',
+  });
+});
+});
