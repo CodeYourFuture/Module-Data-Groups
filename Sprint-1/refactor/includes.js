@@ -9,5 +9,11 @@ function includes(list, target) {
   }
   return false;
 }
+function includes(array, target) {
+    // Return true if the array includes the target, false otherwise
+    return array.some(item => item === target);
+}
 
 module.exports = includes;
+
+
