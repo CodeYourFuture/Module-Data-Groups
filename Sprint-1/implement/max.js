@@ -5,14 +5,12 @@
 // we can use following methods to find max in a element = map, max and reduce method.
 
 function findMax(elements) {
-   const numbers = elements.filter(elements => typeof elements === "number");
-   console.log("only numbers", numbers)
+   const numbers = elements.filter(element => typeof element === "number");
    
    if(numbers.length === 0) {
     return -Infinity
    }
    const max = Math.max(...numbers)
-   console.log("max", max)
    return max
 }
 

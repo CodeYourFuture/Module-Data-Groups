@@ -1,10 +1,9 @@
 function dedupe(arr) {
      const removeRepeated = arr.filter((element, index) => {
-       // console.log("element >>", element, "index >>", index) 
-       
+      
         return arr.indexOf(element) === index
      })
-   console.log(removeRepeated)
+  
    return removeRepeated
 
 }

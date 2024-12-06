@@ -38,9 +38,13 @@ test("Given an array with negative numbers, should return the correct total sum"
 // When passed to the sum function
 // Then it should return the correct total sum
 test("Given an array with decimal numbers, should return the correct total sum", function() {
-    const result = sum([10.5, 20.3, -5.2, 5]);
-    expect(result).toEqual(30.6); // 10.5 + 20.3 - 5.2 + 5 = 30.6
-  });
+  const result = sum([1.1, 1.1, 1.1]);
+  const expected = 3.3;
+  const epsilon = 0.0001;  // Small tolerance value for floating point comparison
+  
+  // Check if the absolute difference is smaller than the tolerance (epsilon)
+  expect(Math.abs(result - expected)).toBeLessThan(epsilon);  
+});
 
 // Given an array containing non-number values
 // When passed to the sum function
