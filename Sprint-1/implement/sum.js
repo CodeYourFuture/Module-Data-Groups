@@ -8,7 +8,8 @@ function sum(elements) {
     let total = 0; // 〰️ Initialize the sum
 
     for (let i = 0; i < elements.length; i ++) {
-        if (typeof elements[i] === "number") { // 〰️ Check if the element is a number
+        // 〰️ Check if the element is a number and not NaN or Infinity
+        if (typeof elements[i] === "number" && !isNaN(elements[i])) { 
             total += elements[i]; // 〰️ Add the number to the total
         }
     }
@@ -26,6 +27,9 @@ console.log(sum(['hello', 10, 'world', 20]));
 console.log(sum(['a', 'b', 'c', null, undefined, {}]));
 console.log(sum("not an array"));
 console.log(sum(123));
-
+console.log(sum([Infinity, 1]));
+console.log(sum([Infinity, Infinity]));
+console.log(sum([NaN, 1]));
+console.log(sum([Infinity, -Infinity]));
 
 module.exports = sum;
