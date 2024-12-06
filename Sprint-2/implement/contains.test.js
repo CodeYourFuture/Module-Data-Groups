@@ -1,4 +1,4 @@
-const contains = require("./contains.js");
+
 
 /*
 Implement a function called contains that checks an object contains a
@@ -33,3 +33,29 @@ test.todo("contains on empty object returns false");
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+const contains = require("./contains.js");
+
+// Test on empty object
+test("contains on empty object returns false", () => {
+  expect(contains({}, 'a')).toBe(false);
+});
+
+// Test with existing property
+test("contains on object with existing property returns true", () => {
+  expect(contains({a: 1, b: 2}, 'a')).toBe(true);
+});
+
+// Test with non-existent property
+test("contains on object with non-existent property returns false", () => {
+  expect(contains({a: 1, b: 2}, 'c')).toBe(false);
+});
+
+// Test with invalid parameter (array)
+test("contains with array should return false", () => {
+  expect(contains([], 'a')).toBe(false);
+});
+
+// Test with invalid parameter (not an object)
+test("contains with non-object should return false", () => {
+  expect(contains(42, 'a')).toBe(false); // Pass a number
+});
