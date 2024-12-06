@@ -1,19 +1,21 @@
-var input_time = document.querySelector("#alarmSet");
-var title_time = document.querySelector("#titleTime");
+var inputTime = document.querySelector("#alarmSet");
+var titleTime = document.querySelector("#titleTime");
 var timeRemaining = document.querySelector("#timeRemaining");
-var bUserStopped = false;
+var userStopped = false;
 function setAlarm() {
   
-  let totalSeconds = parseInt(input_time.value, 10);
+  let totalSeconds = parseInt(inputTime.value, 10);
   if (isNaN(totalSeconds) || totalSeconds <= 0) {
     alert("Please enter a valid number of seconds.");
     return;
   }
   
-  const title_second = input_time.value % 60;
-  const title_minute = (input_time.value - title_second) / 60;
+  document.getElementById("set").disabled = true;
 
-  title_time.innerText = `${title_minute.toString().padStart(2, "0")}:${title_second.toString().padStart(2, "0")}`;
+  const title_second = inputTime.value % 60;
+  const title_minute = (inputTime.value - title_second) / 60;
+
+  titleTime.innerText = `${title_minute.toString().padStart(2, "0")}:${title_second.toString().padStart(2, "0")}`;
 
   let timer = setInterval(() =>{
     let seconds = totalSeconds % 60;
@@ -25,13 +27,14 @@ function setAlarm() {
       playAlarm();
       document.getElementById("set").disabled = false;
     }
-    else if(bUserStopped){
-      clearInterval(timer);
+    else if(userStopped){
       document.getElementById("set").disabled = false;
+      clearInterval(timer);
+      
 
     }
     else{
-      document.getElementById("set").disabled = true;
+      
       totalSeconds--;
     }
     
@@ -45,14 +48,17 @@ var audio = new Audio("alarmsound.mp3");
 
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
-    bUserStopped = false;
+    userStopped = false;
     setAlarm();
     pauseAlarm();
   });
 
   document.getElementById("stop").addEventListener("click", () => {
+    userStopped = true;
+    clearInterval(timer);
+    
     pauseAlarm();
-    bUserStopped = true;
+    
   });
 }
 
