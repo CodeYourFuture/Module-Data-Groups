@@ -1,11 +1,12 @@
-let quote_p = document.querySelector("#quote");
-let author_p = document.querySelector("#author");
+let quoteP = document.querySelector("#quote");
+let authorP = document.querySelector("#author");
 
 
 
 document.getElementById("new-quote").addEventListener("click", function() {
-  quote_p.innerText = pickFromArray(quotes).quote;
-  author_p.innerText = `- ${pickFromArray(quotes).author}`;
+  let qq = pickFromArray(quotes);
+  quoteP.innerText = qq.quote;
+  authorP.innerText = `- ${qq.author}`;
 });
 
 
@@ -502,5 +503,6 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
-quote_p.innerText = pickFromArray(quotes).quote;
-author_p.innerText = `- ${pickFromArray(quotes).author}`;
+let qqq = pickFromArray(quotes);
+quoteP.innerText = qqq.quote;
+authorP.innerText = `- ${qqq.author}`;
