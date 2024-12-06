@@ -1,5 +1,5 @@
 var inputTime = document.querySelector("#alarmSet");
-var titleTime = document.querySelector("#titleTime");
+var titleTime = document.querySelector("title");
 var timeRemaining = document.querySelector("#timeRemaining");
 var userStopped = false;
 function setAlarm() {
