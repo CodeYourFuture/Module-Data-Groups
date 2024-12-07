@@ -17,4 +17,7 @@ const address = {
 2.Bracket notation: address["houseNumber"]
 
  */
+
+
+// This is an array accessing but the given value is an objet so  we have to use abject accessing methodes
 console.log(`My house number is ${address.houseNumber}`); 
