@@ -12,4 +12,8 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join('\n')}`);
+/*
+
+attempts to print the entire recipe object, recipe.ingredients.join('\n') takes the array and joins its elements with a newline character (\n), so each ingredient appears on a new line.
+ */
