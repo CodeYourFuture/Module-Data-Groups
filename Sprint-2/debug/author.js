@@ -10,7 +10,9 @@ const author = {
   age: 40,
   alive: true,
 };
-
+/*
+This causes an error because it does not know iterate over an object directly with for of loop. To iterate over an object's properties and their values, we can use
+ for in loop, This will iterate over the keys of the object. */
 for (const key in author) {
   console.log(author[key]);
 }
