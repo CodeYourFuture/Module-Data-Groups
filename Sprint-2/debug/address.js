@@ -11,5 +11,10 @@ const address = {
   country: "England",
   postcode: "XYZ 123",
 };
+/*
+// we can use two ways to access and object value using their key
+1.Dot notation: address.houseNumber
+2.Bracket notation: address["houseNumber"]
 
-console.log(`My house number is ${address[0]}`);
+ */
+console.log(`My house number is ${address.houseNumber}`); 
