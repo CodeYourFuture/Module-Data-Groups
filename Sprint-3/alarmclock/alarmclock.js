@@ -8,7 +8,7 @@ function setAlarm() {
   }
 
   const timeDisplay = document.getElementById("timeRemaining");
-  let interval;
+  let interval = null; // Explicitly initialized
 
   function updateDisplay() {
     const minutes = Math.floor(timeRemaining / 60);
@@ -16,7 +16,7 @@ function setAlarm() {
     timeDisplay.innerText = `Time Remaining: ${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   }
 
-  function countdown() {
+  function countdown(interval) {
     if (timeRemaining > 0) {
       timeRemaining--;
       updateDisplay();
@@ -27,17 +27,18 @@ function setAlarm() {
     }
   }
 
-  updateDisplay();
-  interval = setInterval(countdown, 1000);
-
-  // Stop the alarm and reset background on "Stop Alarm" click
-  document.getElementById("stop").addEventListener("click", () => {
+  function stopAlarm(interval) {
     clearInterval(interval);
     timeDisplay.style.backgroundColor = ""; // Reset background color
     pauseAlarm();
-  });
-}
+  }
 
+  updateDisplay();
+  interval = setInterval(() => countdown(interval), 1000); // Pass interval as parameter
+
+  // Stop the alarm and reset background on "Stop Alarm" click
+  document.getElementById("stop").addEventListener("click", () => stopAlarm(interval));
+}
 
 // DO NOT EDIT BELOW HERE
 
@@ -62,8 +63,11 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
+
 module.exports = {
   setAlarm,
   playAlarm,
   pauseAlarm,
 };
+
+ 
