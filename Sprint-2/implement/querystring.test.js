@@ -12,3 +12,21 @@ test("parses querystring values containing =", () => {
     "equation": "x",
   });
 });
+
+test("parses multiple key-value pairs", () => {
+  expect(parseQueryString("key1=value1&key2=value2")).toEqual({
+    "key1": "value1",
+    "key2": "value2",
+  });
+});
+
+test("parses key with no value", () => {
+  expect(parseQueryString("key1=")).toEqual({
+    "key1": "",
+  });
+});
+test("parses basic key-value pair", () => {
+  expect(parseQueryString("key=value")).toEqual({
+    "key": "value",
+  });
+});
