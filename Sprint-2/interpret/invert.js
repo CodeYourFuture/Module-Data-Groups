@@ -10,8 +10,6 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    console.log(key);
-    console.log(value);
     
     invertedObj[value] = key;
   }
@@ -19,7 +17,7 @@ function invert(obj) {
   return invertedObj;
 }
 
-console.log(invert({ a: 1, b: 2 }));
+
 
 
 
