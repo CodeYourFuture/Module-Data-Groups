@@ -10,10 +10,9 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe['title']}`)
-console.log(`${recipe['serves']}`)
+console.log(recipe.title);   // "bruschetta"
+console.log(recipe.serves);  // 2
 
-
-for(let i = 0; i < recipe['ingredients'].length; i++){
-  console.log(`${recipe['ingredients'][i]}`)
+for (let i = 0; i < recipe.ingredients.length; i++) {
+  console.log(recipe.ingredients[i]);
 }
