@@ -10,6 +10,10 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe.ingredients.join(', ')}`);
+console.log(`${recipe['title']}`)
+console.log(`${recipe['serves']}`)
+
+
+for(let i = 0; i < recipe['ingredients'].length; i++){
+  console.log(`${recipe['ingredients'][i]}`)
+}
