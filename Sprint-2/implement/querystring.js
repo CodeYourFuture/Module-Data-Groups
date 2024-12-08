@@ -1,5 +1,5 @@
 function parseQueryString(queryString) {
-  console.log(typeof queryString);
+  
 
   
   
@@ -18,7 +18,7 @@ function parseQueryString(queryString) {
   
   
   const keyValuePairs = queryString.split("&");
-  console.log(keyValuePairs);
+
   
 
   for (const pair of keyValuePairs) {
