@@ -1,1 +1,96 @@
 /** Write your CSS in here **/
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #282c34;
+  color: #61dafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+  overflow: hidden; /* Prevent scrolling if content overflows */
+}
+
+/* Header */
+h1 {
+  font-size: 3rem;
+  color: #21a1f1;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Quote Styling */
+#quote {
+  font-size: 1.8rem;
+  margin: 1.5rem 0 1rem;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+#author {
+  font-size: 1.2rem;
+  color: #61dafb;
+  margin-bottom: 2rem;
+}
+
+/* Buttons and Checkbox */
+button, input[type="checkbox"] {
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem;
+  border: 2px solid #61dafb;
+  border-radius: 10px;
+  background-color: #282c34;
+  color: #61dafb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover, input[type="checkbox"]:hover {
+  background-color: #61dafb;
+  color: #282c34;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Auto-play Status */
+#autoplay-status {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: #21a1f1;
+}
+
+/* Additional Styling for Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  #quote {
+    font-size: 1.5rem;
+  }
+
+  #author {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
