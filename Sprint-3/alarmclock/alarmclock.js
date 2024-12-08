@@ -10,6 +10,33 @@ function setAlarm() {
     alert("Please enter a valid number which must be greater than 0");
   }
 
+  if (countdown) {
+    clearInterval(countdown);
+  }
+
+  function updateDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    timeRemaining.textContent = `Time Remaining: ${String(minutes).padStart(
+      2,
+      "0"
+    )}:${String(seconds).padStart(2, "0")}`;
+  }
+
+  
+  updateDisplay(); 
+
+  countdown = setInterval(() => {
+    timeLeft -= 1;
+
+    if (timeLeft == 0) {
+      clearInterval(countdown); 
+      timeRemaining.textContent = "Time Remaining: 00:00";
+      playAlarm();
+    } else {
+      updateDisplay(); 
+    }
+  }, 1000);
 }
 
 
