@@ -9,4 +9,24 @@ test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
     "equation": "x=y+1",
   });
+  });
+
+  test("parses simple querystring", () => {
+  expect(parseQueryString("name=John")).toEqual({ "name": "John" });
 });
+
+test("parses multiple query parameters", () => {
+  expect(parseQueryString("param1=value1&param2=value2")).toEqual({
+    "param1": "value1",
+    "param2": "value2",
+  });
+
+});
+
+test("parses empty querystring", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+
+
+
