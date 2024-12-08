@@ -1,16 +1,22 @@
-function parseQueryString(queryString) {
-  const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
-  const keyValuePairs = queryString.split("&");
+function parseQueryString(query) {
+  const params = {};
 
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
-  }
+  // Remove the leading '?' if it exists
+  query = query.startsWith('?') ? query.slice(1) : query;
 
-  return queryParams;
+  // Split the query string by '&' to get individual key-value pairs
+  const pairs = query.split('&');
+
+  pairs.forEach(pair => {
+    const [key, value = ''] = pair.split('=', 2); // Split only at the first '='
+    // Decode the key and value, and handle any invalid characters
+    const decodedKey = decodeURIComponent(key);
+    const decodedValue = decodeURIComponent(value);
+
+    params[decodedKey] = decodedValue;
+  });
+
+  return params;
 }
 
 module.exports = parseQueryString;
