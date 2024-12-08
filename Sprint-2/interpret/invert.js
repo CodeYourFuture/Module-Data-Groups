@@ -6,7 +6,7 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
-function invert(obj) {
+//function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
