@@ -1,4 +1,17 @@
-function setAlarm() {}
+let countdown
+let timeLeft
+
+function setAlarm() {
+  const timeRemaining = document.getElementById("timeRemaining");
+  const alarmInput = document.getElementById("alarmSet");
+  timeLeft = parseInt(alarmInput.value);
+
+  if (isNaN(timeLeft) || timeLeft <= 0) {
+    alert("Please enter a valid number which must be greater than 0");
+  }
+
+}
+
 
 // DO NOT EDIT BELOW HERE
 
