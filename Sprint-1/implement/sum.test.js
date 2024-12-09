@@ -35,8 +35,7 @@ E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
 
-
-const sum = require("./sum"); 
+const sum = require("./sum");
 
 describe("sum", () => {
   test("given an empty array, returns 0", () => {
@@ -52,8 +51,9 @@ describe("sum", () => {
   });
 
   test("given an array with decimal/float numbers, returns the correct total sum", () => {
-    expect(sum([1.5, 2.7, 3.3])).toEqual(7.5);
-  });
+  expect(sum([1.1, 1.1, 1.1])).toBeCloseTo(3.3, 5); 
+});
+
 
   test("given an array containing non-number values, ignores non-numerical values and returns the sum", () => {
     expect(sum(["a", 10, null, 20, "b", 30])).toEqual(60);
@@ -62,5 +62,20 @@ describe("sum", () => {
   test("given an array with only non-number values, returns 0", () => {
     expect(sum(["hello", true, null, undefined, "world"])).toEqual(0);
   });
-});
 
+  test("given an array with Infinity and a number, returns Infinity", () => {
+    expect(sum([Infinity, 1])).toEqual(Infinity);
+  });
+
+  test("given an array with only Infinity values, returns Infinity", () => {
+    expect(sum([Infinity, Infinity])).toEqual(Infinity);
+  });
+
+  test("given an array with NaN and a number, returns NaN", () => {
+    expect(sum([NaN, 1])).toEqual(NaN);
+  });
+
+  test("given an array with Infinity and -Infinity, returns NaN", () => {
+    expect(sum([Infinity, -Infinity])).toEqual(NaN);
+  });
+});

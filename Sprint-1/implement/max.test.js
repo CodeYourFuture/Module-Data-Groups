@@ -72,4 +72,20 @@ describe("findMax", () => {
   test("given an array with only non-number values, returns -Infinity", () => {
     expect(findMax(["a", "b", "c", null, undefined])).toEqual(-Infinity);
   });
+
+  test("given an array with [-Infinity], returns -Infinity", () => {
+    expect(findMax([-Infinity])).toEqual(-Infinity);
+  });
+
+  test("given an array with [-Infinity, 0], returns 0", () => {
+    expect(findMax([-Infinity, 0])).toEqual(0);
+  });
+
+  test("given an array with [NaN], returns -Infinity", () => {
+    expect(findMax([NaN])).toEqual(-Infinity);
+  });
+
+  test("given an array with [0, NaN, 1], returns 1", () => {
+    expect(findMax([0, NaN, 1])).toEqual(1);
+  });
 });
