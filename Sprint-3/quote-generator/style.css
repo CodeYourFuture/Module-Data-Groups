@@ -1,1 +1,113 @@
 /** Write your CSS in here **/
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #fdfdfd;
+  color: #444;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#quote {
+  font-size: 1.75rem;
+  font-style: italic;
+  color: #333;
+  max-width: 800px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#author {
+  font-size: 1.25rem;
+  color: #777;
+  font-weight: 600;
+  margin-top: -10px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.quote-container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+  width: 90%;
+  max-width: 900px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  #quote {
+    font-size: 1.5rem;
+    max-width: 90%;
+  }
+
+  #author {
+    font-size: 1.1rem;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #quote {
+    font-size: 1.25rem;
+  }
+
+  #author {
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
