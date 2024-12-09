@@ -34,10 +34,23 @@ test("given an array containing negative numbers, returns the correct total sum"
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+
+
+// 〰️ Since floating point arithmetic can cause precision issues, 
+// 〰️ we use an absolute difference check for equality.
+function areCloseEnough(a, b, epsilon = 1e-10) {
+    return Math.abs(a - b) < epsilon;
+}
+
+
 test("given an array with decimal/float numbers, returns the correct total sum", () => {
-    expect(sum([1.5, 2.5, 3.5])).toBeCloseTo(7.5, 5); // 〰️ This passes, with a tolerance of 5 decimal places
-    expect(sum([1.1, 1.1, 1.1])).toBeCloseTo(3.3, 5); // 〰️ This passes, with a tolerance of 5 decimal places
+    const result1 = sum([1.5, 2.5, 3.5]);
+    expect(areCloseEnough(result1, 7.5)).toBe(true); // 〰️ Check with absolute difference
+
+    const result2 = sum([1.1, 1.1, 1.1]);
+    expect(areCloseEnough(result2, 3.3)).toBe(true); // 〰️ Check with absolute difference
 });
+
 
 // Given an array containing non-number values
 // When passed to the sum function
