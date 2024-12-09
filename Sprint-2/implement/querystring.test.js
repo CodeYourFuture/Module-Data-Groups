@@ -10,3 +10,31 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring with encoded characters", () => {
+  expect(parseQueryString("name=John%20Doe&age=30")).toEqual({
+    "name": "John Doe",
+    "age": "30",
+  });
+});
+
+test("parses querystring with missing values", () => {
+  expect(parseQueryString("key=&empty")).toEqual({
+    "key": "",
+    "empty": "",
+  });
+});
+
+test("parses querystring with duplicate keys", () => {
+  expect(parseQueryString("hobby=reading&hobby=traveling")).toEqual({
+    "hobby": ["reading", "traveling"],
+  });
+});
+
+test("parses an empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("parses querystring with only & separators", () => {
+  expect(parseQueryString("&&&")).toEqual({});
+});
