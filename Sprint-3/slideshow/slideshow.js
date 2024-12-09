@@ -1,9 +1,8 @@
 const images = [
-    "./assets/cute-cat-a.png",
-    "./assets/cute-cat-b.jpg",
-    "./assets/cute-cat-c.jpg",
+  "./assets/cute-cat-a.png",
+  "./assets/cute-cat-b.jpg",
+  "./assets/cute-cat-c.jpg",
 ];
-
 
 let currentIndex = 0;
 let autoInterval = null;
@@ -15,35 +14,44 @@ const autoForwardBtn = document.getElementById("auto-forward");
 const autoBackwardBtn = document.getElementById("auto-backward");
 const stopBtn = document.getElementById("stop");
 
-// Helper to update the carousel image
+// Helper: Update the carousel image
 function updateImage() {
   carouselImg.src = images[currentIndex];
 }
 
+// Helper: Move carousel in a specific direction
+function moveCarousel(direction) {
+  if (direction === "forward") {
+    currentIndex = (currentIndex + 1) % images.length; // Wrap around to the start
+  } else if (direction === "backward") {
+    currentIndex = (currentIndex - 1 + images.length) % images.length; // Wrap around to the end
+  }
+  updateImage();
+}
+
+// Helper: Enable or disable buttons
+function setButtonState(autoForwardDisabled, autoBackwardDisabled) {
+  autoForwardBtn.disabled = autoForwardDisabled;
+  autoBackwardBtn.disabled = autoBackwardDisabled;
+}
+
 // Move forward
 function moveForward() {
-  currentIndex = (currentIndex + 1) % images.length; // Wrap around to the start
-  updateImage();
+  moveCarousel("forward");
 }
 
 // Move backward
 function moveBackward() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length; // Wrap around to the end
-  updateImage();
+  moveCarousel("backward");
 }
 
 // Set up auto-play
 function autoPlay(direction) {
   stopAutoPlay(); // Clear any existing interval
-  autoForwardBtn.disabled = true;
-  autoBackwardBtn.disabled = true;
+  setButtonState(true, true); // Disable both autoplay buttons
 
   autoInterval = setInterval(() => {
-    if (direction === "forward") {
-      moveForward();
-    } else if (direction === "backward") {
-      moveBackward();
-    }
+    moveCarousel(direction);
   }, 2000);
 }
 
@@ -51,8 +59,7 @@ function autoPlay(direction) {
 function stopAutoPlay() {
   clearInterval(autoInterval);
   autoInterval = null;
-  autoForwardBtn.disabled = false;
-  autoBackwardBtn.disabled = false;
+  setButtonState(false, false); // Enable both autoplay buttons
 }
 
 // Event listeners
