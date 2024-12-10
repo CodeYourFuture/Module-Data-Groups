@@ -1,3 +1,5 @@
+let alarmInterval;
+
 function setAlarm() {
   const userInput = document.getElementById("alarmSet");
   let inputValue = parseInt(userInput.value);  
@@ -13,7 +15,19 @@ function setAlarm() {
   }
 
   timeRemainingField.textContent = `Time Remaining: ${getFormattedTime(inputValue)}`;
-  console.log(timeRemainingField);
+  // console.log(timeRemainingField);
+
+  alarmInterval = setInterval(() => {
+    inputValue -= 1;
+
+    if (inputValue <= 0) {
+      clearInterval(alarmInterval);
+      timeRemainingField.textContent = "Time Remaining: 00:00";
+      playAlarm();
+    } else {
+      timeRemainingField.textContent = `Time Remaining: ${getFormattedTime(inputValue)}`;
+    }
+  }, 1000);
 
 }
 
