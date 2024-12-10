@@ -1,6 +1,6 @@
-function dedupe(dupe) {
+function dedupe(array) {
     
-    return [...new Set(dupe)];
+    return [...new Set(array)];
 
 }
 
