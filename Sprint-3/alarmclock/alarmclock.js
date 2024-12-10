@@ -12,6 +12,9 @@ function setAlarm() {
     return `${minutes}:${seconds}`;
   }
 
+  timeRemainingField.textContent = `Time Remaining: ${getFormattedTime(inputValue)}`;
+  console.log(timeRemainingField);
+
 }
 
 // DO NOT EDIT BELOW HERE
