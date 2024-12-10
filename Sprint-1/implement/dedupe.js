@@ -6,4 +6,4 @@ function dedupe(array) {
 
 module.exports = dedupe;
 
-console.log(dedupe([5, 1, 1, 2, 3, 2, 5, 8]))
+console.log(dedupe([5, 1, 1, 2, 3, 2, 5, 8]));
