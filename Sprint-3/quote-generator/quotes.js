@@ -2,7 +2,10 @@ const newQuoteBtn = document.getElementById("new-quote");
 const quoteBlock = document.getElementById("quote");
 const authorBlock = document.getElementById("author");
 
-
+newQuoteBtn.addEventListener('click', () => {
+  let chosenQuoteObject = pickFromArray(quotes);
+  let chosenQuoteArray = Object.entries(chosenQuoteObject);
+});
 
 // DO NOT EDIT BELOW HERE
 
