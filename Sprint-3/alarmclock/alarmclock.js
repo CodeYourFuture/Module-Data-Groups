@@ -4,9 +4,13 @@ function setAlarm() {
   const userInput = document.getElementById("alarmSet");
   let inputValue = parseInt(userInput.value);  
   // console.log(typeof inputValue)
-
-  const timeRemainingField = document.getElementById("timeRemaining");
+ const timeRemainingField = document.getElementById("timeRemaining");
   // console.log(timeRemainingField);
+
+  if (isNaN(inputValue) || inputValue <= 0) {
+    alert("Please enter a valid number of seconds");
+    return;
+  }
 
   function getFormattedTime(time){
     const minutes = Math.floor(time / 60).toString().padStart(2, "0");
