@@ -10,13 +10,15 @@ const imgSlider = document.getElementById("carousel-img");
 
 let index = 0;
 
-forwardBtn.addEventListener('click', () => {
+function moveForward() {
     index = (index + 1) % images.length;
     imgSlider.src = images[index];
-});
+}
+forwardBtn.addEventListener('click', moveForward);
 
-backwardBtn.addEventListener('click', () => {
+function moveBackforward() {
     index = (index - 1 + images.length) % images.length;
     imgSlider.src = images[index];
-});
+}
+backwardBtn.addEventListener('click', moveBackforward);
 
