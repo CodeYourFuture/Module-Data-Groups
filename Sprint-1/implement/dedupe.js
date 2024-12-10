@@ -1,8 +1,7 @@
 function dedupe(dupe) {
-    dupe.sort((a,b) => a - b);
-
-    return dupe;
+    
+    return [...new Set(dupe)];
 
 }
 
-console.log(dedupe([3, 5, 1, 2, 4]))
+console.log(dedupe([5, 1, 1, 2, 3, 2, 5, 8]))
