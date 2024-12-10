@@ -1,7 +1,10 @@
 function setAlarm() {
   const userInput = document.getElementById("alarmSet");
   let inputValue = parseInt(userInput.value);  
-  console.log(typeof inputValue)
+  // console.log(typeof inputValue)
+
+  const timeRemainingField = document.getElementById("timeRemaining");
+  // console.log(timeRemainingField);
 
 }
 
