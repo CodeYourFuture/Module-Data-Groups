@@ -5,6 +5,8 @@ const authorBlock = document.getElementById("author");
 newQuoteBtn.addEventListener('click', () => {
   let chosenQuoteObject = pickFromArray(quotes);
   let chosenQuoteArray = Object.entries(chosenQuoteObject);
+  let chosenQuoteString = chosenQuoteArray[0][1];
+  let chosenAuthorString = chosenQuoteArray[1][1];
 });
 
 // DO NOT EDIT BELOW HERE
