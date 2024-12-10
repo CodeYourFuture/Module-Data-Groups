@@ -3,12 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Title here</title>
     <script defer src="slideshow.js"></script>
   </head>
   <body>
-    <img id="carousel-img" src="./assets/cute-cat-a.png" alt="cat-pic" />
-    <button type="button" id="backward-btn">Backwards</button>
-    <button type="button" id="forward-btn">Forward</button>
+    <h1>Image Carousel</h1>
+    <div id="carousel-container">
+      <img
+        id="carousel-img"
+        src="./assets/cute-cat-a.png"
+        alt="carousel image"
+      />
+    </div>
+
+    <div class="btn-group">
+      <button type="button" id="backward-btn">Backwards</button>
+      <button type="button" id="forward-btn">Forward</button>
+    </div>
+
+    <div class="btn-group">
+      <button type="button" id="auto-backward-btn">Auto-Backwards</button>
+      <button type="button" id="auto-forward-btn">Auto-Forward</button>
+      <button type="button" id="stop-btn">Stop</button>
+    </div>
   </body>
 </html>
