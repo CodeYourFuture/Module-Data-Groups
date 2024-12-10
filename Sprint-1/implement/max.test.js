@@ -63,4 +63,17 @@ test("given an array with non-number values, returns the max and ignores non-num
 test("given an array with only non-number values, returns -Infinity", () => {
   expect(findMax([ 'hey', 'hi', 'hello' ])).toEqual(-Infinity);
 });
+
+test("given an array with non-number values, returns the max and ignores non-numeric values", () => {
+  expect(findMax([ 1,"60"])).toEqual(1);
+});
+
+test("given an array with non-number values, returns the max and ignores non-numeric values", () => {
+  expect(findMax([ 1,"200","hey"])).toEqual(1);
+});
+
+test("given an array with invalid values, returns -Infinity", () => {
+  expect(findMax([null])).toEqual(-Infinity);
+});
+
 });

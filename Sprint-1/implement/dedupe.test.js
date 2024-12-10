@@ -10,7 +10,7 @@ E.g. dedupe(['a','a','a','b','b','c']) target output: ['a','b','c']
 E.g. dedupe([5, 1, 1, 2, 3, 2, 5, 8]) target output: [5, 1, 2, 3, 8]
 E.g. dedupe([1, 2, 1]) target output: [1, 2]
 */
-describe("calculateMedian", () => {
+describe("dedupe", () => {
 
 
 // Acceptance Criteria:

@@ -5,10 +5,10 @@ function findMax(elements) {
   
   let max = -Infinity;
   
-  for (let i = 0; i < elements.length; i++) {
+   for (let i = 0; i < elements.length; i++) {
     const current = elements[i];
     
-    if (current > max) {
+    if (typeof current === 'number' && !isNaN(current) && current !== null && current > max) {
       max = current;
     }
   }
