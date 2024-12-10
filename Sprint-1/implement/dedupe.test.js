@@ -18,8 +18,22 @@ describe("dedupe", () => {
         expect(dedupe([])).toEqual([]);
     });
 
+    test("Given an array with no duplicates, it should return a copy of the original array", () => {
 
-})
+        expect(dedupe([5, 1, 2, 3, 8])).toEqual([5, 1, 2, 3, 8]);
+    });
+
+    test("Given an array with strings, it should remove the duplicate values", () => {
+
+        expect(dedupe(['a', 'a', 'a', 'b', 'b', 'c'])).toEqual(['a', 'b', 'c']);
+    });
+
+    test("Given an array with numbers, it should remove the duplicate values", () => {
+
+        expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
+    });
+
+});
 
 
 // Acceptance Criteria:
