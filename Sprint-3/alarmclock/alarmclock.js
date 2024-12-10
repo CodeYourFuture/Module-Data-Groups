@@ -1,6 +1,7 @@
 function setAlarm() {
   const userInput = document.getElementById("alarmSet");
-  let inputValue = userInput.value;  
+  let inputValue = parseInt(userInput.value);  
+  console.log(typeof inputValue)
 
 }
 
