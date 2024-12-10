@@ -12,12 +12,12 @@ const path = require('path');
 
 // 〰️ Step 3: Construct the absolute path to the input.txt file.
 // 〰️ The file is located in the same folder as the script, so we use '__dirname' to get the current script directory.
-const filePath = path.join(__dirname, 'Sprint-1', 'stretch', 'aoc-2018-day1', 'input.txt');
+const filePath = path.join(__dirname, 'input.txt');
 
 // 〰️ Step 4: Read the content of the input.txt file.
 // 〰️ - We use the 'utf8' encoding to read the file as a string.
 // 〰️ - The callback function handles the file content or an error if something goes wrong.
-fs.readFile('./Sprint-1/stretch/aoc-2018-day1/input.txt', 'utf8', function (error, data) {
+fs.readFile(filePath, 'utf8', function (error, data) {
   // 〰️ Step 5: If there's an error (e.g., the file doesn't exist), log it and stop the program.
   if (error) {
     console.log('Error reading the file:', error);
@@ -43,4 +43,5 @@ fs.readFile('./Sprint-1/stretch/aoc-2018-day1/input.txt', 'utf8', function (erro
 
    // 〰️ Step 9: Print the final calculated frequency to the console.
   console.log('Final frequency:', frequency); 
+  console.log('File path:', filePath);
 });
