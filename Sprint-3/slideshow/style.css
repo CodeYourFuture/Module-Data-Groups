@@ -1,1 +1,57 @@
-/** Write your CSS in here **/
+body {
+    background-color: rgb(241, 205, 128);
+    font-size: 14px;
+}
+
+.wrapper {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 60%;
+    border-radius: 10px;
+}
+
+.buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #069380;
+    transition: background-color 0.5s;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+button:hover {
+    background-color: rgb(216, 160, 40);
+
+}
+
+@media only screen and (max-width: 991px) {
+    img {
+        width: 80%;
+    }
+    .wrapper {
+        padding: 25px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    img {
+        width: 100%;
+    }
+    .wrapper {
+        padding: 10px;
+    }
+}
