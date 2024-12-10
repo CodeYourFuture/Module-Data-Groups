@@ -11,12 +11,23 @@ E.g. dedupe([5, 1, 1, 2, 3, 2, 5, 8]) target output: [5, 1, 2, 3, 8]
 E.g. dedupe([1, 2, 1]) target output: [1, 2]
 */
 
+describe("dedupe", () => {
+
+    test("given an empty array, it returns an empty array", () => {
+
+        expect(dedupe([])).toEqual([]);
+    });
+
+
+})
+
+
 // Acceptance Criteria:
 
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+
 
 // Given an array with no duplicates
 // When passed to the dedupe function
