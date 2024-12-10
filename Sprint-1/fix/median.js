@@ -5,7 +5,6 @@
 function calculateMedian(list) {
   const middleIndex = Math.floor(list.length / 2);
   const median = list.slice(middleIndex, middleIndex + 1)[0];
-  console.log(median);
   return median;
 }
 
