@@ -1,12 +1,20 @@
 /** Write your CSS in here **/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+body{
+    background-color: rgb(53, 121, 59);
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+}
 .wrapper{
     display: flex;
     flex-direction: column;    
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100vh;    
+    color: #e0e0e0;
 }
 #new-quote{
-    padding: 20px;       
+    padding: 20px; 
+    border-radius: 50px;      
 }
