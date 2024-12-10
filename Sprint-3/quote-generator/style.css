@@ -1,30 +1,43 @@
 /** Write your CSS in here **/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body{
+body {
     background-color: rgb(53, 121, 59);
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;    
+    height: 60vh;
     color: #e0e0e0;
+    padding: 10%;
 }
-#new-quote{
-    padding: 20px; 
-    border-radius: 50px; 
+
+#new-quote {
+    padding: 20px;
+    border-radius: 50px;
     background-color: #fdd835;
-    outline: none;     
+    outline: none;
     cursor: pointer;
     font-size: 1.15rem;
     border: none;
     transition: background-color 0.6s;
+    margin-top: 20px;
 }
-#new-quote:hover {
-background-color: #dab203;
 
+#new-quote:hover {
+    background-color: #dab203;
+}
+
+#quote {
+    font-size: 1.6rem;
+}
+
+#author {
+    font-size: 1.4rem;
+    font-weight: 600;
 }

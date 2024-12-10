@@ -7,8 +7,8 @@ newQuoteBtn.addEventListener('click', () => {
   let chosenQuoteArray = Object.entries(chosenQuoteObject);
   let chosenQuoteString = chosenQuoteArray[0][1];
   let chosenAuthorString = chosenQuoteArray[1][1];
-  quoteBlock.textContent = `${ chosenQuoteString }`;
-  authorBlock.textContent = `${ chosenAuthorString }`;
+  quoteBlock.textContent = `"${chosenQuoteString}"`;
+  authorBlock.textContent = `${chosenAuthorString}`;
 });
 
 // DO NOT EDIT BELOW HERE
