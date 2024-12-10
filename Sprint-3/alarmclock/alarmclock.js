@@ -6,8 +6,10 @@ function setAlarm() {
   const timeRemainingField = document.getElementById("timeRemaining");
   // console.log(timeRemainingField);
 
-  function getFormattedTime(seconds){
-    const minutes = Math.floor(seconds / 60).toString().padStart(2, "0");
+  function getFormattedTime(time){
+    const minutes = Math.floor(time / 60).toString().padStart(2, "0");
+    const seconds = (time % 60).toString().padStart(2, "0");
+    return `${minutes}:${seconds}`;
   }
 
 }
