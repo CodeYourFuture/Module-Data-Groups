@@ -40,7 +40,7 @@ autoForwardBtn.addEventListener('click', () => {
 
 stopBtn.addEventListener('click', () => {
     clearInterval(showInterval);
-})
+});
 
 
 
