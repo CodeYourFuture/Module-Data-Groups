@@ -1,4 +1,8 @@
-function setAlarm() {}
+function setAlarm() {
+  const userInput = document.getElementById("alarmSet");
+  let inputValue = userInput.value;  
+
+}
 
 // DO NOT EDIT BELOW HERE
 
