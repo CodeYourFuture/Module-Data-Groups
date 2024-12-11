@@ -38,9 +38,9 @@ describe("countWords", () => {
     expect(countWords(input)).toEqual(expectedOutput);
   });
 
-  test("handles strings with numbers", () => {
-    const input = "hello world 123 hello 123";
-    const expectedOutput = { hello: 2, world: 1, "123": 2 };
-    expect(countWords(input)).toEqual(expectedOutput);
-  });
+test("handles strings with special characters", () => {
+  const input = "A.A A A_A A$A";
+  const expectedOutput = { "A.A": 1, A: 1, "A_A": 1, "A$A": 1 }; // If you treat them as distinct words.
+  expect(countWords(input)).toEqual(expectedOutput);
+});
 });
