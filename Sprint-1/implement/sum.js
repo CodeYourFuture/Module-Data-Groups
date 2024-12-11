@@ -18,7 +18,7 @@ function sum(elements) {
             copyElementsStr.push(elements[i]);
         }
     }
-    // check if given array has only non-number items and return the last item.
+    // check if given array has only non-number items.
     if (elements.length == copyElementsStr.length) {
         return 0;
     }
