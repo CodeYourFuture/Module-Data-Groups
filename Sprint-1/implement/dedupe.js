@@ -19,3 +19,5 @@ function dedupe(list) {
         return newList;
     }
 }
+
+module.exports = dedupe;
