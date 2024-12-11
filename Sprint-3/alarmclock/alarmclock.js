@@ -8,10 +8,15 @@ function setAlarm() {
 
   // this function will help to format time as MM:SS
   function formatTIme(seconds){
-    const minutes = Math.floor(seconds /60);
-    const secs =seconds % 60;
-    return `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(secs).padStart(2,0)}`;
+    const minutes = Math.floor(seconds /60);// calculates the number of minutes in the totality of seconds
+    const secs =seconds % 60; // calculates the remaining seconds after converting to minutes
+    return `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(secs).padStart(2,0)}`; // String(value).padStart(2, "0") formats numbers so that they always have 2 digits, like  1 -> 01
+
+    // sets initial display
+    timeDisplay.innerText = formatTIme(timeRemaining);
+
     
+
   }
 }
 
