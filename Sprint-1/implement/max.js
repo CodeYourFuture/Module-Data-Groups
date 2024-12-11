@@ -1,6 +1,7 @@
 function findMax(elements) {
+    //Ensuring that elements filtered are numbers only
     const filteredElements = elements.filter(item => typeof item === "number" && !isNaN(item));
-
+    
     return Math.max(...filteredElements);
 }
 
