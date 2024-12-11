@@ -38,9 +38,8 @@ describe("sum", () => {
     // When passed to the sum function
     // Then it should return the correct total sum
 
-    test("given an array containing negative numbers", () => {
-        expect(sum([7, -6, 0, 8, 10, -5])).toBe(14);
-        expect(sum([-7, -20, 8, 8, 10, -7])).toBe(-8);
+    test("given an array with decimal numbers, return the correct total sum", () => {
+        expect(sum([1.1, 1.1, 1.1])).toBeCloseTo(3.3, 5);
     });
 
     // Given an array containing non-number values
@@ -59,4 +58,5 @@ describe("sum", () => {
         expect(sum(["Hello", "world", "Happy"])).toBe("Happy");
         expect(sum(["Seven", "Odd", "True", "Love"])).toBe("Love");
     });
+    
 });

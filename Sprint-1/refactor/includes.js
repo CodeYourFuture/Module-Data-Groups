@@ -2,12 +2,13 @@
 
 function includes(list, target) {
   // rewrite function with for of loop
-  for(const element of list){
+  for (const element of list) {
     if (element === target) {
       return true;
     }
-    return false;
   }
+  return false;
+}
   // for (let index = 0; index < list.length; index++) {
   //   const element = list[index];
   //   if (element === target) {
@@ -15,6 +16,6 @@ function includes(list, target) {
   //   }
   // }
   // return false;
-}
+// }
 
 module.exports = includes;
