@@ -2,10 +2,8 @@ function findMax(elements) {
     // return -Infinity if elements is empty. If elements has 1 item, return this item.
     if (elements.length === 0) {
         return -Infinity;
-    } else if (elements.length === 1 && typeof elements[elements.length - 1] == "number") {
-        return elements[0];
     }
-    // declare variables to use it later.
+   
     let copyElements = [];
     let copyElementsStr = [];
     // check if there is a non-number item inside the elements.
@@ -19,8 +17,8 @@ function findMax(elements) {
         }
     }
     // check if given array has only non-number items and return the last item.
-    if (elements.length == copyElementsStr.length) {
-        return copyElementsStr[copyElementsStr.length - 1];
+    if (elements.length === copyElementsStr.length) {
+        return 0;
     }
 
     // sort array to find the largest number.

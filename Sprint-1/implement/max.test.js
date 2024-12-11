@@ -66,7 +66,7 @@ describe("findMax", () => {
     // When passed to the max function
     // Then it should return the least surprising value given how it behaves for all other inputs
     test("given an array with only non-number values, the least surprising value given how it behaves for all other inputs", () => {
-        expect(findMax(["Tom", "Red", "hello"])).toBe("hello");
-        expect(findMax(["6", "Green", "hello", "World"])).toBe("World");
+        expect(findMax(["Tom", "Red", "hello"])).toBe(0);
+        expect(findMax(["6", "Green", "hello", "World"])).toBe(0);
     });
 });

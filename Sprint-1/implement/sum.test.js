@@ -55,8 +55,8 @@ describe("sum", () => {
     // When passed to the sum function
     // Then it should return the least surprising value given how it behaves for all other inputs
     test("given an array containing non-number values, return the least surprising value given how it behaves for all other inputs", () => {
-        expect(sum(["Hello", "world", "Happy"])).toBe("Happy");
-        expect(sum(["Seven", "Odd", "True", "Love"])).toBe("Love");
+        expect(sum(["Hello", "world", "Happy"])).toBe(0);
+        expect(sum(["Seven", "Odd", "True", "Love"])).toBe(0);
     });
     
 });

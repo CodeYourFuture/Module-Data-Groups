@@ -20,7 +20,7 @@ function sum(elements) {
     }
     // check if given array has only non-number items and return the last item.
     if (elements.length == copyElementsStr.length) {
-        return copyElementsStr[copyElementsStr.length - 1];
+        return 0;
     }
 
     // return sum    
