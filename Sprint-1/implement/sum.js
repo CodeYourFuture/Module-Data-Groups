@@ -1,12 +1,15 @@
 function sum(elements) {
+
     let total = 0;
 
-    for(let i = 0; i < elements.length; i++){
-        total += elements[i];
+    let filteredElements = elements.filter(item => typeof item === "number" && !isNaN(item));
+
+    for(let i = 0; i < filteredElements.length; i++){
+        total += filteredElements[i];
     }
     return total;
 }
 
 module.exports = sum;
 
-console.log(sum([20, 10, 5]));
+console.log(sum(['hey', 10, 'hi', 60, 10]));
