@@ -15,12 +15,40 @@ const findMax = require("./max.js");
 
 describe("findMax", () => {
 
-    test("given an empty array, it should return -Infinity", () => {
+    test("Given an empty array, it should return -Infinity", () => {
 
         expect(findMax([])).toEqual(-Infinity);
     });
 
+    test("Given an array with one number, it should return that number", () => {
 
+        expect(findMax([20])).toEqual(20);
+    });
+
+    test("Given an array with both positive and negative numbers, it should return the largest number overall", () => {
+
+        expect(findMax([4, -20, 30, -50, 2])).toEqual(30);
+    });
+
+    test("Given an array with just negative numbers, it should return the closest one to zero", () => {
+
+        expect(findMax([-5, -15, -20, -2, -9])).toEqual(-2);
+    });
+
+    test("Given an array with decimal numbers, it should return the largest decimal number", () => {
+
+        expect(findMax([2.1, 20.5, 40.99, 30.11])).toEqual(40.99);
+    });
+
+    test("Given an array with non-number values, it should return the max and ignore non-numeric values", () => {
+
+        expect(findMax([4, "Hi", 10, 3, "me", 11, 20])).toEqual(20);
+    });
+
+    test("Given an array with only non-number values,it should return the least surprising value given how it behaves for all other inputs", () => {
+
+        expect(findMax(["Hi", "#", "Doing", "me", "&", "@"])).toEqual(-Infinity);
+    });
 
 });
 
