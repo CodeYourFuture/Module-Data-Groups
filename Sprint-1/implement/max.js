@@ -8,10 +8,12 @@ function findMax(elements) {
     }
 
     else {
+        //loop through element that is considered a number
 
         for (let i = 0; i < elements.length; i++) {
             if (!isNaN(elements[i])) {
 
+                //loop through each elemnt and compare the value against -Infinity
                 if (Number(elements[i]) > maxElement) {
                     maxElement = Number(elements[i]);
 
