@@ -1,1 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f5f5f5;
+  color: #333;
+}
 
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+form input[type="text"] {
+  width: 200px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+form button {
+  cursor: pointer;
+  padding: 8px 12px;
+  margin: 0 5px;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+#remove-all-completed {
+  background: #f44336;
+}
+
+/* Todo List Styles */
+#todo-list {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.todo-item:hover {
+  background: #e9e9e9;
+}
+
+.todo-item span {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.todo-item span.completed {
+  text-decoration: line-through;
+  color: #777;
+}
+
+/* Buttons inside each todo item */
+.todo-item button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 5px;
+  color: #555;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.todo-item button:hover {
+  color: #000;
+}
+
+/* Adjust icon spacing */
+.btn-complete .fa-check {
+  color: green;
+}
+
+.btn-delete .fa-trash {
+  color: red;
+}
