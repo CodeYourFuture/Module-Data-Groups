@@ -37,12 +37,12 @@
 // totalTill.js
 
 function totalTill(till) {
-  if (!Array.isArray(till)) {
-    throw new Error("Invalid input: till must be an array");
+  if (!till || typeof till !== 'object' || !Array.isArray(till.coins)) {
+    throw new Error("Invalid input: till must be an object with a 'coins' array");
   }
 
-  // Filter out non-numeric values and ensure they are numbers
-  const validCoins = till.filter(coin => typeof coin === 'number' && !isNaN(coin));
+  // Access the array of coins
+  const validCoins = till.coins.filter(coin => typeof coin === 'number' && !isNaN(coin));
 
   // Sum up the valid coins
   const totalPence = validCoins.reduce((sum, coin) => sum + coin, 0);
@@ -53,6 +53,6 @@ function totalTill(till) {
   return `£${totalPounds}`;
 }
 
-
 module.exports = totalTill;
+
 
