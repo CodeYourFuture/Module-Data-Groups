@@ -23,7 +23,7 @@ function sum(elements) {
         }
         //if there are no numerical values
         if (!isNumberAvailable) {
-            return elements.length;
+            return -Infinity;
         }
 
         return sumValue
