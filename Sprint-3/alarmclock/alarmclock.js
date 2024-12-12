@@ -5,7 +5,7 @@ function setAlarm() {
   
   let inputValue = parseInt(inputField.value)//Get time in seconds
 
-  const timeDisplay = document.getElementById("timeRemaining"); // Time display element
+  const timeDisplay = document.getElementById("timeRemaining before collapse"); // Time display element
   
   if (isNaN(inputValue) || inputValue <= 0){
     alert ("Please enter a valid number of seconds");
@@ -18,7 +18,7 @@ function setAlarm() {
     return `${minutes}:${secs}`;
   }
 
-  timeDisplay.textContent = `Time Remaining: ${getFormattedTime(inputValue)}`
+  timeDisplay.textContent = `Time Remaining before collapse: ${getFormattedTime(inputValue)}`
 
   alarmInterval = setInterval (() => {
     inputValue -= 1;
