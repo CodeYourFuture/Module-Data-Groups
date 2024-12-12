@@ -1,6 +1,7 @@
-function contains() {}
+
 
 // Check if the object is valid and has the property
+
 function contains(obj, property) {
   if (typeof obj === "object" && obj !== null && property in obj) {
     return true;
@@ -9,12 +10,6 @@ function contains(obj, property) {
   }
 }
 
-const obj1 = { name: "Alice", age: 30 };
-const obj2 = null;
-
-console.log(contains(obj1, "name")); // Output: true
-console.log(contains(obj1, "city")); // Output: false
-console.log(contains(obj2, "anyProperty")); // Output: false
 
 module.exports = contains;
 

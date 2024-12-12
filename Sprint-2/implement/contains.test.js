@@ -1,17 +1,31 @@
-const contains = require("./contains.js");
+const contains = require("./contains");
 
-// Define your test cases
+
+test("contains on empty object returns false", () => {
+  const emptyObject = {};
+  expect(contains(emptyObject, "key")).toBe(false);
+});
+
+
 test("Checks if an object contains the specified property", () => {
   const obj1 = { name: "Alice", age: 30 };
   expect(contains(obj1, "name")).toBe(true); // The property "name" exists
   expect(contains(obj1, "city")).toBe(false); // The property "city" does not exist
 });
 
-//test("Handles null or invalid object input", () => {
-  //const obj2 = null;
-  //expect(contains(obj2, "anyProperty")).toBe(false); // Null input should return false
-  //expect(contains(undefined, "anyProperty")).toBe(false); // Undefined input should return false
-//});
+test("Checks if an object contains the specified property", () => {
+  const obj1 = { a: 1, b: 2 };
+  expect(contains(obj1, "a")).toBe(true); // The property "name" exists
+});
+
+
+test(" when given an array instead of an object returns false", () => {
+  const arrayInput = ["value1", "value2"];
+  expect(contains(arrayInput, "key")).toBe(false);
+});
+
+
+
 /*
 Implement a function called contains that checks an object contains a
 particular property
