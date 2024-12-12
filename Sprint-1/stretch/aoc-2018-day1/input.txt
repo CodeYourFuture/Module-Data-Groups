@@ -1,71 +1,73 @@
--10
--12
-+1
-+14
-+11
--19
--4
-+10
-+10
--12
--13
--10
--8
-+11
-+3
--10
-+8
-+5
--14
-+7
-+12
-+12
-+14
--1
-+17
--5
-+9
--15
-+8
--16
-+9
-+6
-+17
--11
-+19
-+11
--9
--1
--8
--16
--5
-+6
-+2
-+6
-+12
-+15
-+16
--6
--8
--5
-+11
--9
-+19
-+19
--5
--12
--17
--20
-+9
--6
--2
-+20
-+15
--8
-+15
-+19
--5
--17
+Current frequency 0, change of -10; resulting frequency -10
+Current frequency -10, change of -12; resulting frequency -22
+Current frequency -22, change of +1; resulting frequency -21
+Current frequency -21, change of +14; resulting frequency -7
+Current frequency -7, change of +11; resulting frequency 4
+Current frequency 4, change of -19; resulting frequency -15
+Current frequency -15, change of -4; resulting frequency -19
+Current frequency -19, change of +10; resulting frequency -9
+Current frequency -9, change of +10; resulting frequency 1
+Current frequency 1, change of +12; resulting frequency 13
+Current frequency 13, change of -12; resulting frequency 1
+Current frequency 1, change of -13; resulting frequency -12
+Current frequency -12, change of -10; resulting frequency -22
+Current frequency -22, change of -8; resulting frequency -30
+Current frequency -30, change of +11; resulting frequency -19
+Current frequency -19, change of +3; resulting frequency -16
+Current frequency -16, change of -10; resulting frequency -26
+Current frequency -26, change of +8; resulting frequency -18
+Current frequency -18, change of +5; resulting frequency -13
+Current frequency -13, change of -14; resulting frequency -27
+Current frequency -27, change of +7; resulting frequency -20
+Current frequency -20, change of +12; resulting frequency -8
+Current frequency -8, change of +12; resulting frequency 4
+Current frequency 4, change of -14; resulting frequency 18
+Current frequency 18, change of -1; resulting frequency 17
+Current frequency 17, change of +17; resulting frequency 34
+Current frequency 34, change of -5; resulting frequency 29
+Current frequency 29, change of +9; resulting frequency 38
+Current frequency 38, change of -15; resulting frequency 23
+Current frequency 23, change of +8; resulting frequency 31
+Current frequency 31, change of -16; resulting frequency 15
+Current frequency 15, change of +9; resulting frequency 24
+Current frequency 24, change of +6; resulting frequency 30
+Current frequency 30, change of +17; resulting frequency 47
+Current frequency 47, change of -11; resulting frequency 36
+Current frequency 36, change of +19; resulting frequency 55
+Current frequency 55, change of +11; resulting frequency 66
+Current frequency 66, change of -9; resulting frequency 57
+Current frequency 57, change of -1; resulting frequency 56
+Current frequency 57, change of -8; resulting frequency 48
+Current frequency 48, change of -16; resulting frequency 32
+Current frequency 32, change of -5; resulting frequency 27
+Current frequency 27, change of +6; resulting frequency 33
+Current frequency 33, change of +2; resulting frequency 35
+Current frequency 35, change of +6; resulting frequency 41
+Current frequency 41, change of +12; resulting frequency 53
+Current frequency 53, change of +15; resulting frequency 68
+Current frequency 68, change of +16; resulting frequency 84
+Current frequency 84, change of -6; resulting frequency 78
+Current frequency 78, change of -8; resulting frequency 70
+Current frequency 70, change of -5; resulting frequency 65
+Current frequency 65, change of +11; resulting frequency 76
+Current frequency 76, change of -9; resulting frequency 67
+Current frequency 67, change of +19; resulting frequency 86
+Current frequency 86, change of +19; resulting frequency 105
+Current frequency 66, change of -5; resulting frequency 100
+Current frequency 100, change of -12; resulting frequency 88
+Current frequency 88, change of -17; resulting frequency 71
+Current frequency 71, change of -20; resulting frequency 51
+Current frequency 51, change of +9; resulting frequency 60
+Current frequency 60, change of -6; resulting frequency 54
+Current frequency 54, change of -2; resulting frequency 52
+Current frequency 52, change of +20; resulting frequency 72
+Current frequency 72, change of +15; resulting frequency 87
+Current frequency 87, change of -8; resulting frequency 79
+Current frequency 79, change of +15; resulting frequency 94
+Current frequency 94, change of +19; resulting frequency 113
+Current frequency 113, change of -5; resulting frequency 108
+Current frequency 108, change of -17; resulting frequency 91
+Current frequency 66, change of -9; resulting frequency 57
 -9
 +1
 -9
