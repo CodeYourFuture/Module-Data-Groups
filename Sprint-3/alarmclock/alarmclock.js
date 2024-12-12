@@ -12,24 +12,24 @@ function setAlarm() {
     return;
   }
   // Function to format time as MM:SS
-  function getformattedTime(time) {
+  function getFormattedTime(time) {
     const minutes = Math.floor(time / 60).toString().padStart(2, "0");
     const secs = (time % 60).toString().padStart(2, "0");
     return `${minutes}:${secs}`;
   }
 
-  timeDisplay.textContent = `Time Remaining: ${getformattedTime(inputValue)}`
+  timeDisplay.textContent = `Time Remaining: ${getFormattedTime(inputValue)}`
 
   alarmInterval = setInterval (() => {
     inputValue -= 1;
 
-    if (inputValue <= 0){
+    if (inputValue <= 0) {
       clearInterval(alarmInterval);
       timeDisplay.textContent = "Time remaining: 00:00";
       playAlarm();
-      document.body.style.backgroundColor = "Blue";
+      document.body.style.backgroundColor = "Pink";
     }else {
-      timeDisplay.textContent = `Time remaining : ${getformattedTime(inputField)}`;
+      timeDisplay.textContent = `Time remaining : ${getFormattedTime(inputValue)}`;
     }
     },1000);
   }
