@@ -1,4 +1,4 @@
-const tally = require("./tally.js");
+// const tally = require("./tally.js");
 
 /**
  * tally array
@@ -23,7 +23,7 @@ const tally = require("./tally.js");
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+// test.todo("tally on an empty array returns an empty object");
 
 // Given an array with duplicate items
 // When passed to tally
@@ -32,3 +32,32 @@ test.todo("tally on an empty array returns an empty object");
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+const tally = require("./tally");
+
+test("tally on an empty array returns an empty object", () => {
+  expect(tally([])).toEqual({});
+});
+
+test("tally on an array with one item", () => {
+  expect(tally(["a"])).toEqual({ a: 1 });
+});
+
+test("tally on an array with duplicate items", () => {
+  expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
+});
+
+test("tally on an array with mixed types", () => {
+  expect(tally(["a", 1, "a", 1, 2])).toEqual({ a: 2, 1: 2, 2: 1 });
+});
+
+test("tally throws an error on invalid input (string)", () => {
+  expect(() => tally("invalid")).toThrow("Input must be an array");
+});
+
+test("tally throws an error on invalid input (number)", () => {
+  expect(() => tally(123)).toThrow("Input must be an array");
+});
+
+test("tally on an array with special characters", () => {
+  expect(tally(["@", "@", "!"])).toEqual({ "@": 2, "!": 1 });
+});
