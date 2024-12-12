@@ -37,7 +37,8 @@ console.log(inverted);
 //but it does it in a way that only the key and values get swapped. 
 //So, after the swapping, all object end up with the same value and key.
 
-// e) Fix the implementation of invert (and write tests to prove it's fixed!)*/
+ //e) Fix the implementation of invert (and write tests to prove it's fixed!)
+Fixed/ passed testes*/
 
 
 

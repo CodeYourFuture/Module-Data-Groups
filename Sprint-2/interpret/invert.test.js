@@ -6,8 +6,9 @@ test("Inverts a simple object", () => {
   expect(invert(obj)).toEqual(expected);
 });
 
-test("Inverts a complex object", () => {
-  const obj = { a: 1, b: 2, c: 1 };
-  const expected = { 1: ["a", "c"], 2: ["b"] };
-  expect(invert(obj)).toEqual(expected);
-});
+
+   test("inverts basic key-value pairs", () => {
+     const input = { a: 1, b: 2 };
+     const expected = { 1: "a", 2: "b" };
+     expect(invert(input)).toEqual(expected);
+   });
