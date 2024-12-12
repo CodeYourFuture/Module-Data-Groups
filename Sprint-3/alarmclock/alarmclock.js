@@ -1,31 +1,35 @@
+let alarmInterval;
+
 function setAlarm() {
   const inputField = document.getElementById("alarmSet"); // Input field for seconds
-  const timeDisplay = document.getElementById("timeRemaining"); // Time display element
+  
   let inputValue = parseInt(inputField.value)//Get time in seconds
 
+  const timeDisplay = document.getElementById("timeRemaining"); // Time display element
+  
   if (isNaN(inputValue) || inputValue <= 0){
     alert ("Please enter a valid number of seconds");
     return;
   }
   // Function to format time as MM:SS
-  function getformatTime(seconds) {
-    const minutes = Math.floor(seconds / 60).toString().padStart(2, "0");
-    const secs = (seconds % 60).toString().padStart(2, "0");
+  function getformattedTime(time) {
+    const minutes = Math.floor(time / 60).toString().padStart(2, "0");
+    const secs = (time % 60).toString().padStart(2, "0");
     return `${minutes}:${secs}`;
   }
 
-  timeDisplay.textContent = `Time Remaining: ${getformatTime(inputField)}`
+  timeDisplay.textContent = `Time Remaining: ${getformattedTime(inputValue)}`
 
-  alarmInterval = setInterval (() =>{
-    inputField -= 1;
+  alarmInterval = setInterval (() => {
+    inputValue -= 1;
 
-    if (inputField <= 0){
+    if (inputValue <= 0){
       clearInterval(alarmInterval);
       timeDisplay.textContent = "Time remaining: 00:00";
       playAlarm();
-      document.body.style.backgroundColour = "Blue";
+      document.body.style.backgroundColor = "Blue";
     }else {
-      timeDisplay.textContent = `Time remaining : ${getformatTime(inputField)}`;
+      timeDisplay.textContent = `Time remaining : ${getformattedTime(inputField)}`;
     }
     },1000);
   }
