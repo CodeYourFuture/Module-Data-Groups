@@ -70,7 +70,7 @@ button {
     padding: 10px 20px;
     font-size: 1rem;
     background: linear-gradient(45deg, #914caf, #25020a); /* Gradient button */
-    color: white;
+    color: rgb(249, 246, 246);
     border: none;
     border-radius: 5px;
     cursor: pointer;
