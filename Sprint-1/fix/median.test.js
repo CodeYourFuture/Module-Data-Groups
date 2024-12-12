@@ -8,7 +8,7 @@ const calculateMedian = require("./median.js");
 
 describe("calculateMedian", () => {
   test("returns the median for odd length array", () => {
-    expect(calculateMedian([1, 2, 3])).toEqual(2);
+    expect(calculateMedian([1, 2, 3,])).toEqual(2);
     expect(calculateMedian([1, 2, 3, 4, 5])).toEqual(3);
   });
 
