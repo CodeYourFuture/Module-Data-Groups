@@ -1,5 +1,3 @@
-const calculateMode = require("./mode.js");
-
 // Acceptance criteria for calculateMode function
 
 // Given an array of numbers
@@ -10,6 +8,7 @@ const calculateMode = require("./mode.js");
 // Given [2,4,1,2,3,2,1]
 // When calculateMode is called on [2,4,1,2,3,2,1]
 // Then it should return 2 */
+const { calculateMode } = require("./mode"); // Update with the correct path
 
 describe("calculateMode()", () => {
   test("returns the most frequent number in an array", () => {
@@ -28,5 +27,29 @@ describe("calculateMode()", () => {
     const nums = [1, 3, "2", 2, 3, null];
 
     expect(calculateMode(nums)).toEqual(3);
+  });
+
+  test("returns NaN when the array is empty", () => {
+    const nums = [];
+
+    expect(calculateMode(nums)).toEqual(NaN);
+  });
+
+  test("returns NaN when there are no valid numbers", () => {
+    const nums = [null, "text", undefined, NaN];
+
+    expect(calculateMode(nums)).toEqual(NaN);
+  });
+
+  test("handles array with a single element", () => {
+    const nums = [5];
+
+    expect(calculateMode(nums)).toEqual(5);
+  });
+
+  test("handles array with all identical elements", () => {
+    const nums = [7, 7, 7, 7];
+
+    expect(calculateMode(nums)).toEqual(7);
   });
 });

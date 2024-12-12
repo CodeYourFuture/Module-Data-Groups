@@ -11,4 +11,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is houseNumber:`,address.houseNumber);
+console.log(`My house number is houseNumber:`, address.houseNumber);

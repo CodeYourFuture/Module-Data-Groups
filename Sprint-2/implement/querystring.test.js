@@ -3,7 +3,7 @@
 // Below is one test case for an edge case the implementation doesn't handle well.
 // Fix the implementation for this test, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js");
+const parseQueryString = require("./querystring");
 
 test("parses querystring with multiple key-value pairs", () => {
   expect(parseQueryString("key1=value1&key2=value2")).toEqual({
@@ -14,7 +14,7 @@ test("parses querystring with multiple key-value pairs", () => {
 
 test("parses querystring with values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
-    equation: "x=y+1",
+    equation: "x=y 1",
   });
 });
 
@@ -44,6 +44,18 @@ test("handles empty querystring", () => {
 
 test("handles querystring with spaces and plus signs", () => {
   expect(parseQueryString("key1=value+with+spaces")).toEqual({
-    key1: "value+with+spaces",
+    key1: "value with spaces",
+  });
+});
+
+test("handles querystring with %20 encoded spaces", () => {
+  expect(parseQueryString("key1=value%20with%20spaces")).toEqual({
+    key1: "value with spaces",
+  });
+});
+
+test("handles querystring with mixed + and %20 encoding", () => {
+  expect(parseQueryString("key1=value+with%20spaces")).toEqual({
+    key1: "value with spaces",
   });
 });

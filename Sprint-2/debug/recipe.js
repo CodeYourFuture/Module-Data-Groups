@@ -5,16 +5,11 @@
 // How can you fix it?
 
 const recipe = {
-  title: "bruschetta",
+  title: "Bruschetta",
   serves: 2,
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(
-  recipe.title,
-  'serves',
-  recipe.serves,
-  '\ningredients:',
-  recipe.ingredients // Assuming `recipe.ingredients` is an array or a list
-);
-
+console.log(`${recipe.title} serves ${recipe.serves}`);
+console.log("Ingredients:");
+recipe.ingredients.forEach((ingredient) => console.log(`- ${ingredient}`));

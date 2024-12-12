@@ -7,20 +7,25 @@
 
 // refactor calculateMode by splitting up the code
 // into smaller functions using the stages above
-
-function calculateMode(list) {
+function calculateFrequencies(list) {
   const freqs = new Map();
 
-  list.forEach(
-    (num) => Number.isFinite(num) && freqs.set(num, (freqs.get(num) || 0) + 1)
-  );
+  list.forEach((num) => {
+    if (Number.isFinite(num)) {
+      freqs.set(num, (freqs.get(num) || 0) + 1);
+    }
+  });
 
+  return freqs;
+}
+function findMode(freqs) {
   return [...freqs.entries()].reduce(
     (max, [num, freq]) => (freq > max.freq ? { num, freq } : max),
     { num: NaN, freq: 0 }
   ).num;
-
-  return maxFreq === 0 ? NaN : mode;
 }
-
-module.exports = calculateMode;
+function calculateMode(list) {
+  const freqs = calculateFrequencies(list);
+  return findMode(freqs);
+}
+module.exports = { calculateMode, calculateFrequencies, findMode };
