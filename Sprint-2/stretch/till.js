@@ -8,24 +8,19 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    // Remove 'p' and convert to number
+    const numericCoin = parseInt(coin.replace("p", ""), 10);
+    total += numericCoin * quantity;
   }
 
-  return `£${total / 100}`;
+  // Format the total as pounds
+  return `£${(total / 100).toFixed(2)}`;
 }
-
-const till = {
-  "1p": 10,
-  "5p": 6,
-  "50p": 4,
-  "20p": 10,
-};
-const totalAmount = totalTill(till);
-
-
+ 
+module.exports = totalTill;
 
 // a) What is the target output when totalTill is called with the till object
-// £2.90
+// £4.40
 
 // b) Why do we need to use Object.entries inside the for...of loop in this function?
 //Object.entries(till) returns an array of key-value pairs for the till object. This can
