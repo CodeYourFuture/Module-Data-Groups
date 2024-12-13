@@ -1,1 +1,115 @@
-/** Write your CSS in here **/
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+  }
+  
+  #carousel-img {
+    width: 100%;
+    max-width: 500px; /* Limits image size */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  button {
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    background-color: #3f4dbf;
+  }
+  
+  button:active {
+    transform: translateY(2px);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  /* Stop Button */
+  #stop {
+    background-color: #f44336;
+  }
+  
+  #stop:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Auto Forward and Auto Backward Buttons */
+  #auto-forward, #auto-backward {
+    background-color: #81c784;
+  }
+  
+  #auto-forward:hover, #auto-backward:hover {
+    background-color: #66bb6a;
+  }
+  
+  /* Button Container */
+  div.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allows the buttons to wrap in smaller screens */
+  }
+  
+  /* Add spacing between buttons */
+  div.button-container button {
+    transition: all 0.3s ease;
+  }
+  
+  /* Make buttons more compact on smaller screens */
+  @media screen and (max-width: 600px) {
+    #carousel-img {
+      max-width: 100%;
+    }
+  
+    div.button-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+
+  /* Footer Styles */
+footer {
+  position: absolute;
+  bottom: 10px;
+  font-size: 12px;
+  color: #ede4e4;
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #2e2a2a;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+  text-decoration: none;
+  color: #5c6bc0;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+  
