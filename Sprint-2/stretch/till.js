@@ -1,17 +1,13 @@
-// totalTill takes an object representing coins in a till
-
-// Given an object of coins
-// When this till object is passed to totalTill
-// Then it should return the total amount in pounds
-
 function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    // Removes the 'p' from the coin string and converts it to a number
+    const coinValue = parseInt(coin);  // Converts the coin value to a number
+    total += coinValue * quantity;  // Calculates the total in pence
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;  // Converts to pounds and formats to two decimal places
 }
 
 const till = {
@@ -20,12 +16,6 @@ const till = {
   "50p": 4,
   "20p": 10,
 };
+
 const totalAmount = totalTill(till);
-
-// a) What is the target output when totalTill is called with the till object
-
-// b) Why do we need to use Object.entries inside the for...of loop in this function?
-
-// c) What does coin * quantity evaluate to inside the for...of loop?
-
-// d) Write a test for this function to check it works and then fix the implementation of totalTill
+console.log(totalAmount); // Expected output: £4.40
