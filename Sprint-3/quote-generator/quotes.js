@@ -491,3 +491,25 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+document.querySelector("body").style.backgroundColor = "orange";
+const quoteSection = document.getElementById("quoteDiv");
+quoteSection.style.backgroundColor = "white";
+quoteSection.style.textAlign = "center";
+
+document.getElementById("author").style.textAlign = "right";
+function selectQuote() {
+  randomQuote = pickFromArray(quotes);
+  let selectedQuote = document.getElementById("quote");
+  let selectedAuthor = document.getElementById("author");
+  selectedQuote.innerHTML = `"${randomQuote.quote}`;
+  selectedAuthor.innerHTML = randomQuote.author;
+}
+selectQuote();
+const newCouteButton = document.getElementById("new-quote");
+newCouteButton.addEventListener("click", () => {
+  selectQuote();
+});
+newCouteButton.style.color = "white";
+
+newCouteButton.style.backgroundColor = "orange";
+newCouteButton.style.border = "none";
