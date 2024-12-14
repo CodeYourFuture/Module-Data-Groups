@@ -16,9 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     const imageContainer = document.getElementById("image-container");
     let currentIndex = 0;
-    let autoSlideInterval = null;  // This will hold the interval for auto-forward/backward
-  
-    // Function to render the current image
+    let autoSlideInterval = null;  
     function renderImage() {
       imageContainer.innerHTML = `<img src="${images[currentIndex]}" alt="carousel image">`;
     }
@@ -38,8 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Event listeners for manual navigation
     document.getElementById("back-btn").addEventListener("click", moveBack);
     document.getElementById("forward-btn").addEventListener("click", moveForward);
-  
-    // Function to start the auto-forward slideshow
     function startAutoForward() {
       if (autoSlideInterval) return; // If there's already an interval running, do nothing
   
@@ -59,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
       autoSlideInterval = null; // Reset the interval
     }
   
-    // Event listeners for auto navigation buttons
     document.getElementById("auto-forward-btn").addEventListener("click", startAutoForward);
     document.getElementById("stop-btn").addEventListener("click", stopAutoSlide);
     document.getElementById("auto-backward-btn").addEventListener("click", startAutoBackward);
