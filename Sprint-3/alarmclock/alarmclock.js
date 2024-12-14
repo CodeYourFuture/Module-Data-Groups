@@ -33,7 +33,10 @@ function updateTimeDisplay(seconds) {
     `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(secondsLeft).padStart(2, "0")}`;
 }
 
-
+function triggerSpecialAlarm() {
+  document.body.style.backgroundColor = "yellow";
+  playAlarm();
+}
 
 
 //No need to edit below
