@@ -1,4 +1,3 @@
-
 function setAlarm() {
   let countdown;
   clearInterval(countdown);
@@ -10,9 +9,8 @@ function setAlarm() {
     return;
   }
   let timeRemaining = timeInput;
-  if (timeRemaining === 10) {
+  if (timeRemaining === 10) 
     triggerSpecialAlarm(); 
-  }
   updateTimeDisplay(timeRemaining);
   countdown = setInterval(() => {
     timeRemaining--;
