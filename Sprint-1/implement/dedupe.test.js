@@ -14,14 +14,14 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // Acceptance Criteria:
 
 test("Given an empty array then it should return an empty array", () => {
-  expect(dedupe([])).toBe([]);
+  expect(dedupe([])).toEqual([]);
 });
 
 
 test("Given an array with no duplicates then it should return a copy of the original array", () => {
-  expect(dedupe([1,2,3])).toBe([1,2,3]);
+  expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);
 });
 
 test("Given an array with strings or numbers then it should remove the duplicate values, preserving the first occurence of each element", () => {
-  expect(dedupe([1, 2, 3, 1, 2, 3])).toBe([1, 2, 3]);
+  expect(dedupe([1, 2, 3, 1, 2, 3])).toEqual([1, 2, 3]);
 });
