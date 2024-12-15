@@ -50,3 +50,62 @@ test("creates a country currency code lookup for multiple codes", () => {
     MX: "MXN",
   });
 });
+
+test("handles an empty array", () => {
+  const countryCurrencyPairs = [];
+
+  const result = createLookup(countryCurrencyPairs);
+
+  expect(result).toEqual({});
+});
+
+test("throws an error if input is not an array", () => {
+  expect(() => createLookup(null)).toThrow("Input must be an array of country-currency pairs");
+  expect(() => createLookup("invalid"))
+    .toThrow("Input must be an array of country-currency pairs");
+});
+
+test("handles duplicate country codes by overwriting with the latest value", () => {
+  const countryCurrencyPairs = [
+    ["US", "USD"],
+    ["CA", "CAD"],
+    ["US", "USN"],
+  ];
+
+  const result = createLookup(countryCurrencyPairs);
+
+  expect(result).toEqual({
+    US: "USN",
+    CA: "CAD",
+  });
+});
+
+test("handles country codes with falsy or empty string values", () => {
+  const countryCurrencyPairs = [
+    ["", "Unknown"],
+    [null, "Invalid"],
+    ["US", "USD"],
+  ];
+
+  const result = createLookup(countryCurrencyPairs);
+
+  expect(result).toEqual({
+    "": "Unknown",
+    null: "Invalid",
+    US: "USD",
+  });
+});
+
+test("handles non-string country and currency codes", () => {
+  const countryCurrencyPairs = [
+    [123, 456],
+    ["US", "USD"],
+  ];
+
+  const result = createLookup(countryCurrencyPairs);
+
+  expect(result).toEqual({
+    123: 456,
+    US: "USD",
+  });
+});

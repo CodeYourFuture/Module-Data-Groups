@@ -30,7 +30,7 @@ test("handles keys with no values", () => {
 
 test("parses values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
-    equation: "x=y+1",
+    equation: "x=y+1", 
   });
 });
 
@@ -54,5 +54,11 @@ test("parses query strings with missing `=`", () => {
     key1: "value1",
     key2: "",
     key3: "value3",
+  });
+});
+
+test("parses keys and values with multiple `=`", () => {
+  expect(parseQueryString("a===b")).toEqual({
+    a: "==b",
   });
 });
