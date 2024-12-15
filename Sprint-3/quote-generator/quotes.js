@@ -1,3 +1,42 @@
+function displayRandomQuote() {
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+
+  const randomQuote = pickFromArray(quotes);
+
+  quoteElement.textContent = `"${randomQuote.quote}"`;
+  authorElement.textContent = `- ${randomQuote.author}`;
+}
+
+let autoPlayInterval = null;
+
+function toggleAutoPlay() {
+  const toggleSwitch = document.getElementById("auto-play");
+  const statusDisplay = document.getElementById("auto-play-status");
+
+  if (toggleSwitch.checked) {
+    statusDisplay.textContent = "Auto-Play: ON";
+    autoPlayInterval = setInterval(displayRandomQuote, 5000); 
+  } else {
+    statusDisplay.textContent = "Auto-Play: OFF";
+    clearInterval(autoPlayInterval);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  displayRandomQuote();
+
+  document
+    .getElementById("new-quote")
+    .addEventListener("click", displayRandomQuote);
+
+  document
+    .getElementById("auto-play")
+    .addEventListener("change", toggleAutoPlay);
+});
+
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -490,39 +529,3 @@ const quotes = [
   },
 ];
 
-function displayRandomQuote() {
-  const quoteElement = document.getElementById("quote");
-  const authorElement = document.getElementById("author");
-
-  const randomQuote = pickFromArray(quotes);
-
-  quoteElement.textContent = `"${randomQuote.quote}"`;
-  authorElement.textContent = `- ${randomQuote.author}`;
-}
-
-let autoPlayInterval = null;
-
-function toggleAutoPlay() {
-  const toggleSwitch = document.getElementById("auto-play");
-  const statusDisplay = document.getElementById("auto-play-status");
-
-  if (toggleSwitch.checked) {
-    statusDisplay.textContent = "Auto-Play: ON";
-    autoPlayInterval = setInterval(displayRandomQuote, 5000); // Change quote every 5 seconds
-  } else {
-    statusDisplay.textContent = "Auto-Play: OFF";
-    clearInterval(autoPlayInterval);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  displayRandomQuote();
-
-  document
-    .getElementById("new-quote")
-    .addEventListener("click", displayRandomQuote);
-
-  document
-    .getElementById("auto-play")
-    .addEventListener("change", toggleAutoPlay);
-});
