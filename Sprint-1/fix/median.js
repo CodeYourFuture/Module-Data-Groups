@@ -3,9 +3,17 @@
 // If you're in the Sprint-1 directory, you can run `npm test -- fix` to run the tests in the fix directory
 
 function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
+  const initialValue = 0;
+  const sumWithInitial = list.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue,
+);
+const index = list.length
+  return sumWithInitial/index
 }
 
+
+
 module.exports = calculateMedian;
+
+
