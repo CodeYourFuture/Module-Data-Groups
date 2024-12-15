@@ -45,6 +45,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-image: linear-gradient(to right top, #f4cae1, #fcd5f7, #f1d5fd, #dfd3f6, #c0c2f8, #cad9fd, #c1d9f6, #b3dcfc, #b7e6fb, #96e3f8, #caf8fd, #c9fbf8);
 
 }
 
