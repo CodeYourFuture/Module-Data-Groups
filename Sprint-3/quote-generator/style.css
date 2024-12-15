@@ -1,5 +1,27 @@
-body{
+body {
     text-align: center;
     background-color: aquamarine;
     margin-top: 5cm;
+}
+
+button,
+label {
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#quote {
+    font-size: 24px;
+    margin: 20px;
+    font-weight: bold;
+}
+
+#author {
+    font-size: 20px;
+    color: gray;
+}
+
+#auto-play-status {
+    font-style: italic;
 }
