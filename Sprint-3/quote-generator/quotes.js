@@ -16,9 +16,44 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+//function pickFromArray(choices) {
+ // return choices[Math.floor(Math.random() * choices.length)];
+//}
+
+const btn = document.getElementById("new-quote");
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+
+btn.addEventListener("click", function () {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const randomQuote = quotes[randomIndex];
+
+  quoteElement.textContent = randomQuote.quote;
+  authorElement.textContent = "- " + randomQuote.author;
+});
+
+function getRandomColor() {
+  // Generate a random color in RGB format
+  const r = Math.floor(200 + Math.random() * 55); 
+  const g = Math.floor(200 + Math.random() * 55); 
+  const b = Math.floor(200 + Math.random() * 55); // Generate blue value between 200-255
+  const alpha = (Math.random() * 0.5 + 0.3).toFixed(2); // Generate alpha between 0.3-0.8
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`; // Return light and transparent color
 }
+
+function setRandomGradient() {
+  // Get two random colors
+  const color1 = getRandomColor();
+  const color2 = getRandomColor();
+  
+
+  // Set the background gradient
+  document.body.style.background = `linear-gradient(to right, ${color1}, ${color2})`;
+}
+
+// Link the function to the button
+const button = document.getElementById("new-quote");
+button.addEventListener("click", setRandomGradient);
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!

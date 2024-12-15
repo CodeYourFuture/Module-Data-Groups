@@ -1,1 +1,116 @@
-/** Write your CSS in here **/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.italiana-regular {
+  font-family: "Italiana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.montserrat-alternates-regular {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.montserrat-alternates-medium-italic {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+
+}
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nothing-you-could-do-regular {
+  font-family: "Nothing You Could Do", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+main {
+    display: flex;
+    justify-content: space-between; /* Adjust spacing as needed */
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+
+.container-quotes {
+  text-align: center; /* Center the H1 and containers horizontally */
+  margin: 40px auto; /* Center the container vertically and horizontally with some spacing */
+  padding: 20px; /* Add padding to ensure spacing inside the container */
+  border-radius: 30px; /* Rounded corners */
+  background: #ffffff; /* Light gray background */
+  box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff; /* Add a subtle 3D effect */
+  max-width: 800px; /* Limit the width for better readability on large screens */
+  width: 90%; /* Make the container responsive to smaller screens */
+}
+
+
+
+/* Style the H1 */
+.container-quotes h1 {
+  font-size: 2rem;
+  margin-bottom: 20px; /* Add space between the H1 and the containers */
+  color: rgb(3, 3, 3);
+}
+
+
+h1 {
+    font-family: "Italiana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 20px;
+ justify-content: center;
+}
+p{
+
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.cta{
+    font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+#quote {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+#author {
+  font-style: italic;
+  color: #888;
+}
+
+button {
+  background-color: #939394;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
