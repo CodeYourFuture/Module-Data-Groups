@@ -1,1 +1,81 @@
-/** Write your CSS in here **/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4a63c;
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding-top: 8vh;
+}
+
+#quote-container {
+    background-color: white;
+    width: 70%;
+    max-width: 900px;
+    padding: 40px 60px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: left;
+    margin: auto;
+}
+
+#quote {
+    font-size: 2.1rem;
+    color: #e19028;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    position: relative;
+    left: 20px;
+}
+
+#quote::before {
+    content: "“";
+    font-size: 5rem;
+    color: #e19028;
+    position: absolute;
+    left: -50px;
+    top: -20px;
+    font-weight: bold;
+}
+
+#author {
+    font-size: 1.3rem;
+    color: #e19028;
+    font-style: italic;
+    margin-bottom: 30px;
+    text-align: right;
+    margin-bottom: 50px;
+}
+
+#new-quote {
+    display: inline-block;
+    background-color: #e19028;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute;
+    right: 60px;
+    bottom: 20px;
+}
+
+#new-quote:hover {
+    background-color: #d1831b;
+    transform: scale(1.05);
+}
+
+#new-quote:active {
+    transform: scale(0.95);
+}
