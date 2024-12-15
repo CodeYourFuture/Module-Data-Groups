@@ -3,13 +3,224 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>To-Do List</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+   <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: dimgray;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ece5e5;
+  margin-bottom: 20px;
+  text-align: center;
+}
+form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"], input[type="date"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+  border-color: #5c9ded;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #5c9ded;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #4a80c2;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px);
+  opacity: 0;
+  animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+span {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #333;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+span.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+i {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #5c9ded;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+i:hover {
+  color: #4a80c2;
+  transform: scale(1.1);
+}
+
+i:active {
+  transform: scale(0.95);
+}
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #5c9ded;
+  border-color: #5c9ded;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✔';
+  color: white;
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  font-size: 14px;
+}
+#remove-all-completed {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#remove-all-completed:hover {
+  background-color: #e75d5d;
+}
+
+#remove-all-completed:active {
+  transform: scale(0.98);
+}
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-right: 15px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+input[type="checkbox"]:checked {
+  background-color: #28a745; 
+  border-color: #28a745;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✔';
+  color: white;
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:not(:checked)::after {
+  content: ''; 
+}
+
+   </style>
   </head>
   <body>
-    <form>
+    <h1>To-Do List</h1>
+
+    <form onsubmit="addNewTodo(event)">
       <div>
-        <input type="text" placeholder="New todo..." />
+        <input type="text" id="new-todo-text" placeholder="New todo..." />
+        <input type="date" id="new-todo-deadline" />
       </div>
       <div>
         <button type="submit">Add Todo</button>
@@ -17,11 +228,15 @@
           type="button"
           id="remove-all-completed"
           class="btn btn-primary mb-3"
+          onclick="deleteAllCompletedTodos()"
         >
           Remove all completed
         </button>
       </div>
     </form>
+    <ul id="todo-list"></ul>
+
     <script src="script.js"></script>
   </body>
 </html>
+
