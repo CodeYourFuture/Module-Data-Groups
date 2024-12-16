@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quote Generator</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="quotes.js"></script>
-</head>
-
-<body>
-  <div id="quote-container">
-    <h1>Hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <input type="checkbox" id="myCheckbox"> Tick me to generate a new quote<br>
-  </div>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="quotes.js"></script>
+  </head>
+  <body>
+    <h1>Hello there click to generate a new quote.</h1>
+    <div id="quote-container">
+      <p id="quote"></p>
+      <p id="author"></p>
+      <button type="button" id="new-quote">New quote</button>
+      <!-- Container for Auto Generate label and checkbox -->
+      <div id="auto-generate-container">
+        <label for="auto-generate">Auto generate</label>
+        <input type="checkbox" id="auto-generate" name="terms" value="agree">
+      </div>
+    </div>
+  </body>
 </html>
