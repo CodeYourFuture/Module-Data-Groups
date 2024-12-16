@@ -1,1 +1,75 @@
-/** Write your CSS in here **/
+body {
+  background-color: orange;
+  text-align: center; /* Centers the content in the body */
+  font-family: Arial, sans-serif; /* Improve font readability */
+}
+
+h1 {
+  text-align: center; /* Centers the heading */
+  color: white;
+  margin-bottom: 20px; /* Adds some space below the heading */
+}
+
+#quote-container {
+  border: 5px solid black;
+  background-color: white;
+  width: 90%; /* Allow the container to be responsive */
+  max-width: 600px; /* Prevent it from growing too large */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center the quote text horizontally */
+  gap: 20px; /* Adds space between elements inside the container */
+  box-sizing: border-box; /* Ensure padding and borders are included in the width/height */
+}
+
+#quote {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center; /* Center the quote text */
+  margin-bottom: 10px; /* Adds space between the quote and author */
+  color: orange;
+}
+
+#author {
+  text-align: right; /* Align the author text to the right */
+  width: 100%; /* Takes up full width */
+  color: orange;
+  margin-top: -10px; /* Optional: Adjust margin to make it more visually balanced */
+}
+
+#new-quote {
+  font-weight: bold;
+  padding: 10px 20px; /* Controls the button padding */
+  font-size: 16px; /* Adjusts the font size */
+  text-align: center; /* Ensures the button text is centered */
+  cursor: pointer; /* Adds a pointer cursor when hovering over the button */
+  background-color: orange;
+  color: white;
+  border: none; /* Remove border for a cleaner look */
+  border-radius: 5px; /* Adds rounded corners */
+  align-self: flex-end; /* Align the button to the right side of the container */
+  transition: background-color 0.3s ease; /* Add transition for hover effect */
+}
+
+#new-quote:hover {
+  background-color: darkorange; /* Darker orange when hovering */
+}
+
+label, input {
+  margin: 5px;  /* Add space between elements */
+}
+
+/* Flex container for the checkbox and label */
+#auto-generate-container {
+  display: flex;
+  align-items: center; /* Vertically align checkbox and label */
+  justify-content: flex-end; /* Align the checkbox and label to the right */
+  width: 100%; /* Take up full width of the container */
+}
+
+/* Additional styling for the checkbox */
+#auto-generate {
+  margin-left: 5px; /* Adds space between checkbox and label */
+}
