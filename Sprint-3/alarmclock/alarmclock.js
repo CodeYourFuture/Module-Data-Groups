@@ -33,6 +33,7 @@ function resumeAlarm() {
     startTimer();
   }
 }
+// Updates the displayed time remaining in the format MM:SS.
 function updateDisplay(seconds) {
   const timeRemainingDisplay = document.getElementById("timeRemaining");
   const minutes = Math.floor(seconds / 60);
