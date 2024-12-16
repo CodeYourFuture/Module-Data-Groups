@@ -1,3 +1,28 @@
+function readingList(books) {
+  const readingListContainer = document.getElementById("reading-list");
+
+  books.forEach((book) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("book-item", book.alreadyRead ? "green" : "red");
+
+    const titleAuthor = document.createElement("h3");
+     titleAuthor.innerHTML = `<span style="font-size: 2rem;">${book.title}<span>
+     <span style="font-size: 1.5rem;">by </span>
+     <span style="font-size: 2rem;">${book.author}</span>`;
+    listItem.appendChild(titleAuthor);
+
+    const coverImage = document.createElement("img");
+    coverImage.src = book.bookCoverImage;
+    listItem.appendChild(coverImage);
+
+    readingListContainer.appendChild(listItem);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  readingList(books);
+});
+
 // for the tests, do not modify this array of books
 const books = [
   {
