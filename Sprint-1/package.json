@@ -1,8 +1,8 @@
 {
-  "name": "week-1",
+  "name": "module-data-groups-sprint-1",
   "version": "1.0.0",
   "description": "This README will guide you through the different sections for this week.",
-  "main": "writers.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
