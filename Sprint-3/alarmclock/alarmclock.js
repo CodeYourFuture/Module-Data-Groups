@@ -1,51 +1,58 @@
 var audio = new Audio("alarmsound.mp3");
+let countdownInterval = null; // Global variable to track the countdown interval
 
 function setAlarm() {
-  const time = parseInt(document.getElementById("alarmSet").value); // Fetch the value of the input in seconds
-
-  document.querySelector(".quadrat").classList.add("disabled"); // Disable the .quadrat element
+  const input = document.getElementById("alarmSet");
+  const time = parseInt(input.value, 10); // Fetch the value of the input in seconds
 
   if (isNaN(time) || time <= 0) {
     alert("Please enter a valid number of seconds.");
     return;
   }
 
-  // Display the initial time remaining
-  document.getElementById("timeRemaining").innerHTML =
-    "Time Remaining: " + formatTime(time);
+  // Clear any existing countdown to prevent overlapping intervals
+  clearInterval(countdownInterval);
 
-  // Start the countdown
-  startCountdown(time);
+  document.querySelector(".quadrat").classList.add("disabled"); // Disable the .quadrat element
+  updateTimeDisplay(time); // Display the initial time remaining
+  startCountdown(time); // Start the countdown
 }
 
-function startCountdown(timeRemaining) {
-  let time = timeRemaining;
+function startCountdown(initialTime) {
+  let time = initialTime;
 
-  // Update the time remaining every second
-  const countdownInterval = setInterval(() => {
+  countdownInterval = setInterval(() => {
     if (time <= 0) {
       clearInterval(countdownInterval);
-      document.getElementById("timeRemaining").innerHTML = "Time's up!";
-      playAlarm(); // Play alarm when time is up
-      triggerFlash(); // Trigger the flashing effect
+      countdownInterval = null; // Reset the interval reference
+      updateTimeDisplay(0);
+      handleAlarmEnd(); // Handle end-of-alarm behavior
     } else {
-      time--; // Decrease time by 1 second
-      document.getElementById("timeRemaining").innerHTML =
-        "Time Remaining: " + formatTime(time);
+      time--;
+      updateTimeDisplay(time); // Update the displayed time
     }
   }, 1000);
 }
 
-// Function to trigger the flashing effect
+function handleAlarmEnd() {
+  document.getElementById("timeRemaining").innerHTML = "Time's up!";
+  playAlarm(); // Play alarm sound
+  triggerFlash(); // Trigger the flashing effect
+}
+
+function updateTimeDisplay(seconds) {
+  document.getElementById("timeRemaining").innerHTML =
+    "Time Remaining: " + formatTime(seconds);
+}
+
 function triggerFlash() {
   document.querySelector(".quadrat").classList.add("flash"); // Add the flash class to .quadrat
 }
 
-// Helper function to format time from seconds to HH:MM:SS
 function formatTime(seconds) {
-  let hours = Math.floor(seconds / 3600);
-  let minutes = Math.floor((seconds % 3600) / 60);
-  let remainingSeconds = seconds % 60;
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
 
   return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(
     2,
@@ -53,10 +60,14 @@ function formatTime(seconds) {
   )}:${String(remainingSeconds).padStart(2, "0")}`;
 }
 
+// Event listener for stopping the alarm
 document.getElementById("stop").addEventListener("click", () => {
+  clearInterval(countdownInterval); // Clear any active countdown interval
+  countdownInterval = null; // Reset the interval reference
   pauseAlarm(); // Stop the alarm
-  document.querySelector(".quadrat").classList.remove("flash"); // Disable the .quadrat element
+  document.querySelector(".quadrat").classList.remove("flash"); // Remove the flashing effect
 });
+
 // Function to play the alarm sound
 function playAlarm() {
   audio.play();
