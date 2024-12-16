@@ -490,14 +490,25 @@ const quotes = [
   },
 ];
 
-function checkCheckbox() {
-	const checkbox = document.getElementById('myCheckbox');
-      if (checkbox.checked) {
-      	let quote = pickFromArray(quotes)
-		document.getElementById("quote").innerHTML = quote.quote;
-		document.getElementById("author").innerHTML = quote.author;
-      } 
+// call pickFromArray with the quotes array to check you get a random quote
+
+document.getElementById('quote').innerHTML = `"${(pickFromArray(quotes).quote)}"`
+document.getElementById('author').innerHTML = `- ${ pickFromArray(quotes).author}`;
+
+document.getElementById('new-quote').addEventListener("click", function (e) {
+	document.getElementById('quote').innerHTML = `"${(pickFromArray(quotes).quote)}"`
+	document.getElementById('author').innerHTML = `- ${ pickFromArray(quotes).author}`;
+})
+
+function checkBox() {
+	const checkbox = document.getElementById('auto-generate');
+    if (checkbox.checked) {
+    	// Only update the quote if the checkbox is checked
+        document.getElementById('quote').innerHTML = `"${ pickFromArray(quotes).quote}"`;
+        document.getElementById('author').innerHTML = `- ${ pickFromArray(quotes).author}`;
+      }
 }
-let intervalId = setInterval(function() {
-	checkCheckbox();
- }, 4000);
+
+setInterval(function() {
+	checkBox(); // Only check if the box is checked      
+}, 2000);
