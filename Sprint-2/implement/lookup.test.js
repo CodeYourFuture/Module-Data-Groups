@@ -33,3 +33,25 @@ It should return:
    'CA': 'CAD'
  }
 */
+test("should return the corresponding currency code", () => {
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toStrictEqual({
+    US: "USD",
+    CA: "CAD",
+  });
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+      ["UK", "GB"],
+    ])
+  ).toStrictEqual({
+    US: "USD",
+    CA: "CAD",
+    UK: "GB",
+  });
+});
