@@ -24,13 +24,19 @@ const btn = document.getElementById("new-quote");
 const quoteElement = document.getElementById("quote");
 const authorElement = document.getElementById("author");
 
-btn.addEventListener("click", function () {
+function displayRandomQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   const randomQuote = quotes[randomIndex];
 
   quoteElement.textContent = randomQuote.quote;
   authorElement.textContent = "- " + randomQuote.author;
-});
+}
+
+// Display a random quote on page load
+window.addEventListener("DOMContentLoaded", displayRandomQuote);
+
+// Change quote when the button is clicked
+btn.addEventListener("click", displayRandomQuote);
 
 function getRandomColor() {
   // Generate a random color in RGB format
@@ -40,6 +46,8 @@ function getRandomColor() {
   const alpha = (Math.random() * 0.5 + 0.3).toFixed(2); // Generate alpha between 0.3-0.8
   return `rgba(${r}, ${g}, ${b}, ${alpha})`; // Return light and transparent color
 }
+
+
 
 function setRandomGradient() {
   // Get two random colors
