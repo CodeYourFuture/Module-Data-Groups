@@ -6,6 +6,3 @@ function sum(elements) {
 }
 
 module.exports = sum;
-
-console.log(sum(["hey", 10, "hi", 60, 10])); // 80
-console.log(sum([])); // 0
