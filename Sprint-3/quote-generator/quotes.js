@@ -491,3 +491,35 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+const quoteEl = document.getElementById("quote");
+const authorEl = document.getElementById("author");
+const newQuoteBtn = document.getElementById("new-quote");
+const autoToggle = document.getElementById("auto-toggle");
+const autoplayStatus = document.getElementById("autoplay-status");
+
+let autoInterval = null;
+
+function displayNewQuote() {
+  const chosen = pickFromArray(quotes);
+  quoteEl.textContent = chosen.quote;
+  authorEl.textContent = chosen.author;
+}
+
+// Handle manual new quote generation
+newQuoteBtn.addEventListener("click", displayNewQuote);
+
+autoToggle.addEventListener("change", function () {
+  if (autoToggle.checked) {
+    // Turn on auto-play
+    autoplayStatus.textContent = "auto-play: ON";
+    autoInterval = setInterval(displayNewQuote, 5000);
+  } else {
+    // Turn off auto-play
+    autoplayStatus.textContent = "auto-play: OFF";
+    clearInterval(autoInterval);
+    autoInterval = null;
+  }
+});
+
+displayNewQuote();
