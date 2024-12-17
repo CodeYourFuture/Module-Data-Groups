@@ -1,4 +1,5 @@
 // Predict and explain first...
+//I think we will get an error. Objects dont work with indexing. We will either have to use the dot notation or the bracket notation
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
@@ -11,5 +12,5 @@ const address = {
   country: "England",
   postcode: "XYZ 123",
 };
-
-console.log(`My house number is ${address[0]}`);
+//couls also use address.houseNumber
+console.log(`My house number is ${address["houseNumber"]}`);
