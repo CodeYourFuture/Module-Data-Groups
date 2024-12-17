@@ -12,11 +12,11 @@ function sum(elements) {
         //loop through element that is considered a number and add it to sumValue
 
         for (let i = 0; i < elements.length; i++) {
-            if (!isNaN(elements[i])) {
+            if (!isNaN(Number(elements[i]))) {
 
                 isNumberAvailable = true;
 
-                sumValue += elements[i];
+                sumValue += Number(elements[i]);
 
             }
 
@@ -34,6 +34,6 @@ function sum(elements) {
 // console.log(sum(['hey', 10, 'hi', 60, 10]))
 // console.log(sum(['serna', 'malala', 'sernamalala', 'hello', 'annyeong', 'hola', 'bonjour']))
 
-
+console.log(sum([1, "5", 1]));
 
 module.exports = sum;
