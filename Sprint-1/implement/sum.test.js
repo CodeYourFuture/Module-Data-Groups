@@ -47,7 +47,7 @@ const targetOutput2 = 21.96;
 
 test('It should check if the minimal value of the subtraction is less than epsilon', () => {
     const epsilon = 1e-10;
-    expect(Math.abs(currentOutput2 - targetOutput)).toBeLessThan(epsilon);
+    expect(Math.abs(currentOutput2 - targetOutput2)).toBeLessThan(epsilon);
 })
 // Given an array containing non-number values
 // When passed to the sum function
