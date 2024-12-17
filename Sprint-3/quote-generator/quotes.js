@@ -3,12 +3,9 @@ const quoteBlock = document.getElementById("quote");
 const authorBlock = document.getElementById("author");
 
 function displayQuote() {
-  let chosenQuoteObject = pickFromArray(quotes);
-  let chosenQuoteArray = Object.entries(chosenQuoteObject);
-  let chosenQuoteString = chosenQuoteArray[0][1];
-  let chosenAuthorString = chosenQuoteArray[1][1];
-  quoteBlock.textContent = `"${chosenQuoteString}"`;
-  authorBlock.textContent = `${chosenAuthorString}`;
+  let chosenQuoteObject = pickFromArray(quotes); 
+  quoteBlock.textContent = `"${chosenQuoteObject.quote}"`;
+  authorBlock.textContent = `${chosenQuoteObject.author}`;
 }
 newQuoteBtn.addEventListener('click', displayQuote);
 window.addEventListener('load', displayQuote);
