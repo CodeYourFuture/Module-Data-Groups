@@ -1,6 +1,4 @@
-const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
@@ -33,3 +31,44 @@ It should return:
    'CA': 'CAD'
  }
 */
+// Function implementation
+
+
+// Test cases
+
+// Import the function to test
+const createLookup = require('./lookup'); // Replace './createLookup' with the correct file path
+
+// Test Suite for createLookup
+describe('createLookup', () => {
+  
+  test('should return a lookup object for a valid input', () => {
+    const input = [['US', 'USD'], ['CA', 'CAD']];
+        const expectedOutput = { US: 'USD', CA: 'CAD' };
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+
+     test('should return an empty object for an empty input array', () => {
+  const input = [];
+    const expectedOutput = {};
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+
+  test('should overwrite duplicate keys with the last occurrence', () => {
+    const input = [['US', 'USD'], ['US', 'USDT']];
+       const expectedOutput = { US: 'USDT' };
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+
+  test('should handle input with multiple key-value pairs', () => {
+    const input = [['US', 'USD'], ['CA', 'CAD'], ['GB', 'GBP'], ['EU', 'EUR']];
+    const expectedOutput = { US: 'USD', CA: 'CAD', GB: 'GBP', EU: 'EUR' };
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+
+  test('should handle keys and values with unusual strings', () => {
+    const input = [['', 'EMPTY'], ['123', 'NUMERIC'], ['special!@#', 'SPECIAL']];
+    const expectedOutput = { '': 'EMPTY', '123': 'NUMERIC', 'special!@#': 'SPECIAL' };
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+});
