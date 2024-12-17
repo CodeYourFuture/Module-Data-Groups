@@ -17,6 +17,6 @@ const author = {
 //to access the value we can use the for in loop which is suitable for objects
 
 for (const value in author) {
-  console.log(`${value}`);
+  console.log(`${author[value]}`);
 }
 
