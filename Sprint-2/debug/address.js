@@ -1,4 +1,7 @@
 // Predict and explain first...
+    // The address onject is being treated like an array. If address was an array,
+    // address[0] would be the index of the house number. This is however an object.
+    // to access the houseNumber, you would use address.houseNumber
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
@@ -12,4 +15,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
