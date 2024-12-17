@@ -6,13 +6,15 @@ function contains(objectGiven, element) {
             //if property is the same as the given element
             return true;
         }
-        return false;
+
     }
+
+    return false;
 
 }
 
-console.log(contains({ a: 1, b: 2 }, 'a'));
-console.log(contains({ a: 1, b: 2 }, 'c'));
-console.log(contains(['a', 1, 'b', 2], 'c'));
+// console.log(contains({ a: 1, b: 2 }, 'a'));
+// console.log(contains({ a: 1, b: 2 }, 'c'));
+// console.log(contains(['a', 1, 'b', 2], 'c'));
 
 module.exports = contains;
