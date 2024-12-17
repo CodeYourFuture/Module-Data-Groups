@@ -1,22 +1,25 @@
 function createLookup(input) {
-  // implementation here
-
   let currencyPairs = {};
-  //the input will be an array of arrays
 
-  for (const singleArray of input) {
-    if (singleArray.length === 2) {
-      //get a single array, loop through that and get the property and value
-      currencyPairs[singleArray[0]] = singleArray[1];
+  // Check if input is an array
+  if (Array.isArray(input)) {
+    // Loop through each array in the input
+    for (const singleArray of input) {
+      // Ensure each item is an array with exactly two elements
+      if (Array.isArray(singleArray) && singleArray.length === 2) {
+        // Add key-value pair to the result object
+        currencyPairs[singleArray[0]] = singleArray[1];
+      } else {
+        // Log error for invalid pairs
+        console.error(`Invalid input ${singleArray}`);
+      }
     }
-    else {
-      console.error(`Invalid input ${singleArray}`);
-    }
+  } else {
+    // Log error if the input is not an array of arrays
+    console.error(`Invalid input, this is not an array of arrays ${input}`);
   }
 
   return currencyPairs;
-
 }
-
 //console.log(createLookup([['US', 'USD'], ['CA', 'CAD']]));
 module.exports = createLookup;
