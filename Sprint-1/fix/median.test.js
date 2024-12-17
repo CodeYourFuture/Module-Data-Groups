@@ -14,7 +14,8 @@ describe("calculateMedian", () => {
 
   test("returns the average of middle values for even length array", () => {
     expect(calculateMedian([1, 2, 3, 4])).toEqual(2.5);
-    expect(calculateMedian([1, 2, 3, 4, 5, 6])).toEqual(3.5);
+    expect(calculateMedian([1, 2, 3, 4, 5, 6])).toEqual(3.5); //adjusted the value to of (4+3)/2
+    
   });
 
   test("doesn't modify the input", () => {
