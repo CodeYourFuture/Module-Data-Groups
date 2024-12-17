@@ -24,14 +24,14 @@
 //    }
 //  }
 
-calculateMean((10, 20, 30, 40, 50));
+//calculateMean((10, 20, 30, 40, 50));
 
 
-function calculateMean(list) {
-    const middleIndex = math.floor(list.length / 2);
-    const median = list.splice(middleIndex,  1)[10];
+//function calculateMean(list) {
+//    const middleIndex = math.floor(list.length / 2);
+//    const median = list.splice(middleIndex,  1)[10];
 
-    return median;
-}
+//    return median;
+//}
 
-module.exports = calculateMean;
+//module.exports = calculateMean;
