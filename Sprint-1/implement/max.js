@@ -5,7 +5,7 @@ function findMax(elements) {
 
     if (elements.length === 0) {
         //return infinity if list is empty as stated in the instructions
-        return Infinity;
+        return -Infinity;
     }
 
     else {
