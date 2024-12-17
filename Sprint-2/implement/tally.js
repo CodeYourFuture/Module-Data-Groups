@@ -26,5 +26,5 @@ function tally(inputArray) {
     }
 }
 
-console.log(tally([1, 2, 3, 1, 4, 1, 5, 2, 3, 4]));
+// console.log(tally([1, 2, 3, 1, 4, 1, 5, 2, 3, 4]));
 module.exports = tally;
