@@ -17,22 +17,21 @@ function img_change_add() {
   var img = document.getElementById("img");
   
 
-  if (number_img < 5) {
-    number_img += 1;
-  } else {
-    number_img = 5;
-  }
+   if (number_img < total_images) {
+     number_img += 1;
+   } else {
+     number_img = 1; 
+   }
   img.src = "/Sprint-3/slideshow/assets/cute-cat-" + number_img + ".jpg";
 }
 
 function img_change_sub() {
   var img = document.getElementById("img");
   
-
-  if (number_img > 1) {
-    number_img -= 1;
-  } else {
-    number_img = 1;
-  }
+ if (number_img > 1) {
+   number_img -= 1;
+ } else {
+   number_img = total_images;
+ }
  img.src = "/Sprint-3/slideshow/assets/cute-cat-" + number_img + ".jpg";
 }

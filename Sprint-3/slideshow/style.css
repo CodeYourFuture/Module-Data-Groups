@@ -1,11 +1,9 @@
-
-body{
+body {
   margin: 0;
   padding: 0;
-  text-align: center; 
+  text-align: center;
   font-family: Arial, sans-serif;
-  background-color: #ffffff; 
- 
+  background-color: #ffffff;
 }
 
 /*honk-<uniquifier> {
@@ -23,7 +21,6 @@ body{
   font-style: normal;
 }*/
 
-
 h1 {
   margin-top: 130px;
   font-family: "Honk", serif;
@@ -35,43 +32,37 @@ h1 {
     "SHLN" 50;
 }
 
-
 #container {
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%vh;
-  
 }
 
 /* Image styling */
 #img {
-  max-width: 50%; 
-  height: auto; 
+  max-width: 50%;
+  height: auto;
   border-radius: 25px;
   border-color: #58e715;
   border-style: dotted;
   border: 10px solid;
-   
 }
 
-
 .button-container {
-  display: flex; 
-  gap: 15px; 
+  display: flex;
+  gap: 15px;
   justify-content: center;
   padding-bottom: 300px;
   margin-bottom: 300px;
   margin-top: 40px;
-  
 }
 
-/* Button styling */
 button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #fc00ca; /* Green button */
+  background-color: #fc00ca;
   color: white;
   border: none;
   border-radius: 5px;
@@ -85,5 +76,5 @@ button {
 }
 
 button:hover {
-  background-color: #fa7900; /* Slightly darker green on hover */
+  background-color: #fa7900;
 }
