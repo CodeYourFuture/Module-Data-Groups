@@ -10,6 +10,12 @@ as the object contains a key of 'a'
 E.g. contains({a: 1, b: 2}, 'c') // returns false
 as the object doesn't contains a key of 'c'
 */
+describe("function contains", () => {
+    test("When passed an object and a property name, it should return true if the object contains the property ", () => {
+        expect(contains({ name: "Mike", age: 25, city: "Cape Town" }, "age")).toEqual(true);
+    });
+})
+
 
 // Acceptance criteria:
 
@@ -20,7 +26,6 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
 
 // Given an object with properties
 // When passed to contains with an existing property name
