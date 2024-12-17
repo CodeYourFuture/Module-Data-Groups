@@ -4,8 +4,13 @@
 
 const fs = require('fs');
 //the input from input.txt
-//for some reason this is only working with the absolute path
-const textInput = fs.readFileSync('/home/serna-malala/CYF/Module-Data-Groups/Sprint-1/stretch/aoc-2018-day1/input.txt', 'utf-8');
+
+const path = require('path');
+//The assumption is that the user is in the right directory
+//hence the use of __dirname
+const filePath = path.join(__dirname, 'input.txt')
+//join the current path with input.txt
+const textInput = fs.readFileSync(filePath, 'utf-8');
 
 
 //split the lines and make sure that they are numeric
