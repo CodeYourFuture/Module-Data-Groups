@@ -1,17 +1,17 @@
 
-const images = [
+/*const images = [
   "./assets/cute-cat-1.png",
   "./assets/cute-cat-2.jpg",
   "./assets/cute-cat-3.jpg",
   "./assets/cute-cat-4.jpg",
   "./assets/cute-cat-5.jpg",
 ];
-
+*/
 
 // Write your code here
 
 var number_img = 1;
-var total_images = 5; // Good practice to keep track of the total
+var total_images = 5;
 
 function img_change_add() {
   var img = document.getElementById("img");
