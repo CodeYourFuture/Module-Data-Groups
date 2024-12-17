@@ -1,14 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
-    <script defer src="slideshow.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk&family=Italiana&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <title>Image Carousel</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <img id="carousel-img" src="./assets/cute-cat-a.png" alt="cat-pic" />
-    <button type="button" id="backward-btn">Backwards</button>
-    <button type="button" id="forward-btn">Forward</button>
+    <h1>Choose your Favourite Cat</h1>
+    <div id ="container">
+    <img src="/Sprint-3/slideshow/assets/cute-cat-3.jpg" id="img" alt="cute cat images sideshows">
+    </div>
+    <div class="button-container">
+    <button type="button" onclick="img_change_add() " id="forward-btn">Forward</button>
+    <button type="button" onclick="img_change_sub()" id="backward-btn">Backwards</button>
+    </div>
+    <script src="slideshow.js"></script>
+
   </body>
 </html>
