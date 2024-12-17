@@ -12,7 +12,19 @@ as the object doesn't contains a key of 'c'
 */
 describe("function contains", () => {
     test("When passed an object and a property name, it should return true if the object contains the property ", () => {
-        expect(contains({ name: "Mike", age: 25, city: "Cape Town" }, "age")).toEqual(true);
+        expect(contains({ name: "Mike", age: 25, city: "Cape Town"}, "age")).toEqual(true);
+    });
+
+    test("When passed an empty object, it should return false ", () => {
+        expect(contains({}, "age")).toEqual(false);
+    });
+
+    test("When passed an object with a non-existent property name, it should return false ", () => {
+        expect(contains({name: "Mike", age: 25, city: "Cape Town" }, "band")).toEqual(false);
+    });
+
+    test("When passed an invalid parameters like an array, it should return false ", () => {
+        expect(contains([true, "Mike", 35, "City"], "Mike")).toEqual(false);
     });
 })
 
