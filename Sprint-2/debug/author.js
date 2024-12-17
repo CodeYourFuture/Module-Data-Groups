@@ -1,5 +1,5 @@
 // Predict and explain first...
-    //I think the problem in this problem is the for loop syntax,,,(for in) is used for object iteration and accessing the values we can use author[key]
+    //I think the problem in this CODE is the for loop syntax,,,(for in) is used for object iteration and accessing the values we can use author[key]
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
