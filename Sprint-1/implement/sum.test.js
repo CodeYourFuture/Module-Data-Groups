@@ -45,8 +45,9 @@ test('It should return the sum of the negatives', () => {
 const currentOutput2 = sum([0.10, 2.45, 5.45, 9.46, 4.5]);
 const targetOutput2 = 21.96;
 
-test('It should return the sum of the decimals', () => {
-    expect(currentOutput2).toEqual(targetOutput2);
+test('It should check if the minimal value of the subtraction is less than epsilon', () => {
+    const epsilon = 1e-10;
+    expect(Math.abs(currentOutput2 - targetOutput)).toBeLessThan(epsilon);
 })
 // Given an array containing non-number values
 // When passed to the sum function
