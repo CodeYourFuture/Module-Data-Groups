@@ -10,7 +10,7 @@ const author = {
   age: 40,
   alive: true,
 };
-
-for (const value of author) {
-  console.log(value);
+//The code wasn't working because of the for...of loop, we can only iterate through an object using the for...in loop
+for (const value in author) {
+  console.log(author[value]);
 }
