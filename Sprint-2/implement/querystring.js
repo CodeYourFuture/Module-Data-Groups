@@ -11,6 +11,8 @@ function parseQueryString(queryString) {
 
   // Iterate over the key-value pairs
   for (const pair of keyValuePairs) {
+    if(pair === "") continue;
+
     const [key, ...valueParts] = pair.split("=");  // Split only at the first "="
     let value;
 
@@ -19,7 +21,7 @@ function parseQueryString(queryString) {
       value = valueParts.join("=");
     } else {
       // If no value parts, set value to undefined
-      value = undefined;
+      value = "";
     }
 
     // Decode both the key and value (key should be decoded as well if needed)
