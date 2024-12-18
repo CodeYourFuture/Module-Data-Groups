@@ -13,3 +13,35 @@
 h1 {
   text-align: center;
 }
+.quadrat {
+  width: 100%;
+  height: 1000px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+  transition: all 0.5s ease; /* Smooth transition for changes */
+}
+
+.disabled {
+  background-color: gray;
+  pointer-events: none;
+}
+
+/* Flashing effect */
+@keyframes flash {
+  0% {
+    background-color: red; /* Flash color */
+  }
+  50% {
+    background-color: yellow; /* Flash color */
+  }
+  100% {
+    background-color: red; /* Flash color */
+  }
+}
+
+.flash {
+  animation: flash 1s infinite; /* Flash every second */
+}
