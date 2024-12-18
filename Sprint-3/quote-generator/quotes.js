@@ -16,12 +16,42 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+// Function to pick a random element from an array
+function pickFromArray(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// A list of quotes you can use in your app.
-// DO NOT modify this array, otherwise the tests may break!
+// DOM Elements
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+const generateButton = document.getElementById("new-quote");
+const autoplayToggle = document.getElementById("autoplayToggle");
+const autoplayStatus = document.getElementById("autoplayStatus");
+
+// Autoplay interval reference
+let autoplayInterval = null;
+
+// Function to display a random quote
+function displayQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteElement.textContent = randomQuote.quote;
+  authorElement.textContent = `- ${randomQuote.author}`;
+}
+
+// Function to handle autoplay toggle
+function toggleAutoplay() {
+  if (autoplayToggle.checked) {
+    autoplayStatus.textContent = "Auto-play: ON";
+    autoplayInterval = setInterval(displayQuote, 5000); // Set to 5000ms (5 seconds)
+  } else {
+    autoplayStatus.textContent = "Auto-play: OFF";
+    clearInterval(autoplayInterval);
+  }
+}
+
+// Event Listeners
+generateButton.addEventListener("click", displayQuote);
+autoplayToggle.addEventListener("change", toggleAutoplay);
 const quotes = [
   {
     quote: "Life isn't about getting and having, it's about giving and being.",
