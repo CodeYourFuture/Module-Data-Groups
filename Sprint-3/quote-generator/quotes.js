@@ -1,3 +1,16 @@
+function generateQuote() {
+  const newQuotes = [];
+  newQuotes.push(pickFromArray(quotes));
+  for (const quote of newQuotes) {
+    document.getElementById('quote').textContent = `" ${quote.quote}" `;
+    document.getElementById('author').textContent = `~ ${quote.author}`;
+    console.log(quote.quote, quote.author);
+  }
+}
+document.getElementById('new-quote').addEventListener('click', () => {
+  generateQuote();
+});
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -491,3 +504,5 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+window.onload = generateQuote();
