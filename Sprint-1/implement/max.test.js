@@ -16,28 +16,80 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test.todo("given an empty array, returns -Infinity"), () => {
+    const arr = [];
+    const maxNumber = findMax(numbers, numbers.length)
+
+    expect(maxNumber).toEqual(-Infinity)
+}
 
 // Given an array with one number
 // When passed to the max function
-// Then it should return that number
+// Then it should return that number 
+
+test.todo("given an with one number"), () => {
+    const arr = [a, b, c, d, 56];
+    const maxNumber = findMax(numbers, numbers.length)
+
+    expect(maxNumber).toEqual(-56)
+}
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
 
+test.todo("returns absolute values of an array"), () => {
+    const arr = [-3, 7, 4, -89, -90];
+
+    const maxNumber = findMax(numbers, numbers.length)
+
+    expect(maxNumber).toEqual(-80)
+}
+
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+
+test.todo("given an array with negative numbers"), () => {
+    const arr = [-30, -45, -3, -60, 56];
+    const maxNumber = findMax(numbers, numbers.length)
+
+    expect(maxNumber).toEqual(-60)
+}
+
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
 
+test.todo("given an array with decimal numbers"), () => {
+    const arr = [3.4, 4.5, 8.9, 7.8, 5.6];
+    const maxNumber = findMax(numbers, numbers.length)
+
+    expect(maxNumber).toEqual(-7.8)
+}
+
+
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 
+test.todo("given an array with non-number values"), () => {
+    const arr = [a, b, c, d, 56];
+    const maxNumber = findMax(numbers, numbers.length)
+
+    expect(maxNumber).toEqual(56)
+}
+
+
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+test.todo("given an array with only non-number values"), () => {
+    const arr = [a, b, c, d, r];
+    const maxNumber = findMax(numbers, numbers.length)
+
+    expect(maxNumber).toEqual(-null)
+}
+
