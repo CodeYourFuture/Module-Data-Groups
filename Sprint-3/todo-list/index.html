@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form>
+   <!---<form>
       <div>
         <input type="text" placeholder="New todo..." />
       </div>
@@ -21,7 +21,33 @@
           Remove all completed
         </button>
       </div>
-    </form>
+    </form>-->
+
+    <!-- Conatiner input tasks-->
+     
+    <div class= "container">
+      <div class= "todo-app" >
+<h2>To-Do-List <img src="assets/icon.png" alt="icon of aa arrow"></h2>
+<div class="row">
+  <input type="text" id="input-box" placeholder="New todo...">
+<button onclick="addTask()" >ADD</button>
+ </div>
+
+<!--Edn of Conatiner input tasks-->
+
+<!--List-->
+<ul id=" list-container">
+<!--<li class="checked">task 1</li>
+<li>task 2</li>
+<li>task 3</li> -->
+
+</ul>
+
+   
+
+      </div>
+      </div>
+
     <script src="script.js"></script>
   </body>
 </html>
