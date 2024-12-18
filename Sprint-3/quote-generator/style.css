@@ -1,1 +1,76 @@
-/** Write your CSS in here **/
+body {
+    background-color: #66b178;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+#quote-container {
+    background-color: white;
+    width: 600px;
+    height: 300px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#quote {
+    font-size: 28px;
+    font-weight: bold;
+    color: #66b178;
+    margin: 0;
+    text-align: right;
+}
+
+#author {
+    font-size: 22px;
+    font-style: italic;
+    color: #66b178;
+    margin-top: 20px;
+    text-align: right;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#auto-play-status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+    font-size: 16px;
+}
+
+#new-quote {
+    margin-top: 20px;
+}
