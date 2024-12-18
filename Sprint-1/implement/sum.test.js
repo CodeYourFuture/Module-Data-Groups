@@ -41,6 +41,11 @@ test("add decimal float and return correct total", () => {
   expect(sum([1.1, 2.2, 3.3, 1, 2])).toBe(9.6);
 });
 
+//test floating number
+test("test floating number", () => {
+  expect(sum([1.1, 1.1, 1.1])).toBe(3.3);
+});
+
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
