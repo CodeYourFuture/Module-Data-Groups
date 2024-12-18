@@ -26,3 +26,17 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+const countWords = (sentence) => {
+  let results  = sentence.replace(/[.,!?]/g, "").toLowerCase();
+  let words = Array.from(results.split(' '));
+  
+  return words.reduce((acc, word) => {
+    acc[word] = (acc[word] || 0) + 1;
+    return acc;
+  }, {});
+}
+
+
+console.log(countWords("you and me and you"));
+console.log(countWords("Hello, mate! I hello hope you are alright, aren't you?"))
