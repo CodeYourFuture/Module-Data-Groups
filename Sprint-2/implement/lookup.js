@@ -1,6 +1,6 @@
 
 function createLookup(countryCurrencyPairs) {
-  if (!Array.isArray(countryCurrencyPairs) || countryCurrencyPairs === null) {
+  if (!Array.isArray(countryCurrencyPairs)) {
     return {};
   }
 
