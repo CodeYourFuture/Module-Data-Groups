@@ -1,3 +1,24 @@
+// 〰️ Select DOM elements from the page
+const quoteText = document.querySelector("#quote"); // 〰️ Element where the quote text will be displayed
+const authorText = document.querySelector("#author"); // 〰️ Element where the author's name will be displayed
+const newQuoteButton = document.querySelector("#new-quote"); // 〰️ Button to trigger displaying a new quote
+
+// 〰️ Function to display a random quote from the quotes array
+function displayRandomQuote() {
+  // 〰️ Use the provided pickFromArray function to select a random quote
+  const randomQuote = pickFromArray(quotes);
+
+  // 〰️ Update the text content of the quote and author elements
+  quoteText.textContent = randomQuote.quote; // 〰️ Set the quote text
+  authorText.textContent = randomQuote.author; // 〰️ Set the author's name
+}
+
+// 〰️ Ensure a quote is displayed as soon as the page is fully loaded
+window.addEventListener("DOMContentLoaded", displayRandomQuote);
+
+// 〰️ Update the displayed quote when the button is clicked
+newQuoteButton.addEventListener("click", displayRandomQuote);
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
