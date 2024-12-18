@@ -10,7 +10,7 @@
 
 function contains(obj, key) {
     // Ensure obj is an actual object (and not null)
-    if (typeof obj !== 'object' || obj === null) {
+    if (typeof obj !== 'object' || obj === null || Array.isArray(obj)) {
       return false;  // Or throw an error if you prefer
     }
     
