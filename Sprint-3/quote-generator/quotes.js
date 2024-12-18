@@ -1,3 +1,19 @@
+function displayQuote(){
+  const randomQuote = pickFromArray(quotes) // this will pick random quote
+  const quote = document.getElementById("quote");
+  const author = document.getElementById("author")
+
+  quote.textContent = `${randomQuote.quote}`
+  author.textContent = `${randomQuote.author}`
+
+}
+// Set an event listener for the "New quote" button
+document.getElementById('new-quote').addEventListener('click', displayQuote);
+
+// Call displayQuote once when the page loads to show the first quote.
+window.addEventListener('load', displayQuote);
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -492,17 +508,3 @@ const quotes = [
 
 // call pickFromArray with the quotes array to check you get a random quote
 
-function displayQuote(){
-  const randomQuote = pickFromArray(quotes) // this will pick random quote
-  const quote = document.getElementById("quote");
-  const author = document.getElementById("author")
-
-  quote.textContent = `${randomQuote.quote}`
-  author.textContent = `${randomQuote.author}`
-
-}
-// Set an event listener for the "New quote" button
-document.getElementById('new-quote').addEventListener('click', displayQuote);
-
-// Call displayQuote once when the page loads to show the first quote.
-window.addEventListener('load', displayQuote);
