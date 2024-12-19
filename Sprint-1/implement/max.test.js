@@ -90,6 +90,6 @@ test.todo("given an array with only non-number values"), () => {
     const arr = [a, b, c, d, r];
     const maxNumber = findMax(numbers, numbers.length)
 
-    expect(maxNumber).toEqual(-null)
+    expect(maxNumber).toEqual(null)
 }
 
