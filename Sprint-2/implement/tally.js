@@ -1,6 +1,10 @@
 function tally(items) {
     const frequencies = {};
 
+    if (typeof items === "string") {
+        throw new Error("Invalid input");
+    }
+
     for(let item of items){
         frequencies[item] = (frequencies[item] || 0) + 1;
     }
@@ -8,4 +12,4 @@ function tally(items) {
 }
 
 module.exports = tally;
-console.log(tally(['a', 'a', 'a']));
+console.log(tally(['a', 'b', 'c', 'd']));
