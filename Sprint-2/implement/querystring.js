@@ -14,3 +14,5 @@ function parseQueryString(queryString) {
 }
 
 module.exports = parseQueryString;
+
+console.log(parseQueryString("equation=x=y+1"));
