@@ -26,3 +26,32 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(stringInput) {
+
+  const stringObject = {};
+  const newArray = [];
+  stringInput = stringInput.toLowerCase();
+  //looked up regex and can used it to replace a given amount of characters
+  let cleanedStringInput = stringInput.replace(/[.,!?]/g, "");
+  let arrayOfWords = cleanedStringInput.split(" ")
+  //console.log(arrayOfWords)
+
+  for (const singleWord of arrayOfWords) {
+    if (newArray.includes(singleWord)) {
+      //if the word exists in the object increment its value by 1
+      stringObject[singleWord] += 1;
+    }
+    else {
+      //if the word does not exist in the new array initalise the object value to 1
+      newArray.push(singleWord);
+      stringObject[singleWord] = 1;
+    }
+
+  }
+  return stringObject;
+
+}
+
+// console.log(countWords("Serna Makaka is a girl"))
+// console.log(countWords("you and me and you"))
