@@ -1,1 +1,57 @@
 /** Write your CSS in here **/
+/* Basic reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .carousel {
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  img {
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #back-button {
+    background-color: #588fbd;
+    color: white;
+  }
+  
+  #forward-button {
+    background-color: #87ca8a;
+    color: white;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
