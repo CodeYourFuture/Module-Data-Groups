@@ -1,7 +1,7 @@
 function tally(items) {
     const frequencies = {};
 
-    for(item of items){
+    for(let item of items){
         frequencies[item] = (frequencies[item] || 0) + 1;
     }
     return frequencies;
