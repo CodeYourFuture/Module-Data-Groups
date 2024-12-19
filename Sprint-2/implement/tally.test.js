@@ -14,6 +14,12 @@ const tally = require("./tally.js");
  * tally(['a', 'a', 'b', 'c']), target output: { a : 2, b: 1, c: 1 }
  */
 
+    describe("tally()", () => {
+        test("Given a tally function on an empty array, it should return an empty object", () => {
+            expect(tally([])).toEqual({});
+        });
+    })
+
 // Acceptance criteria:
 
 // Given a function called tally
@@ -23,7 +29,7 @@ const tally = require("./tally.js");
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+
 
 // Given an array with duplicate items
 // When passed to tally
