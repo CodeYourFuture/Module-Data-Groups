@@ -10,8 +10,8 @@ box-sizing: border-box;
 .container{
     width: 100%;
     min-height: 100vh;
-    background: #4677d9;
-    padding: 10px
+    background: #b4d946;
+    padding: 10px;
 }
 
 .todo-app{
@@ -21,10 +21,11 @@ box-sizing: border-box;
     margin: 100px auto 20px;
     padding: 40px 30px 70px ;
     border-radius: 10px;
+    height: 300px;
 }
 
 .todo-app h2{
-    color: rgb(50, 50, 50);
+    color: rgb(25, 25, 25);
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -32,7 +33,7 @@ box-sizing: border-box;
 }
 
 .todo-app h2 img {
-    width: 30px;
+    width: 50px;
     margin-left: 10px;
 
 }
@@ -41,7 +42,7 @@ box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #4677d9;
+    background: #e4e4e4;
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
@@ -54,6 +55,7 @@ input{
     background: transparent;
     padding: 10px; 
     font-weight: 14px;
+    color: #060606;
 
 
 }
@@ -73,10 +75,10 @@ border: none;
 
 
 ul li{
-    list-sytle: none;
+    list-style: none;
     font-size: 17px;
     padding: 12px 8px 12px 50pc;
-    user-selet: none;
+    user-select: none;
     cursor: pointer;
     position: relative;
 
@@ -90,11 +92,11 @@ ul li::before{
     width: 28px;
     border-radius: 50%;
     background-image: url(assets/unchecked.png);
-baackground-size: cover;
-backgroun-position:center;
-top: 12px;
-left:8px;
-
+    background-size: cover;
+    background-position:center;
+    top: 12px;
+    left:8px;
+    
 
 }
 

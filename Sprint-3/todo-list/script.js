@@ -25,7 +25,7 @@ function deleteAllCompletedTodos() {
 }*/
 
 const inputBox = document.getElementById("input-box");
-const inputBox = document.getElementById("list-container");
+const listContainer = document.getElementById("list-container");
 
 function addTask(){
 
@@ -36,7 +36,7 @@ function addTask(){
   else{
     let li= document.createElement("li"); //create and store variable in "li"
     li.innerHTML = inputBox.value; // text inside the li add into the li
-    listCONTAINER.appendChild(li); //diplasy the li in the list container
+    listContainer.appendChild(li); //diplasy the li in the list container
     
     let span = document.createElement("span");
    span.innerHTML= "\u00d7" //add icon X do delete
@@ -66,8 +66,13 @@ function saveData(){
   localStorage.setItem("data", listContainer.innerHTML) // storage the list data
 }
 
-function showTask(){
-  listContainer.innerHTML = localStorage.getItem("data"); //show te date in the browser when open the website again
+function showTask() {
+  const savedData = localStorage.getItem("data");
+  if (savedData) {
+    listContainer.innerHTML = savedData;
+  }
 }
+
 showTask();
+
 
