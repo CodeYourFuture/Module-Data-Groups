@@ -11,7 +11,7 @@ function invert(obj) {
 
   for (const [key, value] of Object.entries(obj)) {
     if (invertedObj[value] !== undefined) {
-      throw new Error(`Duplicate value found: ${value}. Cannot invert.`);
+      throw new Error(`Duplicate value found. Cannot invert.`);
     }
     invertedObj[value] = key;
   }
