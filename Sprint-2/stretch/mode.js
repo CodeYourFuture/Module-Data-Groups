@@ -10,27 +10,29 @@
 
 function calculateMode(list) {
   // track frequency of each value
-  let freqs = new Map();
+  let frequencies = new Map();
 
   for (let num of list) {
     if (typeof num !== "number") {
       continue;
     }
 
-    freqs.set(num, (freqs.get(num) || 0) + 1);
+    frequencies.set(num, (frequencies.get(num) || 0) + 1);
   }
 
   // Find the value with the highest frequency
-  let maxFreq = 0;
+  let maxFrequencies = 0;
   let mode;
-  for (let [num, freq] of freqs) {
-    if (freq > maxFreq) {
+  for (let [num, frequency] of frequencies) {
+    if (frequency > maxFrequencies) {
       mode = num;
-      maxFreq = freq;
+      maxFrequencies = frequency;
     }
   }
 
-  return maxFreq === 0 ? NaN : mode;
+  return maxFrequencies === 0 ? NaN : mode;
 }
 
 module.exports = calculateMode;
+
+console.log(calculateMode([2, 4, 1, 2, 3, 2, 1]))
