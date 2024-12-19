@@ -104,9 +104,6 @@ input{
     padding: 10px;
     font-size: 16px;
     color: #4d4c4c;
-    
-
-
 }
 
 
@@ -126,7 +123,6 @@ button{
   font-weight: 600;
   font-style: normal;
 
-
 }
 
 
@@ -135,7 +131,7 @@ ul li{
     align-items: center;
     font-size: 17px;
     padding: 12px 15px;
-    padding-left: 50px; /* Leaves space for the image */
+    padding-left: 50px; 
     background: white;
    margin-bottom: 10px;
     border-radius: 5px;
