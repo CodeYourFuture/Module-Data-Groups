@@ -6,10 +6,29 @@
 const parseQueryString = require("./querystring.js")
 
 describe("parseQueryString()", () => {
-  test("parses querystring values containing =", () => {
-    expect(parseQueryString("equation=x=y+1")).toEqual({
-      equation: 'x'
-    });
+  test("parses querystring values containing multiple =", () => {
+    expect(parseQueryString("equation=x=y+1")).toEqual({equation: 'x'});
   });
+
+  test("given an empty string, it will return an empty object", () => {
+    expect(parseQueryString("")).toEqual({});
+  });
+
+  test("given an a single query string, it will return a single key-value pair object", () => {
+    expect(parseQueryString("colour=green")).toEqual({colour: 'green'});
+  });
+
+  test("given an a double query string, it will return a double key-value pair object", () => {
+    expect(parseQueryString("colour=green&sort=newest")).toEqual({ colour: 'green', sort: 'newest' });
+  });
+
+  test("given an a three query string, it will return a three key-value pair object", () => {
+    expect(parseQueryString("colour=green&sort=newest&car=latest")).toEqual({ colour: 'green', sort: 'newest', car: 'latest' });
+  });
+
+  test("given an invalid query string, it will return a key-value pair if found or undefined for a value", () => {
+    expect(parseQueryString("equation=x=y+1&true-6+new")).toEqual({ equation: 'x', 'true-6+new': undefined });
+  });
+
 });
 
