@@ -11,6 +11,8 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
-}
+//The reason it is not working is because the for loop is unable to go in to the object and retrieve those values.
+//To fix the problem we can remove the for loop and simplyfy it by only logging our object
+
+  console.log(author);
+
