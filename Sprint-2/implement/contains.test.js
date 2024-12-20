@@ -16,7 +16,7 @@ as the object doesn't contains a key of 'c'
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
-
+ 
 // Given an empty object
 // When passed to contains
 // Then it should return false
@@ -33,3 +33,7 @@ test.todo("contains on empty object returns false");
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+
+
+
+  
