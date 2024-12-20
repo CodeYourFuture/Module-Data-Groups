@@ -1,4 +1,36 @@
-function setAlarm() {}
+function setAlarm() {
+
+  // Get the user input value
+  var timeUser = document.getElementById("alarmSet").value;
+
+  // Update the timeRemaining display
+  var timeRemaining = document.getElementById("timeRemaining");
+  timeRemaining.innerHTML = `Time Remaining: ${timeUser}`;
+
+  var 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // DO NOT EDIT BELOW HERE
 
