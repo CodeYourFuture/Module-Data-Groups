@@ -28,7 +28,9 @@
 */
 
 function countWords(words){
-  words = words.split(/\s+/)
+
+  words = words.split(/\s+/) // Splitting the input string into words, split by whitespace
+
   const results = new Map();
 
   for(let word of words){
