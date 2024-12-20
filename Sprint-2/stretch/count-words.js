@@ -54,4 +54,4 @@ function countWords(words){
 
 module.exports = countWords;
 
-console.log(countWords(""));
+console.log(countWords("apple, orange. apple! orange? apple"));
