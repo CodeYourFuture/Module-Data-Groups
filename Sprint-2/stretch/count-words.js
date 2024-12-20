@@ -31,9 +31,11 @@ function countWords(words){
 
   words = words.split(/\s+/) // Splitting the input string into words, split by whitespace
 
+  const cleanWords = words.map(word => word.replace(/[.,!?]/g, "").toLowerCase()); 
+
   const results = new Map();
 
-  for(let word of words){
+  for(let word of cleanWords){
     if(typeof word !== "string") continue;
 
     results.set(word, (results.get(word) || 0) + 1);
@@ -45,4 +47,4 @@ function countWords(words){
 
 module.exports = countWords;
 
-console.log(countWords("you and me and you"));
+console.log(countWords("you. and! me, and you?"));
