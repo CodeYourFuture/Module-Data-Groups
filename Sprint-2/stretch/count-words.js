@@ -41,8 +41,15 @@ function countWords(words){
     results.set(word, (results.get(word) || 0) + 1);
 
   } 
+
+  const sortedResults = Array.from(results.entries())
+  .sort((a,b) => b[1] - a[1]) 
+  .reduce((obj, [key, value]) => {
+    obj[key] = value;
+    return obj;
+  }, {});
    
-  return Object.fromEntries(results); // Convert the Map into an Object before returning it
+  return sortedResults;
 }
 
 module.exports = countWords;
