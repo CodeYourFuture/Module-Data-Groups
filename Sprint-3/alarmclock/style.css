@@ -1,15 +1,95 @@
+/* Centering the content in the middle of the screen */
 .centre {
   position: fixed;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
-
-#alarmSet {
-  margin: 20px;
-}
-
-h1 {
+  padding: 30px;
+  background-color: #fff;
+  /* White background for the alarm container */
+  border-radius: 15px;
+  /* Rounded corners for a softer look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for a lifted effect */
   text-align: center;
+  width: 300px;
+  /* Set a fixed width for consistency */
+}
+/* Styling the input field */
+#alarmSet {
+  padding: 10px;
+  font-size: 1rem;
+  /* Slightly larger text for easier reading */
+  border: 2px solid #ba4a00;
+  /* Light border around the input */
+  border-radius: 8px;
+  /* Rounded corners for input */
+  margin-bottom: 20px;
+  /* Add space below the input field */
+  width: 100%;
+  /* Make the input take up the full width of the container */
+  box-sizing: border-box;
+  /* Ensures padding does not overflow the container */
+  transition: border 0.3s ease;
+  /* Smooth transition for border color change */
+}
+/* Styling the label */
+label[for="alarmSet"] {
+  font-family: 'Arial', sans-serif;
+  /* Clean and readable font */
+  font-size: 1.2rem;
+  /* Larger font size for better visibility */
+  color: #333;
+  /* Dark grey color for the text */
+  margin-bottom: 10px;
+  /* Space below the label */
+  display: inline-block;
+  /* Ensures the label behaves like a block element for spacing */
+  text-align: center;
+  /* Centers the label text */
+  padding: 5px 0;
+  /* Add some vertical padding */
+  font-weight: bold;
+  /* Makes the label text bold for emphasis */
+  transition: color 0.3s ease;
+  /* Smooth color change effect on hover */
+}
+/* Styling the heading that displays time remaining */
+h1 {
+  font-family: 'Arial', sans-serif;
+  /* Clean and simple font */
+  font-size: 2rem;
+  /* Large font size for readability */
+  color: #333;
+  /* Dark grey color for the text */
+  margin-bottom: 20px;
+  /* Space below the heading */
+  padding: 10px;
+  background-color: #fddcc8;
+  /* Light background color for the time display */
+  border-radius: 8px;
+  /* Slight rounding of the time display box */
+}
+/* Styling the buttons */
+button {
+  padding: 12px 20px;
+  /* Comfortable padding for the buttons */
+  font-size: 1rem;
+  /* Slightly larger font size for buttons */
+  background-color: #e75f29;
+  /* Green background color */
+  color: white;
+  /* White text color */
+  border: none;
+  /* Remove default border */
+  border-radius: 8px;
+  /* Rounded corners for buttons */
+  cursor: pointer;
+  /* Change cursor to pointer when hovering */
+  width: 100%;
+  /* Buttons take full width of the container */
+  margin: 5px 0;
+  /* Add some vertical space between buttons */
+  transition: background-color 0.3s ease;
+  /* Smooth transition for hover effect */
 }
