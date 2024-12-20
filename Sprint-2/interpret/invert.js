@@ -5,7 +5,6 @@
 // Then it should swap the keys and values in the object
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
-
 function invert(obj) {
   const invertedObj = {};
 
@@ -28,7 +27,7 @@ module.exports = invert;
 // It will be { "1": "a", "2": "b" }
 
 // c) What does Object.entries return? Why is it needed in this program?
-// It will be [["a", 1], ["b", 2]] and it is needed because because it iterate over both keys and values of the object, allowing us to construct the inverted object correctly.
+// It will be [["a", 1], ["b", 2]] and it is needed because it iterate over both keys and values of the object, allowing us to construct the inverted object correctly.
 
 // d) Explain why the current return value is different from the target output
 //The current return value is different from the target output because the implementation incorrectly uses invertedObj.
