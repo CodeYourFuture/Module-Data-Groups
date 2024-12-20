@@ -7,7 +7,6 @@ function setAlarm() {
   var timeRemaining = document.getElementById("timeRemaining");
   timeRemaining.innerHTML = `Time Remaining: ${timeUser}`;
 
-  var 
 }
 
 
