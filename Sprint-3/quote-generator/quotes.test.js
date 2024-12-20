@@ -9,7 +9,7 @@ const { default: userEvent } = require("@testing-library/user-event");
 let page = null;
 
 beforeEach(async () => {
-  page = await JSDOM.fromFile(path.join(__dirname, "index.html"), {
+  page = await JSDOM.fromFile(path.join(__dirname, "quoteGeneratorApp.html"), {
     resources: "usable",
     runScripts: "dangerously",
   });
