@@ -34,19 +34,19 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-    display: flex; /* Enables Flexbox */
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    min-height: 100vh; /* Ensures the body takes the full viewport height */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; /
 
 }
 
 .container{
-   display: flex; /* Enables flexbox */
+   display: flex; 
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     width: 100%;
-    min-height: 100vh; /* Ensures the container takes the full height of the viewport */
+    min-height: 100vh; 
   
     padding: 10px;
     background: #ffb9c4a8;
@@ -56,12 +56,12 @@ body {
 
 .todo-app{
      width: 100%;
-    max-width: 400px; /* Set a maximum width for the to-do app */
+    max-width: 400px;
     background: #A0E7E5;
-    margin: auto; /* Redundant with flexbox but good fallback */
+    margin: auto;
     padding: 40px 30px 70px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 
@@ -97,7 +97,7 @@ body {
 }
 
 input{
-    flex: 1; /* Ensures the input takes up available space */
+    flex: 1; 
     border: none;
     outline: none;
     background: transparent;
