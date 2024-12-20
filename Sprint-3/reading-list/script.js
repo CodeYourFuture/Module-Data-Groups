@@ -51,8 +51,9 @@ function renderReadingList(books) {
     const bookImage = document.createElement("img");
     // 〰️ Set the src attribute of the image to the book's cover image URL
     bookImage.src = book.bookCoverImage;
+    // 〰️ Set the alt attribute of the image to a description of the book
+    bookImage.alt = `${book.title} by ${book.author} - book cover`;
     
-
     // 〰️ Append the book title and author information to the bookInfo div
     bookInfo.appendChild(bookTitle);
     bookInfo.appendChild(bookAuthor);
