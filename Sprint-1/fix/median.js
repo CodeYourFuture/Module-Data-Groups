@@ -4,8 +4,17 @@
 
 function calculateMedian(list) {
   const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
+
+  if (list.length % 2 === 0) {
+    // For even-length arrays, calculate the average of the two middle values
+    return (list[middleIndex - 1] + list[middleIndex]) / 2;
+  }
+
+  // For odd-length arrays, return the middle value
+  return list[middleIndex];
 }
 
 module.exports = calculateMedian;
+
+
+// this correctly handles the test cases.
