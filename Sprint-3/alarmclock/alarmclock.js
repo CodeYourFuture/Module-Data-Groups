@@ -1,6 +1,8 @@
 var audio = new Audio("alarmsound.mp3");
 
 function setAlarm() {
+  document.querySelector(".quadrat").classList.remove("flash"); // Disable the .quadrat element
+
   const time = parseInt(document.getElementById("alarmSet").value); // Fetch the value of the input in seconds
 
   document.querySelector(".quadrat").classList.add("disabled"); // Disable the .quadrat element
@@ -53,26 +55,22 @@ function formatTime(seconds) {
   )}:${String(remainingSeconds).padStart(2, "0")}`;
 }
 
-document.getElementById("stop").addEventListener("click", () => {
-  pauseAlarm(); // Stop the alarm
-  document.querySelector(".quadrat").classList.remove("flash"); // Disable the .quadrat element
-});
-// Function to play the alarm sound
+function setup() {
+  document.getElementById("set").addEventListener("click", () => {
+    setAlarm();
+  });
+
+  document.getElementById("stop").addEventListener("click", () => {
+    pauseAlarm();
+  });
+}
+
 function playAlarm() {
   audio.play();
 }
 
-// Function to pause the alarm sound
 function pauseAlarm() {
   audio.pause();
 }
-
-// Set up event listeners for the buttons
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm(); // Set the alarm and start the countdown
-  });
-}
-
 // Initialize the setup when the page loads
 window.onload = setup;
