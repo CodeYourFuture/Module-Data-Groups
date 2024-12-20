@@ -2,6 +2,7 @@ var audio = new Audio("alarmsound.mp3");
 let countdownInterval = null; // Global variable to track the countdown interval
 
 function setAlarm() {
+  document.querySelector(".quadrat").classList.remove("flash");
   const input = document.getElementById("alarmSet");
   const time = parseInt(input.value, 10); // Fetch the value of the input in seconds
 
@@ -60,14 +61,15 @@ function formatTime(seconds) {
   )}:${String(remainingSeconds).padStart(2, "0")}`;
 }
 
-// Event listener for stopping the alarm
-document.getElementById("stop").addEventListener("click", () => {
-  clearInterval(countdownInterval); // Clear any active countdown interval
-  countdownInterval = null; // Reset the interval reference
-  pauseAlarm(); // Stop the alarm
-  document.querySelector(".quadrat").classList.remove("flash"); // Remove the flashing effect
-});
+function setup() {
+  document.getElementById("set").addEventListener("click", () => {
+    setAlarm(); // Set the alarm and start the countdown
+  });
 
+  document.getElementById("stop").addEventListener("click", () => {
+    pauseAlarm();
+  });
+}
 // Function to play the alarm sound
 function playAlarm() {
   audio.play();
@@ -76,13 +78,6 @@ function playAlarm() {
 // Function to pause the alarm sound
 function pauseAlarm() {
   audio.pause();
-}
-
-// Set up event listeners for the buttons
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm(); // Set the alarm and start the countdown
-  });
 }
 
 // Initialize the setup when the page loads
