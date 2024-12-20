@@ -1,56 +1,38 @@
+let countdown; // Global variable for the interval
+
 function setAlarm() {
+  const alarmInput = document.getElementById("alarmSet");
+  const timeRemaining = document.getElementById("timeRemaining");
 
-  // Get the user input value
-  var timeUser = document.getElementById("alarmSet").value;
+  let timeLeft = parseInt(alarmInput.value); // Get the input value as a number
 
-  // Update the timeRemaining display
-  var timeRemaining = document.getElementById("timeRemaining");
-  timeRemaining.innerHTML = `Time Remaining: ${timeUser}`;
+  if (isNaN(timeLeft) || timeLeft <= 0) {
+    alert("Please enter a valid number greater than 0");
+    return;
+  }
 
+  timeRemaining.innerHTML = `Time Remaining: ${formatTime(timeLeft)}`; // Update display
+
+  clearInterval(countdown); // Clear any existing countdown
+  countdown = setInterval(() => {
+    timeLeft--;
+    timeRemaining.innerHTML = `Time Remaining: ${formatTime(timeLeft)}`;
+
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      alert("Time's up!");
+    }
+  }, 1000); // Update every second
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// DO NOT EDIT BELOW HERE
-
-var audio = new Audio("alarmsound.mp3");
-
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
-
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
-  });
+function stopAlarm() {
+  console.log("Stopping the alarm...");
+  clearInterval(countdown); // Stop the countdown
+  alert("Alarm stopped!");
 }
 
-function playAlarm() {
-  audio.play();
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
 }
-
-function pauseAlarm() {
-  audio.pause();
-}
-
-window.onload = setup;
