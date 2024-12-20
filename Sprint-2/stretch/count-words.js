@@ -38,8 +38,9 @@ function countWords(words){
 
     results.set(word, (results.get(word) || 0) + 1);
 
-  }
-  return Object.fromEntries(results);
+  } 
+   
+  return Object.fromEntries(results); // Convert the Map into an Object before returning it
 }
 
 module.exports = countWords;
