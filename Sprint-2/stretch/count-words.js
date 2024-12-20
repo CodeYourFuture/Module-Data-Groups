@@ -26,3 +26,20 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(words){
+  words = words.split(/\s+/)
+  const results = new Map();
+
+  for(let word of words){
+    if(typeof word !== "string") continue;
+
+    results.set(word, (results.get(word) || 0) + 1);
+
+  }
+  return Object.fromEntries(results);
+}
+
+module.exports = countWords;
+
+console.log(countWords("you and me and you"));
