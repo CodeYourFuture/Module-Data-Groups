@@ -14,7 +14,8 @@ function displayRandomQuote() {
 }
 
 // 〰️ Ensure a quote is displayed as soon as the page is fully loaded
-window.addEventListener("DOMContentLoaded", displayRandomQuote);
+window.onload = displayRandomQuote;
+
 
 // 〰️ Update the displayed quote when the button is clicked
 newQuoteButton.addEventListener("click", displayRandomQuote);

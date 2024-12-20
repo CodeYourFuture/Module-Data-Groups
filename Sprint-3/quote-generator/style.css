@@ -1,1 +1,103 @@
 /** Write your CSS in here **/
+/* General Style Settings */
+* {
+    margin: 0;
+    /* Removes the default margin from all elements */
+    padding: 0;
+    /* Removes the default padding from all elements */
+    box-sizing: border-box;
+    /* Ensures that padding and borders are included in the total width/height of elements */
+}
+/* Body Style */
+body {
+    height: 100vh;
+    /* Ensures the body takes up the full height of the viewport */
+    display: flex;
+    /* Uses Flexbox layout for centering content */
+    flex-direction: column;
+    /* Arranges child elements in a column (vertical layout) */
+    justify-content: center;
+    /* Vertically centers content inside the body */
+    align-items: center;
+    /* Horizontally centers content inside the body */
+    font-family: Arial, sans-serif;
+    /* Sets a clean, sans-serif font */
+    background: linear-gradient(135deg, #edbfbf, #c3cfe2);
+    /* Adds a soft gradient background from light grey to light blue */
+    position: relative;
+    /* Positions the body in a relative context, allowing absolute positioning for child elements */
+}
+
+/* Header Style */
+h1 {
+    position: absolute;
+    /* Positions the header absolutely, relative to the nearest positioned ancestor (body) */
+    top: 20%;
+    /* Places the header 10% from the top of the page */
+    left: 50%;
+    /* Places the header at the horizontal center of the page */
+    transform: translateX(-50%);
+    /* Shifts the header left by 50% of its own width to ensure perfect centering */
+    font-size: 3rem;
+    /* Sets the font size to 3 times the base size */
+    font-weight: bold;
+    /* Makes the header text bold */
+    color: #a82121;
+    /* Sets a dark grey color for the text */
+}
+/* Quote Style */
+#quote {
+    font-size: 1.5rem;
+    /* Sets the font size of the quote to 1.5 times the base size */
+    color: #6b2626fd;
+    /* Sets a medium grey color for the quote text */
+    margin: 20px 0 10px 0;
+    /* Adds spacing around the quote, with more space on the top */
+    text-align: center;
+    /* Centers the quote text horizontally */
+}
+/* Author Style */
+#author {
+    font-size: 1.2rem;
+    /* Sets the font size of the author to 1.2 times the base size */
+    color: #a82121;
+    /* Sets a lighter grey color for the author's name */
+    font-style: italic;
+    /* Makes the author's name italic */
+    font-weight: bold;
+    /* Makes the author text bold */
+    text-align: center;
+    /* Centers the author name horizontally */
+    margin-top: 5px;
+    /* Adds a small margin above the author text */
+}
+/* Button Style */
+#new-quote {
+    position: absolute;
+    /* Positions the button absolutely, relative to the nearest positioned ancestor (body) */
+    bottom: 20%;
+    /* Places the button 10% from the bottom of the page */
+    left: 50%;
+    /* Places the button at the horizontal center of the page */
+    transform: translateX(-50%);
+    /* Shifts the button left by 50% of its own width to ensure perfect centering */
+    padding: 10px 20px;
+    /* Adds padding inside the button to make it larger and more clickable */
+    font-size: 1rem;
+    /* Sets the font size of the button text */
+    color: white;
+    /* Makes the button text white */
+    background: #a82121;
+    /* Gives the button a green background */
+    border: none;
+    /* Removes the default border from the button */
+    border-radius: 5px;
+    /* Rounds the corners of the button */
+    cursor: pointer;
+    /* Changes the mouse cursor to a pointer when hovering over the button */
+   
+}
+#new-quote:hover {
+    background: #741313;
+    /* Darkens the button's background when the user hovers over it */
+}
