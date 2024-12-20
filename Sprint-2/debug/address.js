@@ -12,4 +12,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);//fixed the syntax inside the curly brackets, in our console.log we were no specific which value we wanted specificly in inside the address variable. Hence our object was undefined.
