@@ -43,7 +43,7 @@ function countWords(words){
   } 
 
   const sortedResults = Array.from(results.entries())
-  .sort((a,b) => b[1] - a[1]) 
+  .sort((a,b) => b[1] - a[1]) // Sort by frequency in descending order
   .reduce((obj, [key, value]) => {
     obj[key] = value;
     return obj;
