@@ -33,29 +33,31 @@ books.forEach((book) => {
   bookElement.style.alignItems = "center";
   bookElement.style.gap = "15px";
 
-  const bookImage = document.createElement("img");
-  bookImage.src = book.bookCoverImage;
-  bookImage.alt = book.title;
-  bookImage.style.width = "100px";
-  bookImage.style.height = "150px";
+  const bookImageElement = document.createElement("img");
+  bookImageElement.src = book.bookCoverImage;
+  bookImageElement.alt = book.title;
+  bookImageElement.style.width = "100px";
+  bookImageElement.style.height = "150px";
 
-  const bookInfo = document.createElement("div");
+  const bookInfoElement = document.createElement("div");
 
-  const bookTitle = document.createElement("h3");
-  bookTitle.textContent = book.title;
+  const bookTitleElement = document.createElement("h3");
+  bookTitleElement.textContent = book.title;
 
-  const bookAuthor = document.createElement("p");
-  bookAuthor.textContent = `Author: ${book.author}`;
+  const bookAuthorElement = document.createElement("p");
+  bookAuthorElement.textContent = `Author: ${book.author}`;
 
-  const readStatus = document.createElement("p");
-  readStatus.textContent = book.alreadyRead ? "Already read" : "Not read yet";
+  const readStatusElement = document.createElement("p");
+  readStatusElement.textContent = book.alreadyRead
+    ? "Already read"
+    : "Not read yet";
 
-  bookInfo.appendChild(bookTitle);
-  bookInfo.appendChild(bookAuthor);
-  bookInfo.appendChild(readStatus);
+  bookInfoElement.appendChild(bookTitleElement);
+  bookInfoElement.appendChild(bookAuthorElement);
+  bookInfoElement.appendChild(readStatusElement);
 
-  bookElement.appendChild(bookImage);
-  bookElement.appendChild(bookInfo);
+  bookElement.appendChild(bookImageElement);
+  bookElement.appendChild(bookInfoElement);
 
   booksContainer.appendChild(bookElement);
 });
