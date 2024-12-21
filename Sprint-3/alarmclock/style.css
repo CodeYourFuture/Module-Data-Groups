@@ -29,7 +29,6 @@ button {
   border: none;
   border-radius: 6px;
   transition: all 0.3s;
-  color: inherit;
 }
 
 input {

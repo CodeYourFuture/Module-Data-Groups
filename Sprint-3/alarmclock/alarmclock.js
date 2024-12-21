@@ -1,7 +1,7 @@
 const timeRemainingDisplay = document.querySelector("#timeRemaining");
 const alarmSetInput = document.querySelector("#alarmSet");
-const alarm = document.querySelector(".centre");
-const body = document.querySelector("body");
+const alarmContainer = document.querySelector(".centre");
+const bodyContainer = document.querySelector("body");
 
 // Buttons
 const stopAlarmBtn = document.querySelector("#stop");
@@ -16,9 +16,10 @@ stopAlarmBtn.disabled = true;
 function init() {
   setAlarmBtn.disabled = true;
   stopAlarmBtn.disabled = true;
-  alarm.removeAttribute("style");
-  body.removeAttribute("style");
+  alarmContainer.removeAttribute("style");
+  bodyContainer.removeAttribute("style");
   clearInterval(alarmTimer);
+  audio.currentTime = 0;
 }
 
 stopAlarmBtn.addEventListener("click", init);
@@ -55,8 +56,8 @@ function counter() {
   } else {
     clearInterval(alarmTimer);
     playAlarm();
-    alarm.style.backgroundColor = "#607D8B";
-    body.style.backgroundColor = "#FF5252";
+    alarmContainer.style.backgroundColor = "#607D8B";
+    bodyContainer.style.backgroundColor = "#FF5252";
     stopAlarmBtn.disabled = false;
   }
 }
