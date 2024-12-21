@@ -507,19 +507,37 @@ function displayNewQuote() {
 }
 
 // Handle manual new quote generation
-newQuoteBtn.addEventListener("click", displayNewQuote);
+// newQuoteBtn.addEventListener("click", displayNewQuote);
 
-autoToggle.addEventListener("change", function () {
-  if (autoToggle.checked) {
-    // Turn on auto-play
-    autoplayStatus.textContent = "auto-play: ON";
-    autoInterval = setInterval(displayNewQuote, 5000);
-  } else {
-    // Turn off auto-play
-    autoplayStatus.textContent = "auto-play: OFF";
-    clearInterval(autoInterval);
-    autoInterval = null;
-  }
-});
+// autoToggle.addEventListener("change", function () {
+//   if (autoToggle.checked) {
+//     // Turn on auto-play
+//     autoplayStatus.textContent = "auto-play: ON";
+//     autoInterval = setInterval(displayNewQuote, 5000);
+//   } else {
+//     // Turn off auto-play
+//     autoplayStatus.textContent = "auto-play: OFF";
+//     clearInterval(autoInterval);
+//     autoInterval = null;
+//   }
+// });
 
-displayNewQuote();
+// displayNewQuote();
+window.onload = function () {
+  newQuoteBtn.addEventListener("click", displayNewQuote);
+
+  autoToggle.addEventListener("change", function () {
+    if (autoToggle.checked) {
+      // Turn on auto-play
+      autoplayStatus.textContent = "auto-play: ON";
+      autoInterval = setInterval(displayNewQuote, 5000);
+    } else {
+      // Turn off auto-play
+      autoplayStatus.textContent = "auto-play: OFF";
+      clearInterval(autoInterval);
+      autoInterval = null;
+    }
+  });
+
+  displayNewQuote();
+};
