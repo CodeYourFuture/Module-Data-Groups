@@ -9,7 +9,16 @@ function totalTill(till) {
 
   for (const [coin, quantity] of Object.entries(till)) {
 
-    const coinValue = parseInt(coin.replace('p', ""), 10);
+    let coinValue;
+
+    if(coin.endsWith("p")){
+      coinValue = parseInt(coin.replace('p', ""), 10);
+
+    } else if (coin.startsWith("£")){
+      throw new Error("Invalid coin format");
+    }
+
+    
     total += coinValue * quantity;
   }
 
@@ -20,8 +29,7 @@ const till = {
   "1p": 10,
   "5p": 6,
   "50p": 4,
-  "20p": 10,
-};
+  "20p": 10, };
 
 module.exports = totalTill;
 
