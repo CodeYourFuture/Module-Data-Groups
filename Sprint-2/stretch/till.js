@@ -22,6 +22,9 @@ const till = {
   "50p": 4,
   "20p": 10,
 };
+
+module.exports = totalTill;
+
 const totalAmount = totalTill(till);
 console.log(totalAmount);
 
