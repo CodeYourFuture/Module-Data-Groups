@@ -1,4 +1,8 @@
 .centre {
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.3);
+  background-color: #cceae7;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -8,6 +12,33 @@
 
 #alarmSet {
   margin: 20px;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #222;
+}
+
+html body {
+  background-color: #80cbc4;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #ff9797;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s;
+  color: inherit;
+}
+
+input {
+  color: inherit;
+}
+
+button:hover:enabled,
+button:active:enabled {
+  background-color: #ff7575;
 }
 
 h1 {

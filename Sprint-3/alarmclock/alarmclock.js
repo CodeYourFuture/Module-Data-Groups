@@ -1,9 +1,38 @@
 const timeRemainingDisplay = document.querySelector("#timeRemaining");
 const alarmSetInput = document.querySelector("#alarmSet");
+const alarm = document.querySelector(".centre");
+const body = document.querySelector("body");
 
 // Buttons
 const stopAlarmBtn = document.querySelector("#stop");
 const setAlarmBtn = document.querySelector("#set");
+
+// Disable set button if input is empty
+setAlarmBtn.disabled = true;
+
+// Disable stop button if no timer running
+stopAlarmBtn.disabled = true;
+
+function init() {
+  setAlarmBtn.disabled = true;
+  stopAlarmBtn.disabled = true;
+  alarm.removeAttribute("style");
+  body.removeAttribute("style");
+  clearInterval(alarmTimer);
+}
+
+stopAlarmBtn.addEventListener("click", init);
+
+function activateSetButton() {
+  alarmSetInput.addEventListener("input", (e) => {
+    if (e.target.value !== "") {
+      setAlarmBtn.disabled = false;
+    } else {
+      setAlarmBtn.disabled = true;
+    }
+  });
+}
+activateSetButton();
 
 // Global variables
 let inputValue, seconds, minutes, hours, alarmTimer;
@@ -25,7 +54,10 @@ function counter() {
     displayAlarmInput(inputValue);
   } else {
     clearInterval(alarmTimer);
-    playAlarm()
+    playAlarm();
+    alarm.style.backgroundColor = "#607D8B";
+    body.style.backgroundColor = "#FF5252";
+    stopAlarmBtn.disabled = false;
   }
 }
 
@@ -36,6 +68,7 @@ function setAlarm() {
   }
   inputValue = Number(alarmSetInput.value);
   alarmSetInput.value = "";
+  setAlarmBtn.disabled = true;
   displayAlarmInput(inputValue);
   alarmTimer = setInterval(counter, 1000);
 }
