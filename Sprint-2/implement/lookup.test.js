@@ -33,3 +33,20 @@ It should return:
    'CA': 'CAD'
  }
 */
+//checing the result coming out or not
+test("checking the return object or not", () => {
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toEqual({ US: "USD", CA: "CAD" });
+});
+test("input pair invalid", () => {
+  expect(createLookup(["GB", "pound", "THAI", "BHAT"], ["US"])).toBe(
+    "Input pair is invalid"
+  );
+});
+test("empty array and return message", () => {
+  expect(createLookup([])).toBe("Value is empty or empty array");
+});
