@@ -13,6 +13,8 @@ setAlarmBtn.disabled = true;
 // Disable stop button if no timer running
 stopAlarmBtn.disabled = true;
 
+// Restrict input to positive numbers
+
 function init() {
   setAlarmBtn.disabled = true;
   stopAlarmBtn.disabled = true;
@@ -24,13 +26,12 @@ function init() {
 
 stopAlarmBtn.addEventListener("click", init);
 
+// Only show set button when there is a positive value in the input
 function activateSetButton() {
   alarmSetInput.addEventListener("input", (e) => {
-    if (e.target.value !== "") {
-      setAlarmBtn.disabled = false;
-    } else {
-      setAlarmBtn.disabled = true;
-    }
+    Number(e.target.value) > 0
+      ? setAlarmBtn.disabled = false
+      : setAlarmBtn.disabled = true;
   });
 }
 activateSetButton();
