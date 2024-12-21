@@ -28,23 +28,35 @@
 */
 
 function countWords(str) {
+  if (str.trim() === "") {
+    return {}; 
+  }
+
   str = str.toLowerCase();
 
-  const words = str.split(' ');
+  // Remove multiple spaces
+  const words = str.split(/\s+/);  // Split on one or more spaces
 
   const wordCounts = {};
 
   for (const word of words) {
-    if (wordCounts[word]) {
-      wordCounts[word] += 1;
-    } else {
-      wordCounts[word] = 1;
+    if (word) {  // Only count non-empty words
+      if (wordCounts[word]) {
+        wordCounts[word] += 1;
+      } else {
+        wordCounts[word] = 1;
+      }
     }
   }
-   const sortedWordCounts = Object.entries(wordCounts).sort((x, y) => x[1] - y[1]);
-   const sortedObject = Object.fromEntries(sortedWordCounts);
 
   return wordCounts;
 }
+
 const strtest="You And Me and you";
 console.assert(JSON.stringify(countWords(strtest))===JSON.stringify({you:2, and:2,me:1}),"Test Failed")
+
+const emptyStr = "";
+console.assert(JSON.stringify(countWords(emptyStr)) === JSON.stringify({}), "Test Failed")
+
+const multipleSpacesStr = "  Hello    world    how   are    you  ";
+console.assert(JSON.stringify(countWords(multipleSpacesStr)) === JSON.stringify({hello: 1, world: 1, how: 1, are: 1, you: 1}), "Test Failed: Multiple spaces");
