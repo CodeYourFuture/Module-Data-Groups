@@ -11,6 +11,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value in author) {
   console.log(value);
 }
+// This program does not work because javascript objects are not iterable. The 'for..of' loop is designed for arrays, strings and collections.
