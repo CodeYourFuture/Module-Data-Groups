@@ -1,33 +1,41 @@
-function setAlarm() {
-    // Get the user input value and reset the background color
-    let inputValue = parseInt(document.getElementById("alarmSet").value, 10);
-    document.body.style.backgroundColor = 'white';
+let isAlarmSet = false;
 
-    // Validate input
+function setAlarm() {
+    if (isAlarmSet) return;
+
+    // Get and validate user input
+    const inputValue = parseInt(document.getElementById("alarmSet").value, 10);
     if (isNaN(inputValue) || inputValue < 0) {
-        alert("Invalid value");
+        alert("Please enter a valid positive number.");
         return;
     }
 
-    const originalValue = inputValue; // Store the initial value for later use
+    document.body.style.backgroundColor = 'white'; // Reset background
+    isAlarmSet = true; // Prevent multiple alarms
+
+    const originalValue = inputValue; // Store the initial value for reference
+    let remainingTime = inputValue; // Current countdown time
 
     // Start the countdown
     const intervalId = setInterval(() => {
-        const minutes = Math.floor(inputValue / 60).toString().padStart(2, '0');
-        const seconds = (inputValue % 60).toString().padStart(2, '0');
-
+        // Calculate and display remaining time
+        const minutes = Math.floor(remainingTime / 60).toString().padStart(2, '0');
+        const seconds = (remainingTime % 60).toString().padStart(2, '0');
         document.getElementById("timeRemaining").textContent = `Time Remaining: ${minutes}:${seconds}`;
 
-        if (inputValue === 0) {
-            // Special case: Change background color if the initial input was 10 seconds
+        if (remainingTime === 0) {
+            clearInterval(intervalId); // Stop the timer
+            isAlarmSet = false; // Reset the lock
+
+            // Change background color if the initial input was 10 seconds
             if (originalValue === 10) {
                 document.body.style.backgroundColor = 'lightblue';
             }
+
             playAlarm(); // Trigger the alarm sound
-            clearInterval(intervalId); // Stop the timer
         }
 
-        inputValue--; // Decrement the timer value
+        remainingTime--; // Decrement time
     }, 1000);
 }
 
