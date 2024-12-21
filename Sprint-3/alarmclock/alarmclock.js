@@ -4,8 +4,11 @@ const alarmSetInput = document.querySelector("#alarmSet");
 // Buttons
 const stopAlarmBtn = document.querySelector("#stop");
 const setAlarmBtn = document.querySelector("#set");
+
+// Global variables
 let inputValue, seconds, minutes, hours, alarmTimer;
 
+// Helper functions
 function numberStartPadder(num, count = 2, padding = "0") {
   return num.toString().padStart(count, padding);
 }
@@ -22,9 +25,11 @@ function counter() {
     displayAlarmInput(inputValue);
   } else {
     clearInterval(alarmTimer);
+    playAlarm()
   }
 }
 
+// Main function
 function setAlarm() {
   if (alarmTimer) {
     clearInterval(alarmTimer);
@@ -42,10 +47,6 @@ var audio = new Audio("alarmsound.mp3");
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
     setAlarm();
-    // alarmTimer = setInterval(counter, 1000);
-    // Start timer
-    // Take input and minus 1 sec
-    //display count
   });
 
   document.getElementById("stop").addEventListener("click", () => {
