@@ -26,3 +26,22 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+function countWords(yourWords) {
+  const countObj = {};
+  //remove regex with punctuation
+
+  const removePunctuation = yourWords.replace(/[.,!]?/g, "");
+  //change to upperCase
+  const changeCapital = removePunctuation.toUpperCase();
+  const changeArray = changeCapital.split(" ");
+  changeArray.map((ele) => {
+    if (countObj[ele]) {
+      countObj[ele] += 1;
+    } else {
+      countObj[ele] = 1;
+    }
+  });
+  return countObj;
+}
+console.log(countWords("You. and. me! and, you. i"));
+module.exports = countWords;
