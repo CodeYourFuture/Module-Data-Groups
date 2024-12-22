@@ -3,12 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Image Carousel</title>
+    <link rel="stylesheet" type="" href="style.css">
     <script defer src="slideshow.js"></script>
   </head>
   <body>
-    <img id="carousel-img" src="./assets/cute-cat-a.png" alt="cat-pic" />
+    <div id="imageDiv">
+    <img id="carousel-img" src="./assets/dog1.webp" alt="dog-pic" />
+    <p></p>
+    
+   <button type="button" id="autoBackeard-btn">AutoBackward</button>
     <button type="button" id="backward-btn">Backwards</button>
+    <button type="button" id="stop-btn">Stop</button>
     <button type="button" id="forward-btn">Forward</button>
+    <button type="button" id="autoForward-btn">AutoForward</buttn>
+    </div>
   </body>
 </html>
