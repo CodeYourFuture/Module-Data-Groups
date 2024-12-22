@@ -1,5 +1,5 @@
 function parseQueryString(queryString) {
-  console.log(typeof queryString);
+  
 
   if (typeof queryString !== "string") {
     throw new Error("invalid input");
@@ -15,7 +15,12 @@ function parseQueryString(queryString) {
   }
 
   const keyValuePairs = queryString.split("&");
+<<<<<<< HEAD
   console.log(keyValuePairs);
+=======
+
+  
+>>>>>>> 9bfc1d248bfc0c0bfc03053d950873de7e52b25d
 
   for (const pair of keyValuePairs) {
     console.log(pair);

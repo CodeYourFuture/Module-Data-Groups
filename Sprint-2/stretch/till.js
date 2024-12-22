@@ -8,7 +8,9 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    const coinValue = parseInt(coin.replace("p", ""), 10);
+    total += coinValue * quantity;
+    
   }
 
   return `£${total / 100}`;
@@ -22,10 +24,23 @@ const till = {
 };
 const totalAmount = totalTill(till);
 
+console.log(totalAmount);
+
+
 // a) What is the target output when totalTill is called with the till object
+// The code will fail because the keys in the till object are strings. 
+// Multiplying a string by a number results in NaN.
 
 // b) Why do we need to use Object.entries inside the for...of loop in this function?
+// It returns an array of key-value pairs for the object, allowing us to iterate over both key and value.
 
 // c) What does coin * quantity evaluate to inside the for...of loop?
+// In each iteration prints NaN
 
 // d) Write a test for this function to check it works and then fix the implementation of totalTill
+
+
+
+
+
+module.exports = totalTill
