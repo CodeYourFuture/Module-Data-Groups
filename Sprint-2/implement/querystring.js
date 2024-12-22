@@ -1,10 +1,8 @@
 function parseQueryString(queryString) {
   console.log(typeof queryString);
 
-  
-  
-  if(typeof queryString !== 'string' ){
-    throw new Error('invalid input')
+  if (typeof queryString !== "string") {
+    throw new Error("invalid input");
   }
 
   const queryParams = {};
@@ -15,15 +13,24 @@ function parseQueryString(queryString) {
   if (!queryString.includes("=")) {
     throw new Error("invalid query string format");
   }
-  
-  
+
   const keyValuePairs = queryString.split("&");
   console.log(keyValuePairs);
-  
 
   for (const pair of keyValuePairs) {
+    console.log(pair);
+    if (!pair) continue;
+
     const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    console.log(key);
+    console.log(value);
+    if (!key) {
+      throw new Error("invalid query string format");
+    }
+
+    queryParams[decodeURIComponent(key)] = value
+      ? decodeURIComponent(value)
+      : "";
   }
 
   return queryParams;
