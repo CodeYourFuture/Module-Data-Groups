@@ -1,4 +1,4 @@
-const contains = require("./contains.js");
+const contains = require("./contains");
 
 /*
 Implement a function called contains that checks an object contains a
@@ -20,16 +20,32 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("contains on empty object returns false", () => {
+  const emptyObject = {};
+  expect(contains(emptyObject, "key")).toBe(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("contains with an existing property name returns true", () => {
+  const obj = { a: 1, b: 2 };
+  expect(contains(obj, "a")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+test("contains with a non-existent property name returns false", () => {
+  const obj = { a: 1, b: 2 };
+  expect(contains(obj, "c")).toBe(false);
+});
 
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("contains returns false for invalid parameters like an array", () => {
+  const array = ["a", "b", "c"];
+  expect(contains(array, "a")).toBe(false); // Expects false for array key
+  expect(contains(array, "0")).toBe(false); // Expects false for array index
+});
