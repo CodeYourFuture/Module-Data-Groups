@@ -1,24 +1,20 @@
-function tally(argument) {
-  if (!Array.isArray(argument)) {
+function tally(arg) {
+  if (!Array.isArray(arg)) {
     throw new Error("Invalid input");
   }
 
-  const flatArray = argument.flat();
-
-  if (flatArray.length === 0) {
-    return {};
-  }
-
-  const count = flatArray.reduce((accumulator, currentValue) => {
-    if (!accumulator[currentValue]) {
-      accumulator[currentValue] = 1; 
+  const count = arg.reduce((accumulator, currentValue) => {
+    if (Array.isArray(currentValue)) {
+      currentValue.forEach((item) => {
+        accumulator[item] = (accumulator[item] || 0) + 1;
+      });
     } else {
-      accumulator[currentValue]++; 
+      accumulator[currentValue] = (accumulator[currentValue] || 0) + 1;
     }
     return accumulator;
   }, {});
 
-  return count; 
+  return count;
 }
 
 module.exports = tally;
