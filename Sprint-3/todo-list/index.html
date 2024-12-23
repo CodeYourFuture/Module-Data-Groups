@@ -5,23 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Title here</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
   </head>
   <body>
-    <form>
-      <div>
-        <input type="text" placeholder="New todo..." />
-      </div>
-      <div>
-        <button type="submit">Add Todo</button>
-        <button
-          type="button"
-          id="remove-all-completed"
-          class="btn btn-primary mb-3"
-        >
-          Remove all completed
-        </button>
-      </div>
-    </form>
+    <main>
+      <form>
+        <div>
+          <input type="text" id="input" placeholder="New todo..." />
+        </div>
+        <div>
+          <button type="submit" id="addBtn">Add Todo</button>
+        </div>
+      </form>
+      <ol id="todo-list">
+        <!-- <li class="list-item completed">Wake up and make the bed  -->
+          <!-- <span id='btnContainer'>
+            <i class="fa fa-check"></i>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            </span>
+          </li>
+        <li class="list-item completed">Brush teeth and take a shower</li>
+        <li class="list-item">Prepare and eat breakfast</li>
+        <li class="list-item">Work or attend school</li>
+        <li class="">Exercise or go for a walk</li> -->
+        </ol>
+      <button
+            type="button"
+            id="remove-all-completed"
+            class="btn btn-primary mb-3"
+          >
+            Remove all completed
+      </button>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
