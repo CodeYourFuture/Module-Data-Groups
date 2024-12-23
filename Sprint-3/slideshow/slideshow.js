@@ -2,6 +2,7 @@ const images = [
     "./assets/cute-cat-a.png",
     "./assets/cute-cat-b.jpg",
     "./assets/cute-cat-c.jpg",
+    "./assets/cute-cat-d.jpg",
 ];
 
 const imgSlider = document.getElementById("carousel-img");
@@ -10,16 +11,19 @@ const backwardBtn = document.getElementById("backward-btn");
 const autoForwardBtn = document.getElementById("auto-forward-btn");
 const forwardBtn = document.getElementById("forward-btn");
 const stopBtn = document.getElementById("stop-btn");
+const numImage = document.getElementById("numImage");
 
 let index = 0;
 
 function moveForward() {
     index = (index + 1) % images.length;
+    numImage.textContent = `${index}`;
     imgSlider.src = images[index];
 }
 
 function moveBackward() {
     index = (index - 1 + images.length) % images.length;
+    numImage.textContent = `${index}`;
     imgSlider.src = images[index];
 }
 
@@ -30,12 +34,12 @@ let showInterval = null;
 
 autoBackwardBtn.addEventListener('click', () => {
     clearInterval(showInterval);
-    showInterval = setInterval(moveForward, 5000);
+    showInterval = setInterval(moveBackward, 5000);
 });
 
 autoForwardBtn.addEventListener('click', () => {
     clearInterval(showInterval);
-    showInterval = setInterval(moveBackward, 5000);
+    showInterval = setInterval(moveForward, 5000);
 });
 
 stopBtn.addEventListener('click', () => {
