@@ -1,1 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(https://media.istockphoto.com/id/1419768610/photo/checklist-task-list-survey-and-assessment-quality-control-goals-achievement-and-business.jpg?s=2048x2048&w=is&k=20&c=Rcgna_LIKxZ1LEO4usvIBphEy_oLsIVHHzBMalZPN0k=);
+  background-position: center;
+  background-size: cover;
+}
+
+main {
+  background: transparent;
+  width: 60%;
+  padding: 2rem 3rem;
+  margin: 4rem;
+  backdrop-filter: blur(70px);
+  box-shadow: 0 0  3px #000;
+  border-radius: 5px;
+}
+
+form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form  input{
+  padding: 0.6rem;
+  border: none;
+  font-size: 1.1rem;
+  margin: 1rem;
+  border-radius: 3px;
+  /*  */
+}
+
+form input:focus {
+  outline: 1px solid rgb(79, 79, 252);
+}
+
+button {
+  padding: 0.6rem;
+  font-size: 1.1rem;
+  outline: none;
+  border: none;
+  margin: 1rem;
+}
+
+ol {
+  flex-direction: column;
+  margin: 1rem auto;
+  width: 100%;
+  padding: 0 2rem;
+  /* list-style: none; */
+  display: flex;
+  gap: 1rem;
+}
+
+.list-item {
+  font-size: 17px;
+  color: #252525;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+
+li span#btnContainer {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+li span#btnContainer i {
+  margin: 0.5rem;
+  text-decoration: none;
+}
+
+.fa-check {
+  color: green;
+  cursor: pointer;
+}
+
+.fa-trash {
+  cursor: pointer;
+  color: red;
+}
+
+.btn {
+  border: none;
+  padding: 0.5rem;
+  margin: 2rem auto;
+  display: block;
+}
