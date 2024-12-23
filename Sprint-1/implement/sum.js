@@ -7,7 +7,7 @@ function sum(elements) {
     
       for (let h = 0; h < elements.length; h++) {
         const current = elements[h];
-        if (typeof current === 'number') {
+        if (typeof current == 'number') {
           total += current;
         }
       }
