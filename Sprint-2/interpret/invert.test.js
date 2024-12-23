@@ -30,4 +30,14 @@ describe("invert function", () => {
     const expected = { hello: "x", world: "y" };
     expect(invert(input)).toEqual(expected);
   });
+
+  test("should handle an object with undefined, empty string, and array as values", () => {
+
+    expect(invert({ x: undefined, y: "", z: [1] })).toEqual({
+      undefined: "x",
+      "": "y",
+      1: "z",
+    });
+  });
+
 });

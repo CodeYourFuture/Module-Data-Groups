@@ -10,10 +10,10 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
+    const stringifiedValue = String(value); 
     
-    invertedObj[value] = key;
+    invertedObj[stringifiedValue] = key;
   }
-
   return invertedObj;
 }
 
