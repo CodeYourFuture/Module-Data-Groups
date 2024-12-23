@@ -16,28 +16,43 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity", () => {
+    expect(findMax([])).toBe(-Infinity);
+  });
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
-
+test("given an array with one number, returns that number", () => {
+    expect(findMax([22])).toBe(22);
+  });
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
-
+test("given an array with positive and negative numbers, returns the largest number overall", () => {
+    expect(findMax([-10, 30, -30, 15])).toBe(30);
+  });
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
-
+test("given an array with just negative numbers, returns the closest one to zero", () => {
+    expect(findMax([-10, -2, -7, -50])).toBe(-2);
+  });
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
-
+test("given an array with decimal numbers, returns the largest decimal number", () => {
+    expect(findMax([6.6, 2.1, 4.5, 4.2,7.1,1.9])).toBe(7.1);
+  });
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
-
+test("given an array with non-number values, returns the max ignoring non-numeric values", () => {
+    expect(findMax(['h', 70, null, 20, 'k'])).toBe(70);
+  });
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("given an array with only non-number values, returns -Infinity", () => {
+    expect(findMax(['hello', true, undefined, 'world'])).toBe(-Infinity);
+  });
