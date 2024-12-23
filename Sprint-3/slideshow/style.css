@@ -10,9 +10,18 @@ body {
     align-items: center;
 }
 
+.main_header {
+    margin: 0 0 15px;
+}
+
 img {
-    width: 60%;
+    width: 50%;
     border-radius: 10px;
+}
+
+.indexImg {
+    margin-top: 20px;
+    font-size: 1.2rem;
 }
 
 .buttons {
