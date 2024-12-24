@@ -16,7 +16,37 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+
+describe('dedupe function', () => {
+  test('should return an empty array when the input array is empty', () => {
+    expect(dedupe([])).toEqual([]);
+  });
+
+  test('should remove duplicate strings from the array', () => {
+    expect(dedupe(['a', 'a', 'b', 'c', 'c'])).toEqual(['a', 'b', 'c']);
+  });
+
+  test('should remove duplicate numbers from the array', () => {
+    expect(dedupe([1, 2, 2, 3, 3, 3])).toEqual([1, 2, 3]);
+  });
+
+  test('should handle a mix of strings and numbers', () => {
+    expect(dedupe([1, '1', 2, '2', 1, 2, '2'])).toEqual([1, '1', 2, '2']);
+  });
+
+  test('should handle arrays with a single element', () => {
+    expect(dedupe([42])).toEqual([42]);
+  });
+
+  test('should handle arrays with no duplicates', () => {
+    expect(dedupe([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  test('should handle arrays with mixed types', () => {
+    expect(dedupe(['a', 1, 'a', 1, 2, 'b', 'b'])).toEqual(['a', 1, 2, 'b']);
+  });
+});
+
 
 // Given an array with no duplicates
 // When passed to the dedupe function
