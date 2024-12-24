@@ -11,6 +11,10 @@ function buttonClick() {
   const button = document.getElementById("new-quote");
   button.addEventListener("click", () => getNewQuote());
 }
+function autoClick() {
+  const button = document.getElementById("new-quote");
+  button.click();
+}
 function getNewQuote() {
   const randomValue = pickFromArray(quotes);
   const newQuote = randomValue.quote;
@@ -20,8 +24,23 @@ function getNewQuote() {
   findAuthorToChange.innerText = newAuthor;
   findQuoteToChange.innerText = newQuote;
 }
+function toggleFun() {
+  let intervalId;
+  const checkToggle = document.getElementById("quote-autoplay");
+  const toggleLabelText = document.getElementById("quote-text");
+  checkToggle.addEventListener("change", () => {
+    if (checkToggle.checked) {
+      toggleLabelText.textContent = "On Quote Change";
+      intervalId = setInterval(autoClick, 60000);
+    } else {
+      clearInterval(intervalId);
+      toggleLabelText.textContent = "Off Quote Change";
+    }
+  });
+}
 function setup() {
   buttonClick();
+  toggleFun();
 }
 window.onload = setup;
 
