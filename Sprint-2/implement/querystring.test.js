@@ -10,3 +10,39 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("empty query string", () => {
+    expect(parseQueryString("")).toEqual({});
+});
+
+test("a simple query string", () => {
+    expect(parseQueryString("name=pooriya")).toEqual({
+        name : "pooriya"
+    });
+});
+
+test("pairs of key-values", () => {
+    expect(parseQueryString("name=pooriya&country=UK")).toEqual({
+        name : "pooriya",
+        country : "UK"
+    });
+});
+
+test("query string with missing value", () => {
+    expect(parseQueryString("name=")).toEqual({
+        name : ""
+    });
+});
+
+test("query string without signs and value", () => {
+    expect(parseQueryString("name&country")).toEqual({
+        name : undefined,
+        country : undefined
+    });
+});
+
+test("query string with two value for one key (duplicate keys)", () => {
+    expect(parseQueryString("name=pooriya&name=justin")).toEqual({
+        name : "justin"
+    })
+})
