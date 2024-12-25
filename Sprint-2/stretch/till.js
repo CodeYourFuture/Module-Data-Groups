@@ -8,10 +8,11 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    const coinWithoutP = coin.slice(0, coin.length -1);
+    total += coinWithoutP * quantity;
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
 const till = {
@@ -20,12 +21,25 @@ const till = {
   "50p": 4,
   "20p": 10,
 };
-const totalAmount = totalTill(till);
+// const totalAmount = totalTill(till);
+// console.log(totalAmount)
+
+module.exports = totalTill;
 
 // a) What is the target output when totalTill is called with the till object
+      // £4.40
 
+// ---------------------------------------------------------------------------------------
 // b) Why do we need to use Object.entries inside the for...of loop in this function?
+      // to convert the object to an array with key-value pairs, then do iterate on each pair with loop.
 
+// ---------------------------------------------------------------------------------------
 // c) What does coin * quantity evaluate to inside the for...of loop?
+      // already evaluate to 'Nan', because of 'num (quantity)' to 'str (coin)' multiplication.
 
+// ---------------------------------------------------------------------------------------
 // d) Write a test for this function to check it works and then fix the implementation of totalTill
+
+test("check totalTill output", () => {
+  expect(totalTill(till)).toBe("£4.40");
+});
