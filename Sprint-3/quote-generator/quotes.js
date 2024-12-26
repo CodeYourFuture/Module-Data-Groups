@@ -1,3 +1,31 @@
+const quoteText = document.getElementById("quote");
+const authorName = document.getElementById("author");
+const newQuote = document.getElementById("new-quote");
+const autoGenerateBox = document.getElementById("auto-generate");
+const statusText = document.getElementById("status");
+statusText.textContent = "Auto Generate is OFF";
+
+function randomQuote() {
+  quoteText.innerText = pickFromArray(quotes).quote;
+  authorName.textContent = `Author: ${pickFromArray(quotes).author}`;
+};
+
+let autoGenerateInterval;
+
+function autoGenerate () {
+  if (autoGenerateBox.checked) {
+    statusText.innerText = "Auto Generate is ON";
+    autoGenerateInterval = setInterval(randomQuote, 60000);
+  } else {
+    statusText.textContent = "Auto Generate is OFF";
+    clearInterval(autoGenerateInterval);
+  }
+};
+
+window.onload = randomQuote,autoGenerate;
+newQuote.addEventListener("click", randomQuote);
+autoGenerateBox.addEventListener("change",autoGenerate)
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at

@@ -1,1 +1,45 @@
 /** Write your CSS in here **/
+body{
+    background: #222222;
+    color: wheat;
+    text-align: center;
+    margin: 15vh auto ;
+}
+
+#quote-container {
+    border: 2px solid chartreuse;
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    margin: 2rem auto;
+    background: #6e6e6e;
+    color: black;
+    text-shadow: 0 0 5px white;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px #222222 inset;
+    max-width: fit-content;
+}
+
+#new-quote {
+    background: chartreuse;
+    text-shadow: 0 0 3px gray;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    font-weight: bolder;
+    margin: 1.5rem;
+    box-shadow: 0 0 10px aquamarine;
+}
+
+#new-quote:hover {
+    background: rgb(71, 141, 0);
+}
+
+#auto-generate {
+    display: none;
+}
+
+#status {
+    font-weight: bolder;
+    text-shadow: 0 0 5px black;
+    color: cadetblue;
+}
