@@ -501,7 +501,7 @@ function quoteGeneratorApp(quoteArray) {
   function generateQuote() {
     const { quote, author } = pickFromArray(quoteArray);
     quoteParagraph.textContent = quote;
-    authorParagraph.textContent = author;
+    authorParagraph.innerHTML = `<blockquote>- ${author}</blockquote>`;
   }
 
   function init() {

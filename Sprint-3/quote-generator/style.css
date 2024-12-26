@@ -1,1 +1,46 @@
 /** Write your CSS in here **/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 96px 0;
+  color: #272727;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #edede9;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3fa79a;
+  border-radius: 999px;
+  border: none;
+  transition: all 0.3s;
+}
+
+button:active,
+button:hover {
+  background-color: #2a9d8f;
+}
+
+#author {
+  margin: 24px 0;
+  text-align: right;
+}
+
+#quote {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #ee9a85;
+}
