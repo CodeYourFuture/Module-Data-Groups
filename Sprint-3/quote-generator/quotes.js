@@ -511,7 +511,7 @@ function quoteGeneratorApp(quoteArray) {
   function toggleAutoQuotes() {
     toggleSwitch.addEventListener("click", () => {
       if (toggleSwitch.checked) {
-        autoGenerateQuotes = setInterval(() => generateQuote(), 2000);
+        autoGenerateQuotes = setInterval(() => generateQuote(), 60000);
         autoPlayIndicator.textContent = "On";
       } else {
         clearInterval(autoGenerateQuotes);
