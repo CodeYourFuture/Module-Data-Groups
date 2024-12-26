@@ -497,6 +497,10 @@ function quoteGeneratorApp(quoteArray) {
   const quoteParagraph = document.querySelector("#quote");
   const authorParagraph = document.querySelector("#author");
   const newQuoteBtn = document.querySelector("#new-quote");
+  const toggleSwitch = document.querySelector("#flexSwitchCheckDefault");
+  const autoPlayIndicator = document.querySelector("#auto-play-indicator");
+
+  let autoGenerateQuotes;
 
   function generateQuote() {
     const { quote, author } = pickFromArray(quoteArray);
@@ -504,11 +508,25 @@ function quoteGeneratorApp(quoteArray) {
     authorParagraph.innerHTML = `<blockquote>- ${author}</blockquote>`;
   }
 
+  function toggleAutoQuotes() {
+    toggleSwitch.addEventListener("click", () => {
+      if (toggleSwitch.checked) {
+        autoGenerateQuotes = setInterval(() => generateQuote(), 2000);
+        autoPlayIndicator.textContent = "On";
+      } else {
+        clearInterval(autoGenerateQuotes);
+        autoPlayIndicator.textContent = "Off";
+      }
+    });
+  }
+
   function init() {
+    toggleAutoQuotes();
+    autoPlayIndicator.textContent = "Off";
     generateQuote();
     newQuoteBtn.addEventListener("click", generateQuote);
   }
-  init()
+  init();
 }
 
-quoteGeneratorApp(quotes)
+quoteGeneratorApp(quotes);

@@ -1,5 +1,11 @@
 /** Write your CSS in here **/
 
+:root {
+  --ink: #272727;
+  --main: #ee9a85;
+  --accent: #3fa79a;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +13,7 @@
 }
 
 body {
-  padding: 96px 0;
+  padding: 96px 32px;
   color: #272727;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #edede9;
@@ -36,11 +42,31 @@ button:hover {
   font-weight: bold;
 }
 
-.container {
-  max-width: 768px;
-  margin: 0 auto;
+.container-md {
   padding: 32px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   background-color: #ee9a85;
+}
+
+.toggle {
+  margin-top: 36px;
+}
+
+.form-check-input:checked {
+  background-color: #3fa79a;
+}
+
+.form-check-input:focus {
+  border-color: #3fa79a;
+  box-shadow: 0 0 0.25rem rgba(63, 167, 155, 0.25);
+}
+
+#auto-play {
+  margin-top: 16px;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  
+  border: 2px #3fa79a solid;
 }
