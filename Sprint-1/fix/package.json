@@ -1,18 +1,18 @@
 {
-  "name": "week-1",
+  "name": "fix",
   "version": "1.0.0",
-  "description": "This README will guide you through the different sections for this week.",
-  "main": "writers.js",
+  "main": "median.js",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "devDependencies": {
     "jest": "^29.7.0"
   },
   "dependencies": {
-    "week-1": "file:../Sprint-1"
+    "fix": "file:../fix"
   }
 }
