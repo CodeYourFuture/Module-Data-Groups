@@ -1,23 +1,34 @@
-let timerId;
+let timerId = null;
 let remainingTime;
+let isPaused = false;
+
 function startTimer() {
-  clearInterval(timerId); // Clear any existing interval
+  clearInterval(timerId);
+  isPaused = false;
   timerId = setInterval(() => {
     if (remainingTime > 0) {
       remainingTime--;
       updateDisplay(remainingTime);
-    } else {
-      clearInterval(timerId);
-      playAlarm();
+      if (remainingTime === 0) {
+        clearInterval(timerId);
+        timerId = null;
+        playAlarm();
+      }
     }
   }, 1000);
 }
+
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   const totalSeconds = +input.value;
 
-  // Validate input
-  if (isNaN(totalSeconds) || totalSeconds < 0) {
+  // Stricter input validation
+  if (
+    !input.value ||
+    input.value === "-" ||
+    input.value === "." ||
+    totalSeconds <= 0
+  ) {
     alert("Please enter a valid positive number");
     return;
   }
@@ -25,14 +36,26 @@ function setAlarm() {
   remainingTime = totalSeconds;
   updateDisplay(remainingTime);
 
+  // Reset background color when starting new timer
+  const centre = document.querySelector(".centre");
+  centre.style.backgroundColor = ""; // Reset to default
+
   startTimer();
 }
 
+function pauseAlarm() {
+  audio.pause();
+  clearInterval(timerId);
+  timerId = null;
+  isPaused = true;
+}
+
 function resumeAlarm() {
-  if (remainingTime > 0) {
+  if (remainingTime > 0 && isPaused) {
     startTimer();
   }
 }
+
 function updateDisplay(seconds) {
   const timeRemainingDisplay = document.getElementById("timeRemaining");
   const centre = document.querySelector(".centre");
@@ -66,11 +89,6 @@ function setup() {
 
 function playAlarm() {
   audio.play();
-}
-
-function pauseAlarm() {
-  audio.pause();
-  clearInterval(timerId);
 }
 
 window.onload = setup;
