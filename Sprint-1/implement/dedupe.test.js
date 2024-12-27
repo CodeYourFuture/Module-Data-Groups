@@ -16,12 +16,34 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+test("given an empty array, it returns an empty array", () => {
+    expect(dedupe([])).toEqual([]);
+});
 
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
-
+test("given an array with no duplicates, it returns a copy of the original array", () => {
+    expect(dedupe(['a', 'b', 'c'])).toEqual(['a', 'b', 'c']);
+    expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);
+});
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+test("given an array with strings, it removes duplicates", () => {
+    expect(dedupe(['a', 'a', 'a', 'b', 'b', 'c'])).toEqual(['a', 'b', 'c']);
+    expect(dedupe(['x', 'y', 'x', 'z', 'y'])).toEqual(['x', 'y', 'z']);
+});test("given an array with strings, it removes duplicates", () => {
+    expect(dedupe(['a', 'a', 'a', 'b', 'b', 'c'])).toEqual(['a', 'b', 'c']);
+    expect(dedupe(['x', 'y', 'x', 'z', 'y'])).toEqual(['x', 'y', 'z']);
+});
+test("given an array with numbers, it removes duplicates", () => {
+    expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
+    expect(dedupe([1, 2, 1])).toEqual([1, 2]);
+});
+
+//advanced test for dedupe with Mix of strings and numbers
+test("given an array with mixed types, it removes duplicates", () => {
+    expect(dedupe(['a', 1, 'a', 2, 1, 'b'])).toEqual(['a', 1, 2, 'b']);
+    expect(dedupe([1, '1', 1, '1', 2])).toEqual([1, '1', 2]);
+});
