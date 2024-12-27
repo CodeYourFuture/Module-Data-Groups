@@ -1,1 +1,25 @@
 /** Write your CSS in here **/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400:500:600:700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #5372f0;
+}
+
+.wrapper{
+    width: 605px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 30px 25px;
+    box-shadow:  5px 10px;
+
+
+}
