@@ -21,5 +21,12 @@ body{
     padding: 30px 30px 25px;
     box-shadow:  5px 10px;
 
-
+}
+header, .content :where(i, p, span){
+    color: #202842;
+}
+.wrapper header{
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
 }
