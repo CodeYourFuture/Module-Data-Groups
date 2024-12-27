@@ -23,12 +23,7 @@ function setAlarm() {
   const totalSeconds = +input.value;
 
   // Stricter input validation
-  if (
-    !input.value ||
-    input.value === "-" ||
-    input.value === "." ||
-    totalSeconds <= 0
-  ) {
+  if (!input.value.match(/^[+]?\d*\.?\d{0,2}$/) || totalSeconds <= 0) {
     alert("Please enter a valid positive number");
     return;
   }
