@@ -30,3 +30,36 @@ header, .content :where(i, p, span){
     font-weight: 600;
     text-align: center;
 }
+
+.wrapper .content{
+    margin: 35px 0;
+}
+.content .qoute-area{
+    display: flex;
+    justify-content: center;
+}
+
+
+.qoute .qoute-area i {
+    font-size: 15px;
+}
+.qoute-area i:first-child{
+    margin: 3px 10px 0 0;
+}
+.qoute-area i:last-child{
+    display: flex;
+    margin: 3px 10px 0 0;
+}
+.quote-area .quote{
+    font-size: 22px;
+    text-align: center;
+    word-break: break-all;
+}
+
+.content .author{
+    display: flex;
+    font-size: 18px;
+    margin-top: 20px;
+    font-style: italic;
+    justify-content: flex-end
+}
