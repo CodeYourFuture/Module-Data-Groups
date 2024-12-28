@@ -8,7 +8,8 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    const coinValue = Number(coin.slice(0, -1));
+    // const coinValue = Number(coin.slice(0, -1));
+    const coinValue = parseInt(coin, 10);
     total += coinValue * quantity;
   }
 

@@ -12,6 +12,4 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe.ingredients}`);
+console.log(`${recipe.title} serves ${recipe.serves} \ningredients: \n${recipe.ingredients.join('\n')}`);
