@@ -17,14 +17,15 @@ try {
     let length = input.length;
     let part2Result = null;
 
+    // Loop indefinitely until a repeated frequency is found
     for (let i = 0; ; i = (i + 1) % length) {
         sum += input[i];
 
         if (set.has(sum)) {
-            part2Result = sum;
-            break;
+            part2Result = sum;  // This is the first repeated frequency
+            break;  // Exit the loop once a repeat is found
         } else {
-            set.add(sum);
+            set.add(sum);   // Keep track of seen frequencies
         }
     }
 
