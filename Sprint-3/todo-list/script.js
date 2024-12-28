@@ -88,5 +88,14 @@ function deleteAllCompletedTodos() {
   const deleteAllButton = document.getElementById("remove-all-completed");
   deleteAllButton.addEventListener("click", () => {
     console.log("you click delete all button");
+    // const finalFilter = todos.filter((ele) => ele.completed === "true");
+    //just mutate it
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i].completed === true) {
+        todos.splice(i, 1);
+      }
+    }
+
+    populateTodoList(todos);
   });
 }
