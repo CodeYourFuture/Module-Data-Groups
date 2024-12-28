@@ -11,7 +11,7 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #5372f0;
+    background: #5372F0;
 }
 
 .wrapper{
@@ -34,7 +34,7 @@ header, .content :where(i, p, span){
 .wrapper .content{
     margin: 35px 0;
 }
-.content .qoute-area{
+.content .quote-area{
     display: flex;
     justify-content: center;
 }
@@ -42,7 +42,7 @@ header, .content :where(i, p, span){
 .quote-area i{
     font-size: 15px;
 }
-.qoute-area i:first-child{
+.quote-area i:first-child{
     margin: 3px 10px 0 0;
 }
 .quote-area i:last-child{
@@ -99,7 +99,7 @@ header, .content :where(i, p, span){
     list-style: none;
     border-radius: 50%;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
     border: 2px solid #5372f0;
     transition: all 0.3s ease;
 }
