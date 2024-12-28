@@ -7,6 +7,9 @@ let imageValue = 0;
 const buttons = document.querySelector(".button-group");
 const checkNumber = document.getElementById("image-index");
 const imageFinder = document.getElementById("carousel-img");
+//for interval
+let forwardIntervalId;
+let backwardIntervalId;
 function setup() {
   const makeDemo1 = document.createElement("h1");
   makeDemo1.textContent = "Image Carousel.Level 1 Demo";
@@ -19,25 +22,54 @@ function setup() {
 function findArrayInd(value) {
   if (value == "increase") {
     imageValue = (imageValue + 1) % images.length;
+    checkNumber.innerText = imageValue;
+    imageFinder.src = images[imageValue];
   } else if (value == "decrease") {
     imageValue = (imageValue - 1 + images.length) % images.length;
+    checkNumber.innerText = imageValue;
+    imageFinder.src = images[imageValue];
+  } else if (value == "auto-forward-btn") {
+    if (forwardIntervalId) {
+      clearInterval(forwardIntervalId);
+    }
+    forwardIntervalId = setInterval(() => {
+      imageValue = (imageValue + 1) % images.length;
+      checkNumber.innerText = imageValue;
+      imageFinder.src = images[imageValue];
+    }, 1000);
+  } else if (value == "auto-backward-btn") {
+    if (backwardIntervalId) {
+      clearInterval(backwardIntervalId);
+    }
+    backwardIntervalId = setInterval(() => {
+      imageValue = (imageValue - 1 + images.length) % images.length;
+      checkNumber.innerText = imageValue;
+      imageFinder.src = images[imageValue];
+    }, 1000);
+  } else if (value == "stop-btn") {
+    if (forwardIntervalId) {
+      clearInterval(forwardIntervalId);
+    }
+    if (backwardIntervalId) {
+      clearInterval(backwardIntervalId);
+    }
   }
   return imageValue;
 }
 function findWhichButton() {
   buttons.addEventListener("click", (e) => {
     if (e.target.id == "forward-btn") {
-      //   console.log(findArrayInd("increase"));
       findArrayInd("increase");
-      checkNumber.innerText = imageValue;
-      imageFinder.src = images[imageValue];
     } else if (e.target.id == "backward-btn") {
-      //   console.log(findArrayInd("decrease"));
       findArrayInd("decrease");
-      checkNumber.innerText = imageValue;
-      imageFinder.src = images[imageValue];
+    } else if (e.target.id == "auto-backward-btn") {
+      findArrayInd("auto-backward-btn");
+    } else if (e.target.id == "stop-btn") {
+      findArrayInd("stop-btn");
+    } else if (e.target.id == "auto-forward-btn") {
+      findArrayInd("auto-forward-btn");
     }
   });
 }
 
-window.onload = setup();
+window.onload = setup;
