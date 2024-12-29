@@ -43,3 +43,9 @@ test('returns empty object for null, undefined, or empty strings', () => {
   expect(parseQueryString(undefined)).toEqual({});
   expect(parseQueryString("")).toEqual({});
 });
+
+test("handles duplicate keys by storing values in an array", () => {
+  expect(parseQueryString("key=value1&key=value2")).toEqual({
+    key: ["value1", "value2"],
+  });
+});
