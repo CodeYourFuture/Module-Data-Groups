@@ -28,7 +28,7 @@ test("passed an array of items it should return an object containing the count f
 // When passed to tally
 // Then it should return an empty object
 
-test("passed an array of items it should return an object containing the count for each unique item", () => {
+test("should return an empty object when passed an empty array", () => {
   expect(tally([])).toEqual({});
 });
 
@@ -36,7 +36,7 @@ test("passed an array of items it should return an object containing the count f
 // When passed to tally
 // Then it should return counts for each unique item
 
-test("passed an array of items with duplicate items it should return counts for each unique item", () => {
+test("should return counts for each unique item in an array with duplicates", () => {
   expect(tally(["a", "a", "a"])).toEqual({ a: 3 });
 });
 

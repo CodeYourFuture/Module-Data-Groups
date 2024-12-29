@@ -36,8 +36,8 @@ function highestFrequency(freqs) {
 
 
 function calculateMode(list) {
-  frequency = frequencyOfValues(list); // track frequency of each value
-  mode = highestFrequency(frequency); // Find the value with the highest frequency
+  const frequency = frequencyOfValues(list); // track frequency of each value
+  const mode = highestFrequency(frequency); // Find the value with the highest frequency
   return mode ? NaN : mode;
 }
 

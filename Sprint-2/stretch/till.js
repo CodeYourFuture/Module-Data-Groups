@@ -11,7 +11,7 @@
       total += +coin.replace("p", "") * quantity;
     }
 
-    return `£${total / 100}`;
+    return `£${(total / 100).toFixed(2)}`;
   }
 
   const till = {
@@ -36,4 +36,4 @@ const totalAmount = totalTill(till);
 
   // d) Write a test for this function to check it works and then fix the implementation of totalTill
 
-  /* assert.strictEqual(totalTill({ "1p": 5, "2p": 10, "10p": 2 }), "£0.35"); */
+/* assert.strictEqual(totalTill({ "1p": 5, "2p": 10, "10p": 2 }), "£0.35"); */

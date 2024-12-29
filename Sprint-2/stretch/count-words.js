@@ -40,4 +40,4 @@ function countWords(str) {
   return counter
 }
 
-// console.log(countWords("you34! and me and you"));
+console.log(countWords("hello.world hello world hello$world"))
