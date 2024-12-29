@@ -10,3 +10,12 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+
+test("parses querystring is empty", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("parses querystring values has more then one pair", () => {
+  expect(parseQueryString("equation=x=y+1&a=1")).toEqual({});
+});
