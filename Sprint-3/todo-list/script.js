@@ -19,12 +19,25 @@ function populateTodoList(todos) {
 function addTodoToDOM(task, completed = false) {
   const newTodo = document.createElement("li");
   newTodo.classList.add("todo-item");
-  if (completed) newTodo.classList.add("done");
-  newTodo.innerHTML = `
-    <span class="badge bg-primary rounded-pill">${task}</span>
-    <button class="status">${completed ? "UNDO" : "DONE"}</button>
-    <button class="delete">DELETE</button>
-  `;
+
+  if (completed) {newTodo.classList.add("done")};
+
+  const taskSpan = document.createElement("span");
+  taskSpan.classList.add("badge", "bg-primary", "rounded-pill");
+  taskSpan.textContent = task; 
+
+  const statusButton = document.createElement("button");
+  statusButton.classList.add("status");
+  statusButton.textContent = completed ? "UNDO" : "DONE"; 
+
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete");
+  deleteButton.textContent = "DELETE"; 
+
+  newTodo.appendChild(taskSpan);
+  newTodo.appendChild(statusButton);
+  newTodo.appendChild(deleteButton);
+
   todoList.appendChild(newTodo);
 }
 
@@ -36,6 +49,9 @@ function addNewTodo(event) {
   if (taskValue) {
     addTodoToDOM(taskValue);
     form.reset();
+  }
+  else {
+    alert("The task text is empty! Please enter a valid task description !");
   }
 }
 
