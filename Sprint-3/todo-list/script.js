@@ -90,7 +90,7 @@ function deleteAllCompletedTodos() {
     console.log("you click delete all button");
     // const finalFilter = todos.filter((ele) => ele.completed === "true");
     //just mutate it
-    for (let i = 0; i < todos.length; i++) {
+    for (let i = todos.length - 1; i >= 0; i--) {
       if (todos[i].completed === true) {
         todos.splice(i, 1);
       }
