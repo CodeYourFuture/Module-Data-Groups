@@ -2,8 +2,20 @@
 
 // Check if the object is valid and has the property
 
-function contains(obj, property) {
+/*function contains(obj, property) {
   if (typeof obj === "object" && obj !== null && property in obj) {
+    return true;
+  } else {
+    return false;
+  }
+}*/
+//!Array.isArray(obj) ensures that arrays are excluded from being considered as "objects" in this function
+
+function contains(obj, property) {
+  // Check if obj is an object (not null) and not an array
+  if (
+    typeof obj === "object" && obj !== null &&!Array.isArray(obj) && property in obj
+  ) {
     return true;
   } else {
     return false;

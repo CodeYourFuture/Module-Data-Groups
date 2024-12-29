@@ -24,6 +24,11 @@ test(" when given an array instead of an object returns false", () => {
   expect(contains(arrayInput, "key")).toBe(false);
 });
 
+test(" when given an array instead of an object returns false", () => {
+  const arrayInput = ["value1", "value2"];
+  expect(contains(arrayInput, "1")).toBe(false);
+});
+
 
 
 /*
