@@ -4,6 +4,7 @@ const imagesForSlider = [
   "./assets/cute-cat-a.png",
   "./assets/cute-cat-b.jpg",
   "./assets/cute-cat-c.jpg",
+  "https://www.animalleague.org/wp-content/uploads/2022/02/beth-blog-feb2022-white-grey-kitten-400x401.jpg",
 ];
 
 let seconds = 1;
@@ -11,7 +12,7 @@ let seconds = 1;
 const prevButton = document.querySelector("#backward-btn"),
   nextButton = document.querySelector("#forward-btn"),
   autoForward = document.querySelector("#autoforward-btn"),
-  autoBack = document.querySelector("#auto"),
+  autoBack = document.querySelector("#autoback-btn"),
   stopButton = document.querySelector("#stop-btn"),
   image = document.querySelector("#carousel-img"),
   secondsDelay = document.getElementById("seconds-input");
@@ -19,11 +20,7 @@ const prevButton = document.querySelector("#backward-btn"),
 let curIndex = 1;
 
 function showSlide(index) {
-  imagesForSlider.forEach((src, i) => {
-    if (i === index) {
-      image.src = imagesForSlider[i];
-    }
-  });
+      image.src = imagesForSlider[index];
 }
 
 function nextImage() {
@@ -36,24 +33,34 @@ function prevImage() {
 }
 
 nextButton.addEventListener("click", () => {
-  nextImage();
+  if (!autoBackInterval && !autoforwardInterval) {
+      nextImage();
+  }
 });
 
 prevButton.addEventListener("click", () => {
-  prevImage();
+  if (!autoBackInterval && !autoforwardInterval) {
+    prevImage()
+  }
 });
 
 autoBack.addEventListener("click", () => {
-  autoBackInterval = setInterval(prevImage, seconds * 1000);
+  if (!autoBackInterval && !autoforwardInterval) {
+   autoBackInterval = setInterval(prevImage, seconds * 1000); 
+  }
 });
 
 autoForward.addEventListener("click", () => {
-  autoforwardInterval = setInterval(nextImage, seconds * 1000);
+  if (!autoBackInterval && !autoforwardInterval) {
+    autoforwardInterval = setInterval(nextImage, seconds * 1000);
+  }
 });
 
 stopButton.addEventListener("click", () => {
   clearInterval(autoBackInterval);
+  autoBackInterval = null;
   clearInterval(autoforwardInterval);
+  autoforwardInterval = null;
 });
 
 secondsDelay.addEventListener('input', () => {
