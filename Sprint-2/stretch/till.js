@@ -8,9 +8,14 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
+    //string to Number
+    //parseInt is very usefull and .replace is a good method to use
+
+    const coins = parseInt(coin.replace("p", ""), 10);
     total += coin * quantity;
   }
 
+  //toFixed proper way of putting decimals
   return `£${(total / 100).toFixed(2)}`;
 }
 
