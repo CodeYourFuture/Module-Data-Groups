@@ -1,4 +1,5 @@
 function setAlarm() {
+  const body = document.querySelector("body");
   //access the input field
   const inputValue = document.querySelector("#alarmSet").value;
   //timeRemaning title
@@ -6,35 +7,57 @@ function setAlarm() {
   let min = parseInt(inputValue / 60);//minutes if input is above 60
   let sec = inputValue % 60;//seconds left over after minutes
 
-  setInterval(() => {
-    if (min >= 1 && min < 10 && sec < 10) {
-      timeRemaining.textContent = `Time Remaining: ${min}:${sec}`;
-      if (sec > 0) {
-        sec--
-      }
-      else if (sec === 0 && min >= 1) {
-        min--;
-        sec = 60;
-      }
+  const currentLoop = setInterval(() => {
+    console.log(`min: ${min}, sec: ${sec}`);
+    if (min === 0 && sec === 0) {
+
+      clearInterval(currentLoop);
+      console.log("Timer ended. Playing alarm.");
+      body.style.backgroundColor = 'lightgreen';
+      playAlarm();
 
     }
-    else if (inputValue > 60 && sec >= 10) {
-      timeRemaining.textContent = `Time Remaining: ${min}:${sec}`;
+
+    else if (min >= 0 && min < 10) {
+      let stringMin = min.toString().padStart(2, "0");
+      let stringSec = sec.toString().padStart(2, "0");
       if (sec > 0) {
-        sec--
+
+        sec--;
+        if (sec < 10) {
+          stringSec = sec.toString().padStart(2, "0");
+        }
       }
       else if (sec === 0 && min >= 1) {
         min--;
         sec = 60;
       }
+      timeRemaining.textContent = `Time Remaining: ${stringMin}:${stringSec}`;
+
     }
-    else {
-      timeRemaining.innerHTML = `Time Remaining: 00:${sec}`;
+    else if (min >= 10) {
+      let stringSec = sec.toString().padStart(2, "0");
       if (sec > 0) {
-        sec--
+
+        sec--;
+        if (sec < 10) {
+          stringSec = sec.toString().padStart(2, "0");
+        }
       }
+      else if (sec === 0 && min >= 1) {
+        min--;
+        sec = 60;
+      }
+      timeRemaining.textContent = `Time Remaining: ${min}:${stringSec}`;
+
+
     }
+
+
   }, 1000);
+
+
+
 }
 
 
