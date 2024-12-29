@@ -1,6 +1,6 @@
-const createLookup = require("./lookup.js");
+// const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+// test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
@@ -33,3 +33,55 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+
+//answer
+const createLookup = require("./lookup.js");
+
+describe("createLookup", () => {
+  test("creates a country-currency code lookup for multiple codes", () => {
+    const input = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+      ["JP", "JPY"],
+    ];
+    const expectedOutput = {
+      US: "USD",
+      CA: "CAD",
+      JP: "JPY",
+    };
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+
+  test("returns an empty object for an empty array", () => {
+    expect(createLookup([])).toEqual({});
+  });
+
+  test("handles single pair correctly", () => {
+    const input = [["GB", "GBP"]];
+    const expectedOutput = { GB: "GBP" };
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+
+  test("overwrites duplicate country codes with the last currency", () => {
+    const input = [
+      ["US", "USD"],
+      ["US", "USN"],
+    ];
+    const expectedOutput = { US: "USN" };
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+
+  test("ignores invalid entries", () => {
+    const input = [
+      ["FR", "EUR"],
+      ["INVALID"], // invalid entry
+      ["DE", "EUR"],
+    ];
+    const expectedOutput = {
+      FR: "EUR",
+      DE: "EUR",
+    };
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+});
