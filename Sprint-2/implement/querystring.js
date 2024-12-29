@@ -19,9 +19,16 @@ function parseQueryString(queryString) {
     // 〰️ rawKey || "" ensures that if rawKey is undefined, null, or empty, it returns to an empty string.
     const key = decodeURIComponent(rawKey || "");
     const value = decodeURIComponent(rawValue.join("=") || "");
-
-    // 〰️ Store the key-value pair in the object
-    queryParams[key] = value;
+    // 〰️ Handle duplicate keys by storing values in an array
+    if (key in queryParams) {
+      if (Array.isArray(queryParams[key])) {
+        queryParams[key].push(value); // 〰️ Add to existing array
+      } else {
+        queryParams[key] = [queryParams[key], value]; // 〰️ Convert to array
+      }
+    } else {
+      queryParams[key] = value; // 〰️ Add new key-value pair
+    }
   }
 
   return queryParams;
@@ -41,5 +48,6 @@ console.log(parseQueryString("multiple=values&key=value"));
 console.log(parseQueryString(null));
 console.log(parseQueryString(undefined));
 console.log(parseQueryString(""));
+console.log(parseQueryString("key=value1&key=value2"));
 
 module.exports = parseQueryString;
