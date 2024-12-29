@@ -12,7 +12,7 @@ function totalTill(till) {
     //parseInt is very usefull and .replace is a good method to use
 
     const coins = parseInt(coin.replace("p", ""), 10);
-    total += coin * quantity;
+    total += coins * quantity;
   }
 
   //toFixed proper way of putting decimals
