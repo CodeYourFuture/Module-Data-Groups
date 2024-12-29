@@ -1,5 +1,5 @@
 function findMax(elements) {
-  max_el = -"Infinity";
+  max_el = -Infinity;
   if (!elements) {
     return max_el;
   }
@@ -8,6 +8,6 @@ function findMax(elements) {
       max_el = Math.max(max_el, el);
     }
   }
-  return "Input has only non-number values";
+  return max_el;
 }
 module.exports = findMax;
