@@ -1,5 +1,10 @@
 function contains(obj, k) {
-    if (typeof obj !== "object" || Object.keys(obj).length === 0) {
+    if (
+      Array.isArray(obj) ||
+      typeof obj !== "object" ||
+      obj === null ||
+      Object.keys(obj).length === 0
+    ) {
       return false;
     } else {
       for (const key of Object.keys(obj)) {
@@ -10,6 +15,5 @@ function contains(obj, k) {
     }
     return false
 }
-
 
 module.exports = contains;
