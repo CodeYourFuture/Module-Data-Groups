@@ -63,3 +63,41 @@ test("returns false when passed an array instead of an object", () => {
 
   expect(currentOutput).toEqual(targetOutput);
 });
+
+
+
+
+test("returns false when passed an array and a string as a key", () => {
+  const currentOutput = contains([9, 9, "9", "9"], "9");
+  const targetOutput = false;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
+
+test("returns false when passed an array with a number and a string key", () => {
+  const currentOutput = contains([2], "2");
+  const targetOutput = false;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
+
+test("returns false when passed an array with a number and a non-existent string key", () => {
+  const currentOutput = contains([2], "0");
+  const targetOutput = false;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
+
+test("returns false when passed undefined and a string key", () => {
+  const currentOutput = contains(undefined, "A");
+  const targetOutput = false;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
+
+test("returns false when passed null and a string key", () => {
+  const currentOutput = contains(null, "A");
+  const targetOutput = false;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
