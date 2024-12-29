@@ -38,10 +38,14 @@ function setAlarm() {
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
+let intervalFlash;
+const setButton = document.getElementById("set");
+const timerBody = document.querySelector(".centre");
 
 function setup() {
-  document.getElementById("set").addEventListener("click", () => {
+  setButton.addEventListener("click", () => {
     setAlarm();
+    setButton.setAttribute("disabled", "");
   });
 
   document.getElementById("stop").addEventListener("click", () => {
@@ -50,11 +54,40 @@ function setup() {
 }
 
 function playAlarm() {
-  audio.play();
+    try {
+      audio.play();
+    } catch (e) {
+      console.error('Audio play failed:', e);
+      flashScreen(); 
+  }
+}
+
+function flashScreen() {
+  updateTimerColor();
+  intervalFlash = setInterval(updateTimerColor, 1000);
+
+  function updateTimerColor() {
+    if (timerBody.style.backgroundColor == "red") {
+      timerBody.style.backgroundColor = "white";
+    }
+    else {
+      timerBody.style.backgroundColor = "red";
+    }
+   
+  }
+
 }
 
 function pauseAlarm() {
   audio.pause();
+  if (document.querySelector(".time-left").textContent == "00:00") {
+    setButton.removeAttribute("disabled");
+  }
+  timerBody.style.backgroundColor = "white";
+    if (intervalFlash) {
+      clearInterval(intervalFlash); 
+      intervalFlash = null; 
+    }
 }
 
 window.onload = setup;
