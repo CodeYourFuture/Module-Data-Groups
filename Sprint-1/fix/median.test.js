@@ -24,3 +24,23 @@ describe("calculateMedian", () => {
     expect(list).toEqual([1, 2, 3]);
   });
 });
+
+// median.js
+
+function calculateMedian(arr) {
+  // Create a copy to avoid modifying the input array
+  const sortedArr = [...arr].sort((a, b) => a - b);
+  
+  const len = sortedArr.length;
+  const mid = Math.floor(len / 2);
+
+  if (len % 2 === 0) {
+    // Even-length array: average of the two middle values
+    return (sortedArr[mid - 1] + sortedArr[mid]) / 2;
+  } else {
+    // Odd-length array: middle value
+    return sortedArr[mid];
+  }
+}
+
+module.exports = calculateMedian;
