@@ -33,3 +33,32 @@ It should return:
    'CA': 'CAD'
  }
 */
+const createLookup = require("./lookup.js");
+
+describe("createLookup function", () => {
+  test("creates a country currency code lookup for multiple codes", () => {
+    const countryCurrencyPairs = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+      ["GB", "GBP"],
+    ];
+    const expectedOutput = {
+      US: "USD",
+      CA: "CAD",
+      GB: "GBP",
+    };
+    expect(createLookup(countryCurrencyPairs)).toEqual(expectedOutput);
+  });
+
+  test("returns an empty object for an empty input array", () => {
+    expect(createLookup([])).toEqual({});
+  });
+
+  test("handles single country-currency pair", () => {
+    const countryCurrencyPairs = [["JP", "JPY"]];
+    const expectedOutput = {
+      JP: "JPY",
+    };
+    expect(createLookup(countryCurrencyPairs)).toEqual(expectedOutput);
+  });
+});
