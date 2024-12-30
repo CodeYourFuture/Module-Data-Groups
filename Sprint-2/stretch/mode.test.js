@@ -10,8 +10,6 @@ const calculateMode = require("./mode.js");
 // Given [2,4,1,2,3,2,1]
 // When calculateMode is called on [2,4,1,2,3,2,1]
 // Then it should return 2 */
-
-describe("calculateMode()", () => {
   test("returns the most frequent number in an array", () => {
     const nums = [2, 4, 1, 2, 3, 2, 1];
 
@@ -29,4 +27,4 @@ describe("calculateMode()", () => {
 
     expect(calculateMode(nums)).toEqual(3);
   });
-});
+

@@ -1,5 +1,5 @@
 function sum(elements) {
-    const numbers = elements.filter(element => typeof element === 'number');
+    const numbers = elements.filter(element => typeof element === 'number'&& !isNaN(element) && element !== Infinity && element !== -Infinity);
     if (numbers.length === 0) {
         return 0;
     }
@@ -9,4 +9,6 @@ function sum(elements) {
 
 module.exports = sum;
 
+let x = sum([Infinity, -Infinity]);
+console.log(x)
  

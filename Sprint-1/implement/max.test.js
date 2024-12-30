@@ -47,7 +47,7 @@ test("Given an array with just negative numbers,Then it should return the closes
 // When passed to the max function
 // Then it should return the largest decimal number
 test(" Given an array with decimal numbers,Then it should return the largest decimal number",()=>{
-    expect(findMax([1.1, 2.5, 0.9])).toBe(2.5);
+    expect(findMax([1.1, 2.5, 0.9])).toBeCloseTo(2.5);
 });
 
 // Given an array with non-number values

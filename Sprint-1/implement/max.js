@@ -1,5 +1,5 @@
 function findMax(elements) {
-    const numbers = elements.filter(element => typeof element === 'number');
+    const numbers = elements.filter(element => typeof element === 'number' && !isNaN(element));
     if (numbers.length === 0) {
         return -Infinity;
     }
@@ -7,4 +7,3 @@ function findMax(elements) {
 }
 
 module.exports = findMax;
-// expect(findMax(['hey', 10, 'hi', 60, 10])).toBe(60)
