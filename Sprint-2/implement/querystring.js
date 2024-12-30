@@ -1,13 +1,30 @@
 function parseQueryString(queryString) {
-  const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
+  // Validate input
+  if (typeof queryString !== "string" || queryString.length === 0) {
+    return {};
   }
+
+  const queryParams = {};
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
+    // Split the pair into key and value
     const [key, value] = pair.split("=");
-    queryParams[key] = value;
+
+    // Decode URL-encoded characters
+    const decodedKey = decodeURIComponent(key);
+    const decodedValue = value ? decodeURIComponent(value) : "";
+
+    // Handle duplicate keys by storing values in an array
+    if (queryParams.hasOwnProperty(decodedKey)) {
+      if (Array.isArray(queryParams[decodedKey])) {
+        queryParams[decodedKey].push(decodedValue);
+      } else {
+        queryParams[decodedKey] = [queryParams[decodedKey], decodedValue];
+      }
+    } else {
+      queryParams[decodedKey] = decodedValue;
+    }
   }
 
   return queryParams;
