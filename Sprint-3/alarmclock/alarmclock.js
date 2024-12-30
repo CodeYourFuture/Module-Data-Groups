@@ -1,7 +1,6 @@
 let timeRemaining = document.querySelector("#timeRemaining");
 let alarmSet = document.querySelector("#alarmSet");
 let countDown; // to store interval id for countdown 
-let alarmTimeOut; // for controlling the alarm when it's up
 
 function setAlarm() {
   let minutes = parseInt(alarmSet.value);// to ensure the value is a number
@@ -33,14 +32,16 @@ function startCountDown(timeRemainingInMs) {
   }, 1000);
 }
 
+//function to update the displayed time remaining 
+function updateTimeRemaining(timeRemainingInMs) {
+  let minutes = Math.floor(timeRemainingInMs / 60000);
+  let seconds = Math.floor(timeRemainingInMs % 60000 / 1000);
+  timeRemaining.textContent = `Time remaining ${formatTime(minutes)}: ${formatTime(seconds)}`
+}
 
-   
-   
-   
-
-
-
-
+function formatTime(time) {
+  return time < 0 ? `0${time}` : time
+}
 
 // DO NOT EDIT BELOW HERE
 
