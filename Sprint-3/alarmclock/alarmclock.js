@@ -14,6 +14,25 @@ function setAlarm() {
   startCountDown(timeInMs); 
 }
 
+// function to start countdown 
+function startCountDown(timeRemainingInMs) {
+  updateTimeRemaining(timeRemainingInMs);// reset time remaining display
+
+  countDown = setInterval(() => {
+    timeRemainingInMs -= 1000;
+
+    updateTimeRemaining(timeRemainingInMs);
+
+    // when time is up, trigger the alarm
+
+    if (timeRemainingInMs <= 0) {
+      clearInterval(countDown);
+      playAlarm();
+      timeRemaining.textContent = "Time's up!"
+    }
+  }, 1000);
+}
+
 
    
    
