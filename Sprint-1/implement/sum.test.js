@@ -1,53 +1,65 @@
-/* Sum the numbers in an array
+const findMax = require("./max.js");
+//  Find the maximum element of an array of numbers
 
-In this kata, you will need to implement a function that sums the numerical elements of an array
+// In this kata, you will need to implement a function that find the largest numerical element of an array.
 
-E.g. sum([10, 20, 30]), target output: 60
-E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical elements)
-*/
+// E.g. max([30, 50, 10, 40]), target output: 50
+// E.g. max(['hey', 10, 'hi', 60, 10]), target output: 60 (sum ignores any non-numerical elements)
+test("find the largest numerical element of an array",()=>{
+    expect(findMax([30, 50, 10, 40])).toBe(50)
+    expect(findMax(['hey', 10, 'hi', 60, 10])).toBe(60)
+})
 
-const sum = require("./sum.js");
+// You should implement this function in max.js, and add tests for it in this file.
 
-// Acceptance Criteria:
+// We have set things up already so that this file can see your function from the other file.
+
 
 // Given an empty array
-// When passed to the sum function
-// Then it should return 0
-test("given an empty array, returns 0",()=>{
-    expect(sum([])).toBe(0)
-})
+// When passed to the max function
+// Then it should return -Infinity
+// Delete this test.todo and replace it with a test.
+test("given an empty array, returns -Infinity",()=>{
+    expect(findMax([])).toBe(-Infinity)
+});
 
-// Given an array with just one number
-// When passed to the sum function
+// Given an array with one number
+// When passed to the max function
 // Then it should return that number
-test("Given an array with just one number,Then return that number",()=>{
-    expect(sum([4])).toBe(4)
-})
+test("Given an array with one number,Then it should return that number",()=>{
+    expect(findMax([5])).toBe(5)
+});
+// Given an array with both positive and negative numbers
+// When passed to the max function
+// Then it should return the largest number overall
+test("Given an array with both positive and negative numbers,then return the largest number overall",()=>{
+    expect(findMax([1, -5, -2, 0, -8])).toBe(1)
+});
 
-// Given an array containing negative numbers
-// When passed to the sum function
-// Then it should still return the correct total sum
-test("Given an array with just one number,Then it should still return the correct total sum",()=>{
-    expect(sum([10, -5, 3, -2])).toBe(6);
-})
+// Given an array with just negative numbers
+// When passed to the max function
+// Then it should return the closest one to zero
+test("Given an array with just negative numbers,Then it should return the closest one to zero",()=>{
+    expect(findMax([-5, -2, -8])).toBe(-2)
+});
 
-// Given an array with decimal/float numbers
-// When passed to the sum function
-// Then it should return the correct total sum
-test("Given an array with decimal/float numbers,Then return the correct total sum",()=>{
-    expect(sum([1.5, 2.5, 3.0])).toBe(7.0); 
-})
+// Given an array with decimal numbers
+// When passed to the max function
+// Then it should return the largest decimal number
+test(" Given an array with decimal numbers,Then it should return the largest decimal number",()=>{
+    expect(findMax([1.1, 2.5, 0.9])).toBeCloseTo(2.5);
+});
 
-// Given an array containing non-number values
-// When passed to the sum function
-// Then it should ignore the non-numerical values and return the sum of the numerical elements
-test(" Given an array containing non-number values,Then ignore the non-numerical values and return the sum of the numerical elements",()=>{
-    expect(sum([10, 'hey', 20, 'hi', 30])).toBe(60);  
-})
+// Given an array with non-number values
+// When passed to the max function
+// Then it should return the max and ignore non-numeric values
+test("Given an array with non-number values,Then it should return the max and ignore non-numeric values",()=>{
+    expect(findMax([10, 'a', 20, 'b', 30])).toBe(30);
+});
 
 // Given an array with only non-number values
-// When passed to the sum function
+// When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
-test("Given an array with only non-number values, return the least surprising value given how it behaves for all other inputs",()=>{
-    expect(sum(['hey', 'hi', 'hello'])).toBe(0);  
-})
+test("Given an array with only non-number valuesThen it should return the least surprising value given how it behaves for all other inputs",()=>{
+    expect(findMax(['hey', 'hi', 'hello'])).toBe(-Infinity);
+});
