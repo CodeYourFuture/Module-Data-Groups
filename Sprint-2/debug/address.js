@@ -12,4 +12,5 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+//console.log(`My house number is ${address[0]}`); this is wrong because the address object is not an array, so we can't access the houseNumber property using an index
+console.log(`My house number is ${address.houseNumber}`);
