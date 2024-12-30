@@ -1,4 +1,20 @@
-function setAlarm() {}
+let timeRemaining = document.querySelector("#timeRemaining");
+let alarmSet = document.querySelector("#alarmSet");
+let countDown; // to store interval id for countdown 
+let alarmTimeOut; // for controlling the alarm when it's up
+
+function setAlarm() {
+  
+}
+
+
+   
+   
+   
+
+
+
+
 
 // DO NOT EDIT BELOW HERE
 
