@@ -9,10 +9,13 @@ const { default: userEvent } = require("@testing-library/user-event");
 let page = null;
 
 beforeEach(async () => {
-  page = await JSDOM.fromFile(path.join(__dirname, "index.html"), {
-    resources: "usable",
-    runScripts: "dangerously",
-  });
+  page = await JSDOM.fromFile(
+    path.join(__dirname, "Quote Generator App.html"),
+    {
+      resources: "usable",
+      runScripts: "dangerously",
+    }
+  );
 
   // do this so students can use element.innerText which jsdom does not implement
   Object.defineProperty(page.window.HTMLElement.prototype, "innerText", {
