@@ -4,7 +4,14 @@ let countDown; // to store interval id for countdown
 let alarmTimeOut; // for controlling the alarm when it's up
 
 function setAlarm() {
-  
+  let minutes = parseInt(alarmSet.value);
+
+  if(isNaN(minutes) || minutes < 1){
+    alert("Please enter a valid number for minutes");
+    return;
+  }
+  let timeInMs = minutes * 60 * 1000; // convert minutes to milliseconds 
+  startCountDown(timeInMs); 
 }
 
 
