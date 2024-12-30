@@ -4,13 +4,15 @@ function parseQueryString(queryString) {
     return queryParams;
   }
   const keyValuePairs = queryString.split("&");
-
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+  for(const pair of keyValuePairs){
+    const [key, ...valueParts] = pair.split("=");
+      const value = valueParts.join("="); 
+      queryParams[key] = value;
+      queryParams[key] = value === "" ? {} : value;
   }
+  return queryParams
 
-  return queryParams;
 }
 
 module.exports = parseQueryString;
+console.log(parseQueryString("name=John&age="));
