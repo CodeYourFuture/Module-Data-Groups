@@ -1,6 +1,4 @@
-const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
