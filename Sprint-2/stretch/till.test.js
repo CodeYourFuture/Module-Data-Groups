@@ -29,5 +29,5 @@ const totalTill = require('./till.js');
 //       "10p": 10,  // 10 coins of 10p
 //       "20p": 5,   
 //     };
-//     expect(totalTill(till4)).toBe('£3.00');
+//     expect(totalTill(till4)).toBe('£3.50');
 //   });
