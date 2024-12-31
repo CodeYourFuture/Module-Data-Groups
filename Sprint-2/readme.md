@@ -7,6 +7,7 @@ This README will guide you through the different sections for this sprint.
 Make sure your terminal is in the `Sprint-2` directory of this repository.
 
 Run the command `npm install` to install any dependencies you need.
+npm init -y for the package.json npm --save-dev jest for the jest # dependancies
 
 ## 🐛 Debug
 
