@@ -5,26 +5,21 @@
 3- LOOP FOR ALL THE slides
 4- REMOVE THE ACTIVE class to the next one ( increment or decrement) */
 
-
 // 1= FIRST get the elements need to slide to work//
-
 
 const body = document.body;
 const slides = document.querySelectorAll(".slide");
 const leftBtn = document.getElementById("left");
 const rightBtn = document.getElementById("right");
 
-
 // 3= define index to start function//
 
 let activeSlide = 0;
 
-
-
 // 7 = Add Event Listener to Active Slide change with background/
 // Incrementing moving to next slide
 
-rightBtn.addEventListener('click', () => {
+rightBtn.addEventListener("click", () => {
   activeSlide++;
 
   if (activeSlide > slides.length - 1) {
@@ -33,23 +28,23 @@ rightBtn.addEventListener('click', () => {
   //9- sett images to body
   setBgToBody();
   setActiveSlide();
-})
+});
 
 // left button =
 // 9 Decrementing backwards the slides/ opposite direction
 
-leftBtn.addEventListener('click', () => {
-  activeSlide--
+leftBtn.addEventListener("click", () => {
+  activeSlide--;
 
   if (activeSlide < 0) {
-    activeSlide = slides.length - 1
+    activeSlide = slides.length - 1;
   }
 
   //9- sett images to body
 
-  setBgToBody()
-  setActiveSlide()
-})
+  setBgToBody();
+  setActiveSlide();
+});
 
 // 4= call the fucntion//
 
@@ -66,9 +61,7 @@ function setBgToBody() {
 // 5 == looping trough the active class slides//
 
 function setActiveSlide() {
-  slides.forEach((slide) => slide.classList.remove("active"));
+  slides.forEach((slide) => slide.classList.remove("active")); // 6 removing the Active class and movign to the next slide//
 
   slides[activeSlide].classList.add("active");
 }
-
-// 6 removing the Active class and movign to the next slide//
