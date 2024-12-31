@@ -9,7 +9,7 @@ function setAlarm() {
     alert("Please enter a valid number for minutes");
     return;
   }
-  let timeInMs = minutes * 60 * 1000; // convert minutes to milliseconds 
+  let timeInMs = minutes * 1000; // convert minutes to milliseconds 
   startCountDown(timeInMs); 
 }
 
@@ -34,13 +34,14 @@ function startCountDown(timeRemainingInMs) {
 
 //function to update the displayed time remaining 
 function updateTimeRemaining(timeRemainingInMs) {
-  let minutes = Math.floor(timeRemainingInMs / 60000);
-  let seconds = Math.floor(timeRemainingInMs % 60000 / 1000);
-  timeRemaining.textContent = `Time remaining ${formatTime(minutes)}: ${formatTime(seconds)}`
+  let totalSeconds = Math.floor(timeRemainingInMs / 1000);
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+  timeRemaining.textContent = `Time Remaining: ${formatTime(minutes)}:${formatTime(seconds)}`
 }
 
 function formatTime(time) {
-  return time < 0 ? `0${time}` : time
+  return time < 10 ? `0${time}` : time
 }
 
 // DO NOT EDIT BELOW HERE
