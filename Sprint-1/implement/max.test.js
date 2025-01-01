@@ -27,7 +27,7 @@ test.todo("given an empty array, returns -Infinity"), () => {
 // When passed to the max function
 // Then it should return that number 
 
-test.todo("given an with one number"), () => {
+test.todo("given an array with one number"), () => {
     const arr = [a, b, c, d, 56];
     const maxNumber = findMax(numbers, numbers.length)
 
