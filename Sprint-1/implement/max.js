@@ -19,7 +19,7 @@ function findMax(array) {
         }
     }
 if (max === -Infinity) {
-    return closestNegative === null ? closestNegative : null;
+    return null
 }
 }
     
