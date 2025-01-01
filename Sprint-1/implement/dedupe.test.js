@@ -28,7 +28,9 @@ test.todo("given an array with no duplicates, it returns a copy of the original 
     const originalarray = [5, 1, 2, 3, 8];
     const expectedCopy = [...originalarray];
     
-    expected(dedupe(originalarray).toEqual(expectedCopy));
+    expected(dedupe(originalarray, expectedCopy)).toBe(true);
+    expectedCopy(expectedCopy).not.toBe(originalarray);
+
 }
 
 // Given an array with strings or numbers
