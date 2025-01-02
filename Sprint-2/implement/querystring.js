@@ -16,4 +16,4 @@ function parseQueryString(queryString) {
 
 module.exports = parseQueryString;
 
-console.log(parseQueryString("a=b=c=d=e"));
+console.log(parseQueryString("a=b&=&c=d"));
