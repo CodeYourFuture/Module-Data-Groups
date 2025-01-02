@@ -39,11 +39,11 @@ test.todo("given an array with one number"), () => {
 // Then it should return the largest number overall
 
 test.todo("returns absolute values of an array"), () => {
-    const arr = [-3, 7, 4, -89, -90];
+    const arr = [-3, 7, 4, -8, -9];
 
     const maxNumber = findMax(numbers, numbers.length)
 
-    expect(maxNumber).toEqual(-80)
+    expect(maxNumber).toEqual(9)
 }
 
 // Given an array with just negative numbers
