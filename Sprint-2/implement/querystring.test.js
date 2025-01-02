@@ -7,7 +7,7 @@ const parseQueryString = require("./querystring.js")
 
 describe("parseQueryString()", () => {
   test("parses querystring values containing multiple =", () => {
-    expect(parseQueryString("equation=x=y+1")).toEqual({equation: 'x'});
+    expect(parseQueryString("equation=x=y+1")).toEqual({ equation: 'x=y+1' });
   });
 
   test("given an empty string, it will return an empty object", () => {
@@ -27,7 +27,11 @@ describe("parseQueryString()", () => {
   });
 
   test("given an invalid query string, it will return a key-value pair if found or undefined for a value", () => {
-    expect(parseQueryString("equation=x=y+1&true-6+new")).toEqual({ equation: 'x', 'true-6+new': undefined });
+    expect(parseQueryString("equation=x=y+1&true-6+new")).toEqual({ equation: 'x=y+1', 'true-6+new': '' });
+  });
+
+  test("given a query string with a single property and a single =, it will return a key and an empty string '' for a value", () => {
+    expect(parseQueryString("a=")).toEqual({ a: '' });
   });
 
 });
