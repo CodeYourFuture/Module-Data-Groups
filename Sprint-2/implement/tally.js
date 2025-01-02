@@ -1,7 +1,7 @@
 function tally(items) {
     const frequencies = {};
 
-    if (typeof items === "string") {
+    if (typeof items === "string" || !Array.isArray(items)) {
         throw new Error("Invalid input");
     }
 
