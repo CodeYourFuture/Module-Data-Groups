@@ -1,16 +1,20 @@
+const fs = require('fs');
+
 function calibrateFrequency(changes) {
-    let currentFrequency = 0;
+  let currentFrequency = 0;
 
-    for (const change of changes) {
-        currentFrequency += parseInt(change, 10);
-    }
+  for (const change of changes) {
+    currentFrequency += parseInt(change, 10);
+  }
 
-    return currentFrequency;
+  return currentFrequency;
 }
 
-const frequencyChanges = [ "+1",  "-1", "+2", "-2", "+3", "-3"]
+const filename = 'input.txt';
+const fileContents = fs.readFileSync(filename, 'utf8');
+const changes = fileContents.split('\n').map(line => line.trim());
 
-const result = calibrateFrequency(frequencyChanges);
+const result = calibrateFrequency(changes);
 console.log("Resulting Frequency:", result);
 
 
