@@ -6,12 +6,17 @@ function setAlarm() {
   const timeRemaining = document.querySelector("#timeRemaining");
   let min = parseInt(inputValue / 60);//minutes if input is above 60
   let sec = inputValue % 60;//seconds left over after minutes
+  //to handle multiple occurences of setting the timer
+  let currentTimer = null;
 
-  const currentLoop = setInterval(() => {
+  if (currentTimer !== null) {
+    clearInterval(currentTimer);
+  }
+  currentTimer = setInterval(() => {
     console.log(`min: ${min}, sec: ${sec}`);
     if (min === 0 && sec === 0) {
 
-      clearInterval(currentLoop);
+      clearInterval(currentTimer);
       console.log("Timer ended. Playing alarm.");
       body.style.backgroundColor = 'lightgreen';
       playAlarm();
