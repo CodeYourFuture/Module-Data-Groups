@@ -31,42 +31,28 @@ function setAlarm() {
 
     }
 
-    else if (min >= 0 && min < 10) {
+    //condense if and else statements for more concise and clean code
+    //try to make things shorter
+
+
+
+
+    else {
+      if (sec > 0) {
+
+        sec--;
+      }
+
+      else if (sec === 0 && min > 0) {
+        min--;
+        sec = 59;
+      }
+
+      let stringSec = sec.toString().padStart(2, "0");
       let stringMin = min.toString().padStart(2, "0");
-      let stringSec = sec.toString().padStart(2, "0");
-      if (sec > 0) {
 
-        sec--;
-        if (sec < 10) {
-          stringSec = sec.toString().padStart(2, "0");
-        }
-      }
-      else if (sec === 0 && min > 0) {
-        min--;
-        sec = 59;
-      }
       timeRemaining.textContent = `Time Remaining: ${stringMin}:${stringSec}`;
-
     }
-    else if (min >= 10) {
-      let stringSec = sec.toString().padStart(2, "0");
-      if (sec > 0) {
-
-        sec--;
-        if (sec < 10) {
-          stringSec = sec.toString().padStart(2, "0");
-        }
-      }
-      else if (sec === 0 && min > 0) {
-        min--;
-        sec = 59;
-      }
-      timeRemaining.textContent = `Time Remaining: ${min}:${stringSec}`;
-
-
-    }
-
-
   }, 1000);
 
 
