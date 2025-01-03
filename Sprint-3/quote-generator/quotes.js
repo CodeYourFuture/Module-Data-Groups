@@ -16,7 +16,12 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
+let quote = document.querySelector("#quote");
+let author = document.querySelector("#author");
+let btn = document.querySelector("#new-quote");
+
 function pickFromArray(choices) {
+  
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
