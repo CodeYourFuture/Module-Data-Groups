@@ -25,4 +25,12 @@ describe("invert function", () => {
     test("Given an edge case with a different data type, it should swap the keys and values of the object ", () => {
         expect(invert({ a: 1, b: '2', c: true })).toEqual({ '1': 'a', '2': 'b', true: 'c' });
     });
+
+    test("Given an edge case with (ABCD), it should return an object with keys and their indices/positions for values ", () => {
+        expect(invert("ABCD")).toEqual({ A: '0', B: '1', C: '2', D: '3' });
+    });
+
+    test("Given an edge case of an array with only numbers, it should return an object with numbers for keys and their indices/positions for values ", () => {
+        expect(invert([1, 2, 3, 4])).toEqual({ '1': '0', '2': '1', '3': '2', '4': '3' });
+    });
 });
