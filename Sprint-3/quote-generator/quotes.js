@@ -37,7 +37,7 @@ btn.addEventListener("click", () => {
 });
 
 window.onload = () => {
-  let firstQuote = quotes[2];// or pick a random quote
+  let firstQuote = quotes[2]; // or pick a random quote
   quote.textContent = firstQuote.quote;
   author.textContent = firstQuote.author;
 };
