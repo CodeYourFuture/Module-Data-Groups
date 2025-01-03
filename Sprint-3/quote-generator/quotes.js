@@ -28,10 +28,13 @@ function pickFromArray(choices) {
 btn.addEventListener("click", () => {
   let randomQuote = pickFromArray(quotes);
 
-  let text = quotes.quote;
-  let person = quotes.author;
+  let text = randomQuote.quote;
+  let person = randomQuote.author;
 
-})
+  quote.textContent = text;
+  author.textContent = person;
+
+});
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
