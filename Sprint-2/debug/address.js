@@ -12,4 +12,8 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`); 
+
+
+// the issue is address[0], there's no key with "0" + object don't have numeric indices
+// accessing it by using dot or bracket notation with the property name as a string

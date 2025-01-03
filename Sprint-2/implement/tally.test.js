@@ -1,6 +1,6 @@
 const tally = require("./tally.js");
 
-/**
+/*
  * tally array
  *
  * In this task, you'll need to implement a function called tally
@@ -20,15 +20,28 @@ const tally = require("./tally.js");
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
 
+
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
-
+test("tally on an empty array returns an empty object", () => {
+    expect(tally([])).toEqual({});
+});
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+test("tally with duplicated items return counts for each unique item", () => {
+    const input = ["cake", "cheesecake", "cheesecake", "cheesecake", "cake"];
+    const expected ={
+      cake: 2,
+      cheesecake: 3,
+    };
+    expect(tally(input)).toEqual(expected);
+});
 
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+test("tally should throws an error for invalid input like string", () => {
+    expect(() => tally("cake")).toThrow("Input must be an array.");
+})
