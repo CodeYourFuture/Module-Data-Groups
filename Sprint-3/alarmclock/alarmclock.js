@@ -1,4 +1,8 @@
+//to handle multiple occurences of setting the timer
+let currentTimer = null;
+
 function setAlarm() {
+
   const body = document.querySelector("body");
   //access the input field
   const inputValue = document.querySelector("#alarmSet").value;
@@ -6,14 +10,18 @@ function setAlarm() {
   const timeRemaining = document.querySelector("#timeRemaining");
   let min = parseInt(inputValue / 60);//minutes if input is above 60
   let sec = inputValue % 60;//seconds left over after minutes
-  //to handle multiple occurences of setting the timer
-  let currentTimer = null;
 
+  timeRemaining.textContent = `Time Remaining: ${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+
+
+  //clear previous timer set
   if (currentTimer !== null) {
     clearInterval(currentTimer);
   }
+
+
   currentTimer = setInterval(() => {
-    console.log(`min: ${min}, sec: ${sec}`);
+    //console.log(`min: ${min}, sec: ${sec}`);
     if (min === 0 && sec === 0) {
 
       clearInterval(currentTimer);
@@ -33,9 +41,9 @@ function setAlarm() {
           stringSec = sec.toString().padStart(2, "0");
         }
       }
-      else if (sec === 0 && min >= 1) {
+      else if (sec === 0 && min > 0) {
         min--;
-        sec = 60;
+        sec = 59;
       }
       timeRemaining.textContent = `Time Remaining: ${stringMin}:${stringSec}`;
 
@@ -49,9 +57,9 @@ function setAlarm() {
           stringSec = sec.toString().padStart(2, "0");
         }
       }
-      else if (sec === 0 && min >= 1) {
+      else if (sec === 0 && min > 0) {
         min--;
-        sec = 60;
+        sec = 59;
       }
       timeRemaining.textContent = `Time Remaining: ${min}:${stringSec}`;
 
