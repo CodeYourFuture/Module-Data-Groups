@@ -41,6 +41,6 @@ console.log(invert({ a: 1, b: 2 }));
 
 // d) Explain why the current return value is different from the target output
 
-//It's because we couldn't pass / swap key with invertObj using dot notation appending key instead of value 
+//The line invertedObj.key = value; is actually setting the property literally named "key" on invertedObj, rather than using the value of key as the property name. Instead, it should be invertedObj[key] = value; to dynamically set the property of invertedObj using the value of key.
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
