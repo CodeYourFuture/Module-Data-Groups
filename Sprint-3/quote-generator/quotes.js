@@ -21,12 +21,17 @@ let author = document.querySelector("#author");
 let btn = document.querySelector("#new-quote");
 
 function pickFromArray(choices) {
-  btn.addEventListener("click", () => {
-    let randomQuote = pickFromArray(quotes);
-    
-  })
+  
   return choices[Math.floor(Math.random() * choices.length)];
 }
+
+btn.addEventListener("click", () => {
+  let randomQuote = pickFromArray(quotes);
+
+  let text = quotes.quote;
+  let person = quotes.author;
+
+})
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
