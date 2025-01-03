@@ -36,6 +36,14 @@ btn.addEventListener("click", () => {
 
 });
 
+window.onload = () => {
+  let firstQuote = quotes[2]; // or pick a random quote
+  quote.textContent = firstQuote.quote;
+  author.textContent = firstQuote.author;
+};
+
+
+
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
