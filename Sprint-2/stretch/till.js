@@ -12,7 +12,7 @@ function totalTill(till) {
     let coinValue;
 
     if(coin.endsWith("p")){
-      coinValue = parseInt(coin.replace('p', ""), 10);
+      coinValue = parseInt(coin);
 
     } else if (coin.startsWith("£")){
       throw new Error("Invalid coin format");
