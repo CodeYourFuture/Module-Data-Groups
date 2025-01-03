@@ -21,7 +21,10 @@ let author = document.querySelector("#author");
 let btn = document.querySelector("#new-quote");
 
 function pickFromArray(choices) {
-  
+  btn.addEventListener("click", () => {
+    let randomQuote = pickFromArray(quotes);
+    
+  })
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
