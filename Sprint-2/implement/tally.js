@@ -4,10 +4,6 @@ function tally(inputArray) {
     //check if input is not an array
     if (!Array.isArray(inputArray)) {
         throw new Error("The input you provided is not an array");
-        //for an empty array
-        // if (inputArray.length === 0) {
-        //     return talliedResults;
-        // }
     }
     for (const property of inputArray) {
         //if this propert is already in the object increment it
