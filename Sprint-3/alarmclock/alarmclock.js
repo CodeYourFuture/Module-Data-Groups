@@ -16,6 +16,7 @@ function setAlarm() {
 
   //clear previous timer set
   if (currentTimer !== null) {
+    alert("Old timer is now being stopped, new timer starting");
     clearInterval(currentTimer);
   }
 
