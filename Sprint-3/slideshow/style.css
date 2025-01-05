@@ -1,25 +1,25 @@
 /** Write your CSS in here **/
 
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
-  }
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
 
-  img {
-    max-width: 300px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
+img {
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
-  #buttons-container {
-    margin-top: 20px;
-  }
+#buttons-container {
+  margin-top: 20px;
+}
 
-  button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
