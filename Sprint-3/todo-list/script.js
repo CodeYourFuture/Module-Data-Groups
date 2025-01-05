@@ -1,5 +1,5 @@
 // Initial list of todos
-const todos = [
+let todos = [
   { text: "Wash the dishes", completed: false },
   { text: "Do the shopping", completed: false },
 ];
@@ -18,7 +18,7 @@ function populateTodoList() {
     const completeBtn = document.createElement("button");
     completeBtn.textContent = todo.completed ? "Uncomplete" : "Complete";
     completeBtn.addEventListener("click", () => {
-      todo.completed = !todo.completed;
+      todos[index].completed = !todos[index].completed;
       populateTodoList();
     });
 
@@ -51,7 +51,7 @@ function addNewTodo(event) {
 
 // Function to delete all completed todos
 function deleteAllCompletedTodos() {
-  todos = todos.filter((todo) => !todo.completed); // Remove completed todos
+  todos = todos.filter((todo) => !todo.completed); // Keep only uncompleted todos
   populateTodoList(); // Re-render the list
 }
 
