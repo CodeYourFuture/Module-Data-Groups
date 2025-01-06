@@ -1,3 +1,7 @@
+let timeRemaining = document.querySelector("#timeRemaining");
+let alarmSet = document.querySelector("#alarmSet");
+let countDown; 
+
 function setAlarm() {}
 
 // DO NOT EDIT BELOW HERE
