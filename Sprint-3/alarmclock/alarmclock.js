@@ -1,6 +1,6 @@
 let timeRemaining = document.querySelector("#timeRemaining");
 let alarmSet = document.querySelector("#alarmSet");
-let countDown; 
+let countDown; // to store interval id for countdown 
 
 function setAlarm() {}
 
