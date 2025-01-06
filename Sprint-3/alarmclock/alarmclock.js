@@ -2,7 +2,9 @@ let timeRemaining = document.querySelector("#timeRemaining");
 let alarmSet = document.querySelector("#alarmSet");
 let countDown; // to store interval id for countdown 
 
-function setAlarm() {}
+function setAlarm() {
+    let minutes = parseInt(alarmSet.value) // to ensure the value is a number
+}
 
 // DO NOT EDIT BELOW HERE
 
