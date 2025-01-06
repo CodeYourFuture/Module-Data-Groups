@@ -30,8 +30,8 @@ btn.addEventListener("click", () => {
   let text = randomQuotes.quote;
   let person = randomQuotes.author;
 
-  randomQuotes.textContent = text;
-  randomQuotes.textContent =person;
+  quote.textContent = text;
+  author.textContent =person;
 
 },1000);
 
