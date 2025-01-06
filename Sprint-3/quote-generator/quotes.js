@@ -27,7 +27,11 @@ function pickFromArray(choices) {
 btn.addEventListener("click", () => {
   let randomQuotes = pickFromArray(quotes);
 
+  let quote = randomQuotes.quote;
+  let author = randomQuotes.author;
+
   
+
 
 },1000);
 
