@@ -39,6 +39,10 @@ function updateTimeRemaining(timeRemainingInMs) {
   timeRemaining.textContent = `Time Remaining: ${formatTime(minutes)}:${formatTime(seconds)}`
 }
 
+function formatTime(time) {
+  return time < 10 ? `0${time}` : time
+}
+
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
