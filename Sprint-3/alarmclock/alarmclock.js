@@ -13,6 +13,11 @@ function setAlarm() {
   startCountDown(timeInMs);
 }
 
+function startCountDown(timeRemainingInMs){
+  updateTimeRemaining(timeRemainingInMs);
+  
+}
+
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
