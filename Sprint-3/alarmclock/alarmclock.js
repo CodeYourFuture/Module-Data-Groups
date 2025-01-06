@@ -9,6 +9,7 @@ function setAlarm() {
       alert("Please enter a valid number for minutes");
       return;
     }
+    let timeInMs = minutes * 1000; // converting minutes to milliseconds 
 }
 
 // DO NOT EDIT BELOW HERE
