@@ -29,7 +29,14 @@ function startCountDown(timeRemainingInMs){
       timeRemaining.textContent = "Time's up!"
     }
   }, 1000);
+}
 
+//function to update the displayed time remaining 
+function updateTimeRemaining(timeRemainingInMs) {
+  let totalSeconds = Math.floor(timeRemainingInMs / 1000);
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+  timeRemaining.textContent = `Time Remaining: ${formatTime(minutes)}:${formatTime(seconds)}`
 }
 
 // DO NOT EDIT BELOW HERE
