@@ -4,6 +4,11 @@ let countDown; // to store interval id for countdown
 
 function setAlarm() {
     let minutes = parseInt(alarmSet.value) // to ensure the value is a number
+
+    if(isNaN(minutes) || minutes < 1){
+      alert("Please enter a valid number for minutes");
+      return;
+    }
 }
 
 // DO NOT EDIT BELOW HERE
