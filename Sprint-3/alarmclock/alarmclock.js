@@ -10,6 +10,7 @@ function setAlarm() {
       return;
     }
     let timeInMs = minutes * 1000; // converting minutes to milliseconds 
+  startCountDown(timeInMs);
 }
 
 // DO NOT EDIT BELOW HERE
