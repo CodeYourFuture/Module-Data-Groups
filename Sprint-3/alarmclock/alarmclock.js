@@ -12,6 +12,8 @@ function setAlarm() {
     return;
   }
 
+  bg.style.backgroundImage = "url('img/giphy.webp')"; // change gif for static image
+
   timeRemaining.innerHTML = `Time Remaining: ${formatTime(timeLeft)}`; // Update display
 
   clearInterval(countdown); // Clear any existing countdown
@@ -27,12 +29,23 @@ function setAlarm() {
 }
 
 function stopAlarm() {
+  const bg = document.getElementById("bg");
+
+  console.log("Stopping the alarm...");
+  clearInterval(countdown); // Stop the countdown
+  alert("Alarm stopped!");
+
+  // Change the background from GIF to static image
+  bg.style.backgroundImage = "url('img/clock1.png')";
+}
+
+/*function stopAlarm() {
   const stopGig = document.getElementById("bg");
 
   console.log("Stopping the alarm...");
   clearInterval(countdown); // Stop the countdown
   alert("Alarm stopped!");
-}
+}*/
 
   //Stop the background GIF
   stopGig.style.display = "none";

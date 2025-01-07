@@ -8,6 +8,24 @@ body {
   background-position: center;
   background-repeat: no-repeat; 
 }
+
+#bg{
+  transition: 2ms;
+}
+
+ /* smooth transition between images */
+  #bg.fade-out {
+      opacity: 0; /* Fully transparent */
+        transition: 2ms;
+  }
+
+  /* smooth transition between images */
+  #bg.fade-in {
+      opacity: 1; /* Fully opaque */
+        transition: 2ms;
+  }
+
+  
 .centre {
   text-align: center;
   background-color: #03030343;
