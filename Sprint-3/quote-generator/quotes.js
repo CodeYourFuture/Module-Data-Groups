@@ -16,23 +16,26 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-let quote = document.querySelector("#quote");
-let author = document.querySelector("#author");
-let btn = document.querySelector("#new-quote");
+
 
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)]; // to get a random quote choice from quotes
 }
 
-btn.addEventListener("click", () => {
-  let randomQuotes = pickFromArray(quotes);
+document.addEventListener("DOMContentLoaded", () => {
+  let quote = document.querySelector("#quote");
+  let author = document.querySelector("#author");
+  let btn = document.querySelector("#new-quote");
 
-  let text = randomQuotes.quote;
-  let person = randomQuotes.author;
+  btn.addEventListener("click", () => {
+    let randomQuotes = pickFromArray(quotes); // Get a random quote object
 
-  quote.textContent = text;
-  author.textContent =person;
+    let text = randomQuotes.quote; // Quote text
+    let person = randomQuotes.author; // Author name
 
+    quote.textContent = `"${text}"`; // Display the quote text
+    author.textContent = `- ${person}`; // Display the author name
+  });
 });
 
 window.onload = () => {
