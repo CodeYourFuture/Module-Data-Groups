@@ -4,6 +4,7 @@ function setAlarm() {
   const alarmInput = document.getElementById("alarmSet");
   const timeRemaining = document.getElementById("timeRemaining");
 
+
   let timeLeft = parseInt(alarmInput.value); // Get the input value as a number
 
   if (isNaN(timeLeft) || timeLeft <= 0) {
@@ -26,10 +27,21 @@ function setAlarm() {
 }
 
 function stopAlarm() {
+  const stopGig = document.getElementById("bg");
+
   console.log("Stopping the alarm...");
   clearInterval(countdown); // Stop the countdown
   alert("Alarm stopped!");
 }
+
+  //Stop the background GIF
+  stopGig.style.display = "none";
+
+function resumeBg() { 
+  stopGig.style.display = stopGig;
+}
+
+
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);

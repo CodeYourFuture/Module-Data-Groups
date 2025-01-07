@@ -1,3 +1,51 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("img/giphy.webp"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+.centre {
+  text-align: center;
+  background-color: #03030343;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 50%;
+  
+}
+
+#h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+ color: aliceblue;
+}
+
+input[type="number"] {
+  width: 80px;
+  padding: 8px;
+  border: 1px solid #070707;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: none;
+}
+
+button {
+  background-color: #5a5a5b; 
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#stop {
+  background-color: #621e1e; 
+}
 .centre {
   position: fixed;
   top: 50%;
@@ -12,4 +60,31 @@
 
 h1 {
   text-align: center;
+   font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #ccc;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  
+}
+
+.labels{
+    color: #ccc;
+    font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.3rem;
+
+}
+
+#set #stop{
+   color: #ccc;
+    font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+
+
 }
