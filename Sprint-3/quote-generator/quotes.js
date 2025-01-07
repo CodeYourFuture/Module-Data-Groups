@@ -33,7 +33,7 @@ btn.addEventListener("click", () => {
   quote.textContent = text;
   author.textContent =person;
 
-},1000);
+});
 
 window.onload = () => {
   let firstQuote = quotes[2]; // first quote just after the page loads
