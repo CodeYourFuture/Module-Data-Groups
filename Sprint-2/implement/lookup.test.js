@@ -47,6 +47,10 @@ test("input pair invalid", () => {
     "Input pair is invalid"
   );
 });
-test("empty array and return message", () => {
-  expect(createLookup([])).toBe("Should be Array and not empty array");
+
+test("empty array and throws error", () => {
+  expect(() => createLookup([])).toThrow("Should be Array and not empty array");
+  expect(() => createLookup("this is not array")).toThrow(
+    "Should be Array and not empty array"
+  );
 });

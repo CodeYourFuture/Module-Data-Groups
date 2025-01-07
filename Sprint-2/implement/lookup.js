@@ -5,7 +5,7 @@ function createLookup(countryCurrencyPairs) {
     !Array.isArray(countryCurrencyPairs) ||
     countryCurrencyPairs.length == 0
   ) {
-    return "Should be Array and not empty array";
+    throw new Error("Should be Array and not empty array");
   }
   // return countryCurrencyPairs[0].length;
   for (let i = 0; i < countryCurrencyPairs.length; i++) {
@@ -36,5 +36,6 @@ console.log(
     ["CA", "CAD"],
   ])
 );
+// console.log(createLookup("not an array"));
 // console.log(createLookup([[1, 2], [2, 3], [3]]));
 module.exports = createLookup;

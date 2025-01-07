@@ -12,6 +12,6 @@ const recipe = {
 };
 console.log(`${recipe.title} \nserves ${recipe.serves}`);
 
-let receiptIngredients = recipe.ingredients.map((element) =>
+let receiptIngredients = recipe.ingredients.forEach((element) =>
   console.log(element)
 );
