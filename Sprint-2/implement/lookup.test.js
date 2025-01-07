@@ -48,5 +48,5 @@ test("input pair invalid", () => {
   );
 });
 test("empty array and return message", () => {
-  expect(createLookup([])).toBe("Value is empty or empty array");
+  expect(createLookup([])).toBe("Should be Array and not empty array");
 });

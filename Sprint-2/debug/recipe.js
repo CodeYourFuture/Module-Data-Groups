@@ -10,6 +10,8 @@ const recipe = {
   serves: 2,
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
-let receiptIngredients = recipe.ingredients.map((element) => element);
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients: ${receiptIngredients}`);
+console.log(`${recipe.title} \nserves ${recipe.serves}`);
+
+let receiptIngredients = recipe.ingredients.map((element) =>
+  console.log(element)
+);

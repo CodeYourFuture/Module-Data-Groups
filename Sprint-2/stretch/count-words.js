@@ -31,9 +31,12 @@ function countWords(yourWords) {
   //remove regex with punctuation
 
   const removePunctuation = yourWords.replace(/[.,!]?/g, "");
+  const removeMultipleSpace = removePunctuation.replace(/\s+/g, " ");
+  // console.log(removeMultipleSpace);
   //change to upperCase
-  const changeCapital = removePunctuation.toUpperCase();
+  const changeCapital = removeMultipleSpace.toUpperCase().trim();
   const changeArray = changeCapital.split(" ");
+  // console.log(changeArray);
   changeArray.map((ele) => {
     if (countObj[ele]) {
       countObj[ele] += 1;
@@ -44,4 +47,7 @@ function countWords(yourWords) {
   return countObj;
 }
 console.log(countWords("You. and. me! and, you. i"));
+console.log(countWords("A                             A.A A"));
+console.log(countWords("A.A.A"));
+
 module.exports = countWords;

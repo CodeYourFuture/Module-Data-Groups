@@ -10,7 +10,10 @@ function totalTill(till) {
   for (const [coin, quantity] of Object.entries(till)) {
     total += parseInt(coin) * quantity;
   }
-  return `£${total / 100}`;
+  // let finalResult = total / 100;
+  // // return finalResult.toFixed(2);
+  // return `£${finalResult.toFixed(2)}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
 // const till = {

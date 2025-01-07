@@ -28,5 +28,8 @@ module.exports = invert;
 // c) What does Object.entries return? Why is it needed in this program?
 //that will return nested array
 // d) Explain why the current return value is different from the target output
-//invertedObj.key is iterate and last result is invertedObj to be key and value will be last item
+// The current return value differs from the target output because
+// the final object will only contain the key-value pair from the last iteration,
+// overriding previous key-value pairs due to how the key assignment works in the loop.
+
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)

@@ -6,5 +6,5 @@ test("calculate till and return the total result", () => {
     "50p": 4,
     "20p": 10,
   };
-  expect(totalTill(till)).toBe("£4.4");
+  expect(totalTill(till)).toBe("£4.40");
 });

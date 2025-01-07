@@ -43,5 +43,9 @@ test("object with non existing property name return false", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("input object is array and return false", () => {
-  expect(contains([1, 2, 3], "a")).toBe(false);
+  expect(contains([1, 2, 3], "1")).toBe(false);
+});
+
+test("checking null to be false", () => {
+  expect(contains(null, "a")).toBe(false);
 });
