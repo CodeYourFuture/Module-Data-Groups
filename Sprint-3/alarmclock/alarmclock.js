@@ -1,6 +1,6 @@
 let countdown; // Global variable for the interval
 
-function setAlarm() {
+function startAlarm() {
   const alarmInput = document.getElementById("alarmSet");
   const timeRemaining = document.getElementById("timeRemaining");
 
