@@ -6,6 +6,7 @@ function sum(elements) {
    // and if the array is empty will return 0
    // result will store in totalSum variable and return
     let totalSum = numericElements.reduce((a, b) => (a + b), 0);
+    
     return totalSum;
 }
 
