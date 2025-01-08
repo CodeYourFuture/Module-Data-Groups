@@ -41,13 +41,9 @@ function populateTodoList(todoArray) {
     });
 
     // Add event listener to the trash icon to delete the todo.
-    trash.addEventListener("click", () => {
-      // Filter out the deleted todo from the todos array.
-      const updatedTodos = todos.filter((t) => t !== todo);
-
-       // Update the global todos explicitly.
-      todos.length = 0; // Clear the original array
-      todos.push(...updatedTodos); // Push updated items back into the global array
+    trash.addEventListener("click", () => {  
+      // Filter out the deleted todo and update the global todos array in one step.
+      todos.splice(0, todos.length, ...todos.filter((t) => t !== todo));
 
       // Repopulate the todo list after deleting the todo.
       populateTodoList(todos);
