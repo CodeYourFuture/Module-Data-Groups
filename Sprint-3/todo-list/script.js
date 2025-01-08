@@ -12,6 +12,13 @@ function populateTodoList(todos) {
     const li = document.createElement("li");
     li.textContent = todo.task; // Set the text content of the <li> to the todo task.
 
+    // Apply line-through if the todo is completed (this fixes the "completed status lost" issue).
+    li.style.textDecoration = todo.completed ? "line-through" : "none";
+
+    // Create icons container
+    const span = document.createElement("span");
+    span.classList.add("badge", "bg-primary", "rounded-pill");
+
     // Create an 'i' element for the tick icon (mark as completed).
     const tick = document.createElement("i");
     tick.classList.add("fa", "fa-check", "icon"); // Add necessary classes for the tick icon.
@@ -20,20 +27,29 @@ function populateTodoList(todos) {
     const trash = document.createElement("i");
     trash.classList.add("fa", "fa-trash", "icon"); // Add necessary classes for the trash icon.
 
-    // Append both icons (tick and trash) to the <li> element.
-    li.appendChild(tick);
-    li.appendChild(trash);
+    // Append icons to span
+    span.appendChild(tick);
+    span.appendChild(trash);
+
+    // Append span to li 
+    li.appendChild(span);
 
     // Add event listener to the tick icon to toggle the completed status.
     tick.addEventListener("click", () => {
       todo.completed = !todo.completed; // Toggle the completed status.
       li.style.textDecoration = todo.completed ? "line-through" : "none"; // If completed, apply strikethrough style to the todo.
+      populateTodoList(todos);
     });
 
     // Add event listener to the trash icon to delete the todo.
     trash.addEventListener("click", () => {
       // Filter out the deleted todo from the todos array.
-      todos = todos.filter((t) => t !== todo);
+      const updatedTodos = todos.filter((t) => t !== todo);
+
+       // Update the global todos explicitly.
+      todos.length = 0; // Clear the original array
+      todos.push(...updatedTodos); // Push updated items back into the global array
+
       // Repopulate the todo list after deleting the todo.
       populateTodoList(todos);
     });
