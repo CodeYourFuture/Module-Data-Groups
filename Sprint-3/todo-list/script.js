@@ -1,5 +1,5 @@
 // This function populates the todo list dynamically based on the provided todos array.
-function populateTodoList(todos) {
+function populateTodoList(todoArray) {
   // Get the todo-list element (the <ul> element where todos will be displayed).
   let list = document.getElementById("todo-list");
 
@@ -7,7 +7,7 @@ function populateTodoList(todos) {
   list.innerHTML = ""; // This ensures that the list is empty before repopulating it with updated todos.
 
   // Loop through each todo in the todos array.
-  todos.forEach((todo) => {
+  todoArray.forEach((todo) => {
     // Create a new <li> element for each todo item.
     const li = document.createElement("li");
     li.textContent = todo.task; // Set the text content of the <li> to the todo task.
@@ -38,7 +38,6 @@ function populateTodoList(todos) {
     tick.addEventListener("click", () => {
       todo.completed = !todo.completed; // Toggle the completed status.
       li.style.textDecoration = todo.completed ? "line-through" : "none"; // If completed, apply strikethrough style to the todo.
-      populateTodoList(todos);
     });
 
     // Add event listener to the trash icon to delete the todo.
