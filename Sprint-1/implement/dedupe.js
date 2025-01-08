@@ -1,6 +1,6 @@
-function dedupe(arr) {
-    
-  return [...new Set(arr)];
+function dedupe(array) {
+    //Set object lets store unique values of the array
+  return [...new Set(array)];
 }
 
 console.log(dedupe([]));
