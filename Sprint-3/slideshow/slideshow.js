@@ -2,6 +2,10 @@ const images = [
     "./assets/cute-cat-a.png",
     "./assets/cute-cat-b.jpg",
     "./assets/cute-cat-c.jpg",
+    "./assets/cute-cat-d.jpg",
+    "./assets/cute-cat-e.jpg",
+    "./assets/cute-cat-f.jpg",
+
 ];
 
 
@@ -33,7 +37,8 @@ function move(direction) {
 
 // Start automatic movement in a direction (forward or backward)
 function startAutoMovement(direction) {
-    // Disable auto movement buttons to prevent multiple intervals
+    stopAutoMovement(); // Clear any existing interval
+    // Disable movement buttons to prevent multiple intervals
     // This ensures that the user cannot activate multiple automatic movements simultaneously.
     buttons.autoForward.disabled = buttons.autoBackward.disabled = true;
     // Start automatic movement in the specified direction
@@ -46,6 +51,7 @@ function stopAutoMovement() {
     // Clear the interval that was previously set with `setInterval`.
     // The `clearInterval` function stops the repeated execution of the function
     clearInterval(autoInterval); // Stop the automatic movement
+    autoInterval = null; // Reset interval ID
     // Turn the "Auto Forward" and "Auto Backward" buttons back on.
     // This lets the user start a new automatic movement.
     // Setting `disabled = false` makes the buttons clickable again.
