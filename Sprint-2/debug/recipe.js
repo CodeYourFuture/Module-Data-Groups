@@ -12,4 +12,9 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);
+
+//The issue in this code is the ingredient returns [object Object] which caused by not having access to the value
+// of the recipe's ingredient. we can fix it with its key > recipe.ingredients
+// This code asked to have each ingredient in new line, to fix this we can use recipe.ingredients.join("\n")
+// it converts the array into a string in new line.

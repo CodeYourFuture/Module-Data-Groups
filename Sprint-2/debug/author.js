@@ -11,6 +11,9 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
-}
+  for (const key in author) {
+    console.log(author[key]);
+  }
+
+// The problem in this code is in (for...of) loop it tried to log the value of author which is an object not an array.
+// To solve this issue we can use the for...in and log the author value by its key
