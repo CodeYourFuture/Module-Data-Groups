@@ -39,5 +39,5 @@ test("Given an array with duplicate items", () =>{
 // When passed to tally
 // Then it should throw an error
 test("Given an invalid input like a string", () =>{
-    expect(tally(1)).toEqual("Input must be an array");
+    expect(tally(1)).toEqual({ error: "Input must be an array"});
 });

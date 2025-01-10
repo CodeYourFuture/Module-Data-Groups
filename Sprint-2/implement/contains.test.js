@@ -28,20 +28,23 @@ describe("", () =>{
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
-    test("Given an object with properties with an existing property name", () =>{
+    test("Given an object with properties with an existing property name, it should return true", () =>{
         expect(contains({a: 1, b: 2}, "a")).toEqual(true)
     })
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
-    test("Given an object with properties with a non-existent property name", () =>{
+    test("Given an object with properties with a non-existent property name, it should return false", () =>{
         expect(contains({a: 1, b: 2}, "c")).toEqual(false)
     })
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-    test("Given an object with properties", () =>{
+    test("Given invalid parameters like an array, it should return false ", () =>{
         expect(contains(["a", "b"], "a")).toEqual(false);
-        expect(contains(["a", "b"], "0")).toEqual(false);
+        expect(contains(2, "0")).toEqual(false);
+        expect(contains("a", "0")).toEqual(false);
+        expect(contains(true, "0")).toEqual(false);
+        expect(contains(null, "a")).toEqual(false);
     })
 });

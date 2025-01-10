@@ -1,7 +1,7 @@
 function tally(array) {
         // check if input is an array
     if (!Array.isArray(array)) {
-        return ("Input must be an array")
+        return { error: "Input must be an array"};
     }
 
     // create an empty object to store counts 

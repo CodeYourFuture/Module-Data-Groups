@@ -1,6 +1,6 @@
 function contains(obj, property) {
     // check if it is an Array
-    if (Array.isArray(obj)){
+    if (typeof obj !== "object" || obj === null ||Array.isArray(obj)) {
         return false
     }  
     for (let key in obj) {
