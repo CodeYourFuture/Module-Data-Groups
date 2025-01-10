@@ -53,5 +53,12 @@ test("Given one string", () => {
       name: "Ali",
       city: undefined,
       "": "London",
+    })
     });
+
+    test("Given a string with mixed valid and invalid parts", () => {
+    expect(parseQueryString("a%25b=c%26d")).toEqual({
+      "a%b" : "c&d",
+    });
+
   });
