@@ -17,6 +17,10 @@ describe("calculateMedian", () => {
     expect(calculateMedian([1, 2, 3, 4, 5, 6])).toEqual(3.5);
   });
 
+  test("returns the average of middle values for unsorted array", () => {
+    expect(calculateMedian([5, 2, 1, 3, 4])).toEqual(3);
+  });
+
   test("doesn't modify the input", () => {
     const list = [1, 2, 3];
     calculateMedian(list);
