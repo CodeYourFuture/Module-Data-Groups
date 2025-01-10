@@ -1,3 +1,6 @@
+body{
+  background-color: rgb(137, 94, 101);
+}
 .centre {
   position: fixed;
   top: 50%;
@@ -8,8 +11,13 @@
 
 #alarmSet {
   margin: 20px;
+  padding: 5px;
+  border-radius: 10%;
 }
-
+button{
+  border-radius: 10%;
+  padding: 5px;
+}
 h1 {
   text-align: center;
 }
