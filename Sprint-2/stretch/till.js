@@ -5,20 +5,18 @@
 // Then it should return the total amount in pounds
 
 function totalTill(till) {
+  
+  let invalidCoins = ["1p", "5p", "20p", "50p"];
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
 
-    let coinValue;
-
-    if(coin.endsWith("p")){
-      coinValue = parseInt(coin);
-
-    } else if (coin.startsWith("£")){
+    if(!invalidCoins.includes(coin)){
       throw new Error("Invalid coin format");
     }
 
-    
+    let coinValue = parseInt(coin);
+
     total += coinValue * quantity;
   }
 
