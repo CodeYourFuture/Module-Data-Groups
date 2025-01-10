@@ -55,6 +55,13 @@ body {
     margin-bottom: 50px;
 }
 
+#author::before {
+    content: "- ";
+    color: inherit;
+    font-size: inherit;
+    font-style: inherit;
+}
+
 #new-quote {
     display: inline-block;
     background-color: #e19028;

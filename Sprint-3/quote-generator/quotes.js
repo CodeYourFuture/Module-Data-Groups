@@ -5,7 +5,7 @@ const authorBlock = document.getElementById("author");
 function displayQuote() {
   const chosenQuote = pickFromArray(quotes);
   quoteBlock.textContent = `${chosenQuote.quote}`;
-  authorBlock.textContent = `- ${chosenQuote.author}`;
+  authorBlock.textContent = `${chosenQuote.author}`;
 }
 
 newQuoteBtn.addEventListener('click', displayQuote);
