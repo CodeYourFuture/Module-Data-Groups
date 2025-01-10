@@ -30,7 +30,7 @@ describe("invert function", () => {
         expect(invert("ABCD")).toThrow('Invalid input. Input must be a plain object.');
     });
 
-    test("Given an edge case of an array with only numbers, it should return an object with numbers for keys and their indices/positions for values ", () => {
-        expect(invert([1, 2, 3, 4])).toEqual({ '1': '0', '2': '1', '3': '2', '4': '3' });
+    test("Given an edge case of an array with only numbers, it should throw an error ", () => {
+        expect(invert([1, 2, 3, 4])).toThrow('Invalid input. Input must be a plain object.');
     });
 });
