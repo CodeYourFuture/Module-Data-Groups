@@ -1,7 +1,12 @@
 function contains(obj, property) {
-    return obj.hasOwnProperty(property);
+    // check if object is null or an array
+    if(obj === null || Array.isArray(obj)){
+        return false;
+    }
+
+    return Object.prototype.hasOwnProperty.call(obj,property);
 }
 
 module.exports = contains;
 
-console.log(contains({name: "Mike", age: 25, city: "Cape Town"}, "age"));
+console.log(contains([true, "Mike", 35, "City"], "Mike"));
