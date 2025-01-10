@@ -21,28 +21,31 @@ const books = [
   },
 ];
 
-const readingList = document.getElementById("content");
+const readingList = document.getElementById("reading-list");
 function populateBooks(bookArray) {
 
   bookArray.forEach(item => {
 
-    const listItem = document.createElement("ul");
+    const listItem = document.createElement("li");
     const div = document.createElement("div");
     const title = document.createElement("h2");
+    const author = document.createElement("h3");
     const image = document.createElement("img");
     let colour = "red";
     if (item.alreadyRead === true) {
       colour = "green";
     }
-    title.textContent = `${item.title} by ${item.author}`;
+    title.textContent = item.title;
+    author.textContent = item.author;
     image.src = item.bookCoverImage;
     readingList.style.textAlign = "center";
-    div.style.background = colour;
+    div.style.backgroundColor = colour;
     div.style.maxWidth = "500px";
     image.style.width = "200px";
     readingList.appendChild(listItem);
     listItem.appendChild(div);
     div.appendChild(title);
+    div.appendChild(author);
     div.appendChild(image);
   });
 }
