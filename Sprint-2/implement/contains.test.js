@@ -27,7 +27,7 @@ describe("function contains", () => {
         expect(contains([true, "Mike", 35, "City"], "Mike")).toEqual(false);
     });
 
-    test("When passed an invalid parameter like an array and we check for indices , it should return true ", () => {
+    test("When passed an invalid parameter like an array and we check for indices , it should return false ", () => {
         expect(contains([true, "Mike", 35, "City"], "1")).toEqual(false);
     });
 })
