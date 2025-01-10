@@ -13,6 +13,7 @@ function readingList(books) {
 
     const coverImage = document.createElement("img");
     coverImage.src = book.bookCoverImage;
+    coverImage.alt = `Cover of the book "${book.title}" by ${book.author}`;
     listItem.appendChild(coverImage);
 
     readingListContainer.appendChild(listItem);
