@@ -7,9 +7,13 @@
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
 function invert(obj) {
-  const invertedObj = {};
 
-  for (const [key, value] of Object.entries(obj)) {
+  if(typeof obj !== "object" || obj === null || Array.isArray(obj)){
+    throw new Error('Invalid input. Input must be a plain object.')
+  }
+  const invertedObj = {};
+  // checks for duplicate values 
+  for (const [key, value] of Object.entries(obj)) { 
     if (invertedObj[value] !== undefined) {
       throw new Error(`Duplicate value found. Cannot invert.`);
     }
@@ -21,7 +25,7 @@ function invert(obj) {
 
 module.exports = invert;
 
-console.log(invert({ a: 1, b: 2 }));
+console.log(invert('I enjoy learning JavaScript'));
 
 // a) What is the current return value when invert is called with { a : 1 }
 
