@@ -15,7 +15,7 @@ describe("invert function", () => {
     });
 
     test("When we pass a string into invert, it should throw an error", () => {
-        expect(() => invert('I enjoy learning JavaScript')).toThrow(`Duplicate value found. Cannot invert.`);
+        expect(() => invert('I enjoy learning JavaScript')).toThrow('Invalid input. Input must be a plain object.');
     });
 
     test("When we pass duplicate values, it should throw an error", () => {
@@ -26,8 +26,8 @@ describe("invert function", () => {
         expect(invert({ a: 1, b: '2', c: true })).toEqual({ '1': 'a', '2': 'b', true: 'c' });
     });
 
-    test("Given an edge case with (ABCD), it should return an object with keys and their indices/positions for values ", () => {
-        expect(invert("ABCD")).toEqual({ A: '0', B: '1', C: '2', D: '3' });
+    test("Given an edge case with (ABCD), it should throw an error ", () => {
+        expect(invert("ABCD")).toThrow('Invalid input. Input must be a plain object.');
     });
 
     test("Given an edge case of an array with only numbers, it should return an object with numbers for keys and their indices/positions for values ", () => {
