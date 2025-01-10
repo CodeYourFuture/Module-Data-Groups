@@ -26,7 +26,7 @@ describe("invert function", () => {
         expect(invert({ a: 1, b: '2', c: true })).toEqual({ '1': 'a', '2': 'b', true: 'c' });
     });
 
-    test("Given an edge case with (ABCD), it should throw an error ", () => {
+    test("Given an edge case with (ABCD) string, it should throw an error ", () => {
         expect(invert("ABCD")).toThrow('Invalid input. Input must be a plain object.');
     });
 
