@@ -44,7 +44,6 @@ backwardBtn.addEventListener("click", () => {
 
 autoForwardBtn.addEventListener("click", () => {
   stopAutoPlay();
-  disableAutoButtons();
   autoPlayInterval = setInterval(() => {
     currentIndex = (currentIndex + 1) % images.length;
     updateImage();
@@ -53,7 +52,6 @@ autoForwardBtn.addEventListener("click", () => {
 
 autoBackBtn.addEventListener("click", () => {
   stopAutoPlay();
-  disableAutoButtons();
   autoPlayInterval = setInterval(() => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     updateImage();
