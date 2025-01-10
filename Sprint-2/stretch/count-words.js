@@ -36,8 +36,8 @@ function countWords(words){
   const results = new Map();
 
   for(let word of cleanWords){
-    if(typeof word !== "string" || word === "") continue;
-
+    if(word === "") continue;
+    console.log(cleanWords)
     results.set(word, (results.get(word) || 0) + 1);
 
   } 
