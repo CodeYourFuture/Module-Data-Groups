@@ -27,7 +27,6 @@ const authorElement = document.getElementById("author");
 const generateButton = document.getElementById("new-quote");
 const autoplayToggle = document.getElementById("autoplayToggle");
 const autoplayStatus = document.getElementById("autoplayStatus");
-
 // Autoplay interval reference
 let autoplayInterval = null;
 
@@ -519,5 +518,6 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+window.onload = displayQuote;
 
 // call pickFromArray with the quotes array to check you get a random quote
