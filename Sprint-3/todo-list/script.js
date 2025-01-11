@@ -2,6 +2,7 @@ function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   let body = document.querySelector("body");
   let index = 0;
+  let todoButtonsIndex = 0;
 
   let todoButtons = `<span class="badge bg-primary rounded-pill">
                      <i class="fa-solid fa-check" aria-hidden="true"></i>
@@ -13,7 +14,6 @@ function populateTodoList(todos) {
     let listItem = document.createElement("li");
     let breakLine = document.createElement("br");
     let span = document.createElement("span");
-    span.id = index;
     listItem.id = index;
     index++;
     span.innerHTML = todoButtons;
@@ -32,7 +32,13 @@ function populateTodoList(todos) {
       listItem.style.textDecoration = "line-through";
     }
     list.appendChild(listItem);
-    list.appendChild(span);
+    listItem.appendChild(span);
+    const checkMark = document.querySelector(".fa-check");
+    const deleteButton = document.querySelector(".fa-trash");
+
+    checkMark.id = todoButtonsIndex;
+    deleteButton.id = todoButtonsIndex;
+    todoButtonsIndex++;
   });
 }
 
@@ -70,10 +76,37 @@ function addNewTodo(event) {
   populateTodoList([todo]);
 }
 
+
 //need to target form when the button is clicked
 
 let form = document.querySelector("form");
 form.addEventListener("submit", addNewTodo);
+
+//when the checkmark or trash buttons are clicked
+//make span be inside the listItem element and target the nearest listItem
+const checkMarks = document.querySelectorAll(".fa-check");
+const deleteButtons = document.querySelectorAll(".fa-trash");
+let listItems = document.querySelectorAll("li");
+
+checkMarks.forEach((checkMark) => {
+  checkMark.addEventListener("click", function () {
+
+    const listItem = this.closest("li");
+    const todoID = listItem.id;
+
+    if (todoID && todos[parseInt(todoID)].completed === false) {
+      todos[parseInt(todoID)].completed = true;
+      listItem.style.textDecoration = "line-through";
+
+    }
+    else {
+      todos[parseInt(todoID)].completed = false;
+      listItem.style.textDecoration = "none";
+    }
+
+  })
+})
+
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
   // Write your code here...
