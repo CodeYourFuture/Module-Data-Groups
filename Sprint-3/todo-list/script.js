@@ -1,7 +1,9 @@
 function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   let body = document.querySelector("body");
-  let index = 0;
+
+  list.innerHTML = "";
+
   let todoButtonsIndex = 0;
 
   let todoButtons = `<span class="badge bg-primary rounded-pill">
@@ -9,13 +11,15 @@ function populateTodoList(todos) {
                      <i class="fa fa-trash" aria-hidden="true"></i>
                      </span>`;
 
-  todos.forEach(todoItem => {
+  todos.forEach((todoItem, index) => {
 
     let listItem = document.createElement("li");
+    listItem.id = index;
+
     let breakLine = document.createElement("br");
     let span = document.createElement("span");
-    listItem.id = index;
-    index++;
+
+
     span.innerHTML = todoButtons;
     listItem.style.background = "lightblue";
     listItem.style.padding = "1em";
@@ -31,14 +35,32 @@ function populateTodoList(todos) {
     if (todoItem.completed === true) {
       listItem.style.textDecoration = "line-through";
     }
-    list.appendChild(listItem);
     listItem.appendChild(span);
-    const checkMark = document.querySelector(".fa-check");
-    const deleteButton = document.querySelector(".fa-trash");
+    list.appendChild(listItem);
+
+    const checkMark = span.querySelector(".fa-check");
+    const deleteButton = span.querySelector(".fa-trash");
 
     checkMark.id = todoButtonsIndex;
     deleteButton.id = todoButtonsIndex;
     todoButtonsIndex++;
+
+    checkMark.addEventListener("click", function () {
+
+      const listItem = this.closest("li");
+      const todoID = listItem.id;
+
+      if (todoID && todos[parseInt(todoID)].completed === false) {
+        todos[parseInt(todoID)].completed = true;
+        listItem.style.textDecoration = "line-through";
+
+      }
+      else {
+        todos[parseInt(todoID)].completed = false;
+        listItem.style.textDecoration = "none";
+      }
+
+    })
   });
 }
 
@@ -60,6 +82,7 @@ function addNewTodo(event) {
   let inputField = document.getElementById("todo-input");
   let inputFieldValue = inputField.value;
   let completedStatus = false;
+
   let todo = {};
 
   if (inputFieldValue.length > 0) {
@@ -67,13 +90,15 @@ function addNewTodo(event) {
     todo["completed"] = completedStatus;
     todos.push(todo);
 
-    console.log(`Added new Todo - Task:${todo.task}: Status:${todo.completed}`)
+    console.log(`Added new Todo - Task:${todo.task}: Status:${todo.completed}`);
+    populateTodoList(todos);
   }
   else {
     alert("Please input a new todo item!!");
   }
 
-  populateTodoList([todo]);
+
+
 }
 
 
