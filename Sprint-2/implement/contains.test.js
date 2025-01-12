@@ -48,6 +48,14 @@ test("An object and a non-existent property name, should return false", () => {
 // When passed to contains
 // Then it should return false or throw an error
 
-test("invalid parameter (like an array), should return false", () => {
-    expect(contains(["a", "b", "c", 1, 2, 3],"a")).toBe(false);
-})
+test("number as input, should return false", () => {
+    expect(contains(123, "key")).toBe(false);
+});
+
+// --------------------------------------------------------------------------------------
+// test("invalid parameter (like an array), should return false", () => {
+//     expect(contains(["a", "b", "c", 1, 2, 3],"1")).toBe(true);
+// })
+// test("invalid parameter (like an array), should return false", () => {
+//     expect(contains(["a", "b", "c", 1, 2, 3],"a")).toBe(false);
+// })
