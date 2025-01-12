@@ -51,12 +51,18 @@ function countWords(string) {
     }
    });
 
-   const sortedWordCount = Object.entries(counter)
-    .sort(([,countA], [,countB]) => countB - countA)
-    .reduce((acc, [word, value]) => {
-      acc[word] = value;
-      return acc;
-    }, {});
+  //  WAY I ---------------------------------------------------------------
+  //  const sortedWordCount = Object.entries(counter)
+    // .sort(([,countA], [,countB]) => countB - countA)
+    // .reduce((acc, [word, value]) => {
+    //   acc[word] = value;
+    //   return acc;
+    // }, {});
+
+    // WAY II ---------------------------------------------------------------
+  const sortedWordCount = Object.fromEntries(
+    Object.entries(counter).sort(([, countA], [, countB]) => countB - countA)
+  );
 
   return sortedWordCount;
 }
