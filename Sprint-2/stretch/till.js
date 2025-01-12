@@ -9,7 +9,8 @@ function totalTill(till) {
 
   for (const [coin, quantity] of Object.entries(till)) {
     const coinWithoutP = coin.slice(0, coin.length -1);
-    total += coinWithoutP * quantity;
+    const coinValue = Number(coinWithoutP);
+    total += coinValue * quantity;
   }
 
   return `£${(total / 100).toFixed(2)}`;
