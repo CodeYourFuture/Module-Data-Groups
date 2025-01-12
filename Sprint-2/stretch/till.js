@@ -35,7 +35,8 @@ module.exports = totalTill;
 
 // ---------------------------------------------------------------------------------------
 // c) What does coin * quantity evaluate to inside the for...of loop?
-      // already evaluate to 'Nan', because of 'num (quantity)' to 'str (coin)' multiplication.
+      // already evaluate to 'Nan', because of 'num (quantity)' to 'str (coin)' multiplication. (was Wrong)
+      // As we slice "p" off, coin * quantity evaluates to a number because coin is a numeric string (LIKE: "1", "5", "50"), and JavaScript implicitly converts it to a number during the multiplication.
 
 // ---------------------------------------------------------------------------------------
 // d) Write a test for this function to check it works and then fix the implementation of totalTill
