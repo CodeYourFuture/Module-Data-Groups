@@ -21,6 +21,12 @@ test("a simple query string", () => {
     });
 });
 
+test("a URL encoded query string", () => {
+    expect(parseQueryString("a%25b=c%26d")).toEqual({
+        "a%b" : "c&d"
+    });
+});
+
 test("pairs of key-values", () => {
     expect(parseQueryString("name=pooriya&country=UK")).toEqual({
         name : "pooriya",
