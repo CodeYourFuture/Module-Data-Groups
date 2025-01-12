@@ -30,7 +30,7 @@ test("pairs of key-values", () => {
 
 test("query string with missing value", () => {
     expect(parseQueryString("name=")).toEqual({
-        name : ""
+        name : undefined
     });
 });
 

@@ -8,7 +8,7 @@ function parseQueryString(queryString) {
   for (const pair of keyValuePairs) {
     const [key, ...valuePart] = pair.split("=");
     const value = valuePart.length > 0 ? valuePart.join("=") : undefined;
-    queryParams[key] = value;
+    queryParams[decodeURIComponent(key)] = value ? decodeURIComponent(value) : undefined;
   }
 
   return queryParams;
