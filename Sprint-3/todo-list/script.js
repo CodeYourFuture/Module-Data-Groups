@@ -10,7 +10,7 @@ function populateTodoList(todos) {
   } else {
     todos.map((todo, index) => {
       //display li
-      let createLi = document.createElement("li");
+      const createLi = document.createElement("li");
       const taskSpan = document.createElement("span");
       taskSpan.innerHTML = todo.task;
       createLi.appendChild(taskSpan);
@@ -28,12 +28,12 @@ function populateTodoList(todos) {
       createLi.append(deleteButton);
       //button eventListener
       completeButton.addEventListener("click", () => {
-        if (todos[index].completed) {
-          todos[index].completed = false;
-        } else {
-          todos[index].completed = true;
-        }
-        // todos[index].completed = "true";
+        // if (todos[index].completed) {
+        //   todos[index].completed = false;
+        // } else {
+        //   todos[index].completed = true;
+        // }
+        todos[index].completed = !todos[index].completed;
         console.log(`You click complete button${index}`);
         populateTodoList(todos);
       });
@@ -58,6 +58,8 @@ populateTodoList(todos);
 deleteAllCompletedTodos();
 //add to do button listener
 const addTodoButton = document.querySelector("button[type='submit']");
+const deleteAllButton = document.getElementById("remove-all-completed");
+
 addTodoButton.addEventListener("click", (event) => {
   event.preventDefault();
   console.log("you click add to do button");
@@ -67,9 +69,9 @@ addTodoButton.addEventListener("click", (event) => {
 // This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
 function addNewTodo(event) {
   // The code below prevents the page from refreshing when we click the 'Add Todo' button.
-  event.preventDefault();
+  // event.preventDefault();
   const addValue = document.querySelector("input[type='text']");
-  if (addValue.value == "") {
+  if (addValue.value == "" || addValue.value == " ") {
     alert("Please add todoList");
   } else {
     // alert(addValue.value);
@@ -81,11 +83,10 @@ function addNewTodo(event) {
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
+// Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
   // Write your code here...
   //remove all button listener
-  const deleteAllButton = document.getElementById("remove-all-completed");
   deleteAllButton.addEventListener("click", () => {
     console.log("you click delete all button");
     // const finalFilter = todos.filter((ele) => ele.completed === "true");
