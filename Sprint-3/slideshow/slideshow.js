@@ -23,29 +23,17 @@ image.src = images[index];
 
 //separate moving mechanism into functions since they are used many times
 function moveForward(imagesArray) {
-    if (index < imagesArray.length - 1) {
-        index++;
-        image.src = imagesArray[index];
-
-    }
-    else {
-        index = 0;
-        image.src = imagesArray[index];
-
-    }
+    //to get 0 as an index (index + imagesArray.length)%imagesArray.length
+    //increment by 1 to move
+    index = (index + imagesArray.length + 1) % imagesArray.length;
+    image.src = imagesArray[index];
 
 }
 
 function moveBackwards(imagesArray) {
-    if (index > 0) {
-        index--;
-        image.src = imagesArray[index];
 
-    }
-    else {
-        index = imagesArray.length - 1;
-        image.src = imagesArray[index];
-    }
+    index = (index + imagesArray.length - 1) % imagesArray.length;
+    image.src = imagesArray[index];
 
 
 }
@@ -53,7 +41,6 @@ function carousel(imagesArray) {
 
 
     body.style.textAlign = "center";
-    image.style.width = "50%";
     image.style.height = "300px";
 
     forwardButton.addEventListener("click", function () {
