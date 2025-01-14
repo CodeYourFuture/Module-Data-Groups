@@ -12,7 +12,7 @@ const body = document.querySelector("body");
 const image = document.getElementById("carousel-img");
 const forwardButton = document.getElementById("forward-btn");
 const backwardButton = document.getElementById("backward-btn");
-const stopButton = document.getElementById("stop");
+const stopButton = document.getElementById("stop-btn");
 const autoForwardButton = document.getElementById("auto-forward-btn");
 const autoBackwardButton = document.getElementById("auto-backward-btn");
 
