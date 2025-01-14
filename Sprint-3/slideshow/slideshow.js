@@ -58,6 +58,7 @@ function carousel(imagesArray) {
     autoForwardButton.addEventListener("click", function name() {
         if (forwardsRunning) {
             clearInterval(forwardsRunning);
+            forwardsRunning = null;
         }
 
         forwardsRunning = setInterval(() => {
@@ -69,6 +70,7 @@ function carousel(imagesArray) {
 
         if (backwardsRunning) {
             clearInterval(backwardsRunning);
+            backwardsRunning = null;
         }
 
         backwardsRunning = setInterval(function () {
