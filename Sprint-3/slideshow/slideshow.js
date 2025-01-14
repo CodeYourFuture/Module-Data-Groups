@@ -53,6 +53,7 @@ function carousel(imagesArray) {
 
     body.style.textAlign = "center";
     image.style.width = "50%";
+    image.style.height = "300px";
 
     forwardButton.addEventListener("click", function () {
         moveForward(imagesArray);
