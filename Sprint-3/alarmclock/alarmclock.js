@@ -27,6 +27,16 @@ function updateTimer() {
   seconds--; // Decrement the seconds
 }
 
+// Start the countdown timer
+updateTimer();
+const countdownInterval = setInterval(updateTimer, 1000);
+
+// Add event listener to stop the alarm and clear the interval
+document.getElementById("stop").addEventListener("click", () => {
+  clearInterval(countdownInterval);
+  pauseAlarm();
+});
+
 }
 
 // DO NOT EDIT BELOW HERE
