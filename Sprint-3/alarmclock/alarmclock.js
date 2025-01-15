@@ -1,4 +1,10 @@
-function setAlarm() {}
+function setAlarm() {
+  // Get the alarm time
+  const alarmSetInput = document.getElementById("alarmSet");
+  const timeRemaining = document.getElementById("timeRemaining");
+
+  
+}
 
 // DO NOT EDIT BELOW HERE
 
