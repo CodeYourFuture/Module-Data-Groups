@@ -18,6 +18,14 @@ function updateTimer() {
   const secs = String(seconds % 60).padStart(2, "0");
   timeRemaining.textContent = `Time Remaining: ${minutes}:${secs}`;
 
+  // Play the alarm when the timer reaches 0
+  if (seconds === 0) {
+    clearInterval(countdownInterval); // Stop the countdown
+    playAlarm(); // Play the alarm sound
+  }
+
+  seconds--; // Decrement the seconds
+}
 
 }
 
