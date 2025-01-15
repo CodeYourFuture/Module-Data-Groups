@@ -6,7 +6,7 @@
 const parseQueryString = require("./querystring.js")
 
 test("parses querystring values containing =", () => {
-  expect(parseQueryString("equation=x=y+1")).toEqual({
+  expect(parseQueryString("equation=x%3Dy+1")).toEqual({
     "equation": "x=y+1",
   });
 });
