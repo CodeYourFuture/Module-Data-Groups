@@ -19,7 +19,7 @@ function populateTodoList(todos) {
     }
 
     let span = document.createElement('span');
-    span.setAttribute('id', 'btnContainer');
+    span.classList = 'btnContainer';
 
     let markBtnComplete = document.createElement('i');
     markBtnComplete.className = 'fa fa-check';
