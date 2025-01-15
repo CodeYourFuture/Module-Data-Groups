@@ -7,6 +7,7 @@ This README will guide you through the different sections for this sprint.
 Make sure your terminal is in the `Sprint-2` directory of this repository.
 
 Run the command `npm install` to install any dependencies you need.
+//well even with the package.json file the npm install failed. i had to check the error logs and change the permissions with a ```sudo chown -R $USER:$USER /home/cyf/Module-Data-Groups/Sprint-2```
 
 ## 🐛 Debug
 
@@ -33,4 +34,5 @@ Once you've completed all these tasks, raise a PR with your work so far. Don't w
 
 ## Stretch 💪
 
-Try the stretch tasks after you've completed the other sections.
+Try the stretch tasks after you've completed the other sections. 
+//running out of time cause of festive break.circle back inshaAllah

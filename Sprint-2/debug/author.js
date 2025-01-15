@@ -11,6 +11,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) { //spotted it immediately the for loop made enough sense for me to know what it was trying to do
   console.log(value);
 }

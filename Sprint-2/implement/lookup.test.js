@@ -1,6 +1,6 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+//test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
@@ -33,3 +33,57 @@ It should return:
    'CA': 'CAD'
  }
 */
+//tbh this was hard to understand and its taken me a while to get it.
+
+
+describe('createLookup', () => {
+  it('should return an empty object for an empty input array', () => {
+    expect(createLookup([])).toEqual({});
+  }); //the first test passes. could not resist writing the function finished (i think). make more tests to check
+
+  it('should create a lookup object from valid country-currency pairs', () => {
+    const pairs = [['US', 'USD'], ['CA', 'CAD'], ['GB', 'GBP']];
+    const expectedLookup = {
+      US: 'USD',
+      CA: 'CAD',
+      GB: 'GBP',
+    };
+    expect(createLookup(pairs)).toEqual(expectedLookup);
+  });
+
+    it('should handle duplicate country codes by using the last occurrence', () => {
+        const pairs = [['US', 'USD'], ['CA', 'CAD'], ['US', 'PESO']];
+        const expectedLookup = {
+            US: 'PESO',
+            CA: 'CAD',
+        };
+        expect(createLookup(pairs)).toEqual(expectedLookup);
+    });
+
+    it('should handle empty strings as country or currency codes', () => {
+        const pairs = [['', 'USD'], ['CA', '']];
+        const expectedLookup = {
+            "": 'USD',
+            CA: '',
+        };
+        expect(createLookup(pairs)).toEqual(expectedLookup);
+    });
+
+    it('should handle non-string values gracefully', () => {
+        const pairs = [[1, 123], [true, false]];
+        const expectedLookup = {
+            1: 123,
+            true: false
+        };
+        expect(createLookup(pairs)).toEqual(expectedLookup);
+    });
+
+    it('should handle an array of only one pair', () => {
+        const pairs = [["ZA", "RAND"]]
+        const expectedLookup = {
+            ZA: "RAND"
+        }
+        expect(createLookup(pairs)).toEqual(expectedLookup)
+    }) //someone call the big five and let them know we got Mandelas
+
+});
