@@ -21,18 +21,34 @@ const books = [
   },
 ];
 
-// Function to display books
+
+function updateBookStyle(bookDiv, book) {
+  bookDiv.classList.add("book");
+
+  if (book.alreadyRead) {
+    bookDiv.classList.add("book-read");
+    bookDiv.classList.remove("book-unread");
+  } else {
+    bookDiv.classList.add("book-unread");
+    bookDiv.classList.remove("book-read");
+  }
+}
+
+
 function readingList(books) {
   const bookList = document.getElementById("book-list");
 
-  // Create a div for each book
 
   books.forEach((book) => {
     const bookDiv = document.createElement("div");
-    bookDiv.classList.add("book");
 
-    //background color
-    bookDiv.style.backgroundColor = book.alreadyRead ? "#d4edda" : "#f85c70";
+
+    updateBookStyle(bookDiv, book);
+
+    //book image
+    const img = document.createElement("img");
+    img.src = book.bookCoverImage;
+    img.alt = book.title;
 
     //book title
     const title = document.createElement("h3");
@@ -42,15 +58,11 @@ function readingList(books) {
     const author = document.createElement("p");
     author.textContent = `by ${book.author}`;
 
-    //book image
-    const img = document.createElement("img");
-    img.src = book.bookCoverImage;
-    img.alt = book.title;
-
     // Append elements to the book div
-    bookDiv.appendChild(img);
     bookDiv.appendChild(title);
-    bookDiv.appendChild(author);
+     bookDiv.appendChild(author);
+    bookDiv.appendChild(img);
+   
 
     // Append book div to the book list
     bookList.appendChild(bookDiv);

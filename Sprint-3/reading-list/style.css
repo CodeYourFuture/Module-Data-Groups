@@ -68,6 +68,20 @@ body {
   border-radius: 0;
 }
 
+.book{
+  
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+.book-read {
+  background-color: #d4edda; /* Green background for read books */
+}
+
+.book-unread {
+  background-color: #f85c70; /* Red background for unread books */
+}
+
 /* Headings */
 .heading-underline {
   position: relative;
