@@ -23,4 +23,13 @@ describe("calculateMedian", () => {
 
     expect(list).toEqual([1, 2, 3]);
   });
+    test("doesn't modify the input", () => {
+      const list = [3, 2, 1];
+      calculateMedian(list);
+
+      expect(list).toEqual([3, 2, 1]);
+    });
+
 });
+
+
