@@ -21,3 +21,32 @@ const books = [
   },
 ];
 
+
+//1: get elements
+const readingList = document.querySelector("#reading-list");
+
+//2: display LIST OF BOOKS
+ books.forEach((book) => {
+  let listItem = document.createElement("li")
+  listItem.innerHTML = `
+  <p> ${book.title}</p> by ${book.author}
+  <br>
+  <img src="${book.bookCoverImage}" alt= "${book.title} cover" width ="100"> 
+  `;
+  //if alreadyRead is true set background color to green else to red
+  if(book.alreadyRead){
+    listItem.style.backgroundColor = "green"
+  }else {
+    listItem.style.backgroundColor = "red"
+  }
+  // add each list element
+  readingList.appendChild(listItem);
+
+ });
+
+
+
+
+
+
+
