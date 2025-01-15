@@ -10,8 +10,8 @@
 
 // Write your code here
 
-var number_img = 1;
-var total_images = 5;
+let number_img = 1;
+const total_images = 5;
 
 function img_change_add() {
   var img = document.getElementById("img");
