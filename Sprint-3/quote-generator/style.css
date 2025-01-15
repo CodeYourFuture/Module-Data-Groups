@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #e68404;
+    background-color: #ffa024;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,19 +20,20 @@ body {
     max-width: 600px;
     width: 90%;
     text-align: right;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
 
 /** Quote Text Styling **/
 .quote-text {
     font-size: 1.5rem;
-    font-style: italic;
     color: orange;
     margin-bottom: 20px;
 }
 
 /** Author Text Styling **/
 .quote-author {
-    font-size: 1.2rem;
+    font-size: 1.2 rem;
     font-weight: bold;
     color: orange;
     margin-bottom: 30px;
