@@ -72,12 +72,12 @@ ol {
   color: grey;
 }
 
-li span#btnContainer {
+li span.btnContainer {
   margin-left: 1rem;
   cursor: pointer;
 }
 
-li span#btnContainer i {
+li span.btnContainer i {
   margin: 0.5rem;
   text-decoration: none;
 }
