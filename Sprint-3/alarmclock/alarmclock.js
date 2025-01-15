@@ -22,10 +22,12 @@ function updateTimer() {
   if (seconds === 0) {
     clearInterval(countdownInterval); // Stop the countdown
     playAlarm(); // Play the alarm sound
+    document.body.style.backgroundColor = "red"; // Change the background color
+    setTimeout(() => {
+      document.body.style.backgroundColor = ""; // Reset the background after a delay
+    }, 1000); // Flashing effect
   }
-
-  seconds--; // Decrement the seconds
-}
+  
 
 // Start the countdown timer
 updateTimer();
