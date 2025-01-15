@@ -1,3 +1,21 @@
+// Step 1: Get the required elements
+const quote = document.querySelector("#quote");
+const author = document.querySelector("#author");
+const newQuoteButton = document.querySelector("#new-quote");
+
+// Step 2: Function to display a random quote
+function displayRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quote.innerText = randomQuote.quote;
+  author.innerText = randomQuote.author;
+}
+
+// Step 3: Event listeners
+document.addEventListener("DOMContentLoaded", displayRandomQuote);
+newQuoteButton.addEventListener("click", displayRandomQuote);
+
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -14,7 +32,7 @@
 // Examples of use
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
-
+ 
 // You don't need to change this function
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
