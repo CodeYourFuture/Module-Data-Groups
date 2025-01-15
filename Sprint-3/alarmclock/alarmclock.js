@@ -2,8 +2,16 @@ function setAlarm() {
   // Get the alarm time
   const alarmSetInput = document.getElementById("alarmSet");
   const timeRemaining = document.getElementById("timeRemaining");
+// Parse the input value as an integer (number of seconds)
+let seconds = parseInt(alarmSetInput.value, 10);
 
-  
+// Validate the input
+if (isNaN(seconds) || seconds <= 0) {
+  alert("Please enter a valid number of seconds.");
+  return;
+}
+
+
 }
 
 // DO NOT EDIT BELOW HERE
