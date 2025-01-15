@@ -11,6 +11,13 @@ if (isNaN(seconds) || seconds <= 0) {
   return;
 }
 
+// Function to update the timer display
+function updateTimer() {
+  // Format minutes and seconds as MM:SS
+  const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  timeRemaining.textContent = `Time Remaining: ${minutes}:${secs}`;
+
 
 }
 
