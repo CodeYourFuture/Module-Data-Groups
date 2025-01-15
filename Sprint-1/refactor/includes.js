@@ -10,7 +10,7 @@
   return false;
 }*/
 
-function includes(list, target) {
+/**unction includes(list, target) {
   // Loop through each item in the list
   for (let i = 0; i < list.length; i++) {
     // If the current item matches the target, return true
@@ -22,8 +22,17 @@ function includes(list, target) {
   // If no match is found, return false
   return false;
 };
-console.log(includes([1, 2, 2, 3], 2));
+console.log(includes([1, 2, 2, 3], 2));*/
 
-
+function includes(list, target) {
+  for (const element of list) {
+    if (element === target) {
+      return true;
+    }
+  }
+  return false;
+}
 
 module.exports = includes;
+
+
