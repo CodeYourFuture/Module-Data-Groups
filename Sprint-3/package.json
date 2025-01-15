@@ -2,7 +2,6 @@
   "name": "module-data-groups",
   "version": "1.0.0",
   "license": "CC-BY-SA-4.0",
-  "description": "",
   "scripts": {
     "test": "jest --testMatch='**/*.js'",
     "format": "prettier --write ."
@@ -31,5 +30,12 @@
   "bugs": {
     "url": "https://github.com/CodeYourFuture/Module-Data-Groups/issues"
   },
-  "homepage": "https://github.com/CodeYourFuture/Module-Data-Groups#readme"
+  "homepage": "https://github.com/CodeYourFuture/Module-Data-Groups#readme",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "description": "",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3"
+  }
 }
