@@ -59,7 +59,7 @@ describe('tally', () => {
 
     it('should handle empty string array elements', () => {
         expect(tally(["","","test"])).toEqual({"":2, "test":1})
-    }) //okay so here are all the test cases. its just basic as described.
+    }) //here are all the test cases. its just basic
 
     it('should throw an error for non-array input', () => {
         expect(() => tally("not an array")).toThrow(TypeError);

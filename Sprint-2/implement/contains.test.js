@@ -63,7 +63,6 @@ as the object doesn't contains a key of 'c'
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
-
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error

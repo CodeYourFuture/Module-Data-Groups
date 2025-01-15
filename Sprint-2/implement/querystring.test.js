@@ -8,7 +8,7 @@ const parseQueryString = require("./querystring.js")
 test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
     "equation": "x=y+1",
-  }); // this passes now that we changed the const [key, value] = pair.split("=");
+  }); // passes now that we changed the const [key, value] = pair.split("=");
 });
   it('parses a single key-value pair', () => {
     expect(parseQueryString('name=John')).toEqual({ name: 'John' });

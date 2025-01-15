@@ -15,7 +15,7 @@ describe('invert', () => {
   });
 
     it('should handle number keys', () => {
-        expect(invert({1: "a", 2: "b"})).toEqual({"a": 1, "b": 2}) //does not properly handle ints so made the changes for numbers
+        expect(invert({1: "a", 2: "b"})).toEqual({"a": 1, "b": 2}) //didnt not properly handle ints so made the changes for numbers
     })
 
     it('should handle boolean values', () => {

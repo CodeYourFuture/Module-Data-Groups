@@ -5,7 +5,7 @@ function tally(items) {
     const counts = {};
 
     for (const item of items){
-        counts[item] = (counts[item] || 0) +1; //simple beautiful core logic
+        counts[item] = (counts[item] || 0) +1; //simple sexy core logic
     }
     return counts;
 }

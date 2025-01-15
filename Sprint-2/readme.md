@@ -32,7 +32,7 @@ You can also use `console.log` to check the value of different variables in the 
 
 Once you've completed all these tasks, raise a PR with your work so far. Don't wait to complete your coursework before completing the PR.
 
-## Stretch 💪
+## Stretch 
 
 Try the stretch tasks after you've completed the other sections. 
 //running out of time cause of festive break.circle back inshaAllah
