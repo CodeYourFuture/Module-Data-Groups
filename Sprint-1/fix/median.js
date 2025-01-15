@@ -11,7 +11,7 @@
 //Calculates the middle index, rounding down for both even and odd-length lists.
 
 
-function calculateMedian(list) {
+/*function calculateMedian(list) {
   const sortedList = list.slice().sort((a, b) => a - b); 
   const middleIndex = Math.floor(sortedList.length / 2);
 
@@ -22,7 +22,20 @@ function calculateMedian(list) {
     // Odd length: middle element
     return sortedList[middleIndex];
   }
-};
+};*/
+
+function calculateMedian(list) {
+  const sortedList = list.slice().sort((a, b) => a - b);
+  const middleIndex = Math.floor(sortedList.length / 2);
+
+  if (sortedList.length % 2 === 0) {
+    // Even length: average of two middle elements
+    return (sortedList[middleIndex - 1] + sortedList[middleIndex]) / 2;
+  } else {
+    // Odd length: middle element
+    return sortedList[middleIndex];
+  }
+}
 
 module.exports = calculateMedian;
 
