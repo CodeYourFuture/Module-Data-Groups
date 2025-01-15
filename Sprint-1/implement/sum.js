@@ -10,7 +10,7 @@ let result = sum(a);
 console.log(result);
 
 
-function sum(elements) {
+/*function sum(elements) {
     let total = 0; // Start with 0
 
     // Loop through each element in the array
@@ -26,7 +26,22 @@ function sum(elements) {
 
 // Example usage
 const elements = ['hey', 10, 'hi', 60, 10];
-console.log(sum(elements)); // Output: 80
+console.log(sum(elements)); // Output: 80*/
+
+function sum(elements) {
+  let total = 0;
+
+  for (const element of elements) {
+    if (typeof element === "number") {
+      if (element === Infinity || element === -Infinity) {
+        return NaN;
+      } else {
+        total += element;
+      }
+    }
+  }
+  return total;
+}
 
 module.exports = sum; // Export the function for testing
 

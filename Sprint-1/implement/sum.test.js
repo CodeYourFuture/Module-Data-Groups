@@ -50,6 +50,19 @@ test("array only non-number values, return the least surprising value given how 
   expect(sum(["hello", null, undefined, "world"])).toBe(0);
 });
 
+test("array with decimal/float numbers, return the correct total sum", () => {
+  const expected = 13.5;
+  const result = sum([3.5, 4.5, 5.5]);
+  const tolerance = 0.0001;
+  expect(Math.abs(result - expected)).toBeLessThan(tolerance);
+});
+
+test("array with decimal/float numbers, return the correct total sum", () => {
+  const expected = 3.3;
+  const result = sum([1.1, 1.1, 1.1]);
+  const tolerance = 0.0001;
+  expect(Math.abs(result - expected)).toBeLessThan(tolerance);
+});
 
 
 // Acceptance Criteria:
