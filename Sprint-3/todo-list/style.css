@@ -1,21 +1,20 @@
-
 {
-margin: 0;
-padding: 0;
-font-family: 'Poppins', sans-serif;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 
 }
 .borel-regular {
-  font-family: "Borel", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Borel", serif;
+    font-weight: 400;
+    font-style: normal;
 }
-.nunito-<uniquifier> {
-  font-family: "Nunito", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
+.nunito-uniquifier {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
 }
 /*Hot Pink
 #FFAEBC
@@ -35,45 +34,46 @@ body {
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    min-height: 100vh; /
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 
 }
 
 .container{
-   display: flex; 
+    display: flex;
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     width: 100%;
-    min-height: 100vh; 
-  
+    min-height: 100vh;
+
     padding: 10px;
     background: #ffb9c4a8;
-   
-    
+
+
 }
 
 .todo-app{
-     width: 100%;
+    width: 100%;
     max-width: 400px;
     background: #A0E7E5;
     margin: auto;
     padding: 40px 30px 70px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 
 .todo-app h2{
-    color: rgb(52, 51, 51);
+    color: rgb(120, 120, 120);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-      font-family: "Borel", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Borel", serif;
+    font-weight: 500;
+    font-size: 40px;
+    font-style: normal;
 
 }
 
@@ -92,18 +92,29 @@ body {
     padding: 10px 15px;
     margin-bottom: 25px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%; 
-   
+    width: 100%;
+
 }
 
+#list-container li {
+    list-style: none;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 input{
-    flex: 1; 
+    flex: 1;
     border: none;
     outline: none;
-    background: transparent;
+    background: #c1f7b2;
     padding: 10px;
+     border-radius: 20px;
+        margin: 10px;
     font-size: 16px;
-    color: #4d4c4c;
+ 
 }
 
 
@@ -120,37 +131,34 @@ button{
     background: #f6f87e;
     transition: background 0.3s ease;
     font-family: "Nunito", serif;
-  font-weight: 600;
-  font-style: normal;
+    font-weight: 600;
+    font-style: normal;
 
 }
 
 
 ul li{
-    display: flex;
+     display: flex;
     align-items: center;
-    font-size: 17px;
-    padding: 12px 15px;
-    padding-left: 50px; 
+     padding: 15px;
     background: white;
    margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 30px;
     box-shadow: 0 2px 5px rgba(101, 151, 91, 0.1);
     cursor: pointer;
-    position: relative;
+     position: relative;
     transition: background 0.3s ease;
-    font-family: "Borel", serif;
-  font-weight: 400;
-  font-size: 20px;
-  font-style: normal;
-  color: #585858;
-   
-
-
+   font-family: "Borel", serif;
+    font-weight: 400;
+     font-size: 20px;
+    font-style: normal;
+    color: #585858;
+    margin-left: 10px;
+   margin-right: 10px;
 }
 
 ul li::before{
- content: '';
+    content: '';
     position: absolute;
     height: 20px;
     width: 20px;
@@ -158,12 +166,10 @@ ul li::before{
     background-image: url(assets/unchecked.png);
     background-size: cover;
     background-position: center;
-    top: 50%;
+     top: 50%;
     left: 15px;
-    transform: translateY(-50%);
-    margin-left: 0px;
-    
-
+     transform: translateY(-50%);
+   margin-left: 0px;
 }
 
 ul li.checked{
@@ -173,29 +179,52 @@ ul li.checked{
 
 ul li.checked::before {
 
-     background-image: url(assets/checked.png);
-
+    background-image: url(assets/checked.png);
 
 }
 
-ul li span{
-    position: absolute;
-    right: 0;
-    top: 15px;
-    width: 40px;
-    height: 40px;
-    font-size: 25px;
-    color: #f6d208;
-    line-height:40px;
+.task-container{
+  display: flex;
+  align-items: center;
+}
+
+.task-text {
+   margin-left: 5px;
+}
+.toggle-icon, .delete-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+     margin-left: 5px;
+}
+
+
+ul li .delete-icon {
+   right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+ul li .toggle-icon{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    left:0;
+}
+ul li .task-text {
+    margin-left: 10px;
+}
+
+ul li.checked .task-text::after{
+  content: "✓";
+  position: absolute;
+  right: 0px;
+ top: 50%;
+  transform: translateY(-50%);
+    color: #f78598;
+     font-size: 25px;
+    line-height:20px;
     text-align: center;
-    border-radius: 50%;
-  
-}
-
-ul li span:hover {
-
-    background: #e2e0e0;
 
 }
-
-
