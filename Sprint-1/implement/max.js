@@ -3,7 +3,7 @@
 //check every index is whether greater than the next index
 function findMax(elements) {
     if (elements.length === 0) {
-        return null;  
+        return -Infinity;  
     }
 
     let maxNumber = -Infinity;
@@ -13,7 +13,7 @@ function findMax(elements) {
         }
     }
 
-    return maxNumber === -Infinity ? null : maxNumber;
+    return maxNumber 
 }
 
 
