@@ -1,10 +1,13 @@
 function sum(elements) {
-        
-        let numbersOnly  = elements.filter(value => typeof value === 'number')
-        let sumOfNumbers = numbersOnly.reduce((acc,curr)=>acc+curr,0);
-         return sumOfNumbers;
-    
+ const sumOfElement = elements.reduce((acc ,value)=>{
+    if(!isNaN(value) && typeof value === 'Number'){
+        return value+acc
     }
+return acc
+ },0)       
+  return sumOfElement;      
+    
+}    
 
 
 
