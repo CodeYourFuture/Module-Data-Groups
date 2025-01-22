@@ -42,8 +42,16 @@ test("returns total sum with an array of decimal/float numbers", () => {
     const delta = 1e-9; // Allowable difference (precision tolerance)
 
     expect(Math.abs(result - expected)).toBeLessThan(delta);
+
 });
 
+test("returns total sum with an array of decimal/float numbers", () => {
+    const outPut = sum([0.005, 0.6, 1.2]);
+    const expected = 1.805;
+    const delta = 1e-9; 
+
+    expect(Math.abs(outPut - expected)).toBeLessThan(delta);
+});
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
