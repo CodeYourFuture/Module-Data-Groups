@@ -1,62 +1,57 @@
-// Write your code here
-// Array of images
-// Array of images
 const images = [
-    "./assets/cute-cat-a.png",
-    "./assets/cute-cat-b.jpg",
-    "./assets/cute-cat-c.jpg",
-  ];
-  
-  // HTML element references
-  const carouselImage = document.getElementById("carousel-image");
-  const backButton = document.getElementById("back-button");
-  const forwardButton = document.getElementById("forward-button");
-  const autoForwardButton = document.getElementById("auto-forward-button");
-  const autoBackButton = document.getElementById("auto-back-button");
-  const stopButton = document.getElementById("stop-button");
-  
-  // Current image index
-  let currentIndex = 0;
-  
-  // Timer reference for auto-play
-  let autoPlayTimer = null;
-  
-  // Function to update the displayed image
-  function updateImage() {
-    carouselImage.src = images[currentIndex];
-  }
-  
-  // Function to move forward
-  function moveForward() {
-    currentIndex = (currentIndex + 1) % images.length; // Wrap around to the start
-    updateImage();
-  }
-  
-  // Function to move backward
-  function moveBackward() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length; // Wrap around to the end
-    updateImage();
-  }
-  
-  // Event listeners for manual controls
-  forwardButton.addEventListener("click", moveForward);
-  backButton.addEventListener("click", moveBackward);
-  
-  // Event listeners for auto-play controls
-  autoForwardButton.addEventListener("click", () => {
-    clearInterval(autoPlayTimer); // Clear any existing timer
-    autoPlayTimer = setInterval(moveForward, 3000); // Move forward every 3 seconds
-  });
-  
-  autoBackButton.addEventListener("click", () => {
-    clearInterval(autoPlayTimer); // Clear any existing timer
-    autoPlayTimer = setInterval(moveBackward, 3000); // Move backward every 3 seconds
-  });
-  
-  stopButton.addEventListener("click", () => {
-    clearInterval(autoPlayTimer); // Stop the auto-play timer
-  });
-  
-  // Initialize with the first image
-  updateImage();
-  
+  "./assets/cute-cat-a.png",
+  "./assets/cute-cat-b.jpg",
+  "./assets/cute-cat-c.jpg",
+  "./assets/cute-cat-d.jpg"
+];
+
+// Select buttons and image element
+let forwardBtn = document.getElementById("forward-btn");
+let backwardBtn = document.getElementById("backward-btn");
+let autoForwardBtn = document.getElementById("auto-forward-btn");
+let autoBackBtn = document.getElementById("auto-back-btn");
+let stopBtn = document.getElementById("stop-btn");
+let image = document.getElementById("carousel-img");
+
+// Function to move forward
+const displayForwardImages = () => {
+  let currentImage = "./assets/" + image.src.split("/").pop(); // Extract filename
+  let indexOfCurrentImage = images.indexOf(currentImage);
+  let indexOfNextImage = (indexOfCurrentImage + 1) % images.length; // Loop to start
+  image.src = images[indexOfNextImage];
+};
+
+// Function to move backward
+const displayBackwardImages = () => {
+  let currentImage = "./assets/" + image.src.split("/").pop(); // Extract filename
+  let indexOfCurrentImage = images.indexOf(currentImage);
+  let indexOfNextImage = (indexOfCurrentImage - 1 + images.length) % images.length; // Loop to end
+  image.src = images[indexOfNextImage];
+};
+
+// Add event listeners for buttons
+forwardBtn.addEventListener("click", () => displayForwardImages());
+backwardBtn.addEventListener("click", () => displayBackwardImages());
+
+
+
+// Auto-play functionality
+let forwardHandle = 0;
+let backwardHandle = 0;
+
+autoForwardBtn.addEventListener("click", () => {
+  forwardHandle = setInterval(displayForwardImages, 1000);
+});
+
+autoBackBtn.addEventListener("click", () => {
+  backwardHandle = setInterval(displayBackwardImages, 1000);
+});
+
+
+
+
+// Stop auto-play
+stopBtn.addEventListener("click", () => {
+  clearInterval(forwardHandle);
+  clearInterval(backwardHandle);
+});

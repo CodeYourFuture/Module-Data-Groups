@@ -11,7 +11,7 @@ body {
     background-color: #f0f0f0;
   }
   
-  .carousel {
+  #container {
     text-align: center;
   }
   
@@ -41,16 +41,30 @@ body {
     cursor: pointer;
   }
   
-  #back-button {
+  #backward-btn {
     background-color: #588fbd;
     color: white;
   }
   
-  #forward-button {
-    background-color: #87ca8a;
+  #forward-btn {
+    background-color: #175c1b;
+    color: white;
+  }
+  #stop-btn {
+    background-color: #202720;
+    color: white;
+  }
+  #auto-forward-btn {
+    background-color: #8789ca;
+    color: white;
+  }
+  #auto-back-btn {
+    background-color: #b1ca87;
     color: white;
   }
   
+
+
   button:hover {
     opacity: 0.9;
   }
