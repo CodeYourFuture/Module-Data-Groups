@@ -7,5 +7,5 @@ function calculateMedian(list) {
   const median = list.splice(middleIndex, 1)[0];
   return median;
 }
-
+console.log(calculateMedian([1, 2, 3, 4, 5, 6]));
 module.exports = calculateMedian;
