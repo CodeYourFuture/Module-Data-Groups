@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+//Objects are not iterable with a for.. of loop, therefore, this code will throw an error
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -10,7 +10,8 @@ const author = {
   age: 40,
   alive: true,
 };
-
-for (const value of author) {
-  console.log(value);
+//instead use an for.. in loop
+for (const value in author) {
+  console.log(Object.values(author));
 }
+//console.log(Object.values(author));
