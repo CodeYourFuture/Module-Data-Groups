@@ -14,6 +14,27 @@ const sum = require("./sum.js");
 // When passed to the sum function
 // Then it should return 0
 test.todo("given an empty array, returns 0")
+describe('sum', () => {
+    test('Given an empty array', () => {
+        expect(sum([0])).toEqual(0)
+    });
+
+    test('Given an array with just one number', () => {
+        expect(sum([1])).toEqual(1)
+    });
+
+    test('Given an array with decimal/float numbers', () => {
+        expect(sum([0.1, 0.2, 0.3])).toEqual(0.6000000000000001)
+    });
+    
+    test('Given an array containing non-number values', () => {
+        expect(sum([1, 2, 'a',3])).toEqual(6)
+    });
+
+    test('Given an array with only non-number values', () => {
+        expect(sum(['x', 'abc', 'a', 'hello'])).toEqual(0)
+    });
+});
 
 // Given an array with just one number
 // When passed to the sum function
