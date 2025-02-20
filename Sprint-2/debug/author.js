@@ -10,8 +10,8 @@ const author = {
   age: 40,
   alive: true,
 };
-//instead use an for.. in loop
-for (const value in author) {
-  console.log(Object.values(author));
+
+for (const [key, value] of Object.entries(author)) {
+  console.log(`${value}`);
 }
 //console.log(Object.values(author));
