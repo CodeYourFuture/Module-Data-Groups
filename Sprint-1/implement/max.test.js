@@ -16,19 +16,30 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity" , () => {
+  expect(findMax([]).toBe(-Infinity)
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("given an array with one number, it should return that number is the max", () => {
+    expect(findMax([1]).toBe(1);
+  });
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("given an array with positive and negative numbers, it should return the largest overall", () => {
+    expect(findMax([1, -2, 4, -3, 5])).toBe(5);
+  });
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("given an array with negative numbers, it should return the value close to zerol", () => {
+    expect(findMax([1, -2, 4, -3, 5])).toBe(5);
+  });
 
 // Given an array with decimal numbers
 // When passed to the max function
