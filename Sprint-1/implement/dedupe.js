@@ -1,3 +1,5 @@
-function dedupe(items){
-return[...new Set(items)];
+function dedupe(items) {
+  return [...new Set(items)];
 }
+
+module.exports = dedupe;
