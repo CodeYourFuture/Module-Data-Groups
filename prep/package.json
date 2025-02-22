@@ -1,15 +1,14 @@
 {
   "name": "prep",
   "version": "1.0.0",
-  "description": "",
-  "main": "copy.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "description": "",
   "devDependencies": {
     "jest": "^29.7.0"
   }
