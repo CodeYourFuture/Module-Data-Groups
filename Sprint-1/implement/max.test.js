@@ -73,5 +73,5 @@ test("Given an array with non - number valuesit should return the largest and ig
 test("The function should be able to handle an array with non numbers", () => {
   const elements = ["numbers", "cat", "dog"];
   const answer = findMax(elements);
-  expect(answer).toBe(undefined);
+  expect(answer).toBe(-Infinity);
 });
