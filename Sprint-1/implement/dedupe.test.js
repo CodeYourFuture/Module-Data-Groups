@@ -39,7 +39,17 @@ test("given an empty array, it returns an empty array", () => {
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+test("Given an array with no duplicates the function should return the original array", () => {
+  const arr = ["a", "b", "c", "d", "e"];
+  const answer = dedupe(arr);
+  expect(answer).toEqual(arr);
+});
 
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+test("Given an array with strings and numbers, should remove the duplicate values preserving the first occurance of each element", () => {
+  const arr = ["a", 1, "b", 1, "c", "a"];
+  const answer = dedupe(arr);
+  expect(answer).toEqual(["a", 1, "b", "c"]);
+});
