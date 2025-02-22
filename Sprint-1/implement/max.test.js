@@ -19,7 +19,7 @@ const findMax = require("./max.js");
 test("given an empty array, returns -Infinity", () => {
   const elements = [];
   const answer = findMax(elements);
-  expect(answer).toEqual(-Infinity);
+  expect(answer).toBe(-Infinity);
 });
 
 // Given an array with one number
@@ -73,5 +73,5 @@ test("Given an array with non - number valuesit should return the largest and ig
 test("The function should be able to handle an array with non numbers", () => {
   const elements = ["numbers", "cat", "dog"];
   const answer = findMax(elements);
-  expect(answer).toEqual();
+  expect(answer).toBe(undefined);
 });
