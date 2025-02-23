@@ -10,6 +10,7 @@ function parseQueryString(queryString) {
     const [key, value] = pair.split("=");
     console.log([key, value]);
     queryParams[key] = value;
+    console.log(queryParams[key]);
   }
 
   return queryParams;
