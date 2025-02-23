@@ -33,3 +33,11 @@ It should return:
    'CA': 'CAD'
  }
 */
+test("given an array with currance pairs, should return object where the country is the key and currency is the value", () => {
+  const arr = [
+    ["US", "USD"],
+    ["CA", "CAD"],
+  ];
+  const answer = createLookup(arr);
+  expect(answer).toEqual({ US: "USD", CA: "CAD" });
+});
