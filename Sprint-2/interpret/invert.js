@@ -36,3 +36,4 @@ console.log(invert({ a: 1, b: 2 }));
 //the return value is different because
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+module.exports = invert;
