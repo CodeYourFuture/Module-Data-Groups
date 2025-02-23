@@ -2,27 +2,27 @@ const dedupe = require("./dedupe.js");
 
 test("given an empty array, it returns an empty array",()=>{
     expect(dedupe([])).toEqual([]);
-})
+});
 
 test("given an array without duplicated elements, it returns the array itself",()=>{
     expect(dedupe([1,'a',3])).toEqual([1,'a',3]);
-})
+});
 
 test("given an array with duplicated elements, it should remove the duplicate values, preserving the first occurence of each element",()=>{
     expect(dedupe([1,2,3,1,2,'a','b',3])).toEqual([1,2,3,'a','b']);
-})
+});
 
 test("given an array with duplicated elements, it should remove the duplicate values, preserving the first occurence of each element",()=>{
     expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
-})
+});
 
 test("given an array with duplicated elements, it should remove the duplicate values, preserving the first occurence of each element",()=>{
     expect(dedupe(['a','a','a','b','b','c'])).toEqual(['a','b','c']);
-})
+});
 
 test("given an array with duplicated elements, it should remove the duplicate values, preserving the first occurence of each element",()=>{
     expect(dedupe([1, 2, 1])).toEqual([1, 2]);
-})
+});
 
 
 /*
