@@ -21,6 +21,7 @@ expect(sum([])).toBe([]);
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
+describe( "sum function", () => {
 test.todo("given an array with one number, returns that number", ()=> {
     expect(sum([10])).toBe([10]);
     });
@@ -53,3 +54,4 @@ test.todo("given an array with non-numbers, returns the sum of numeric elements 
 test.todo("given an array with non-numbers, returns the sum of numeric elements and ignores non-numeric elements", ()=> {
     expect(sum(["keith", "farai", "hi"])).toBe([0]);
     });
+});
