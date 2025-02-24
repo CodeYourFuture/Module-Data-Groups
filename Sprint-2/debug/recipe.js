@@ -9,7 +9,7 @@ const recipe = {
   serves: 2,
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
-
+//to get the ingredients to be in a new line we use the backslash then n.
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
 ${recipe.ingredients.join("\n")}`);

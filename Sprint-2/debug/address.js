@@ -11,5 +11,5 @@ const address = {
   country: "England",
   postcode: "XYZ 123",
 };
-
+//to call the value of the object we take the name of the object. the key
 console.log(`My house number is ${address.houseNumber}`);

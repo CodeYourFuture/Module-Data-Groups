@@ -10,7 +10,7 @@ const author = {
   age: 40,
   alive: true,
 };
-
+// to iterate through an object we use the Object.entries, we cannot use the for loop only like we do in arrays
 for (const [key, value] of Object.entries(author)) {
   console.log(`${value}`);
 }
