@@ -489,5 +489,14 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
-
+console.log(pickFromArray(quotes));
 // call pickFromArray with the quotes array to check you get a random quote
+let quoteElement = document.getElementById("quote");
+let authorElement = document.getElementById("author");
+let btn = document.getElementById("new-quote");
+
+btn.onclick = () => {
+  let randomQuote = pickFromArray(quotes);
+  quoteElement.innerHTML = randomQuote.quote;
+  authorElement.innerHTML = `-${randomQuote.author}`;
+};
