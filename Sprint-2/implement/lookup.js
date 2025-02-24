@@ -1,7 +1,6 @@
-function createLookup(arr) {
-  let arrObj = Object.fromEntries(arr);
-  return arrObj; // implementation here
-}
+const createLookup = (arr) => {
+  return Object.fromEntries(arr);
+};
 console.log(
   createLookup([
     ["US", "USD"],

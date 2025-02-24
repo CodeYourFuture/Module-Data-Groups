@@ -1,4 +1,4 @@
-function parseQueryString(queryString) {
+const parseQueryString = (queryString) => {
   const queryParams = {};
   if (queryString.length === 0) {
     return queryParams;
@@ -17,7 +17,7 @@ function parseQueryString(queryString) {
   }
 
   return queryParams;
-}
+};
 console.log(parseQueryString("equation=x=y+1"));
 console.log(parseQueryString("name=Evelyn%20Mwanunura&age=34"));
 
