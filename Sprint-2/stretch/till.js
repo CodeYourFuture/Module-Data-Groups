@@ -21,6 +21,7 @@ const till = {
   "20p": 10,
 };
 const totalAmount = totalTill(till);
+console.log(totalAmount);
 
 // a) What is the target output when totalTill is called with the till object
 
