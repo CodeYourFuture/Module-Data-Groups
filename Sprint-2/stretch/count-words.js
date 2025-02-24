@@ -41,3 +41,8 @@ function countFrequency(str) {
 
 console.log(countFrequency("aAaabbggshdkajfbshs"));
 console.log(countFrequency("My name is Evelyn Nomsa, I live in Cape Town"));
+console.log(
+  countFrequency(
+    "The dog that jumped, the cat that ran, the cat chased the dog"
+  )
+);
