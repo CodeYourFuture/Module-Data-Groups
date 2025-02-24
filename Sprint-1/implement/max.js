@@ -18,7 +18,7 @@ function findMax(elements) {
   }
 }
 
-console.log(findMax([`Apple`, "Dog", "sun", -100, "Horse", 22]));
+console.log(findMax([`Apple`, "Dog", "sun", "Horse"]));
 
 module.exports = findMax;
 
