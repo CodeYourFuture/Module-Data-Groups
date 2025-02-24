@@ -11,7 +11,7 @@ function totalTill(till) {
     total += parseInt(coin) * quantity;
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
 const till = {
