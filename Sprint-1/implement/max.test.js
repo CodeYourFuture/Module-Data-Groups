@@ -16,28 +16,55 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("should return -Infinity if input is empty array", () => {
+  const arr = [];
+  expect(findMax(arr)).toBe(-Infinity);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("if array contain only one number should return it", () => {
+  const arr = [1];
+  expect(findMax(arr)).toBe(1);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("should return the largest number if array contain positive and negative numbers", () => {
+  const arr = [1, -2, 4, -5];
+  expect(findMax(arr)).toBe(4);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("should return closest number to 0 if array contain only negative numbers", () => {
+  const arr = [-1, -5, -6, -12];
+  expect(findMax(arr)).toBe(-1);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("should return largest decimal number if array contain decimal numbers", () => {
+  const arr = [1, 5, 9, 7];
+  expect(findMax(arr)).toBe(9);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("should return largest number and ignore non-numbers values if array contain non number values", () => {
+  const arr = [`Apple`, "Dog", "sun", 12, "Horse", 22];
+  expect(findMax(arr)).toBe(22);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("should return largest number and ignore non-numbers values if array contain non number values", () => {
+  const arr = [`Apple`, "Dog", "sun", "Horse"];
+  expect(findMax(arr)).toBe(`Error`);
+});
