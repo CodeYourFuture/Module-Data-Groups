@@ -22,6 +22,7 @@ const till = {
 };
 const totalAmount = totalTill(till);
 console.log(totalAmount);
+console.log(totalTill({ "1p": 100, "8p": 200 }));
 
 // a) What is the target output when totalTill is called with the till object
 // the target input would be the total coin multiplied by there quantity,
@@ -34,3 +35,4 @@ console.log(totalAmount);
 // the coin * quantity evaluates to the total value of the coins
 
 // d) Write a test for this function to check it works and then fix the implementation of totalTill
+module.exports = totalTill;
