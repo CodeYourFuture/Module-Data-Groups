@@ -11,8 +11,8 @@ body {
 }
 
 .container {
-  width: 900px;
-  height: 350px;
+  width: 1000px;
+  height: 450px;
   background-color: rgb(199, 202, 203);
   border: 100px solid rgb(115, 220, 236);
   border-radius: 20px;
@@ -34,6 +34,13 @@ p {
   font-size: 1.8em;
   padding-right: 20px;
   font-style: italic;
+}
+#autoPlayStatus {
+  font-size: 1em;
+  font-weight: 300;
+}
+#toggleSwitch {
+  margin-top: 20px;
 }
 
 button {
