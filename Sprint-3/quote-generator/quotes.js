@@ -491,12 +491,34 @@ const quotes = [
 ];
 console.log(pickFromArray(quotes));
 // call pickFromArray with the quotes array to check you get a random quote
+
 let quoteElement = document.getElementById("quote");
 let authorElement = document.getElementById("author");
 let btn = document.getElementById("new-quote");
+let toggleSwitch = document.getElementById("toggleSwitch");
+let autoPlayStatus = document.getElementById("autoPlayStatus");
+
+let autoGenerate = false;
+let intervalId = null;
 
 btn.onclick = () => {
   let randomQuote = pickFromArray(quotes);
   quoteElement.innerHTML = `" ${randomQuote.quote} "`;
   authorElement.innerHTML = `-${randomQuote.author}`;
+};
+
+toggleSwitch.onchange = () => {
+  autoGenerate = toggleSwitch.checked;
+  autoPlayStatus.textContent = autoGenerate
+    ? "Auto-play: ON"
+    : "Auto-play: OFF";
+  if (autoGenerate) {
+    intervalId = setInterval(() => {
+      let randomQuote = pickFromArray(quotes);
+      quoteElement.innerHTML = ` ${randomQuote.quote} `;
+      authorElement.innerHTML = `-${randomQuote.author}`;
+    }, 5000);
+  } else {
+    clearInterval(intervalId);
+  }
 };
