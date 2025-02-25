@@ -1,4 +1,4 @@
-function createLookup() {
+function createLookup(['US', 'USD'], ['CA', 'CAD']) {
   // implementation here
 }
 

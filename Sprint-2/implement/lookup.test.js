@@ -22,7 +22,8 @@ Then
 
 Example
 Given: [['US', 'USD'], ['CA', 'CAD']]
-
+test: (when createLookup is called it return country code){
+}
 When
 createLookup(countryCurrencyPairs) is called
 
