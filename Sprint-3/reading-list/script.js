@@ -1,4 +1,5 @@
 // for the tests, do not modify this array of books
+
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -20,4 +21,10 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
-
+const ulElement = document.getElementById("reading-list");
+for (let [key, value] of Object.entries(books)) {
+  let liElement = document.createElement("li");
+  liElement.innerHTML = `<p>${value.title} by ${value.author}</p>
+                          <img src="${value.bookCoverImage}" alt="${value.title} cover" style="width:400px">`;
+  ulElement.appendChild(liElement);
+}
