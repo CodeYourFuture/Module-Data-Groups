@@ -1,3 +1,7 @@
+let remainingTimeElement = document.getElementById("timeRemaining");
+let setAlarmBtn = document.getElementById("set");
+let stopAlarmBtn = document.getElementById("stop");
+
 function setAlarm() {}
 
 // DO NOT EDIT BELOW HERE
