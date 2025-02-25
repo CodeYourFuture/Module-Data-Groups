@@ -24,25 +24,25 @@ describe('max', () => {
     });
 
     test('Given an array with one number', () => {
-        expect(findMax[1]).toEqual(1)
+        expect(findMax([1])).toEqual(1)
     });
 
     test('Given an array with just negative numbers', () => {
-        expect(findMax[-1,-2,-3]).toEqual(-1)
+        expect(findMax([-1,-2,-3])).toEqual(-1)
     });
     
     
 
     test('Given an array with decimal numbers', () => {
-        expect(findMax[0.1,0.2,0.3]).toEqual(0.3)
+        expect(findMax([0.1,0.2,0.3])).toEqual(0.3)
     });
 
     test('Given an array with non-number values', () => {
-        expect(findMax[1,'b',2,3]).toEqual(3)
+        expect(findMax([1,'b',2,3])).toEqual(3)
     });
 
     test('Given an array with only non-number values', () => {
-        expect(findMax(['a','b','c','dff','d', 'z'])).toEqual(z)
+        expect(findMax(['a','b','c','dff','d', 'z'])).toEqual('z')
     });
     
 });
