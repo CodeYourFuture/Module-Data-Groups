@@ -497,6 +497,6 @@ let btn = document.getElementById("new-quote");
 
 btn.onclick = () => {
   let randomQuote = pickFromArray(quotes);
-  quoteElement.innerHTML = randomQuote.quote;
+  quoteElement.innerHTML = `" ${randomQuote.quote} "`;
   authorElement.innerHTML = `-${randomQuote.author}`;
 };
