@@ -13,45 +13,45 @@ const sum = require("./sum.js");
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0", ()=> {
-expect(sum([])).toBe([]);
-});
+describe("getting sum of array elements", () => {
+  test("given an empty array, returns 0", () => {
+    expect(sum([])).toBe(0);
+  });
 
-
-// Given an array with just one number
-// When passed to the sum function
-// Then it should return that number
-describe( "sum function", () => {
-test.todo("given an array with one number, returns that number", ()=> {
-    expect(sum([10])).toBe([10]);
+  // Given an array with just one number
+  // When passed to the sum function
+  // Then it should return that number
+  describe("sum function", () => {
+    test("given an array with one number, returns that number", () => {
+      expect(sum([10])).toBe(10);
     });
 
-
-// Given an array containing negative numbers
-// When passed to the sum function
-// Then it should still return the correct total sum
-test.todo("given an array with negative numbers, returns that correct total sum", ()=> {
-    expect(sum([10, -10, -30])).toBe([-10]);
+    // Given an array containing negative numbers
+    // When passed to the sum function
+    // Then it should still return the correct total sum
+    test("given an array with negative numbers, returns that correct total sum", () => {
+      expect(sum([10, -10, -30])).toBe(-30);
     });
 
-// Given an array with decimal/float numbers
-// When passed to the sum function
-// Then it should return the correct total sum
-test.todo("given an array with decimal/float numbers, returns the correct total sum", ()=> {
-    expect(sum([7, 12.5, 11.5])).toBe([31]);
+    // Given an array with decimal/float numbers
+    // When passed to the sum function
+    // Then it should return the correct total sum
+    test("given an array with decimal/float numbers, returns the correct total sum", () => {
+      expect(sum([7, 12.5, 11.5])).toBe(31);
     });
 
-// Given an array containing non-number values
-// When passed to the sum function
-// Then it should ignore the non-numerical values and return the sum of the numerical elements
-test.todo("given an array with non-numbers, returns the sum of numeric elements and ignores non-numeric elements", ()=> {
-    expect(sum([10, "farai", 40])).toBe([50]);
+    // Given an array containing non-number values
+    // When passed to the sum function
+    // Then it should ignore the non-numerical values and return the sum of the numerical elements
+    test("given an array with non-numbers, returns the sum of numeric elements and ignores non-numeric elements", () => {
+      expect(sum([10, "farai", 40])).toBe(50);
     });
 
-// Given an array with only non-number values
-// When passed to the sum function
-// Then it should return the least surprising value given how it behaves for all other inputs
-test.todo("given an array with non-numbers, returns the sum of numeric elements and ignores non-numeric elements", ()=> {
-    expect(sum(["keith", "farai", "hi"])).toBe([0]);
+    // Given an array with only non-number values
+    // When passed to the sum function
+    // Then it should return the least surprising value given how it behaves for all other inputs
+    test("given an array with non-numbers, returns the sum of numeric elements and ignores non-numeric elements", () => {
+      expect(sum(["keith", "farai", "hi"])).toBe(0);
     });
+  });
 });
