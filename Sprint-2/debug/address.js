@@ -11,5 +11,6 @@ const address = {
   country: "England",
   postcode: "XYZ 123",
 };
-
-console.log(`My house number is ${address[0]}`);
+console.log(address.houseNumber);
+//console.log(`My house number is ${address[0]}`);
+//Prediction: i think this will give us syntax error or undefined since we cant access items inside an object by using index like arrays.

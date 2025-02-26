@@ -11,6 +11,10 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const value in author) {
+  console.log(author[value]); //print the values of the keys in the array author
 }
+// we only use for of loop for iterable objects like arrays and strings so i will fix it with for in loop
+//for (const value of author) {
+//  console.log(value);
+//}
