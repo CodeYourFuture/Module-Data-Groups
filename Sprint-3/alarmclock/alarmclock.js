@@ -1,8 +1,20 @@
 let remainingTimeElement = document.getElementById("timeRemaining");
 let setAlarmBtn = document.getElementById("set");
 let stopAlarmBtn = document.getElementById("stop");
+let alarmSetInput = document.getElementById("alarmSet");
+let timeElapsed = 0;
+let timer = null;
 
-function setAlarm() {}
+function setAlarm() {
+  let currentTime = new Date();
+  console.log(currentTime);
+  let startTime = currentTime - timeElapsed;
+
+  let hours = Math.floor(timeElapsed / (1000 * 60 * 60));
+  let minutes = Math.floor((timeElapsed / (1000 * 60)) % 60);
+  let seconds = Math.floor(timeElapsed / 1000) % 60;
+  remainingTimeElement.innerHTML = `Time Remaining: ${hours}: ${minutes} :${seconds}`;
+}
 
 // DO NOT EDIT BELOW HERE
 

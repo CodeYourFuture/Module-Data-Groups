@@ -4,12 +4,34 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 #alarmSet {
   margin: 20px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
 }
 
 h1 {
   text-align: center;
+}
+
+#set {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#stop {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
 }
