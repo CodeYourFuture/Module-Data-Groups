@@ -13,6 +13,29 @@ as the object doesn't contains a key of 'c'
 
 // Acceptance criteria:
 
+describe('contains', () => {
+    test('Given a contains function', () => {
+        expect(contains({a: 1, b: 2}, "a")).toEqual(true)
+    });
+
+    test('Given an empty object', () => {
+        expect(contains({}, "a")).toEqual(false)
+    });
+    
+    
+    test('Given an object with properties', () => {
+        expect(contains({a: 1, b: 2}, "a")).toEqual(true)
+    });
+
+    
+    test('Given invalid parameters like an array', () => {
+        expect(contains([1,2,3], "a")).toEqual(false)
+    });
+    
+
+});
+
+
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise

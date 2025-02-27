@@ -15,6 +15,24 @@ const tally = require("./tally.js");
  */
 
 // Acceptance criteria:
+describe('tally', () => {
+    test('Given a function called tally', () => {
+        expect(tally(['a', 'a', 'b', 'c'])).toEqual({ a: 2, b: 1, c: 1 })
+    });
+
+    test('Given an empty array', () => {
+        expect(tally([])).toEqual({})
+    });
+
+    test('Given an array with duplicate items', () => {
+        expect(tally(['a', 'a', 'a'])).toEqual({ a: 3})
+    });
+
+    test('Given an invalid input like a string', () => {
+        expect(() => tally("hello")).toThrow(TypeError);
+    });
+    
+});
 
 // Given a function called tally
 // When passed an array of items
