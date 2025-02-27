@@ -4,16 +4,26 @@ let stopAlarmBtn = document.getElementById("stop");
 let alarmSetInput = document.getElementById("alarmSet");
 let timeElapsed = 0;
 let timer = null;
+let totalSeconds = 0;
 
 function setAlarm() {
-  let currentTime = new Date();
-  console.log(currentTime);
-  let startTime = currentTime - timeElapsed;
-
-  let hours = Math.floor(timeElapsed / (1000 * 60 * 60));
-  let minutes = Math.floor((timeElapsed / (1000 * 60)) % 60);
-  let seconds = Math.floor(timeElapsed / 1000) % 60;
-  remainingTimeElement.innerHTML = `Time Remaining: ${hours}: ${minutes} :${seconds}`;
+  clearInterval(timer);
+  let hours = Math.floor(alarmSetInput.value / 60);
+  let minutes = alarmSetInput.value % 60;
+  totalSeconds = hours * 3600 + minutes * 60;
+  let seconds = totalSeconds % 60;
+  function updateDisplay() {
+    let displayHours = Math.floor(totalSeconds / 3600);
+    let displayMinutes = Math.floor(totalSeconds / 60);
+    let displaySeconds = totalSeconds % 60;
+    displaySeconds = String(displaySeconds).padStart(2, "0");
+    displayHours = String(displayHours).padStart(2, "0");
+    displayMinutes = String(displayMinutes).padStart(2, "0");
+    remainingTimeElement.innerHTML = `Time Remaining: ${displayHours}: ${displayMinutes}: ${displaySeconds}`;
+    totalSeconds--;
+  }
+  updateDisplay();
+  timer = setInterval(updateDisplay, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
