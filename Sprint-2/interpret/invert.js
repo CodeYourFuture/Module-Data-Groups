@@ -15,8 +15,6 @@ function invert(obj) {
   return invertedObj;
 }
 
-console.log(invert({ a : 1 }));
-console.log(invert({ a: 1, b: 2 }));
 
 
 module.exports = invert
