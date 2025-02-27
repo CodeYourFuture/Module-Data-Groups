@@ -10,28 +10,10 @@ function findMax(elements) {
         maxNumber = elements[i];
       }
     }
-    if (maxNumber === -Infinity) {
-      return `Error`;
-    } else {
-      return maxNumber;
-    }
+    return maxNumber === -Infinity ? `Error` : maxNumber;
   }
 }
 
 console.log(findMax([`Apple`, "Dog", "sun", "Horse"]));
 
 module.exports = findMax;
-
-// let maxNumber = elements[0];
-// for (let i = 0; i < elements.length; i++) {
-//   if (maxNumber < elements[i]) {
-//     maxNumber = elements[i];
-//   }
-// }
-// return maxNumber;
-//   for (let i = 0; i < elements.length; i++) {
-//     if (typeof elements[i] != `number`) {
-//       continue;
-//     }
-//   }
-// }

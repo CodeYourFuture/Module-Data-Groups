@@ -10,11 +10,10 @@
 
 function calculateMedian(list) {
   const middleIndex = Math.floor(list.length / 2);
-  const median =
-    list.length % 2 !== 0
-      ? list.slice(middleIndex, middleIndex + 1)[0]
-      : (list[middleIndex] + list[middleIndex - 1]) / 2;
-  return median;
+
+  return list.length % 2 !== 0
+    ? list[middleIndex]
+    : (list[middleIndex] + list[middleIndex - 1]) / 2;
 }
 
 module.exports = calculateMedian;
