@@ -10,7 +10,7 @@ function totalTill(obj) {
   for (const [coin, quantity] of Object.entries(obj)) {
     total += parseInt(coin) * parseInt(quantity);
   }
-  return `£${total / 100}0`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
 const till = {
@@ -19,8 +19,7 @@ const till = {
   "50p": 4,
   "20p": 10,
 };
-const totalAmount = totalTill(till);
-console.log(totalAmount);
+
 
 module.exports = totalTill
 
