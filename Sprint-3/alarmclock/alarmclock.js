@@ -11,8 +11,12 @@ function setAlarm() {
   let hours = Math.floor(alarmSetInput.value / 60);
   let minutes = alarmSetInput.value % 60;
   totalSeconds = hours * 3600 + minutes * 60;
-  let seconds = totalSeconds % 60;
+
   function updateDisplay() {
+    if (totalSeconds == 0) {
+      remainingTimeElement.innerHTML = "Time's up!";
+      playAlarm();
+    }
     let displayHours = Math.floor(totalSeconds / 3600);
     let displayMinutes = Math.floor(totalSeconds / 60);
     let displaySeconds = totalSeconds % 60;
