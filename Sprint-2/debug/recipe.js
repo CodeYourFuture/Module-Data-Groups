@@ -9,6 +9,24 @@ const recipe = {
   serves: 2,
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
+function printIng(myArray) {
+  let ingrArr = recipe.ingredients;
+  const ingredientsList = () => {for(let ing of ingrArr){
+    console.log(ing);
+  }};
+  return ingredientsList;
+}
+const ingredientsList = printIng(); 
+console.log(`${recipe.title} serves ${recipe.serves} ingredients:`);
+ingredientsList();
+
+
+/*
+const recipe = {
+  title: "bruschetta",
+  serves: 2,
+  ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
+};
 function printIng (myArray){
   for(let key in myArray){
     if(Array.isArray(myArray[key])){ //check if we have array item in our object.
@@ -19,7 +37,7 @@ function printIng (myArray){
 console.log(`${recipe.title} serves ${recipe.serves} ingredients:`);
 printIng(recipe);
 
-/*
+
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
