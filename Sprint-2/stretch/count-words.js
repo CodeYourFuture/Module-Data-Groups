@@ -28,8 +28,8 @@
 */
 function countWords(inputTxt) {
   let newObj = {};
-  let clnText =inputTxt.replace(/[.,!?]/g, "").toLowerCase();
-  let arrayStr = clnText.split(" ");
+  let cleanText =inputTxt.replace(/[.,!?]/g, "").toLowerCase();
+  let arrayStr = cleanText.split(" ");
   for (let word of arrayStr) {
     if (newObj[word]) {
       newObj[word]++;
