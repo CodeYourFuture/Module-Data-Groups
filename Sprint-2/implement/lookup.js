@@ -1,4 +1,5 @@
-function createLookup() {
+function createLookup(arr) {
+  
   // implementation here
 }
 
