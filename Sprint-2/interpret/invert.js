@@ -43,3 +43,33 @@ console.log(invert({ a: 1, b: 2 }));
 // we set invertedobj a key called key and put a value. this is not the same as what we was going to do.
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+
+
+function invert(obj) {
+  const invertedObj = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    invertedObj[value] = key;
+  }
+
+  return invertedObj;
+}
+//i used separate function for testing instead of using separated file foe testing using jest.
+function myTestForInvert() {
+  let result = invert({ a: 1, b: 2 }); //for object with multiple values for different keys and values
+  console.log(result); //expected output { '1': 'a', '2': 'b' }
+
+  result = invert({ a: 1, b: 2, c: 1 }); //for duplicated values
+  console.log(result); //expected output { '1': 'a', '2': 'b','1': 'c' }
+
+  result = invert({}); //empty object
+  console.log(result); //expected output {}
+
+  result = invert({ a: null, b: undefined }); //testing for different data types
+  console.log(result); //expected output { 'null': 'a', 'undefined': 'b' }
+
+  result = invert({ a: { x: 1 }, b: { y: 2 } }); //testing for nested object as values
+  console.log(result); //expected output { '{x:1}':'a','{y:2}':'b' } gives { '[object Object]': 'b' } ?why?
+}
+myTestForInvert();
+
