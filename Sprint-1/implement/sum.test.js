@@ -6,7 +6,6 @@ E.g. sum([10, 20, 30]), target output: 60
 E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical elements)
 */
 
-const sum = require("./sum.js");
 
 // Acceptance Criteria:
 
@@ -34,3 +33,18 @@ test.todo("given an empty array, returns 0")
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+
+function sum(elements) {
+    let total = 0;
+
+    // Loop through the array
+    for (let i =0; i < elements.length; i++) {
+        // Check if the element is a valid number
+        if (typeof elements[i] === 'number' && !isNaN(elements[i])) {
+            total += elements[i];
+        }
+    
+    } 
+    return total;      
+}
