@@ -12,4 +12,6 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address[`houseNumber`]}`);
+
+//To gain access to object value need use obj[key] or obj.key. In this case key [0] doesn't exist in address object and we can't get access to the first value like in array by number
