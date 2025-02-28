@@ -1,10 +1,11 @@
 function findMax(elements) {
-    console.log(elements.filter((num) => typeof num === 'number'))
-    elements.filter((num) => typeof num === 'number') == '[]'
-    if (elements.filter((num) => typeof num === 'number') == '[]') {
+    // console.log(elements.filter((num) => typeof num === 'number'))
+    let filteredByNumber = elements.filter((num) => typeof num === 'number')
+    if (filteredByNumber.length == 0 && elements.length == 0) {
+        return Math.max(...filteredByNumber)
+    } else if (filteredByNumber.length == 0 && elements.length > 0){
         return "Enter valid numbers"
     } else {
-        let filteredByNumber = elements.filter((num) => typeof num === 'number')
         return Math.max(...filteredByNumber)
     }
 }
