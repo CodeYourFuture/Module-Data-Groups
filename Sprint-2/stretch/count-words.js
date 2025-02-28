@@ -36,7 +36,11 @@ function countWords(inputTxt) {
     } else {
       newObj[word] = 1;
     } }
-  return newObj;
+  let sortedObj = Object.fromEntries(Object.entries(newObj).sort(([,a],[,b]) => b-a));
+  return sortedObj;
 }
 
-console.log(countWords("you and me and you.")); // { you: 2, and: 2, me: 1 }
+console.log(countWords("you and you me and you.")); // { you: 3, and: 2, me: 1 }
+
+// Object.fromEntries(arr): Converts an array of key-value pairs into an object
+// Object.entries(obj): Converts an object into an array of its key-value pairs
