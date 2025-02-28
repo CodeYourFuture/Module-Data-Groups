@@ -11,3 +11,8 @@ function includes(list, target) {
 }
 
 module.exports = includes;
+
+console.log(includes([1, 2, 3], 2)); // Output: true
+console.log(includes([1, 2, 3], 4)); // Output: false
+console.log(includes(['a', 'b', 'c'], 'b')); // Output: true
+console.log(includes(['a', 'b', 'c'], 'd')); // Output: false
