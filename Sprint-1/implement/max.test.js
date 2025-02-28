@@ -10,7 +10,6 @@ You should implement this function in max.js, and add tests for it in this file.
 We have set things up already so that this file can see your function from the other file.
 */
 
-const findMax = require("./max.js");
 
 // Given an empty array
 // When passed to the max function
@@ -41,3 +40,29 @@ test.todo("given an empty array, returns -Infinity");
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+
+function findMax(elements) {
+   if (elements.length === 0) {
+    return -Infinity; // Return -infinity for an empty array
+   }
+
+   let max = -Infinity; // Initialize the max value to -infinity
+
+
+   for (let i = 0; i < elements.length; i++) {
+    // Check if the element is a valid number
+    if (typeof elements[i] === 'number' && !isNaN(elements[i])) {
+        // Update max if the current element is larger
+        if (elements[i] > max) {
+            max = elements[i];
+        }
+
+      }
+
+     }
+
+      return max; // Return the maximum value found
+}
+
+module.exports = findMax;
