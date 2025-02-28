@@ -7,7 +7,7 @@
 
 // refactor calculateMode by splitting up the code
 // into smaller functions using the stages above
-
+/*
 function calculateMode(list) {
   // track frequency of each value
   let freqs = new Map();
@@ -31,6 +31,33 @@ function calculateMode(list) {
   }
 
   return maxFreq === 0 ? NaN : mode;
+}
+*/
+function freqOfEachChar(list){ // function to get the frequency of each character in the string
+  let freqs = new Map();
+  for(let num of list){
+    if(typeof num !== 'number'){
+      continue;
+    }
+    freqs.set(num, (freqs.get(num) || 0) +1);
+
+  }
+  return freqs;
+}
+function findBig(freqs){ // function to search for the big repetition
+  let maxFreq = 0;
+  let max;
+  for(let [num,freq] of freqs){
+    if (freq>maxFreq){
+      max = num;
+      maxFreq = freq;
+    }
+  }
+  return maxFreq === 0 ? NaN : max; 
+}
+function calculateMode(list){ 
+  const freqs = freqOfEachChar(list);
+  return findBig(freqs);
 }
 
 module.exports = calculateMode;
