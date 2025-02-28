@@ -9,3 +9,19 @@ function calculateMedian(list) {
 }
 
 module.exports = calculateMedian;
+
+
+function calculateMedian(list) {
+  // sort the list in ascending order
+  list.sort((a,b) => a - b);
+
+  const middleIndex = Math.floor(list.length / 2);
+
+  // if the list has an odd number of elements, return the middle element.
+  if (list.length % 2 !==0) {
+    return list[middleIndex];
+  }
+
+  // if the list has an even number of elements, return the average of the two middle elements.
+  return (list[middleIndex - ] + list[middleIndex]) / 2;
+}
