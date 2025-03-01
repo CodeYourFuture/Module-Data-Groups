@@ -17,46 +17,44 @@ const findMax = require("./max.js");
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
 describe("calculateMax", () => {
-    test("given an empty array, returns -Infinity", () => {
-      expect(findMax([])).toEqual(-Infinity);
-    });
-  
-// Given an array with one number
-// When passed to the max function
-// Then it should return that number
-    test("Given an array with one number, returns that number", () => {
-      expect(findMax([4])).toEqual(4);
-    });
-// Given an array with both positive and negative numbers
-// When passed to the max function
-// Then it should return the largest number overall  
-    test("Given an array with both positive and negative numbers, returns the largest number overall", () => {
-      expect(findMax([-1, 2, -3])).toEqual(2);
-    });
-// Given an array with just negative numbers
-// When passed to the max function
-// Then it should return the closest one to zero
-test("Given an array with just negative numbers, returns the closest one to zero", () => {
+  test("given an empty array, returns -Infinity", () => {
+    expect(findMax([])).toEqual(-Infinity);
+  });
+
+  // Given an array with one number
+  // When passed to the max function
+  // Then it should return that number
+  test("Given an array with one number, returns that number", () => {
+    expect(findMax([4])).toEqual(4);
+  });
+  // Given an array with both positive and negative numbers
+  // When passed to the max function
+  // Then it should return the largest number overall
+  test("Given an array with both positive and negative numbers, returns the largest number overall", () => {
+    expect(findMax([-1, 2, -3])).toEqual(2);
+  });
+  // Given an array with just negative numbers
+  // When passed to the max function
+  // Then it should return the closest one to zero
+  test("Given an array with just negative numbers, returns the closest one to zero", () => {
     expect(findMax([-1, -2, -3])).toEqual(-1);
   });
-// Given an array with decimal numbers
-// When passed to the max function
-// Then it should return the largest decimal number
-test("Given an array with decimal numbers, returns the largest decimal number", () => {
+  // Given an array with decimal numbers
+  // When passed to the max function
+  // Then it should return the largest decimal number
+  test("Given an array with decimal numbers, returns the largest decimal number", () => {
     expect(findMax([1.1, 2.2, 3.3])).toEqual(3.3);
   });
-// Given an array with non-number values
-// When passed to the max function
-// Then it should return the max and ignore non-numeric values
-test("Given an array with non-number values, returns the max and ignore non-numeric values", () => {
+  // Given an array with non-number values
+  // When passed to the max function
+  // Then it should return the max and ignore non-numeric values
+  test("Given an array with non-number values, returns the max and ignore non-numeric values", () => {
     expect(findMax([1, "a", -2, "h", -3])).toEqual(1);
   });
-// Given an array with only non-number values
-// When passed to the max function
-// Then it should return the least surprising value given how it behaves for all other inputs
-test("Given an array with only non-number values, returns the least surprising value given how it behaves for all other inputs", () => {
-    expect(findMax(['-1', '-2', '-3', "g"])).toEqual("Enter valid numbers");
+  // Given an array with only non-number values
+  // When passed to the max function
+  // Then it should return the least surprising value given how it behaves for all other inputs
+  test("Given an array with only non-number values, returns the least surprising value given how it behaves for all other inputs", () => {
+    expect(findMax(["-1", "-2", "-3", "g"])).toEqual("Enter valid numbers");
   });
-  });
-
-
+});
