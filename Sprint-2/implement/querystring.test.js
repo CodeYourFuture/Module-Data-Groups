@@ -6,5 +6,12 @@
 const parseQueryString = require("./querystring.js")
 
 test("parses querystring values containing =", () => {
-  expect(parseQueryString("https://example.com/widgets?colour=blue&sort=newest")).toEqual({ "colour":"blue" ,"sort":"newest"});
+  expect(parseQueryString("equation=x=y+1")).toEqual({
+    "equation": "x=y+1",
+  });
 });
+
+test("parses querystring values containing =", () => {
+  expect(parseQueryString("colour=blue&sort=newest")).toEqual({"colour": "blue" , "sort": "newest"});
+});
+
