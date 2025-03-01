@@ -19,6 +19,6 @@ function calculateMedian(list) {
   }
 }
 
-console.log(calculateMedian([1,2,5,4]))
+console.log(calculateMedian([]));
 
 module.exports = calculateMedian;

@@ -17,7 +17,10 @@ describe("calculateMedian", () => {
     expect(calculateMedian([1, 2, 3, 4, 5, 6])).toEqual(3.5);
   });
 
-  test("doesn't modify the input", () => {
-    expect([1, 2, 3]).toEqual([1, 2, 3]);
+  test("returns the meddle value for odd length array", () => {
+    expect(calculateMedian([1, 2, 3])).toEqual(2);
   });
+  test("return not a number for an empty array", () => {
+    expect(calculateMedian([])).toBe(NaN);
+  })
 });

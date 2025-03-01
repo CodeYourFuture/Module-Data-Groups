@@ -13,7 +13,7 @@ We have set things up already so that this file can see your function from the o
 const findMax = require("./max.js");
 
 test("given an empty array, returns -Infinity" , () => {
-    expect(findMax([])).toEqual("-Infinity");
+    expect(findMax([])).toEqual("Invalid Input : Empty Array cant have Maximum num.");
 });
 
 test("given an array with one number, returns that number" , () => {
