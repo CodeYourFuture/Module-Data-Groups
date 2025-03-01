@@ -33,3 +33,22 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+test(`should return an object where the keys are the country codes, the values are the corresponding currency codes`, () => {
+  const array = [
+    ["US", "USD"],
+    ["CA", "CAD"],
+  ];
+  const object = {
+    US: "USD",
+    CA: "CAD",
+  };
+  expect(createLookup(array)).toEqual(object);
+});
+
+test(`should throw an error "Invalid input, please input an array", if input is not an array`, () => {
+  const string = `"US","USD","CA","CAD"`;
+  expect(() => createLookup(string)).toThrow(
+    `Invalid input, please input an array`
+  );
+});
