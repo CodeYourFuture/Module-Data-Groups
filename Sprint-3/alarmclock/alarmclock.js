@@ -18,19 +18,20 @@ function updateDisplay() {
     return;
   }
 
-  let displayHours = Math.floor(totalSeconds / 3600);
+  //let displayHours = Math.floor(totalSeconds / 3600);
   let displayMinutes = Math.floor(totalSeconds / 60);
+
   let displaySeconds = totalSeconds % 60;
   displaySeconds = String(displaySeconds).padStart(2, "0");
-  displayHours = String(displayHours).padStart(2, "0");
+  //displayHours = String(displayHours).padStart(2, "0");
   displayMinutes = String(displayMinutes).padStart(2, "0");
-  remainingTimeElement.innerHTML = `Time Remaining: ${displayHours}: ${displayMinutes}: ${displaySeconds}`;
+  remainingTimeElement.innerHTML = `Time Remaining: ${displayMinutes}:${displaySeconds}`;
   totalSeconds--;
 }
 
 function setAlarm() {
-  let hours = Math.floor(alarmSetInput.value / 60);
-  let minutes = alarmSetInput.value % 60;
+  //let hours = Math.floor(alarmSetInput.value / 60);
+  let minutes = alarmSetInput.value;
   alarmRunning = !alarmRunning;
   console.log(alarmRunning);
 
@@ -39,7 +40,7 @@ function setAlarm() {
     clearInterval(timer);
   } else {
     if (totalSeconds == 0) {
-      totalSeconds = hours * 3600 + minutes * 60;
+      totalSeconds = minutes * 60;
     }
     setAlarmBtn.innerHTML = "Pause";
     updateDisplay();
