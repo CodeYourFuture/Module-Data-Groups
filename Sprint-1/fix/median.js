@@ -2,18 +2,17 @@
 // Start by running the tests for this function
 // If you're in the Sprint-1 directory, you can run `npm test -- fix` to run the tests in the fix directory
 
-function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
-}
+// function calculateMedian(list) {
+//   const middleIndex = Math.floor(list.length / 2);
+//   const median = list.splice(middleIndex, 1)[0];
+//   return median;
+// }
 
-module.exports = calculateMedian;
 
 
 function calculateMedian(list) {
   // sort the list in ascending order
-  list.sort((a,b) => a - b);
+  const sortedList =[...list].sort((a,b) => a - b);
 
   const middleIndex = Math.floor(list.length / 2);
 
@@ -23,5 +22,7 @@ function calculateMedian(list) {
   }
 
   // if the list has an even number of elements, return the average of the two middle elements.
-  return (list[middleIndex - ] + list[middleIndex]) / 2;
+  return (sortedList[middleIndex - 1] + list[middleIndex]) / 2;
 }
+
+module.exports = calculateMedian;
