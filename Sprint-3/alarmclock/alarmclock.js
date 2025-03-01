@@ -2,32 +2,49 @@ let remainingTimeElement = document.getElementById("timeRemaining");
 let setAlarmBtn = document.getElementById("set");
 let stopAlarmBtn = document.getElementById("stop");
 let alarmSetInput = document.getElementById("alarmSet");
-let timeElapsed = 0;
+
 let timer = null;
 let totalSeconds = 0;
+let alarmRunning = false;
+
+function updateDisplay() {
+  if (totalSeconds < 0) {
+    clearInterval(timer);
+    remainingTimeElement.innerHTML = "Time's up!";
+    playAlarm();
+
+    setAlarmBtn.innerHTML = "Set Alarm";
+    alarmRunning = false;
+    return;
+  }
+
+  let displayHours = Math.floor(totalSeconds / 3600);
+  let displayMinutes = Math.floor(totalSeconds / 60);
+  let displaySeconds = totalSeconds % 60;
+  displaySeconds = String(displaySeconds).padStart(2, "0");
+  displayHours = String(displayHours).padStart(2, "0");
+  displayMinutes = String(displayMinutes).padStart(2, "0");
+  remainingTimeElement.innerHTML = `Time Remaining: ${displayHours}: ${displayMinutes}: ${displaySeconds}`;
+  totalSeconds--;
+}
 
 function setAlarm() {
-  clearInterval(timer);
   let hours = Math.floor(alarmSetInput.value / 60);
   let minutes = alarmSetInput.value % 60;
-  totalSeconds = hours * 3600 + minutes * 60;
+  alarmRunning = !alarmRunning;
+  console.log(alarmRunning);
 
-  function updateDisplay() {
+  if (!alarmRunning) {
+    setAlarmBtn.innerHTML = "Restart";
+    clearInterval(timer);
+  } else {
     if (totalSeconds == 0) {
-      remainingTimeElement.innerHTML = "Time's up!";
-      playAlarm();
+      totalSeconds = hours * 3600 + minutes * 60;
     }
-    let displayHours = Math.floor(totalSeconds / 3600);
-    let displayMinutes = Math.floor(totalSeconds / 60);
-    let displaySeconds = totalSeconds % 60;
-    displaySeconds = String(displaySeconds).padStart(2, "0");
-    displayHours = String(displayHours).padStart(2, "0");
-    displayMinutes = String(displayMinutes).padStart(2, "0");
-    remainingTimeElement.innerHTML = `Time Remaining: ${displayHours}: ${displayMinutes}: ${displaySeconds}`;
-    totalSeconds--;
+    setAlarmBtn.innerHTML = "Pause";
+    updateDisplay();
+    timer = setInterval(updateDisplay, 1000);
   }
-  updateDisplay();
-  timer = setInterval(updateDisplay, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
