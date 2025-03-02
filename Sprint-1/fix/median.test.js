@@ -23,4 +23,5 @@ describe("calculateMedian", () => {
 
     expect(list).toEqual([1, 2, 3]);
   });
+  
 });
