@@ -1,4 +1,3 @@
-const contains = require("./contains.js");
 
 /*
 Implement a function called contains that checks an object contains a
@@ -20,7 +19,6 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
 
 // Given an object with properties
 // When passed to contains with an existing property name
@@ -33,3 +31,17 @@ test.todo("contains on empty object returns false");
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+
+// contains.js
+function contains(obj, property) {
+    // Check that the input is an object, not an array.
+    if (typeof obj !== 'object' || obj === null || Array.isArray(obj)) {
+        return false;
+    
+    }
+
+    // we need to verify if the specified property is present in the object.
+    return property in oby 
+}
+
+module.exports = contains;
