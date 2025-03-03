@@ -11,6 +11,8 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values (author)) {
   console.log(value);
 }
+// For...of loop is meant to iterate over iterable objects, 
+// so we need to use the keys of the object in order to loop through it correctly
