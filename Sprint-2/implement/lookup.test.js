@@ -33,3 +33,12 @@ It should return:
    'CA': 'CAD'
  }
 */
+test("creates a country currency code lookup for multiple codes", () => {
+  const countryCurrencyPairs = [['US', 'USD'], ['CA', 'CAD']];
+  const result = createLookup(countryCurrencyPairs);
+
+  expect(result).toEqual({
+    'US': 'USD',
+    'CA': 'CAD'
+  });
+});
