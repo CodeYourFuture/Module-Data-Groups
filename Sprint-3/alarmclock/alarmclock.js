@@ -8,41 +8,33 @@ let totalSeconds = 0;
 let alarmRunning = false;
 
 function setAlarm() {
-  let minutes = alarmSetInput.value;
-
+  let seconds = alarmSetInput.value;
   function updateDisplay() {
     if (totalSeconds < 0) {
       clearInterval(timer);
       remainingTimeElement.innerHTML = "Time's up!";
       playAlarm();
-
-      setAlarmBtn.innerHTML = "Set Alarm";
       alarmRunning = false;
       return;
     }
 
-    let displayHours = Math.floor(totalSeconds / 3600);
-    let displayMinutes = Math.floor((totalSeconds % 3600) / 60);
-
-    displayHours = String(displayHours).padStart(2, "0");
+    let displayMinutes = Math.floor(totalSeconds / 60);
+    let displaySeconds = totalSeconds % 60;
 
     displayMinutes = String(displayMinutes).padStart(2, "0");
-    remainingTimeElement.innerHTML = `Time Remaining: ${displayHours}:${displayMinutes}`;
+    displaySeconds = String(displaySeconds).padStart(2, "0");
+    remainingTimeElement.innerHTML = `Time Remaining: ${displayMinutes}:${displaySeconds}`;
     totalSeconds--;
   }
-  alarmRunning = !alarmRunning;
-  console.log(alarmRunning);
 
-  if (!alarmRunning) {
-    setAlarmBtn.innerHTML = "Restart";
+  if (alarmRunning) {
     clearInterval(timer);
   } else {
-    if (!timer) {
-      totalSeconds = minutes * 60;
+    if ((alarmRunning = true)) {
+      totalSeconds = seconds;
+      updateDisplay();
+      timer = setInterval(updateDisplay, 1000);
     }
-    setAlarmBtn.innerHTML = "Pause";
-    updateDisplay();
-    timer = setInterval(updateDisplay, 1000);
   }
 }
 
