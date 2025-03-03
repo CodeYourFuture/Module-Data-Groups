@@ -2,6 +2,7 @@
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
+// for of is designed to iterate through object like arrays, maps and sets but not for plain objects.
 
 const author = {
   firstName: "Zadie",
@@ -11,6 +12,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const key in author) {
+  console.log(author[key]);
 }
