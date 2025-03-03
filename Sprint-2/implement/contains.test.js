@@ -41,5 +41,5 @@ test("when given an object without the property, return false", () =>{
 // When passed to contains
 // Then it should return false or throw an error
 test("when given an invalid parameter, return false", () =>{
-    expect(contains([a: 1, b: 2], 'a')).toEqual(false)
+    expect(contains({a: 1, b: 2}, 'rf')).toEqual(false)
 })

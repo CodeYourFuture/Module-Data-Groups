@@ -6,11 +6,12 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    const [key, ...value] = pair.split("=");
+    queryParams[key] = value.join("=");
   }
 
   return queryParams;
 }
 
+console.log(parseQueryString("password=fgr=ef.=f"))
 module.exports = parseQueryString;
