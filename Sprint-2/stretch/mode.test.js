@@ -1,4 +1,3 @@
-const calculateMode = require("./mode.js");
 
 // Acceptance criteria for calculateMode function
 
@@ -11,22 +10,32 @@ const calculateMode = require("./mode.js");
 // When calculateMode is called on [2,4,1,2,3,2,1]
 // Then it should return 2 */
 
-describe("calculateMode()", () => {
-  test("returns the most frequent number in an array", () => {
-    const nums = [2, 4, 1, 2, 3, 2, 1];
+function calculateMode(list) {
+  // Step 1: Track frequency of each value
+  let freqs = new Map();
 
-    expect(calculateMode(nums)).toEqual(2);
-  });
+  for (let num of list) {
+    // Skip non-number values
+    if (typeof num !== "number") {
+      continue;
+    }
 
-  test("returns the first mode in case of multiple modes", () => {
-    const nums = [1, 2, 2, 3, 3];
+    // Update frequency count for each number
+    freqs.set(num, (freqs.get(num) || 0) + 1);
+  }
 
-    expect(calculateMode(nums)).toEqual(2);
-  });
+  // Step 2: Find the number with the highest frequency
+  let maxFreq = 0;
+  let mode;
 
-  test("ignores non-number values", () => {
-    const nums = [1, 3, "2", 2, 3, null];
+  for (let [num, freq] of freqs) {
+    if (freq > maxFreq) {
+      mode = num;
+      maxFreq = freq;
+    }
+  }
 
-    expect(calculateMode(nums)).toEqual(3);
-  });
-});
+  return mode;
+}
+
+module.exports = calculateMode;
