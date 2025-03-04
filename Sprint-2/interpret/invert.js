@@ -10,11 +10,12 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key; // Correctly set the value as the key and key as the value
   }
 
   return invertedObj;
 }
+
 
 // a) What is the current return value when invert is called with { a : 1 }
 
