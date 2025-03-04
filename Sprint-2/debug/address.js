@@ -12,4 +12,8 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
+console.log(`My house is in ${address.street}`);
+console.log(`My house is in ${address.city}`);
+console.log(`My house is in ${address.country}`);
+console.log(`My houses postcode is ${address.postcode}`);
