@@ -4,7 +4,7 @@ arrays, nested objects, or functions representing structured data with different
 (like age, firstName). It is a set of date represented in key-value format.*/
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
-/*We must called all values of object (author). */
+/*We must called all values of object (author) and print them to the console using "for...of. */
 const author = {
   firstName: "Zadie",
   lastName: "Smith",
