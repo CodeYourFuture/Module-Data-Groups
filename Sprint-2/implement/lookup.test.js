@@ -9,6 +9,7 @@ test("creates a country currency code lookup for multiple codes", () => {
   });
 });
 
+
 /*
 
 Create a lookup object of key value pairs from an array of code pairs
