@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+/*This is an array that contains different data consisting of numbers and strings. */
 // This code should log out the houseNumber from the address object
 // but it isn't working...
 // Fix anything that isn't working
