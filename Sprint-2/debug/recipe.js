@@ -12,4 +12,6 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join(`\n`)}`);
+
+// To get access to values of ingredients recipe.ingredients[0] recipe - object, ingredients - nested array, [0]-[4] - first...fourth value in array, so we can just write it 4 times or we can convert array into the string using join(`\n`) and separate them for each line
