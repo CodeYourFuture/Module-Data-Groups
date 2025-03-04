@@ -7,20 +7,19 @@
 function totalTill(till) {
   let total = 0;
 
+  // Loop through the coin quantities
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    // Extract numeric value from coin string (remove "p") and convert to a number
+    const coinValue = parseInt(coin.replace("p", ""), 10);
+    
+    // Add the total value for the current coin type
+    total += coinValue * quantity;
   }
 
-  return `£${total / 100}`;
+  // Return total in pounds (converted from pence)
+  return `£${(total / 100).toFixed(2)}`; // Using toFixed(2) to format to two decimal places
 }
 
-const till = {
-  "1p": 10,
-  "5p": 6,
-  "50p": 4,
-  "20p": 10,
-};
-const totalAmount = totalTill(till);
 
 // a) What is the target output when totalTill is called with the till object
 
