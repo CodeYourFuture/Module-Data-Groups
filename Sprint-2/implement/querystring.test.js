@@ -11,6 +11,13 @@ test("parses querystring values containing =", () => {
   });
 });
 
-test("parses querystring values containing =", () => {
+test("should return empty object, when input is empty string", () => {
   expect(parseQueryString("")).toEqual({});
+});
+
+test("parses querystring values containing & ", () => {
+  expect(parseQueryString("colour=blue&sort=newest")).toEqual({
+    colour: "blue",
+    sort: "newest",
+  });
 });
