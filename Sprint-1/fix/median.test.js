@@ -4,7 +4,7 @@
 // passing all the tests...
 // Fix the implementation of calculateMedian so it passes all tests
 
-const calculateMedian = require("./median.js");
+
 
 describe("calculateMedian", () => {
   test("returns the median for odd length array", () => {
@@ -26,3 +26,25 @@ describe("calculateMedian", () => {
 });
 
 
+function calculateMedian(arr) {
+  // Sort the array in ascending order
+  const sortedArr = [...arr].sort((a, b) => a - b);  // Avoid mutating the input
+  
+  const length = sortedArr.length;
+  
+  // If the length is odd, return the middle element
+  if (length % 2 === 1) {
+    return sortedArr[Math.floor(length / 2)];
+  }
+  
+  // If the length is even, return the average of the two middle elements
+  const mid1 = sortedArr[length / 2 - 1];
+  const mid2 = sortedArr[length / 2];
+  
+  // Debug log: print values of mid1 and mid2 for clarity
+  console.log("mid1:", mid1, "mid2:", mid2);
+  
+  return (mid1 + mid2) / 2;
+}
+
+module.exports = calculateMedian;
