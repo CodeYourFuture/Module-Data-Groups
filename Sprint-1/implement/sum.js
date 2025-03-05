@@ -11,7 +11,7 @@ function sum(arr) {
         }
         
     }
-      return sumTotal; // return the sumTotal
+      return sumTotal; // return the sumTotal.
 
    
     }
