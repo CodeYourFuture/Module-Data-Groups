@@ -24,16 +24,17 @@ const books = [
 
 const ulElement = document.getElementById("reading-list");
 
-const colors = ["#f4a261", "#2a9d8f", "#e76f51", "#264653", "#e9c46a"];
-
 let index = 0;
 
-for (let [key, value] of Object.entries(books)) {
+for (let book of books) {
   let liElement = document.createElement("li");
-  liElement.innerHTML = `<p>${value.title} by ${value.author}</p>
-                          <img src="${value.bookCoverImage}" alt="${value.title} cover" style="width:400px">`;
-  liElement.style.backgroundColor = colors[index % colors.length];
-  index++;
+  liElement.innerHTML = `<p>${book.title} by ${book.author}</p>
+                          <img src="${book.bookCoverImage}" alt="${book.title} cover" style="width:400px">`;
 
+  if (book.alreadyRead) {
+    liElement.style.backgroundColor = "green";
+  } else {
+    liElement.style.backgroundColor = "red";
+  }
   ulElement.appendChild(liElement);
 }
