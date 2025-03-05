@@ -16,28 +16,53 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity", () => {
+  expect(findMax([])).toBe(-Infinity); // we implented a call back function to check if the function returns -Infinity when the array is empty
+});
+
+
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("given an array with one number, returns that number", () => {
+    expect(findMax([1])).toBe(1);
+});
+
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("given an array with both positive and negative numbers, returns the largest number overall", () => {
+expect(findMax([-1, 0, 1])).toBe(1);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("given an array with just negative numbers, returns the closest one to zero", () => {
+    expect(findMax([-1, -2, -3])).toBe(-1);
+});
+
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("given an array with decimal numbers, returns the largest decimal number", () => {
+    expect(findMax([1.1, 1.2, 1.3])).toBe(1.3);
+}); 
+
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("given an array with non-number values, returns the max and ignores non-numeric values", () => {
+expect(findMax(["hey", 10, "hi", 60])).toBe(60);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("given an array with only non-number values, returns -Infinity", () => {
+expect(findMax(["hey", "hi"])).toBe(-Infinity);
+});
