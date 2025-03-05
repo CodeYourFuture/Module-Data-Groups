@@ -26,7 +26,7 @@ console.log(invert({ a: 1, b: 2 }));
 // current return value is {key: 2}
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
-//current return value is {key: 2}
+//target return value is { 1: 'a', 2: 'b'}
 
 // c) What does Object.entries return? Why is it needed in this program?
 //Object.entries it converts the object into an array of key-value pairs making it easier for us to loop through because we can not loop through an object with just the for loop
