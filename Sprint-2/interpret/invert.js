@@ -20,20 +20,20 @@ console.log(invert({ a: 1, b: 2 }));
 console.log(invert({ a: 1, b: 2 }));
 
 // a) What is the current return value when invert is called with { a : 1 }
-//{key: 1}
+//current return value is {key: 1}
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-//{key: 2}
+// current return value is {key: 2}
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
-//{key: 2}
+//current return value is {key: 2}
 
 // c) What does Object.entries return? Why is it needed in this program?
 //Object.entries it converts the object into an array of key-value pairs making it easier for us to loop through because we can not loop through an object with just the for loop
 //We need it in this program to be able to loop through the object
 
 // d) Explain why the current return value is different from the target output
-//the return value is different because
+//the return value is different because the code is using the string "key" and the property name
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
 module.exports = invert;
