@@ -90,6 +90,10 @@ body {
   background: #ce5f31;
 }
 
+p {
+  font-weight: bold;
+}
+
 /* Article */
 .article {
   margin-bottom: 2em;
