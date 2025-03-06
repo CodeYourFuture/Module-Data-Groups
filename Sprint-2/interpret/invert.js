@@ -30,9 +30,8 @@ to swap them.*/
 // e) Explain why the current return value is different from the target output
 /* invertedObj[key] = value;
 This does not swap the key and value. Instead, it simply copies the original key-value pairs 
-into invertedObj.
-The correct way is:  invertedObj[value] = key;
-This dynamically assigns the value as the key and the key as the value.*/
+into invertedObj. The correct way is:  invertedObj[value] = key;. This dynamically assigns the 
+value as the key and the key as the value.*/
 // f) Fix the implementation of invert (and write tests to prove it's fixed!)
 function invert(obj) {
    const invertedObj = {};
@@ -45,4 +44,3 @@ console.log(invert({ a: 1 }));
 console.log(invert({ a: 1, b: 2 })); 
 console.log(invert({ x: 10, y: 20 })); 
 console.log(invert({})); 
-console.log(invert({ a: "hello", b: "world" }));
