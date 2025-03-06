@@ -1,5 +1,9 @@
 const address = require("./address.js");
 
+function gethouseNumber(obj) {
+  return address.houseNumber;
+}
+
 test("given an address, returns the houseNumber", function () {
   const address = {
     houseNumber: 42,
@@ -8,8 +12,8 @@ test("given an address, returns the houseNumber", function () {
     country: "England",
     postcode: "XYZ 123",
   };
-  const currentOutput = address.houseNumber;
+  const currentOutput = gethouseNumber(address);
   const targetOutput = 42;
 
-  expect(currentOutput).toBe(targetOutput);
+  expect(currentOutput).toStrictEqual(targetOutput);
 });
