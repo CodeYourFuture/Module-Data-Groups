@@ -42,26 +42,30 @@ describe("Reading list", () => {
     expect(readingList).toHaveTextContent("The Pragmatic Programmer");
     expect(readingList).toHaveTextContent("Andrew Hunt");
   });
+
   test("each book in the list has an image", () => {
-    const firstLi = page.window.document.querySelector(
-      "#reading-list > :first-child"
+    const firstImg = page.window.document.querySelector(
+      "#reading-list > :first-child img"
     );
-    expect(firstLi).toContainHTML(
-      `<img src="https://blackwells.co.uk/jacket/l/9780465050659.jpg" />`
-    );
-
-    const secondLi = page.window.document.querySelector(
-      "#reading-list > :nth-child(2)"
-    );
-    expect(secondLi).toContainHTML(
-      `<img src="https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg" />`
+    expect(firstImg).toHaveAttribute(
+      "src",
+      "https://blackwells.co.uk/jacket/l/9780465050659.jpg"
     );
 
-    const thirdLi = page.window.document.querySelector(
-      "#reading-list > :nth-child(3)"
+    const secondImg = page.window.document.querySelector(
+      "#reading-list > :nth-child(2) img"
     );
-    expect(thirdLi).toContainHTML(
-      `<img src="https://blackwells.co.uk/jacket/l/9780135957059.jpg" />`
+    expect(secondImg).toHaveAttribute(
+      "src",
+      "https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg"
+    );
+
+    const thirdImg = page.window.document.querySelector(
+      "#reading-list > :nth-child(3) img"
+    );
+    expect(thirdImg).toHaveAttribute(
+      "src",
+      "https://blackwells.co.uk/jacket/l/9780135957059.jpg"
     );
   });
   test("background color changes depending on whether book has been read", () => {
