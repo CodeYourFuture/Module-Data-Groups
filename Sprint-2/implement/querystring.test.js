@@ -18,3 +18,14 @@ test("handles duplicate keys as array", () => {
 test("decodes encoded characters", () => {
   expect(parseQueryString("name=John%20Doe")).toEqual({ name: "John Doe" });
 });
+
+test("parses querystring with empty value", () => {
+  expect(parseQueryString("key=")).toEqual({ key: null });
+});
+test("handles querystring with leading ?", () => {
+  expect(parseQueryString("?a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+
+test("returns empty object for empty querystring", () => {
+  expect(parseQueryString("")).toEqual({});
+});
