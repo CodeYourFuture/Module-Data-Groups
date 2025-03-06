@@ -8,6 +8,5 @@ function includes(list, target) {
   }
   return false;
 }
-const currentOutput = includes(["a", "b", "c", "d"], "c");
-console.log(currentOutput)
+
 module.exports = includes;
