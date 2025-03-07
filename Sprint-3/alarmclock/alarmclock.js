@@ -18,6 +18,7 @@ function setAlarm() {
     if (inputValueToNumber <= 0) {
       clearInterval(interval);
       playAlarm();
+      document.querySelector(`body`).classList.add(`blinking-background`);
     }
     displayChanges();
   }, 1000);
@@ -33,6 +34,7 @@ function setup() {
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
+    document.querySelector(`body`).classList.remove(`blinking-background`);
   });
 }
 
