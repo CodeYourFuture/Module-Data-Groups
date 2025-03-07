@@ -22,6 +22,7 @@ function setAlarm() {
           secVal--;
         } else if (secVal === 0) {
           clearInterval(countDown);
+          document.body.style.backgroundColor = "red";
           playAlarm();
         }
       }
