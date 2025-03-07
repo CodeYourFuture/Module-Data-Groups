@@ -1,1 +1,85 @@
 /** Write your CSS in here **/
+
+/* General reset for consistent styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Container for the quote box */
+.quote-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Quote box styling */
+.quote-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Styling for the quote text */
+.quote-text {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Styling for the author text */
+.quote-author {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Button styling */
+.new-quote-btn {
+    font-size: 1.1em;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-quote-btn:hover {
+    background-color: #45a049;
+}
+
+/* Add a little animation to the quote container */
+.quote-container {
+    animation: fadeIn 1.5s ease;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
