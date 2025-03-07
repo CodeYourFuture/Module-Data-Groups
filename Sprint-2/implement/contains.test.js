@@ -16,20 +16,31 @@ as the object doesn't contains a key of 'c'
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
+describe("contains", () => {
+  // Given an empty object
+  // When passed to contains
+  // Then it should return false
+  test("Given an empty object, return false", () => {
+    expect(contains({})).toEqual(false);
+  });
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
+  // Given an object with properties
+  // When passed to contains with an existing property name
+  // Then it should return true
+  test("Given an object with properties, when passed an existing property name, return true", () => {
+    expect(contains({ a: 1, b: 2 }, "a")).toEqual(true);
+  });
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
-
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
-
-// Given invalid parameters like an array
-// When passed to contains
-// Then it should return false or throw an error
+  // Given an object with properties
+  // When passed to contains with a non-existent property name
+  // Then it should return false
+  test("Given an object with properties, when passed a non-existent property name, return false", () => {
+    expect(contains({ a: 1, b: 2 }, "c")).toEqual(false);
+  });
+  // Given invalid parameters like an array
+  // When passed to contains
+  // Then it should return false or throw an error
+  test("Given invalid parameters like an array, return false or throw an error", () => {
+    expect(contains(["a", 1, "b", 2, "c"])).toEqual(false);
+  });
+});
