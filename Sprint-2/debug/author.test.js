@@ -11,8 +11,8 @@ test("given an object, returns the property values in the object", function () {
     age: 40,
     alive: true,
   };
+
   const currentOutput = getValues(author);
   const targetOutput = ["Zadie", "Smith", "writer", 40, true];
-
   expect(currentOutput).toStrictEqual(targetOutput);
 });
