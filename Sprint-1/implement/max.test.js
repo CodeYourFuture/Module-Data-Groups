@@ -18,6 +18,17 @@ const findMax = require("./max.js");
 // Delete this test.todo and replace it with a test.
 test.todo("given an empty array, returns -Infinity");
 
+describe("findMax", () => {
+    test("Find the maximum element of an array", () => {
+      expect(findMax([30, 50, 10, 40])).toBe(50);
+      expect(findMax(['hey', 10, 'hi', 60, 10])).toBe(60);
+      expect(findMax([42])).toBe(42);
+      expect(findMax([1.2, 3.5, 2.8, 3.51])).toBe(3.51);
+
+    });
+  });
+
+
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
@@ -41,3 +52,4 @@ test.todo("given an empty array, returns -Infinity");
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
