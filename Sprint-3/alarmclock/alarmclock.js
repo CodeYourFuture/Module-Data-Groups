@@ -4,16 +4,18 @@ let timerId;
 
 function setAlarm() {
   time = input.valueAsNumber;
+  changeDisplayTime(time);
   timerId = setInterval(deduction, 1000);
 }
 
 function deduction() {
+  --time;  
   changeDisplayTime(time);
   if (time == 0) {
     clearInterval(timerId);
     playAlarm()
   }
-  --time;
+
 }
 
 function changeDisplayTime(time) {
