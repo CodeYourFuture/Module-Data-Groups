@@ -1,27 +1,29 @@
+const input = document.querySelector("input");
+let time = 0;
+let timerId;
+
 function setAlarm() {
-  const input = document.querySelector("input");
   time = input.valueAsNumber;
-  function changeDisplayTime(time) {
-    minutesRemaining = Math.floor(time / 60).toString();
-    paddedMinutesRemaining = minutesRemaining.padStart(2, "0");
-    secondsRemaining = (time % 60).toString();
-    paddedSecondsRemaining = secondsRemaining.padStart(2, "0");
-    const timeRemaining = `${paddedMinutesRemaining}:${paddedSecondsRemaining}`;
-    const charactersLeftP = document.querySelector("#timeRemaining");
-    charactersLeftP.innerText = `Time Remaining: ${timeRemaining}`;
-    
-  }
-  function deduction() {
-    changeDisplayTime(time)
-    if (time == 0) {
-      clearInterval(timerId)
-    }
-    --time
-  }
-  let timerId = setInterval(deduction, 1000)
+  timerId = setInterval(deduction, 1000);
 }
-function pauseAlarm() {
-  clearInterval(timerId)
+
+function deduction() {
+  changeDisplayTime(time);
+  if (time == 0) {
+    clearInterval(timerId);
+    playAlarm()
+  }
+  --time;
+}
+
+function changeDisplayTime(time) {
+  minutesRemaining = Math.floor(time / 60).toString();
+  paddedMinutesRemaining = minutesRemaining.padStart(2, "0");
+  secondsRemaining = (time % 60).toString();
+  paddedSecondsRemaining = secondsRemaining.padStart(2, "0");
+  const timeRemaining = `${paddedMinutesRemaining}:${paddedSecondsRemaining}`;
+  const charactersLeftP = document.querySelector("#timeRemaining");
+  charactersLeftP.innerText = `Time Remaining: ${timeRemaining}`;
 }
 
 // DO NOT EDIT BELOW HERE
