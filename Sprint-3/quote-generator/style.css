@@ -1,1 +1,78 @@
-/** Write your CSS in here **/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #9c9696;
+  text-align: center;
+}
+.quote-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+}
+#quote {
+  font-size: 1.5em;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 10px;
+  max-width: 90%;
+}
+#author {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+button {
+  background-color: #16ba1c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+  .quote-con {
+    width: 100%;
+    padding: 20px;
+  }
+  #quote {
+    font-size: 1.3em;
+  }
+  #author {
+    font-size: 1em;
+  }
+  button {
+    padding: 8px 15px;
+    font-size: 1em;
+  }
+}
+/* For mobile phones */
+@media (max-width: 480px) {
+  #quote {
+    font-size: 1.1em;
+  }
+  #author {
+    font-size: 0.9em;
+  }
+  button {
+    padding: 6px 12px;
+    font-size: 0.9em;
+  }
+}
