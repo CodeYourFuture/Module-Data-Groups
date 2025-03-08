@@ -1,5 +1,8 @@
 // Predict and explain first...
 
+// Answer | In an object for ... in should be used to loop trough the keys to access the corespondin values, and not the for...of loop that is intended for iterable objects.
+
+
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -11,6 +14,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (let key in author) {
+  console.log(author[key]);
 }
