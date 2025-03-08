@@ -11,5 +11,5 @@ const address = {
   country: "England",
   postcode: "XYZ 123",
 };
-
+//address is not an array. it is an object. you have to use the object.key to log out the value
 console.log(`My house number is ${address.houseNumber}`);
