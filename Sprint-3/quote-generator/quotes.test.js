@@ -20,6 +20,7 @@ beforeEach(async () => {
       return this.textContent;
     },
     set(value) {
+      s;
       this.textContent = value;
     },
   });
