@@ -7,19 +7,18 @@ let alarmTimer = null
 let countdownInterval = null
 
 function setAlarm() {
-  let min = document.querySelector("#alarmSet").value
+  let seconds = parseInt(document.querySelector("#alarmSet").value) 
 
-  if (min.trim() === "" || min <= 0) {
+
+  if (isNaN(seconds)) {
     alert('Please set a valid time')
-    return;
+    return
   }
 
-  min = Math.floor(parseInt(min))
-  let difference = min * 60 * 1000 // min to millisecond
-  let sec = min * 60 // Total seconds
+  seconds = Math.floor(Number(seconds))
+  let timeoutMillis = seconds * 1000 // min to millisecond
 
-
-  updateCountdown(sec) // Start countdown
+  updateCountdown(seconds) // Start countdown
 
   setBtn.disabled = true
 
@@ -27,15 +26,18 @@ function setAlarm() {
     playAlarm()
     changeBgColor()
     setBtn.disabled = false
-  }, difference)
+  }, timeoutMillis)
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function updateDisplay(seconds) {
-  let min = Math.floor(seconds / 60)
-  let remainingSeconds = seconds % 60
-  document.querySelector("#timeRemaining").innerText = `${min}:${remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds}`
+  document.querySelector("#timeRemaining").innerText = convertSecToDisplayUnit(seconds)
 }
 
+function convertSecToDisplayUnit(seconds) {
+  let minutes = (Math.floor(seconds/60)).toString().padStart(2,"0")
+  let second = (seconds%60).toString().padStart(2, "0")
+  return `Time Remaining: ${minutes}:${second}`
+}
 // Update countdown timer/////////////////////////////////////////////////////////////////////////////////
 function updateCountdown(seconds) {
   updateDisplay(seconds)
@@ -62,10 +64,11 @@ function changeBgColor() {
 function stopTimer() {
   clearTimeout(alarmTimer); // Stop the alarm timer
   clearInterval(countdownInterval); // Stop the countdown interval
-  document.getElementById("timeRemaining").textContent = "Time Remaining";
-  document.getElementById("timeRemaining").style.backgroundColor = "none";
+  document.getElementById("timeRemaining").textContent = "Time Remaining:";
+  document.getElementById("timeRemaining").style.backgroundColor = "white";
+  document.body.style.color = "black" // change the text color to black
   setBtn.disabled = false; // Re-enable the set button
-  document.querySelector("#alarmSet").value = ""
+  document.querySelector("#alarmSet").value = "" // Reset the input space
 }
 
 // DO NOT EDIT BELOW HERE
