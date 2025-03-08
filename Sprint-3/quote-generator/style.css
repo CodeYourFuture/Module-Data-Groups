@@ -36,9 +36,8 @@ body {
   margin-bottom: 20px;
 }
 button {
-  background-color: #16ba1c;
-  color: white;
-  padding: 10px 20px;
+  background-color: #115c14;
+  color: rgb(237, 226, 226);
   border: none;
   border-radius: 5px;
   cursor: pointer;

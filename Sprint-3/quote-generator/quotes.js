@@ -489,9 +489,39 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
-
+let interval; //i defined my interval globally to use it in all places/functions. 
+//if innerText of the element with id quote and author is empty string just set the content of the quote innertext "Please Press 'New quote' button to get a quote" 
+//this will give us the well come page when we open it at the first time
+if (
+  document.getElementById("quote").innerText === "" &&
+  document.getElementById("author").innerText === ""
+) {
+  document.getElementById("quote").innerText =
+    "Well-come to Quotes-Generator by @Mikiyas-STP";
+  document.getElementById("author").innerText =
+      "Please Press 'New quote' button to get a quote";
+}
+//this prints the  new quote randomly
 document.getElementById("new-quote").addEventListener("click",function(){
-  let res = pickFromArray(quotes);
-  document.getElementById("quote").innerText = `${res.quote}`;
-  document.getElementById("author").innerText = `${res.author}`; 
+  let res = pickFromArray(quotes); //random quote object
+  document.getElementById("quote").innerText = `${res.quote}`; //random quote of quoteobj added to element with id quote
+  document.getElementById("author").innerText = `${res.author}`;
+  clearInterval(interval); //if we click new-quote when auto is on, after a single implementation it kills the auto.
+});
+//this is for my auto button
+document.getElementById("quote-on").addEventListener("click", function () {
+  //i am printing the quote using setInterval function every 3 second.
+  interval = setInterval(   
+    function(){
+      let res = pickFromArray(quotes);
+      document.getElementById("quote").innerText = `${res.quote}`;
+      document.getElementById("author").innerText = `${res.author}`;
+    },3000); 
+});
+//when stop button is clicked it changes the innerText of my elements and kill the automatic implementation.
+document.getElementById("quote-off").addEventListener("click", function (){
+  document.getElementById("quote").innerText = "Quote Generator Stopped :";
+  document.getElementById("author").innerText =
+    " Please Press 'New quote' button to get a quote";
+  clearInterval(interval); //interval is defined automatically to access it anywhere when needed.
 });
