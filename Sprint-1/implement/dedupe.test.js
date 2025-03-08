@@ -1,4 +1,4 @@
-const dedupe = require("./dedupe.js");
+const { describe } = require("yargs");
 /*
 Dedupe Array
 
@@ -25,3 +25,23 @@ test.todo("given an empty array, it returns an empty array");
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+
+
+const dedupe = require("./dedupe");  // Ensure you require the dedupe function correctly
+
+describe("dedupe", () => {
+  test("given an empty array, it returns an empty array", () => {
+    expect(dedupe([])).toEqual([]);  // Test for empty input
+  });
+
+  test("given an array with no duplicates, it returns a copy of the original array", () => {
+    expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);  // No duplicates
+    expect(dedupe(['a', 'b', 'c'])).toEqual(['a', 'b', 'c']);  // No duplicates, string test
+  });
+
+  test("given an array with duplicates, it removes duplicates and preserves first occurrences", () => {
+    expect(dedupe(['a', 'a', 'a', 'b', 'b', 'c'])).toEqual(['a', 'b', 'c']);  // Duplicates removed
+    expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);  // Duplicates removed
+    expect(dedupe([1, 2, 3, 1, 2, 3])).toEqual([1, 2, 3]);  // Duplicates removed, and first occurrence preserved
+  });
+});
