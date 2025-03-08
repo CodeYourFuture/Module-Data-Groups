@@ -1,4 +1,5 @@
 // Predict and explain first...
+// we cannot use the for...of loop on object but we can use it on object values
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
@@ -11,6 +12,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }
