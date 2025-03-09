@@ -1,7 +1,7 @@
 let countdown;
 
 function setAlarm() {
-  let timeInput = document.getElementById("alarmSet").value;
+  let alarmTime = document.getElementById("alarmSet").value;
   let timeRemaining = document.getElementById("timeRemaining");
 
   if (isNaN(timeInput) || timeInput <= 0) {
