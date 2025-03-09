@@ -1,1 +1,74 @@
-/** Write your CSS in here **/
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f0f5;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+h1 {
+  color: #a87883;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+#carousel-img {
+  width: 100%;
+  max-width: 300px;
+  max-height: 400px;
+  min-height: 250px;
+  height: 100%;
+  border-radius: 10px;
+  border: 3px solid #508faf;
+  margin-bottom: 15px;
+}
+
+#input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 2px solid #508faf;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  background-color: #508faf;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #508faf;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

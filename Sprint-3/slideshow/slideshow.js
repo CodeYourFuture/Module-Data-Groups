@@ -54,6 +54,7 @@ function autoBackward() {
 }
 
 function stopAuto() {
+  input.value = ``;
   clearInterval(mySetInterval);
   autoForwardBtn.disabled = false;
   autoBackBtn.disabled = false;
