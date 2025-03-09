@@ -16,28 +16,55 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity", ()=>{
+    expect(findMax([])).toEqual(-Infinity);
+
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("given an array with one number, returns max number", ()=>{
+    expect(findMax([50])).toEqual(50);
+
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("given an array with positive and negative numbers, returns largest number", ()=>{
+    expect(findMax([5, 10, -5,-6])).toEqual(10);
+
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("given an array with negative numbers, returns closet number to Zero", ()=>{
+    expect(findMax([-20, -10, -5,-6])).toEqual(-5);
+
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("given an array with decimal numbers, returns largest decimal number", ()=>{
+    expect(findMax([2.5, 2.6, 5.01, 5.001])).toEqual(5.01);
+
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("given an array with non-numbers value, returns max number ignore non-numeric values", ()=>{
+    expect(findMax([5, "a", "b", 10, -5,-6])).toEqual(10);
+
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("given an array with non-numbers value, returns -Infinity", ()=>{
+    expect(findMax(["hello", "a", "b", "hey"])).toEqual(-Infinity);
+
+});
