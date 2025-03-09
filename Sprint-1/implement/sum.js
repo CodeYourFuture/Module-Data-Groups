@@ -12,5 +12,4 @@ return count;
 }
 module.exports = sum;
 
-console.log(sum([1,3,4,"a"]));
 
