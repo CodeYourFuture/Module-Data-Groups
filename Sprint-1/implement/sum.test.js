@@ -47,6 +47,6 @@ it("Given an array containing non-number values,then it should ignore the non-nu
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
-it("Given an array with only non-number values, Then it should return the least surprising value given how it behaves for all other inputs ", () =>{
+it("Given an array with only non-number values, then is should return 0 ", () =>{
     expect(sum(["hi","Amir","Shohreh"])).toBe(0)
 });
