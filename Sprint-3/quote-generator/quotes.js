@@ -1,3 +1,15 @@
+function showNewQuote() {
+  const quoteProperty = pickFromArray(quotes);
+  quoteTextP = document.querySelector("#quote");
+  quoteAuthorP = document.querySelector("#author");
+  quoteTextP.innerText = `"${quoteProperty.quote}`;
+  quoteAuthorP.innerText = `- ${quoteProperty.author}`;
+}
+
+document.getElementById("new-quote").addEventListener("click", showNewQuote);
+
+// showNewQuote()
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -491,3 +503,4 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+showNewQuote();
