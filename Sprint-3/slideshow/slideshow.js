@@ -9,26 +9,27 @@ const images = [
   "./assets/daria-shatova-46TvM-BVrRI-unsplash.jpg",
   "./assets/kate-stone-matheson-uy5t-CJuIK4-unsplash.jpg",
 ];
-let index = 1;
+
+let index = 0;
+carousel.setAttribute("src", images[index]);
 
 function moveForward() {
-        carousel.setAttribute("src", images[index]);
-        if (index == (images.length) - 1) {
-            index = 0
-        } else {
-            index++
-        } 
-        console.log(index)
-        }
+  if (index == images.length - 1) {
+    index = 0;
+  } else {
+    index++;
+  }
+  carousel.setAttribute("src", images[index]);
+}
 
-    // for(let index = 0; index < images.length; index++) {
-    //     console.log(images[index])
-    //     carousel.setAttribute("src", images[index]);
-    //     if (index == images.length) {
-    //         index = -1
-    //     }
-    // }
-
+function moveBackwards() {
+  if (index == 0) {
+    index = images.length - 1;
+  } else {
+    index--;
+  }
+  carousel.setAttribute("src", images[index]);
+}
 
 forwardButton.addEventListener("click", moveForward);
-backwardsButton.addEventListener("click", moveForward);
+backwardsButton.addEventListener("click", moveBackwards);

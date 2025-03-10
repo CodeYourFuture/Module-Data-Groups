@@ -1,6 +1,6 @@
 /** Write your CSS in here **/
 
 img {
-    max-width: 800px;
+  max-height: 550px;
+  min-height: 550px;
 }
-
