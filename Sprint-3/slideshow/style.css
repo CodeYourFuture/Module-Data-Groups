@@ -1,1 +1,6 @@
 /** Write your CSS in here **/
+
+img {
+    max-width: 800px;
+}
+
