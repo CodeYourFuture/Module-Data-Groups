@@ -9,13 +9,13 @@ function setAlarm() {
 }
 
 function deduction() {
-  --time;  
+  --time;
   changeDisplayTime(time);
   if (time == 0) {
     clearInterval(timerId);
-    playAlarm()
+    playAlarm();
+    document.body.style.background = "#ff4d4d";
   }
-
 }
 
 function changeDisplayTime(time) {
@@ -48,6 +48,7 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  document.body.style.background = "#ffffff";
 }
 
 window.onload = setup;
