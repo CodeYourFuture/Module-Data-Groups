@@ -1,1 +1,25 @@
 /** Write your CSS in here **/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+}
+
+#quoteContent {
+  position: absolute;
+  top: 50%;
+  width: 900px;
+  margin: -100px 0 0 -100px;
+  background-color: aliceblue;
+  padding: 20px;
+}
+
+#author {
+  text-align: right;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}

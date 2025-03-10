@@ -1,3 +1,7 @@
+const button = document.getElementById("new-quote");
+const checkbox = document.getElementById("auto-play");
+const autoPlayState = document.getElementById("auto-play-state");
+
 function showNewQuote() {
   const quoteProperty = pickFromArray(quotes);
   quoteTextP = document.querySelector("#quote");
@@ -6,9 +10,18 @@ function showNewQuote() {
   quoteAuthorP.innerText = `- ${quoteProperty.author}`;
 }
 
-document.getElementById("new-quote").addEventListener("click", showNewQuote);
+function autoPlay() {
+  if (checkbox.checked == true) {
+    timerId = setInterval(showNewQuote, 60000);
+    autoPlayState.innerText = "auto-play: ON";
+  } else {
+    clearInterval(timerId);
+    autoPlayState.innerText = "auto-play: OFF";
+  }
+}
 
-// showNewQuote()
+button.addEventListener("click", showNewQuote);
+checkbox.addEventListener("click", autoPlay);
 
 // DO NOT EDIT BELOW HERE
 
