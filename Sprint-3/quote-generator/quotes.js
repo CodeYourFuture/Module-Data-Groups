@@ -1,3 +1,28 @@
+const button = document.getElementById("new-quote");
+const checkbox = document.getElementById("auto-play");
+const autoPlayState = document.getElementById("auto-play-state");
+
+function showNewQuote() {
+  const quoteProperty = pickFromArray(quotes);
+  quoteTextP = document.querySelector("#quote");
+  quoteAuthorP = document.querySelector("#author");
+  quoteTextP.innerText = `"${quoteProperty.quote}`;
+  quoteAuthorP.innerText = `- ${quoteProperty.author}`;
+}
+
+function autoPlay() {
+  if (checkbox.checked == true) {
+    timerId = setInterval(showNewQuote, 60000);
+    autoPlayState.innerText = "auto-play: ON";
+  } else {
+    clearInterval(timerId);
+    autoPlayState.innerText = "auto-play: OFF";
+  }
+}
+
+button.addEventListener("click", showNewQuote);
+checkbox.addEventListener("click", autoPlay);
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -491,3 +516,4 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+showNewQuote();
