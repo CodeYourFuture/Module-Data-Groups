@@ -4,7 +4,9 @@
 
 function calculateMedian(list) {
 
-  list.sort((a, b) => a - b); // sort the list in ascending order
+  
+  
+  list.sort(); // sort the list in ascending order
   
   const middleIndex = Math.floor(list.length / 2); // find the middle index
   //const median = list.splice(middleIndex, 1)[0]; // remove the middle element
@@ -15,6 +17,7 @@ if (list.length % 2 !== 0) {
   const median = (list[middleIndex -1] + list[middleIndex]) / 2; // return the average of the two middle elements if the list length is even
   return median;  // 
 } 
+
 
  
 
