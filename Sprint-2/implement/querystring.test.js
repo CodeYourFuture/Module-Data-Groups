@@ -10,3 +10,30 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses multiple key-value pairs", () => {
+  expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+
+test("handles empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("handles keys without values", () => {
+  expect(parseQueryString("key1=&key2")).toEqual({ key1: "", key2: null });
+});
+
+test("handles repeated keys, last value wins", () => {
+  expect(parseQueryString("a=1&a=2")).toEqual({ a: "2" });
+});
+
+test("decodes URI components", () => {
+  expect(parseQueryString("name=John%20Doe&city=New%20York")).toEqual({
+    name: "John Doe",
+    city: "New York",
+  });
+});
+
+test("handles values containing special characters", () => {
+  expect(parseQueryString("param=%26%3D%3F")).toEqual({ param: "&=?" });
+});
