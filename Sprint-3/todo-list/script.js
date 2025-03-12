@@ -1,25 +1,77 @@
-function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+//i create a function to populate the todo and display it.
+function populateTodoList() {
+  const todoList = document.getElementById("todo-list");
+  todoList.innerHTML = ""; //to prevent repeating the output in my ul
+  //loop through todos and create the list
+  todos.forEach((todo, index) => {
+    const li = document.createElement("li");
+    const todoText = document.createElement("span");
+    todoText.textContent = todo.task;
+    //apply red color if task is completed
+    if (todo.completed) {
+      todoText.style.color = "red"; //change color to red if completed
+    }
+    li.appendChild(todoText);
+    const badge = document.createElement("span"); //badge icons
+    badge.classList.add("badge", "bg-primary", "rounded-pill");
+    const checkIcon = document.createElement("i");
+    checkIcon.classList.add("fa", "fa-check"); //check icon
+    checkIcon.setAttribute("aria-hidden", "true");
+    checkIcon.addEventListener("click", () => toggleComplete(index, todoText));
+    badge.appendChild(checkIcon);
+    const trashIcon = document.createElement("i");
+    trashIcon.classList.add("fa", "fa-trash"); //trash icon
+    trashIcon.setAttribute("aria-hidden", "true");
+    trashIcon.addEventListener("click", () => deleteTodo(index));
+    badge.appendChild(trashIcon);
+    li.appendChild(badge);
+    todoList.appendChild(li);
+  });
 }
-
-// These are the same todos that currently display in the HTML
-// You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
   { task: "Wash the dishes", completed: false },
   { task: "Do the shopping", completed: false },
 ];
 
-populateTodoList(todos);
+//function for completed task
+function toggleComplete(index, todoText) {
+  todos[index].completed = !todos[index].completed;
 
-// This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
+  if (todos[index].completed) {
+    todoText.style.color = "red";
+  } else {
+    todoText.style.color= "none";
+  }
+
+  populateTodoList();
+}
+
+// function to delete task
+function deleteTodo(index) {
+  todos.splice(index, 1); // Remove the todo from the array
+  populateTodoList();
+}
+
+//adding the todos from input
 function addNewTodo(event) {
-  // The code below prevents the page from refreshing when we click the 'Add Todo' button.
-  event.preventDefault();
-  // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  event.preventDefault(); //to prevent refreshing the page during submitting the form
+  const inputText = document.getElementById("input-text").value.trim(); //i trim it to prevent spaces at start and end.
+  if (inputText !== "") {
+    todos.push({ task: inputText, completed: false }); //add the new todo
+    document.getElementById("input-text").value = ""; //clear input
+    populateTodoList(); // Re-render the todo list
+  }
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
+// Function to remove all completed todos
+function removeAllCompleted() {
+  todos = todos.filter((todo) => !todo.completed); //returning filter of the ones with todo.completed false which means not completed.
+  populateTodoList();
 }
+//eventlistener for my addtodo and clearcompleted buttons
+document.getElementById("submit-btn").addEventListener("click", addNewTodo);
+document
+  .getElementById("remove-all-completed")
+  .addEventListener("click", removeAllCompleted);
+// Initial population of the todo list
+populateTodoList(); // calling my function to work
