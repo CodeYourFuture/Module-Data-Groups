@@ -6,7 +6,10 @@
 const parseQueryString = require("./querystring.js")
 
 test("parses querystring values containing =", () => {
-  expect(parseQueryString("equation=x=y+1")).toEqual({
-    "equation": "x=y+1",
-  });
+  expect(parseQueryString("equation=x=y+1")).toStrictEqual({"equation": "x=y+1"});
+});
+
+test ("parses an empty object when queryString is empty", () => {
+  
+  expect(parseQueryString("")).toStrictEqual({});
 });
