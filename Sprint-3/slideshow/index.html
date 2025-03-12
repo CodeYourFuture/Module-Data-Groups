@@ -3,13 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Display Picture App</title>
     <script defer src="slideshow.js"></script>
     <link href="./style.css" rel="stylesheet">
   </head>
   <body>
-    <img id="carousel-img" src="./assets/cute-cat-a.png" alt="cat-pic" />
-    <button type="button" id="backward-btn">Backwards</button>
-    <button type="button" id="forward-btn">Forward</button>
-  </body>
+    <div id="first-sec">
+      <img id="carousel-img" src="./assets/cute-cat-a.png" alt="cat-pic" />
+      <div>
+        <button type="button" id="backward-btn">Backwards</button>
+        <button type="button" id="forward-btn">Forward</button>
+      </div>
+    </div>
+    <div id="second-sec">
+      <label for="timedelay">Set time in sec:</label>
+      <input type="number" id="timedelay" value="1000" min="100" />
+      <button id="start">AutoPlay</button>
+      <button id="stop">Stop</button>
+    </div>
+    </body>
 </html>
+
+
+
