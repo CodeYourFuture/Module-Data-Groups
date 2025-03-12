@@ -1,3 +1,4 @@
+"use strict";
 const input = document.querySelector("input");
 let secondsLeft = 0;
 let timerId;
@@ -19,10 +20,10 @@ function deduction() {
 }
 
 function changeDisplayTime(secondsLeft) {
-  minutesRemaining = Math.floor(secondsLeft / 60).toString();
-  paddedMinutesRemaining = minutesRemaining.padStart(2, "0");
-  secondsRemaining = (secondsLeft % 60).toString();
-  paddedSecondsRemaining = secondsRemaining.padStart(2, "0");
+  const minutesRemaining = Math.floor(secondsLeft / 60).toString();
+  const paddedMinutesRemaining = minutesRemaining.padStart(2, "0");
+  const secondsRemaining = (secondsLeft % 60).toString();
+  const paddedSecondsRemaining = secondsRemaining.padStart(2, "0");
   const timeRemaining = `${paddedMinutesRemaining}:${paddedSecondsRemaining}`;
   const charactersLeftP = document.querySelector("#timeRemaining");
   charactersLeftP.innerText = `Time Remaining: ${timeRemaining}`;
