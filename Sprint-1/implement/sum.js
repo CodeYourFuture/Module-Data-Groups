@@ -4,7 +4,7 @@ function sum(elements) {
   }
 
   return elements
-    .filter((item) => typeof item === "number")
+    .filter((item) => typeof item === "number" && isFinite(item))
     .reduce((acc, num) => acc + num, 0);
 }
 
