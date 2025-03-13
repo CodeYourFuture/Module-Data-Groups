@@ -1,1 +1,61 @@
 /** Write your CSS in here **/
+body {
+    background-color: #ffdd00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .quote-container {
+    background-color: white;
+    padding: 50px 100px;
+    text-align: center;
+    border-radius: 10px;
+    position: relative; 
+    width: 60%;  /* Adjust width as needed */
+    min-height: 200px; /* Ensures it doesn't shrink too much */
+    max-width: 800px;
+    
+  }
+
+ 
+
+  #quote {
+    font-weight: bold;
+    font-size: 24px;
+    color: green;
+    margin-bottom: 20px;
+  }
+
+
+  #author {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    font-weight: bold;
+    font-size:18px ;
+    color: black;
+  }
+
+  #new-quote {
+    background-color:  #e6c200;
+    color: blue;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size:20px ;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+  }
+
+  #new-quote:hover {
+    background-color: #e6c200;
+
+  }
