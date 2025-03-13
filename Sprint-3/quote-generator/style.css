@@ -1,1 +1,53 @@
 /** Write your CSS in here **/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 40px;
+  width: 60%;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 28px;
+  border-radius: 8px;
+}
+
+#author {
+  font-size: 18px;
+  color: rgb(211, 141, 10);
+  margin-top: 10px;
+  text-align: right;
+  align-self: flex-end;
+}
+
+#quote {
+  color: rgb(187, 129, 22);
+}
+
+#quote::before {
+  content: '"';
+  font-size: 30px;
+}
+
+#new-quote {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px, 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  align-self: flex-end;
+  padding: 8px 8px;
+}
+
+#new-quote:hover {
+  background-color: rgb(223, 146, 4);
+}
