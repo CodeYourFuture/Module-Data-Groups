@@ -1,12 +1,13 @@
-const invert = require("./invert.js");
+// invert.js
 
-test("", () => {
-  const obj = { x: 10, y: 20 };
-  const answer = invert(obj);
-  expect(answer).toEqual({ 10: "x", 20: "y" });
-});
-test("", () => {
-  const obj = { name: "Evelyn", Age: 35 };
-  const answer = invert(obj);
-  expect(answer).toEqual({ Evelyn: "name", 35: "Age" });
-});
+function invert(obj) {
+  const invertedObj = {};  // Create an empty object to store the inverted result
+
+  for (const [key, value] of Object.entries(obj)) {
+    invertedObj[String(value)] = key;  // Ensure that the key is a string
+  }
+
+  return invertedObj;  // Return the inverted object
+}
+
+module.exports = invert;  // Export the function to be used in tests
