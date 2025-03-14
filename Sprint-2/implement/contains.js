@@ -1,14 +1,7 @@
 function contains(obj, key) {
-  const modifyedObj = Object.keys(obj);
-  if (modifyedObj.length < 1) {
-    return false;
-  }
-  let check = false;
-  modifyedObj.forEach((element) => {
-    if (key === element) {
-      check = true;
-    }
-  });
-  return check;
+  if (typeof obj !== `object` || Array.isArray(obj)) return false;
+  const objKeys = Object.keys(obj);
+  return objKeys.some((element) => element === key);
 }
+
 module.exports = contains;

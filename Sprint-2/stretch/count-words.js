@@ -26,15 +26,13 @@
 
 3. Order the results to find out which word is the most common in the input
 */
-const str = `My name is Ihor, and your name is Vlad?`;
 
 function countWords(string) {
   const objectOfString = {};
   const arrOfString = string
     .toLowerCase()
     .replace(/[!.,?]/g, "")
-    .split(` `);
-  console.log(arrOfString);
+    .split(/\s+/);
   arrOfString.forEach((element) => {
     objectOfString[element] = (objectOfString[element] || 0) + 1;
   });
@@ -42,5 +40,3 @@ function countWords(string) {
     Object.entries(objectOfString).sort((a, b) => b[1] - a[1])
   );
 }
-
-console.log(countWords(str));

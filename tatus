@@ -1,0 +1,203 @@
+[33mcommit a843f79a75d822ae570c5e88599e6d51a495cdfe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mSprint-2[m[33m, [m[1;31morigin/Sprint-2[m[33m)[m
+Author: Ihoryan <ihorbolzhelarskyi78@gmail.com>
+Date:   Tue Mar 4 23:29:17 2025 +0000
+
+    done count-words
+
+[33mcommit a43fda95fa43f45f7dc63e847ab0bc48e2eddb45[m
+Author: Ihoryan <ihorbolzhelarskyi78@gmail.com>
+Date:   Tue Mar 4 22:45:09 2025 +0000
+
+    done debug, implement, interpret
+
+[33mcommit 5359028b6675bab4244cc9dcf1bc8db77d133f8d[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Sally McGrath <sally@codeyourfuture.io>
+Date:   Sun Oct 27 08:05:30 2024 +0000
+
+    replace style guide link
+    
+    Thanks to @Grajales-K ! ⭐
+
+[33mcommit 30e08c83ad04ea8c3f05b95ae9edae5906269363[m
+Author: Daniel Wagner-Hall <daniel@codeyourfuture.io>
+Date:   Tue Oct 15 10:12:58 2024 +0100
+
+    Misc tweaks to sprint 2 (#48)
+    
+    * Add package-lock.json
+    
+    * Misc copy edits and typo fixes
+    
+    * Add extension to in-sprint querystring parsing
+
+[33mcommit f9d44f5621f44bbf30ec08c97d3cdb449dbd5d1d[m
+Author: Daniel Wagner-Hall <daniel@codeyourfuture.io>
+Date:   Thu Oct 10 20:14:44 2024 +0100
+
+    Fixes for Sprint 1 (#47)
+    
+    * Fix up typos in exercises
+    * Update a bunch of week-1s to Sprint-1s
+    * Use toEqual not toBe
+    * Add a bit more scaffolding for exports and requires, as we currently
+      don't reliably teach this.
+    * Add a few more edge cases to test for
+    * Move root package.json to Sprint-3 directory, because that's the set
+      of tests it hard-codes as modules, and rework instructions to not
+      assume you're installing stuff in the root of the repo.
+    * Change refactor exercises from implementing `find` to implementing
+      `includes` - because `find` returns the index, I would consider it
+      better implemented with a for-with-index loop than a for..of loop.
+      `includes` does not share this property.
+
+[33mcommit 461add59c6fb5408fa289e6c686f62d0c84d2e36[m
+Merge: 528f635 e315117
+Author: Sally McGrath <sally@codeyourfuture.io>
+Date:   Wed Oct 2 21:50:59 2024 +0100
+
+    Merge pull request #44 from CodeYourFuture/dependabot/npm_and_yarn/ws-8.17.1
+    
+    Bump ws from 8.13.0 to 8.17.1
+
+[33mcommit 528f6354c70d7542130291f5867fb73730c453c1[m
+Merge: b92f9e4 2c6f358
+Author: Sally McGrath <sally@codeyourfuture.io>
+Date:   Sun Sep 15 10:20:09 2024 +0100
+
+    Merge pull request #46 from CodeYourFuture/provide-correct-tasks-from-js2-module
+    
+    Remove legacy tasks copied from the old js2 module and add correct ones
+
+[33mcommit 2c6f3584d6a15963c3f9a708a3d64a8cffd67770[m
+Author: Kirill Kovzel <kirill.kovzel@gmail.com>
+Date:   Wed Sep 11 10:37:34 2024 +0100
+
+    Remove legacy tasks from the old js2 module and add correct ones
+
+[33mcommit b92f9e474c7bb3c16f644139160cf1df2419ec7e[m
+Merge: d8d406d 450ec84
+Author: Kyrylo Kovzel <40791399+pseudopilot@users.noreply.github.com>
+Date:   Wed Jul 31 18:22:00 2024 +0100
+
+    Merge pull request #45 from CodeYourFuture/add-vscode-extensions
+    
+    Add recommended VS Code extensions
+
+[33mcommit 450ec840334c182c80f86a01ee1f9d3fe018c3b6[m
+Author: Kirill Kovzel <kirill.kovzel@gmail.com>
+Date:   Tue Jul 16 15:29:24 2024 +0100
+
+    Add recommended VS Code extensions
+
+[33mcommit e3151174f47c44d092a6d2bca8e851fc207959c1[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Tue Jun 18 17:04:38 2024 +0000
+
+    Bump ws from 8.13.0 to 8.17.1
+    
+    Bumps [ws](https://github.com/websockets/ws) from 8.13.0 to 8.17.1.
+    - [Release notes](https://github.com/websockets/ws/releases)
+    - [Commits](https://github.com/websockets/ws/compare/8.13.0...8.17.1)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: ws
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit d8d406df13368278a4c4a1cccd3ea3a8396c2977[m
+Merge: 37df02c 85008dc
+Author: Sally McGrath <sally@codeyourfuture.io>
+Date:   Wed May 15 09:25:19 2024 +0100
+
+    Merge pull request #37 from CodeYourFuture/dependabot/npm_and_yarn/tough-cookie-4.1.4
+    
+    Bump tough-cookie from 4.1.2 to 4.1.4
+
+[33mcommit 37df02c692041414d15b3d4a2907972b4d7a45af[m
+Merge: c86d0f8 5280b34
+Author: Sally McGrath <sally@codeyourfuture.io>
+Date:   Wed May 15 09:25:11 2024 +0100
+
+    Merge pull request #36 from CodeYourFuture/dependabot/npm_and_yarn/babel/traverse-7.24.5
+    
+    Bump @babel/traverse from 7.21.4 to 7.24.5
+
+[33mcommit c86d0f887e67bf995560e51c935cc14cba68a188[m
+Merge: c8ff2fe 02f4261
+Author: Sally McGrath <sally@codeyourfuture.io>
+Date:   Wed May 15 09:25:00 2024 +0100
+
+    Merge pull request #35 from CodeYourFuture/dependabot/npm_and_yarn/adobe/css-tools-4.3.3
+    
+    Bump @adobe/css-tools from 4.2.0 to 4.3.3
+
+[33mcommit 85008dc51b66b02842a788e01875d915cfb06a67[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Tue May 14 16:14:46 2024 +0000
+
+    Bump tough-cookie from 4.1.2 to 4.1.4
+    
+    Bumps [tough-cookie](https://github.com/salesforce/tough-cookie) from 4.1.2 to 4.1.4.
+    - [Release notes](https://github.com/salesforce/tough-cookie/releases)
+    - [Changelog](https://github.com/salesforce/tough-cookie/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/salesforce/tough-cookie/compare/v4.1.2...v4.1.4)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: tough-cookie
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 5280b34bff81ff2fe421f568830f07567be25f99[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Tue May 14 16:10:22 2024 +0000
+
+    Bump @babel/traverse from 7.21.4 to 7.24.5
+    
+    Bumps [@babel/traverse](https://github.com/babel/babel/tree/HEAD/packages/babel-traverse) from 7.21.4 to 7.24.5.
+    - [Release notes](https://github.com/babel/babel/releases)
+    - [Changelog](https://github.com/babel/babel/blob/main/CHANGELOG.md)
+    - [Commits](https://github.com/babel/babel/commits/v7.24.5/packages/babel-traverse)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: "@babel/traverse"
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 02f42613f4b355a6a2218a98e5712ab375fd3405[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Tue May 14 16:09:41 2024 +0000
+
+    Bump @adobe/css-tools from 4.2.0 to 4.3.3
+    
+    Bumps [@adobe/css-tools](https://github.com/adobe/css-tools) from 4.2.0 to 4.3.3.
+    - [Changelog](https://github.com/adobe/css-tools/blob/main/History.md)
+    - [Commits](https://github.com/adobe/css-tools/commits)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: "@adobe/css-tools"
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit c8ff2fedfb5519ca410e37ae0c73c8f1c1b36960[m
+Author: Sally McGrath <sally@codeyourfuture.io>
+Date:   Tue May 14 12:55:23 2024 +0100
+
+    populate module from js2
+
+[33mcommit a02c6138f28216e2bd5cbb6a2510bf2dc0ad495c[m
+Author: Sally McGrath <sally@codeyourfuture.io>
+Date:   Sat May 11 16:05:55 2024 +0100
+
+    Initial commit
