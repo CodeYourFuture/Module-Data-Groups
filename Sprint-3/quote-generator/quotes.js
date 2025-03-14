@@ -1,5 +1,15 @@
 // DO NOT EDIT BELOW HERE
+// List of quotes
 
+
+
+/*
+note for future me
+setInterval() is a built-in JavaScript function. It repeatedly runs a function after a specified time interval.
+syntax setInterval(function, milliseconds);
+and 
+clearInterval() is another built-in function that stops setInterval() from running.
+*/
 // pickFromArray is a function which will return one item, at
 // random, from the given array.
 //
@@ -491,3 +501,28 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+// a function to pick random quote from the list we created 
+function getRandomQuote(){
+  let randomIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[randomIndex]; // returns an object with quote and author
+
+}
+// a function to show the random quote when the button is pressed 
+function showQuote() {
+  let randomQuote = getRandomQuote();
+  document.getElementById("quote").innerText = randomQuote.quote;
+  document.getElementById("author").innerText = randomQuote.author;
+}
+
+// Event listener for the "New quote" button
+document.getElementById("new-quote").addEventListener("click", showQuote);
+
+let autoPlay; // This variable will store the interval ID
+// Start auto-play
+function startAutoPlay() {
+  autoPlay = setInterval(showQuote, 3000); // Show a new quote every 3 seconds
+}
+// Stop auto-play
+function stopAutoPlay() {
+  clearInterval(autoPlay); // Stops the automatic quotes
+}
