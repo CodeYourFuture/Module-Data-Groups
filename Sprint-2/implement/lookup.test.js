@@ -61,3 +61,14 @@ It should return:
    'CA': 'CAD'
  }
 */
+// given an array with one the item being an empty string,
+// when createLookup function is called with the array as argument,
+//
+test("given array with an empty string as item, returns object that exclude the item with the empty string", () => {
+  expect(
+    createLookup([
+      ["", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toEqual({ CA: "CAD" });
+});
