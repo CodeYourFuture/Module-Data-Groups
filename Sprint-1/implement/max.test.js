@@ -18,7 +18,7 @@ const findMax = require("./max.js");
 // Delete this test.todo and replace it with a test.
 
 test ("get an empty array,return infinity", () => {
-    EmptArr = findMax([]);
+    emptArr = findMax([]);
     expect(Infinity).toEqual(Infinity)
 })
 
@@ -37,8 +37,8 @@ test ("get an array with one number,return that number", () => {
 // When passed to the max function
 // Then it should return the largest number overall
 test ("get an array with both +,- numbers, return the max number from +", ()=>{
-    MixArr = findMax([1,-2,3,-4,5,7]);
-    expect(MixArr).toEqual(7);
+    mixArr = findMax([1,-2,3,-4,5,7]);
+    expect(mixArr).toEqual(7);
         
     }
 )
@@ -46,8 +46,8 @@ test ("get an array with both +,- numbers, return the max number from +", ()=>{
 // When passed to the max function
 // Then it should return the closest one to zero
 test ("get an array with negative number, return the max one", () =>{
-    NegArr = findMax([-1,-4,-5,-7]);
-    expect(NegArr).toEqual(-1);
+    negArr = findMax([-1,-4,-5,-7]);
+    expect(negArr).toEqual(-1);
 })
 
 // Given an array with decimal numbers
@@ -55,8 +55,8 @@ test ("get an array with negative number, return the max one", () =>{
 // Then it should return the largest decimal number
 
 test ("get an array with decimal number,return the max decimal number", () =>{
-    DecArr = findMax([2.3,2.4,2.5,2.7]);
-    expect(DecArr).toEqual(2.7);
+    decArr = findMax([2.3,2.4,2.5,2.7]);
+    expect(decArr).toEqual(2.7);
 
 })
 
@@ -65,8 +65,8 @@ test ("get an array with decimal number,return the max decimal number", () =>{
 // Then it should return the max and ignore non-numeric values
 
 test ("get an array with both non-num & num, get the max from num & ignore non-num", () =>{
-    MixArr = findMax([7,6,5,4,"CYF"]);
-    expect(MixArr).toEqual(7);
+    mixArr = findMax([7,6,5,4,"CYF"]);
+    expect(mixArr).toEqual(7);
 })
 
 // Given an array with only non-number values
@@ -74,6 +74,6 @@ test ("get an array with both non-num & num, get the max from num & ignore non-n
 // Then it should return the least surprising value given how it behaves for all other inputs
 
 test ("get an arrary with all string value , return no number",() => {
-    StrArr = findMax(["a","b","c"]);
-    expect(StrArr).toEqual("This array have no numbers");
+    strArr = findMax(["a","b","c"]);
+    expect(strArr).toEqual("This array have no numbers");
 })
