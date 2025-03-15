@@ -3,6 +3,9 @@
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
+/* it will not work as objects in javascript are not iterable using a for...of loop.This loop
+works with iterable objects like arrays string and map.so this is plain object which is not iterable so it will give error.*/
+
 const author = {
   firstName: "Zadie",
   lastName: "Smith",
