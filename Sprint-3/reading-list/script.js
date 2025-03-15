@@ -41,6 +41,7 @@ function readingList(listId, arr) {
     li.appendChild(author)
 
     const bookCoverImage = document.createElement('img') //creating an img element for the book cover and appending it to li
+    bookCoverImage.alt = "Cover page of a book"
     bookCoverImage.src = item.bookCoverImage
     li.appendChild(bookCoverImage)
     
@@ -53,5 +54,7 @@ function readingList(listId, arr) {
 
 }
 
-readingList("reading-list", books);  // calling readingList 
+window.addEventListener("DOMContentLoaded",()=>{
+  readingList("reading-list", books);
+})                                         // calling readingList after the DOM is fully loaded.
 
