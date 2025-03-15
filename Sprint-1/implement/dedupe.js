@@ -1,3 +1,3 @@
-function dedupe(array) {
-    return [...new Set(array)];
+function dedupe(arr) {
+    return [...new Set(arr)];
 }
