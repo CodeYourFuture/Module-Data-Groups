@@ -43,7 +43,7 @@ test("contains should return false for a non-existing property", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("contains should return false for invalid parameters", () => {
-    expect(contains([], 'a')).toEqual(false);     
+    expect(contains(['A', 'B', 'C'], 'a')).toEqual(false);     
     expect(contains(null, 'a')).toEqual(false);   
     expect(contains(undefined, 'a')).toEqual(false); 
 });
