@@ -1,15 +1,15 @@
-function dedupe(List) {
+function dedupe(list) {
 
 //if the array is empty return array
-if (List.length === 0)
+if (list.length === 0)
 {
-    return List;
+    return list;
 }
 else
 {
-setArray = new Set(List);
-let List2 = [...setArray];
-return List2;
+setArray = new Set(list);
+let list2 = [...setArray];
+return list2;
 }
 
 }
