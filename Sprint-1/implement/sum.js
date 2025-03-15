@@ -1,23 +1,26 @@
 function sum(elements) {
+    const arrWithOnlyNumbers = elements.filter(s => !isNaN(s));
     // if the array is empty 
-    if (elements.length===0)
+    if (arrWithOnlyNumbers.length===0)
     {
             return 0;
     }
-
+   
     // if all array value are not non-numeric value
-    else if (elements.every(items => isNaN(items) === false)){
+    else 
+    {
         let total = 0;
-        for (let i=0;i < elements.length;i++)
+        for (let i=0;i < arrWithOnlyNumbers.length;i++)
         {
             total += elements[i];
         }
         return total;
+    }
 
     }
 
     // if the all values in array are all non-numeric number 
-    else if (elements.every(items => isNaN(items)) === true)
+   /* else if (elements.every(items => isNaN(items)) === true)
     {
         return "There is no numbers in this array"
     }
@@ -26,12 +29,13 @@ function sum(elements) {
     else 
     {
        // filter the string from the array 
-        Filter_arr = elements.filter(s => typeof s === 'number');
+        filter_arr = elements.filter(s => typeof s === 'number' && !isNaN);
         
-        return sum(Filter_arr);
+        return sum(filter_arr);
 
     }
-}
+        
+}*/
 
 module.exports = sum;
 
