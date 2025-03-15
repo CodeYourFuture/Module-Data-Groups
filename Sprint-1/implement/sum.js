@@ -68,3 +68,6 @@ console.log("The result for array mixed with number& string",MixedArr);
 
 StrArr = sum(["a","b"]);
 console.log("The result for array with all string value",StrArr);
+
+testNan =  sum([NaN,1]);
+console.log("The result for Nan,1",testNan);
