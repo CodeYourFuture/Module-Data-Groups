@@ -28,13 +28,17 @@ test ("get an empty array,return an empty array", () => {
 // When passed to the dedupe function
 // Then it should return a copy of the original array
 
-/*test ("Given array with no duplicate, return copy of original array", () =>
+test ("Given array with no duplicate, return copy of original array", () =>
     {
     expect(dedupe([1,2,3])).toEqual([1,2,3]);
     });
-   */ 
+ 
 
 
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+test ("Given an array with duplicate number, remove duplicate", () => {
+
+    expect(dedupe([1,1,2,2,3,3,4,4])).toEqual([1,2,3,4]);
+})
