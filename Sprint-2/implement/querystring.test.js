@@ -35,3 +35,10 @@ test("parses querystring contains multiple '=' ", () => {
     key2: "x=y=z",
   });
 });
+
+test("parses querystring with encoded values", () => {
+  expect(parseQueryString("name=John%20Doe&message=hello%3Dworld")).toEqual({
+  name: "John Doe",
+  message: "hello=world",
+  });
+});
