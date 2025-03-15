@@ -18,11 +18,10 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(quotes) {
-  let quoteNumber = [Math.floor(Math.random() * quotes.length)]
-  let fullQuote = quotes[quoteNumber]
-  resultArray = [fullQuote.quote, fullQuote.author]
-  return resultArray;
+function pickFromArray(choices) {
+  let quoteNumber = [Math.floor(Math.random() * choices.length)]
+  let fullQuote = choices[quoteNumber]
+  return [fullQuote.quote, fullQuote.author]
 }
 
 // A list of quotes you can use in your app.
@@ -497,21 +496,15 @@ const quotes = [
 
 // call pickFromArray with the quotes array to check you get a random quote
 // pickFromArray(quotes)
-pickFromArray (quotes)
-let quoteText = resultArray[0]
-let quoteAuthor = resultArray[1]
+function showQuote(quotes){
+const [quoteText, quoteAuthor] = pickFromArray(quotes)
 document.querySelector("#quote").innerHTML = ` " ${quoteText}`
 document.querySelector("#author").innerHTML = ` - ${quoteAuthor}`
-
-
-function start(){
-document.getElementById("newQuote").addEventListener('click', function () {
-  pickFromArray(quotes)
-  let quoteText = resultArray[0]
-  let quoteAuthor = resultArray[1]
-  document.querySelector("#quote").innerHTML = ` " ${quoteText}`
-  document.querySelector("#author").innerHTML = ` - ${quoteAuthor}`
-})
 }
 
+function start(){
+showQuote(quotes)
+document.getElementById("newQuote").addEventListener('click', function () {
+showQuote(quotes) })
+}
 window.onload = start()
