@@ -504,7 +504,7 @@ document.querySelector("#author").innerHTML = ` - ${quoteAuthor}`
 
 function start(){
 showQuote(quotes)
-document.getElementById("newQuote").addEventListener('click', function () {
+document.getElementById("new-quote").addEventListener('click', function () {
 showQuote(quotes) })
 }
 window.onload = start()
