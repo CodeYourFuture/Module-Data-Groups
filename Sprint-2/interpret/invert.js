@@ -40,6 +40,9 @@ function invert(obj) {
    }
    return invertedObj;
  }
+ 
+ module.exports = invert;
+ 
 console.log(invert({ a: 1 })); 
 console.log(invert({ a: 1, b: 2 })); 
 console.log(invert({ x: 10, y: 20 })); 
