@@ -1,1 +1,84 @@
 
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+#remove-all-completed {
+    background-color: #dc3545;
+    color: white;
+    margin-left: 10px;
+}
+
+ul#todo-list {
+    list-style-type: none;
+    padding: 0;
+    width: 400px;
+}
+
+ul#todo-list li {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul#todo-list li span.badge {
+    display: flex;
+}
+
+ul#todo-list li span.badge i {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+ul#todo-list li span.badge i.fa-check {
+    color: green;
+}
+
+ul#todo-list li span.badge i.fa-trash {
+    color: red;
+}
