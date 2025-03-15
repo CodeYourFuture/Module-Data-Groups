@@ -10,8 +10,12 @@ function parseQueryString(query) {
     key = decodeURIComponent(key);
     let value = values.length > 0 ? values.join("=") : null;
   
+
     if (value === "") {
-      value = null;
+      value = "";
+
+    //if (value === "") {
+    //value = null;
     } else if (value !== null) {
       value = decodeURIComponent(value);
     }
