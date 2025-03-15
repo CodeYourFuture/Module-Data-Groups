@@ -1,4 +1,4 @@
-# Challenge: "Image Carousel"
+ # Challenge: "Image Carousel"
 
 First off, once you've branched off `main`, then update the title element in `index.html` to "Image carousel"
 

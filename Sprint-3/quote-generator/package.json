@@ -4,7 +4,7 @@
   "license": "CC-BY-SA-4.0",
   "description": "You must update this package",
   "scripts": {
-    "test": "jest"
+    "test": "jest" 
   },
   "repository": {
     "type": "git",

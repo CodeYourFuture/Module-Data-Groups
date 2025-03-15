@@ -1,1 +1,57 @@
 /** Write your CSS in here **/
+body {
+    background-color: #FFA500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column; 
+    gap: 20px; 
+
+ .quote-container {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    width: 750px;
+    gap: 10px;
+}
+
+#quote {
+    font-size: 1.5em; 
+    margin-bottom: 10px;
+}
+
+#author {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+#new-quote {
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em; 
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 20px; 
+}
+
+#auto-generate {
+    margin-right: 10px;
+
+}
+
+#auto-play-status {
+    font-weight: bold;
+}
+
+}
