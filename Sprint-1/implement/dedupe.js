@@ -7,7 +7,7 @@ if (list.length === 0)
 }
 else
 {
-setArray = new Set(list);
+let setArray = new Set(list);
 let list2 = [...setArray];
 return list2;
 }
