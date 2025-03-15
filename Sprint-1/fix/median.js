@@ -4,13 +4,11 @@
 
 function calculateMedian(list) {
   list.sort((a, b) => a - b);
+  let middleIndex = Math.floor(list.length / 2);
   if (list.length % 2 === 0) {
-    let middleIndex = Math.floor(list.length / 2);
     let median = (list[middleIndex - 1] + list[middleIndex]) / 2;
-    return median;  // returns the average value of the two middle elements
-    
+    return median; // returns the average value of the two middle elements
   } else {
-    let middleIndex = Math.floor(list.length / 2);
     let median = list[middleIndex];
     return median; // returns middle element value
   }
