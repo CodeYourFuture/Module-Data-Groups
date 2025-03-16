@@ -17,11 +17,23 @@ describe("calculateMedian", () => {
     expect(calculateMedian([1, 2, 3, 4, 5, 6])).toEqual(3.5);
   });
 
-  test("doesn't modify the input", () => {
+  /*test("doesn't modify the input", () => {
     const list = [1, 2, 3];
     calculateMedian(list);
 
     expect(list).toEqual([1, 2, 3]);
   });
   
+});*/
+test("doesn't modify the input", () => {
+  const list = [1, 2, 3];
+  const originalList = [...list]; 
+
+  calculateMedian(list);
+
+  expect(list).toStrictEqual(originalList); 
 });
+
+
+
+
