@@ -32,8 +32,11 @@ expect(sum([-3,-2])).toEqual(-5);
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
-test("given an array with decimal/float numbers", () => {
+/*test("given an array with decimal/float numbers", () => {
     expect(sum([2.3,3.1,2.5,7.6])).toEqual(15.5)
+});*/
+test("given an array with decimal/float numbers", () => {
+    expect(sum([2.3, 3.1, 2.5, 7.6])).toBeCloseTo(15.5, 10); // 10 is the precision level
 });
 // Given an array containing non-number values
 // When passed to the sum function
