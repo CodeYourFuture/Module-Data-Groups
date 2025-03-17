@@ -1,1 +1,23 @@
 /** Write your CSS in here **/
+body{
+ color: aliceblue;
+}
+#main{
+  background-color: #17202a;  
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#quote{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#author{
+    font-family: cursive;
+    text-align: right;
+}
+#new-quote{
+    background-color: #5d6d7e;
+    width: 150px;
+    height: 30px;
+}

@@ -491,3 +491,17 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+let quote = document.querySelector("#quote")
+let author = document.querySelector("#author")
+let btn = document.querySelector("#new-quote")
+//for a random quote to show when the web page is run or refreshed
+if(quote.innerText === "" && author.innerText === ""){
+  let objs = pickFromArray(quotes)
+  author.innerText = objs.author
+  quote.innerText = objs.quote
+}
+btn.addEventListener("click", function(){ //for the button to generate a quote
+  let objs = pickFromArray(quotes)
+  author.innerText = objs.author
+  quote.innerText = objs.quote
+})
