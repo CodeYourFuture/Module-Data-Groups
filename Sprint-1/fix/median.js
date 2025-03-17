@@ -3,9 +3,14 @@
 // If you're in the Sprint-1 directory, you can run `npm test -- fix` to run the tests in the fix directory
 
 function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
+  const clonedList = [...list];
+  const sortedClonedList = clonedList.sort((a,b) => a - b);
+  const middleIndex = Math.floor(sortedClonedList.length / 2);
+  if (sortedClonedList.length % 2 == 0) {
+    return (list[middleIndex] + list[middleIndex -1]) / 2;
+  } else {
+    return list[middleIndex];
+  }
 }
 
 module.exports = calculateMedian;
