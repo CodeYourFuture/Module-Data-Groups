@@ -26,4 +26,4 @@ function invert(obj) {
 
 // d) Explain why the current return value is different from the target output
 
-// e) Fix the implementation of invert (and write tests to prove it's fixed!)
+// e) Fix the implementation of invert (and write tests to prove it's fixed!).
