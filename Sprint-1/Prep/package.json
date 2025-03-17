@@ -1,0 +1,11 @@
+{
+  "name": "prep",
+  "version": "1.0.0",
+  "description": "Testing for sprint 1- module group data",
+  "main": "mean.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Hatef Eidi",
+  "license": "ISC"
+}
