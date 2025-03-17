@@ -1,3 +1,23 @@
+
+// Accessing DOM Elements
+const quoteText = document.getElementById('quote');
+const quoteAuthor = document.getElementById('author');
+const newQuoteBtn = document.getElementById('new-quote');
+
+// Function to Display a Random Quote
+function displayRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteText.textContent = `"${randomQuote.quote}"`;
+  quoteAuthor.textContent = `- ${randomQuote.author}`;
+}
+
+// Event Listener for the New Quote Button: 
+newQuoteBtn.addEventListener('click', displayRandomQuote);
+
+// To show a Random Quote on Page Load, I have to call the function:
+displayRandomQuote();
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -491,3 +511,5 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+
