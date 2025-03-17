@@ -1,1 +1,42 @@
 /** Write your CSS in here **/
+
+body {
+  line-height: 1.15;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: lightgrey;
+  color: #000a47;
+  margin: auto;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+h1 {
+  padding-bottom: 5%;
+}
+#quote {
+
+    text-align: center;
+    color: #000a47;
+    padding: 1rem;
+    border: 2rem solid pink;
+    border-radius: 10px;
+
+}
+p {
+  text-align: right;
+  margin-right: 40%;
+}
+#new-quote {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 12px 24px;
+  border: 0;
+  color: #fff;
+  background: #000a47;
+  line-height: 1.15;
+  font-size: 16px;
+}
