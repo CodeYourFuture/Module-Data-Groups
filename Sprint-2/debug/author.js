@@ -12,8 +12,12 @@ const author = {
   age: 40,
   alive: true,
 };
+// // for (const value of author) {
+//   console.log(value);
 
-for (const key in author) { // this would iterate over the keys of the object. and the value would be the value of the key. 
+// refactor the above code to use a for...in loop to iterate over the object's properties and log their values.
+for (const key in author) { 
+  // this would iterate over the keys of the object. and the value would be the value of the key. 
 // Output: Zadie, Smith, writer, 40, true
   
   console.log(author[key]); // reason for using a bracket notation, as this would access the values in the object of the key. This would log out the values of the object.
