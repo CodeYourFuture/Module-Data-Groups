@@ -1,5 +1,5 @@
 // Predict and explain first...
-// Answer : Undefined will return if we call the object with key value pair. 
+// Answer : Undefined will return if we call the object with index number
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
@@ -12,8 +12,9 @@ const address = {
   country: "England",
   postcode: "XYZ 123",
 };
+// console.log(`My house number is ${address[0]}`); // error code
 
-console.log(`My house number is ${address.houseNumber}`);
+console.log(`My house number is ${address.houseNumber}`);    // fixed code 
 
 
 
