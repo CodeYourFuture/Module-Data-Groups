@@ -9,7 +9,7 @@ function populateTodoList() {
     todoText.textContent = todo.task;
     //apply red color if task is completed
     if (todo.completed) {
-      todoText.style.color = "red"; //change color to red if completed
+      todoText.style.textDecoration = "line-through"; //change text decoration to line through if completed
     }
     li.appendChild(todoText);
     const badge = document.createElement("span"); //badge icons
@@ -38,9 +38,9 @@ function toggleComplete(index, todoText) {
   todos[index].completed = !todos[index].completed;
 
   if (todos[index].completed) {
-    todoText.style.color = "red";
+    todoText.style.textDecoration = "line-through"; //change text decoration to line through if completed
   } else {
-    todoText.style.color= "none";
+    todoText.style.textDecoration = "none"; //change text decoration to none.
   }
 
   populateTodoList();
