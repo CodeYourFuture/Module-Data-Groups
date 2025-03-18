@@ -33,3 +33,9 @@ It should return:
    'CA': 'CAD'
  }
 */
+describe('createLookup', () => {
+  test('should return an object from an array', () => {
+    expect(createLookup([['US', 'USD'], ['CA', 'CAD']])).toEqual({ US: 'USD', CA: 'CAD' })
+  });
+  
+});

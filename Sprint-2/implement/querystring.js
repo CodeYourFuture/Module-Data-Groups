@@ -6,11 +6,18 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
+    const [key, ...values] = pair.split("=");
+    if (key === "") {
+      continue;
+    }
+    const value = values.join("=");
     queryParams[key] = value;
   }
 
   return queryParams;
 }
+console.log(parseQueryString("equation=x=y+1"));
+
+console.log(parseQueryString("=value"));
 
 module.exports = parseQueryString;
