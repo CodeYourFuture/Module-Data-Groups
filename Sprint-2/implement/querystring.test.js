@@ -10,3 +10,4 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+

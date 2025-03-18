@@ -11,6 +11,12 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+// for (const value of author) {
+//   console.log(value);
+// }
+
+// Predict: Will get error because for..of loop works only on Iterables
+
+for (const value of Object.values(author)) {
   console.log(value);
 }
