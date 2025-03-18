@@ -35,7 +35,10 @@ test("given an array containing negative numbers, returns the correct sum", () =
 // When passed to the sum function
 // Then it should return the correct total sum
 test("given an array with decimal/float numbers, returns the correct sum", () => {
-  expect(sum([2, 2.5, 9, 10.5])).toEqual(24);
+  expect(sum([2, 2.5555555, 9, 10.5])).toBeCloseTo(24.0555555);
+  expect(sum([1.2, 0.6, 0.005])).toBeCloseTo(1.805);
+  expect(sum([1.2, 0.6, 0.005])).toBeCloseTo(1.8049999999999997);
+  expect(sum([0.005, 0.6, 1.2])).toBeCloseTo(1.8049999999999997);
 });
 
 // Given an array containing non-number values
@@ -50,4 +53,12 @@ test("given an array with non-numerical values, returns the sum of the numerical
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given an array with only non-number values, returns 0", () => {
   expect(sum(["be", "so", "z"])).toEqual(0);
+});
+
+test("given an array with NaN, returns the sum of the numerical elements", () => {
+  expect(sum([NaN, 5, 2])).toEqual(7);
+});
+
+test("given an array with infinity, returns 0", () => {
+  expect(sum([Infinity, -Infinity])).toEqual(0);
 });
