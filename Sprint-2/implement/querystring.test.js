@@ -10,3 +10,23 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("given a query string with multiple key-value pairs, returns them in object form",() =>{
+  expect(parseQueryString("sort=lowest&colour=yellow")).toEqual({ sort: 'lowest', colour: 'yellow' })
+})
+ 
+
+test("given a query string value containing more one =",() =>{
+  expect(parseQueryString("password=fgr=ef.=f")).toEqual({ password: 'fgr=ef.=f'})
+})
+ 
+
+test("given an empty query string value ",() =>{
+  expect(parseQueryString("")).toEqual({})
+})
+
+
+test("given a query string value with no value",() =>{
+  expect(parseQueryString("password=")).toEqual({ password:''})
+})
+ 
