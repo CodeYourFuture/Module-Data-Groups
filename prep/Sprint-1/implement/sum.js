@@ -3,7 +3,7 @@ function sum(elements) {
     return 0; // Array.isArray checks if "elements" is an array and if the function is called with something other than an array, it returns 0
   }
   function isNumber(value) {
-    return typeof value === "number"; // checks if an item from the array is a type of number
+    return typeof value === "number" && isFinite(value); // checks if an item from the array is a type of number and isFinite makes sure that only real numbers are considered
   }
   elements = elements.filter((num) => isNumber(num)); // filter goes through every item(num) in the array(elements) one at a time and the function checks if it is a number
   return elements.reduce((acc, curr) => acc + curr, 0); // reduce() sums the numbers in the filtered array
