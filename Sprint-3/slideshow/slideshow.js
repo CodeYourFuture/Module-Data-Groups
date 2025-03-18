@@ -4,6 +4,7 @@ const prevBtn = document.querySelector('#backward-btn');
 const nextBtn = document.querySelector('#forward-btn');
 const autoFwdBtn = document.querySelector('#auto-forward-btn');
 const autoBwdBtn = document.querySelector('#auto-back-btn');
+const stopBtn = document.querySelector('#stop-btn');
 const quantityInput = document.querySelector('#quantity')
 const slides = document.querySelectorAll('.slides img')
 
@@ -65,7 +66,13 @@ function autoBackward() {
     clearInterval(intervalIdNext)
 }
 
+function stop() {
+    clearInterval(intervalIdNext)
+    clearInterval(intervalIdPrev)
+}
+
 autoFwdBtn.addEventListener('click', autoForward);
 autoBwdBtn.addEventListener('click', autoBackward);
+stopBtn.addEventListener('click', stop);
 
 window.onload = slidesInitializer()
