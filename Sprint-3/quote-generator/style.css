@@ -1,1 +1,32 @@
 /** Write your CSS in here **/
+body {
+  font-family: "Tektur", sans-serif;
+  background-color: #90a955;
+  text-align: center;
+  margin: 50px;
+}
+#quote-box {
+  background-color: #f4d35e;
+  width: 900px;
+  height: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+}
+#author {
+  font-style: italic;
+  margin-top: 10px;
+}
+#new-quote {
+  background-color: #a1c181;
+  width: 100px;
+  height: 50px;
+  margin: 4px, 4px, 4px, 4px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+new-quote:hover {
+  background-color: #8fa24d;
+}
