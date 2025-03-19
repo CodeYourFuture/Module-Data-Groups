@@ -1,3 +1,7 @@
+let todos = [
+  { task: "Wash the dishes", completed: false },
+  { task: "Do the shopping", completed: false },
+];
 //i create a function to populate the todo and display it.
 function populateTodoList() {
   const todoList = document.getElementById("todo-list");
@@ -28,10 +32,7 @@ function populateTodoList() {
     todoList.appendChild(li);
   });
 }
-let todos = [
-  { task: "Wash the dishes", completed: false },
-  { task: "Do the shopping", completed: false },
-];
+
 
 //function for completed task
 function toggleComplete(index, todoText) {
@@ -60,6 +61,9 @@ function addNewTodo(event) {
     todos.push({ task: inputText, completed: false }); //add the new todo
     document.getElementById("input-text").value = ""; //clear input
     populateTodoList(); // Re-render the todo list
+  }
+  else{
+    alert("You Provided an empty string Please give a valid input !");
   }
 }
 
