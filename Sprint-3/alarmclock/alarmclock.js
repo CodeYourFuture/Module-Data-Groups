@@ -1,52 +1,84 @@
-function setAlarm() {}
-let countdown;
 
-function setAlarm() {
-  let alarmTime = document.getElementById("alarmSet").value;
-  let timeRemaining = document.getElementById("timeRemaining");
 
-  if (isNaN(timeInput) || timeInput <= 0) {
-    alert("Please enter a valid number greater than 0");
-    return;
-  }
+// // DO NOT EDIT BELOW HERE
+var audio = new Audio("alarmsound.mp3");
 
-  let seconds = parseInt(timeInput);
-  updateDisplay(seconds);
+function setup() {
+  document.getElementById("set").addEventListener("click", () => {
+    setAlarm();
+  });
 
-  clearInterval(countdown); // Clear any existing countdown
-
-  countdown = setInterval(() => {
-    if (seconds <= 0) {
-      clearInterval(countdown);
-      playAlarm();
-      flashBackground();
-      return;
-    }
-    seconds--;
-    updateDisplay(seconds);
-  }, 1000);
+  document.getElementById("stop").addEventListener("click", () => {
+    pauseAlarm();
+  });
 }
 
-function updateDisplay(seconds) {
-  let minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
-  let secs = (seconds % 60).toString().padStart(2, '0');
-  document.getElementById("timeRemaining").textContent = `Time Remaining: ${minutes}:${secs}`;
+function playAlarm() {
+  audio.play();
 }
 
 function pauseAlarm() {
-  clearInterval(countdown);
   audio.pause();
 }
 
-function flashBackground() {
-  let body = document.body;
-  let flashing = setInterval(() => {
-    body.style.backgroundColor = body.style.backgroundColor === "red" ? "white" : "red";
-  }, 500);
 
-  setTimeout(() => clearInterval(flashing), 5000); // Stops flashing after 5 seconds
+
+function setAlarm() {
+  // Retrieve the alarm time and remaining time elements
+  const alarmSetInput = document.getElementById("alarmSet");
+  const timeRemaining = document.getElementById("timeRemaining");
+
+  function playAlarm() {
+    audio.play();
+    console.log("Alarm is playing...");
+  }
+// Function to pause the alarm sound
+function pauseAlarm() {
+  audio.pause();
+  audio.currentTime = 0; // Reset the audio to the beginning
+  console.log("Alarm stopped.");
 }
+  // Convert the input value to an integer representing the number of seconds
+  let seconds = parseInt(alarmSetInput.value, 10);
 
-// // DO NOT EDIT BELOW HERE
+  // Validate the input value
+  if (isNaN(seconds) || seconds <= 0) {
+    alert("Please provide a valid number of seconds.");
+    return;
+  }
+
+  // Helper function to update the timer display
+  function updateTimer() {
+    // Format the remaining time as MM:SS
+    const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+    const secs = String(seconds % 60).padStart(2, "0");
+    timeRemaining.textContent = `Time Remaining: ${minutes}:${secs}`;
+
+    // Trigger the alarm when the timer reaches zero
+    if (seconds === 0) {
+      clearInterval(countdownInterval); // Stop the countdown
+      playAlarm(); // Trigger the alarm sound
+
+      // Change the background color briefly
+      document.body.style.backgroundColor = "red";
+      setTimeout(() => {
+        document.body.style.backgroundColor = ""; // Reset the background color after a short delay
+      }, 1000);
+
+      return; // Exit the function
+    }
+
+    seconds--; // Decrease the seconds count
+  }
+
+  // Initialize the countdown timer
+  updateTimer();
+  const countdownInterval = setInterval(updateTimer, 1000);
 
 
+  // Add an event listener to stop the alarm and clear the interval
+  document.getElementById("stop").addEventListener("click", () => {
+    clearInterval(countdownInterval);
+    pauseAlarm(); // Stop the alarm sound
+  });
+}
