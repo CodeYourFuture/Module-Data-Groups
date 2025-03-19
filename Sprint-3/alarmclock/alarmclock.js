@@ -15,10 +15,13 @@ function setup() {
 
 function playAlarm() {
   audio.play();
+  console.log("Alarm is playing...");
 }
 
 function pauseAlarm() {
   audio.pause();
+  audio.currentTime = 0; // Reset the audio to the beginning
+  console.log("Alarm stopped.");
 }
 
 
@@ -28,15 +31,7 @@ function setAlarm() {
   const alarmSetInput = document.getElementById("alarmSet");
   const timeRemaining = document.getElementById("timeRemaining");
 
-  function playAlarm() {
-    audio.play();
-    console.log("Alarm is playing...");
-  }
-// Function to pause the alarm sound
-function pauseAlarm() {
-  audio.pause();
-  audio.currentTime = 0; // Reset the audio to the beginning
-  console.log("Alarm stopped.");
+
 }
   // Convert the input value to an integer representing the number of seconds
   let seconds = parseInt(alarmSetInput.value, 10);
@@ -46,13 +41,12 @@ function pauseAlarm() {
     alert("Please provide a valid number of seconds.");
     return;
   }
-
-  // Helper function to update the timer display
-  function updateTimer() {
-    // Format the remaining time as MM:SS
-    const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
-    const secs = String(seconds % 60).padStart(2, "0");
-    timeRemaining.textContent = `Time Remaining: ${minutes}:${secs}`;
+// Start the countdown immediately inside setInterval
+function updateTimer() {
+  // Format the remaining time as MM:SS
+  const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  timeRemaining.textContent = `Time Remaining: ${minutes}:${secs}`;
 
     // Trigger the alarm when the timer reaches zero
     if (seconds === 0) {
@@ -81,4 +75,4 @@ function pauseAlarm() {
     clearInterval(countdownInterval);
     pauseAlarm(); // Stop the alarm sound
   });
-}
+
