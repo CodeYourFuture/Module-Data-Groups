@@ -1,1 +1,32 @@
 /** Write your CSS in here **/
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#carousel-img{
+    flex-basis: 1 1 0;
+    max-width: 500px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin: 20px;;
+}
+.buttons button{
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(56, 131, 198);
+    color: white;
+}
+.buttons button:hover{
+    background-color: white;
+    color: rgb(56, 131, 198);
+    box-shadow: 0 10px 40px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
