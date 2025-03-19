@@ -21,3 +21,10 @@ test("parses multiple key-value pairs", () => {
     lastName: "Brown",
   });
 });
+
+test("parses querystring with encoded values", () => {
+  expect(parseQueryString("name=John%20Doe&message=hello%3Dworld")).toEqual({
+    name: "John Doe",
+    message: "hello=world",
+  });
+});
