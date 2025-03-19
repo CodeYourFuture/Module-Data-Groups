@@ -58,7 +58,7 @@ const books = [
     bookInfo.appendChild(bookAuthor);
 
     // 〰️ Append the book cover image and the book information div to the list item <li>
-    listItem.appendChild(bookImage);
+    bookImage.src = book.bookCoverImage;
     listItem.appendChild(bookInfo);
 
     // 〰️ Append the list item to the readingList element (this will display it on the webpage)
