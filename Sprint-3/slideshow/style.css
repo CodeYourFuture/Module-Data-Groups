@@ -45,7 +45,12 @@ button:disabled {
 button:hover {
   background-color: #150af0;
 }
-
+button:disabled:hover {
+    pointer-events: none;
+    background-color: #c7c6d1;
+    color: white;
+    cursor: not-allowed;
+}
 input[type="number"] {
   padding: 10px;
   font-size: 16px;
