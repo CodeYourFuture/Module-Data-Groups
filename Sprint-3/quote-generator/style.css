@@ -1,14 +1,15 @@
 /** Write your CSS in here **/
 
-/* General reset for consistent styling */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
+
 body {
+    background-image: url("https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg");
     font-family: 'Arial', sans-serif;
     background-color: #f7f7f7;
     display: flex;
@@ -16,17 +17,19 @@ body {
     align-items: center;
     height: 100vh;
     color: #333;
+    flex-direction: column;
 }
 
-/* Container for the quote box */
+
 .quote-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    flex-direction: column;
 }
 
-/* Quote box styling */
+
 .quote-box {
     background-color: #fff;
     border-radius: 10px;
@@ -37,7 +40,6 @@ body {
     width: 100%;
 }
 
-/* Styling for the quote text */
 .quote-text {
     font-size: 1.5em;
     font-style: italic;
@@ -45,7 +47,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* Styling for the author text */
+
 .quote-author {
     font-size: 1.2em;
     font-weight: bold;
@@ -53,7 +55,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Button styling */
+
 .new-quote-btn {
     font-size: 1.1em;
     padding: 10px 20px;
@@ -69,13 +71,13 @@ body {
     background-color: #45a049;
 }
 
-/* Add a little animation to the quote container */
+
 .quote-container {
     animation: fadeIn 1.5s ease;
 }
 
-/* Animation for fade-in effect */
-@keyframes fadeIn {
+
+@Lovethframes fadeIn {
     0% {
         opacity: 0;
     }
