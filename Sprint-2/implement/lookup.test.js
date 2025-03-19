@@ -33,3 +33,19 @@ It should return:
    'CA': 'CAD'
  }
 */
+describe("createLookup function", () => {
+  test("should return an object with country codes as keys and currency codes as values", () => {
+    const pairs = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+      ["GB", "GBP"],
+    ];
+    const result = createLookup(pairs);
+
+    expect(result).toEqual({
+      US: "USD",
+      CA: "CAD",
+      GB: "GBP",
+    });
+  });
+});
