@@ -1,5 +1,5 @@
-var audio = new Audio("alarmsound.mp3");
-var countDown;
+const audio = new Audio("alarmsound.mp3");
+let countDown;
 let minutesVal;
 let secVal;
 function setAlarm() {
@@ -7,33 +7,28 @@ function setAlarm() {
     clearInterval(countDown);
   }
   var textareaVal = document.getElementById("alarmSet").value;
-  if(textareaVal>0 && textareaVal<=60){
-    minutesVal = 0;
-    secVal = parseInt(textareaVal);
+  if(textareaVal>0){
+    minutesVal = Math.floor(textareaVal / 60);
+    secVal = textareaVal % 60 +1;
   }
-  else if(textareaVal>60){
-    minutesVal = Math.floor(textareaVal/60);
-    secVal = parseInt(textareaVal%60);
-
-  }
-  else if (
-    isNaN(minutesVal) ||
-    isNaN(secVal) ||
-    minutesVal > 59 ||
-    minutesVal < 0 ||
-    secVal > 59 ||
-    secVal < 0
-  ) {
-    //document.getElementById("timeRemaining").innerHTML ="Input Invalid: Provide a string in MM:SS where MM and SS are numbers";
-    alert("Input Invalid: Provide a Whole Number OR Provide a string in MM:SS where MM and SS are numbers");
-    return;
-  }
-  else  {
+  else if (typeof(textareaVal) === "string"){
     let separatedValues = textareaVal.split(":");
     minutesVal = parseInt(separatedValues[0]);
-    secVal = parseInt(separatedValues[1]);
-  }
-  
+    secVal = parseInt(separatedValues[1]) + 1;
+    if (
+      isNaN(minutesVal) ||
+      isNaN(secVal) ||
+      textareaVal == 0 ||
+      minutesVal > 59 ||
+      minutesVal < 0 ||
+      secVal > 59 ||
+      secVal < 0
+    ) {alert(
+      "Input Invalid: Provide a Whole Number OR Provide a string in MM:SS where MM and SS are numbers"
+    );
+    return;
+    }
+  } 
   countDown = setInterval(function () {
     if (minutesVal !== 0) {
       if (secVal !== 0) {
@@ -81,6 +76,10 @@ function setup() {
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
+    document.body.style.backgroundColor = "white";
+    clearInterval(countDown);
+    document.getElementById("timeRemaining").innerHTML = "Time Remaining: 00 : 00 ";
+    
   });
 }
 
