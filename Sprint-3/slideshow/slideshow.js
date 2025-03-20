@@ -2,6 +2,7 @@ const images = [
     "./assets/cute-cat-a.png",
     "./assets/cute-cat-b.jpg",
     "./assets/cute-cat-c.jpg",
+    "./assets/manja-vitolic.jpg"
 ];
 
 
@@ -38,21 +39,23 @@ function autoPlayNext() {
     clearInterval(autoToggleInterval)
     if(autoToggle){
         next();
-        autoToggleInterval=setInterval(next, 5000);
+        autoToggleInterval=setInterval(next, autoToggleTime());
         disableAutoNextAndPrevious()
     }
 }
 
 function autoPlayPrevious() {
-    autoToggle=!autoToggle;
-    
-    
-    clearInterval(autoToggleInterval);
-    if(autoToggle){
+    autoToggle = !autoToggle;
+
+    if (autoToggleInterval) {
+        clearInterval(autoToggleInterval);
+    }
+
+    if (autoToggle) {
         previous();
-        autoToggleInterval=setInterval(previous, 5000);
-        disableAutoNextAndPrevious()
-        
+        const intervalTime = autoToggleTime();
+        autoToggleInterval = setInterval(previous, intervalTime);
+        disableAutoNextAndPrevious();
     }
 }
 
@@ -102,6 +105,27 @@ function next() {
         nextIndex = 0;
     }
     document.getElementById("carousel-img").src = images[nextIndex];
+}
+
+function autoToggleTime() {
+    let autoToggleTime = 5000; // Default to 5000 ms (5 seconds)
+    const intervalElement = document.getElementById('specified-interval');
+    if (intervalElement) {
+        let interval = parseFloat(intervalElement.value.trim());
+        if (!isNaN(interval) && interval > 0) {
+            // Ensure the interval is not less than 1 seconds
+            if (interval < 0.99) {
+                alert('Interval cannot be less than 1 seconds. Setting to 1 seconds.');
+                interval = 1;
+            } 
+            autoToggleTime = interval * 1000; // Convert toseconds
+        } else {
+            console.warn('Invalid interval value. Using default interval.');
+        }
+    } else {
+        console.warn('Element with ID "specified-interval" not found.');
+    }
+    return autoToggleTime;
 }
 
 //Determines the index of the current displayed image
