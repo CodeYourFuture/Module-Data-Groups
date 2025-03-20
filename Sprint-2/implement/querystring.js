@@ -6,12 +6,12 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, ...valueParts] = pair.split("=");
-    const value = valueParts.join("="); // Rejoin the value in case it contains '='
-    queryParams[key] = decodeURIComponent(value || ""); // Handle undefined values and decode URI components
-  }
+    const [decodedKey, ...decodedValueParts] = pair.split("=");
+    const key = decodeURIComponent(decodedKey);
+    const value = decodeURIComponent(decodedValueParts.join("=") || "");
 
+    queryParams[key] = value;
+  }
   return queryParams;
 }
-
 module.exports = parseQueryString;
