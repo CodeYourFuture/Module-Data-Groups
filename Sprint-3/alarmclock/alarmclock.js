@@ -23,9 +23,10 @@ function setAlarm() {
     secondsLeft--;
 
     if (secondsLeft <= 0) {
-      setInterval(countdown);
-      setAlarm();
-      alert("Time's up!");
+      clearInterval(countdown);
+      playAlarm();
+
+      console.log("Time's up!");
     }
 
     updateHeading();
