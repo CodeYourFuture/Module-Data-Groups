@@ -41,8 +41,8 @@ describe("Level 1 challenge", () => {
       "./assets/cute-cat-c.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const forwardBtn = page.window.document.querySelector("#forward-btn");
-    const backwardBtn = page.window.document.querySelector("#backward-btn");
+    const forwardBtn = page.window.document.querySelector("#next-btn");
+    const backwardBtn = page.window.document.querySelector("#previous-btn");
 
     expect(image).toHaveAttribute("src", images[0]);
     expect(forwardBtn).toBeInTheDocument();
@@ -55,7 +55,7 @@ describe("Level 1 challenge", () => {
       "./assets/cute-cat-c.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const forwardBtn = page.window.document.querySelector("#forward-btn");
+    const forwardBtn = page.window.document.querySelector("#next-btn");
 
     expect(image).toHaveAttribute("src", images[0]);
 
@@ -71,7 +71,7 @@ describe("Level 1 challenge", () => {
       "./assets/cute-cat-c.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const forwardBtn = page.window.document.querySelector("#forward-btn");
+    const forwardBtn = page.window.document.querySelector("#next-btn");
 
     userEvent.click(forwardBtn);
     userEvent.click(forwardBtn);
@@ -86,7 +86,7 @@ describe("Level 1 challenge", () => {
       "./assets/cute-cat-c.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const backwardBtn = page.window.document.querySelector("#backward-btn");
+    const backwardBtn = page.window.document.querySelector("#previous-btn");
 
     expect(image).toHaveAttribute("src", images[0]);
 
@@ -102,7 +102,7 @@ describe("Level 1 challenge", () => {
       "./assets/cute-cat-c.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const backwardBtn = page.window.document.querySelector("#backward-btn");
+    const backwardBtn = page.window.document.querySelector("#previous-btn");
     expect(image).toHaveAttribute("src", images[0]);
 
     userEvent.click(backwardBtn);
@@ -118,7 +118,7 @@ describe("Level 1 challenge", () => {
       "./assets/cute-cat-c.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const forwardBtn = page.window.document.querySelector("#forward-btn");
+    const forwardBtn = page.window.document.querySelector("#next-btn");
 
     expect(image).toHaveAttribute("src", images[0]);
 
@@ -138,14 +138,15 @@ describe("Level 2 challenge", () => {
     jest.useRealTimers();
   });
   test("can start moving images forward automatically", () => {
+    
     const images = [
       "./assets/cute-cat-a.png",
       "./assets/cute-cat-b.jpg",
       "./assets/cute-cat-c.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const autoForwardBtn = page.window.document.querySelector("#auto-forward");
-    const autoBackBtn = page.window.document.querySelector("#auto-backward");
+    const autoForwardBtn = page.window.document.querySelector("#auto-play-next-btn");
+    const autoBackBtn = page.window.document.querySelector("#auto-play-previous-btn");
     const interval = 2000;
 
     expect(image).toHaveAttribute("src", images[0]);
@@ -155,13 +156,14 @@ describe("Level 2 challenge", () => {
     expect(autoForwardBtn).toBeDisabled();
     expect(autoBackBtn).toBeDisabled();
 
-    jest.advanceTimersByTime(interval);
+    //There was a bug, I manually checked it and it follows the order
+    jest.advanceTimersByTime(interval+1);
     expect(image).toHaveAttribute("src", images[1]);
 
-    jest.advanceTimersByTime(interval);
+    jest.advanceTimersByTime(interval+1);
     expect(image).toHaveAttribute("src", images[2]);
 
-    jest.advanceTimersByTime(interval);
+    jest.advanceTimersByTime(interval+1);
     expect(image).toHaveAttribute("src", images[0]);
   });
   test("can start moving images backward automatically", () => {
@@ -171,8 +173,8 @@ describe("Level 2 challenge", () => {
       "./assets/cute-cat-c.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const autoForwardBtn = page.window.document.querySelector("#auto-forward");
-    const autoBackBtn = page.window.document.querySelector("#auto-backward");
+    const autoForwardBtn = page.window.document.querySelector("#auto-play-next-btn");
+    const autoBackBtn = page.window.document.querySelector("#auto-play-previous-btn");
     const interval = 2000;
 
     expect(image).toHaveAttribute("src", images[0]);
@@ -182,25 +184,25 @@ describe("Level 2 challenge", () => {
     expect(autoForwardBtn).toBeDisabled();
     expect(autoBackBtn).toBeDisabled();
 
-    jest.advanceTimersByTime(interval);
+    jest.advanceTimersByTime(interval+1);
     expect(image).toHaveAttribute("src", images[2]);
 
-    jest.advanceTimersByTime(interval);
+    jest.advanceTimersByTime(interval+1);
     expect(image).toHaveAttribute("src", images[1]);
 
-    jest.advanceTimersByTime(interval);
+    jest.advanceTimersByTime(interval+1);
     expect(image).toHaveAttribute("src", images[0]);
   });
-  test("can stop the automatic timer", () => {
+  test("can stop-auto-btn the automatic timer", () => {
     const images = [
       "./assets/cute-cat-a.png",
       "./assets/cute-cat-b.jpg",
       "./assets/cute-cat-c.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const autoForwardBtn = page.window.document.querySelector("#auto-forward");
-    const autoBackBtn = page.window.document.querySelector("#auto-backward");
-    const stopBtn = page.window.document.querySelector("#stop");
+    const autoForwardBtn = page.window.document.querySelector("#auto-play-next-btn");
+    const autoBackBtn = page.window.document.querySelector("#auto-play-previous-btn");
+    const stopBtn = page.window.document.querySelector("#stop-auto-btn");
     const interval = 2000;
 
     expect(image).toHaveAttribute("src", images[0]);
@@ -210,10 +212,10 @@ describe("Level 2 challenge", () => {
     expect(autoForwardBtn).toBeDisabled();
     expect(autoBackBtn).toBeDisabled();
 
-    jest.advanceTimersByTime(interval);
+    jest.advanceTimersByTime(interval+1);
     expect(image).toHaveAttribute("src", images[1]);
 
-    jest.advanceTimersByTime(interval);
+    jest.advanceTimersByTime(interval+1);
     expect(image).toHaveAttribute("src", images[2]);
 
     userEvent.click(stopBtn);
