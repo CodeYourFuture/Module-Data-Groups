@@ -16,9 +16,36 @@
 // 2 - We actually don't need .splice() or any other method to find a median.
 // 3 - We must sort the array before we search for the median.
 // 4 - We should check if the 'list' parameter actually has numbers, otherwise try to filter
-// out all non-numeric values or throw an error if there are no numeric values.
+// out all non-numeric values and throw an error or return null if there are no numeric values.
+
+
+// Example of a function calculating median and returning null in case no numeric values provided.
 
 function calculateMedian(list) {
+  if (!Array.isArray(list)) {
+    return null;
+  }
+  const onlyNumberList = list.filter(item => typeof item === 'number' && !isNaN(item));
+
+  if (!onlyNumberList.length) {
+    return null;
+  } else {
+    const sortedList = onlyNumberList.sort((current, next) => current - next);
+    const indexNearMiddleOfArray = Math.floor(sortedList.length / 2);
+    if (sortedList.length % 2 === 0) {
+      return (sortedList[indexNearMiddleOfArray - 1] + sortedList[indexNearMiddleOfArray]) / 2;
+    } else {
+      return sortedList[indexNearMiddleOfArray];
+    }
+  }
+}
+
+// Example of a function calculating median and throwing error in case no numeric values provided.
+
+function calculateMedianImproved(list) {
+  if (!Array.isArray(list)) {
+    throw new Error('You provided not an array.');
+  }
   const onlyNumberList = list.filter(item => typeof item === 'number' && !isNaN(item));
 
   if (!onlyNumberList.length) {
@@ -34,4 +61,4 @@ function calculateMedian(list) {
   }
 }
 
-module.exports = calculateMedian;
+module.exports = { calculateMedian, calculateMedianImproved };
