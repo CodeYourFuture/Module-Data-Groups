@@ -11,12 +11,14 @@ function parseQueryString(queryString) {
     if (!pair) continue;
 
     const [key, ...valuePart] = pair.split("=");
-    const value = valuePart.join("=");
+    const decodedKey = decodeURIComponent(key);
+    const decodedValue = decodeURIComponent(valuePart.join("="));
 
-    queryParams[key] = value;
+    queryParams[decodedKey] = decodedValue;
   }
 
   return queryParams;
 }
+console.log(parseQueryString("a%25b=c%26d"));
 
 module.exports = parseQueryString;
