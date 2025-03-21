@@ -40,25 +40,4 @@ function calculateMedian(list) {
   }
 }
 
-// Example of a function calculating median and throwing error in case no numeric values provided.
-
-function calculateMedianImproved(list) {
-  if (!Array.isArray(list)) {
-    throw new Error('You provided not an array.');
-  }
-  const onlyNumberList = list.filter(item => typeof item === 'number' && !isNaN(item));
-
-  if (!onlyNumberList.length) {
-    throw new Error('You provided a list without numbers.');
-  } else {
-    const sortedList = onlyNumberList.sort((current, next) => current - next);
-    const indexNearMiddleOfArray = Math.floor(sortedList.length / 2);
-    if (sortedList.length % 2 === 0) {
-      return (sortedList[indexNearMiddleOfArray - 1] + sortedList[indexNearMiddleOfArray]) / 2;
-    } else {
-      return sortedList[indexNearMiddleOfArray];
-    }
-  }
-}
-
-module.exports = { calculateMedian, calculateMedianImproved };
+module.exports = calculateMedian;
