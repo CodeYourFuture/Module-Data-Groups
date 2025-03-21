@@ -16,6 +16,10 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
+
+
+
+
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -324,7 +328,7 @@ const quotes = [
   {
     quote:
       "What's money? A man is a success if he gets up in the morning and goes to bed at night and in between does what he wants to do.",
-    author: "Bob Dylan",
+    author: "Bob Dylan"
   },
   {
     quote: "I didn't fail the test. I just found 100 ways to do it wrong.",
@@ -486,8 +490,24 @@ const quotes = [
   },
   {
     quote: "If you can dream it, you can achieve it.",
-    author: "Zig Ziglar",
-  },
+    author: "Zig Ziglar"
+  }
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+
+// event listener for page load
+function updateQuote(){
+  const randomQuote = pickFromArray(quotes);
+
+   document.getElementById("quote").textContent = `"${randomQuote.quote}"`;
+   document.getElementById("author").textContent = `- ${randomQuote.author}`;
+};
+
+  document.addEventListener("DOMContentLoaded", function () {
+    updateQuote(); // Display a random quote when the page loads
+
+  // Add event listener to the 'New Quote' button
+  document.getElementById("new-quote").addEventListener("click", updateQuote);
+});
