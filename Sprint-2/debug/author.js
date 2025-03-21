@@ -1,5 +1,5 @@
 // Predict and explain first...
-// Ans : Object cannot iterable . 
+// Ans : Object cannot iterable like array using for... of
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
