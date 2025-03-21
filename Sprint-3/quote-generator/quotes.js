@@ -497,7 +497,7 @@ const quotes = [
 // call pickFromArray with the quotes array to check you get a random quote
 
 
-// event listener for page load
+
 function updateQuote(){
   const randomQuote = pickFromArray(quotes);
 
