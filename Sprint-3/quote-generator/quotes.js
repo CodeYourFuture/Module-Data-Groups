@@ -16,9 +16,87 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+// function pickFromArray(choices) {
+//   return choices[Math.floor(Math.random() * choices.length)];
+// }
+
+// const quoteText = document.querySelector("#quote");
+// const quoteAuthor = document.querySelector("#author");
+// const button = document.querySelector("#new-quote");
+
+// function randomQuoteGenerate() {
+//   const randomQuote = pickFromArray(quotes);
+//   quoteText.textContent = randomQuote.quote;
+//   quoteAuthor.textContent = randomQuote.author;
+// }
+
+// window.onload = randomQuoteGenerate;
+
+// button.addEventListener("click", randomQuoteGenerate);
+
+
+
+// ============================ random play version =============================
+
+let backgroundSound = new Audio("assets/SPACE.mp3");
+let isSoundStarted = false; 
+
+function playSound() {
+  backgroundSound.play().catch((error) => {
+    console.error("Error to play sound", error);
+  });
 }
+
+function pickFromArray(quotes) {
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
+const container = document.querySelector("#container-quote");
+const quoteText = document.querySelector("#quote");
+const quoteAuthor = document.querySelector("#author");
+const button = document.querySelector("#new-quote");
+
+function randomQuoteGenerate() {
+  const randomArr = pickFromArray(quotes);
+  quoteText.textContent = randomArr.quote;
+  quoteAuthor.textContent = randomArr.author;
+}
+
+window.onload = () => {
+  randomQuoteGenerate();
+};
+
+button.addEventListener("click", () => {randomQuoteGenerate();
+  if (!isSoundStarted) {
+    playSound();
+    isSoundStarted = true;
+  }
+});
+
+const secondButton = document.createElement("button");
+secondButton.textContent = "Play Auto-Quotes";
+secondButton.classList.add("btn");
+
+container.appendChild(secondButton);
+
+let quoteInterval;
+
+secondButton.addEventListener("click", () => {
+  if (quoteInterval) {
+    clearInterval(quoteInterval);
+    quoteInterval = null;
+    secondButton.textContent = "Play Auto-Quotes";
+  } else {
+    quoteInterval = setInterval(randomQuoteGenerate, 2000);
+    secondButton.textContent = "Stop";
+    if (!isSoundStarted) {
+      playSound(); 
+      isSoundStarted = true;
+    }
+  }
+});
+
+// ========================= array quotes ======================
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
