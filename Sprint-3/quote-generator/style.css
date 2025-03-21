@@ -1,1 +1,61 @@
 /** Write your CSS in here **/
+
+* {
+    margin: 2;
+    padding: 2;
+    box-sizing: border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+      /*Center the quote generator  */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:(hsl(0, 0%, 94%));
+    color:rgb(249, 246, 246);
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Style the quote container */
+  .centre {
+    background: rgba(34, 34, 29, 0.7);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(218, 25, 25, 0.3);
+    max-width: 500px;
+  }
+  
+  /* Style the quote text */
+  #quote {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  
+  /* Style the author */
+  #author {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the button */
+  #new-quote {
+    background:rgb(17, 18, 17);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  #new-quote:hover {
+    background:rgb(39, 41, 39); 
+
+  }
