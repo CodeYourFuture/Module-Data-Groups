@@ -1,1 +1,230 @@
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 
+}
+.borel-regular {
+    font-family: "Borel", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.nunito-uniquifier {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+/*Hot Pink
+#FFAEBC
+
+Tiffany Blue
+#A0E7E5
+
+Mint
+#B4F8C8
+
+Yellow
+#FBE7C6
+*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.container{
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 10px;
+    background: #ffb9c4a8;
+
+
+}
+
+.todo-app{
+    width: 100%;
+    max-width: 400px;
+    background: #A0E7E5;
+    margin: auto;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.todo-app h2{
+    color: rgb(120, 120, 120);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: "Borel", serif;
+    font-weight: 500;
+    font-size: 40px;
+    font-style: normal;
+
+}
+
+.todo-app h2 img {
+    width: 50px;
+    margin-left: 10px;
+
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f5fef8;
+    border-radius: 30px;
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+
+}
+
+#list-container li {
+    list-style: none;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: #c1f7b2;
+    padding: 10px;
+     border-radius: 20px;
+        margin: 10px;
+    font-size: 16px;
+ 
+}
+
+
+button{
+
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    color: rgb(80, 80, 80);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    background: #f6f87e;
+    transition: background 0.3s ease;
+    font-family: "Nunito", serif;
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+
+ul li{
+     display: flex;
+    align-items: center;
+     padding: 15px;
+    background: white;
+   margin-bottom: 10px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(101, 151, 91, 0.1);
+    cursor: pointer;
+     position: relative;
+    transition: background 0.3s ease;
+   font-family: "Borel", serif;
+    font-weight: 400;
+     font-size: 20px;
+    font-style: normal;
+    color: #585858;
+    margin-left: 10px;
+   margin-right: 10px;
+}
+
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-image: url(assets/unchecked.png);
+    background-size: cover;
+    background-position: center;
+     top: 50%;
+    left: 15px;
+     transform: translateY(-50%);
+   margin-left: 0px;
+}
+
+ul li.checked{
+    color:#f78598;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+
+    background-image: url(assets/checked.png);
+
+}
+
+.task-container{
+  display: flex;
+  align-items: center;
+}
+
+.task-text {
+   margin-left: 5px;
+}
+.toggle-icon, .delete-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+     margin-left: 5px;
+}
+
+
+ul li .delete-icon {
+   right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+ul li .toggle-icon{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    left:0;
+}
+ul li .task-text {
+    margin-left: 10px;
+}
+
+ul li.checked .task-text::after{
+  content: "✓";
+  position: absolute;
+  right: 0px;
+ top: 50%;
+  transform: translateY(-50%);
+    color: #f78598;
+     font-size: 25px;
+    line-height:20px;
+    text-align: center;
+
+}
