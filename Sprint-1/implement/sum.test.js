@@ -6,14 +6,14 @@ E.g. sum([10, 20, 30]), target output: 60
 E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical elements)
 */
 
-const sum = require("./sum.js");
+// const sum = require("./sum.js");
 
 // Acceptance Criteria:
 
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0")
+// test.todo("given an empty array, returns 0")
 
 // Given an array with just one number
 // When passed to the sum function
@@ -34,3 +34,30 @@ test.todo("given an empty array, returns 0")
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+const sum = require("./sum.js");
+
+describe("sum", () => {
+  test("given an empty array, returns 0", () => {
+    expect(sum([])).toEqual(0);
+  });
+
+  test("given an array with just one number, returns that number", () => {
+    expect(sum([42])).toEqual(42);
+  });
+
+  test("given an array containing negative numbers, returns the correct total sum", () => {
+    expect(sum([-10, -20, -30])).toEqual(-60);
+  });
+
+  test("given an array with decimal/float numbers, returns the correct total sum", () => {
+    expect(sum([1.5, 2.5, 3.5])).toEqual(7.5);
+  });
+
+  test("given an array containing non-number values, ignores them and returns the sum of numerical elements", () => {
+    expect(sum(["hello", 10, "world", 60, 20])).toEqual(90);
+  });
+
+  test("given an array with only non-number values, returns 0", () => {
+    expect(sum(["apple", "banana", "cherry"])).toEqual(0);
+  });
+});
