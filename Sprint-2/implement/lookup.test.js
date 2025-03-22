@@ -32,4 +32,16 @@ It should return:
    'US': 'USD',
    'CA': 'CAD'
  }
-*/
+*/ 
+//const countryCurrencyPairs = [['US', 'USD'], ['CA', 'CAD']]
+//createLookup(countryCurrencyPairs) 
+
+describe("lookup", () => {
+  test("should return object in muly courency", () => {
+    expect(createLookup([['US', 'USD'], ['CA', 'CAD']])).toEqual({
+      'US': 'USD',
+      'CA': 'CAD'
+    });
+  });
+})
+

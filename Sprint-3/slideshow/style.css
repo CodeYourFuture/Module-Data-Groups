@@ -1,1 +1,22 @@
 /** Write your CSS in here **/
+#box-cat {
+    display: flex;
+    justify-content: center; /* по горизонтали */
+    align-items: center;     /* по вертикали */
+    height: 90vh;           /* высота блока (можно задать другую) */ 
+}
+
+
+#carousel-img {
+   
+    height: 600px;
+    width: 900px;
+    
+}
+
+#button {
+    display: flex;
+    justify-content: center; /* по горизонтали */
+    align-items: center;     /* по вертикали */
+    height: 40px;           /* высота блока (можно задать другую) */
+}
