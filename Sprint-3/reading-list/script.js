@@ -1,4 +1,5 @@
-// for the tests, do not modify this array of books
+
+
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -20,4 +21,13 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
+
+
+const booksContainer = document.getElementById("placeholder");
+
+books.forEach ((book) => {
+  const bookDiv = document.createElement("div");
+  bookDiv.innerHTML = book.title + book.author + '<img src="' + book.bookCoverImage + '" />';
+  booksContainer.appendChild(bookDiv);
+});
 

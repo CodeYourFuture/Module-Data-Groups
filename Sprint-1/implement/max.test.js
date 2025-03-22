@@ -9,8 +9,50 @@ You should implement this function in max.js, and add tests for it in this file.
 
 We have set things up already so that this file can see your function from the other file.
 */
+/////
 
 const findMax = require("./max.js");
+
+
+
+describe ("findMax", () => {
+  test.todo("Given an empty array", () => {
+    expect(calculateMedian([])).toEqual(-Infinity);
+  });
+
+  test.todo("Given an array with one number", () => {
+    expect(calculateMedian([1])).toEqual(1);
+  });
+
+  test.todo("Given an array with both positive and negative numbers", () => {
+    expect(calculateMedian([1, -2])).toEqual(1);
+  });
+
+
+  test.todo("Given an array with just negative numbers", () => {
+    expect(calculateMedian([-2])).toEqual(?);
+  }); 
+// - Then it should return the closest one to zero
+
+
+  test.todo("Given an array with decimal numbers", () => {
+    expect(calculateMedian([?])).toEqual(?);
+  });
+// Then it should return the largest decimal number
+
+
+  test.todo("Given an array with non-number values", () => {
+    expect(calculateMedian([?])).toEqual(?);
+  });
+// Then it should return the max and ignore non-numeric values
+
+  test.todo("Given an array with only non-number values", () => {
+    expect(calculateMedian([?])).toEqual(?);
+  });
+// Then it should return the least surprising value given how it behaves for all other inputs
+
+})
+
 
 // Given an empty array
 // When passed to the max function
