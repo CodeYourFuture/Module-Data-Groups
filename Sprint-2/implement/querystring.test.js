@@ -10,3 +10,18 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring values containing =", () => {
+  expect(parseQueryString("")).toEqual({})
+});
+
+test("parses querystring values containing =", () => {
+  expect(parseQueryString("    equation=   x=   y+1")).toEqual({"    equation": "   x=   y+1"})
+});
+
+test("parses querystring values containing =", () => {
+  expect(parseQueryString("equation=y+1&equation2=z=3")).toEqual({"equation":"y+1","equation2":"z=3"})
+});
+
+
+
