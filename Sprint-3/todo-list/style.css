@@ -1,1 +1,15 @@
-
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+li {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+button {
+    margin-left: 10px;
+    cursor: pointer;
+}
