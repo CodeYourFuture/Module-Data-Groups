@@ -15,10 +15,6 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
-// You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
-}
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
@@ -491,3 +487,41 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+
+// Function to display a specific quote
+// quoteObj example: { quote: "hello", author: "Einstein"}
+// displayQuote({ quote: "hello", author: "Einstein"})
+function displayQuote(quoteObj) {
+  quoteElement.innerText = `"${quoteObj.quote}"`;
+  authorElement.innerText = `- ${quoteObj.author}`;
+}
+
+// get a random item from the choices array and return it.
+function pickFromArray(choices) {
+  // math.random makes a random number 0-1. array length =10. 0*10=0, 0.5*10=5
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+
+function displayRandomQuote() {
+  // get a random item from the array 
+  const randomQuote = pickFromArray(quotes);
+  // console.log(randomQuote)
+  // change this too! it should not always show the same quote
+  displayQuote(randomQuote); 
+}
+
+// Ensure the first quote is Albert Einstein's
+window.addEventListener("DOMContentLoaded", () => {
+  // display a random quote here by calling the randomQuote() function
+   displayRandomQuote();
+
+
+  // when teh button is pressed, also display a random quote.
+  // Change the quote when the button is clicked
+  newQuoteButton.addEventListener("click", displayRandomQuote);
+});
