@@ -1,1 +1,18 @@
 /** Write your CSS in here **/
+body{
+    background-color: orange;
+}
+article{
+    background-color: white;
+    padding: 20px 80px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 200%;
+    text-align: end;
+}
+
+button{
+    background-color: aqua;
+    width: 100px;
+    height: 50px;
+    font-size: medium;
+}
