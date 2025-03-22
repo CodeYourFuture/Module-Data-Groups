@@ -13,3 +13,36 @@
 h1 {
   text-align: center;
 }
+
+@keyframes blink {
+  100% { color: rgb(0, 145, 255); }
+}
+
+.blinking {
+  animation: blink 0.8s infinite;
+}
+
+@keyframes bg-blink {
+  50% { background-color: red; }
+  100% { background-color: black; }
+}
+
+.bg-blinking {
+  animation: bg-blink 0.7s infinite;
+}
+
+
+.active {
+  background-color: green !important;
+  color: white;
+}
+
+.paused {
+  background-color: orange !important;
+  color: black;
+}
+
+.disabled {
+  background-color: gray !important;
+  color: white;
+}
