@@ -33,8 +33,11 @@ describe("dedupe", () => {
   });
 
   test("given an array with no duplicates, it returns a copy of the original array", () => {
-    expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);
-    expect(dedupe(["a", "b", "c"])).toEqual(["a", "b", "c"]);
+    const input = [1, 2, 3];
+    const result = dedupe(input);
+
+    expect(result).toEqual([1, 2, 3]);
+    expect(result).not.toBe(input);
   });
 
   test("given an array with strings or numbers, it removes the duplicate values, preserving the first occurrence", () => {
