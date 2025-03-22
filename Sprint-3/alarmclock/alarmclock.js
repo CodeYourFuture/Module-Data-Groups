@@ -1,28 +1,29 @@
+"use strict";
 const input = document.querySelector("input");
-let time = 0;
+let secondsLeft = 0;
 let timerId;
 
 function setAlarm() {
-  time = input.valueAsNumber;
-  changeDisplayTime(time);
+  secondsLeft = input.valueAsNumber;
+  changeDisplayTime(secondsLeft);
   timerId = setInterval(deduction, 1000);
 }
 
 function deduction() {
-  --time;
-  changeDisplayTime(time);
-  if (time == 0) {
+  --secondsLeft;
+  changeDisplayTime(secondsLeft);
+  if (secondsLeft == 0) {
     clearInterval(timerId);
     playAlarm();
     document.body.style.background = "#ff4d4d";
   }
 }
 
-function changeDisplayTime(time) {
-  minutesRemaining = Math.floor(time / 60).toString();
-  paddedMinutesRemaining = minutesRemaining.padStart(2, "0");
-  secondsRemaining = (time % 60).toString();
-  paddedSecondsRemaining = secondsRemaining.padStart(2, "0");
+function changeDisplayTime(secondsLeft) {
+  const minutesRemaining = Math.floor(secondsLeft / 60).toString();
+  const paddedMinutesRemaining = minutesRemaining.padStart(2, "0");
+  const secondsRemaining = (secondsLeft % 60).toString();
+  const paddedSecondsRemaining = secondsRemaining.padStart(2, "0");
   const timeRemaining = `${paddedMinutesRemaining}:${paddedSecondsRemaining}`;
   const charactersLeftP = document.querySelector("#timeRemaining");
   charactersLeftP.innerText = `Time Remaining: ${timeRemaining}`;
