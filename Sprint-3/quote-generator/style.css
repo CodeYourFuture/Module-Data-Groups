@@ -1,1 +1,26 @@
 /** Write your CSS in here **/
+body {
+    margin-top: 300px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(to right, rgb(151, 128, 229), rgb(236, 236, 94));
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    font-size: larger;
+    background-color: lightgreen;
+    color: black;
+}
+
+button:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+hr {
+    width: 500px;
+}
