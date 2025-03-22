@@ -8,29 +8,40 @@
 // refactor calculateMode by splitting up the code
 // into smaller functions using the stages above
 
-function calculateMode(list) {
-  // track frequency of each value
-  let freqs = new Map();
+// Helper function: Tracks how often each number appears in the list
+function trackFrequency(list) {
+  let frequencies = new Map();
 
-  for (let num of list) {
-    if (typeof num !== "number") {
-      continue;
+  // Loop through the list and count the occurrences of each number
+  for (let number of list) {
+    if (typeof number !== "number") {
+      continue;  // Ignore non-numeric values
     }
 
-    freqs.set(num, (freqs.get(num) || 0) + 1);
+    frequencies.set(number, (frequencies.get(number) || 0) + 1);  // Update the frequency count
   }
 
-  // Find the value with the highest frequency
-  let maxFreq = 0;
-  let mode;
-  for (let [num, freq] of freqs) {
-    if (freq > maxFreq) {
-      mode = num;
-      maxFreq = freq;
-    }
-  }
-
-  return maxFreq === 0 ? NaN : mode;
+  return frequencies;
 }
 
-module.exports = calculateMode;
+// Helper function: Determines the number with the highest frequency
+function findMode(frequencies) {
+  let highestFrequency = 0;
+  let modeValue;
+
+  // Iterate through the frequency map to find the mode
+  for (let [number, frequency] of frequencies) {
+    if (frequency > highestFrequency) {
+      modeValue = number;
+      highestFrequency = frequency;
+    }
+  }
+
+  return modeValue;
+}
+
+// Main function: Calculates the mode by using the helper functions
+function calculateMode(list) {
+  const frequencies = trackFrequency(list); // Get the frequency count of each number
+  return findMode(frequencies); // Find and return the mode (the most frequent number)
+}
