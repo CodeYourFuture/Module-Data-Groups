@@ -19,30 +19,28 @@ const timer = document.querySelector("#timer");
 let intervalTimer = Number(timer.value);
 let interval
 const img = document.querySelector("#carousel-img");
-img.src = images[0]
-let x = 0;
+let imgIndex = 0;
+img.src = images[imgIndex]
+
 
 function moveForward(){
-    if (x === images.length-1){
-        x = 0
+    if (imgIndex === images.length-1){
+        imgIndex = 0
     }else {
-        x += 1;
+        imgIndex += 1;
     }
-    img.src = images[x];
-    return x
+    img.src = images[imgIndex];
+    return imgIndex
 }
 function moveBackward() {
-    if ((x === 0)) {
-      x = images.length - 1;
+    if (imgIndex === 0) {
+      imgIndex = images.length - 1;
     } else {
-      x -= 1;
+      imgIndex -= 1;
     }
-    img.src = images[x];
-    return x
+    img.src = images[imgIndex];
+    return imgIndex;
 }
-timer.addEventListener("input", () => {
-    intervalTimer = Number(timer.value);
-})
 function moveBackwardAuto(){
     clearInterval(interval);
     if (intervalTimer <= 0) {
@@ -51,7 +49,8 @@ function moveBackwardAuto(){
         interval = setInterval(moveBackward, (intervalTimer * 1000));
     }
     timer.value = "";
-    
+    autoForwardBtn.disabled = true;
+    autoBackBtn.disabled = true;
 }
 function moveForwardAuto(){
     clearInterval(interval);
@@ -61,10 +60,18 @@ function moveForwardAuto(){
         interval = setInterval(moveForward, (intervalTimer * 1000));
     }
     timer.value = "";
+    autoForwardBtn.disabled = true;
+    autoBackBtn.disabled = true;
 }
 function stopAuto(){
     clearInterval(interval)
+    autoForwardBtn.disabled = false;
+    autoBackBtn.disabled = false
 }
+
+timer.addEventListener("input", () => {
+  intervalTimer = Number(timer.value);
+});
 backwardBtn.addEventListener("click", moveBackward);
 forwardBtn.addEventListener("click", moveForward);
 autoBackBtn.addEventListener("click", moveBackwardAuto);

@@ -57,13 +57,9 @@ function pausingAlarm(){
   }
 }
 function convertSeconds(seconds) {
-  let hh = Math.floor(seconds / 3600);
-  let mm = Math.floor((seconds % 3600) / 60);
+  let mm = Math.floor(seconds / 60);
   let ss = seconds % 60;
-  let clockDisplay = `${String(hh).padStart(2, "0")}:${String(mm).padStart(
-    2,
-    "0"
-  )}:${String(ss).padStart(2, "0")}`;
+  let clockDisplay = `${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`;
   return clockDisplay;
 }
 

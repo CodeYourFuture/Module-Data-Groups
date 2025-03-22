@@ -15,7 +15,14 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
-// You don't need to change this function
+// defining DOM elements and global variables
+
+const quoteText = document.querySelector("#quote");
+const authorText = document.querySelector("#author");
+const newQuoteBtn = document.querySelector("#new-quote");
+const checkBox = document.querySelector("#autoOnOff");
+const onOffDisplay = document.querySelector("#onOff");
+let interval;
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
@@ -487,28 +494,19 @@ const quotes = [
   },
 ];
 
+// Defining Functions to be used
+
 // call pickFromArray with the quotes array to check you get a random quote
 function pickFromArray(choices) {
   const randomQuote = choices[Math.floor(Math.random() * choices.length)];
   return randomQuote;
 }
 function resetQuote(){
-let obj = pickFromArray(quotes);
-const quoteText = document.querySelector("#quote");
-const authorText = document.querySelector("#author");
+  let obj = pickFromArray(quotes);
 
-quoteText.innerText = `"${obj.quote}"`;
-authorText.innerText = `By ${obj.author}`;
-
+  quoteText.innerText = `"${obj.quote}"`;
+  authorText.innerText = `By ${obj.author}`;
 }
-const newQuoteBtn = document.querySelector("#new-quote");
-resetQuote()
-newQuoteBtn.addEventListener("click", resetQuote)
-
-const checkBox = document.querySelector("#autoOnOff");
-const onOffDisplay = document.querySelector("#onOff")
-let interval
-checkBox.addEventListener("change", autoPlayer)
 function autoPlayer(){
   if (checkBox.checked){
     onOffDisplay.innerText = `Auto-play is On`;
@@ -519,3 +517,8 @@ function autoPlayer(){
     clearInterval(interval)
   }
 }
+
+// Actions and Event Listeners
+resetQuote();
+newQuoteBtn.addEventListener("click", resetQuote);
+checkBox.addEventListener("change", autoPlayer);
