@@ -15,15 +15,6 @@ function includes(list, target) {
 
 module.exports = includes;
 
-//function includes(list, target) {
- // for (const element of list) {
-   // if (element === target) {
-    //  return true;
-  //  }
-//  }
-//  return false;
-//}
-
 
 
 
