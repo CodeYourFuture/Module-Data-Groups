@@ -12,6 +12,6 @@ function tally(arr) {
 }
 
 
-
+module.exports=tally;
 
 
