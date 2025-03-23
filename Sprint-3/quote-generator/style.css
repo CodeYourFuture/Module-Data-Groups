@@ -1,1 +1,56 @@
 /** Write your CSS in here **/
+
+body {
+  background-color: #aaf6ee;
+  font-family: Arial, sans-serif;
+  display: space-around;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 250px;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#author {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #555;
+  align-self: flex-end;
+}
+
+button {
+  background-color: #8fe8db;
+  color: rgb(1, 33, 34);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #16eac0;
+}
