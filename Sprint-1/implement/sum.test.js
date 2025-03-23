@@ -63,7 +63,7 @@ describe("sum", () => {
 
   test("given an array with decimal/float numbers, return correct total sum", () => {
     expect(sum([1.5, 2.5, 3.5])).toEqual(7.5);
-    expect(sum([-1.1, -2.2, 3.3])).toEqual(0);
+    expect(sum([-1.1, -2.2, 3.3])).toBeCloseTo(0); //using to be close to to fix issue with unpredicted decimal points
   });
 
   test("given an array containing non-number values, ignore non numeric and return correct total sum for numerical elements", () => {
