@@ -14,9 +14,13 @@ function parseQueryString(queryString) {
     // Split only at the first "=" to separate key and value, keeping the rest of the value intact
     const [key, ...valueParts] = pair.split("=");
     const value = valueParts.join("="); // Join the rest of the parts together to preserve the value
-
-    // Assign the key-value pair to the queryParams object
-    queryParams[key] = value;
+    
+    // Decode the key and value to handle percent-encoded characters
+     const decodedKey = decodeURIComponent(key);
+     const decodedValue = decodeURIComponent(value);
+    
+     // Assign the key-value pair to the queryParams object
+    queryParams[decodedKey] = decodedValue;
   }
 
   return queryParams;
