@@ -45,3 +45,16 @@ test("contains with invalid parameters (array) return false", () => {
     expect(contains([] , 'a')).toEqual(false);
 });
 
+// Given an array, it correctly returns false (even if index keys exist)
+test("contains with an array should return false", () => {
+  expect(contains([1, 2, 3], "1")).toEqual(false);
+});
+
+// Given invalid data types, it correctly returns false
+test("contains with invalid parameters return false", () => {
+  expect(contains(42, 'a')).toEqual(false);       // Number
+  expect(contains(null, 'a')).toEqual(false);     // Null
+  expect(contains(undefined, 'a')).toEqual(false); // Undefined
+  expect(contains("hello", 'a')).toEqual(false);  // String
+  expect(contains(true, 'a')).toEqual(false);     // Boolean
+});
