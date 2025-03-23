@@ -25,6 +25,6 @@ for (const value of author) {
 }
 */
 // using (for .. in) loop to iterate over the keys of the object 
-for (const value in author){
-  console.log(author[value]);
+for (const key in author){
+  console.log(author[key]);
 }
