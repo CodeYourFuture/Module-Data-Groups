@@ -26,3 +26,22 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+
+function countWords(inputString) {
+  const cleanedString = inputString.replace(/[^\w\s]/g, "").toLowerCase();
+
+  const words = cleanedString.split(/\s+/);
+
+  const wordCount = {};
+
+  for (const word of words) {
+    if (word) {
+      wordCount[word] = (wordCount[word] || 0) + 1;
+    }
+  }
+
+  return wordCount;
+}
+console.log(countWords("you and me and you"));
+
