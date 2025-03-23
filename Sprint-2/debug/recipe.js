@@ -19,5 +19,3 @@ const recipe = {
 console.log(`${recipe.title} serves ${recipe.serves}
   
 ${recipe.ingredients.join("\n")}`); // we used .join() because the ingredients are inside an array. and we can only join the array with a comma and a space.
-
-

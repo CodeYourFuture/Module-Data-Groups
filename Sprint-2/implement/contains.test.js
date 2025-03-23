@@ -11,8 +11,6 @@ E.g. contains({a: 1, b: 2}, 'c') // returns false
 as the object doesn't contains a key of 'c'
 */
 
-
-
 // Acceptance criteria:
 describe("contains function", () => {
   // Given a contains function

@@ -35,10 +35,9 @@ It should return:
 */
 
 test("creates a country currency code lookup for multiple codes", () => {
-  const countryCurrencyCodes = [["US", "USD"], ["CA", "CAD"]];
+  const countryCurrencyCodes = [["US", "USD"], ["CA", "CAD"][("GB", "GBP")]];
   const lookUp = createLookup(countryCurrencyCodes);
   expect(lookUp["US"]).toBe("USD");
   expect(lookUp["CA"]).toBe("CAD");
-    
-  });
-
+  expect(lookUp["GB"]).toBe("GBP");
+});
