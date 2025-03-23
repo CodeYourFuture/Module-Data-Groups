@@ -1,8 +1,8 @@
 function contains(obj, property) {
-    if (typeof obj !== 'object' || obj === null || typeof property !== 'string'){
+    if (typeof obj !== 'object' || Array.isArray(obj) || typeof property !== 'string'){
         return false;
     }
-    return property in obj;
+    return Object.hasOwn(obj, property);
 }
 
 module.exports = contains;
