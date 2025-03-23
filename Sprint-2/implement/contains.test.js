@@ -29,32 +29,32 @@ as the object doesn't contains a key of 'c'
 // Then it should return true
  // Test 1: Given an empty array, it returns an empty array
  test("contains with an existing property return true", () => {
-    expect(contains({a: 1, b: 2},'a')).toEqual(true);
+    expect(contains({a: 1, b: 2},'a')).toBe(true);
   });
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
 test("contains with non-existent property return false", () => {
-    expect(contains({a: 1, b:2}, 'c')).toEqual(false);
+    expect(contains({a: 1, b:2}, 'c')).toBe(false);
 });
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
 test("contains with invalid parameters (array) return false", () => {
-    expect(contains([] , 'a')).toEqual(false);
+    expect(contains([] , 'a')).toBe(false);
 });
 
 // Given an array, it correctly returns false (even if index keys exist)
 test("contains with an array should return false", () => {
-  expect(contains([1, 2, 3], "1")).toEqual(false);
+  expect(contains([1, 2, 3], "1")).toBe(false);
 });
 
 // Given invalid data types, it correctly returns false
 test("contains with invalid parameters return false", () => {
-  expect(contains(42, 'a')).toEqual(false);       // Number
-  expect(contains(null, 'a')).toEqual(false);     // Null
-  expect(contains(undefined, 'a')).toEqual(false); // Undefined
-  expect(contains("hello", 'a')).toEqual(false);  // String
-  expect(contains(true, 'a')).toEqual(false);     // Boolean
+  expect(contains(42, 'a')).toBe(false);       // Number
+  expect(contains(null, 'a')).toBe(false);     // Null
+  expect(contains(undefined, 'a')).toBe(false); // Undefined
+  expect(contains("hello", 'a')).toBe(false);  // String
+  expect(contains(true, 'a')).toBe(false);     // Boolean
 });
