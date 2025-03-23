@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This README will guide you through the different sections for this sprint.",
   "main": "",
+
   "scripts": {
     "test": "jest"
   },
