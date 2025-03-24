@@ -14,4 +14,15 @@ const address = {
 
 // You can't get values from objects using indexes, you need to reference a key in the object
 
+// To reference object key you can have two notations:
+
+// object.key
+// object['key']
+
+// Bracket notation is useful when your property name has spaces or it is a variable.
+
 console.log(`My house number is ${address.houseNumber}`);
+
+// or
+
+console.log(`My house number is ${address['houseNumber']}`);
