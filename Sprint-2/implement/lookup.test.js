@@ -3,6 +3,21 @@ const createLookup = require("./lookup.js");
 test.todo("creates a country currency code lookup for multiple codes");
 
 describe("createLookup", () => {
+  test("should throw an error if elements are not arrays", () => {
+    expect(() => createLookup(["US USD CA CAD"])).toThrow(
+      "Each element in the array must be an array with exactly two elements."
+    );
+  });
+
+  test("should throw an error if inner arrays do not have exactly two elements", () => {
+    expect(() => createLookup([["USD"]])).toThrow(
+      "Each element in the array must be an array with exactly two elements."
+    );
+    expect(() => createLookup([["US", "USD", "CA"]])).toThrow(
+      "Each element in the array must be an array with exactly two elements."
+    );
+  });
+
   test("returns an empty object when given an empty array", () => {
     expect(createLookup([])).toEqual({});
   });
