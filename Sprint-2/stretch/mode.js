@@ -8,7 +8,7 @@
 // refactor calculateMode by splitting up the code
 // into smaller functions using the stages above
 
-function calculateMode(list) {
+/*function calculateMode(list) {
   // track frequency of each value
   let freqs = new Map();
 
@@ -32,5 +32,61 @@ function calculateMode(list) {
 
   return maxFreq === 0 ? NaN : mode;
 }
+  */
+
+
+
+
+// stage 1 : Tracking the frequency of each value 
+
+function calculateMode(list)
+{
+  // create an object to store the frequency of each value 
+  let freqs = {};
+
+  // loop each value from the input
+  for (let num of list)
+  {
+      // if num is number 
+      if (typeof num === "number")
+      {
+        // if the num is already in object add +1 
+        if (freqs[num])
+        {
+          freqs[num]++;
+        }
+        else 
+        {
+          freqs[num]=1;
+        }
+      }
+      
+  }
+
+
+//stage 2 find the largest value (mode)
+
+
+  let maxFreq = 0;  // to store max frequency 
+  let mode ; // to store mode 
+
+  // loop each number , frequency from the object 
+  for (const [num,freq] of Object.entries(freqs))
+  {
+  // if the frequency is greater than maxFreq 
+    if (freq > maxFreq)
+    {
+      mode = num;    // assign mode to the num
+      maxFreq = freq; // update the maxFreq to freq 
+    } 
+
+}
+  return Number(mode);
+}
+
+
+
+let strSent = [1,2,3,4,4,5,4,5,'5',6]
+console.log(calculateMode(strSent));
 
 module.exports = calculateMode;
