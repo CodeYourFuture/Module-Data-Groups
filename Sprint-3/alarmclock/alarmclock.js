@@ -22,7 +22,7 @@ function setAlarm() {}
 
     //clearInterval(countdown)
     countdown= setInterval(function(){
-      timeRemaining.innerText = `Time Remaining: ${totalMinutes < 10 ?'0':''} ${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`
+      timeRemaining.innerText = `Time Remaining: ${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`
       totalSeconds-- 
 
       if (totalSeconds < 0 && totalMinutes > 0){
