@@ -8,6 +8,9 @@ function setAlarm() {
     alert ("Please enter a positive number");
     return;
   }
+  
+  clearInterval(countDown);
+
   timeLeft= timeRemaining; // to set left time 
   updateTimeDisplay(timeLeft);// update time display
 
@@ -15,10 +18,11 @@ function setAlarm() {
     if(timeLeft<=0){
       clearInterval(countDown);//when time is up it will clear countDown
       playAlarm();
-    }else{
-      timeLeft--;
-      updateTimeDisplay(timeLeft);
+      return;
     }
+      
+      updateTimeDisplay(--timeLeft);
+    
   }, 1000);// run countdown every 1 second
 }
 
