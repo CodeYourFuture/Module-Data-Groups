@@ -10,9 +10,7 @@ function parseQueryString(queryString) {
 
     let formattedSplittedPairs = [];
     for (const element of splittedPair) {
-      formattedSplittedPairs.push(
-        element.replace("%25", "%").replace("%26", "&")
-      );
+      formattedSplittedPairs.push(decodeURIComponent(element));
     }
     queryParams[formattedSplittedPairs[0]] = formattedSplittedPairs
       .slice(1)
@@ -21,4 +19,5 @@ function parseQueryString(queryString) {
 
   return queryParams;
 }
+
 module.exports = parseQueryString;
