@@ -1,39 +1,41 @@
-let countDown;
+
+
+let timerId;
 let timeLeft;
 
 function setAlarm() {
-  let input= document.getElementById("alarmSet").value;
+  let input = document.getElementById("alarmSet").value;
   let timeRemaining = parseInt(input);
-  if(isNaN(timeRemaining)|| timeRemaining<0){
-    alert ("Please enter a positive number");
+
+  if (isNaN(timeRemaining) || timeRemaining <= 0) {
+    alert("Please enter a positive number");
     return;
   }
-  
-  clearInterval(countDown);
 
-  timeLeft= timeRemaining; // to set left time 
-  updateTimeDisplay(timeLeft);// update time display
+  clearInterval(timerId); // Stop any running timer
+  timeLeft = timeRemaining;
+  updateTimeDisplay(timeLeft); // Show correct initial value
 
-  countDown = setInterval(()=>{
-    if(timeLeft<=0){
-      clearInterval(countDown);//when time is up it will clear countDown
+  timerId = setInterval(() => {
+    if (timeLeft > 1) {
+      timeLeft--;
+      updateTimeDisplay(timeLeft);
+    } else {
+      clearInterval(timerId);
+      updateTimeDisplay(0); // ensure 00:00 is displayed
       playAlarm();
-      return;
     }
-      
-      updateTimeDisplay(--timeLeft);
-    
-  }, 1000);// run countdown every 1 second
+  }, 1000);
 }
 
-  function updateTimeDisplay(seconds){
-    let minute = Math.floor(seconds/60);
-    let remainingSeconds= seconds % 60;
 
-     document.getElementById("timeRemaining").innerText ="Time Remaining: " + String(minute).padStart(2,"0")
-     + ":" + String(remainingSeconds).padStart(2,"0");
-  
- }
+function updateTimeDisplay(seconds) {
+  let minutes = Math.floor(seconds / 60);
+  let remainingSeconds = seconds % 60;
+  document.getElementById("timeRemaining").innerText =
+    `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+}
+
 
 // DO NOT EDIT BELOW HERE
 
@@ -58,3 +60,41 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
+
+
+/*
+let timeId;
+let timeLeft;
+
+function setAlarm() {
+  let input= document.getElementById("alarmSet").value;
+  let timeRemaining = parseInt(input);
+  if(isNaN(timeRemaining)|| timeRemaining<0){
+    alert ("Please enter a positive number");
+    return;
+  }
+  
+  clearInterval(timeId);
+
+  timeLeft= timeRemaining; // to set left time 
+  updateTimeDisplay(timeLeft);// to show correct initial value
+
+  timeId = setInterval(()=>{
+    if(timeLeft > 1){
+      timeLeft--;
+      updateTimeDisplay(timeLeft);
+    }else{
+      clearInterval(timeId);
+      updateTimeDisplay(--timeLeft);
+      pauseAlarm();
+    }
+  }, 1000);// run countdown every 1 second
+}
+
+function updateTimeDisplay(seconds) {
+  let minutes = Math.floor(seconds / 60);
+  let remainingSeconds = seconds % 60;
+  document.getElementById("timeRemaining").innerText =
+    `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+}
+*/
