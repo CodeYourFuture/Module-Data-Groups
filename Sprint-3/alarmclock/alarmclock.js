@@ -62,39 +62,3 @@ function pauseAlarm() {
 window.onload = setup;
 
 
-/*
-let timeId;
-let timeLeft;
-
-function setAlarm() {
-  let input= document.getElementById("alarmSet").value;
-  let timeRemaining = parseInt(input);
-  if(isNaN(timeRemaining)|| timeRemaining<0){
-    alert ("Please enter a positive number");
-    return;
-  }
-  
-  clearInterval(timeId);
-
-  timeLeft= timeRemaining; // to set left time 
-  updateTimeDisplay(timeLeft);// to show correct initial value
-
-  timeId = setInterval(()=>{
-    if(timeLeft > 1){
-      timeLeft--;
-      updateTimeDisplay(timeLeft);
-    }else{
-      clearInterval(timeId);
-      updateTimeDisplay(--timeLeft);
-      pauseAlarm();
-    }
-  }, 1000);// run countdown every 1 second
-}
-
-function updateTimeDisplay(seconds) {
-  let minutes = Math.floor(seconds / 60);
-  let remainingSeconds = seconds % 60;
-  document.getElementById("timeRemaining").innerText =
-    `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
-}
-*/
