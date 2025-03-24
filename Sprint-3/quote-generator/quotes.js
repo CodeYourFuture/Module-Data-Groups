@@ -1,3 +1,13 @@
+function displayQuote(){
+  const randomQuote =pickFromArray(quotes);
+  const quoteText= document.querySelector("#quote");
+  const author= document.querySelector("#author");
+
+quoteText.innerText = `"${randomQuote.quote}"`;
+author.innerText= `- ${randomQuote.author}`;
+}
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -15,18 +25,6 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
-
-
-function displayQuote(){
-  const randomQuote =pickFromArray(quotes);
-  const quoteText= document.querySelector("#quote");
-  const author= document.querySelector("#author");
-
-quoteText.innerText = `"${randomQuote.quote}"`;
-author.innerText= `- ${randomQuote.author}`;
-}
-
-document.getElementById("new-quote").addEventListener('click', displayQuote);
 
 
 // You don't need to change this function
@@ -504,4 +502,7 @@ const quotes = [
   },
 ];
 
+window.addEventListener("load", () =>{
+document.getElementById("new-quote").addEventListener('click', displayQuote);
 displayQuote();
+});
