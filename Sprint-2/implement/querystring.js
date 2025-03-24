@@ -7,10 +7,18 @@ function parseQueryString(queryString) {
 
   for (const pair of keyValuePairs) {
     const splittedPair = pair.split("=");
-    queryParams[splittedPair[0]] = splittedPair.slice(1).join("=");
+
+    let formattedSplittedPairs = [];
+    for (const element of splittedPair) {
+      formattedSplittedPairs.push(
+        element.replace("%25", "%").replace("%26", "&")
+      );
+    }
+    queryParams[formattedSplittedPairs[0]] = formattedSplittedPairs
+      .slice(1)
+      .join("=");
   }
 
   return queryParams;
 }
-
 module.exports = parseQueryString;
