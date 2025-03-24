@@ -10,7 +10,7 @@ describe("createLookup", () => {
   });
 
   test("should throw an error if inner arrays do not have exactly two elements", () => {
-    expect(() => createLookup([["USD"]])).toThrow(
+    expect(() => createLookup([["US", "USD"], ["CA"]])).toThrow(
       "Each element in the array must be an array with exactly two elements."
     );
     expect(() => createLookup([["US", "USD", "CA"]])).toThrow(
