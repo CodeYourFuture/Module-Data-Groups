@@ -24,6 +24,10 @@ describe("findMax", () => {
       expect(findMax(['hey', 10, 'hi', 60, 10])).toBe(60);
       expect(findMax([42])).toBe(42);
       expect(findMax([1.2, 3.5, 2.8, 3.51])).toBe(3.51);
+      expect(findMax([-1, -2])).toBe(-1);
+      expect(findMax([-1, 2])).toBe(2);
+      expect(findMax([])).toBe();
+
 
     });
   });

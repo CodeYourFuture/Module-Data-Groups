@@ -1,6 +1,8 @@
 function sum(elements) {
     const numbers = elements.filter(num => typeof num === 'number'); 
-    return numbers.length > 0 ? numbers.reduce((acc, num) => acc + num, 0) : 0; 
+    const total = numbers.length > 0 ? numbers.reduce((acc, num) => acc + num, 0) : 0;
+    //return numbers.length > 0 ? numbers.reduce((acc, num) => acc + num, 0) : 0; 
+    return parseFloat(total.toFixed(2));
 }
 
 console.log(sum([30, 50, 10, 40]));
