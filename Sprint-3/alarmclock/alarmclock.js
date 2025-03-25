@@ -2,15 +2,61 @@
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(
+    remainingSeconds
+  ).padStart(2, "0")}`;
+}
 
-  const formattedMinutes = String(minutes).padStart(2, "0");
-  const formattedRemainingSeconds = String(remainingSeconds).padStart(2, "0");
+// function to reset the background and stop any background flashing
+function resetBackground() {
+  document.body.style.backgroundColor = "white"; // set background to white
+  if (window.flashInterval) {
+    clearInterval(window.flashInterval);
+  }
+}
 
-  console.log(
-    "formatted time (mm:ss):",
-    `${formattedMinutes}:${formattedRemainingSeconds}`
-  );
-  return `${formattedMinutes}:${formattedRemainingSeconds}`;
+// function to handle countdown clock
+let countdownInterval = null;
+
+function countdownClock(timeInSeconds) {
+  const timeRemaining = document.querySelector("#timeRemaining");
+
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+
+  countdownInterval = setInterval(() => {
+    timeInSeconds--;
+
+    // update the display each second
+    timeRemaining.textContent = `Time Remaining: ${formatTime(timeInSeconds)}`;
+
+    // When time reaches 00:00, stop the countdown and play the alarm
+    if (timeInSeconds <= 0) {
+      clearInterval(countdownInterval);
+      flashBackground();
+    }
+  }, 1000);
+}
+
+// function for background flash
+function flashBackground() {
+  let flashCount = 0; //
+  const colors = ["pink", "plum", "indigo", "lavenderblush"];
+
+  window.flashInterval = setInterval(() => {
+    document.body.style.backgroundColor = colors[flashCount % colors.length];
+    flashCount++;
+
+    if (flashCount >= colors.length) {
+      clearInterval(window.flashInterval);
+      document.body.style.backgroundColor = "white"; // set the final background color to white
+
+      setTimeout(() => {
+        playAlarm(); // start the alart af the end of backgroung flash
+      });
+    }
+  }, 500); // flash every 500ms
 }
 
 function setAlarm() {
@@ -18,47 +64,33 @@ function setAlarm() {
   const timeRemaining = document.querySelector("#timeRemaining"); // get time remaining title
 
   let timeInSeconds = parseInt(inputAlarmSet.value, 10); // read and parse input value
-  console.log("time in seconds from input:", timeInSeconds);
 
   if (isNaN(timeInSeconds) || timeInSeconds <= 0) {
-    alert("please enter a valid number of seconds.");
+    alert("Please enter a valid number of seconds.");
     return;
   }
 
-  const formattedTime = formatTime(timeInSeconds); // Use the formatTime function
+  // reset the background and stop flashing if any previous countdown was running
+  resetBackground();
+
+  const formattedTime = formatTime(timeInSeconds);
   timeRemaining.innerText = `Time Remaining: ${formattedTime}`;
 
-  // Countdown logic to update time and change background color at 00:00
-  const countdown = setInterval(() => {
-    timeInSeconds--;
+  // start the countdown clock by calling countdownClock
+  countdownClock(timeInSeconds);
+}
 
-    // Update the display each second
-    timeRemaining.textContent = `Time Remaining: ${formatTime(timeInSeconds)}`;
-
-    // When time reaches 0, stop the countdown and play the alarm
-    if (timeInSeconds <= 0) {
-      clearInterval(countdown); // Stop the timer
-
-      let flashCount = 0; // To track the number of flashes
-      const colors = ["pink", "plum", "indigo", "lavander blush"];
-      const flashInterval = setInterval(() => {
-        document.body.style.backgroundColor =
-          colors[flashCount % colors.length];
-        flashCount++;
-
-        if (flashCount >= colors.length) {
-          // Stop flashing after 3 flashes
-          clearInterval(flashInterval); // Stop flashing
-          document.body.style.backgroundColor = "pink"; // Keep background red
-          playAlarm();
-        }
-      }, 500);
-    }
-  }, 1000);
+// function to pause the alarm, reset the input, and stop the countdown
+function pauseAlarm() {
+  audio.pause();
+  resetBackground();
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+  document.querySelector("#alarmSet").value = "";
 }
 
 // DO NOT EDIT BELOW HERE
-
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
@@ -75,9 +107,4 @@ function playAlarm() {
   audio.play();
 }
 
-function pauseAlarm() {
-  audio.pause();
-}
-
 window.onload = setup;
-module.exports = setAlarm;
