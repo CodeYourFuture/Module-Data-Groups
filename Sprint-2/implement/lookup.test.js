@@ -1,6 +1,6 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+// test.todo("created a country currency code lookup for multiple codes");
 
 /*
 
@@ -33,3 +33,21 @@ It should return:
    'CA': 'CAD'
  }
 */
+describe("createLookup", () => {
+  test("creates a country currency code lookup for multiple codes", () => {
+    const input = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+      ["MX", "MXN"],
+    ];
+    const expectedOutput = { US: "USD", CA: "CAD", MX: "MXN" };
+
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+  test("returns an empty object when the input is an empty array", () => {
+    const input = [];
+    const expectedOutput = {};
+
+    expect(createLookup(input)).toEqual(expectedOutput);
+  });
+});
