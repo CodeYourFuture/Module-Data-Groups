@@ -18,7 +18,7 @@ describe("calculateMedian", () => {
   });
 
   test("doesn't modify the input", () => {
-    const list = [1, 2, 3];
+    const list = [3, 2, 1];
     const copy = list
     calculateMedian(list);
 
