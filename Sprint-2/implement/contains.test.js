@@ -41,6 +41,7 @@ test("Given an object with properties,contains with a non-existent property name
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("Given invalid parameters like an array,it should return false or throw an error", () => {
-    expect(contains(["a","b","c"], "a")).toBe(false);
-});
+test("Given invalid parameters like an array, it should throw an error", () => {
+    expect(() => contains(["a", "b", "c"], "a")).toThrow("Invalid input: First argument must be an object.");
+  });
+  
