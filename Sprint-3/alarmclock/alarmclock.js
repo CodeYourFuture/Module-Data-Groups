@@ -1,4 +1,5 @@
-// Function to format time in mm:ss
+let countdownInterval = null; // Function to format time in mm:ss
+
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
@@ -16,14 +17,10 @@ function resetBackground() {
 }
 
 // function to handle countdown clock
-let countdownInterval = null;
-
 function countdownClock(timeInSeconds) {
   const timeRemaining = document.querySelector("#timeRemaining");
 
-  if (countdownInterval) {
-    clearInterval(countdownInterval);
-  }
+  clearInterval(countdownInterval);
 
   countdownInterval = setInterval(() => {
     timeInSeconds--;
@@ -49,12 +46,10 @@ function flashBackground() {
     flashCount++;
 
     if (flashCount >= colors.length) {
-      clearInterval(window.flashInterval);
-      document.body.style.backgroundColor = "white"; // set the final background color to white
-
-      setTimeout(() => {
-        playAlarm(); // start the alart af the end of backgroung flash
-      });
+      //clearInterval(window.flashInterval);
+      //document.body.style.backgroundColor = "white"; // set the final background color to white
+      resetBackground();
+      playAlarm(); // start the alart af the end of backgroung flash
     }
   }, 500); // flash every 500ms
 }
