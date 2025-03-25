@@ -7,18 +7,16 @@ function calculateMedian(list) {
   if (list.length % 2 == 1){
     // odd length array
     const middleIndex = Math.floor(list.length / 2);
-    const median = list.splice(middleIndex, 1)[0];
+    const median = list[middleIndex];
     return median;
   } else {
     // even length array
     const middleIndex = Math.floor(list.length / 2) - 1;
-    let middle = list.splice(middleIndex, 2);
+    let middle = [list[middleIndex], list[middleIndex + 1]];
     let median = (middle[0] + middle[1]) / 2
-    return median
+    return median;
   }
 
-
-  
 }
 
 module.exports = calculateMedian;
