@@ -7,17 +7,7 @@ function setAlarm() {
     return;
   }
 
-  const heading = document.getElementById("timeRemaining");
-
-  function updateHeading() {
-    let minutes = Math.floor(secondsLeft / 60);
-    let seconds = secondsLeft % 60;
-    heading.textContent = `Time Remaining: ${minutes
-      .toString()
-      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-  }
-
-  updateHeading();
+  updateHeading(secondsLeft);
 
   const countdown = setInterval(() => {
     secondsLeft--;
@@ -29,28 +19,33 @@ function setAlarm() {
       console.log("Time's up!");
     }
 
-    updateHeading();
+    updateHeading(secondsLeft);
   }, 1000);
+}
+
+function updateHeading(secondsLeft) {
+  const heading = document.getElementById("timeRemaining");
+  let minutes = Math.floor(secondsLeft / 60);
+  let seconds = secondsLeft % 60;
+  heading.textContent = `Time Remaining: ${minutes
+    .toString()
+    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
-
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
     setAlarm();
   });
-
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
   });
 }
-
 function playAlarm() {
   audio.play();
 }
-
 function pauseAlarm() {
   audio.pause();
 }
