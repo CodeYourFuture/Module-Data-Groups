@@ -26,3 +26,30 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords (sentStr)
+{
+  //convert all sentence into lowercase
+  let lowCase = sentStr.toLowerCase();
+  let wordCount = {};
+
+  // loop each word from the string 
+  for (const i of  lowCase)
+  {
+    // if the word is already in object increase 1. 
+    if (wordCount[i])
+    {
+        wordCount[i]++;
+    }
+    else
+    {
+       wordCount[i]= 1;
+    }
+
+  }
+  return wordCount;
+}
+
+
+const sentStr = "Hello World";
+console.log (countWords(sentStr));
