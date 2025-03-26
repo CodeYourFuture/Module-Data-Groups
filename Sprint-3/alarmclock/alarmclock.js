@@ -11,6 +11,7 @@ function setAlarm() {
   updateDisplay(remainingTime);
 
   clearInterval(countdown);
+  stopFlashingBackground();
 
   countdown = setInterval(() => {
     if (!isPaused) {
@@ -35,32 +36,25 @@ function updateDisplay(seconds) {
 }
 
 function pauseAlarm() {
-  clearInterval(countdown);
-  stopFlashingBackground();
-  audio.pause();
-  isPaused = true;
+  isPaused = !isPaused;
 }
 
 function startFlashingBackground() {
-  let body = document.body;
-  let isFlashing = false;
-
-  countdown = setInterval(() => {
-    body.style.backgroundColor = isFlashing ? "white" : "red";
-    isFlashing = !isFlashing;
-  }, 500);
+  document.body.classList.add("flashing");
 }
 
 function stopFlashingBackground() {
-  clearInterval(countdown);
-  document.body.style.backgroundColor = "";
+  document.body.classList.remove("flashing");
 }
 
-function resumeAlarm() {
-  if (remainingTime > 0 && isPaused) {
-    isPaused = false;
-    setAlarm();
-  }
+function resetAlarm() {
+  clearInterval(countdown);
+  stopFlashingBackground();
+  remainingTime = 0;
+  updateDisplay(remainingTime);
+  isPaused = false;
+  audio.pause();
+  audio.currentTime = 0;
 }
 
 // DO NOT EDIT BELOW HERE
@@ -68,21 +62,20 @@ function resumeAlarm() {
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
+  document.getElementById("set").addEventListener("click", setAlarm);
 
   document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
+    resetAlarm();
   });
+
+  const pauseButton = document.createElement("button");
+  pauseButton.innerText = "Pause/Resume";
+  pauseButton.addEventListener("click", pauseAlarm);
+  document.body.appendChild(pauseButton);
 }
 
 function playAlarm() {
   audio.play();
-}
-
-function pauseAlarm() {
-  audio.pause();
 }
 
 window.onload = setup;
