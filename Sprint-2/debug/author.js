@@ -19,7 +19,7 @@ const author = {
 
 //fixing the problem by using object.entries
 
-for (const [q,a] of Object.entries(author))
+for (const [info,value] of Object.entries(author))
 {
-  console.log(q,a);
+  console.log(author[info]);
 }
