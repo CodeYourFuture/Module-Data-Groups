@@ -8,5 +8,5 @@ test ("Get all coins , sum up the coins, return the total pound", () =>{
         "50p": 4,
         "20p": 10,
       };
-    expect(totalTill(till)).toEqual('£4');
+    expect(totalTill(till)).toEqual('£4.4');
 })

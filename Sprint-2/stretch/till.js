@@ -15,7 +15,7 @@ function totalTill(till) {
     
   }
   // remove decimal and return only number 
-  return `£${Math.floor(total/100)}`;
+  return `£${total/100}`;
 }
 
 const till = {
