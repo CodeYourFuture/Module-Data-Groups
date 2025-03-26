@@ -1,15 +1,71 @@
+/* General Styles */
+body {
+  background-color: #f7f3f2;
+  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Centered Container */
 .centre {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-#alarmSet {
-  margin: 20px;
-}
-
-h1 {
+  background: #ffffff;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+
+}
+
+/* Input Field */
+#alarmSet {
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 80%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
+#alarmSet::placeholder {
+  color: #888;
+  font-style: italic;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+}
+
+/* Button */
+button {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #5753d3;
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #4b47b0;
+  transform: translateY(0);
+}
+
+/* Headings */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #6c63ff;
 }
