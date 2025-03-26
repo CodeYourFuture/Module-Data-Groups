@@ -1,30 +1,28 @@
-function contains(o,s) {
+function contains(obj,searchString) {
 // if given argument is object
-if (typeof o === "object" && !Array.isArray(o))
-{
-   
-    return  (s in o);
-}
-else
-{
-    throw new Error ("The input is not an object");
-}
+    if (typeof obj === "object" && !Array.isArray(searchString))
+    {
+    
+        return  (searchString in obj);
+    }
+    else
+    {
+        throw new Error ("The input is not an object");
+    }
 
 }
 
+    const person = {
+        name : "ricardo",
+        age : 22
+    };
 
+    const hobbies = ["football","read"];
 
-const person = {
-    name : "ricardo",
-    age : 22
-};
+    const favourite = {};
 
-const hobbies = ["football","read"];
-
-const favourite = {};
-
-let checking = contains(favourite);
-console.log(checking);
+    let checking = contains(person,'age');
+    console.log(checking);
 
 
 module.exports = contains;
