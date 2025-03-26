@@ -26,7 +26,7 @@ for (const item in recipe)
     // loop through array to print out each value
     for (let i in recipe[item])
     {
-      console.log(recipe[item][i]);
+      console.log(recipe.ingredients[i]);
     }
   }
   else
