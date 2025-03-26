@@ -23,4 +23,9 @@ describe("calculateMedian", () => {
 
     expect(list).toEqual([1, 2, 3]);
   });
+
+  test("throws an error for empty array", () => {
+  expect(() => calculateMedian([])).toThrowError("Cannot calculate median of an empty array");
+});
+
 });
