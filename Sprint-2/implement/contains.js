@@ -1,19 +1,10 @@
 function contains(object, key) {
-    if (typeof object !== "object") {
+    if (typeof object !== "object" || object === null || Array.isArray(object)) {
         return false;
-    } else if (object === null) {
-        return false;
-    } else if (Array.isArray(object)) {
-        return false;
-    } else {
-        if (key in object) {
-            return true;
-        } else {
-            return false;
-        }
     }
-
+    return key in object;
 }
 
-
 module.exports = contains;
+
+
