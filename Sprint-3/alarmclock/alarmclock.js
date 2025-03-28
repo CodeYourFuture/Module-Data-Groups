@@ -1,5 +1,4 @@
-let timeRemainingDisplay = document.getElementById("timeRemaining");
-let stopButton = document.getElementById("stop");
+const timeRemainingDisplay = document.getElementById("timeRemaining");
 
 function transformSeconds(seconds) {
   let min = Math.trunc(seconds / 60);
@@ -12,18 +11,29 @@ function transformSeconds(seconds) {
   }
   return `${min}:${remainingSeconds}`;
 }
-56;
+
 function setAlarm() {
+  document.getElementById("set").disabled = true;
+
   const input = document.getElementById("alarmSet").value;
   let number = Number(input);
+  if (input === null || input === "") {
+    window.alert("Please enter time in seconds");
+    return;
+  }
 
-  let intervalId = setInterval(() => {
-    let timeInMMSS = transformSeconds(number);
+  let timeInMMSS = transformSeconds(number);
+  timeRemainingDisplay.textContent = `Time Remaining: ${timeInMMSS}`;
+  number = number - 1;
+
+  const intervalId = setInterval(() => {
+    timeInMMSS = transformSeconds(number);
     timeRemainingDisplay.textContent = `Time Remaining: ${timeInMMSS}`;
 
     if (number === 0) {
       playAlarm();
       clearInterval(intervalId);
+      document.getElementById("set").disabled = false;
     }
     number = number - 1;
   }, 1000);
