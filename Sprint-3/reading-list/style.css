@@ -157,3 +157,55 @@ body {
     max-height: 80px;
   }
 }
+
+#reading-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.book {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.book img {
+  width: 60px;
+  height: 90px;
+  object-fit: cover;
+  margin-right: 16px;
+  border-radius: 4px;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #292b2c;
+}
+
+.book-author {
+  font-size: 14px;
+  color: #555;
+}
+
+.read {
+  background-color: #c8e6c9;
+}
+
+.unread {
+  background-color: #ffcdd2;
+}
+
+.book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
