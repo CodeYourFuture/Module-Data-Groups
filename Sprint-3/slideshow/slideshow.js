@@ -15,69 +15,50 @@ const forwardBtn = document.querySelector("#forward-btn");
 const backwardBtn = document.querySelector("#backward-btn");
 
 // New buttons for Level 2
-const autoForwardBtn = document.createElement("button");
-autoForwardBtn.textContent = "Auto Forward";
-autoForwardBtn.id = "auto-forward";
-
-const autoBackwardBtn = document.createElement("button");
-autoBackwardBtn.textContent = "Auto Backward";
-autoBackwardBtn.id = "auto-backward";
-
-const stopBtn = document.createElement("button");
-stopBtn.textContent = "Stop";
-stopBtn.id = "stop";
-
-// Append new buttons to the document
-document.body.appendChild(autoForwardBtn);
-document.body.appendChild(autoBackwardBtn);
-document.body.appendChild(stopBtn);
+const autoForwardBtn = document.querySelector("#auto-forward");
+const autoBackwardBtn = document.querySelector("#auto-backward");
+const stopBtn = document.querySelector("#stop");
 
 // Function to update the image source
 function updateImage() {
     imgElement.src = images[currentIndex];
 }
 
+// Function to handle both forward and backward image changes
+function navigateImage(direction) {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    updateImage();
+}
 // Forward Button Logic
 forwardBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateImage();
+    navigateImage(1);  // Move forward by 1
 });
 
 // Backward Button Logic
 backwardBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateImage();
+    navigateImage(-1); // Move backward by 1
 });
+
 
 // Function for Auto-Slideshow (Forward)
 function startAutoForward() {
     stopAuto();
-    autoForwardBtn.disabled = true;
-    autoBackwardBtn.disabled = true;
-
     intervalId = setInterval(() => {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateImage();
+        navigateImage(1);  // Move forward by 1 every 2 seconds
     }, 2000);
 }
 
 // Function for Auto-Slideshow (Backward)
 function startAutoBackward() {
     stopAuto();
-    autoForwardBtn.disabled = true;
-    autoBackwardBtn.disabled = true;
-
     intervalId = setInterval(() => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateImage();
+        navigateImage(-1); // Move backward by 1 every 2 seconds
     }, 2000);
 }
 
 // Stop Auto Slideshow
 function stopAuto() {
     clearInterval(intervalId);
-    autoForwardBtn.disabled = false;
-    autoBackwardBtn.disabled = false;
 }
 
 // Attach event listeners to new buttons

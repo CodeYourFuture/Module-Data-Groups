@@ -22,7 +22,7 @@ img {
 
 button {
     padding: 10px 20px;
-    margin: 5px;
+    margin: 10px;
     border: none;
     border-radius: 5px;
     background-color: #007BFF;
@@ -34,4 +34,27 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensures buttons wrap if there's not enough space */
+}
+
+@media (max-width: 600px) {
+    img {
+        width: 80%; /* Make the image smaller on smaller screens */
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
 }
