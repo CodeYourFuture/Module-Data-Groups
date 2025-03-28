@@ -45,13 +45,11 @@ function invert(obj) {
   if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
     throw new Error("Invalid input: expected an object.");
   }
-  
+
   const invertedObj = {};
 
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      invertedObj[obj[key]] = key; 
-    }
+  for (const [key, value] of Object.entries(obj)) {
+    invertedObj[value] = key;
   }
 
   return invertedObj;
