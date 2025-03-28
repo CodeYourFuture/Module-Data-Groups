@@ -1,6 +1,11 @@
 function setAlarm() {
   let timeLeft = parseInt(document.getElementById("alarmSet").value);
   let display = document.getElementById("timeRemaining");
+  // Input validation
+  if (isNaN(timeLeft) || timeLeft <= 0) {
+      alert("Please enter a valid positive number.");
+      return;
+  }
 
   function updateDisplay() {
       let minutes = Math.floor(timeLeft / 60).toString().padStart(2, "0");
