@@ -12,4 +12,8 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+// console.log(`My house number is ${address[0]}`);
+//This is wrong because address is not an array to address the elements within it by their index, address is an object, we need to call address first and then call the key houseNumber
+
+console.log(address.houseNumber);
+console.log(address["houseNumber"]);
