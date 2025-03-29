@@ -11,3 +11,16 @@ function includes(list, target) {
 }
 
 module.exports = includes;
+
+
+function includes(list, target) {
+  // Use for...of loop to iterate through elements in the list
+  for (const element of list) {
+    if (element === target) {
+      return true;
+    }
+  }
+  return false;
+}
+
+module.exports = includes;

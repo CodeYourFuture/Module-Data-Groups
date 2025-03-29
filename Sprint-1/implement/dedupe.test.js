@@ -1,4 +1,4 @@
-const dedupe = require("./dedupe.js");
+//const dedupe = require("./dedupe.js");
 /*
 Dedupe Array
 
@@ -25,3 +25,23 @@ test.todo("given an empty array, it returns an empty array");
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+
+// dedupe.test.js
+const dedupe = require("./dedupe.js");
+
+describe("dedupe", () => {
+  test("given an empty array, it returns an empty array", () => {
+    expect(dedupe([])).toEqual([]);
+  });
+
+  test("given an array with no duplicates, it returns the same array", () => {
+    expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);
+    expect(dedupe(['a', 'b', 'c'])).toEqual(['a', 'b', 'c']);
+  });
+
+  test("given an array with duplicates, it removes duplicates and preserves first occurrence", () => {
+    expect(dedupe(['a', 'a', 'a', 'b', 'b', 'c'])).toEqual(['a', 'b', 'c']);
+    expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
+    expect(dedupe([1, 2, 1])).toEqual([1, 2]);
+  });
+});
