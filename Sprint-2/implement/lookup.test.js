@@ -1,35 +1,37 @@
-const createLookup = require("./lookup.js");
+const createLookup = require('./lookup');
 
-test.todo("creates a country currency code lookup for multiple codes");
+describe('createLookup', () => {
+  const people = [
+    { id: 1, name: 'Alice' },
+    { id: 2, name: 'Bob' },
+    { id: 3, name: 'Charlie' },
+  ];
 
-/*
+  test('creates a lookup object with IDs as keys and names as values', () => {
+    const idLookup = createLookup(
+      people,
+      (person) => person.id,
+      (person) => person.name
+    );
+    expect(idLookup).toEqual({ '1': 'Alice', '2': 'Bob', '3': 'Charlie' });
+  });
 
-Create a lookup object of key value pairs from an array of code pairs
+  test('creates a lookup object with names as keys and IDs as values', () => {
+    const nameLookup = createLookup(
+      people,
+      (person) => person.name,
+      (person) => person.id
+    );
+    expect(nameLookup).toEqual({ Alice: 1, Bob: 2, Charlie: 3 });
+  });
 
-Acceptance Criteria:
+  test('returns an empty object when given an empty array', () => {
+    const emptyLookup = createLookup([], (item) => item, (item) => item);
+    expect(emptyLookup).toEqual({});
+  });
 
-Given
- - An array of arrays representing country code and currency code pairs
-   e.g. [['US', 'USD'], ['CA', 'CAD']]
-
-When
- - createLookup function is called with the country-currency array as an argument
-
-Then
- - It should return an object where:
- - The keys are the country codes
- - The values are the corresponding currency codes
-
-Example
-Given: [['US', 'USD'], ['CA', 'CAD']]
-
-When
-createLookup(countryCurrencyPairs) is called
-
-Then
-It should return:
- {
-   'US': 'USD',
-   'CA': 'CAD'
- }
-*/
+  test('returns an empty object when given a non-array', () => {
+    const nonArrayLookup = createLookup('not an array', (item) => item, (item) => item);
+    expect(nonArrayLookup).toEqual({});
+  });
+});
