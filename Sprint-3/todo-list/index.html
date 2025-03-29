@@ -3,25 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Todo List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <form>
-      <div>
-        <input type="text" placeholder="New todo..." />
+      <div class="todo-container">
+        <input type="text" id="todoInput" placeholder="New todo..." />
       </div>
       <div>
-        <button type="submit">Add Todo</button>
+        <button type="submit" id="todo-btn">Add Todo</button>
         <button
           type="button"
           id="remove-all-completed"
           class="btn btn-primary mb-3"
         >
-          Remove all completed
+          Remove all completed ❌
         </button>
       </div>
     </form>
-    <script src="script.js"></script>
+    <ul id="todo-list"></ul>
+    <script defer src="script.js"></script>
   </body>
 </html>
