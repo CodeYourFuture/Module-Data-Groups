@@ -28,7 +28,7 @@ function populateTodoList() {
 
     // Creating the complete/uncomplete button
     const completeButton = document.createElement("button");
-    completeButton.textContent = isCompleted ? 'Uncomplete ❌' : 'Complete ✔️';
+    completeButton.textContent = isCompleted ? 'Incomplete ❌' : 'Complete ✔️';
     completeButton.onclick = () => toggleComplete(index, isCompleted);
     buttonContainer.appendChild(completeButton);
 
