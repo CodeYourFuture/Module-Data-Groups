@@ -1,1 +1,144 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fffcf2;
+  margin: 0%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
 
+.todo-container {
+  width: 300px;
+  margin: 20px auto;
+  max-width: 500px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+#todoInput {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#todo-btn {
+  padding: 10px 15px;
+  background-color: #997b66;
+  color: #efefef;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+#todo-btn:hover {
+  background-color: #7a5745;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 15px;
+  border-bottom: 1px solid #ccc;
+  margin: 8px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+#todo-list input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button i {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+#todo-list li span {
+  flex: 1;
+  margin-right: 10px;
+}
+#todo-list li.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+#todo-list li button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.todo-list.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.todo.checkbox {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #997b66;
+  color: #efefef;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #7a5745;
+}
+
+#remove-all-completed {
+  margin-top: 15px;
+  padding: 10px;
+  background: #997b66;
+  color: #efefef;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#remove-all-completed:hover {
+  background: #7a5745;
+}
