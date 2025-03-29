@@ -1,1 +1,56 @@
 /** Write your CSS in here **/
+body {
+  background-color: #d5cdba;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: #1a1a1a;
+  padding: 50px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #322128;
+}
+
+p {
+  font-size: 1.5em;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+button {
+  background-color: #322128;
+  color: #d5cdba;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1a1a1a;
+}
+
+.loader {
+  background: #f5ebe0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+#quote {
+  font-style: italic;
+  font-weight: 500;
+  color: #322128;
+}
+
+#author {
+  font-style: italic;
+  margin-top: 18px;
+  color: #322128;
+  font-size: 18px;
+}
