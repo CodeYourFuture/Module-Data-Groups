@@ -15,6 +15,7 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
+// DO NOT EDIT ABOVE HERE
 // You don't need to change this function
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
@@ -491,3 +492,21 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+// import { quotes } from "./quotes.js"; // we implemented an import statement to import the quotes array and in other to access the quotes array as const quotes can not be resigned.
+
+// Get the elements from the HTML
+const quoteHolder = document.getElementById("quote");
+const authorHolder = document.getElementById("author");
+const newQuoteBtn = document.getElementById("new-quote");
+
+function displayQuote() {
+  const randomQuote = pickFromArray(quotes); // assign the function pickFromArray to a variable randomQuote and pass the quotes array as an argument to the function.
+  quoteHolder.textContent = randomQuote.quote; // this will display the quote in the quoteHolders element which is <p> in html.
+  authorHolder.textContent = randomQuote.author;
+  // this will display the author in the authorHolders element which is <p> in html.
+}
+
+displayQuote(); // call the displayQuote function to display the quote and author when the page loads.
+
+newQuoteBtn.addEventListener("click", displayQuote); // this will add a click event listener to the newQuoteBtn and call the displayQuote function when the button is clicked.
