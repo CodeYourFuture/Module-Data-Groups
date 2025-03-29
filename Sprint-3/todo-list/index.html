@@ -1,27 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <form>
-      <div>
-        <input type="text" placeholder="New todo..." />
-      </div>
-      <div>
-        <button type="submit">Add Todo</button>
-        <button
-          type="button"
-          id="remove-all-completed"
-          class="btn btn-primary mb-3"
-        >
-          Remove all completed
-        </button>
-      </div>
-    </form>
-    <script src="script.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .completed {
+            text-decoration: line-through;
+        }
+
+        .todo-input-container {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        #todoInput {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #remove-all-completed {
+            margin-top: 20px;
+            padding: 8px 12px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-input-container">
+        <input type="text" id="todoInput" placeholder="Add a new todo">
+        <button class="btn">Add</button>
+    </div>
+    <ul id="todo-list">
+        <li>
+            Wash the dishes
+            <div>
+                <i class="fa fa-check"></i>
+                <i class="fa fa-trash"></i>
+            </div>
+        </li>
+        <li>
+            Do the shopping
+            <div>
+                <i class="fa fa-check"></i>
+                <i class="fa fa-trash"></i>
+            </div>
+        </li>
+    </ul>
+    <button id="remove-all-completed">Remove Completed Todos</button>
+    <script src="script.jscd ">
+        
+    </script>
+</body>
 </html>
