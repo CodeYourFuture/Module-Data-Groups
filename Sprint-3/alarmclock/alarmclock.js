@@ -9,9 +9,12 @@ function setAlarm() {
   if (isNaN(timeRemaining) || timeRemaining <= 0) return;
 
   countdown = setInterval(function () {
-    document.getElementById("timeRemaining").innerText = `Time Remaining: 00:${
-      timeRemaining < 10 ? "0" + timeRemaining : timeRemaining
-    }`;
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+
+    document.getElementById("timeRemaining").innerText = `Time Remaining: ${
+      minutes < 10 ? "0" + minutes : minutes
+    }:${seconds < 10 ? "0" + seconds : seconds}`;
 
     if (timeRemaining === 0) {
       clearInterval(countdown);
@@ -20,6 +23,7 @@ function setAlarm() {
     timeRemaining--;
   }, 1000);
 }
+
 document.getElementById("stop").addEventListener("click", function () {
   clearInterval(countdown);
   pauseAlarm();
