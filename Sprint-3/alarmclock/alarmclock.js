@@ -13,14 +13,15 @@ function setAlarm() {
     const seconds = timeRemaining % 60;
 
     document.getElementById("timeRemaining").innerText = `Time Remaining: ${
-      minutes < 10 ? "0" + minutes : minutes
-    }:${seconds < 10 ? "0" + seconds : seconds}`;
+      minutes.toString().padStart(2, "0")
+    }:${seconds.toString().padStart(2, "0")}`;
 
-    if (timeRemaining === 0) {
+    timeRemaining--; // Decrement first to avoid going negative
+
+    if (timeRemaining < 0) {
       clearInterval(countdown);
       playAlarm();
     }
-    timeRemaining--;
   }, 1000);
 }
 
@@ -34,13 +35,7 @@ document.getElementById("stop").addEventListener("click", function () {
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
-
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
-  });
+  document.getElementById("set").addEventListener("click", setAlarm);
 }
 
 function playAlarm() {
