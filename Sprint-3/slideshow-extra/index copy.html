@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        #carousel-img {
+            max-width: 500px;
+            height: auto;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 0 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <img id="carousel-img" src="./assets/cute-cat-a.png" alt="Carousel Image">
+    <div class="button-container">
+        <button id="backward-btn">Backward</button>
+        <button id="forward-btn">Forward</button>
+    </div>
+    <div class="button-container">
+        <button id="auto-forward">Auto Forward</button>
+        <button id="auto-backward">Auto Backward</button>
+        <button id="stop">Stop</button>
+    </div>
+
+    <script src="slideshow.js".js"></script>
+</body>
+</html>
