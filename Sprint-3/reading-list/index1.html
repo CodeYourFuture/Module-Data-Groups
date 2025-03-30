@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en_US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading List</title>
+  <style>
+    #reading-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #reading-list li {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    #reading-list img {
+      height: 150px;
+      margin-right: 20px;
+    }
+
+    #reading-list p:first-child {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <ul id="reading-list"></ul>
+  </div>
+  <script>
+    // for the tests, do not modify this array of books
+    const books = [
+      {
+        title: "The Design of Everyday Things",
+        author: "Don Norman",
+        alreadyRead: false,
+        bookCoverImage: "https://blackwells.co.uk/jacket/l/9780465050659.jpg",
+      },
+      {
+        title: "The Most Human Human",
+        author: "Brian Christian",
+        alreadyRead: true,
+        bookCoverImage:
+          "https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg",
+      },
+      {
+        title: "The Pragmatic Programmer",
+        author: "Andrew Hunt",
+        alreadyRead: true,
+        bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
+      },
+    ];
+
+    const readingList = document.getElementById("reading-list");
+
+    books.forEach((book) => {
+      const listItem = document.createElement("li");
+
+      const image = document.createElement("img");
+      image.src = book.bookCoverImage;
+
+      const bookDetails = document.createElement("div");
+
+      const title = document.createElement("p");
+      title.textContent = book.title;
+
+      const author = document.createElement("p");
+      author.textContent = `Author: ${book.author}`;
+
+      const readStatus = document.createElement("p");
+      readStatus.textContent = book.alreadyRead ? "Already read" : "Not read yet";
+      readStatus.style.color = book.alreadyRead ? "green" : "red";
+
+      bookDetails.appendChild(title);
+      bookDetails.appendChild(author);
+      bookDetails.appendChild(readStatus);
+
+      listItem.appendChild(image);
+      listItem.appendChild(bookDetails);
+      readingList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
