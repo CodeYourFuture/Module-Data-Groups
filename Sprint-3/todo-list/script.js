@@ -1,25 +1,65 @@
-function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
-}
-
-// These are the same todos that currently display in the HTML
-// You will want to remove the ones in the current HTML after you have created them using JavaScript
 let todos = [
   { task: "Wash the dishes", completed: false },
   { task: "Do the shopping", completed: false },
 ];
 
-populateTodoList(todos);
+function populateTodoList() {
+  let list = document.getElementById("todo-list");
+  list.innerHTML = ""; // Clear existing list
 
-// This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
+  todos.forEach((todo, index) => {
+    let li = document.createElement("li");
+    li.id = `todo-${index}`;
+
+    let taskSpan = document.createElement("span");
+    taskSpan.textContent = todo.task;
+    if (todo.completed) {
+      taskSpan.classList.add("completed");
+    }
+    li.appendChild(taskSpan);
+
+    let completeBtn = document.createElement("button");
+    completeBtn.textContent = "✓";
+    completeBtn.addEventListener("click", () => toggleComplete(index));
+    li.appendChild(completeBtn);
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "🗑️";
+    deleteBtn.addEventListener("click", () => deleteTodo(index));
+    li.appendChild(deleteBtn);
+
+    list.appendChild(li);
+  });
+}
+
+function toggleComplete(index) {
+  todos[index].completed = !todos[index].completed;
+  populateTodoList();
+}
+
+function deleteTodo(index) {
+  todos.splice(index, 1);
+  populateTodoList();
+}
+
 function addNewTodo(event) {
-  // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
-  // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  let taskInput = document.getElementById("todoInput").value.trim();
+  if (taskInput) {
+    todos.push({ task: taskInput, completed: false });
+    populateTodoList();
+    document.getElementById("todoInput").value = "";
+  }
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
-  // Write your code here...
+  todos = todos.filter(todo => !todo.completed);
+  populateTodoList();
 }
+
+// Initialize the todo list
+populateTodoList();
+
+// Add event listeners
+document.getElementById("todo-form").addEventListener("submit", addNewTodo);
+document.getElementById("remove-all-completed").addEventListener("click", deleteAllCompletedTodos);
