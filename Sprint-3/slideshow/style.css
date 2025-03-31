@@ -12,8 +12,9 @@ body {
 
 img {
     width: 300px;
-    height: auto;
+    height: 250px;
     border-radius: 10px;
+    
 }
 
 .button-container {
