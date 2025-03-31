@@ -13,5 +13,4 @@ const recipe = {
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
 ${recipe.ingredients.join("\n")}`);
-//Use of property values or keys for correct choice.(.ingredients)
-//Use (join("\n")) to format each ingredient on a new line.
+
