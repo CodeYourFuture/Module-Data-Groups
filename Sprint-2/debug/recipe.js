@@ -1,4 +1,5 @@
 // Predict and explain first...
+// Logging ingredients: When you try to log recipe, it will display the entire object, not just the ingredients array.
 
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
@@ -11,5 +12,7 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+  ingredients:`) ;
+   for(const ingredient of recipe.ingredients){
+    console.log(ingredient)
+  };
