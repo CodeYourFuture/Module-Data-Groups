@@ -15,22 +15,12 @@ const recipe = {
 //  ingredients:
 //${recipe}`);
 
-// loop through the object 
+console.log(recipe.title+' serves'+recipe.serves);
+console.log ("ingredients:");
+  
+// loop through the array
 
-for (const item in recipe)
+for (const item in recipe.ingredients)
 {
-  // if the value is array print line by line
-  if (Array.isArray(recipe[item]))
-  {
-    console.log(item);
-    // loop through array to print out each value
-    for (let i in recipe[item])
-    {
-      console.log(recipe.ingredients[i]);
-    }
-  }
-  else
-  {
-    console.log(item+ ":" +recipe[item]);
-  }
+    console.log(recipe.ingredients[item]);
 }
