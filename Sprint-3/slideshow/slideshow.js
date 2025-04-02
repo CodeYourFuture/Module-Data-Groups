@@ -9,7 +9,6 @@ const images = [
   "./assets/nature.jpg",
   "./assets/elephant.jpg",
 ];
-
 const backwardBtn = document.querySelector("#backward-btn");
 const forwardBtn = document.querySelector("#forward-btn");
 const autoBackBtn = document.querySelector("#auto-backward");
@@ -22,7 +21,6 @@ const img = document.querySelector("#carousel-img");
 let imgIndex = 0;
 img.src = images[imgIndex]
 
-
 function moveForward(){
     if (imgIndex === images.length-1){
         imgIndex = 0
@@ -32,6 +30,7 @@ function moveForward(){
     img.src = images[imgIndex];
     return imgIndex
 }
+
 function moveBackward() {
     if (imgIndex === 0) {
       imgIndex = images.length - 1;
@@ -41,6 +40,7 @@ function moveBackward() {
     img.src = images[imgIndex];
     return imgIndex;
 }
+
 function moveBackwardAuto(){
     clearInterval(interval);
     if (intervalTimer <= 0) {
@@ -52,6 +52,7 @@ function moveBackwardAuto(){
     autoForwardBtn.disabled = true;
     autoBackBtn.disabled = true;
 }
+
 function moveForwardAuto(){
     clearInterval(interval);
     if (intervalTimer <= 0) {
@@ -63,6 +64,7 @@ function moveForwardAuto(){
     autoForwardBtn.disabled = true;
     autoBackBtn.disabled = true;
 }
+
 function stopAuto(){
     clearInterval(interval)
     autoForwardBtn.disabled = false;
