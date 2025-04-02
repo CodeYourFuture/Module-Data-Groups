@@ -36,7 +36,7 @@ function stopAlarm(){
 
 
 function pausingAlarm(){
-  console.log("Pause button clicked");
+//  console.log("Pause button clicked");
   if (!isPaused){
     clearInterval(countdown);
     pauseAlarm();
