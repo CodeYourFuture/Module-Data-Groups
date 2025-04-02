@@ -12,4 +12,6 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join('\n')}`);
+//This is wrong because recipe is not an array to address the elements within it by their index, recipe is an object, we need to call recipe first and then call the key title, serves, ingredients
+//  The correct way to log out the title, how many it serves and the ingredients is to use the object keys directly
