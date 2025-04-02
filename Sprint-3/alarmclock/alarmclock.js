@@ -1,7 +1,7 @@
 function setAlarm() {
   //Converting the time of now value to seconds from milliseconds
   //Getting the time value from the input field, converting it into number, this will be in seconds
-  const alarmTime = Number(document.getElementById("alarmSet").value)   ;
+  const alarmTime = Number(document.getElementById("alarmSet").value);
   
    document.getElementById('timeRemaining').innerText="Time Remaining: "+timeFormatter(alarmTime);
    let currentTime=0;
@@ -25,16 +25,22 @@ function setAlarm() {
       playAlarm();
       
       
-      // return;
     }
   }, 1000);
 }
 
 //formatting remaining seconds in the format of MM:SS
 function timeFormatter(seconds) {
-  const remainingSeconds= seconds % 60;
+  const remainingSeconds = seconds % 60;
   const remainingMinutes = Math.floor(seconds / 60);
-  return `${remainingMinutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  return timePadder(remainingMinutes, remainingSeconds);
+}
+//Formatting the time in MM:SS format
+function timePadder(min , sec){
+  const minPadded = min.toString().padStart(2, '0');
+  const secPadded = sec.toString().padStart(2, '0');
+  return `${minPadded}:${secPadded}`;
+  
 }
 
 let flashInterval;  // To store the interval ID for flashing
