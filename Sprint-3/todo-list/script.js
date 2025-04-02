@@ -58,7 +58,7 @@ function addNewTodo(event) {
     alert("Please Enter a task");
   }
 }
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
+// Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
   // Write your code here...
   for (let i = todos.length - 1; i >= 0; i--) {
@@ -68,6 +68,7 @@ function deleteAllCompletedTodos() {
   }
   populateTodoList(todos);
 }
+
 function crossingCompletedTask() {}
 
 populateTodoList(todos);
