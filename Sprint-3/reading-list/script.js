@@ -21,7 +21,7 @@ const books = [
   },
 ];
 
-const readingList = document.querySelector("#reading-list");
+const readingList = document.getElementById("reading-list");
 
 //function displayBooks(books){
   for (let book of books){
