@@ -501,21 +501,22 @@ function pickFromArray(choices) {
   const randomQuote = choices[Math.floor(Math.random() * choices.length)];
   return randomQuote;
 }
+
 function resetQuote(){
   let obj = pickFromArray(quotes);
 
   quoteText.innerText = `"${obj.quote}"`;
   authorText.innerText = `By ${obj.author}`;
 }
+
 function autoPlayer(){
   if (checkBox.checked){
     onOffDisplay.innerText = `Auto-play is On`;
     interval = setInterval(resetQuote, 10000);
-  }
-  else {
-    onOffDisplay.innerText = `Auto-play is Off`;
-    clearInterval(interval)
-  }
+  } else {
+      onOffDisplay.innerText = `Auto-play is Off`;
+      clearInterval(interval)
+    }
 }
 
 // Actions and Event Listeners
