@@ -26,3 +26,53 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+
+
+
+//MY RESPONSE:
+
+// Function to count the number of times a word appears in a string
+
+function countWords(str) {
+  // Remove punctuation and convert the string to lowercase
+  const cleanedStr = str.replace(/[.,!?]/g, '').toLowerCase();
+  
+  // Split the string into words
+  const words = cleanedStr.split(/\s+/); // Split by any whitespace (spaces, tabs, newlines)
+
+  const wordCount = {}; // Object to hold the word counts
+  
+  // Loop through the array of words
+  for (const word of words) {
+    if (word) { // Only count non-empty strings (words)
+      wordCount[word] = (wordCount[word] || 0) + 1; // Increment the count of the word
+    }
+  }
+
+  return wordCount;
+}
+
+module.exports = countWords;
+
+// Test cases
+
+test("countWords counts the occurrences of each word", () => {
+  expect(countWords("you and me and you")).toEqual({ you: 2, and: 2, me: 1 });
+});
+
+test("countWords handles punctuation", () => {
+  expect(countWords("you, and me! and you?")).toEqual({ you: 2, and: 2, me: 1 });
+});
+
+test("countWords ignores case sensitivity", () => {
+  expect(countWords("You and me and YOU")).toEqual({ you: 2, and: 2, me: 1 });
+});
+
+test("countWords handles extra spaces", () => {
+  expect(countWords("  you   and  me  and  you ")).toEqual({ you: 2, and: 2, me: 1 });
+});
+
+test("countWords returns an empty object for an empty string", () => {
+  expect(countWords("")).toEqual({});
+});

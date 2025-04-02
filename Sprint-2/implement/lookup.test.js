@@ -33,3 +33,30 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+
+//MY RESPONSE
+
+// Implement the createLookup function to handle country-currency pairs
+
+function createLookup(pairs) {
+  const lookup = {}; // Initialize an empty object to hold the key-value pairs
+  for (const [country, currency] of pairs) {
+    lookup[country] = currency; // Use the country as the key and the currency as the value
+  }
+  return lookup; // Return the created lookup object
+}
+
+module.exports = createLookup;
+
+// Test case for the createLookup function
+
+test("creates a country currency code lookup for multiple codes", () => {
+  const countryCurrencyPairs = [['US', 'USD'], ['CA', 'CAD']];
+  const result = createLookup(countryCurrencyPairs);
+
+  expect(result).toEqual({
+    'US': 'USD',
+    'CA': 'CAD',
+  });
+});
