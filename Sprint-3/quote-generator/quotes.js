@@ -1,3 +1,20 @@
+const quoteEl = document.getElementById("quote");
+const authorEl = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+
+function pickRandomQuote() {
+  let randomObject = pickFromArray(quotes);
+  quoteEl.innerText = randomObject.quote;
+  authorEl.innerText = randomObject.author;
+}
+// pickRandomQuote();
+// newQuote.addEventListener("click", pickRandomQuote);
+
+window.addEventListener("load", () => {
+  pickRandomQuote();
+  newQuoteButton.addEventListener("click", pickRandomQuote);
+});
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -16,9 +33,6 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-quote = document.getElementById("quote");
-author = document.getElementById("author");
-newQuote = document.getElementById("new-quote");
 
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
@@ -495,11 +509,3 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
-function pickRandomQuote() {
-  let randomObject = pickFromArray(quotes);
-  quote.innerHTML = randomObject.quote;
-  author.innerHTML = randomObject.author;
-}
-pickRandomQuote();
-newQuote.addEventListener("click", pickRandomQuote); 
-
