@@ -10,7 +10,7 @@ beforeEach(async () => {
     runScripts: "dangerously",
   });
 
-  // do this so students can use element.innerText which jsdom does not implement
+  // This ensures that students can use element.innerText, which jsdom does not implement by default
   Object.defineProperty(page.window.HTMLElement.prototype, "innerText", {
     get() {
       return this.textContent;
@@ -20,8 +20,9 @@ beforeEach(async () => {
     },
   });
 
-  return new Promise((res) => {
-    page.window.document.addEventListener("load", res);
+  // Wait for the page to load fully
+  return new Promise((resolve) => {
+    page.window.document.addEventListener("load", resolve);
   });
 });
 
