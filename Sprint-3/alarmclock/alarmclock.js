@@ -7,7 +7,7 @@ function setAlarm() {
   let seconds = parseInt(inputField.value);
 
   // Checking if input is valid (not empty, not negative, and a number)
-  if (isNaN(seconds) || seconds <= 0) {
+  if (isNaN(seconds) || seconds <= 0 || !Number.isInteger(seconds)) {
     alert("Please enter a valid number of seconds.");
     return;
   }
