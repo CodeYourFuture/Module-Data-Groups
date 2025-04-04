@@ -13,12 +13,6 @@ function setAlarm() {
   }
 
   function updateTimer() {
-    if (seconds <= 0) {
-      clearInterval(timer);
-      playAlarm(); // Plays alarm sound when countdown finishes
-      return;
-    }
-
     // Converting seconds into minutes and remaining seconds
     let minutes = Math.floor(seconds / 60);
     let secs = seconds % 60;
@@ -27,6 +21,12 @@ function setAlarm() {
     timeDisplay.innerText = `Time Remaining: ${minutes
       .toString()
       .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+
+    if (seconds <= 0) {
+      clearInterval(timer);
+      playAlarm(); // Plays alarm sound when countdown finishes
+      return;
+    }
 
     seconds--; // Decreasing the seconds count by 1
   }
