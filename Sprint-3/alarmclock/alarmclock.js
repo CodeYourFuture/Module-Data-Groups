@@ -1,3 +1,4 @@
+const ONE_SECOND = 1000; // 1000ms = 1 second
 function setAlarm() {
   // Accessing and storing input and display elements from html file
   let timeDisplay = document.getElementById("timeRemaining");
@@ -32,7 +33,7 @@ function setAlarm() {
   }
 
   updateTimer();
-  let timer = setInterval(updateTimer, 1000);
+  let timer = setInterval(updateTimer, ONE_SECOND);
 }
 
 // DO NOT EDIT BELOW HERE
