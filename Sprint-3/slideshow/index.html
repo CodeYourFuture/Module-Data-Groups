@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
-    <script defer src="slideshow.js"></script>
-  </head>
-  <body>
-    <img id="carousel-img" src="./assets/cute-cat-a.png" alt="cat-pic" />
-    <button type="button" id="backward-btn">Backwards</button>
-    <button type="button" id="forward-btn">Forward</button>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image carousel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="carousel-container">
+    <img id="carousel-image" src="./assets/cute-cat-a.png" alt="Cute cat pic" />
+    <div class="buttons">
+      <button id="back">⏮ Back</button>
+      <button id="forward">Forward ⏭</button>
+      <button id="auto-back">◀ Auto Back</button>
+      <button id="auto-forward">Auto Forward ▶</button>
+      <button id="stop">⏹ Stop</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>
