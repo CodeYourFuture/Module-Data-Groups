@@ -1,1 +1,20 @@
 /** Write your CSS in here **/
+body {
+    background-color: #90EE90;
+    padding-top: 75px;
+}
+#container {
+    background-color: white;
+    border: 5px solid;
+    height: 500px;
+    width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+#new-quote {
+    margin: 50px auto;
+    height: 50px;
+    width: 250px;
+    font-size: 22px;
+    background-color: #90EE90;
+}
