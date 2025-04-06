@@ -13,7 +13,11 @@ const address = {
 
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address[0]}`); // - address is an object, not an array. So JavaScript doesn't know what address[0] is — it'll return undefined.
 console.log(`My house number is ${address["houseNumber"]}`);
+
+console.log(`My city is ${address["city"]}`);
+//or
+console.log(`My city is ${address.city}`);
 
 //I had mistake in my prediction, it does't need return because it's not a function. 
