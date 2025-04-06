@@ -3,7 +3,7 @@ const textArea = document.querySelector("#alarmSet");
 const timeRemaining = document.querySelector("#timeValue");
 const stepTime = 100
 const startButton = document.querySelector("#set");
-let isAudioPlaed = false;
+let isAudioPlay = false;
 
 textArea.addEventListener('input', function () {
   const value = textArea.value
@@ -11,15 +11,15 @@ textArea.addEventListener('input', function () {
 });
 
 function setAlarm() {
-  let fistRemaider = +timeRemaining.innerHTML * 1000;
+  let firstReminder = +timeRemaining.innerHTML * 1000;
 
   // need some improvments to kill setInterval afther complite
   setInterval(() => {
-    fistRemaider = fistRemaider - stepTime;
-    console.log(fistRemaider)
-    timeRemaining.innerHTML = fistRemaider;
+    firstReminder = firstReminder - stepTime;
+    console.log(firstReminder)
+    timeRemaining.innerHTML = firstReminder;
 
-    if (fistRemaider < 0) {
+    if (firstReminder < 0) {
       playAlarm()
       timeRemaining.innerHTML = 0
     }
