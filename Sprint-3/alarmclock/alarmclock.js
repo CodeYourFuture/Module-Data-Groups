@@ -28,7 +28,7 @@ function setAlarm() {
   }
 
   updateClock();
-  countdownInterval = setInterval(updateClock, 1000);
+  countdownInterval = setInterval(updateClock, ONE_SECOND_MS);
 }
 
 function getClockDigit(number) {
