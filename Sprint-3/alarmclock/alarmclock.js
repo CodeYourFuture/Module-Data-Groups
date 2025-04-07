@@ -1,8 +1,13 @@
 function setAlarm() {
-  const initialTime = parseInt(document.getElementById("alarmSet").value);
-  
-  if (isNaN(initialTime) || initialTime <= 0) {
-    alert("Please enter a valid time.");
+  const input = document.getElementById("alarmSet").value;
+  const initialTime = Number(input);
+
+  if (
+    isNaN(initialTime) ||
+    initialTime <= 0 ||
+    !Number.isInteger(initialTime)
+  ) {
+    alert("Please enter a valid time");
     return;
   }
 
