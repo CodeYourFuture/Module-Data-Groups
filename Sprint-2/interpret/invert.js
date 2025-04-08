@@ -26,7 +26,8 @@ function invert(obj) {
 // The target return value is { "1": "a", "2": "b" }
 
 // c) What does Object.entries return? Why is it needed in this program?
-// The current return value is wrong because the key and value are not swapped properly. The value is being overwritten by the key instead.
+// Object.entries() returns an array of the object's enumerable key-value pairs as arrays (e.g., [[key1, value1], [key2, value2]]), 
+// enabling iteration over both keys and values to construct the inverted object.
 
 // d) Explain why the current return value is different from the target output
 // The current return value is different from target output. Because the key and value are not swapped properly. The value is being overwritten by the key instead.
