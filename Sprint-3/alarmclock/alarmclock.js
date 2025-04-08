@@ -1,4 +1,5 @@
 function setAlarm() {
+  const ONE_SECOND_MS = 1000;
   const input = document.getElementById("alarmSet").value;
   const initialTime = Number(input);
 
