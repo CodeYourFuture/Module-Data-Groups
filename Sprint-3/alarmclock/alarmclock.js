@@ -1,4 +1,35 @@
-function setAlarm() {}
+function setAlarm() {
+  const input = document.getElementById("alarmSet").value; 
+  const heading = document.getElementById("timeRemaining");
+  let time = parseInt(input);
+
+  const updateCountdown = () => {
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    minutes = String(minutes).padStart(2, "0");
+    seconds = String(seconds).padStart(2, "0");
+
+    heading.innerText = `Time Remaining: ${minutes}:${seconds}`;
+
+    if (time === 0) {
+      clearInterval(timerInterval);
+      playAlarm(); 
+    } else {
+      time--;
+    }
+  };
+
+  updateCountdown(); 
+  const timerInterval = setInterval(updateCountdown, 1000);
+
+  document.getElementById("stop").addEventListener("click", () => {
+    clearInterval(timerInterval); 
+    pauseAlarm();
+    heading.innerText = "Time Remaining: 00:00"; 
+  });
+}
+
 
 // DO NOT EDIT BELOW HERE
 
