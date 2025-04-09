@@ -2,44 +2,45 @@ let intervalID = null;
 
 function setAlarm() {
   
-  let timeValue = document.querySelector("input").value;
+    let timeValue = Number (document.querySelector("input").value);
 
-
-  // if text box have value 
-  if (timeValue.length != 0)
-  {
-
-    function updateTimer()
+    // if the value is negative or not a number or is decimal number 
+    if (timeValue <=0 || isNaN(timeValue) || !Number.isInteger(timeValue))
+     {
+        alert ("Please enter the valid number");
+     }
+    else
     {
+
+      function updateTimer()
+      {
     
-    // get the h1 element 
-    let timeLabel = document.querySelector("#timeRemaining");
+        // get the h1 element 
+        let timeLabel = document.querySelector("#timeRemaining");
 
-    let minutes , seconds = 0;
+        let minutes , seconds = 0;
 
-    minutes = Math.floor(timeValue/60); // get the minutes from the value 
-    seconds = timeValue%60; // get the seconds from the value 
+        minutes = Math.floor(timeValue/60); // get the minutes from the value 
+        seconds = timeValue%60; // get the seconds from the value 
 
-    timeLabel.textContent = "Time Remaining: " + `${String(minutes).padStart(2,'0')} : ${String(seconds).padStart(2,'0')}`;
+        timeLabel.textContent = "Time Remaining: " + `${String(minutes).padStart(2,'0')} : ${String(seconds).padStart(2,'0')}`;
 
-    //reduce 1 to the time 
-    timeValue--;  
+        //reduce 1 to the time 
+        timeValue--;  
 
-    //if the time counting reach to 0
-    if (timeValue < 0)
-    {
-      // clear the interval 
-      clearInterval(intervalID);
+        //if the time counting reach to 0
+        if (timeValue < 0)
+         {
+        // clear the interval 
+            clearInterval(intervalID);
 
-      //play the sound 
-      playAlarm();
-    }  
-   
-      
-    
-   } 
-
-  }
+        //play the sound 
+            playAlarm();
+         }  
+     
+      } 
+    }
+  
   updateTimer();
   let intervalID = setInterval(updateTimer,1000)
 }
