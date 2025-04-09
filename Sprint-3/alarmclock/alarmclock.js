@@ -1,3 +1,5 @@
+let intervalID = null;
+
 function setAlarm() {
   
   let timeValue = document.querySelector("input").value;
@@ -27,7 +29,7 @@ function setAlarm() {
     if (timeValue < 0)
     {
       // clear the interval 
-      clearInterval(timer);
+      clearInterval(intervalID);
 
       //play the sound 
       playAlarm();
@@ -38,8 +40,8 @@ function setAlarm() {
    } 
 
   }
-
-  let timer = setInterval(updateTimer,1000)
+  updateTimer();
+  let intervalID = setInterval(updateTimer,1000)
 }
 
 
