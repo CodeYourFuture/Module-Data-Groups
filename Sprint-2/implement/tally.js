@@ -1,11 +1,11 @@
 function tally(array) {
-if (Array.isArray(array) === false) {
-throw new Error("Invalid input");   
-}
-return array.reduce((acc, item) => {
-acc[item] = (acc[item] || 0) + 1;
-return acc;}, {});
-
+    if (Array.isArray(array) === false) {
+        throw new Error("Invalid input");
+    }
+    return array.reduce((acc, item) => {
+        acc[item] = (acc[item] || 0) + 1;
+        return acc;
+    }, {});
 }
 /*
 {} is the initial value of the accumulator(acc).
