@@ -7,11 +7,13 @@
 function totalTill(till) {
   let total = 0;
 
-  for (const [coin, quantity] of Object.entries(till)) {
+  for (let [coin, quantity] of Object.entries(till)) {
+    //mystring.replace(/r/g, '')
+    coin = Number(coin.replace( "p", '')); 
     total += coin * quantity;
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
 const till = {
@@ -22,10 +24,18 @@ const till = {
 };
 const totalAmount = totalTill(till);
 
+console.log(totalAmount);
+
 // a) What is the target output when totalTill is called with the till object
+// £4.40
+
 
 // b) Why do we need to use Object.entries inside the for...of loop in this function?
+// function .entries extract key - value pairs into array for further calculations
+
 
 // c) What does coin * quantity evaluate to inside the for...of loop?
+// calculate sum of money for each type of coin
+
 
 // d) Write a test for this function to check it works and then fix the implementation of totalTill

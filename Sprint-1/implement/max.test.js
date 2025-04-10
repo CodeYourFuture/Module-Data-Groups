@@ -12,6 +12,16 @@ We have set things up already so that this file can see your function from the o
 
 const findMax = require("./max.js");
 
+describe("findMax", () => {
+    [
+        { input: [], expected: ['a','b','c'] },
+        { input: [5, 1, 1, 2, 3, 2, 5, 8], expected: [5, 1, 2, 3, 8] },
+        { input: [1, 2, 1], expected: [1, 2] },
+    ].forEach(({ input, expected }) =>
+        it(`deduplicated array for [${input}]`, () => expect(findMax(input)).toEqual(expected))
+    );
+});
+
 // Given an empty array
 // When passed to the max function
 // Then it should return -Infinity
