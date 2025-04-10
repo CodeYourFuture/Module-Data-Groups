@@ -3,6 +3,7 @@ let intervalID = null;
 function setAlarm() {
   
     let timeValue = Number (document.querySelector("input").value);
+  
 
     // if the value is negative or not a number or is decimal number 
     if (timeValue <=0 || isNaN(timeValue) || !Number.isInteger(timeValue))
@@ -10,7 +11,14 @@ function setAlarm() {
         alert ("Please enter the valid number");
      }
     else
-    {
+    {    
+     // change the value in the number box to zero 
+      document.querySelector("input").value = 0;
+
+      if (intervalID !== null)
+      {
+        clearInterval(intervalID);
+      }
 
       function updateTimer()
       {
@@ -37,12 +45,12 @@ function setAlarm() {
         //play the sound 
             playAlarm();
          }  
-     
+
       } 
     }
   
   updateTimer();
-  let intervalID = setInterval(updateTimer,1000)
+  intervalID = setInterval(updateTimer,1000)
 }
 
 
