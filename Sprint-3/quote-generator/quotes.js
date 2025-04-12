@@ -15,6 +15,12 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+const checkBox = document.getElementById("autoOnOff");
+const onOffDisplay = document.getElementById("onOff");
+
 // You don't need to change this function
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
@@ -491,3 +497,23 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+function displayRandomQuote() {
+    const randomQuote = pickFromArray(quotes);
+    quoteElement.textContent = randomQuote.quote;
+    authorElement.textContent = `- ${randomQuote.author}`;
+}
+
+let interval;
+function autoPlayer(){
+  if (checkBox.checked){
+    onOffDisplay.innerText = `Auto-play is On`;
+    interval = setInterval(displayRandomQuote, 60000);
+  } else {
+      onOffDisplay.innerText = `Auto-play is Off`;
+      clearInterval(interval)
+    }
+}
+
+displayRandomQuote();
+newQuoteButton.addEventListener("click", displayRandomQuote);
+checkBox.addEventListener("change", autoPlayer);
