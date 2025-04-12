@@ -21,3 +21,30 @@ const books = [
   },
 ];
 
+const readingList = document.getElementById("reading-list");
+
+for(let book of books){
+  const list = document.createElement("li");
+
+  const title = document.createElement("h1");
+  title.innerText = `${book.title}`;
+
+  const paragraph = document.createElement("p");
+  paragraph.innerText = `${book.author}`;
+
+  const image = document.createElement("img");
+  image.src = book.bookCoverImage;
+
+  image.alt = "The Pragmatic Programmer";
+
+  if(book.alreadyRead){
+    list.style.backgroundColor = "green";
+  }else{
+    list.style.backgroundColor = "red";
+  }
+
+  list.appendChild(title);
+  list.appendChild(paragraph);
+  list.appendChild(image);
+  readingList.appendChild(list);
+}
