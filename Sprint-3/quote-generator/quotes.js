@@ -1,3 +1,23 @@
+function newQuote(){
+  let quoteObj = pickFromArray(quotes);
+  let quote = quoteObj.quote;
+  let author = quoteObj.author;
+
+  let quoteDom = document.getElementById("quote");
+  let authorDom = document.getElementById("author");
+  quoteDom.textContent = quote;
+  authorDom.textContent = author;
+}
+
+function setup() {
+  newQuote();
+  document.getElementById("new-quote").addEventListener("click", () => {
+    newQuote();
+  });
+}
+
+window.onload = setup;
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
