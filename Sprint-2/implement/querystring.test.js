@@ -11,3 +11,28 @@ test("parses querystring values containing =", () => {
   });
 });
 
+test("returns empty object for empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("handles key without value", () => {
+  expect(parseQueryString("key")).toEqual({ key: undefined });
+});
+
+test("handles key with empty value", () => {
+  expect(parseQueryString("key=")).toEqual({ key: "" });
+});
+
+test("handles empty key with value", () => {
+  expect(parseQueryString("=value")).toEqual({ "": "value" });
+});
+
+test("handles multiple key=value pairs", () => {
+  expect(parseQueryString("a=1&b=2&c=3")).toEqual({ a: "1", b: "2", c: "3" });
+});
+
+test("handles URL encoded characters", () => {
+  expect(parseQueryString("name=John%20Doe&data=x%3Dy")).toEqual({ name: "John%20Doe", data: "x%3Dy" });
+});
+
+

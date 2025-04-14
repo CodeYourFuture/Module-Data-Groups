@@ -1,3 +1,5 @@
+
+
 function parseQueryString(queryString) {
   const queryParams = {};
   if (queryString.length === 0) {
@@ -12,13 +14,14 @@ function parseQueryString(queryString) {
 
   return queryParams;
 }
-parseQueryString("equation=x=y+1")
+
+// parseQueryString("equation=x=y+1")
 
 // Object {
-//   -   "equation": "x=y+1", - ожидаем
-//   +   "equation": "x", - то что мы получили
+//   -   "equation": "x=y+1", 
+//   +   "equation": "x", 
 
-//"equation=x=y+1" - передали
-// equation": "x=y+1 - ожидаем получить
+//"equation=x=y+1" 
+// equation": "x=y+1 
 
 module.exports = parseQueryString;
