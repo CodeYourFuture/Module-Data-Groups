@@ -8,6 +8,12 @@ function setAlarm() {
   const heading = document.getElementById("timeRemaining");
   let time = parseInt(input);
 
+  if (isNaN(time) || time <= 0) {
+    alert("Please enter only a positive number of seconds.");
+    heading.innerText = "Time Remaining: 00:00";
+    return;
+  }
+  
   const updateCountdown = () => {
     let minutes = Math.floor(time / 60);
     let seconds = time % 60;
