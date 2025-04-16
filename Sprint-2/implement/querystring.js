@@ -9,11 +9,13 @@ function parseQueryString(queryString) {
 
   for (const pair of keyValuePairs) {
     const [key, value] = pair.split(/=(.*)/);
-    queryParams[key] = value;
+    
+    queryParams[decodeURIComponent(key)] = value === undefined ? undefined : decodeURIComponent(value);
   }
 
   return queryParams;
 }
+
 
 // parseQueryString("equation=x=y+1")
 

@@ -31,8 +31,13 @@ test("handles multiple key=value pairs", () => {
   expect(parseQueryString("a=1&b=2&c=3")).toEqual({ a: "1", b: "2", c: "3" });
 });
 
+// test("handles URL encoded characters", () => {
+//   expect(parseQueryString("name=John%20Doe&data=x%3Dy")).toEqual({ name: "John%20Doe", data: "x%3Dy" });
+// });
+
 test("handles URL encoded characters", () => {
-  expect(parseQueryString("name=John%20Doe&data=x%3Dy")).toEqual({ name: "John%20Doe", data: "x%3Dy" });
+  expect(parseQueryString("name=John%20Doe&data=x%3Dy")).toEqual({
+    name: "John Doe",
+    data: "x=y"
+  });
 });
-
-
