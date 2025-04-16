@@ -1,4 +1,9 @@
+let timerInterval = null; 
+
 function setAlarm() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
   const input = document.getElementById("alarmSet").value; 
   const heading = document.getElementById("timeRemaining");
   let time = parseInt(input);
@@ -12,8 +17,9 @@ function setAlarm() {
 
     heading.innerText = `Time Remaining: ${minutes}:${seconds}`;
 
-    if (time === 0) {
+    if (time <= 0) {
       clearInterval(timerInterval);
+      timerInterval = null;
       playAlarm(); 
     } else {
       time--;
@@ -21,7 +27,7 @@ function setAlarm() {
   };
 
   updateCountdown(); 
-  const timerInterval = setInterval(updateCountdown, 1000);
+  timerInterval = setInterval(updateCountdown, 1000);
 
   document.getElementById("stop").addEventListener("click", () => {
     clearInterval(timerInterval); 
