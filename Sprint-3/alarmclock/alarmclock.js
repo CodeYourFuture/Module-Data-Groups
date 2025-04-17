@@ -1,29 +1,48 @@
-
 const textArea = document.querySelector("#alarmSet");
 const timeRemaining = document.querySelector("#timeValue");
-const stepTime = 100
 const startButton = document.querySelector("#set");
 let isAudioPlay = false;
+let intervalId = null;
 
 textArea.addEventListener('input', function () {
-  const value = textArea.value
-  timeRemaining.innerHTML = value
+  const value = textArea.value;
+  timeRemaining.innerHTML = value;
 });
 
 function setAlarm() {
   let firstReminder = +timeRemaining.innerHTML * 1000;
+ 
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
 
-  // need some improvments to kill setInterval afther complite
-  setInterval(() => {
-    firstReminder = firstReminder - stepTime;
-    console.log(firstReminder)
-    timeRemaining.innerHTML = firstReminder;
+  intervalId = setInterval(() => {
+    firstReminder -= 100;
 
-    if (firstReminder < 0) {
-      playAlarm()
-      timeRemaining.innerHTML = 0
+    if (firstReminder <= 0) {
+      clearInterval(intervalId); 
+      intervalId = null; 
+      timeRemaining.innerHTML = 0; 
+      if (!isAudioPlay) {
+        playAlarm(); 
+        isAudioPlay = true;
+      }
+    } else {
+  
+      timeRemaining.innerHTML = (firstReminder / 1000).toFixed(1);
     }
-  }, stepTime);
+  }, 100);
+}
+
+function pauseAlarm() {
+  audio.pause();
+  audio.currentTime = 0; 
+  isAudioPlay = false;
+
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
 }
 
 // DO NOT EDIT BELOW HERE
@@ -45,8 +64,8 @@ function playAlarm() {
   audio.play();
 }
 
-function pauseAlarm() {
-  audio.pause();
-}
+// function pauseAlarm() {
+//   audio.pause();
+// }
 
 window.onload = setup;
