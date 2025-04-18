@@ -1,7 +1,5 @@
 // DO NOT EDIT BELOW HERE
 
-// let quoteNumber=quotes[i].quote;
-// let author=quotes[i].author;
 // pickFromArray is a function which will return one item, at
 // random, from the given array.
 //
@@ -21,6 +19,7 @@
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)]
 }
+
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
