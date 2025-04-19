@@ -9,7 +9,7 @@ const generateQuote = () => {
   author.innerHTML = selectedQuote.author;
   // change greeting
   document.getElementById("greeting").innerHTML = "Your quote is:";
-  document.getElementById("greeting").style = "size: 1rem";
+  document.getElementById("greeting").style.fontSize = "1rem";
 };
 
 //show to user on click of new quote
