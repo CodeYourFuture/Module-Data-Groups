@@ -3,17 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>Title here</title>
+    <title>Alarm clock</title>
   </head>
   <body>
     <div class="centre">
-      <h1 id="timeRemaining">Time Remaining: 00:00</h1>
+      <h1 id="timeRemaining">Time Remaining: 00:00:00</h1>
       <label for="alarmSet">Set time to:</label>
-      <input id="alarmSet" type="number" />
+      <input id="alarmSet" type="" placeholder="00:00:00" maxlength="8" />
 
-      <button id="set" type="button">Set Alarm</button>
-      <button id="stop" type="button">Stop Alarm</button>
+      <button class="btn-p" id="set" type="button">Set Alarm</button>
+      <button class="btn-t" id="stop" type="button">Stop Alarm</button>
     </div>
     <script src="alarmclock.js"></script>
   </body>
