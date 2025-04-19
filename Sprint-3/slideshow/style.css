@@ -1,1 +1,13 @@
 /** Write your CSS in here **/
+.container {
+  display: block;
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 16px;
+  cursor: pointer;
+}
