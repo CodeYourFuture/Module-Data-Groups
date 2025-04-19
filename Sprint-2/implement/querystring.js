@@ -28,7 +28,11 @@ const parseQueryString = (input) => {
 
     const [key, ...secondPart] = pair.split("=");
     // if additional '=' connect for the value
-    queryParamsReturned[key] = secondPart.join("=");
+
+    //% handling
+    const correctKey = decodeURIComponent(key);
+    const correctValue = decodeURIComponent(secondPart.join("="));
+    queryParamsReturned[correctKey] = correctValue;
 
     // so instead I split into 2 parts always
     // const [key, value] = pair.split("=", 2);
