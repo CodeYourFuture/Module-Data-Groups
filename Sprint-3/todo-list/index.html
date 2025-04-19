@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>To Do</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <form>
       <div>
-        <input type="text" placeholder="New todo..." />
+        <input type="text" placeholder="New todo..." id="todo-input" />
       </div>
       <div>
-        <button type="submit">Add Todo</button>
+        <ul id="todo-list"></ul>
+        <button type="submit" id="add">Add Todo</button>
         <button
           type="button"
           id="remove-all-completed"
