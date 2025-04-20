@@ -12,7 +12,7 @@ function setAlarm() {
   let timeLeft = parseInt(alarmInput.value);
 
   if (isNaN(timeLeft) || timeLeft < 0) {
-    alert("Please enter a valid positive number for the alarm time (in seconds).");
+    alert("Please enter a valid number for the alarm time (in seconds).");
     return;
   }
 
