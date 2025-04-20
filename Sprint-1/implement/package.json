@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "json": "^11.0.0"
+  },
+  "name": "implement",
+  "version": "1.0.0",
+  "main": "dedupe.js",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
