@@ -63,6 +63,7 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  document.body.style.backgroundColor = " #ffffff";
 }
 
 window.onload = setup;
