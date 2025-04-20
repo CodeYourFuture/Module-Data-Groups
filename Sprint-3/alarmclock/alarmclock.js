@@ -1,4 +1,32 @@
-function setAlarm() {}
+function setAlarm() {
+  const inputField = document.getElementById("alarmSet");
+  const timeRemaining = document.getElementById("timeRemaining");
+
+  let time = parseInt(inputField.value, 10);
+
+  if (isNaN(time) || time <= 0) {
+    alert("Please enter a valid number greater than 0.");
+    return;
+  }
+
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+  }
+
+  timeRemaining.innerText = `Time Remaining: ${formatTime(time)}`;
+
+  const intervalId = setInterval(() => {
+    time -= 1;
+    timeRemaining.innerText = `Time Remaining: ${formatTime(time)}`;
+
+    if (time <= 0) {
+      clearInterval(intervalId);
+      playAlarm();
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
