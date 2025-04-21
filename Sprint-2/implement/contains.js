@@ -1,7 +1,8 @@
 function contains(object, propertyName) {
   // console.log(propertyName, '<-- property name');
-  if (!propertyName) return false;
-  if (!object) return false;
+  // if (!propertyName) return false;
+  // if (!object) return false;
+  if (typeof object !== "object" || object === null || Array.isArray(object) || typeof object === "string") return false;
   if (object.hasOwnProperty(propertyName)) return true;
   else return false;
 };

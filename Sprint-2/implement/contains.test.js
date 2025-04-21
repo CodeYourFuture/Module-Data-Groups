@@ -28,7 +28,7 @@ expect(contains({a: 1, b: 2})).toEqual(false);
 // When passed to contains
 // Then it should return false
 test("contains on empty object returns false", () => {
-  expect(contains()).toEqual(false);
+  expect(contains({}, "a")).toEqual(false);
 });
 
 // Given an object with properties
@@ -49,5 +49,7 @@ test("not contains the property in the object returns false", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("contains invalid parameters return false", () => {
-  expect(contains([1,2,3])).toEqual(false);
+  expect(contains([1,2,3], '0')).toEqual(false);
+  expect(contains("ABC", '0')).toEqual(false);
+  expect(contains(null, 'a')).toEqual(false);
 });
