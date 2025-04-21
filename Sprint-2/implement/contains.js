@@ -1,5 +1,6 @@
 function contains(element, key) {
-    const result = element[key];
+ 
+  const result = element[key];
 
     // console.log({
     //     key,
@@ -14,11 +15,12 @@ function contains(element, key) {
     // else, does exist!
       // return true
 
-    if (result === undefined) return false;
-    else return true;
+    if (!element.hasOwnProperty(key)) return false;
+    return true;
     
 }
 console.log(contains({a: 1, b: 2}, 'a'))
 console.log(contains({a: 1, b: 2}, 'c'))
 console.log(contains({firstName: "Cam" }, 'firstName'))
+console.log(contains({x: undefined}, 'x'));
 module.exports = contains;
