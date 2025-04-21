@@ -1,3 +1,5 @@
+let activeIntervalId = null; 
+
 function setAlarm() {
   const inputField = document.getElementById("alarmSet");
   const timeRemaining = document.getElementById("timeRemaining");
@@ -9,6 +11,10 @@ function setAlarm() {
     return;
   }
 
+  if (activeIntervalId !== null) {
+    clearInterval(activeIntervalId);
+  }
+
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -17,12 +23,13 @@ function setAlarm() {
 
   timeRemaining.innerText = `Time Remaining: ${formatTime(time)}`;
 
-  const intervalId = setInterval(() => {
+  activeIntervalId = setInterval(() => {
     time -= 1;
     timeRemaining.innerText = `Time Remaining: ${formatTime(time)}`;
 
     if (time <= 0) {
-      clearInterval(intervalId);
+      clearInterval(activeIntervalId);
+      activeIntervalId = null;
       playAlarm();
     }
   }, 1000);
