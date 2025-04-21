@@ -9,9 +9,11 @@ const images = [
 let currentIndex = 0;
 const carouselImg = document.getElementById("carousel-img");
 let slideshowInterval = null;
+const imageCountText = document.getElementById("image-count");
 
 function updateImage() {
   carouselImg.setAttribute("src", images[currentIndex]);
+  imageCountText.textContent = `Image ${currentIndex + 1} of ${images.length}`;
 }
 
 function goForward() {
@@ -46,3 +48,5 @@ document.getElementById("auto-backward-btn").addEventListener("click", () => {
     slideshowInterval = setInterval(goBackward, 1000); // Start auto backward
   }
 });
+
+updateImage();
