@@ -7,7 +7,8 @@ function parseQueryString(queryString) {
 
   for (const pair of keyValuePairs) {
     const [key, value] = pair.split(/=(.*)/s);
-    queryParams[key] = value;
+    // queryParams[key] = value;
+    queryParams[decodeURIComponent(key)] = decodeURIComponent(value);
   }
 
   return queryParams;
@@ -16,3 +17,4 @@ function parseQueryString(queryString) {
 module.exports = parseQueryString;
 
 console.log(parseQueryString("equation=x=y+1"));
+console.log(parseQueryString("5%25"));
