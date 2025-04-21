@@ -1,6 +1,8 @@
 function contains(element, key) {
  
-  const result = element[key];
+  if (typeof element !== "object" || element === null || Array.isArray(element)) {
+    return false;
+  }
 
     // console.log({
     //     key,

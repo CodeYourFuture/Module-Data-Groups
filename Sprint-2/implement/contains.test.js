@@ -43,3 +43,7 @@ test("invalid parameters", () => {
     expect(contains(["apple", "orange", "pear"])).toBe (false);
 });
 
+test("contains with an array", () => {
+    expect(contains(["apple", "orange", "pear"], "0")).toBe(false);
+  });
+
