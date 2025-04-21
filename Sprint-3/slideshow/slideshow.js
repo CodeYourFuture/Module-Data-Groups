@@ -7,16 +7,42 @@ const images = [
 // Write your code here
 
 let currentIndex = 0;
-
 const carouselImg = document.getElementById("carousel-img");
-carouselImg.setAttribute("src", images[currentIndex]);
+let slideshowInterval = null;
 
-document.getElementById("forward-btn").addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % images.length;
+function updateImage() {
   carouselImg.setAttribute("src", images[currentIndex]);
+}
+
+function goForward() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateImage();
+}
+
+function goBackward() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateImage();
+}
+
+document.getElementById("forward-btn").addEventListener("click", goForward);
+document.getElementById("backward-btn").addEventListener("click", goBackward);
+
+// Auto Forward logic
+document.getElementById("auto-forward-btn").addEventListener("click", () => {
+  if (slideshowInterval) {
+    clearInterval(slideshowInterval);
+    slideshowInterval = null; // Stop auto mode
+  } else {
+    slideshowInterval = setInterval(goForward, 1000); // Start auto forward
+  }
 });
 
-document.getElementById("backward-btn").addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  carouselImg.setAttribute("src", images[currentIndex]);
+// Auto Backward logic
+document.getElementById("auto-backward-btn").addEventListener("click", () => {
+  if (slideshowInterval) {
+    clearInterval(slideshowInterval);
+    slideshowInterval = null; // Stop auto mode
+  } else {
+    slideshowInterval = setInterval(goBackward, 1000); // Start auto backward
+  }
 });
