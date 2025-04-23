@@ -1,5 +1,7 @@
 "use strict";
 const input = document.querySelector("input");
+const stopButton = document.getElementById("stop");
+const setButton = document.getElementById("set");
 let secondsLeft = 0;
 let timerId;
 
@@ -13,6 +15,7 @@ function deduction() {
   --secondsLeft;
   changeDisplayTime(secondsLeft);
   if (secondsLeft == 0) {
+    stopButton.disabled = false;
     clearInterval(timerId);
     playAlarm();
     document.body.style.background = "#ff4d4d";
@@ -34,11 +37,12 @@ function changeDisplayTime(secondsLeft) {
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
-  document.getElementById("set").addEventListener("click", () => {
+  stopButton.disabled = true;
+  setButton.addEventListener("click", () => {
     setAlarm();
   });
 
-  document.getElementById("stop").addEventListener("click", () => {
+  stopButton.addEventListener("click", () => {
     pauseAlarm();
   });
 }
@@ -50,6 +54,7 @@ function playAlarm() {
 function pauseAlarm() {
   audio.pause();
   document.body.style.background = "#ffffff";
+  stopButton.disabled = true;
 }
 
 window.onload = setup;
