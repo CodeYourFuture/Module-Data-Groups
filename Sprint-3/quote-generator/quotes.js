@@ -491,3 +491,57 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+function displayRandomQuote() {
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+  const maninElement = document.querySelector("main");
+
+  // Fade out current content
+  quoteElement.style.opacity = "0";
+  authorElement.style.opacity = "0";
+  maninElement.style.opacity = "0";
+
+  setTimeout(() => {
+    const randomQuote = pickFromArray(quotes);
+
+    quoteElement.textContent = randomQuote.quote;
+    authorElement.textContent = `_ ${randomQuote.author}`;
+
+    quoteElement.style.opacity = "1";
+    authorElement.style.opacity = "1";
+    maninElement.style.opacity = "1";
+  }, 300);
+}
+
+let timer = null;
+
+document.getElementById("toggle-timer").addEventListener("change", (event) => {
+  const statusSpan = document.getElementById("status");
+
+  if (event.target.checked) {
+    statusSpan.textContent = "Auto-Play is :ON";
+
+    timer = setTimeout(() => {
+      timer = setInterval(displayRandomQuote, 60000);
+      displayRandomQuote();
+    }, 6000);
+  } else {
+    statusSpan.textContent = "Auto Change";
+
+    clearTimeout(timer);
+    clearInterval(timer);
+    timer = null;
+  }
+});
+
+document
+  .getElementById("new-quote")
+  .addEventListener("click", displayRandomQuote);
+
+displayRandomQuote();
+
+module.exports = {
+  testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
+};
