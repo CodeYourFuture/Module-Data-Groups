@@ -1,20 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Title here</title>
-  </head>
-  <body>
-    <div class="centre">
-      <h1 id="timeRemaining">Time Remaining: 00:00</h1>
-      <label for="alarmSet">Set time to:</label>
-      <input id="alarmSet" type="number" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alarm Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    #alarm-container {
+      margin-top: 50px;
+    }
+    #time-remaining {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    #alarm-sound {
+      display: none;
+    }
+  </style>
+</head>
+<body>
 
-      <button id="set" type="button">Set Alarm</button>
-      <button id="stop" type="button">Stop Alarm</button>
-    </div>
-    <script src="alarmclock.js"></script>
-  </body>
+<div id="time-remaining">00:00</div> <!-- Timer moved to the top -->
+<div id="alarm-container">
+  <h1>Set Alarm</h1>
+  <input type="text" id="alarm-time" placeholder="Enter time in seconds">
+  <button onclick="setAlarm()">Set Alarm</button>
+  <button id="stop-alarm" onclick="stopAlarm()" style="display: none;">Stop Alarm</button>
+  <audio id="alarm-sound" src="https://www.soundjay.com/button/beep-07.wav" loop></audio>
+</div>
+
+<script>
+  let timer;
+  let timeRemaining;
+  let alarmSound = document.getElementById('alarm-sound');
+  let stopButton = document.getElementById('stop-alarm');
+  let timeRemainingTitle = document.getElementById('time-remaining');
+
+  // Function to format time in mm:ss
+  function formatTime(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    let remainingSeconds = seconds % 60;
+    return `${minutes < 10 ? '0' + minutes : minutes}:${remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds}`;
+  }
+
+  // Function to set the alarm
+  function setAlarm() {
+    const alarmTime = parseInt(document.getElementById('alarm-time').value);
+    if (isNaN(alarmTime) || alarmTime <= 0) return; // Validate input
+
+    timeRemaining = alarmTime;
+    timeRemainingTitle.innerText = formatTime(timeRemaining);
+    stopButton.style.display = 'inline';
+
+    // Start countdown
+    if (timer) clearInterval(timer); // Clear any previous timers
+    timer = setInterval(() => {
+      timeRemaining--;
+      timeRemainingTitle.innerText = formatTime(timeRemaining);
+      if (timeRemaining <= 0) {
+        clearInterval(timer);
+        playAlarm();
+      }
+    }, 1000);
+  }
+
+  // Function to play the alarm sound
+  function playAlarm() {
+    alarmSound.play();  // Play sound
+    document.body.style.backgroundColor = '#ffcccc'; // Change background color
+    stopButton.style.display = 'inline'; // Show stop button
+  }
+
+  // Function to stop the alarm sound
+  function stopAlarm() {
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
+    document.body.style.backgroundColor = ''; // Reset background color
+    stopButton.style.display = 'none'; // Hide stop button
+  }
+
+  // Initialize when the page first loads
+  window.onload = function () {
+    timeRemainingTitle.innerText = '00:00';
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
+    stopButton.style.display = 'none';
+  };
+</script>
+
+</body>
 </html>

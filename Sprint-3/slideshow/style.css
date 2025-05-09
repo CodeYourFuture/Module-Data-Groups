@@ -1,1 +1,74 @@
 /** Write your CSS in here **/
+/* General body styling */
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Container for the carousel */
+  #carousel-container {
+    text-align: center;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Soft gradient background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 700px;
+  }
+  
+  /* Styling the images */
+  img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin: 15px 0;
+    transition: transform 0.5s ease;
+  }
+  
+  /* Button styling */
+  button {
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #feb47b;
+  }
+  
+  /* Controls styling */
+  #controls, #auto-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Responsiveness for smaller screens */
+  @media (max-width: 600px) {
+    #carousel-container {
+      width: 95%;  /* Makes the carousel container take most of the screen on small devices */
+    }
+  
+    button {
+      padding: 8px 15px;  /* Smaller button size for mobile */
+      font-size: 14px;
+    }
+  
+    img {
+      max-width: 100%;  /* Makes the image fit better on small screens */
+    }
+  }
+  

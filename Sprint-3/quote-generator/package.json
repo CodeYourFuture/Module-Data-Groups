@@ -2,18 +2,18 @@
   "name": "quote-generator",
   "version": "1.0.0",
   "license": "CC-BY-SA-4.0",
-  "description": "You must update this package",
+  "description": "Updated package",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeYourFuture/CYF-Coursework-Template.git"
+   "url": "git+https://github.com/Elfredah?tab=repositories"
   },
   "bugs": {
-    "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
+    "url": "https://github.com/issues/assigned"
   },
-  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
+  "homepage": "https://github.com/users/Elfredah/projects/4",
   "devDependencies": {
     "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
