@@ -12,4 +12,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);//for getting the value of a key we have to use this syntax

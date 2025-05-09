@@ -11,6 +11,12 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+
+//for (const value of author) {    //the error is because of we can't use this loop directly on object, instead we should use the codes below
+
+  //console.log(value);
+//}
+
+for (const value of Object.values(author)) {
   console.log(value);
 }
