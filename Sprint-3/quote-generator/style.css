@@ -1,1 +1,68 @@
 /** Write your CSS in here **/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: rgb(184, 238, 184);
+    position: relative;
+}
+
+/* Header Style */
+h1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #105d47;
+}
+
+/* Quote Style */
+#quote {
+    font-size: 1.5rem;
+    color: #125b1bfd;
+    margin: 20px 0 10px 0;
+    text-align: center;
+}
+
+/* Author Style */
+#author {
+    font-size: 1.2rem;
+    color: #253c25;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Button Style */
+#new-quote {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #044507;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+#new-quote:hover {
+    background: #297d7b;
+}
