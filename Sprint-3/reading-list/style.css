@@ -157,3 +157,41 @@ body {
     max-height: 80px;
   }
 }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 20px;
+}
+
+#reading-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+#reading-list li {
+  border-radius: 10px;
+  color: white;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+#reading-list li:hover {
+  transform: scale(1.03);
+}
+
+#reading-list li p {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+#reading-list img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}

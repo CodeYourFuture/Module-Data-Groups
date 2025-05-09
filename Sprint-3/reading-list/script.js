@@ -21,3 +21,15 @@ const books = [
   },
 ];
 
+let list = document.querySelector("#reading-list")
+
+for (let element of books){
+  let li = document.createElement("li")
+  li.innerHTML = `<p>${element.title} by ${element.author}</p> 
+  <img src="${element.bookCoverImage}" alt ="${element.title}" width = 150px height = 230px />`
+
+  if(element.alreadyRead){
+    li.style.backgroundColor = "green"
+  }else{li.style.backgroundColor = "red"}
+  list.append(li)
+}
