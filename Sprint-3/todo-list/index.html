@@ -3,25 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form>
-      <div>
-        <input type="text" placeholder="New todo..." />
-      </div>
-      <div>
-        <button type="submit">Add Todo</button>
-        <button
-          type="button"
-          id="remove-all-completed"
-          class="btn btn-primary mb-3"
-        >
-          Remove all completed
-        </button>
-      </div>
-    </form>
+    <div class="container">
+      <h1>Todo List</h1>
+      
+      <!-- Todo Form -->
+      <form id="todo-form">
+        <div>
+          <input type="text" id="todoInput" placeholder="New todo..." />
+        </div>
+        <div>
+          <input type="date" id="todoDeadline" />
+        </div>
+        <div>
+          <button type="submit" class="btn">Add Todo</button>
+          <button
+            type="button"
+            id="remove-all-completed"
+            class="btn btn-primary mb-3"
+          >
+            Remove all completed
+          </button>
+        </div>
+      </form>
+
+      <!-- Todo List -->
+      <ul id="todo-list"></ul>
+      
+      <!-- Completed Task Input and List -->
+      <h2>Completed Tasks</h2>
+      <form id="completed-form">
+        <input type="text" id="completedInput" placeholder="Completed task..." />
+        <button type="submit" class="btn">Add Completed Task</button>
+      </form>
+      <ul id="completed-list"></ul>
+      <button
+        type="button"
+        id="remove-all-completed-tasks"
+        class="btn btn-danger"
+      >
+        Remove All Completed Tasks
+      </button>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
