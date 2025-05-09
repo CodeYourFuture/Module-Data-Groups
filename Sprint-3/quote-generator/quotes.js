@@ -1,3 +1,49 @@
+
+function quoteGenerator ()
+{
+  // get a random quotes 
+  let randQuote = pickFromArray(quotes);
+
+  //get the element for quote content
+  let quote = document.querySelector("#quote")
+
+  //get the element for author 
+  let author = document.querySelector("#author")
+  // add quote in first paragraph
+  quote.textContent = randQuote.quote;
+
+    // add author in second paragraph
+  author.textContent = randQuote.author;
+}
+  
+
+
+//window.onload=quoteGenerator;
+
+//const nextQuote = document.querySelector("#new-quote");
+//nextQuote.addEventListener('click',quoteGenerator);
+
+
+
+  window.addEventListener("load", () => { 
+    // Inside this callback function, we specify code to be performed once on page load
+  
+    // Setup event listener
+   const nextQuote = document.querySelector("#new-quote");
+   nextQuote.addEventListener('click',quoteGenerator);
+ 
+   quoteGenerator();  // Show the first quote
+ });
+
+
+
+
+
+
+
+
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
