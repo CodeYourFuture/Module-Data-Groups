@@ -11,6 +11,11 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+console.log(author);
+
+/*for (const value of author) {
   console.log(value);
-}
+}*/
+
+
+// author is an object and its not iterable
