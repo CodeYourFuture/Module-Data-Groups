@@ -10,3 +10,22 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("handles duplicate keys as array", () => {
+  expect(parseQueryString("a=1&a=2")).toEqual({ a: ["1", "2"] });
+});
+
+test("decodes encoded characters", () => {
+  expect(parseQueryString("name=John%20Doe")).toEqual({ name: "John Doe" });
+});
+
+test("parses querystring with empty value", () => {
+  expect(parseQueryString("key=")).toEqual({ key: null });
+});
+test("handles querystring with leading ?", () => {
+  expect(parseQueryString("?a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+
+test("returns empty object for empty querystring", () => {
+  expect(parseQueryString("")).toEqual({});
+});
