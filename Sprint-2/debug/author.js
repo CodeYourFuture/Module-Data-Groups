@@ -11,6 +11,11 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+// for (const value of author) {
+//   console.log(value);
+// }
+for (const value in author) {
+  console.log(value, author[value]);
 }
+
+// it attempts to loop over the object author and log the values of all properties

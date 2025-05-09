@@ -4,6 +4,8 @@
 // Each ingredient should be logged on a new line
 // How can you fix it?
 
+//To correctly log out the title, it should point to recipe.ingredients
+
 const recipe = {
   title: "bruschetta",
   serves: 2,
@@ -11,5 +13,6 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+  ingredients: `)
+
+  recipe.ingredients.forEach(ingredient => console.log(ingredient))
