@@ -7,7 +7,7 @@
     "test": "jest --testMatch='**/*.js'",
     "format": "prettier --write ."
   },
-  "jest": {
+  "jest": { 
     "testPathIgnorePatterns": [
       "alarmclock",
       "highlight-words",

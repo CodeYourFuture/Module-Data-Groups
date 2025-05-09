@@ -14,7 +14,7 @@ When you click a button on the screen it should change the quote on the screen.
 
 It can look however you like but there is an example in this folder at `quote_generator_example.png`
 
-## Need Help?
+## Need Help? 
 
 - If you can't work out how to find a random element from the array, either:
   - (advanced) try to use `Math.random()`
