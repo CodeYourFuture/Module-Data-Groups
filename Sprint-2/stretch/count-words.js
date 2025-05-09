@@ -1,3 +1,20 @@
+function countWords(input) {
+  const sanitizedString = input.replace(/[.,!?]/g, '').toLowerCase();
+  const words = sanitizedString.split(/\s+/);
+  const wordCounts = {};
+  for (const word of words) {
+    if (wordCounts[word]) {
+      wordCounts[word] += 1;
+    } else {
+      wordCounts[word] = 1;
+    }
+  }
+  const sortedWordCounts = Object.entries(wordCounts).sort((a, b) => b[1] - a[1]);
+  return Object.fromEntries(sortedWordCounts);
+}
+const result = countWords("you and me and you!");
+console.log(result);
+
 /*
   Count the number of times a word appears in a given string.
 

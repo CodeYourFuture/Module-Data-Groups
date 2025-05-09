@@ -11,6 +11,10 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const key in author) {
+  console.log(author[key]);
 }
+
+// Prediction: an error should pop up since "of" should be "in".
+// What happened: author is not iterable.
+// Changed "const value of author" to "const key in author" and console.log(value); to console.log(author[key]);
