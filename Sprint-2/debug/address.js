@@ -11,5 +11,6 @@ const address = {
   country: "England",
   postcode: "XYZ 123",
 };
+console.log(address.houseNumber)
 
-console.log(`My house number is ${address[0]}`);
+
