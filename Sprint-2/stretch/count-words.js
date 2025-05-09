@@ -26,3 +26,38 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+// Your countWords function
+function countWords(string) {
+  const punctuation = [".", ",", "!", "?", '"'];
+  const counter = {};
+  const words = string.split(" ");
+
+  const cleanWords = words.map((word) => {
+    let cleanWord = "";
+    for (let char of word) {
+      if (!punctuation.includes(char)) {
+        cleanWord += char;
+      }
+    }
+    cleanWord = cleanWord.toLowerCase();
+    return cleanWord;
+  });
+
+  for (const word of cleanWords) {
+    if (word) {
+      counter[word] = (counter[word] || 0) + 1;
+    }
+  }
+
+  const sortedWordCount = Object.entries(counter)
+    .sort(([, countA], [, countB]) => countB - countA)
+    .reduce((acc, [word, value]) => {
+      acc[word] = value;
+      return acc;
+    }, {});
+  return sortedWordCount;
+}
+
+console.log(
+  countWords("Hello, hello! How are you? Are you doing well, or are you busy?")
+);
