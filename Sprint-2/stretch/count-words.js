@@ -26,3 +26,25 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(str) {
+  // Remove punctuation marks and convert the string to lowercase
+  str = str.replace(/[.,!?]/g, '').toLowerCase();
+  
+  // Split the string into an array of words
+  const words = str.split(/\s+/);  // Splits by any sequence of whitespace
+  
+  // Initialize an empty object to store the count of each word
+  const wordCount = {};
+  
+  // Iterate through each word and update its count
+  words.forEach(word => {
+    if (wordCount.hasOwnProperty(word)) {
+      wordCount[word] += 1;  // Increment the count if the word already exists
+    } else {
+      wordCount[word] = 1;   // Initialize the count to 1 for a new word
+    }
+  });
+  
+  return wordCount;
+}
