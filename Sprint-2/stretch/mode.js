@@ -12,7 +12,7 @@ function calculateMode(list) {
   // track frequency of each value
   let freqs = new Map();
 
-  for (let num of list) {
+  for (let num of list) { // [1, 2, 2, 3, 3]
     if (typeof num !== "number") {
       continue;
     }

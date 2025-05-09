@@ -8,9 +8,9 @@ const author = {
   lastName: "Smith",
   occupation: "writer",
   age: 40,
-  alive: true,
+   alive: true, //flag 
 };
 
-for (const value of author) {
-  console.log(value);
+for (const value in author) {
+  console.log(author[value]);
 }
