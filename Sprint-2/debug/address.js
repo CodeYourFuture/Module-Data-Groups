@@ -12,4 +12,5 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
+//The address object does not use numerical indexes like an array. Instead we must use of key-Value pairs.(houseNumber)
