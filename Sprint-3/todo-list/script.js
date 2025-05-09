@@ -1,25 +1,63 @@
-function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+
+const userInput = document.querySelector('.toDoInput')
+const addToDobtn = document.querySelector('.addTask')
+const todoList = document.querySelector('.todoList')
+const isDone = document.getElementById('isDone')
+
+
+let todo_collection = []  //empty array to append our todo lists as an object
+
+function getTodo() {
+    
+    if (userInput.value && isDone) {
+        let taskLi = userInput.value
+        const taskObject = {  // creating an object of todo lists
+            nameOfTask: taskLi,
+            isCompleted: isDone.checked
+        }
+        todo_collection.push(taskObject)
+        isDone.checked = false
+
+        displayTask()
+    }
+    
+    else {
+        alert('Please enter both task and status.');
+    }
+
 }
 
-// These are the same todos that currently display in the HTML
-// You will want to remove the ones in the current HTML after you have created them using JavaScript
-let todos = [
-  { task: "Wash the dishes", completed: false },
-  { task: "Do the shopping", completed: false },
-];
+function displayTask() {
 
-populateTodoList(todos);
+    todoList.innerHTML = '';
 
-// This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
-function addNewTodo(event) {
-  // The code below prevents the page from refreshing when we click the 'Add Todo' button.
-  event.preventDefault();
-  // Write your code here... and remember to reset the input field to be blank after creating a todo!
+    todo_collection.forEach(task =>{
+        let taskLi = document.createElement("li") // creating a li element
+        let completedBtn = document.createElement('button')
+        completedBtn.textContent = 'completed'
+
+        let eraseBtn = document.createElement('button')
+        eraseBtn.textContent = "erase"
+
+        taskLi.textContent = `${task.nameOfTask} - ${task.isCompleted ? 'Completed' : 'Pending'}`;
+        todoList.appendChild(taskLi)
+
+        taskLi.appendChild(completedBtn)
+        taskLi.appendChild(eraseBtn)
+
+        completedBtn.addEventListener('click', function(){
+            taskLi.style.textDecoration = "line-through";
+        })
+        eraseBtn.addEventListener('click', function(){
+            todoList.removeChild(taskLi);
+        })
+
+    })
+    userInput.value = "";
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
-function deleteAllCompletedTodos() {
-  // Write your code here...
+
+function eraseTask() {
+    todo_collection = []
+    displayTask()
 }

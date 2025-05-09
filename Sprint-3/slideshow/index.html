@@ -3,12 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Slide Show</title>
     <script defer src="slideshow.js"></script>
   </head>
   <body>
-    <img id="carousel-img" src="./assets/cute-cat-a.png" alt="cat-pic" />
+    <div class="slider">
+      <div class="slides">
+        <img class="slide" src="./assets/cute-cat-a.png">
+        <img class="slide" src="./assets/cute-cat-b.jpg">
+        <img class="slide" src="./assets/cute-cat-c.jpg">
+      </div>
+    </div>
+    <label for="quantity">Delay time in seconds:</label>
+    <input type="number" id="quantity" name="quantity" min="1" max="10" step="1" value="1">
     <button type="button" id="backward-btn">Backwards</button>
     <button type="button" id="forward-btn">Forward</button>
+    <button type="button" id="auto-forward-btn">AutoForward</button>
+    <button type="button" id="auto-back-btn">AutoBackwards</button>
   </body>
 </html>

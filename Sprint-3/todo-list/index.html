@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form>
-      <div>
-        <input type="text" placeholder="New todo..." />
-      </div>
-      <div>
-        <button type="submit">Add Todo</button>
-        <button
-          type="button"
-          id="remove-all-completed"
-          class="btn btn-primary mb-3"
-        >
-          Remove all completed
-        </button>
-      </div>
-    </form>
+    <div class="container">
+      <h1>Todo List</h1>
+      <input type="text" class="toDoInput" placeholder="Enter task">
+
+      <label for="isDone">Completed?</label>
+      <input type="checkbox" id="isDone">
+      <button onclick="getTodo()" class="addTask">Add Task +</button>
+      <button onclick="eraseTask()" class="eraseTask">Erase all tasks</button>
+    </div>
+
+    <div class="todos">
+      <ul class="todoList">
+
+      </ul>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
