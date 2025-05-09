@@ -25,5 +25,8 @@
     "setupFilesAfterEnv": [
       "./jest.setup.js"
     ]
+  },
+  "dependencies": {
+    "todo-list": "file:../todo-list"
   }
 }
