@@ -3,25 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>To Do</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form>
-      <div>
-        <input type="text" placeholder="New todo..." />
-      </div>
-      <div>
-        <button type="submit">Add Todo</button>
-        <button
-          type="button"
-          id="remove-all-completed"
-          class="btn btn-primary mb-3"
-        >
-          Remove all completed
-        </button>
-      </div>
-    </form>
+    <div class = "main">
+      <h1>MANAGE YOUR TASKS</h1>
+      <form id = "todo-form">
+        <div>
+          <input class= "input" type="text" placeholder="New todo..." />
+        </div>
+        <div>
+          <button type="submit" class="add-todo">ADD todo</button>
+          <button
+            type="button"
+            id="remove-all-completed"
+            class="btn btn-primary mb-3"
+          >
+            REMOVE completed
+          </button>
+        </div>
+      </form>
+      <ul id="todo-list"></ul>
+
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
