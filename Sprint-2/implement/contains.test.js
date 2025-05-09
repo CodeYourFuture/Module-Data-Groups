@@ -20,7 +20,7 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+// test.todo("contains on empty object returns false");
 
 // Given an object with properties
 // When passed to contains with an existing property name
@@ -33,3 +33,6 @@ test.todo("contains on empty object returns false");
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("expected output: contains on empty object returns false",()=>{
+    expect(contains({})).toStrictEqual(false);
+});
