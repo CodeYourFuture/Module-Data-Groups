@@ -29,7 +29,7 @@ This covers only the basic tasks, not the advanced tasks.
 
 ## Instructions
 
-The `populateTodoList()` function should iterate over the list of todos that we are given at the start, it should create a `<li>` for the todo along with some other stuff that you can find in index.html and below.
+The `populateTodoList()` function should iterate over the list of todos that we are given at the start, it should create a `<li>` for the todo along with some other stuff that you can find in index.html and below..
 
 The items in the todo list are currently hard-coded into the HTML, refactor the code so that this function creates them and adds the following functionality to them:
 
