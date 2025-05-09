@@ -1,3 +1,20 @@
+const quote = document.getElementById("quote");
+const author = document.getElementById("author");
+const button = document.getElementById("new-quote");
+
+// generate and show to user
+const generateQuote = () => {
+  const selectedQuote = pickFromArray(quotes);
+  quote.innerHTML = selectedQuote.quote;
+  author.innerHTML = selectedQuote.author;
+  // change greeting
+  document.getElementById("greeting").innerHTML = "Your quote is:";
+  document.getElementById("greeting").style = "size: 1rem";
+};
+
+//show to user on click of new quote
+button.addEventListener("click", generateQuote);
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
