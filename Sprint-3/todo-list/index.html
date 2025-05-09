@@ -3,24 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>To Do List</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
   </head>
   <body>
-    <form>
+    <div class="container">
+      <form id="todo-form">
       <div>
-        <input type="text" placeholder="New todo..." />
+        <h1>To Do List</h1>
       </div>
-      <div>
-        <button type="submit">Add Todo</button>
-        <button
-          type="button"
-          id="remove-all-completed"
-          class="btn btn-primary mb-3"
-        >
-          Remove all completed
-        </button>
+      <div class="row">
+        <input type="text" id="todo-input" placeholder="New todo..." />
+        <button type="submit" id="add-todo">Add Todo</button> 
       </div>
+      <div class="datepicker">
+        <input type="date" id="todo-deadline" />
+      </div>
+      <div class="removebutton">
+        <button type="button" id="remove-all-completed">Remove all completed</button>
+      </div>
+      <ul id="todo-list" class="list-group"></ul>
     </form>
     <script src="script.js"></script>
   </body>
