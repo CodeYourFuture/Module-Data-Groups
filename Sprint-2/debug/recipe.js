@@ -12,4 +12,7 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+  ${recipe.ingredients.join("\n")}`);
+// The code is not working because the ingredients property is an array, so we can't log it directly. We need to iterate over the array and log each element separately
+// We can use the join() method to join the elements of the array into a string, with each element separated by a newline character
+// We can use the template literal to log the title and serves properties, and then use a separate line to log the ingredients property
