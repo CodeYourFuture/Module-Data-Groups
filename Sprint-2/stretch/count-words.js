@@ -26,3 +26,32 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(words){
+
+  words = words.split(/\s+/) // Splitting the input string into words, split by whitespace
+
+  const cleanWords = words.map(word => word.replace(/[.,!?]/g, "").toLowerCase()); 
+
+  const results = new Map();
+
+  for(let word of cleanWords){
+    if(word === "") continue;
+    console.log(cleanWords)
+    results.set(word, (results.get(word) || 0) + 1);
+
+  } 
+
+  const sortedResults = Array.from(results.entries())
+  .sort((a,b) => b[1] - a[1]) // Sort by frequency in descending order
+  .reduce((obj, [key, value]) => {
+    obj[key] = value;
+    return obj;
+  }, {});
+   
+  return sortedResults;
+}
+
+module.exports = countWords;
+
+console.log(countWords("apple, orange. apple! orange? apple"));
