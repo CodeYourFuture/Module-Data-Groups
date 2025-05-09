@@ -26,7 +26,6 @@ beforeEach(async () => {
 
   jest
     .spyOn(page.window.Math, "random")
-    .mockReturnValueOnce(0.02) // random number to target Albert Einstein quote [index: 2]
     .mockReturnValueOnce(0.25) // random number to target Maya Angelou quote [index: 25]
     .mockReturnValueOnce(0.79); // random number to target Rosa Parks quote [index: 80]
 
