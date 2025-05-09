@@ -1,15 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
-    <script defer src="quotes.js"></script>
-  </head>
-  <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quote Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #quote-container {
+      font-size: 24px;
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 2px solid #333;
+      background-color: #f4f4f4;
+      display: inline-block;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    #quote {
+      font-style: italic;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 2px dashed #333;
+      background-color: #fff;
+      font-size: 26px;
+    }
+
+    #author {
+      font-size: 20px;
+      color: #555;
+      padding: 10px;
+      border: 2px solid #333;
+      background-color: #e0e0e0;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div id="quote-container">
+  <p id="quote">"Your quote will appear here."</p>
+  <p id="author">- Author</p>
+</div>
+
+<button onclick="displayRandomQuote()">Get Random Quote</button>
+
+<script>
+// DO NOT EDIT BELOW HERE
+
+// pickFromArray is a function which will return one item, at
+// random, from the given array.
+//
+// Parameters
+// ----------
+// choices: an array of items to pick from.
+//
+// Returns
+// -------
+// One item at random from the given array.
+//
+// Examples of use
+// ---------------
+// pickFromArray(['a','b','c','d'])     // maybe returns 'c'
+
+// You don't need to change this function
+function pickFromArray(choices) {
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+// A list of quotes you can use in your app.
+// DO NOT modify this array, otherwise the tests may break!
+const quotes = [
+  {
+    quote: "Life isn't about getting and having, it's about giving and being.",
+    author: "Kevin Kruse",
+  },
+  {
+    quote: "Whatever the mind of man can conceive and believe, it can achieve.",
+    author: "Napoleon Hill",
+  },
+  {
+    quote: "Strive not to be a success, but rather to be of value.",
+    author: "Albert Einstein",
+  },
+  {
+    quote:
+      "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.",
+    author: "Robert Frost",
+  },
+  {
+    quote: "I attribute my success to this: I never gave or took any excuse.",
+    author: "Florence Nightingale",
+  },
+  // Add more quotes here if needed
+];
+
+// Function to display a random quote
+function displayRandomQuote() {
+  const randomQuote = pickFromArray(quotes); // Pick a random quote from the array
+  document.getElementById('quote').innerText = `"${randomQuote.quote}"`; // Display the quote with quotation marks
+  document.getElementById('author').innerText = `- ${randomQuote.author}`; // Display the author
+}
+</script>
+
+</body>
 </html>
