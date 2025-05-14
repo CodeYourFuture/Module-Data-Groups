@@ -2,23 +2,35 @@
 const input = document.querySelector("input");
 const stopButton = document.getElementById("stop");
 const setButton = document.getElementById("set");
+const pauseButton = document.getElementById("pause");
+
 let secondsLeft = 0;
 let timerId;
+let pause = false;
 
 function setAlarm() {
-  secondsLeft = input.valueAsNumber;
-  changeDisplayTime(secondsLeft);
-  timerId = setInterval(deduction, 1000);
+  pause = false;
+  if (secondsLeft == 0) {
+    secondsLeft = input.valueAsNumber;
+    changeDisplayTime(secondsLeft);
+    timerId = setInterval(deduction, 1000);
+  } else {
+    timerId = setInterval(deduction, 1000);
+  }
 }
 
 function deduction() {
-  --secondsLeft;
-  changeDisplayTime(secondsLeft);
-  if (secondsLeft == 0) {
-    stopButton.disabled = false;
+  if (pause) {
     clearInterval(timerId);
-    playAlarm();
-    document.body.style.background = "#ff4d4d";
+  } else {
+    --secondsLeft;
+    changeDisplayTime(secondsLeft);
+    if (secondsLeft == 0) {
+      stopButton.disabled = false;
+
+      playAlarm();
+      document.body.style.background = "#ff4d4d";
+    }
   }
 }
 
@@ -44,6 +56,15 @@ function setup() {
 
   stopButton.addEventListener("click", () => {
     pauseAlarm();
+  });
+
+  pauseButton.addEventListener("click", () => {
+    if (pause) {
+      pause = false;
+      setAlarm();
+    } else {
+      pause = true;
+    }
   });
 }
 
