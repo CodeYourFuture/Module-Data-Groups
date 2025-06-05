@@ -3,7 +3,7 @@ function sum(elements) {
     if(nums.length === 0){
         return 0
     }
-   return nums.reduce((cur, acc)=> cur + acc)
+   return nums.reduce((cur, acc)=> cur + acc ,0)
   
 }
 console.log(sum([4.5, 3.2, 4/3, 2/5]))
