@@ -21,7 +21,6 @@ function calculateMedian(arr) {
   if (IsNumbersOnlyArray(arr)) {
     const sortedList = sortNumberArray(arr);
     const lengthOfList = sortedList.length;
-    console.log(`Sorted list: ${sortedList}`);
     // checking if array is of odd or even length
     if (lengthOfList % 2 === 0) {
       // for array of even length
