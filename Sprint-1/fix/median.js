@@ -31,7 +31,7 @@ function calculateMedian(arr) {
       return median;
     }
     // we split the sorted list into 2 to find the median
-    if (lengthOfList % 2 != 0) {
+    if (lengthOfList % 2 !== 0) {
       medianLocator = Math.ceil(lengthOfList / 2);
       median = sortedList[medianLocator - 1];
       return median;
