@@ -10,6 +10,16 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+// console.log(`${recipe.title} serves ${recipe.serves}
+//   ingredients:
+// ${recipe}`);
+
+// you're inserting the whole object directly into a string.
+// JavaScript will coerce it to [object Object].
+
+
+console.log(`${recipe.title} serves ${recipe.serves}`);
+console.log("ingredients:");
+recipe.ingredients.forEach((ingredient) => {
+  console.log(ingredient);
+});

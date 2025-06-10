@@ -11,6 +11,18 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+// for (const value of author) {
+//    console.log(value);
+// }
+// The code aims to log all property values in the author object, 
+// like:Zadie:
+// Smith
+// writer
+// 40
+// true
+// author is a plain object, but for...of only works on iterable things like arrays, strings, Maps.
+
+
+for (const value of Object.values(author)) {
+   console.log(value);
 }
