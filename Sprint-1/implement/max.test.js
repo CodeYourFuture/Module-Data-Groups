@@ -23,7 +23,7 @@ test("given an empty array, returns -Infinity ", () => {
 
   const result = findMax(input);
 
-  expect(result).toBe(expected);
+  expect(result).toEqual(expected);
 });
 
 // Given an array with one number
@@ -34,7 +34,7 @@ test("given an array with one number, returns that number", () => {
   const expected = 1;
 
   const result = findMax(input);
-  expect(result).toBe(expected);
+  expect(result).toEqual(expected);
 });
 
 // Given an array with both positive and negative numbers
@@ -45,7 +45,7 @@ test("given an array with both positive and negative numbers, returns largest nu
   const expected = 4;
 
   const result = findMax(input);
-  expect(result).toBe(expected);
+  expect(result).toEqual(expected);
 });
 
 // Given an array with just negative numbers
@@ -56,7 +56,7 @@ test("given an array with just negative numbers, returns number closest to zero"
   const expected = -2;
 
   const result = findMax(input);
-  expect(result).toBe(expected);
+  expect(result).toEqual(expected);
 });
 
 // Given an array with decimal numbers
@@ -67,7 +67,7 @@ test("given an array with decimal numbers, returns the largest number", () => {
   const expected = 6.3;
 
   const result = findMax(input);
-  expect(result).toBe(expected);
+  expect(result).toEqual(expected);
 });
 
 // Given an array with non-number values
@@ -78,7 +78,7 @@ test("given an array with non-number values, returns max and ignores non-numeric
   const expected = 5;
 
   const result = findMax(input);
-  expect(result).toBe(expected);
+  expect(result).toEqual(expected);
 });
 
 // Given an array with only non-number values
@@ -89,5 +89,5 @@ test("given an array with only non-number values, return least surprising value"
   const expected = undefined;
 
   const result = findMax(input);
-  expect(result).toBe(expected);
+  expect(result).toEqual(expected);
 });
