@@ -35,7 +35,7 @@ test("given an array with one number, returns that number", () => {
 // Then it should still return the correct total sum
 test("given an array with negative numbers, returns sum", () => {
   const input = [-1, -4, -2, -6];
-  const expected = 11;
+  const expected = -13;
   const result = sum(input);
   expect(result).toEqual(expected);
 });
@@ -55,7 +55,7 @@ test("given an array with decimal or float numbers, returns sum", () => {
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
 test("given an array with non numeric numbers, returns sum of numbers", () => {
   const input = [1, 3, "hi", "hello", null, 2];
-  const expected = 3.3;
+  const expected = 6;
   const result = sum(input);
   expect(result).toEqual(expected);
 });
