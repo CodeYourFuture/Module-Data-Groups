@@ -51,5 +51,5 @@ test("given an array with duplicates, return count for unique items", () => {
 // When passed to tally
 // Then it should throw an error
 test("given an invalid input like a string, throws an error", () => {
-  expect(() => tally("abaa")).toThrow("Input must be an array");
+  expect(() => tally("abaa")).toThrow(new Error("Input must be an array"));
 });
