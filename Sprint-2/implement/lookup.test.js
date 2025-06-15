@@ -1,6 +1,6 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+//test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
@@ -33,3 +33,12 @@ It should return:
    'CA': 'CAD'
  }
 */
+test("given an array containing arrays with country code and currency pairs, returns object with country code as keys", () => {
+  const input = [
+    ["ZA", "ZAR"],
+    ["UK", "GBP"],
+  ];
+  const expected = { ZA: "ZAR", UK: "GBP" };
+  const result = createLookup(input);
+  expect(result).toEqual(expected);
+});
