@@ -42,3 +42,9 @@ test("given an array containing arrays with country code and currency pairs, ret
   const result = createLookup(input);
   expect(result).toEqual(expected);
 });
+//CASE: given an invalid input such as a string
+test("given an invalid input such as a string, throws an  error", () => {
+  expect(() => createLookup("ZAZAR")).toThrow(
+    new Error("Input must be country: currency pairs")
+  );
+});
