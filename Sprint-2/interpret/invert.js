@@ -18,7 +18,6 @@ function invert(obj) {
     return invertedObj;
   } else throw new TypeError("Input must be an object");
 }
-console.log(invert({ a: 1, b: 2 }));
 
 module.exports = invert; // added export statement
 
