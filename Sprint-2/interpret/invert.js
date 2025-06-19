@@ -9,13 +9,18 @@
 function invert(obj) {
   const invertedObj = {};
 
-  for (const [key, value] of Object.entries(obj)) {
-    invertedObj[value] = key;
-  }
+  //need to check if input is an object
+  if (typeof obj === "object" && obj !== null && !Array.isArray(obj)) {
+    for (const [key, value] of Object.entries(obj)) {
+      invertedObj[value] = key; //swapping the key value pairs
+    }
 
-  return invertedObj;
+    return invertedObj;
+  } else throw new TypeError("Input must be an object");
 }
 console.log(invert({ a: 1, b: 2 }));
+
+module.exports = invert; // added export statement
 
 // a) What is the current return value when invert is called with { a : 1 }
 // the current return value is {key:1} when invert is called with { a : 1 }
