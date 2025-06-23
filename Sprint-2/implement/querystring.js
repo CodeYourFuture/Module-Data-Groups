@@ -1,16 +1,18 @@
 function parseQueryString(queryString) {
-  const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
-  const keyValuePairs = queryString.split("&");
+  if (!queryString) return {};
 
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
-  }
-
-  return queryParams;
+  return queryString.split("&").reduce((acc, pair) => {
+    const [key, ...rest] = pair.split("=");
+    const rawValue = rest.join("=");
+    const decodedKey = decodeURIComponent(key.replace(/\+/g, " "));
+    const decodedValue = decodeURIComponent(rawValue.replace(/\+/g, " "));
+    acc[decodedKey] = decodedValue;
+    return acc;
+  }, {});
 }
+
+
+
+
 
 module.exports = parseQueryString;
