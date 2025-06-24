@@ -1,4 +1,8 @@
 function dedupe(elements) {
+  if (!Array.isArray(elements)) {
+    return null;
+  }
+
   let new_array = [];
   for (let i = 0; i < elements.length; i++) {
     if (!new_array.includes(elements[i])) {
@@ -9,5 +13,9 @@ function dedupe(elements) {
   return new_array;
 }
 
-const arr = [1, 4, 9, 9];
+const arr = [1, 4, 9, 9, "gloves", "gloves"];
 dedupe(arr);
+
+// console.log(dedupe(arr));
+
+module.exports = dedupe;
