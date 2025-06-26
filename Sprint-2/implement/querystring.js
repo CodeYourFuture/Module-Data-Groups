@@ -1,6 +1,5 @@
 function parseQueryString(queryString) {
   if (!queryString) return {};
-
   return queryString.split("&").reduce((acc, pair) => {
     const [key, ...rest] = pair.split("=");
     const rawValue = rest.join("=");

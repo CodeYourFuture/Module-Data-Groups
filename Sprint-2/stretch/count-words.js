@@ -26,12 +26,20 @@
 
 3. Order the results to find out which word is the most common in the input
 */
-const countWords =(str)=>{
-  const clearedStr = str.replace(/[.,!?]/,"").toLowerCase()
-  const NewObj= clearedStr.split(" ").sort().reduce((obj,key)=>{
-  obj[key]= (obj[key]||0) + 1
-  return obj
-    },{})
-  const sortedArray = Object.entries(NewObj).sort((a,b)=>b[1]-a[1])
-return Object.fromEntries(sortedArray)
-}
+const mostFrequentWord = (str) => {
+  const clearedStr = str.replace(/[.,!?]/g, "").toLowerCase();
+
+  const wordCounts = clearedStr.split(" ").reduce((obj, word) => {
+    obj[word] = (obj[word] || 0) + 1;
+    return obj;
+  }, {});
+
+  const [word, count] = Object.entries(wordCounts).reduce((maxEntry, currentEntry) => {
+    const [, maxCount] = maxEntry;
+    const [, currentCount] = currentEntry;
+    return currentCount > maxCount ? currentEntry : maxEntry;
+  });
+
+  return { [word]: count };
+};
+

@@ -1,9 +1,9 @@
 function createLookup(arr) {
-const newArray= arr.reduce((obj,[key,value])=>{
-   obj[key] = value
-   return obj
+   const newArray= arr.reduce((obj,[key,value])=>{
+      obj[key] = value
+      return obj
       },{})
-return newArray
+   return newArray
 }
 
 module.exports = createLookup;

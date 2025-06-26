@@ -6,12 +6,10 @@
 
 function totalTill(till) {
   let total = 0;
-
   for (const [coin, quantity] of Object.entries(till)) {
     const numericValue = parseInt(coin); 
     total += numericValue * quantity;
   }
-
   return `£${(total / 100).toFixed(2)}`; 
 }
 
