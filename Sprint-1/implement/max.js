@@ -10,6 +10,6 @@ function findMax(elements) {
     const largestNumber=omnlyNumbers.splice(omnlyNumbers.length-1)[0];
     return largestNumber;
 }
-console.log(findMax([9,4,"r"]))
+console.log(findMax([9,4,-106]))
 
 module.exports = findMax;
