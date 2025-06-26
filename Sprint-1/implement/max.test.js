@@ -47,7 +47,9 @@ it("returns the largest decimal number",()=>{
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
-
+it("ignores all non-numbers",()=>{
+    expect(findMax(["g",9])).toBe(9)
+})
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
