@@ -35,7 +35,9 @@ it("returns the largest number overall",()=>{
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
-
+it("returns the closest negative number to zero",()=>{
+    expect(findMax([-9,-45,-6])).toBe(-6);
+})
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
