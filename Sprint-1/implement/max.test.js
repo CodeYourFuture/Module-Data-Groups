@@ -41,7 +41,9 @@ it("returns the closest negative number to zero",()=>{
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
-
+it("returns the largest decimal number",()=>{
+    expect(findMax([4.23,7.1])).toBe(7.1);
+})
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
