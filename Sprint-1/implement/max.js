@@ -1,4 +1,6 @@
 function findMax(elements) {
+    //if element is empty returns infinity
+    if(elements=[]) return-Infinity;
     //excludes all non-numbers and sorts the array in ascending order
     const omnlyNumbers=elements.filter(item=>typeof item==="number").sort((a,b)=>a-b);
     //it retrieves the last element of the array
