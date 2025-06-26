@@ -12,7 +12,7 @@ function tally(arr) {
     if (!tally[current]) {
       tally[current] = 0;
     }
-    tally[arr[i]]++;
+    tally[current]++;
   }
   return tally;
 }
