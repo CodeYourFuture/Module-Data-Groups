@@ -53,3 +53,6 @@ it("ignores all non-numbers",()=>{
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+it("returns the least surprising non-number value",()=>{
+    expect(findMax(["i",NaN,false])).toBeNaN();
+})
