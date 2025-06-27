@@ -23,7 +23,9 @@ it("if the array is empty it returns an empty array",()=>{
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
-it("")
+it("it returns a copy of the original array if there are no duplicates",()=>{
+    expect(dedupe([1,2,3])).toEqual([1,2,3]);
+})
 
 // Given an array with strings or numbers
 // When passed to the dedupe function
