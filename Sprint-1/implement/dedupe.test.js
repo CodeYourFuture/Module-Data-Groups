@@ -30,3 +30,6 @@ it("it returns a copy of the original array if there are no duplicates",()=>{
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+it("removes duplicate elements",()=>{
+    expect(dedupe(["s","s",2,2])).toEqual(["s",2]);
+})
