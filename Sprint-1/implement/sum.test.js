@@ -27,6 +27,9 @@ it("array with just one number returns that number",()=>{
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
+it("calculates the sum of negative numbers",()=>{
+    expect(sum([-4,-6])).toBe(-10);
+})
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
