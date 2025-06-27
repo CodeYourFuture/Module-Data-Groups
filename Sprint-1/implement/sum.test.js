@@ -41,6 +41,9 @@ it("sums up decimal numbers",()=>{
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
+it("ignores non-numbers and returns the sum of the numerical elements",()=>{
+    expect(sum(["y",9,".",4])).toBe(13);
+})
 
 // Given an array with only non-number values
 // When passed to the sum function
