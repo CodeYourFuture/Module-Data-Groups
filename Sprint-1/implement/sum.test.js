@@ -48,3 +48,6 @@ it("ignores non-numbers and returns the sum of the numerical elements",()=>{
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+it("returns the least surprising value amongst non-numbers",()=>{
+    expect(sum(["h",NaN,true])).toBe(0);
+})
