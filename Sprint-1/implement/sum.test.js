@@ -34,6 +34,9 @@ it("calculates the sum of negative numbers",()=>{
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+it("sums up decimal numbers",()=>{
+    expect(sum([7.5,9.5])).toBe(17);
+})
 
 // Given an array containing non-number values
 // When passed to the sum function
