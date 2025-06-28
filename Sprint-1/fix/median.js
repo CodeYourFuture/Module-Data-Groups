@@ -17,7 +17,7 @@ function isOddItems(listLength){
 //calculate Median for lists with Odd count items
 function calculateMedianOddCount(oddList){
   const middleIndex = Math.floor(oddList.length / 2);
-  return oddList.splice(middleIndex, 1)[0];
+    return oddList.splice(middleIndex, 1)[0];
    
 }
 
@@ -35,6 +35,13 @@ function numericValues(list){
 
 }
 
+function nonNumericValues(list){
+   if (!Array.isArray(list)) {
+    return true;
+   }
+}
+
+//make a numeric array of a non-numeric array
 function makeNumericArray(mixedArray){
   let numericArray = mixedArray.filter((num) => typeof num === "number");
   numericArray = numericArray.sort();
@@ -45,25 +52,25 @@ function makeNumericArray(mixedArray){
 }
 
 function calculateMedian(list) {
-  if (Array.isArray(list)){
-    list=list.sort();
-  
-  }else{
-    
-
+  if (nonNumericValues(list)){
     return null;
   }
-  if (!numericValues(list) ) {
-    list=makeNumericArray(list);
-    if (list.length==0){
+  let listCopy=[...list];
+  if (Array.isArray(listCopy)) {
+    listCopy = listCopy.sort();
+  } else {
     return null;
+  }
+  if (!numericValues(listCopy)) {
+    listCopy = makeNumericArray(listCopy);
+    if (listCopy.length == 0) {
+      return null;
     }
   }
-  if (isOddItems(list.length)){
-   return calculateMedianOddCount(list);
-  }
-  else{
-    return calculateMedianEvenCount(list);
+  if (isOddItems(listCopy.length)) {
+    return calculateMedianOddCount(listCopy);
+  } else {
+    return calculateMedianEvenCount(listCopy);
   }
 }
 
