@@ -36,9 +36,14 @@ function numericValues(list){
 }
 
 function nonNumericValues(list){
-   if (!Array.isArray(list)) {
+   if (!Array.isArray(list) ) {
     return true;
    }
+   
+}
+
+function checkNullOrUndefinedItems(list){
+  return list.every((item) => item === null || item === undefined);
 }
 
 //make a numeric array of a non-numeric array
@@ -52,12 +57,18 @@ function makeNumericArray(mixedArray){
 }
 
 function calculateMedian(list) {
-  if (nonNumericValues(list)){
+  if (nonNumericValues(list)) {
     return null;
   }
+  if (checkNullOrUndefinedItems(list)){
+    return null;}
+
   let listCopy=[...list];
+
   if (Array.isArray(listCopy)) {
+    
     listCopy = listCopy.sort();
+    
   } else {
     return null;
   }
