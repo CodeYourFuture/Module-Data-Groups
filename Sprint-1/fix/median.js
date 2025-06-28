@@ -35,14 +35,29 @@ function numericValues(list){
 
 }
 
+function makeNumericArray(mixedArray){
+  let numericArray = mixedArray.filter((num) => typeof num === "number");
+  numericArray = numericArray.sort();
+  if (numericArray.length==0 ) {
+    return [];
+  } else {
+    return numericArray;}
+}
+
 function calculateMedian(list) {
   if (Array.isArray(list)){
     list=list.sort();
+  
   }else{
+    
+
     return null;
   }
   if (!numericValues(list) ) {
+    list=makeNumericArray(list);
+    if (list.length==0){
     return null;
+    }
   }
   if (isOddItems(list.length)){
    return calculateMedianOddCount(list);
