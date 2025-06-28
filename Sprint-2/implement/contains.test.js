@@ -16,20 +16,54 @@ as the object doesn't contains a key of 'c'
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
+describe("edge cases of the contains function", () => {
+  test("contains an object and property and returns true", () => {
+    const currentOutput = contains({ property: "value" }, "property");
+    const targetOutput = true;
+    expect(currentOutput).toEqual(targetOutput);
+  });
+});
 
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+describe("edge cases of the contains function", () => {
+  test("contains on empty object returns false", () => {
+    const currentOutput = contains({}, "property");
+    const targetOutput = false;
+    expect(currentOutput).toEqual(targetOutput);
+  });
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+describe("edge cases of the contains function", () => {
+  test("contains an object and property and returns true", () => {
+    const currentOutput = contains({ property: "value" }, "property");
+    const targetOutput = true;
+    expect(currentOutput).toEqual(targetOutput);
+  });
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+describe("edge cases of the contains function", () => {
+  test("contains an object and property and returns true", () => {
+    const currentOutput = contains({ property: "value" }, "lava");
+    const targetOutput = false;
+    expect(currentOutput).toEqual(targetOutput);
+  });
+});
 
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+describe("edge cases of the contains function", () => {
+  test("contains an object and property and returns true", () => {
+    const currentOutput = contains([], "property");
+    const targetOutput = false;
+    expect(currentOutput).toEqual(targetOutput);
+  });
+});
