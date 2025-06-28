@@ -5,7 +5,7 @@
 // Hint: Please consider scenarios when 'list' doesn't have numbers (the function is expected to return null)
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
-
+//recognize if the count of list items is odd or even.return true for odd and false for even 
 function isOddItems(listLength){
   if (listLength % 2 === 0) {
     return false;
@@ -14,12 +14,14 @@ function isOddItems(listLength){
   }
 }
 
+//calculate Median for lists with Odd count items
 function calculateMedianOddCount(oddList){
   const middleIndex = Math.floor(oddList.length / 2);
   return oddList.splice(middleIndex, 1)[0];
    
 }
 
+//calculate Median for lists with even count items
 function calculateMedianEvenCount(evenList) {
   const mid1 = evenList[evenList.length / 2 - 1];
   const mid2 = evenList[evenList.length / 2];
@@ -27,9 +29,21 @@ function calculateMedianEvenCount(evenList) {
   
 }
 
+//If all array's items are numbers returns true
+function numericValues(list){
+  return list.every(item => typeof item ==="number");
+
+}
 
 function calculateMedian(list) {
-  list=list.sort();
+  if (Array.isArray(list)){
+    list=list.sort();
+  }else{
+    return null;
+  }
+  if (!numericValues(list) ) {
+    return null;
+  }
   if (isOddItems(list.length)){
    return calculateMedianOddCount(list);
   }
