@@ -1,6 +1,42 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+describe("edge cases of the lookup function", () => {
+  test("creates a country currency code lookup for multiple codes", () => {
+    const currentOutput = createLookup([
+      ["country", "currency"],
+      ["country1", "currency1"],
+      ["country2", "currency2"],
+    ]);
+    const targetOutput = {
+      country: "currency",
+      country1: "currency1",
+      country2: "currency2",
+    };
+    expect(currentOutput).toStrictEqual(targetOutput);
+  });
+
+  test("creates a country currency code lookup for empty array", () => {
+    // const currentOutput = createLookup([]);
+    // const targetOutput =
+    expect(() => createLookup([])).toThrow(
+      "The array is not array or have length less than 2 values."
+    );
+  });
+
+  test("creates a country currency code lookup for array with wrong type key-value pairs", () => {
+    // const currentOutput = createLookup([
+    // [3, 2],
+    //  [3, 1],
+    // ]);
+    // const targetOutput = "The type of key-value pair is not string.";
+    expect(() =>
+      createLookup([
+        [3, 2],
+        [3, 1],
+      ])
+    ).toThrow("The type of key-value pair is not string.");
+  });
+});
 
 /*
 
