@@ -11,6 +11,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) { //for-of is for arrays not objects so use
   console.log(value);
 }
