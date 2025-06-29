@@ -30,9 +30,10 @@ describe("calculateMedian", () => {
     calculateMedian(list);
     expect(list).toEqual([1, 2, 3]);
   });
-
-  [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ].forEach(val =>
-    it(`returns null for non-numeric array (${val})`, () => expect(calculateMedian(val)).toBe(null))
+// Adding JSON.stringify(input) to test case descriptions for mixed or complex arrays to ensure clarity and more consistent output. 
+// This improves readability as  ["apple", null, undefined] is printed as '["apple",null,null]', instead of the default [ 'apple', null, <1 empty item> ]
+  ['not an array', 123, null, undefined, {}, [], ["apple", null, undefined]].forEach(input =>
+    it(`returns null for non-numeric array (${JSON.stringify(input)})`, () => expect(calculateMedian(input)).toBe(null))
   );
 
   [
@@ -43,6 +44,6 @@ describe("calculateMedian", () => {
     { input: [3, "apple", 1, null, 2, undefined, 4], expected: 2.5 },
     { input: ["banana", 5, 3, "apple", 1, 4, 2], expected: 3 },
   ].forEach(({ input, expected }) =>
-    it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+    it(`filters out non-numeric values and calculates the median for [${JSON.stringify(input)}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
 });
