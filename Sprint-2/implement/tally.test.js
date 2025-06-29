@@ -19,16 +19,43 @@ const tally = require("./tally.js");
 // Given a function called tally
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
+describe("edge cases of the tally function", () => {
+  test("When passed an array of items as a parameter into tally", () => {
+    const currentOutput = tally([1, 2, 4, 5, 6]);
+    const targetOutput = { 1: 1, 2: 1, 4: 1, 5: 1, 6: 1 };
+    expect(currentOutput).toEqual(targetOutput);
+  });
+});
 
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+describe("edge cases of the tally function", () => {
+  test("tally on an empty array returns an empty object", () => {
+    const currentOutput = tally([]);
+    const targetOutput = {};
+    expect(currentOutput).toEqual(targetOutput);
+  });
+});
 
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+describe("edge cases of the tally function", () => {
+  test("When passed an array with duplicate items of items as a parameter into tally", () => {
+    const currentOutput = tally([1, 2, 2, 6, 6, 6, 1]);
+    const targetOutput = { 1: 2, 2: 2, 6: 3 };
+    expect(currentOutput).toEqual(targetOutput);
+  });
+});
 
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+describe("edge cases of the tally function", () => {
+  test("tally gets not an array then it trow an error", () => {
+    // const currentOutput = tally("string");
+    // const targetOutput = Error;
+    expect(() => tally("string")).toThrow("This is not an array");
+  });
+});
