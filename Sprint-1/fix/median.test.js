@@ -13,7 +13,8 @@ describe("calculateMedian", () => {
     { input: [1, 2, 3, 4], expected: 2.5 },
     { input: [1, 2, 3, 4, 5, 6], expected: 3.5 },
   ].forEach(({ input, expected }) =>
-    it(`returns the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+    it(`returns the median for [${input}]`, () =>
+      expect(calculateMedian(input)).toEqual(expected))
   );
 
   [
@@ -22,7 +23,8 @@ describe("calculateMedian", () => {
     { input: [4, 2, 1, 3], expected: 2.5 },
     { input: [6, 1, 5, 3, 2, 4], expected: 3.5 },
   ].forEach(({ input, expected }) =>
-    it(`returns the correct median for unsorted array [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+    it(`returns the correct median for unsorted array [${input}]`, () =>
+      expect(calculateMedian(input)).toEqual(expected))
   );
 
   it("doesn't modify the input array [1, 2, 3]", () => {
@@ -31,8 +33,17 @@ describe("calculateMedian", () => {
     expect(list).toEqual([1, 2, 3]);
   });
 
-  [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ].forEach(val =>
-    it(`returns null for non-numeric array (${val})`, () => expect(calculateMedian(val)).toBe(null))
+  [
+    "not an array",
+    123,
+    null,
+    undefined,
+    {},
+    [],
+    ["apple", null, undefined],
+  ].forEach((val) =>
+    it(`returns null for non-numeric array (${val})`, () =>
+      expect(calculateMedian(val)).toBe(null))
   );
 
   [
@@ -42,7 +53,9 @@ describe("calculateMedian", () => {
     { input: [1, "apple", 2, null, 3, undefined, 4], expected: 2.5 },
     { input: [3, "apple", 1, null, 2, undefined, 4], expected: 2.5 },
     { input: ["banana", 5, 3, "apple", 1, 4, 2], expected: 3 },
+    { input: ["banana", "sihoisgfd", "sdfas", "apple"], expected: null },
   ].forEach(({ input, expected }) =>
-    it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+    it(`filters out non-numeric values and calculates the median for [${input}]`, () =>
+      expect(calculateMedian(input)).toEqual(expected))
   );
 });

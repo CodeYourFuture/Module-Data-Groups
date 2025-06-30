@@ -1,38 +1,39 @@
 // Refactored version of includes should still pass the tests below:
 
 const includes = require("./includes.js");
+describe("find Max", () => {
+  it("returns true when target is in array", () => {
+    const currentOutput = includes(["a", "b", "c", "d"], "c");
+    const targetOutput = true;
 
-test("returns true when target is in array", () => {
-  const currentOutput = includes(["a", "b", "c", "d"], "c");
-  const targetOutput = true;
+    expect(currentOutput).toEqual(targetOutput);
+  });
 
-  expect(currentOutput).toEqual(targetOutput);
-});
+  it("returns false when target not in array", () => {
+    const currentOutput = includes([1, 2, 3, 4], "a");
+    const targetOutput = false;
 
-test("returns false when target not in array", () => {
-  const currentOutput = includes([1, 2, 3, 4], "a");
-  const targetOutput = false;
+    expect(currentOutput).toEqual(targetOutput);
+  });
 
-  expect(currentOutput).toEqual(targetOutput);
-});
+  it("returns true when the target is in array multiple times", () => {
+    const currentOutput = includes([1, 2, 2, 3], 2);
+    const targetOutput = true;
 
-test("returns true when the target is in array multiple times", () => {
-  const currentOutput = includes([1, 2, 2, 3], 2);
-  const targetOutput = true;
+    expect(currentOutput).toEqual(targetOutput);
+  });
 
-  expect(currentOutput).toEqual(targetOutput);
-});
+  it("returns false for empty array", () => {
+    const currentOutput = includes([]);
+    const targetOutput = false;
 
-test("returns false for empty array", () => {
-  const currentOutput = includes([]);
-  const targetOutput = false;
+    expect(currentOutput).toEqual(targetOutput);
+  });
 
-  expect(currentOutput).toEqual(targetOutput);
-});
+  it("searches for null", () => {
+    const currentOutput = includes(["b", "z", null, "a"], null);
+    const targetOutput = true;
 
-test("searches for null", () => {
-  const currentOutput = includes(["b", "z", null, "a"], null);
-  const targetOutput = true;
-
-  expect(currentOutput).toEqual(targetOutput);
+    expect(currentOutput).toEqual(targetOutput);
+  });
 });
