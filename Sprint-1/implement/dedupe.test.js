@@ -1,4 +1,3 @@
-const dedupe = require("./dedupe.js");
 /*
 Dedupe Array
 
@@ -13,15 +12,20 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 
 // Acceptance Criteria:
 
-// Given an empty array
-// When passed to the dedupe function
-// Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+const dedupe = require("./dedupe.js");
+describe("dedupe", () => {
 
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
+ test('given an empty array, it returns an empty array', () => {
+        expect(dedupe([])).toEqual([]);
+    });
 
-// Given an array with strings or numbers
-// When passed to the dedupe function
-// Then it should remove the duplicate values, preserving the first occurence of each element
+
+ test('given an array with no duplicates, it should return a copy of the original array', () => {
+        expect(dedupe([5, 4, 3, 2, 1])).toEqual([5, 4, 3, 2, 1]);
+    });
+
+
+ test('given an array with strings or numbers, it should remove the duplicate values, preserving the first occurence of each element', () => {
+        expect(dedupe([1, "1", 2, 1, "apple", "1", "apple", 3])).toEqual([1, "1", 2, "apple", 3]);
+    });
+});
