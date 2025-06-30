@@ -1,1 +1,74 @@
-/** Write your CSS in here **/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+  color: #333;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #222;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#quote {
+  font-size: 1.8rem;
+  font-style: italic;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+#author {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+button#new-quote {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button#new-quote:hover {
+  background-color: #45a049;
+}
+
+label {
+  margin-top: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #222;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+
