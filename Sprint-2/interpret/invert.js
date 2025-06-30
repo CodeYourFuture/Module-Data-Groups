@@ -43,15 +43,15 @@ const profile = {
 
 // d) Explain why the current return value is different from the target output
 // The current return value is different from the target output because the function
-// is working improperly. First of all, the key should be taken on brackets to make possible
-// to read every key name-value and value in every pair in subarray.
+// is working improperly. First of all, the key should be taken in brackets to make it possible
+// to read every key name-value and value in every pair in the subarray.
 // invertedObj.key = value: This is a direct assignment. It treats "key" as a literal string
 // and creates or updates a property named "key" on the invertedObj object, setting its value
-// to the value of the value variable.
+// to the value of the variable.
 // invertedObj[key] = value: This uses bracket notation. It evaluates the key variable and uses
 // its value (which is a string) as the property name on invertedObj.
-// Secondly, change the key and value places for new object creation statement
-// 'invertedObj[value] = key;' to get swapping the keys and values in the new object.
+// Secondly, change the key and value places for the new object creation statement
+// 'invertedObj[value] = key;' to swap the keys and values in the new object.
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
 
