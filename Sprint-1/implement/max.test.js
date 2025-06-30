@@ -16,28 +16,50 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity",()=>{
+    const result = findMax([]);
+    expect(result).toBe(-Infinity);
+})
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
-
+test("given an array with one number, returns that number",()=>{
+    const result = findMax([3]);
+    expect(result).toBe(3);
+})
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
-
+test("given an array with positive and negative number,return largest overall",()=>{
+    const result = findMax([-1,-10,9,8,6]);
+    expect(result).toBe(9);
+})
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
-
+test("given an array negative number,returns number closest to zero",()=>{
+    const result = findMax([-1,-10,-8,-6]);
+    expect(result).toBe(-1);
+})
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
-
+test("given an array decimal numbers,returns largest decimal number",()=>{
+    const result = findMax([2.6, 3.5,6.9,8.5]);
+    expect(result).toBe(8.5)
+})
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
-
+test("given an array with non number values, return max and ignore NaN values",()=>{
+    const result = findMax([1,'apple',4,'banana',6]);
+    expect(result).toBe(6);
+})
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("given an array with only non-number values return null",()=>{
+    const result = findMax(['strawberry','apple','banana','salad']);
+    expect(result).toBe(null);
+})
