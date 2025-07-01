@@ -19,16 +19,38 @@ const tally = require("./tally.js");
 // Given a function called tally
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
+describe("tally", () => {
 
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+  test("tally on an empty array returns an empty object", () => {
+    expect(tally([])).toEqual({});
+  });
 
-// Given an array with duplicate items
-// When passed to tally
-// Then it should return counts for each unique item
+  // Given an array with duplicate items
+  // When passed to tally
+  // Then it should return counts for each unique item
+  test("counts frequency of each unique item in the array", () => {
+    [
+      { input: ["a"], expected: { a: 1 } },
+      { input: ["a", "a", "a"], expected: { a: 3 } },
+      { input: ["a", "a", "b", "c"], expected: { a: 2, b: 1, c: 1 } },
+      {
+        input: ["apple", "banana", "apple", "orange", "banana"],
+        expected: { apple: 2, banana: 2, orange: 1 },
+      },
+    ].forEach(({ input, expected }) => {
+      expect(tally(input)).toEqual(expected);
+    });
+  });
 
-// Given an invalid input like a string
-// When passed to tally
-// Then it should throw an error
+  // Given an invalid input like a string
+  // When passed to tally
+  // Then it should throw an error
+  ["string", 123, {}, null, undefined].forEach((input) => {
+    test(`throws when input is ${JSON.stringify(input)}`, () => {
+      expect(() => tally(input)).toThrow("Input must be an array");
+    });
+  });
+});
