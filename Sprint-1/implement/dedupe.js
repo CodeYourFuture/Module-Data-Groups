@@ -1,1 +1,10 @@
-function dedupe() {}
+function dedupe(array) {
+  let result = [];
+
+  for (const item of array) {
+    if (!result.includes(item)) result.push(item);
+  }
+
+  return result;
+}
+module.exports = dedupe;
