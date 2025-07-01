@@ -43,6 +43,7 @@ describe("calculateMedian", () => {
     { input: [3, "apple", 1, null, 2, undefined, 4], expected: 2.5 },
     { input: ["banana", 5, 3, "apple", 1, 4, 2], expected: 3 },
   ].forEach(({ input, expected }) =>
-    it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+      it(`filters out non-numeric values from [${input}] before calculating the median`, () => expect(calculateMedian(input)).toEqual(expected))
+
   );
 });
