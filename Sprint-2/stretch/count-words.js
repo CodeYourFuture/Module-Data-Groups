@@ -26,3 +26,43 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+function countWords(sentence) {
+  if (typeof sentence !== "string") {
+    throw new Error("Input must be an string");
+  }
+
+  // Split the sentence into words
+  const items = sentence
+    .toLowerCase() // Convert to lowercase to ignore case
+    .replace(/[.,!?]/g, "") // Remove punctuation
+    .split(/\s+/); // Split by whitespace give us an array of words
+  
+  
+  const result = {};
+
+  // Build array of unique items
+  const uniqueItems = [...new Set(items)];
+
+  // Loop through each unique item
+  for (let i = 0; i < uniqueItems.length; i++) {
+    const currentItem = uniqueItems[i];
+    let count = 0;
+
+    // Count how many times it appears in the original array
+    for (let j = 0; j < items.length; j++) {
+      if (items[j] === currentItem) {
+        count++;
+      };
+    };
+    // Add the item and count to result
+    result[currentItem] = count;
+  };
+  // Sort the entries by count (descending)
+  const sortedEntries = Object.entries(result).sort((a, b) => b[1] - a[1]);
+
+  // Convert back to object
+  const sortedResult = Object.fromEntries(sortedEntries);
+  return sortedResult;
+};
+
+console.log(countWords("you and me and you."));
