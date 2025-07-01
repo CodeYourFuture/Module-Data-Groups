@@ -1,4 +1,31 @@
-function setAlarm() {}
+let intervalID;
+
+function setAlarm() {
+  const timeRemaining = document.getElementById("timeRemaining");
+  const input = document.getElementById("alarmSet");
+  let totalSeconds = Number(input.value);
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+
+  timeRemaining.innerHTML = `Time Remaining ${minutes
+    .toString()
+    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+  intervalID = setInterval(() => {
+    --totalSeconds;
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    timeRemaining.innerHTML = `Time Remaining ${minutes
+      .toString()
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+    if (totalSeconds === 0) {
+      clearInterval(intervalID);
+      playAlarm();
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
