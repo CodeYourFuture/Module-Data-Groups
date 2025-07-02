@@ -8,13 +8,12 @@ function sum(elements) {
     }else if (allNoneNumericArray(elements)){
         return sumOfArray(elements,"str");
     }
-
-   
+   return sumOfMixedArray(elements);
 
 }
 
 
-//detect numeric values 
+//detect if all elements of array has numeric values 
 function allNumericArray(myArray) {
     for (let i=0;i<myArray.length;i++){
         if (typeof myArray[i] !== "number") {
@@ -24,20 +23,8 @@ function allNumericArray(myArray) {
     return true;
 }
 
- //find the first number element in an array
- //input : an array
- //output: first number element    
- function findFirstNumberElement(myArray){
-    for (let i=0;i<myArray.length;i++){
-        if (typeof myArray[i] === "number"){
-            return myArray[i];
-        }
-    }
-
- }   
  
- 
- //detect all non-numeric value array
+ //detect if all elements of array has non-numeric values 
  function allNoneNumericArray(myArray){
     for (let i=0;i<myArray.length;i++){
         if (typeof myArray[i] === "number"){
@@ -48,15 +35,8 @@ function allNumericArray(myArray) {
 
  }
 
- function findMaxNoneNumeric(myArray,maxElement){
-    for (let i=0;i<myArray.length;i++){
-        if (myArray[i] > maxElement) {
-            maxElement = myArray[i];
-           }
-     }
-    return maxElement;
-}
 
+//calculate sum of unmixed arrays
 function sumOfArray(myArray,arrayType){
     let total;
     if (arrayType==="num"){
@@ -67,6 +47,16 @@ function sumOfArray(myArray,arrayType){
        total = total + myArray[i];
     }
     return total;
+}
+//calculate sum of mixed arrays
+function sumOfMixedArray(myArray){
+    let sum=0
+    for(let i=0;i<myArray.length;i++){
+        if (typeof myArray[i] === "number"){
+            sum = sum + myArray[i]; 
+        }
+    }
+    return sum;
 }
 
 
