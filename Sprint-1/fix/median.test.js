@@ -4,7 +4,7 @@
 // passing all the tests...
 // Fix the implementation of calculateMedian so it passes all tests
 
-const calculateMedian = require("./median.js");
+const {calculateMedian} = require("./median.js");
 
 describe("calculateMedian", () => {
   [
