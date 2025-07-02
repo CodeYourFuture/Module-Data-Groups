@@ -1,5 +1,6 @@
 // Predict and explain first...
-
+/*The code will only output the title and serves value but not the ingredients. 
+The dot is missing, it should be like : ${recipe.ingredients} */
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
 // How can you fix it?
@@ -11,5 +12,5 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+    ingredients:
+  ${recipe.ingredients}`);
