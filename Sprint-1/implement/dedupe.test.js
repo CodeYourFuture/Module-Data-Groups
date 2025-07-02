@@ -30,7 +30,15 @@ test("It should return an empty array When given an empty array", () => {
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+test("It should return  a copy of the original array When given an array with no duplicates", () => {
+  // Arrange
+  const inputArray = [1,2,3,4];
 
+  // Act
+  const result = dedupe(inputArray);
+  // Assert
+  expect(result).toEqual([1,2,3,4]);
+});
 
 // Given an array with strings or numbers
 // When passed to the dedupe function
