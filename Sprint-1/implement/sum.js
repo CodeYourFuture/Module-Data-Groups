@@ -3,10 +3,13 @@ function sum(elements) {
     if (elements.length === 0) {
         return 0;
     }
-    if (allNumericArray(elements)){
-        return sumOfArray(elements);
-
+    if (allNumericArray(elements) ) {
+      return sumOfArray(elements,"num");
+    }else if (allNoneNumericArray(elements)){
+        return sumOfArray(elements,"str");
     }
+
+   
 
 }
 
@@ -54,9 +57,13 @@ function allNumericArray(myArray) {
     return maxElement;
 }
 
-function sumOfArray(myArray){
-    let total=0;
-    for(i=0;i<myArray.length;i++){
+function sumOfArray(myArray,arrayType){
+    let total;
+    if (arrayType==="num"){
+         total=0;
+    }else{
+         total='';}
+    for(let i=0;i<myArray.length;i++){
        total = total + myArray[i];
     }
     return total;
