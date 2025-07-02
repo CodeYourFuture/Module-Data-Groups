@@ -32,10 +32,18 @@ test("given one elemant array,return that number",() => {
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test(
+  "input : an array with both positive and negative numbers and output : the largest number overall",() =>{
+    expect(findMax([3, -2, 7, 0, -10])).toEqual(7);
+  }
+);
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("input : an array with just negative numbers and output : the closest one to zero", () => {
+  expect(findMax([-3, -2, -7, -12, -10])).toEqual(-2);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
