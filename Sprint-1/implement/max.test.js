@@ -48,10 +48,16 @@ test("input : an array with just negative numbers and output : the closest one t
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("input : an array with  decimal numbers and output : the largest decimal number", () => {
+  expect(findMax([3.6, 2.9, 7.5, 1.12, 10.08])).toEqual(10.08);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("input : an array with  non-number values and output : the max and ignore non-numeric values", () => {
+  expect(findMax(["hey", 10, "hi", 60, 10])).toEqual(60);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
