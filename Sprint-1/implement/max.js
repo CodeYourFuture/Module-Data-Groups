@@ -1,25 +1,30 @@
 function findMax(elements) {
   let maxElement = 0;
+  
   //for empty array input
-  if (elements.length === 0) {
-    return "-Infinity";
-  }
+    if (elements.length === 0) {
+        return "-Infinity";
+    }
 
   //for only non-number values array input
-  if (totalyNoneNumericArray(elements)) {
-    maxElement = elements[0];
-    return findMaxNoneNumeric(elements, maxElement);
-  }
+    if (totalyNoneNumericArray(elements)) {
+        maxElement = elements[0];
+        return findMaxNoneNumeric(elements, maxElement);
+    }
 
   //for only number or mixed values array input
-  maxElement = findFirstNumberElement(elements);
-  for (let i = 0; i < elements.length; i++) {
-    if (numericValue(elements[i]) && elements[i] > maxElement) {
-      maxElement = elements[i];
+    maxElement = findFirstNumberElement(elements);
+    for (let i = 0; i < elements.length; i++) {
+        if (numericValue(elements[i]) && elements[i] > maxElement) {
+        maxElement = elements[i];
+        }
     }
-  }
+  
   return maxElement;
 }
+
+
+
 
 //detect numeric values 
 function numericValue(arrayElement) {
