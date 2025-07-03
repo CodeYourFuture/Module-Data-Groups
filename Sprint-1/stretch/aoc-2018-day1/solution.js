@@ -70,6 +70,7 @@ function day2Puzzle2_totalRibbon(textFile) {
 
 function calculateRibbon(dimension) {
   let dimensionArray = dimension.split("x");
+  dimensionArray.sort((a, b) => a - b);
   let d1 = parseInt(dimensionArray[0]);
   let d2 = parseInt(dimensionArray[1]);
   let d3 = parseInt(dimensionArray[2]);
@@ -78,7 +79,7 @@ function calculateRibbon(dimension) {
   return wrapRibbon + bowRibbon;
 }
 
-console.log(day1Puzzle1("Day1.txt"));
-console.log(day1Puzzle2("Day1.txt"));
-console.log(day2Puzzle1_totalWrappingPaper("Day2.txt"));
-console.log(day2Puzzle2_totalRibbon("Day2.txt"));
+console.log(day1Puzzle1("Day1.txt"));//74
+console.log(day1Puzzle2("Day1.txt"));//1795
+console.log(day2Puzzle1_totalWrappingPaper("Day2.txt"));//1588178
+console.log(day2Puzzle2_totalRibbon("Day2.txt"));//3783758
