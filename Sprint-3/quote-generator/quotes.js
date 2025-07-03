@@ -490,4 +490,43 @@ const quotes = [
   },
 ];
 
+// initial quote
+const initialQuote = pickFromArray(quotes);
+document.getElementById("quote").textContent = `"${initialQuote.quote}"`;
+document.getElementById("author").textContent = initialQuote.author;
 // call pickFromArray with the quotes array to check you get a random quote
+const QuoteButton = document.getElementById("new-quote");
+const displayQuote = document.getElementById("quote-display");
+
+function displayNewQuote() {
+  const randomQuote = pickFromArray(quotes);
+  document.getElementById("quote").textContent = `"${randomQuote.quote}"`;
+  document.getElementById("author").textContent = randomQuote.author;
+}
+QuoteButton.addEventListener("click", displayNewQuote);
+
+let autoplayInterval;
+let isAutoplayOn = false;
+
+const autoplayButton = document.getElementById("auto-play-toggle");
+autoplayButton.classList.add("autoplay-off");
+
+autoplayButton.addEventListener("click", function () {
+  if (isAutoplayOn) {
+    //off autoplay
+    clearInterval(autoplayInterval);
+    isAutoplayOn = false;
+    autoplayButton.textContent = "Autoplay:OFF";
+    autoplayButton.classList.remove("autoplay-on");
+    autoplayButton.classList.add("autoplay-off");
+  } else {
+    //on autoplay
+    autoplayInterval = setInterval(displayNewQuote, 5000);
+    isAutoplayOn = true;
+    autoplayButton.textContent = "Autoplay:ON";
+    autoplayButton.classList.remove("autoplay-off");
+    autoplayButton.classList.add("autoplay-on");
+  }
+});
+
+window.addEventListener("load", displayNewQuote);

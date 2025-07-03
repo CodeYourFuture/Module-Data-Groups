@@ -1,1 +1,98 @@
 /** Write your CSS in here **/
+#welcome {
+  color: red;
+  background-color: white;
+}
+
+/*active state when clicked*/
+#new-quote:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+smooth transitions #new-quote {
+  transition: all 0.3s ease;
+}
+/*modern gradient style */
+#new-quote {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+/*quote stlying*/
+#quote {
+  font-size: 24px;
+  font-style: italic;
+  color: #2c3e50;
+  line-height: 1.6;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: 300;
+}
+/*add quotation marks*/
+#quote::before {
+  content: "";
+  font-size: 30px;
+  color: #667eea;
+}
+
+#quote::after {
+  content: "";
+  font-size: 30px;
+  color: #667eea;
+}
+#author {
+  font-size: 18px;
+  color: #c06d58;
+  text-align: right;
+  margin-top: 10px;
+  font-weight: 500;
+  font-weight: bold;
+}
+/*adding a dash before author name*/
+#author::before {
+  content: "-";
+}
+body {
+  background: linear-gradient(to bottom, #f7f8fc 0%, #d1d9e6 100%);
+}
+
+h1 {
+  font-size: 42px;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  font-weight: bold;
+  margin: 30px 0;
+}
+#auto-play-toggle {
+  background-color: #6c757d;
+  color: white;
+  border: node;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+}
+
+#auto-play-toggle:hover {
+  opacity: 0.8;
+  transform: translate(-1px);
+}
+.auto-play-off {
+  background-color: #6c757d;
+}
+.auto-play-on {
+  background-color: green;
+}
