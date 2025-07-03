@@ -490,14 +490,16 @@ const quotes = [
   },
 ];
 
-// initial quote
+// initial quote upon initial loading of the app
 const initialQuote = pickFromArray(quotes);
 document.getElementById("quote").textContent = `"${initialQuote.quote}"`;
 document.getElementById("author").textContent = initialQuote.author;
-// call pickFromArray with the quotes array to check you get a random quote
+
 const QuoteButton = document.getElementById("new-quote");
 const displayQuote = document.getElementById("quote-display");
 
+// call pickFromArray with the quotes array to get a random quote
+//this method is for displaying new quotes and will be called every time we need a new quote
 function displayNewQuote() {
   const randomQuote = pickFromArray(quotes);
   document.getElementById("quote").textContent = `"${randomQuote.quote}"`;
@@ -508,7 +510,7 @@ QuoteButton.addEventListener("click", displayNewQuote);
 let autoplayInterval;
 let isAutoplayOn = false;
 
-const autoplayButton = document.getElementById("auto-play-toggle");
+const autoplayButton = document.getElementById("autoplay-toggle");
 autoplayButton.classList.add("autoplay-off");
 
 autoplayButton.addEventListener("click", function () {
