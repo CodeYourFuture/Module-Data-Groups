@@ -14,7 +14,8 @@ smooth transitions #new-quote {
   transition: all 0.3s ease;
 }
 /*modern gradient style */
-#new-quote {
+#new-quote,
+#autoplay-toggle {
   background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
@@ -74,19 +75,8 @@ h1 {
   font-weight: bold;
   margin: 30px 0;
 }
-#auto-play-toggle {
-  background-color: #6c757d;
-  color: white;
-  border: node;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-left: 15px;
-  transition: all 0.3s ease;
-}
 
-#auto-play-toggle:hover {
+#autoplay-toggle:hover {
   opacity: 0.8;
   transform: translate(-1px);
 }
