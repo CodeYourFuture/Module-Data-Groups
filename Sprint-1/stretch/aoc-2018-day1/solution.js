@@ -1,7 +1,7 @@
 function day1Puzzle1(textFile) {
   const fs = require("fs");
   const inputFile = fs.readFileSync(textFile, "utf8");
-  const lines = inputFile.split("\n");
+  
   let countOP = 0;
   let countCP = 0;
   //console.log(inputFile.length);
@@ -19,7 +19,7 @@ function day1Puzzle1(textFile) {
 function day1Puzzle2(textFile) {
     const fs = require("fs");
     const inputFile = fs.readFileSync(textFile, "utf8");
-    const lines = inputFile.split("\n"); 
+    
     let floorCount= 0;
     for (let i = 0; i < inputFile.length; i++) {
       if (inputFile[i] === "(") {
@@ -37,10 +37,11 @@ function day2Puzzle1(textFile) {
   const fs = require("fs");
   const inputFile = fs.readFileSync(textFile, "utf8");
   const lines = inputFile.split("\n");
- 
-  for (let i = 0; i < inputFile.length; i++) {
-    
+  let totalWrapPaper=0
+  for (let i = 0; i < lines.length; i++) {
+    totalWrapPaper += calculateArea(lines[i]);
   }
+   return totalWrapPaper;
 }
 
 function calculateArea(dimension){
