@@ -18,6 +18,10 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // Then it should return an empty array
 test.todo("given an empty array, it returns an empty array");
 
+test("Given an empty array, returns 0", () => {
+  expect(dedupe([])).toBe(0);
+});
+
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
