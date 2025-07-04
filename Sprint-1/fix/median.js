@@ -11,10 +11,16 @@ function calculateMedian(list) {
 
   // filter the non number values out of an array like "strings", "null's and undefined"
   const numbers = list.filter( value => typeof value === `number` && !isNaN(value));
-  
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
-}
 
-module.exports = calculateMedian;
+  // finds the middle index based on filtered numbers length
+  const middleIndex = Math.floor(list.length / 2);
+
+  // return the correct median based on if its even or odd
+  if (numbers.length % 2 === 0){
+    // even length average of two middle numbers
+    return (numbers[middleIndex - 1] + numbers[middleIndex]) / 2;
+  } else {
+    // odd length returns the middle number
+    return numbers[middleIndex];
+  }
+}
