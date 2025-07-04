@@ -13,4 +13,3 @@ function dedupe(array) {
   // returns the new deduped array
   return newArray;
 }
-console.log(dedupe([5, 1, 1, 2, 3, 2, 5, 8]))// expect [5, 1, 2, 3, 8]
