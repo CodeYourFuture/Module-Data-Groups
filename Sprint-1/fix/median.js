@@ -12,8 +12,13 @@ function calculateMedian(list) {
   // filter the non number values out of an array like "strings", "null's and undefined"
   const numbers = list.filter( value => typeof value === `number` && !isNaN(value));
 
-  //if no numbers are left return null
+  // if no numbers are left return null
   if (numbers.length === 0) return null;
+
+  // sort numbers into ascending order
+  numbers.sort(function(a, b){
+    return a - b;
+  })
 
   // finds the middle index based on filtered numbers length
   const middleIndex = Math.floor(list.length / 2);
