@@ -12,32 +12,50 @@ We have set things up already so that this file can see your function from the o
 
 const findMax = require("./max.js");
 
+describe('findMax function' , ()=> {
 // Given an empty array
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity", ()=> {
+    expect(findMax([])).toBe(-Infinity)
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
-
+test("Given an array with both positive and negative numbers" , ()=> {
+    expect(findMax([4])).toBe(4)
+})
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
-
+test("Given an array with both positive and negative numbers", ()=> {
+    expect(findMax([1,14,-4,-6,-11])).toBe(14)
+})
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
-
+test("Given an array with just negative numbers", ()=> {
+    expect(findMax([-1,-6,-50])).toBe(-1)
+})
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
-
+test("Given an array with decimal numbers", ()=> {
+    expect(findMax([0.1,0.100,0.5,])).toBe(0.5)
+})
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
-
+test("Given an array with non-number values", ()=> {
+    expect(findMax(['a','b','/',5,9,-1])).toBe(9)
+})
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test('Given an array with only non-number values', ()=> {
+    expect(findMax(['o','l','+',')'])).toBe(-Infinity)
+})
+
+});
