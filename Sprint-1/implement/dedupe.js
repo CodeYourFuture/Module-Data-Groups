@@ -13,3 +13,5 @@ function dedupe(array) {
   // returns the new deduped array
   return newArray;
 }
+
+module.exports = dedupe;
