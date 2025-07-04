@@ -33,3 +33,27 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+// Acceptance criteria:
+describe("creates a country currency code lookup for multiple codes", () => {
+  it("the object contains the property, returns true", () => {
+    const countryCurrencyPairs = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ];
+    let expected = { US: "USD", CA: "CAD" };
+    const result = createLookup(countryCurrencyPairs);
+    expect(result).toEqual(expected);
+  });
+
+  it("the object contains the three properties, returns true", () => {
+    const countryCurrencyPairs = [
+      ["TR", "TRY"],
+      ["JP", "JPY"],
+      ["DK", "DKK"],
+    ];
+    let expected = { TR: "TRY", JP: "JPY", DK: "DKK" };
+    const result = createLookup(countryCurrencyPairs);
+    expect(result).toEqual(expected);
+  });
+});
