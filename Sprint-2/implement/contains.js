@@ -1,6 +1,6 @@
 function contains(obj, key) {
   if (obj && typeof obj === "object") {
-    return key in obj;
+    return Object.hasOwn(obj, key);
   }
   return false;
 }
