@@ -18,7 +18,7 @@ function calculateMedian(list) {
   if (len % 2 !== 0){
     return sortedArr[middleIndex];
   } else{
-    return (sortedArr[middleIndex - 1] + sortedArr[middleIndex]) / 2;;
+    return (sortedArr[middleIndex - 1] + sortedArr[middleIndex]) / 2;
   }
 }
 
