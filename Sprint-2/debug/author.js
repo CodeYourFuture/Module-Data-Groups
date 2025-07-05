@@ -10,7 +10,7 @@ const author = {
   age: 40,
   alive: true,
 };
-
-for (const value of author) {
+//console.log(author);
+for (const value in author) {
   console.log(value);
 }
