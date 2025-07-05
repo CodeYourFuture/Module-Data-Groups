@@ -5,9 +5,13 @@ function sum(elements) {
       numericalElements.push(element);
     }
   }
-  return numericalElements.reduce((a, c) => a + c, 0);
-}
+  // return numericalElements.reduce((a, c) => a + c, 0);
 
-console.log(sum([]));
+  let total = 0;
+  for (const number of numericalElements) {
+    total += number
+  }
+  return total
+}
 
 module.exports = sum;
