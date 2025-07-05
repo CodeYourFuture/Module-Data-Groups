@@ -17,7 +17,7 @@ function calculateMedian(list) {
     .sort((a, b) => a - b);
 
   // Throw out empty arrays
-  if (sortedList.length < 2) {
+  if (sortedList.length < 1) {
     return null;
   }
 
@@ -30,3 +30,5 @@ function calculateMedian(list) {
 }
 
 module.exports = calculateMedian;
+
+console.log(typeof calculateMedian([5]))

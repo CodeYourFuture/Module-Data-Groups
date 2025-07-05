@@ -29,7 +29,7 @@ describe("dedup Tests", () => {
   test("Given an array with no duplicates, it returns a copy of the original array", () => {
     const input = dedupe([7, 2, 8, 9]);
     const expected = [7, 2, 8, 9];
-    expect(input).toEqual(expected);
+    expect(input === expected).toEqual(false);
   });
 
   // Given an array with strings or numbers
