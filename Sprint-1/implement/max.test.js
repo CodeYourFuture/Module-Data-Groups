@@ -63,5 +63,5 @@ test("input : an array with  non-number values and output : the max and ignore n
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("input : an array with  non-number values and output : the max and ignore non-numeric values", () => {
-  expect(findMax(["sheida", "test", "hi", "hey", "cyf"])).toEqual("test");
+  expect(findMax(["sheida", "test", "hi", "hey", "cyf"])).toEqual("There is not any number in the array");
 });
