@@ -49,5 +49,7 @@ test("given an array containing non-number values, returns the sum of the numeri
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given an array with only non-number values, returns the least surprising value given how it behaves for all other inputs", () => {
-  expect(sum(["hey","test" , "hi", "first"])).toEqual("heytesthifirst");
+  expect(sum(["hey", "test", "hi", "first"])).toEqual(
+    "There is not any number in the array"
+  );
 });
