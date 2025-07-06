@@ -63,6 +63,7 @@ describe("containsKey", () => {
     { input: [undefined, "a"], expected: false },
     { input: [123, "a"], expected: false },
     { input: ["string", "a"], expected: false },
+    { input: [[5, 5], 1], expected: true},
   ].forEach(({ input, expected }) => {
     it(`returns ${expected} when called with ${JSON.stringify(
       input[0]
