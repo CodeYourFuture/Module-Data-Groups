@@ -16,6 +16,10 @@ const author = {
   alive: true,
 };
 
-for (const value of author.values[author]) {
+// The correct way to iterate over the values of an object is to use `Object.values()`
+// which returns an array of the object's values, and then use `for...of` to
+// iterate over that array.
+// Here is the corrected code:
+for (const value of Object.values(author)) {
   console.log(value);
 }
