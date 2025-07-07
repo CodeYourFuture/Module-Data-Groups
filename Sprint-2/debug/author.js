@@ -1,7 +1,7 @@
-// Predict and explain first...
+// Predict and explain first... 
 
 // This program attempts to log out all the property values in the object.
-// But it isn't working. Explain why first and then fix the problem
+// But it isn't working. Explain why first and then fix the problem  ... objects are not iterable
 
 const author = {
   firstName: "Zadie",
@@ -11,6 +11,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const value in author) {
+  console.log(author[value]);
 }
