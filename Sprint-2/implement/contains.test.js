@@ -35,7 +35,9 @@ test("returns true if the object contains the property, false otherwise", () => 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
-
+test("returns true if the object contains the property, false otherwise", () => {
+  expect(contains({ age: 25 }, "city")).toEqual(false);
+});
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
