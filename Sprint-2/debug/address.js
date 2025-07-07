@@ -15,8 +15,10 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
-console.log(`My house number is ${address.houseNumber}`); // This will correctly print house number is 42
+console.log(`My house number is ${address.houseNumber}`); 
+// This will correctly print house number is 42
+// Changed address[0] to address.houseNumber to fix the bug where the house number was logging as undefined.
+
 
 
 
