@@ -6,7 +6,7 @@ function sum(elements) {
     let total=0;
     elements = elements.filter((num) => typeof num === "number");
     if (elements.length === 0) {
-        return "There is not any number in the array";
+        return 0;
       } else {
     for(let i=0;i<elements.length;i++){
        total = total + elements[i];
