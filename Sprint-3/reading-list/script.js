@@ -1,4 +1,4 @@
-// For the tests, do not modify this array of books
+
 let books = [];
 
 fetch('books.json')
