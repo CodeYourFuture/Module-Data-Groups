@@ -27,8 +27,9 @@ describe("calculateMedian", () => {
     it(`returns the correct median for unsorted array [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
 
-  it("doesn't modify the input array [3, 1, 2]", () => {
-    const list = [3, 1, 2];
+
+  it("doesn't modify the input array [1, 2, 3]", () => {
+    const list = [1, 2, 3];
     calculateMedian(list);
     expect(list).toEqual([3, 1, 2]);
   });
