@@ -16,7 +16,9 @@ as the object doesn't contains a key of 'c'
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
-
+test("returns true if the object contains the property, false otherwise", ()=>{
+    expect(contains({age:25},"age")).toEqual(true)
+});
 // Given an empty object
 // When passed to contains
 // Then it should return false
