@@ -10,23 +10,26 @@
 function calculateMedian(list) {
   
   if (Array.isArray(list)){
-      let listCopy = [...list];  
-      listCopy = listCopy.filter((num) => typeof num === "number");
-      if (listCopy.length == 0) {
+    let listCopy = list.filter((num) => typeof num === "number");
+   
+    if (listCopy.length == 0) {
         return null;
-      }else{
-      listCopy = listCopy.sort();
+    }else{
+      listCopy = listCopy.sort((a,b) => a-b);
+
       if (listCopy.length % 2 == 0) {
         const mid1 = listCopy[listCopy.length / 2 - 1];
         const mid2 = listCopy[listCopy.length / 2];
         return (mid1 + mid2) / 2;
       } else {
         const middleIndex = Math.floor(listCopy.length / 2);
-        return listCopy.splice(middleIndex, 1)[0];
+        return listCopy[middleIndex];
       }
       }
      }
-    else {return null;}
+    else {
+      return null;
+    }
   }
 
 
