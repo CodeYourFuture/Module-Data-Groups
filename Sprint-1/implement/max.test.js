@@ -45,7 +45,7 @@ test("given an array with just negative numbers, it returns the closest one to z
 // When passed to the max function
 // Then it should return the largest decimal number
 test("given an array with decimal numbers, it returns the largest decimal number", () => {
-  expect(findMax([1.5, 2.5, 3.5])).toBeCloseTo(3.5);
+  expect(findMax([1.5, 2.5, 3.5])).toBeCloseTo(3.5); // changed to use toBeCloseTo for floating point precision
 });
 
 // Given an array with non-number values
