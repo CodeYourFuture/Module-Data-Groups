@@ -70,7 +70,7 @@ test("Given an array with non-number values, should return the max and ignore no
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
-test("Given an array with only non-number values, should return null", () => {
+test("Given an array with only non-number values, should return Infinity", () => {
     const input = ['hey', "10", 'hi', "60", "10"]
     const output = Infinity
     expect(findMax(input)).toEqual(output)
