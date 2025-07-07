@@ -41,3 +41,6 @@ test("returns true if the object contains the property, false otherwise", () => 
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("if the parameter is not an object return false",()=>{
+    expect(contains(["p"])).toEqual(false)
+})
