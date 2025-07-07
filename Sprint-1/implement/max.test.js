@@ -17,7 +17,7 @@ const findMax = require("./max.js");
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
 test("It should return -Infinity when given an empty array" , () =>
-    {expect(findMax([])).toEqual("-Infinity");
+    {expect(findMax([])).toEqual(-Infinity);
 
  });
 
@@ -63,5 +63,5 @@ test("input : an array with  non-number values and output : the max and ignore n
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("input : an array with  non-number values and output : the max and ignore non-numeric values", () => {
-  expect(findMax(["sheida", "test", "hi", "hey", "cyf"])).toEqual("There is not any number in the array");
+  expect(findMax(["sheida", "test", "hi", "hey", "cyf"])).toEqual(-Infinity);
 });

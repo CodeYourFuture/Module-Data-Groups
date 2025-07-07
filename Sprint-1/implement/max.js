@@ -2,12 +2,12 @@ function findMax(elements) {
   let maxElement = 0;
 
   if (elements.length === 0) {
-    return "-Infinity";
+    return -Infinity;
   }
 
   elements = elements.filter((num) => typeof num === "number");
   if (elements.length === 0) {
-    return "There is not any number in the array";
+    return -Infinity;
   } else {
     elements = elements.sort((a, b) => a - b);
 
