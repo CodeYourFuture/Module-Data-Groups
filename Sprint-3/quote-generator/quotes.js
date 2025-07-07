@@ -1,33 +1,39 @@
-
-let quotes = [];
-
+let quotes =[];
 fetch('quotes.json')
-  .then((res) => res.json())
-  .then((data) => {
+  .then((res)=>{
+    if(!res.ok){
+      throw new Error('quotes not fetched correctly');
+      }
+    return res.json()
+    })
+  .then((data)=>{
     quotes = data;
-    pickFromArray();
-  });
+    displayRandomQuote()
+    })
+  .catch((err)=>{
+    document.getElementById("quote").textContent='Could not load quotes.';
+    console.error('the error encountered is :', err)
+  })
 
-function pickFromArray() {
-  const random = Math.floor(Math.random() * quotes.length);
-  const quote = quotes[random];
-  document.getElementById('quote').textContent = quote.quote;
-  document.getElementById('author').textContent = `— ${quote.author}`;
-}
-
-document.getElementById('new-quote').addEventListener('click', pickFromArray);
-
-let intervalId = null;
-const autoplayToggle = document.getElementById('autoplay-toggle');
-const autoplayStatus = document.getElementById('autoplay-status');
-
-autoplayToggle.addEventListener('change', () => {
-  if (autoplayToggle.checked) {
-    autoplayStatus.textContent = 'Auto-play: ON';
-    intervalId = setInterval(pickFromArray, 2000); 
-  } else {
-    autoplayStatus.textContent = 'Auto-play: OFF';
-    clearInterval(intervalId);
+  const displayRandomQuote=()=>{
+    const quoteIndex = Math.floor(Math.random()*quotes.length)
+    const selectedQuote = quotes[quoteIndex]
+    document.getElementById('quote').textContent = selectedQuote.quote
+    document.getElementById('author').textContent = `-${selectedQuote.author}`
   }
-});
+  document.getElementById('new-quote').addEventListener('click',displayRandomQuote)
+  
+  let intervalId
+  const autoPlayCheckBox = document.getElementById('autoplay-toggle')
+  const autoPlayStatus = document.getElementById('autoplay-status')
 
+ autoPlayCheckBox.addEventListener('change',()=>{
+   if(autoPlayCheckBox.checked){
+    autoPlayStatus.textContent = "Auto-play: ON"
+    intervalId = setInterval(displayRandomQuote,1000)
+ }else{
+    autoPlayStatus.textContent = "Auto-play: OFF"
+    clearInterval(intervalId)
+ }
+})
+ 
