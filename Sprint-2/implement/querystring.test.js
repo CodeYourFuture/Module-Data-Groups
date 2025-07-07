@@ -10,3 +10,17 @@ test("parses querystring values containing =", () => {
     equation: "x=y+1",
   });
 });
+test("parses empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("parses key with no value", () => {
+  expect(parseQueryString("foo")).toEqual({ foo: "" });
+});
+
+test("parses multiple key-value pairs", () => {
+  expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+test("decodes percent-encoded values", () => {
+  expect(parseQueryString("name=John%20Doe")).toEqual({ name: "John Doe" });
+});
