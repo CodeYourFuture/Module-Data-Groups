@@ -12,4 +12,7 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
+//It will not work because we cannot access a keys value from an object through index position.
+//Fixed the code by using dot notation with the variable and the key. 
+// The current code is correctly giving us the output for the housenumber.
