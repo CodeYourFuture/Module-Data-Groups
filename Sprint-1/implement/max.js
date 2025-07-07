@@ -17,12 +17,6 @@ function findMax(elements) {
   return maxElement;
 }
 
-//detect numeric values
-function numericValue(arrayElement) {
-  if (typeof arrayElement === "number") {
-    return true;
-  }
-}
 
 
 module.exports = findMax;
