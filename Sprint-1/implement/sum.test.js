@@ -35,7 +35,7 @@ test("sum([-5, -10, -15]) should return -30", () => {
 // When passed to the sum function
 // Then it should return the correct total sum
 test("sum([1.5, 2.5, 3.5]) should return 7.5", () => {
-  expect(sum([1.5, 2.5, 3.5])).toBe(7.5);
+  expect(sum([1.5, 2.5, 3.5])).toBeCloseTo(7.5); // changed to use toBeCloseTo for floating point precision
 });
 
 // Given an array containing non-number values
