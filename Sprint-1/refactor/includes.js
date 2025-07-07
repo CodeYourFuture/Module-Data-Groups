@@ -1,9 +1,7 @@
 // Refactor the implementation of includes to use a for...of loop
 
 function includes(list, target) {
-  if (list.length === 0) {
-    return false;
-  }
+  
   for (const item of list) {
     if (item === target) {
       return true;
