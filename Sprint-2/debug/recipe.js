@@ -1,4 +1,6 @@
 // Predict and explain first...
+//recipe is an object, and when w insert an object directly into a string (like ${recipe}), 
+// javaScript converts it to a string using toString()
 
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
@@ -12,4 +14,4 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);
