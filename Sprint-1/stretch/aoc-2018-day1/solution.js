@@ -45,10 +45,10 @@ function day2Puzzle1_totalWrappingPaper(textFile) {
 }
 
 function calculateWrapingPaper(dimension){
-  let dimensionArray=dimension.split("x");
-  let s1 = parseInt(dimensionArray[0]) * parseInt(dimensionArray[1]);
+  let dimensionArray=dimension.split("x").map(parseInt);
+  /*let s1 = parseInt(dimensionArray[0]) * parseInt(dimensionArray[1]);
   let s2 = parseInt(dimensionArray[0]) * parseInt(dimensionArray[2]);
-  let s3 = parseInt(dimensionArray[1]) * parseInt(dimensionArray[2]);
+  let s3 = parseInt(dimensionArray[1]) * parseInt(dimensionArray[2]);*/
 
   let extraPaper = Math.min(s1,s2,s3);
   let totalWrapPaper=(2*s1)+(2*s2)+(2*s3)+extraPaper
