@@ -46,3 +46,7 @@ describe("calculateMedian", () => {
     it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
 });
+// The above tests cover various scenarios including:
+// - Basic median calculations for sorted and unsorted arrays.
+// - Ensuring the input array remains unchanged.
+// - Handling of non-numeric values and arrays. 
