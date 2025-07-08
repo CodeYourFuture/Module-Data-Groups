@@ -10,7 +10,12 @@ const author = {
   age: 40,
   alive: true,
 };
-
-for (const value of author) {
-  console.log(value);
+function readvalues(){
+for (const key in author) {
+  console.log(key + ':' +author[key]);
 }
+}
+readvalues();
+/* My first  prediction was that it wont work and we will need a for of loop to iterate over every key in object.
+ That prediction failed because a for of loop doesn't work here. we need a for in loop or we can also use a built in js method 
+ called object.keys(), for my  better understanding I will use a for in loop here.*/
