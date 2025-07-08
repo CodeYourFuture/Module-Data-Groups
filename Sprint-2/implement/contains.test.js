@@ -1,7 +1,8 @@
 const contains = require("./contains.js");
 
 /*
-Implement a function called contains that checks an object contains a
+Implement a function called contains that checks 
+an object contains a
 particular property
 
 E.g. contains({a: 1, b: 2}, 'a') // returns true
@@ -20,16 +21,28 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("contains on empty object returns false", () => {
+  expect(contains({}, "a")).toBe(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("contains with existing property returns true", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+test("contains with non-existent property returns false", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});
 
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("contains with array returns false", () => {
+  expect(contains([1, 2, 3], "0")).toBe(false);
+});
+
