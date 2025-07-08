@@ -1,32 +1,32 @@
-const calculateMode = require("./mode.js");
+const invert = require("./invert.js");
 
-// Acceptance criteria for calculateMode function
+// Acceptance Criteria:
+// Given an object with key-value pairs
+// When invert is called
+// Then it should return a new object with keys and values swapped
 
-// Given an array of numbers
-// When calculateMode is called on the array
-// Then it should return the number that appears most frequently in the array
-
-// Example:
-// Given [2,4,1,2,3,2,1]
-// When calculateMode is called on [2,4,1,2,3,2,1]
-// Then it should return 2 */
-
-describe("calculateMode()", () => {
-  test("returns the most frequent number in an array", () => {
-    const nums = [2, 4, 1, 2, 3, 2, 1];
-
-    expect(calculateMode(nums)).toEqual(2);
+describe("invert()", () => {
+  test("inverts a simple object with unique values", () => {
+    const input = { a: 1, b: 2 };
+    const expected = { "1": "a", "2": "b" };
+    expect(invert(input)).toEqual(expected);
   });
 
-  test("returns the first mode in case of multiple modes", () => {
-    const nums = [1, 2, 2, 3, 3];
-
-    expect(calculateMode(nums)).toEqual(2);
+  test("returns an empty object when input is empty", () => {
+    const input = {};
+    const expected = {};
+    expect(invert(input)).toEqual(expected);
   });
 
-  test("ignores non-number values", () => {
-    const nums = [1, 3, "2", 2, 3, null];
+  test("overwrites duplicate values in object", () => {
+    const input = { a: 1, b: 1 };
+    const expected = { "1": "b" }; // last key with same value wins
+    expect(invert(input)).toEqual(expected);
+  });
 
-    expect(calculateMode(nums)).toEqual(3);
+  test("handles string values and numbers as keys", () => {
+    const input = { x: "hello", y: "world" };
+    const expected = { hello: "x", world: "y" };
+    expect(invert(input)).toEqual(expected);
   });
 });
