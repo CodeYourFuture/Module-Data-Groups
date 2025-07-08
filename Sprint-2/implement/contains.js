@@ -10,7 +10,7 @@ function contains(obj, property) {
   }
 
   // Check if the object has the specified property
-  return obj.hasOwnProperty(property);
+  return obj.hasOwnProperty(property); // Use hasOwnProperty to check for the property
 }
 
 module.exports = contains;
