@@ -4,7 +4,7 @@
   "license": "CC-BY-SA-4.0",
   "description": "",
   "scripts": {
-    "test": "jest --testMatch='**/*.js'",
+    "test": "jest",
     "format": "prettier --write ."
   },
   "jest": {
