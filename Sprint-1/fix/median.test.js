@@ -46,3 +46,8 @@ describe("calculateMedian", () => {
     it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
 });
+
+// Failing Test Case for finding the middle number
+TestCase("If the length of the sorted list is even, add 0.5 to the middle number", () => {
+  expect(calculateMedian([4, 10])).toBe(7);
+});
