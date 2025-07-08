@@ -10,4 +10,9 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
-test("")
+test("returns 'missing value' for missing value",()=>{
+  expect(parseQueryString("equation=")).toEqual({equation:"missing value"})
+})
+test("returns 'missing key' for missing key", () => {
+  expect(parseQueryString("=o")).toEqual({  "missing key":'o' });
+});
