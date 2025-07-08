@@ -6,13 +6,14 @@ function parseQueryString(queryString) {
   const [key, ...rest] = queryString.split("=");                 //splits the queystring in to arrays where it finds'=', assigns the first part as the value for key
   const value = rest.join("=");                              //it joins the two arrays from 'rest' with '=' resulting in a string
   queryParams[key] = value;                                  //adds the key:value pair to the object
-  
+  if (value.length===0)return { [key]: "missing value" };
+  if (key.length===0) return {"missing key":value,}
   return queryParams;
 }
 
 
 
-console.log(parseQueryString("equation=x=y+1"));
+console.log(parseQueryString("=o"));
 
 
 
