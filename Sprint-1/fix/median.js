@@ -9,7 +9,8 @@ function calculateMedian(list) {
   if (!Array.isArray(list)) {
     return null;
   }
-  const arrFilter = list.filter (item => typeof item !== "string" && item != null && item !== undefined && typeof item === "number" && !isNaN(item));
+  const arrFilter = list.filter (item => typeof item === "number" && !isNaN(item)
+);
   if (arrFilter.length === 0)
     return null;
   const sortedArr = arrFilter.sort((a,b) => a - b);
@@ -22,7 +23,5 @@ function calculateMedian(list) {
   }
 }
 
-
-// console.log(calculateMedian(["banana", 5, 3, "apple", 1, 4, 2]));
 
 module.exports = calculateMedian;
