@@ -20,8 +20,8 @@ Self checklist
 - [ ] I have committed my files one by one, on purpose, and for a reason
 - [ ] I have titled my PR with REGION | COHORT_NAME | FIRST_NAME LAST_NAME | PROJ_NAME
 - [ ] I have tested my changes
-- [ ] My changes follow the [style guide](https://curriculum.codeyourfuture.io/guides/contributing/)
-- [ ] My changes meet the [requirements](./README.md) of this task
+- [ ] My changes follow the [style guide](https://curriculum.codeyourfuture.io/guides/reviewing/style-guide/)
+- [ ] My changes meet the requirements of this task
 
 ## Changelist
 
