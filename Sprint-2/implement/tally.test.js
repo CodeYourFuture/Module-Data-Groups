@@ -70,4 +70,5 @@ describe('tally', () => {
     });
 
      //run tests then build the function
+     // test run and pass
 });

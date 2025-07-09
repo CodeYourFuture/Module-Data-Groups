@@ -84,6 +84,6 @@ describe('createLookup', () => {
             ZA: "RAND"
         }
         expect(createLookup(pairs)).toEqual(expectedLookup)
-    }) //call the big five and let them know we got Mandelas
+    }) //call the big five and let them know we got Randelas
 
 });

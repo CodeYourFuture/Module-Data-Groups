@@ -38,5 +38,7 @@ test("parses querystring values containing =", () => {
     //     expect(parseQueryString('name=John%20Doe&age=30%2B')).toEqual({name:"John Doe", age:"30+"})
     // }) //this continues to fail
 
+    //up for some work but 1st iteration still works.
+
 
 

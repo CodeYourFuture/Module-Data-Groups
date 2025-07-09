@@ -12,6 +12,7 @@ function parseQueryString(queryString) {
     const value = parts.length > 1 ? parts.slice(1).join('=') : ''; //clunky but it works to split them and stitch it together again
     queryParams[key] = value;
   }
+  //toBeRefactored
 
   return queryParams;
 }
