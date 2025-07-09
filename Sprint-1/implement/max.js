@@ -11,7 +11,7 @@ function findMax(elements) {
   // If the sorted list is empty, return null
   if (numericValues.length === 0) return -Infinity;
 
-  // Return the largest number in the sorted list
+  // Return the largest numeric value found in the array
   return Math.max(...numericValues);
 }
 
