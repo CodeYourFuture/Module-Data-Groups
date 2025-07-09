@@ -22,6 +22,9 @@ test("given an empty array, returns -Infinity", () => {
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("given an array with one number returns that one number", () => {
+    expect(findMax([42])).toBe(42);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
