@@ -16,3 +16,9 @@ test("parses keys with multiple = signs in value", () => {
     foo: "bar=baz=qux",
   });
 });
+
+test("parses querystring with no value", () => {
+  expect(parseQueryString("keyOnly")).toEqual({
+    "keyOnly": "",
+  });
+});
