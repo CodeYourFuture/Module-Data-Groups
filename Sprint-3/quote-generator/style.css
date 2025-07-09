@@ -1,1 +1,54 @@
 /** Write your CSS in here **/
+body {
+  margin: 0;
+  background-color: #ffa500;
+  font-family: 'Georgia', serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: white;
+  padding: 50px 60px;
+  max-width: 800px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quote-text {
+  font-size: 2rem;
+  color: #ffa500;
+  line-height: 1.6;
+}
+
+.quote-mark {
+  font-size: 3rem;
+  vertical-align: top;
+}
+
+.author {
+  text-align: right;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: #ffa500;
+}
+
+button {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.button-container {
+  text-align: right;
+  margin-top: 20px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
