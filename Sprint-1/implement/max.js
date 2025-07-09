@@ -20,7 +20,13 @@ function findMax(elements) {
         }
     }
     return max;
+
+    // if the no numbers are found in the array returns -infinty
+    if (numbersOnly.length === 0) {
+        return -Infinity;
+    }
 }
 console.log(findMax([30, 50, 10, 40])); // 50
 console.log(findMax(['hey', 10, 'hi', 60, 10])); // 60
+console.log(findMax([])); // -infinity
 module.exports = findMax;
