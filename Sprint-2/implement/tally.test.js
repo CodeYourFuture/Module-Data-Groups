@@ -24,10 +24,10 @@ const tally = require("./tally.js");
 // When passed to tally
 // Then it should return an empty object
 
-const list = [];
+const emptyArray = [];
 
 test("tally on an empty array returns an empty object", () => {
-    const currentOutput = tally(list);
+    const currentOutput = tally(emptyArray);
     const targetOutput = {};
     expect(currentOutput).toEqual(targetOutput);
 });
@@ -35,6 +35,14 @@ test("tally on an empty array returns an empty object", () => {
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+
+const animals = ['cat', 'dog', 'cat', 'bird', 'dog', 'dog', 'rabbit', 'cat'];
+
+test("tally on an array returns an object with the frequency of each item as properties", () => {
+    const currentOutput = tally(animals);
+    const targetOutput = {cat: 3, dog: 3, bird: 1, rabbit: 1};
+    expect(currentOutput).toEqual(targetOutput);
+});
 
 // Given an invalid input like a string
 // When passed to tally
