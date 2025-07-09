@@ -42,7 +42,7 @@ function setAlarm() {
     if (inputInfo <= 0) {
       clearInterval(intervalId);
       playAlarm();
-      changeBackgroundColor();
+      changeBackgroundColorFlashing();
       return;
     } else {
       inputInfo--;
@@ -57,16 +57,27 @@ function setAlarm() {
 //console.log("click event is firing...");
 //});
 
-//setStopButton.addEventListener("click", function stopAlarm() {
-//console.log("click event is firing...");
-//clearInterval(intervalId);
-//pauseAlarm();
-//});
+setStopButton.addEventListener("click", function stopFlashing() {
+  console.log("click event is firing...");
+  clearInterval(flashIntervalId);
+  backgroundColor.style.backgroundColor = "";
+  pauseAlarm();
+});
 
-//alarm sound stop})
+//function changeBackgroundColor() {
+//backgroundColor.style.backgroundColor = "lightblue";
+//}
 
-function changeBackgroundColor() {
-  backgroundColor.style.backgroundColor = "lightblue";
+let flashColor = ["yellow", "pink", "lightgrey", "green"];
+let flashIntervalId;
+let colorIndex = 0;
+
+function changeBackgroundColorFlashing() {
+  if (flashIntervalId) clearInterval(flashIntervalId);
+  flashIntervalId = setInterval(function () {
+    backgroundColor.style.backgroundColor = flashColor[colorIndex];
+    colorIndex = (colorIndex + 1) % flashColor.length;
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
