@@ -51,7 +51,7 @@ test("object contains with a non-existent property name", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("Given invalid parameters like an array",() => {
-    const obj = ("a",1,"b", 2 );
+    const obj = ["a",1,"b", 2 ];
     const result = contains(obj, "a");
     expect(result).toBe(false);
 });
