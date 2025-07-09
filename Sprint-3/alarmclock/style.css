@@ -4,6 +4,8 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  background-color: rgb(18, 224, 18);
+  padding: 50px;
 }
 
 #alarmSet {

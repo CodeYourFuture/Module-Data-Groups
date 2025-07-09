@@ -23,6 +23,7 @@ const books = [
 ];
 ```
 
+b7c7dce
 Render the list of books on the page. Each book should have a title, author and image and a background colour that is set dependent on whether we have read the book or not.
 
 ## 🧭 Strategy
