@@ -10,3 +10,42 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+test("parses empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("ignores leading question mark", () => {
+  expect(parseQueryString("?name=Sara")).toEqual({ name: "Sara" });
+});
+
+test("parses multiple key-value pairs", () => {
+  expect(parseQueryString("name=Sara&age=30")).toEqual({
+    name: "Sara",
+    age: "30"
+  })
+});
+
+test("handles missing value", () => {
+  expect(parseQueryString("name=")).toEqual({ name: "" });
+});
+
+test("handles missing key", () => {
+  expect(parseQueryString("=value")).toEqual({ "": "value" });
+});
+
+test("handles key without =", () => {
+  expect(parseQueryString("flag")).toEqual({ flag: "" });
+});
+
+test("handles duplicate keys", () => {
+  expect(parseQueryString("id=1&id=2")).toEqual({ id: ["1", "2"] });
+});
+test("decodes URL-encoded characters", () => {
+  expect(parseQueryString("name=Sara%20Tahir&city=Nottingham%20City")).toEqual({
+    name: "Sara Tahir",
+    city: "Nottingham City"
+  });
+});
+test("handles empty key and value", () => {
+  expect(parseQueryString("=")).toEqual({ "": "" });
+});
