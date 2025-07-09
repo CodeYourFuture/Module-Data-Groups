@@ -10,3 +10,9 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses keys with multiple = signs in value", () => {
+  expect(parseQueryString("foo=bar=baz=qux")).toEqual({
+    foo: "bar=baz=qux",
+  });
+});
