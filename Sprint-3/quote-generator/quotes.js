@@ -1,3 +1,13 @@
+function newQuote() {
+  // Get a random quote from the quotes array
+  const randomQuote = pickFromArray(quotes);
+  
+  // Update the quote and author in the HTML
+  document.getElementById('quote').textContent = randomQuote.quote;
+  document.getElementById('author').textContent = `- ${randomQuote.author}`;
+}
+document.querySelector('.button-container button').addEventListener('click', newQuote);
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
