@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quote generator app</title>
     <script defer src="quotes.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <div class="container">
+      <div class="quote-box">
+        <p class="quote-text">
+          <span class="quote-mark">❝</span>
+          <span id="quote">Don't cry because it's over, smile because it happened.</span>
+        </p>
+        <p class="author" id="author">- Dr. Seuss</p>
+        <div class="button-container">
+          <button onclick="newQuote()">New quote</button>
+        </div>
+      </div>
+    </div>
+    <script src="quotes.js"></script>
   </body>
 </html>
