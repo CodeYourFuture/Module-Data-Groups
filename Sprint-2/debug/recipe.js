@@ -17,3 +17,5 @@ console.log(`${recipe.title}
   serves ${recipe.serves}
   ingredients:
 ${recipe.ingredients.join("\n")}`);
+//recipe.ingredients is an array: ["olive oil", "tomatoes", "salt", "pepper"]
+//.join("\n") turns that array into a string, separating each ingredient with a newline (\n)
