@@ -28,10 +28,10 @@ function calculateMedian(list) {
   if (sortedList.length % 2 === 0) {
 
     // this is my wrong attempt for solving this logic but it will cause error
-    return (sortedList[middleIndex - 1] + 0.5);
+    // return (sortedList[middleIndex - 1] + 0.5);
 
     // tis is the correct way of finding the median when the length is even
-    // return (sortedList[middleIndex - 1] + sortedList[middleIndex]) / 2;
+    return (sortedList[middleIndex - 1] + sortedList[middleIndex]) / 2;
   }else {
     // If the length of the sorted list is odd, return the middle number
     return sortedList[middleIndex];
