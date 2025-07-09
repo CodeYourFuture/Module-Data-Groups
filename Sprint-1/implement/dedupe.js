@@ -12,12 +12,13 @@ function dedupe(elements) {
       new_array.push(elements[i]);
     }
   }
-  console.log(new_array);
+  console.log(new_array); // to print the result to console and test what we get as output
   return new_array;
 }
 
-const arr = [1, 4, 9, 9, "gloves", "gloves"];
-dedupe(arr);
+const arr = [1, 4, 9, 9, "gloves", "gloves"]; // given as argument array to run the
+// dedupe function in order to check if it is working
+dedupe(arr); // calling the function
 
 // console.log(dedupe(arr));
 
