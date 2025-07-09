@@ -10,3 +10,28 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring with multiple values", () => {
+  expect(parseQueryString("a=1&b=2=c")).toEqual({
+    "a": "1",
+    "b": "2=c",
+  });
+});
+test("parses querystring Multiple values for the same key", () =>{
+  expect(parseQueryString("category=books&category=movies&category=music")).toEqual({
+    "category": ["books", "movies", "music"]
+  })
+});
+test("parses querystring with empty values", () => {
+  expect(parseQueryString("username=")).toEqual({
+    username: ""
+  });
+});
+test("parses querystring key with no values", () => {
+  expect(parseQueryString("hello=")).toEqual({ hello: "" });
+});
+test ("parses querystring with no equal sign", () => {
+  expect(parseQueryString("bye")).toEqual({
+    bye: ""
+  });
+});
