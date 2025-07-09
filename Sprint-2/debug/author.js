@@ -10,6 +10,6 @@ const author = {
   alive: true,
 };
 
-for (const value of Object.values(author)) { //spotted it immediately the for loop made enough sense for me to know what it was trying to do
+for (const value of Object.values(author)) { //for-of is for arrays not objects so use
   console.log(value);
 }

@@ -59,7 +59,9 @@ as the object doesn't contains a key of 'c'
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
-
+test("returns true for  existing property", () => {
+    expect(contains({ d: 9, v: 11}, "v")).toBe(true);
+});
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
