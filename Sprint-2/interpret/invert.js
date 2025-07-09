@@ -17,6 +17,8 @@ function invert(obj) {
 }
 let object = {a:1,b:2}
 console.log((invert)(object))
+
+module.exports= invert
 // a) What is the current return value when invert is called with { a : 1 }
 // Current return value is {key: 1}, I was expecting {"1":"a"}
 
