@@ -9,10 +9,10 @@ function sum(elements) {
     (elements) => typeof elements === "number"
   );
 
-  // If the sorted list is empty, return null
+  // If there are no numeric values, return 0
   if (numericValues.length === 0) return 0;
 
-  // Return the largest number inMath.sum(...numericValues); the sorted list
+  // Return the sum of all numeric values in the array
   let sum = 0;
   for (let i = 0; i < numericValues.length; i++) {
     sum += numericValues[i];
