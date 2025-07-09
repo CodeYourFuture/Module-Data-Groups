@@ -4,31 +4,21 @@ function findMax(elements) {
         return -Infinity;
     }
     let max;
-    // if array does not have number values
-    if (!checkNumbersPresence(elements)) {
-        for (let i = 0; i < elements.length; i++) {
-            //if max is unassigned and value conversable to number 
-            if (!(typeof max == 'number') && !isNaN(elements[i])) {
+    let isNumbersPresent = checkNumbersPresence(elements);
+    for (let i = 0; i < elements.length; i++) {
+        // if array does not have number values and value[i] conversable to a number
+        if (!isNumbersPresent && !isNaN(elements[i])) {
+            //if max is unassigned or value[i] > max
+            if (!(typeof max == 'number') || Number(elements[i]) > max) {
                 max = Number(elements[i]);
             }
-            // if max is assigned and value converted to number
-            if (typeof max == 'number' && !isNaN(elements[i])) {
-                if (Number(elements[i]) > max) {
-                    max = Number(elements[i]);
-                }
+            // if array have number values and value[i] is a number
+        } else if (isNumbersPresent && typeof elements[i] == 'number') {
+            //if max is unassigned or value[i] > max
+            if (!(typeof max == 'number') || elements[i] > max) {
+                max = elements[i];
             }
         }
-    }
-    // if array have number values
-    for (let i = 0; i < elements.length; i++) {
-        //if max unassigned 
-        if (!(typeof max == 'number') && typeof elements[i] == 'number') {
-            max = elements[i];
-        }
-        // if max assigned
-        if (typeof elements[i] == 'number' && elements[i] > max) {
-            max = elements[i];
-        };
     }
 
     return max;

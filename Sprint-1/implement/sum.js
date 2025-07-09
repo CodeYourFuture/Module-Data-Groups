@@ -2,32 +2,25 @@ function sum(elements) {
     if (elements.length == 0) {
         return 0;
     }
-    let sum = 0;
-    // if array does not have number values
-    if (!checkNumbersPresence(elements)) {
-        for (let i = 0; i < elements.length; i++) {
-            if (!isNaN(elements[i])) {
-                sum += Number(elements[i]);
-            }
-        }
-    }
 
-    // if array have number values
+    let numericValuesSum = 0;
+    let conversableValuesSum = 0;
+    let containsNumericValues = false;
+
     for (let i = 0; i < elements.length; i++) {
         if (typeof elements[i] == 'number') {
-            sum += elements[i];
+            numericValuesSum += elements[i];
+            containsNumericValues = true;
+        } else if (!isNaN(elements[i])) {
+            conversableValuesSum += Number(elements[i]);
         }
     }
-    return sum;
-}
 
-function checkNumbersPresence(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        if (typeof arr[i] == 'number') {
-            return true;
-        }
+    if (containsNumericValues) {
+        return numericValuesSum;
+    } else {
+        return conversableValuesSum;
     }
-    return false;
 }
 
 module.exports = sum;
