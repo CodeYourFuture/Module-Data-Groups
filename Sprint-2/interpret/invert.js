@@ -6,7 +6,7 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
- function invert(obj) {
+/* function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
@@ -15,6 +15,7 @@
 
   return invertedObj;
 }
+*/
 
 // a) What is the current return value when invert is called with { a : 1 }
 // answer: the current return value is {key : 1} because the key is not being set correctly
@@ -33,3 +34,13 @@
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
 // answer: to fix this we have need to change the line "invertedObj.key = value;" to "invertedObj[value] = key;" so that the value is set as the key and the key is set to the value
+
+function invert(obj) {
+  const invertedObj = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    invertedObj[value] = key;
+  }
+
+  return invertedObj;
+}
