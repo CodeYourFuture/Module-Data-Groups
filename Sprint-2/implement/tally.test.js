@@ -47,3 +47,12 @@ test("tally on an array returns an object with the frequency of each item as pro
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+
+test("tally throws an error when given invalid input", () => {
+    const name = "Hassan";
+    const age = null;
+    const subjectsHobbies = {Math: "puzzles", Science: "experiments", Art: "drawing"};
+    expect(() => tally(name)).toThrow("Invalid input!");
+    expect(() => tally(age)).toThrow("Invalid input!");
+    expect(() => tally(subjectsHobbies)).toThrow("Invalid input!");
+});
