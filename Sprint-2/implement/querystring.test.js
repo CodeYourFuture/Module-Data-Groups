@@ -10,3 +10,28 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring values contains one pair", () => {
+  expect(parseQueryString("brand=Tesla")).toEqual({
+    brand: "Tesla",
+  });
+});
+
+test("parses querystring contains more than one pair ",() =>{
+  expect(parseQueryString("sort=lowest&colour=yellow")).toEqual({
+    "sort":"lowest",
+    "colour":"yellow"});
+  });
+
+  test("parses empty querystring", () => {
+    expect(parseQueryString("")).toEqual({});
+  });
+
+  test("parses key without value", () => {
+    expect(parseQueryString("name")).toEqual({name:""});
+  });
+
+ 
+  test("parses key with empty value", () => {
+    expect(parseQueryString("name=")).toEqual({ name: "" });
+  });
