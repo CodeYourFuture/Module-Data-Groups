@@ -16,8 +16,9 @@ function invert(obj) {
   return invertedObj;
 }
 let object = {a:1}
-console.log(object)
+console.log((invert)(object))
 // a) What is the current return value when invert is called with { a : 1 }
+// Current return value is {key: 1}, I was expecting "1":"a"
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
 
