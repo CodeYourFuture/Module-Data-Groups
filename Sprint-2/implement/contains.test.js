@@ -18,7 +18,10 @@ as the object doesn't contains a key of 'c'
 // Then it should return true if the object contains the property, false otherwise
 describe("containsKey", () => {
   test("given a contains function, should return true if the object contains the property, false otherwise", () => {
-    const currentOutput = contains({ name: "John", surname: "White" }, "surname");
+    const currentOutput = contains(
+      { name: "John", surname: "White" },
+      "surname"
+    );
     const targetOutput = true;
 
     expect(currentOutput).toBe(targetOutput);
@@ -57,18 +60,32 @@ describe("containsKey", () => {
   // Given invalid parameters like an array
   // When passed to contains
   // Then it should return false or throw an error
+  // return false
   [
-    { input: [[], "a"], expected: false },
-    { input: [null, "a"], expected: false },
-    { input: [undefined, "a"], expected: false },
-    { input: [123, "a"], expected: false },
-    { input: ["string", "a"], expected: false },
-    { input: [[5, 5], 1], expected: true},
+    { input: [{}, "a"], expected: false },
+    { input: [{ a: 1 }, "b"], expected: false },
   ].forEach(({ input, expected }) => {
     it(`returns ${expected} when called with ${JSON.stringify(
       input[0]
     )} and key '${input[1]}'`, () => {
       expect(contains(input[0], input[1])).toBe(expected);
+    });
+  });
+  // throw an error
+  [
+    { input: [1, 2, 3] },
+    { input: [[], "a"] },
+    { input: [[5, 5], 1] },
+    { input: [null, "a"] },
+    { input: [undefined, "a"] },
+    { input: [123, "a"] },
+    { input: ["string", "a"] },
+    { input: [true, "a"] },
+  ].forEach(({ input }) => {
+    it(`throws TypeError for invalid when called with ${JSON.stringify(
+      input[0]
+    )} and key'${input[1]}'`, () => {
+      expect(() => contains(input[0], input[1])).toThrow(TypeError);
     });
   });
 });

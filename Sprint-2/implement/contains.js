@@ -1,8 +1,13 @@
 function contains(obj, key) {
-  if (obj && typeof obj === "object") {
-    return Object.hasOwn(obj, key);
+  if (
+    obj === null ||
+    obj === undefined ||
+    typeof obj !== "object" ||
+    Array.isArray(obj)
+  ) {
+    throw new TypeError(`Expected an object, but got ${obj}`);
   }
-  return false;
+  return Object.hasOwn(obj, String(key));
 }
 
 module.exports = contains;
