@@ -22,14 +22,14 @@ function sum(elements) {
     // looping through an array elements
     sum = sum + new_elements[i]; // adding the elements consequently to start point
   }
-  console.log(parseFloat(sum.toFixed(2)));
+  console.log(parseFloat(sum.toFixed(2))); // to print the result to console and test what we get as output
   return parseFloat(sum.toFixed(2)); // I fixed the precision of the sum to two
 }
 // decimal points and converted the sum back into a float to achieve a more
 // accurate result, avoiding cumulative errors and ensuring precision
 
-const arr = [1, 2, 5]; //
-sum(arr); //
+const arr = [1, 2, 5]; // to print the result to console and test what we get as output
+sum(arr); // calling the function with input of arr
 
 //console.log(sum(arr));
 module.exports = sum;
