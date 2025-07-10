@@ -5,8 +5,44 @@
 
 const parseQueryString = require("./querystring.js")
 
+test("parses querystring values containing multiple '=' signs", () => {
+  expect(parseQueryString("name=JohnDoe&age=30&country=Canada&sort=recent&showDetails=true")).toEqual({
+  name: "JohnDoe",
+  age: "30",
+  country: "Canada",
+  sort: "recent",
+  showDetails: "true"
+});
+});
+
+
+
+test("parses an empty querystring & returns an empty object", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+
+
+
 test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
-    "equation": "x=y+1",
+    equation: "x=y+1",
+  });
+});
+
+
+
+
+test("parses querystring values without '=' & returns keys only", () => {
+  expect(parseQueryString("fullName")).toEqual({fullName: "" });
+});
+
+
+
+
+test("parses querystring with duplicate/repeated keys & returns the last key-value pair", () => {
+  expect(parseQueryString("haircut=buzzCut&haircut=mullet&haircut=lowFade&shaver=braun&shaver=philips&shaver=wahl")).toEqual({
+    haircut: "lowFade",
+    shaver: "wahl",
   });
 });
