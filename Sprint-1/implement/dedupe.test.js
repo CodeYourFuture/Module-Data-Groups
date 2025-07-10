@@ -32,6 +32,6 @@ test("Given an array with no duplication, when passed to the dedupe function, Th
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
-test("Given an array with strings or numbers, when passed to the dedupe function, then it should remove the duplicate values, preserving the firt occurence of each element", () => {
+test("Given an array with strings or numbers, when passed to the dedupe function, then it should remove the duplicate values, preserving the first occurrence of each element", () => {
   expect(dedupe(["a", "a", "b"])).toEqual(["a","b"]);
 });

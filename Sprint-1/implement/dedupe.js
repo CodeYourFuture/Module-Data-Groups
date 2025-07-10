@@ -1,7 +1,4 @@
 function dedupe(elements) {
-  if (elements.length === 0) {
-    return elements;
-  }
 
   const result = [];
 
