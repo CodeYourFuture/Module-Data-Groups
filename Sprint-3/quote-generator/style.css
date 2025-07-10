@@ -1,1 +1,24 @@
 /** Write your CSS in here **/
+body{
+    padding: 100px;
+    background-color: orange;
+}
+
+#sentence{
+    border: 40px solid whitesmoke;
+    background-color: whitesmoke;
+    font-size: 200%;
+}
+
+#author{
+    float: right; 
+    margin-left: 10px;
+}
+
+
+button{
+    background-color: orange;
+    width: 150px;
+    height: 70px;
+    font-size: 80%;
+}
