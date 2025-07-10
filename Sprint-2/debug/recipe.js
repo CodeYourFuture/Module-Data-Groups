@@ -9,7 +9,9 @@
 const recipe = {
   title: "bruschetta",
   serves: 2,
-  ingredients: ["\nolive oil", "tomatoes\n", "salt\n", "pepper"],
+  ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves} ${recipe.ingredients}`);
+console.log(
+  `${recipe.title} serves ${recipe.serves}\n${recipe.ingredients.join("\n")}`
+);
