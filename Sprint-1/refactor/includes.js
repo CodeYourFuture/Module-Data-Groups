@@ -11,7 +11,7 @@
 }*/
 
 function includes(list,target) {
-  for (let el of list) {
+  for (const el of list) {
     if (el === target){
       return true
     }
