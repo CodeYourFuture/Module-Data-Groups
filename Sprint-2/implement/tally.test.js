@@ -39,3 +39,6 @@ test("tally on an array with duplicate items returns an object  containing the c
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+test("tally on an an invalid input like a string it throws an error", () => {
+  expect(tally('b')).toEqual(false);
+});
