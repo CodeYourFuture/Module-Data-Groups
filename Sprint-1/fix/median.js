@@ -5,23 +5,27 @@
 // Hint: Please consider scenarios when 'list' doesn't have numbers (the function is expected to return null)
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
-//n:b if list does not include Numbers return null
-// if list has mixed values, it should sort only numbers
 function calculateMedian(list) {
-  // const middleIndex = Math.floor(list.length / 2);
-  // const median = list.splice(middleIndex, 1)[0];
-  // return median;
-  let sortedList = list.sort((a, b) => a - b);
-
+  //Filtering out numbers from the array without changing the original array. Creates new array filteredNumbersOnly!
+  const filteredNumbersOnly = list.filter(
+    (element) => typeof element === "number" && !isNaN(element)
+  );
+  //if  the array has no valid numbers, it returns null
+  if (filteredNumbersOnly.length === 0) {
+    return null;
+  }
+  //Sorting numbers in the array from the ascending order. Spread operator creates new array to avoid changing the original one.
+  const sortedList = [...filteredNumbersOnly].sort((a, b) => a - b);
+  //If the array length is odd, return the middle number
   if (sortedList.length % 2 === 1) {
     const middleIndex = Math.floor(sortedList.length / 2);
     return sortedList[middleIndex];
   } else {
+    // If the array length is even, return the average of the two middle numbers.
     const midddleNum1 = sortedList[sortedList.length / 2 - 1];
     const midddleNum2 = sortedList[sortedList.length / 2];
     return (midddleNum1 + midddleNum2) / 2;
   }
 }
-// console.log(calculateMedian(list));
 
 module.exports = calculateMedian;
