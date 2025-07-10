@@ -2,7 +2,7 @@
   "name": "sprint-2",
   "version": "1.0.0",
   "description": "This README will guide you through the different sections for this sprint.",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "jest"
   },
