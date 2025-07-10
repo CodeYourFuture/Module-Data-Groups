@@ -8,9 +8,14 @@ function parseQueryString(queryString) {
   for (const keyValuePair of keyValuePairs) {
     const index = keyValuePair.indexOf("="); // Finding the first occurrence of '='
     if (index !== -1) {
-      const key = keyValuePair.substring(0, index);
-      const value = keyValuePair.substring(index + 1);
+      const rawKey = keyValuePair.substring(0, index);
+      const rawValue = keyValuePair.substring(index + 1);
+      const key = decodeURIComponent(rawKey);
+      const value = decodeURIComponent(rawValue);
       queryParams[key] = value;
+    } else {
+      const key = decodeURIComponent(keyValuePair);
+      queryParams[key] = "";
     }
   }
   return queryParams;
