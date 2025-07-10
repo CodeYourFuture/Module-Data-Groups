@@ -1,5 +1,5 @@
 function tally(arr) {
-     
+if (!Array.isArray(arr)) {console.log("not an array"); return false};   
 const newObj={} ;
 if (arr.length === 0) return newObj;
 for(const item of arr){
@@ -8,7 +8,7 @@ for(const item of arr){
 return newObj;
 }
 
-console.log(tally(['a','a','t']))
+//console.log(tally(['a','a','t']))
 
 
 module.exports = tally;
