@@ -22,11 +22,11 @@
     "url": "https://github.com/CodeYourFuture/Module-Data-Groups/issues"
   },
   "homepage": "https://github.com/CodeYourFuture/Module-Data-Groups#readme",
-  "dependencies": {
+  "devDependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/user-event": "^14.6.1",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0"
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4"
   }
 }
