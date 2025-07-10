@@ -6,6 +6,10 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
+  //Checking the input provided to ensure it's an Array
+  if (!Array.isArray(list)) {
+    return null;
+  }
   //Filtering out numbers from the array without changing the original array. Creates new array filteredNumbersOnly!
   const filteredNumbersOnly = list.filter(
     (element) => typeof element === "number" && !isNaN(element)
