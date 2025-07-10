@@ -1,18 +1,7 @@
 function findMax(elements) {
-    let filtered = elements.filter((el) => typeof el === "number");
-    if (filtered.length === 0){
-       return -Infinity
-    } 
-    if (filtered.length === 1) {
-        return filtered[0]
-        }
-    
-    
-   let max = filtered.reduce((a,b)=>Math.max(a,b))
-   return max
-    
+  let onlyNumbers = elements.filter((el) => typeof el === "number");
+  return onlyNumbers.length > 0 ? Math.max(...onlyNumbers) : -Infinity;
 }
 console.log(findMax([1.5, "text", 2.3, null, 0.8]));
-
 
 module.exports = findMax;
