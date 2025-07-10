@@ -8,12 +8,12 @@
 function calculateMedian(list) {
   if (!Array.isArray(list)) return null;
 
-  let filtered = list.filter(
+  let onlyNumbers = list.filter(
     (element) => typeof element === "number" && !isNaN(element)
   );
-  if (filtered.length === 0) return null;
+  if (onlyNumbers.length === 0) return null;
 
-  let sorted = filtered.sort((a, b) => a - b);
+  let sorted = onlyNumbers.sort((a, b) => a - b);
   let mid = Math.floor(sorted.length / 2);
 
   if (sorted.length % 2 === 0) {
