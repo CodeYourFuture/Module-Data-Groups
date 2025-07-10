@@ -1,41 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random Quote Machine</title>
-    <script defer src="quotes.js"></script>
-    <style>
-      body {
-        font-family: sans-serif;
-        text-align: center;
-        padding: 2rem;
-      }
-      #quote-box {
-        margin: 2rem auto;
-        padding: 1rem;
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        max-width: 500px;
-        background-color: #f9f9f9;
-      }
-      #quote {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-      #author {
-        font-style: italic;
-        color: #555;
-      }
-    </style>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Quote Machine</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="quotes.js"></script>
+</head>
+<body>
+  <div class="container">
     <h1>Inspire Me</h1>
     <div id="quote-box">
       <p id="quote">Loading quote...</p>
       <p id="author"></p>
     </div>
-    <button id="new-quote">Show Another</button>
-  </body>
+    <div class="button-container">
+      <button id="new-quote">Show Another</button>
+    </div>
+  </div>
+</body>
 </html>
-
