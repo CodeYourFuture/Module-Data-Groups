@@ -5,8 +5,40 @@
 
 const parseQueryString = require("./querystring.js")
 
+describe("parseQueryString edge cases", () => {
 test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
     "equation": "x=y+1",
   });
+});
+
+  test("returns an empty object for an empty query string", () => {
+    expect(parseQueryString("")).toEqual({}); 
+  });
+
+  test("handles keys with no assigned value", () => {
+    expect(parseQueryString("key_no_value")).toEqual({
+      "key_no_value": undefined
+    });
+  });
+
+  test("handles keys with an empty string value (e.g., 'key=')", () => {
+    expect(parseQueryString("key_empty_value=")).toEqual({
+      "key_empty_value": ""
+    });
+  });
+
+  test("ignores empty key-value pairs created by multiple '&'", () => {
+    expect(parseQueryString("a=1&&b=2")).toEqual({
+      "a": "1",
+      "b": "2"
+    });
+  });
+
+  test("parses querystring values containing '='", () => {
+    expect(parseQueryString("equation=x=y+1")).toEqual({
+      "equation": "x=y+1",
+    });
+  });
+
 });
