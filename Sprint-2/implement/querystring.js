@@ -10,8 +10,13 @@ function parseQueryString(queryString) {
       continue;
     } else if (pair.includes("=")) {
       let i = pair.indexOf("=");
-      let key = pair.slice(0, i).trim();
-      let value = pair.slice(i + 1).trim();
+      let key = decodeURIComponent(pair.slice(0, i).replace(/\+/g, " ").trim());
+      let value = decodeURIComponent(
+        pair
+          .slice(i + 1)
+          .replace(/\+/g, " ")
+          .trim()
+      );
       queryParams[key] = value;
     } else {
       queryParams[pair.trim()] = "";

@@ -8,13 +8,13 @@ const parseQueryString = require("./querystring.js");
 describe("edge cases for parseQueryString function", () => {
   test("parses querystring values containing =", () => {
     expect(parseQueryString("equation=x=y+1")).toEqual({
-      equation: "x=y+1",
+      equation: "x=y 1",
     });
   });
 
   test("parses querystring values containing '=' and additional whitespaces around '=' sign", () => {
     expect(parseQueryString("equation = x=y+1")).toEqual({
-      equation: "x=y+1",
+      equation: "x=y 1",
     });
   });
 
@@ -25,7 +25,7 @@ describe("edge cases for parseQueryString function", () => {
   test("parses querystring with duplicate keys", () => {
     expect(parseQueryString("equation=x&equation=y+1")).toEqual({
       equation: "x",
-      equation: "y+1",
+      equation: "y 1",
     });
   });
 
