@@ -61,7 +61,11 @@ test("Given an array with decimal numbers, return the largest decimal number", (
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
-
+test("Given an array with non-number values, Then it should return the max and ignore non-numeric values", () => {
+  let mixedArray = [4, "hello", "fruit", 2, 5];
+  let result = findMax(mixedArray);
+  expect(result).toEqual(5);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
