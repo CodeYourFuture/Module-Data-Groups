@@ -17,8 +17,8 @@ describe("findMax", () => {
     // Given an empty array
     // When passed to the max function
     // Then it should return -Infinity
-    test('given an empty array, returns -Infinity', () => {
-        expect(findMax([])).toBe(-Infinity);
+    test('given an empty array, returns null', () => {
+        expect(findMax([])).toBe(null);
     });
 
 
@@ -63,7 +63,7 @@ describe("findMax", () => {
     // When passed to the max function
     // Then it should return the least surprising value given how it behaves for all other inputs
     test('given an array with only non-number values, it should return the least surprising value given how it behaves for all other inputs', () => {
-        expect(findMax(["apple", "banana", null, undefined, {}, [], NaN])).toBe(-Infinity);
+        expect(findMax(["apple", -Infinity, Infinity, null, undefined, {}, [], NaN])).toBe(null);
     });
 });
 
