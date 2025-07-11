@@ -6,12 +6,16 @@ function sum(elements) {
       onlyNumbers.push(elements[i]);
     }
   }
-  //Sum numbers in array
-  let sumOfArray = onlyNumbers.reduce((a, b) => a + b);
-  return sumOfArray;
+  if (onlyNumbers.length > 0) {
+    return onlyNumbers.reduce((a, b) => a + b);
+  } else {
+    return 0;
+  }
 }
 
-// console.log(sum([10, 20, 30]));
-// console.log(sum(["hey", 10, "hi", 60, 10]));
+console.log(sum([10, 20, 30]));
+console.log(sum(["hey", 10, "hi", 60, 10]));
+console.log(sum([]));
+
 
 module.exports = sum;
