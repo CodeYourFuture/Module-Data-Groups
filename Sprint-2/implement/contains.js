@@ -1,5 +1,5 @@
 function contains(obj, propertyName) {
-  if (typeof obj !== "object" || Array.isArray(obj)) {
+  if (obj === null || typeof obj !== "object" || Array.isArray(obj)) {
     throw new Error("First argument must be a plain object");
   }
   if (Object.keys(obj).length === 0) {
@@ -8,6 +8,6 @@ function contains(obj, propertyName) {
   return obj.hasOwnProperty(propertyName);
 }
 
-console.log(contains({ a: 2 }, "a"));
+console.log(contains(null, "key"));
 
 module.exports = contains;
