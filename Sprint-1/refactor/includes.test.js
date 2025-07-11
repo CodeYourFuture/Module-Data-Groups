@@ -24,7 +24,7 @@ test("returns true when the target is in array multiple times", () => {
 });
 
 test("returns false for empty array", () => {
-  const currentOutput = includes([]);
+  const currentOutput = includes([], "a"); // "a" is added to include any value that you want to test
   const targetOutput = false;
 
   expect(currentOutput).toEqual(targetOutput);
