@@ -43,15 +43,27 @@ test("Given an array with both positive and negative numbers, it should return t
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("Given an array with just negative numbers, return the closest one to zero", () => {
+  let negativeNumArray = [-1, -2, -3];
+  let result = findMax(negativeNumArray);
+  expect(result).toEqual(-1);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("Given an array with decimal numbers, return the largest decimal number", () => {
+  let decimalNumArray = [1.5, 2.5, 2.2];
+  let result = findMax(decimalNumArray);
+  expect(result).toEqual(2.5);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 
+
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+

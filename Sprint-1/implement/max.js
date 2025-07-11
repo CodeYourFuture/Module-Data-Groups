@@ -6,7 +6,7 @@ function findMax(elements) {
   }
 }
 
-// console.log(findMax([1, 2, 3, 4,10]));
-// console.log(findMax([]));
-// console.log(findMax([1]));
+console.log(findMax([1, 2, 3, 4,10]));
+console.log(findMax([]));
+console.log(findMax([1]));
 module.exports = findMax;
