@@ -44,11 +44,11 @@ function trackFrequency(list) {
     if (typeof num !== "number") {
       continue;
     }
-    if (frequency.has(num)) {
-      frequency.set(num, (frequency.get(num) || 0) + 1);
-    } else {
-      frequency.set(num, 1);
-    }
+    //if (frequency.has(num)) {
+    frequency.set(num, (frequency.get(num) || 0) + 1);
+    //} else {
+    //  frequency.set(num, 1);
+    //}
   }
   return frequency;
 }
