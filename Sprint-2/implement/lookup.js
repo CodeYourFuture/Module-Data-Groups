@@ -1,10 +1,8 @@
 function createLookup(arr) {
   let object = {};
 
-  if (!Array.isArray(arr) || arr.length < 1) {
-    throw new Error(
-      "The array is not array or have length less than 2 values."
-    );
+  if (!Array.isArray(arr) || arr.length === 0) {
+    throw new Error("The array is not array or it is empty.");
   }
 
   for (let i = 0; i < arr.length; i++) {

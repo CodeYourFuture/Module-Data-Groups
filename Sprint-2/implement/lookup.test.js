@@ -19,7 +19,7 @@ describe("edge cases of the lookup function", () => {
     // const currentOutput = createLookup([]);
     // const targetOutput =
     expect(() => createLookup([])).toThrow(
-      "The array is not array or have length less than 2 values."
+      "The array is not array or it is empty."
     );
   });
 
