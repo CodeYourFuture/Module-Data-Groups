@@ -11,6 +11,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.keys(author)) {
   console.log(value);
-}
+} 
+// An object is not iterable.
