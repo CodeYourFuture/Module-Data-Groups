@@ -16,12 +16,33 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+describe("dedupe", () => {
+  it("should return an empty array when given an empty array", () => {
+    expect(dedupe([])).toEqual([]);
+  });
 
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
+  // Given an array with no duplicates
+  // When passed to the dedupe function
+  // Then it should return a copy of the original array
 
-// Given an array with strings or numbers
-// When passed to the dedupe function
-// Then it should remove the duplicate values, preserving the first occurence of each element
+  it("should return a copy of the original array when given an array with no duplicates", () => {
+    const arr = [1, 2, 3];
+    expect(dedupe(arr)).toEqual([1, 2, 3]);
+    // Also check it's not the same reference
+    expect(dedupe(arr)).not.toBe(arr);
+  });
+
+  // Given an array with strings or numbers
+  // When passed to the dedupe function
+  // Then it should remove the duplicate values, preserving the first occurence of each element
+
+  it("should remove duplicates of an array with strings and preserve first occurrence", () => {
+    expect(dedupe(["a", "a", "a", "b", "b", "c"])).toEqual(["a", "b", "c"]);
+  });
+});
+
+describe("dedupe", () => {
+  it("should work with mixed types and remove duplicates (numbers and strings)", () => {
+    expect(dedupe([1, "1", 2, "2", 1, "1"])).toEqual([1, "1", 2, "2"]);
+  });
+});
