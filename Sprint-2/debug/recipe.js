@@ -4,8 +4,8 @@
 // Each ingredient should be logged on a new line
 // How can you fix it?
 
-// I think the bug is that we are referencing the recipe object incorrectly.
-// We need to use dot notation and indexing to access the ingredients array.
+// I think the bug is that we are referencing the recipe object incorrectly
+// We need to use dot notation and indexing to access the ingredients array
 
 const recipe = {
   title: "bruschetta",

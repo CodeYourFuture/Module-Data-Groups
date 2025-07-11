@@ -4,8 +4,8 @@
 // but it isn't working...
 // Fix anything that isn't working
 
-// I think the bug is that we cannot use an index to access properties of an object.
-// We need to use dot notation.
+// I think the bug is that we cannot use an index to access properties of an object
+// We need to use dot notation
 
 const address = {
   houseNumber: 42,

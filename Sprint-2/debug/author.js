@@ -3,8 +3,8 @@
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
-// I think the bug is that we are trying to use a for...of loop on an object and that is not allowed.
-// We need to use object.values to access the values of this object.
+// I think the bug is that we are trying to use a for...of loop on an object and that is not allowed
+// We need to use object.values to access the values of this object
 const author = {
   firstName: "Zadie",
   lastName: "Smith",
