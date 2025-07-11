@@ -13,3 +13,13 @@
 h1 {
   text-align: center;
 }
+.flash{
+  animation: flash-bg 1s infinite;
+}
+
+@keyframes flash-bg {
+  0% {background-color: white;}
+  50%{background-color: rgb(165, 87, 151);}
+  100%{background-color: white;}
+}
+
