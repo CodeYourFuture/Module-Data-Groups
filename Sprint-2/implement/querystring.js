@@ -10,12 +10,12 @@ function parseQueryString(queryString) {
       continue;
     } else if (pair.includes("=")) {
       let i = pair.indexOf("=");
-      let key = decodeURIComponent(pair.slice(0, i).replace(/\+/g, " ").trim());
+      let key = decodeURIComponent(pair.slice(0, i).trim().replace(/\+/g, " "));
       let value = decodeURIComponent(
         pair
           .slice(i + 1)
-          .replace(/\+/g, " ")
           .trim()
+          .replace(/\+/g, " ")
       );
       queryParams[key] = value;
     } else {
