@@ -31,7 +31,9 @@ function countWords(str) {
 
   const arr = str
     .toLowerCase() // make a string lowercase completely
-    .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") // delete any regex symbols from strings
+    .replace(/[^\w\s]/g, "") // delete any regex symbols from strings
+    .replace(/\s+/g, " ") // handle multiple spaces
+    .trim() // handle multiple spaces
     .split(" "); // convert string to an array by splitting the string into words by using " " as a delimiter
 
   for (const word of arr) {
