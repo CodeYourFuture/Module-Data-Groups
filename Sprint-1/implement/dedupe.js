@@ -1,21 +1,11 @@
 function dedupe(arr) {
-    const result = [];
-    let resultArray = 0;
+  const result = [];
 
-for (let i= 0; i< arr.length; i++){
-    let isDuplicate = false;
-
-for (let j = 0; j < resultArray; j++){
-    if(arr[i]===result[j]) {
-        isDuplicate = true;
-        break;
+  for (let i = 0; i < arr.length; i++) {
+    if (!result.includes(arr[i])) {
+      result.push(arr[i]);
     }
-} 
-if (!isDuplicate) {
-    result[resultArray] = arr[i];
-    resultArray++;
-}   
-} 
-return result;   
+  }
+  return result;
 }
 module.exports = dedupe;
