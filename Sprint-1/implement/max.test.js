@@ -70,3 +70,6 @@ test("Given an array with non-number values, Then it should return the max and i
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("Given an array with only non-number values, return the least surprising value given how it behaves for all other inputs", () => {
+  expect(findMax(["apple", null, undefined, {}, []])).toEqual(-Infinity);
+});
