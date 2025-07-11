@@ -36,7 +36,7 @@ describe("sum.js", () => {
     // When passed to the sum function
     // Then it should return the correct total sum
     test('given an array with decimal/float numbers, it should return the correct total sum', () => {
-        expect(sum([ 1.4, 1.75, 2.51, 3.523])).toBe(9.183);
+        expect(sum([1.4, 1.75, 2.51, 3.523])).toBeCloseTo(9.183);
     });
 
     // Given an array containing non-number values
@@ -50,6 +50,11 @@ describe("sum.js", () => {
     // When passed to the sum function
     // Then it should return the least surprising value given how it behaves for all other inputs
     test('given an array with only non-number values, it should return the least surprising value given how it behaves for all other inputs', () => {
-        expect(sum(["banana", null, undefined, {}, []])).toBe(0);
+        expect(sum(["banana", null, undefined, Infinity, -Infinity, {}, []])).toBe(0);
     });
+});
+
+test('correctly compares floating point sum within a small margin using toBeCloseTo', () => {
+    expect(1.2 + 0.6 + 0.005).toBeCloseTo(1.805, 3);
+    expect(0.005 + 0.6 + 1.2).toBeCloseTo(1.805, 3);
 });
