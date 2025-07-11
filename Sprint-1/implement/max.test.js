@@ -25,6 +25,11 @@ test("given an empty array, returns -Infinity",() => {
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("Given an array with one number, return that number", () => {
+  let oneNumArray = [12];
+  let result = findMax(oneNumArray);
+  expect(result).toEqual(12);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
