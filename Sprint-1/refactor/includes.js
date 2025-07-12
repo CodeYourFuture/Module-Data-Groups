@@ -4,8 +4,8 @@ function includes(list, target) {
   if (!Array.isArray(list) || list.length === 0) {
     return false;
   }
-  for (let index = 0; index < list.length; index++) {
-    const element = list[index];
+  for (const index of list) {
+    const element = index;
     if (element === target) {
       return true;
     }

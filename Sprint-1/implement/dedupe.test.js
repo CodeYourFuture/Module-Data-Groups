@@ -26,8 +26,9 @@ test("given an empty array, it returns an empty array", () => {
 
 test("given an array with no duplicates, it returns a copy of the original array", () => {
   const input = [1, 2, 3, 4];
-  expect(dedupe(input)).toEqual(input);
-  expect(dedupe(input)).not.toBe(input); // different array instance
+  const output = dedupe(input);
+  expect(dedupe(input)).toEqual(output);
+  expect(dedupe(input)).not.toBe(output); // different array instance
 });
 // Given an array with strings or numbers
 // When passed to the dedupe function
