@@ -55,3 +55,8 @@ test("Given invalid parameters like an array",() => {
     const result = contains(obj, "a");
     expect(result).toBe(false);
 });
+test("Given invalid parameters like an array2", () => {
+  const obj = ["a", 1, "b", 2];
+  const result = contains(obj, "1");
+  expect(result).toBe(false);
+});
