@@ -25,30 +25,33 @@ const backgroundColor = document.querySelector("html");
 console.log(backgroundColor, "<------Background Color");
 
 let intervalId;
+let inputInfo = 0;
+
+function timeFormat(time) {
+  const mins = String(Math.floor(time / 60)).padStart(2, "0");
+  const seconds = String(time % 60).padStart(2, "0");
+  timeRemainInfo.textContent = `Time Remaining: ${mins}:${seconds}`;
+}
 
 function setAlarm() {
-  let inputInfo = Number(alarmInputArea.value);
-  if (inputInfo < 1) {
-    console.log("You need to input a value");
-    window.alert("You need to input a value!");
+  inputInfo = Number(alarmInputArea.value);
+  if (inputInfo < 1 || isNaN(inputInfo)) {
+    console.log("You need to input a value in seconds!");
+    window.alert("You need to input a value in seconds!");
     return;
   }
   alarmInputArea.value = "";
-  const mins = String(Math.floor(inputInfo / 60)).padStart(2, "0");
-  const seconds = String(inputInfo % 60).padStart(2, "0");
-  timeRemainInfo.textContent = `Time Remaining: ${mins}:${seconds}`;
+  timeFormat(inputInfo);
 
   intervalId = setInterval(function () {
-    if (inputInfo <= 0) {
+    inputInfo--;
+    if (inputInfo === 0) {
       clearInterval(intervalId);
-      playAlarm();
+      timeFormat(0);
+      window.playAlarm();
       changeBackgroundColorFlashing();
-      return;
     } else {
-      inputInfo--;
-      const mins = String(Math.floor(inputInfo / 60)).padStart(2, "0");
-      const seconds = String(inputInfo % 60).padStart(2, "0");
-      timeRemainInfo.textContent = `Time Remaining: ${mins}:${seconds}`;
+      timeFormat(inputInfo);
     }
   }, 1000);
 }
@@ -56,21 +59,20 @@ function setAlarm() {
 //setAlarmButton.addEventListener("click", function setAlarm() {
 //console.log("click event is firing...");
 //});
+let flashColor = ["yellow", "pink", "lightgrey", "green"];
+let flashIntervalId;
+let colorIndex = 0;
 
 setStopButton.addEventListener("click", function stopFlashing() {
   console.log("click event is firing...");
   clearInterval(flashIntervalId);
   backgroundColor.style.backgroundColor = "";
-  pauseAlarm();
+  window.pauseAlarm();
 });
 
 //function changeBackgroundColor() {
 //backgroundColor.style.backgroundColor = "lightblue";
 //}
-
-let flashColor = ["yellow", "pink", "lightgrey", "green"];
-let flashIntervalId;
-let colorIndex = 0;
 
 function changeBackgroundColorFlashing() {
   if (flashIntervalId) clearInterval(flashIntervalId);
@@ -78,7 +80,10 @@ function changeBackgroundColorFlashing() {
     backgroundColor.style.backgroundColor = flashColor[colorIndex];
     colorIndex = (colorIndex + 1) % flashColor.length;
   }, 1000);
+  //stopFlashing();
 }
+window.playAlarm = playAlarm;
+window.pauseAlarm = pauseAlarm;
 
 // DO NOT EDIT BELOW HERE
 
