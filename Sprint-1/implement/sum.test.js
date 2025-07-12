@@ -49,3 +49,6 @@ test("given an array containing non-numerical values ignore non-numerical and re
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("given an array with only non-numerical values returns 0", () => {
+    expect(sum(["a", "b", "c"])).toBe(0);
+});
