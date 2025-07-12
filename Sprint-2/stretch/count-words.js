@@ -29,7 +29,7 @@
 const countWords = (str) => {
   str = str.replace(/[.,!?]/g, "").toLowerCase();
   let count = {};
-  let strToArr = str.split(" ");
+  let strToArr = str.split(/\s+/);
   for (let i = 0; i < strToArr.length; i++) {
     let current = strToArr[i];
     if (!count[current]) {
@@ -40,4 +40,4 @@ const countWords = (str) => {
   return count;
 };
 
-console.log(countWords("You, me? AND you"));
+console.log(countWords("Hello      World"));
