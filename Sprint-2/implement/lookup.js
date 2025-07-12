@@ -4,7 +4,7 @@ function createLookup(countryCurrArray) {
       !Array.isArray(countryCurrArray) ||
       !countryCurrArray.every((item) => Array.isArray(item))
     ) {
-      return false;
+      return null;
     } 
     return Object.fromEntries(countryCurrArray);
   

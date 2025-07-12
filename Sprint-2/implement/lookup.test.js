@@ -24,19 +24,19 @@ test("input array is empty", () => {
 test("The input is an array but doesn't contain array elements", () => {
   const array = [1,2,3,4];
   const result = createLookup(array);
-  expect(result).toEqual(false);
+  expect(result).toEqual(null);
 });
 
 test("ُThe input is not an array", () => {
   const array ="US-USD" ;
   const result = createLookup(array);
-  expect(result).toEqual(false);
+  expect(result).toEqual(null);
 });
 
 test("ُThe input is  an array of strings", () => {
   const array = ["US:USD","CA:CAD"];
   const result = createLookup(array);
-  expect(result).toEqual(false);
+  expect(result).toEqual(null);
 });
 
 test("creates a country currency code lookup for one array", () => {
