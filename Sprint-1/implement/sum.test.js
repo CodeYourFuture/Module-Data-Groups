@@ -20,6 +20,9 @@ test("given an empty array, returns 0", () => {
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
+test("given an array with a single number return that number", () => {
+    expect(sum([42])).toBe(42);
+})
 
 // Given an array containing negative numbers
 // When passed to the sum function
