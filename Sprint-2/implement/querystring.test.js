@@ -10,3 +10,26 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses multiple key-value pairs", () => {
+  expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+
+test("parses keys with empty values", () => {
+  expect(parseQueryString("a=&b=2")).toEqual({ a: "", b: "2" });
+});
+
+test("parses keys with no value", () => {
+  expect(parseQueryString("a&b=2")).toEqual({ a: "", b: "2" });
+});
+
+test("parses empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("parses encoded characters", () => {
+  expect(parseQueryString("name=John%20Doe&city=New%20York")).toEqual({
+    name: "John Doe",
+    city: "New York",
+  });
+});
