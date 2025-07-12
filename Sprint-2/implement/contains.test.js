@@ -69,7 +69,7 @@ const languages = null;
 const name = "Hassan";
 
 test("Returns false when invalid parameters are passed", () => {
-    const currentOutput = contains(programmingLanguages);
+    const currentOutput = contains(programmingLanguages, "3");
     const targetOutput = false;
     expect(currentOutput).toEqual(targetOutput);
     const currentOutput1 = contains(languages, "null");
