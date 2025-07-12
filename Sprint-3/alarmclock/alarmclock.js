@@ -1,6 +1,11 @@
 let countdown = null;
 let remainingSeconds = 0;
 
+var audio = new Audio("alarmsound.mp3");
+audio.loop = true;
+audio.currentTime = 0;
+
+
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   const timeText = document.getElementById("timeRemaining");
@@ -39,11 +44,16 @@ function updateTimeDisplay() {
   const seconds = String(remainingSeconds % 60).padStart(2, "0");
   document.getElementById("timeRemaining").textContent = `Time Remaining: ${minutes}:${seconds}`;
 }
+  document.getElementById("stop").addEventListener("click", () => {
+    document.body.style.backgroundColor = ""; // reset background
+  });
 
 // DO NOT EDIT BELOW HERE
 
-var audio = new Audio("alarmsound.mp3");
 
+function pauseAlarm() {
+  audio.pause();
+}
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
     setAlarm();
@@ -51,18 +61,12 @@ function setup() {
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
-    document.body.style.backgroundColor = ""; // reset background
   });
 }
 
 function playAlarm() {
-  audio.loop = true;
   audio.play();
 }
 
-function pauseAlarm() {
-  audio.pause();
-  audio.currentTime = 0;
-}
 
 window.onload = setup;
