@@ -34,6 +34,10 @@ test("given an array with negative numbers returns the correct total sum", () =>
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+test("given an array with decimal numbers in returns the correct total sum", () => {
+    expect(sum([10.5, 20.2, 30.3])).toBe(61.0);
+    expect(sum([10.5, -20.2, 30.3])).toBe(20.6);
+});
 
 // Given an array containing non-number values
 // When passed to the sum function
