@@ -1,4 +1,3 @@
-// for the tests, do not modify this array of books
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -20,4 +19,31 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
+
+function readingList(books) {
+  const readingListElement = document.querySelector("#reading-list");
+
+  books.forEach(book => {
+    const listItem = document.createElement('li');
+    listItem.style.backgroundColor = book.alreadyRead ? 'green' : 'red';
+
+    const titleAuthor = document.createElement("p");
+    titleAuthor.textContent = `${book.title} by ${book.author}`;
+
+    const coverImage = document.createElement("img");
+    coverImage.src = book.bookCoverImage;
+    //coverImage.alt = `Cover of ${book.title}`; // this make the test fail
+
+    listItem.appendChild(titleAuthor);
+    listItem.appendChild(coverImage);
+
+    readingListElement.appendChild(listItem);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  readingList(books);
+});
+// for the tests, do not modify this array of books
+
 
