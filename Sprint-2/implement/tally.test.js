@@ -44,6 +44,11 @@ test("tally on an invalid input like a string should throw an error",()=>{
     expect(()=>tally("String Test")).toThrow("invalid input")
 });
 
+test("tally on an invalid input like null  should throw an error",()=>{
+  expect(()=>tally()).toThrow("invalid input")
+});
+
+
 test("tally on an array with various input", () => {
   expect(tally(["a"])).toEqual({ a: 1 });
   expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
