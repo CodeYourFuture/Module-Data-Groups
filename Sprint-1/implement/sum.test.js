@@ -27,7 +27,10 @@ test("given an array with a single number return that number", () => {
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
-
+test("given an array with negative numbers returns the correct total sum", () => {
+    expect(sum([-10, -20, -30])).toBe(-60);
+    expect(sum([-10, 20, -30])).toBe(-20);
+});
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
