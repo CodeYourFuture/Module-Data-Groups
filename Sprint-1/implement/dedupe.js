@@ -1,15 +1,7 @@
 function dedupe(arr) {
-  const seen = new Set();
-  const result = [];
-
-  for (const item of arr) {
-    if (!seen.has(item)) {
-      seen.add(item);
-      result.push(item);
-    }
-  }
-
-  return result;
+  // Create a new Set from the array to remove duplicates
+  // and then convert it back to an array.
+  return Array.from(new Set(arr));
 }
 
 module.exports = dedupe;
