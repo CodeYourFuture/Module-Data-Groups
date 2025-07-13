@@ -17,7 +17,7 @@
 
 // You don't need to change this function
 function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+  return choices[Math.floor(Math.random() * choices.length)]
 }
 
 // A list of quotes you can use in your app.
@@ -491,3 +491,17 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+function showQuote() {
+  pickFromArray(quotes)
+  const quoteText = pickFromArray(quotes).quote
+  const quoteAuthor = pickFromArray(quotes).author
+  document.querySelector("#quote").innerHTML = ` " ${quoteText}`
+  document.querySelector("#author").innerHTML = ` - ${quoteAuthor}`
+}
+
+function start() {
+  showQuote(quotes)
+  document.getElementById("new-quote").addEventListener('click', () => showQuote(quotes))
+}
+window.addEventListener("load", start)
