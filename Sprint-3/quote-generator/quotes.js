@@ -501,6 +501,7 @@ const quoteButton = document.querySelector("#new-quote");
 console.log(quoteButton);
 
 window.addEventListener("load", function () {
+  // to invoke quotes when page loads
   const result = pickFromArray(quotes);
 
   quote.textContent = `${result.quote}`;
@@ -508,6 +509,7 @@ window.addEventListener("load", function () {
 });
 
 quoteButton.addEventListener("click", function () {
+  // invoke quotes when the button is clicked
   const result = pickFromArray(quotes);
 
   quote.textContent = `${result.quote}`;
