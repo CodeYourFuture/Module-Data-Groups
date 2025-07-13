@@ -16,9 +16,6 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
-}
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
@@ -491,3 +488,34 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+const quoteElement = document.getElementById("quote");
+
+const authorElement = document.getElementById("author");
+const button = document.getElementById("new-quote");
+const autoToggle = document.getElementById("auto-toggle");
+
+function pickFromArray(random) {
+  return random[Math.floor(Math.random() * random.length)];
+}
+
+function displayRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteElement.textContent = `"${randomQuote.quote}"`;
+  authorElement.textContent = `- ${randomQuote.author}`;
+}
+displayRandomQuote();
+
+button.addEventListener("click", displayRandomQuote);
+
+let intervalId = null;
+
+autoToggle.addEventListener("change", function () {
+  if (this.checked) {
+    displayRandomQuote();
+    intervalId = setInterval(displayRandomQuote, 5000);
+  } else {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+});

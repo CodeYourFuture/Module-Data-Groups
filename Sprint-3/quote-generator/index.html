@@ -3,13 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote generator app </title>
+    <link rel="stylesheet" href="style.css"/>
     <script defer src="quotes.js"></script>
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <div class="container" style="text-align: center; margin-top: 20px;">
+      <h1 style="text-align: center" id="title"> Quotes to remember</h1>
+      <p id="toggle"> </p>
+      <p id="author"></p>
+      <p id="quote"></p>
+    
+   <div id="controls" style="display: inline-flex; align-items: center; gap: 15px; margin-top: 20px;">
+    <button type="button" id="new-quote"> New quote</button>
+    <label for="auto-toggle" style="display:inline-flex; align-items: center; cursor: pointer;">
+      <input type="checkbox" id="auto-toggle" />
+      <span style="margin-left: 8px;"> Auto-quote </span>
+    </label>
+    </div>
+    </div>
+
   </body>
 </html>
