@@ -10,11 +10,7 @@ body {
 }
 
 h1 {
-  color: orange;
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: italic;
-  position: relative;
+  display: none;
 }
 
 #wildCard.card {
@@ -27,17 +23,28 @@ h1 {
 
 #quote {
   color: orange;
-} /** Write your CSS in here **/
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  position: relative;
+}
+
+#quote::before {
+  content: '"';
+  position: relative;
+  color: orange;
+  font-size: 35px;
+}
 
 #author {
   color: orange;
-  font-size: 10px;
+  font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
   text-align: right;
-  margin-top: 30px;
-  margin-left: 630px;
-  margin-bottom: 5px;
+  margin-top: 50px;
+  margin-left: 730px;
+  margin-bottom: 20px;
 }
 
 #new-quote {
@@ -45,8 +52,8 @@ h1 {
   background-color: orange;
   border-radius: 5px;
   border-color: orange;
-  margin-left: 630px;
-  margin-top: 150px;
+  margin-left: 650px;
+  margin-top: 100px;
   width: 110px;
   height: 35px;
 }
