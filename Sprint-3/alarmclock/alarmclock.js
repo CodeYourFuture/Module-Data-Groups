@@ -27,9 +27,8 @@ function updateDisplay() {
 }
 
 function tick() {
-  if (isPaused) {
-    return;
-  }
+  if (isPaused) return;
+  
   if (countdown === 0) {
     clearInterval(timerId);
     timerId = null;
