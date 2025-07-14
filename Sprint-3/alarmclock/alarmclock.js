@@ -36,6 +36,22 @@ function timeFormat(time) {
 
 function setAlarm() {
   inputInfo = Number(alarmInputArea.value); // convert input into number
+  if (intervalId || flashIntervalId) {
+    // edge case if during already set
+    // timer user input new one value
+    console.log("Timer already started!");
+    window.alert("Timer already started!");
+    clearInterval(intervalId);
+    clearInterval(flashIntervalId);
+    intervalId = null; // we should assign null to variables intervalId and
+    flashIntervalId = null; // flashIntervalId because resetting interval doesn't
+    alarmInputArea.value = ""; // assign new values to variables it just stop ticking
+    // timer
+    backgroundColor.style.backgroundColor = "";
+    timeFormat(0);
+    return;
+  }
+
   if (inputInfo < 1 || isNaN(inputInfo)) {
     // to sift invalid input
     console.log("You need to input a value in seconds!");
@@ -67,16 +83,24 @@ let colorIndex = 0;
 
 setStopButton.addEventListener("click", function stopFlashing() {
   console.log("click event is firing...");
-  clearInterval(flashIntervalId); // cleaning any previous possible intervals
-  backgroundColor.style.backgroundColor = ""; // cleaning background to default
+  clearInterval(flashIntervalId);
+  clearInterval(intervalId); // cleaning any previous possible intervals
+  intervalId = null;
+  flashIntervalId = null;
+  inputInfo = 0;
+  alarmInputArea.value = "";
+  backgroundColor.style.backgroundColor = "";
+  // cleaning background to default
+  timeFormat(0);
   // option after clicking stop button
   window.pauseAlarm();
 });
 
 function changeBackgroundColorFlashing() {
   //function flashing colors
-  if (flashIntervalId) clearInterval(flashIntervalId); // every 1 sec
+  if (flashIntervalId) clearInterval(flashIntervalId);
   flashIntervalId = setInterval(function () {
+    // every 1 sec
     backgroundColor.style.backgroundColor = flashColor[colorIndex];
     colorIndex = (colorIndex + 1) % flashColor.length; // loop over flashColor array
   }, 1000);
