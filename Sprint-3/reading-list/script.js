@@ -21,3 +21,32 @@ const books = [
   },
 ];
 
+
+const readingList = document.getElementById("reading-list");
+
+
+// looping through each book 
+books.forEach((book) => {
+  const li = document.createElement("li");
+
+
+// creating and adding the title and author of the book
+const title = document.createElement("p");
+title.textContent = `${book.title} by ${book.author}`;
+// creating an image element for the book cover
+const img = document.createElement("img");
+img.src = book.bookCoverImage;
+
+
+// setting the background color based on whether the book has been read
+
+if (book.alreadyRead) {
+  li.style.backgroundColor = "green";
+} else {
+  li.style.backgroundColor = "red";
+}
+//  adding(appending) the title and the image  
+li.appendChild(title);
+li.appendChild(img);
+readingList.appendChild(li);
+});
