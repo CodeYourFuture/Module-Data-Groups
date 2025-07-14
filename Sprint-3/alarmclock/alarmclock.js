@@ -24,6 +24,7 @@ function setAlarm() {
       clearInterval(countdownInterval);
       updateDisplay(0);
       playAlarm();
+      document.body.style.backgroundColor = "red";
       return;
     }
 
