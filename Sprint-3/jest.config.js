@@ -1,12 +1,8 @@
+const { workspaces } = require("./package.json");
+
 /** @type {import('jest').Config} */
 const config = {
-  projects: [
-    "alarmclock",
-    "quote-generator",
-    "reading-list",
-    "slideshow",
-    "todo-list",
-  ].map((displayName) => ({
+  projects: workspaces.map((displayName) => ({
     displayName,
     setupFilesAfterEnv: [
       "<rootDir>/jest.setup.js",
