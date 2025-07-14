@@ -17,6 +17,7 @@ const altTexts = [
 
 let currentIndex = 0;
 let intervalId = null;
+const interval = 2000;  
 
 const carouselImg = document.getElementById("carousel-img");
 const forwardBtn = document.getElementById("forward-btn");
@@ -42,12 +43,16 @@ function backward() {
 
 function autoForward() {
   stopInterval();
-  intervalId = setInterval(forward, 3000);
+  intervalId = setInterval(forward, interval);
+  autoForwardBtn.disabled = true;
+  autoBackwardBtn.disabled = true;
 }
 
 function autoBackward() {
   stopInterval();
-  intervalId = setInterval(backward, 3000);
+  intervalId = setInterval(backward, interval);
+  autoForwardBtn.disabled = true;
+  autoBackwardBtn.disabled = true;
 }
 
 function stopInterval() {
@@ -55,6 +60,8 @@ function stopInterval() {
     clearInterval(intervalId);
     intervalId = null;
   }
+  autoForwardBtn.disabled = false;
+  autoBackwardBtn.disabled = false;
 }
 
 forwardBtn.addEventListener("click", forward);
@@ -64,3 +71,4 @@ autoBackwardBtn.addEventListener("click", autoBackward);
 stopBtn.addEventListener("click", stopInterval);
 
 updateImage();
+
