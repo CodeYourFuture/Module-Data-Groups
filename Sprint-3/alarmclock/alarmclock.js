@@ -26,8 +26,13 @@ function setAlarm() {
   }, 1000);
 }
 
+// minutes and seconds to be displayed properly
 function updateDisplay(seconds) {
-  const formatted = `00:${seconds.toString().padStart(2, "0")}`;
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  const formatted = `${mins.toString().padStart(2, "0")}:${secs
+    .toString()
+    .padStart(2, "0")}`;
   document.getElementById(
     "timeRemaining"
   ).textContent = `Time Remaining: ${formatted}`;
