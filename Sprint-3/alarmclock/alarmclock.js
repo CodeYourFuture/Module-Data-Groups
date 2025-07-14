@@ -7,6 +7,14 @@ function setAlarm() {
 
    // convert the users input to a number
    let secondsRemaining = Number(inputField.value);
+
+  // format and update the time display with a function 
+  function updatedTime(){
+    // calculate the number into minutes and seconds
+    const minutes = Math.floor(secondsRemaining / 60);
+    const seconds = secondsRemaining % 60;
+
+  }
 }
 
 // DO NOT EDIT BELOW HERE
