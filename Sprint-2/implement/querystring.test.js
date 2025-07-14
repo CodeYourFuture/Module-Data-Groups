@@ -10,3 +10,25 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring with multiple values for the same key", () => {
+  expect(parseQueryString("name=John&name=Jane")).toEqual({
+    "name": "Jane",
+  });
+});
+
+test("parses querystring with empty values", () => {
+  expect(parseQueryString("name=&age=&city=")).toEqual({
+    "name": "",
+    "age": "",
+    "city": "",
+  });
+});
+
+test("parses querystring with only keys", () => {
+  expect(parseQueryString("name=&age&city")).toEqual({
+    "name": "",
+    "age": "",
+    "city": "",
+  });
+});
