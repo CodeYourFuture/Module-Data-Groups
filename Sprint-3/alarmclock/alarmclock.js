@@ -77,10 +77,12 @@ function pauseAlarm() {
 
 window.onload = setup;
 
-module.exports = {
-  testEnvironment: "jsdom",
-  setAlarm,
-  pauseAlarm,
-  updateTime,
-  playAlarm,
-};
+//ignoring the below because the path for this are set in testPathIgnorePatterns (in the package.json or so) and the test.js file states not to edit the tests in alarmclock.test.js
+
+// module.exports = {
+//   testEnvironment: "jsdom",
+//   setAlarm,
+//   pauseAlarm,
+//   updateTime,
+//   playAlarm,
+// };
