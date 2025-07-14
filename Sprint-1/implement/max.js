@@ -15,7 +15,7 @@ function findMax(elements) {
     }
     
     // Return the maximum value from the numeric elements
-    return Math.max(...numericElements);
+    return numericElements[numericElements.length - 1];
 }
 
 module.exports = findMax;
