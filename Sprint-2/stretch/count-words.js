@@ -30,10 +30,9 @@
 function countWords(string) {
   let countedWords = {};
   let noPunctuation = string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-  //remove unnecessary spaces
-  noPunctuation = noPunctuation.replace(/\s{2,}/g, " ");
+  //remove unnecessary spaces and make lover case
   noPunctuation = noPunctuation.toLowerCase();
-  const words = noPunctuation.split(" ");
+  const words = noPunctuation.trim().split(/\s+/);
   for (i = 0; i < words.length; i++) {
     if (countedWords.hasOwnProperty(words[i])) {
       countedWords[words[i]]++;

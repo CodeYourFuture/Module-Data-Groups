@@ -1,17 +1,20 @@
 function parseQueryString(queryString) {
-  let queryParams = {};
+  let queryParamsObject = {};
   if (queryString.length === 0) {
     return queryParams;
   }
-  const keyValuePairs = queryString.split("&");
+  let decodedParams = decodeURIComponent(queryString).replace("%20", " ");
+  console.log(decodedParams);
+  const keyValuePairs = decodedParams.split("&");
   for (const pair of keyValuePairs) {
     const array = pair.split("=");
     const key = array[0]
-    const value = queryString.slice(array[0].length + 1);// +1 length to cut "=" after key
-    queryParams[key] = value;
+    const value = decodedParams.slice(array[0].length + 1);// +1 length to cut "=" after key
+    queryParamsObject[key] = value;
   }
-  console.log(queryParams);
-  return queryParams;
+  console.log(queryParamsObject);
+  return queryParamsObject;
 }
-
+parseQueryString("equation=x=y+1");
+parseQueryString("query=hello%2520world");
 module.exports = parseQueryString;

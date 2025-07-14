@@ -10,3 +10,9 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring values containing %", () => {
+  expect(parseQueryString("https://example.com/search?query=hello%2520world")).toEqual({
+    "query": "hello world",
+  });
+});

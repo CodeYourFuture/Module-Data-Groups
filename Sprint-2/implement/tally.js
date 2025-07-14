@@ -1,20 +1,16 @@
 function tally(array) {
-    console.log(!Array.isArray(array));
     if (!Array.isArray(array)) {
         throw new Error('Invalid input.');
     }
     let countObject = {};
     for (let i = 0; i < array.length; i++) {
-        let sum = 0;
-        if (countObject.hasOwnProperty(array[i])) {
-            continue;
+        if (!countObject.hasOwnProperty(array[i])) {
+            //if item not a property yet, it must be created with value 1 (occurrences)
+            countObject[array[i]] = 1;
+        } else {
+            //if item already a property its value incremented
+            countObject[array[i]] += 1;
         }
-        for (let j = 0; j < array.length; j++) {
-            if (array[i] == array[j]) {
-                sum++;
-            }
-        }
-        countObject[array[i]] = sum;
     }
     return countObject;
 }
