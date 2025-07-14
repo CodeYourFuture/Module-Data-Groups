@@ -6,7 +6,7 @@ function setAlarm() {
    const timeDisplay = document.getElementById("timeRemaining");
 
    // convert the users input to a number
-   let secondsRemaining = number(inputField.value);
+   let secondsRemaining = Number(inputField.value);
 }
 
 // DO NOT EDIT BELOW HERE
