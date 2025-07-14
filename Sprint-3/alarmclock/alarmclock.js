@@ -1,6 +1,9 @@
 function setAlarm() {
   // get the users input in seconds from the input element
    const inputField = document.getElementById("alarmSet")
+
+   // get the "timeRemaining" element where we show the time
+   const timeDisplay = document.getElementById("timeRemaining")
 }
 
 // DO NOT EDIT BELOW HERE
