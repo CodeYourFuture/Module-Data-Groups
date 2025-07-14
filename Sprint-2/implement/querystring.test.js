@@ -46,3 +46,12 @@ test("parses querystring with duplicate/repeated keys & returns the last key-val
     shaver: "wahl",
   });
 });
+
+
+test("parses an encoded querystring & returns decoded key-value pairs", () => {
+  expect(parseQueryString("name=John%20Doe&email=john.doe%40example.com&message=Hello%2C%20how%20are%20you%3F")).toEqual({   
+  name: "John Doe",
+  email: "john.doe@example.com",
+  message: "Hello, how are you?"
+  })
+})
