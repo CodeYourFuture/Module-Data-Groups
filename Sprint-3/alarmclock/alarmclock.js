@@ -1,6 +1,7 @@
 let countdownTimer;
 
 function setAlarm() {
+  document.body.style.backgroundColor = "";
   let alarmTime = Number(document.querySelector("input").value);
 
   if (!alarmTime || isNaN(alarmTime) || alarmTime <= 0) {
@@ -36,6 +37,7 @@ function setAlarm() {
 
     if (timeLeft <= 0) {
       clearInterval(countdownTimer);
+      document.body.style.backgroundColor = "#ff4444";
       playAlarm();
     }
   }, 1000);
