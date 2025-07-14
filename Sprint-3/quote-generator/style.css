@@ -1,1 +1,52 @@
-/** Write your CSS in here **/
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.3;
+  color: #333;
+  background-color: #faa209;
+  background-image: linear-gradient(180deg, #fff, rgba(255, 255, 255, 0));
+  /* 180deg is the same as to bottom, direction, color */
+  margin: 0 auto;
+  max-width: 620px;
+  padding: 20px;
+  height: 100vh;
+  transition: all 0.5s;
+}
+
+section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  color: #333;
+  font-size: 5vmin; /* 10% of the minimum (height or) viewport width of the browser*/
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 5vmin;
+  font-weight: 300;
+}
+
+footer {
+  display: flex;
+  font-size: 5vmin;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 10%;
+  left: 0;
+  cursor: pointer;
+  transition: all 1s;
+}
+
+footer:hover {
+  transform: scale(0.7);
+}
