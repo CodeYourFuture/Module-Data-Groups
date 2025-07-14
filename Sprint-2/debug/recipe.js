@@ -10,6 +10,17 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+// console.log(`${recipe.title} serves ${recipe.serves}
+//   ingredients:
+// ${recipe}`);
+
+// console.log(`${recipe}`);
+//Predict result: bruschetta serves 2 ingredients: [object Object]
+
+console.log(`${recipe.title} 
+serves ${recipe.serves}
+ingredients:`);
+
+for (let ingredient of recipe.ingredients) {
+  console.log(ingredient);
+}
