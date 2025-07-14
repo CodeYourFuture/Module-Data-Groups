@@ -10,11 +10,11 @@ function parseQueryString(queryString) {
     const separatorIndex = pair.indexOf("=");
 
      if (separatorIndex === -1) {
-      queryParams[pair] = "";
+          queryParams[pair] = "";
        } else {
-       const key = decodeURIComponent(pair.slice(0, separatorIndex));
-       const value = decodeURIComponent(pair.slice(separatorIndex + 1));
-       queryParams[key] = value;
+          const key = decodeURIComponent(pair.slice(0, separatorIndex));
+          const value = decodeURIComponent(pair.slice(separatorIndex + 1));
+          queryParams[key] = value;
        }
    }
   return queryParams;
