@@ -14,12 +14,16 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   let seconds  = parseInt(input.value, 10);
 
+  clearInterval(countdownInterval);
+  updateDisplay(seconds);
+
   countdownInterval = setInterval(() => {
     seconds--;
 
     if (seconds <= 0) {
       clearInterval(countdownInterval);
       updateDisplay(0);
+      playAlarm();
       return;
     }
 
@@ -36,7 +40,7 @@ document.getElementById("stop").addEventListener("click", () => {
 
 // DO NOT EDIT BELOW HERE
 
-var audio = new Audio("alarmsound.mp3");
+var audio = new Audio("https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg");
 
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
