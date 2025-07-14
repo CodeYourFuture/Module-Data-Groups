@@ -1,19 +1,19 @@
-let quotes =[];
-fetch('quotes.json')
-  .then((res)=>{
-    if(!res.ok){
-      throw new Error('quotes not fetched correctly');
-      }
-    return res.json()
-    })
-  .then((data)=>{
+let quotes = [];
+
+async function loadQuotes() {
+  try {
+    const res = await fetch('quotes.json');
+    if (!res.ok) throw new Error('Quotes not fetched correctly');
+    const data = await res.json();
     quotes = data;
-    displayRandomQuote()
-    })
-  .catch((err)=>{
-    document.getElementById("quote").textContent='Could not load quotes.';
-    console.error('the error encountered is :', err)
-  })
+    displayRandomQuote();
+  } catch (err) {
+    document.getElementById("quote").textContent = 'Could not load quotes.';
+    console.error('Error:', err);
+  }
+}
+
+loadQuotes();
 
   const displayRandomQuote=()=>{
     const quoteIndex = Math.floor(Math.random()*quotes.length)
