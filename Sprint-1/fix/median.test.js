@@ -45,4 +45,11 @@ describe("calculateMedian", () => {
   ].forEach(({ input, expected }) =>
     it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
+  
+  //for empty arrays
+  it("returns null for an empty array", () => {
+    const input = [];
+    const result = calculateMedian(input);
+    expect(result).toBe(null);
+  });
 });
