@@ -53,3 +53,4 @@ test("contains returns false for invalid parameters", () => {
   const arr = [1, 2, 3];
   expect(contains(arr, 'length')).toBe(false);
 });
+
