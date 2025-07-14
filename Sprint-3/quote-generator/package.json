@@ -25,5 +25,8 @@
     "setupFilesAfterEnv": [
       "./jest.setup.js"
     ]
+  },
+  "dependencies": {
+    "jsdom": "^25.0.1"
   }
 }
