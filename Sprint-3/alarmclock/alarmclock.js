@@ -1,7 +1,15 @@
 let countdownTimer;
+let flashInterval;
 
 function setAlarm() {
-  document.body.style.backgroundColor = "";
+  document.getElementById("stop").addEventListener("click", () => {
+    if (flashInterval) {
+      clearInterval(flashInterval);
+      flashInterval = null;
+      document.body.style.backgroundColor = "";
+    }
+  });
+
   let alarmTime = Number(document.querySelector("input").value);
 
   if (!alarmTime || isNaN(alarmTime) || alarmTime <= 0) {
@@ -27,6 +35,14 @@ function setAlarm() {
 
   updateTitle(alarmTime);
 
+  function flashingBackground() {
+    let isRed = false;
+    flashInterval = setInterval(() => {
+      document.body.style.backgroundColor = isRed ? "#ffffff" : "#ff4444";
+      isRed = !isRed;
+    }, 400);
+  }
+
   if (countdownTimer) {
     clearInterval(countdownTimer);
   }
@@ -37,7 +53,7 @@ function setAlarm() {
 
     if (timeLeft <= 0) {
       clearInterval(countdownTimer);
-      document.body.style.backgroundColor = "#ff4444";
+      flashingBackground();
       playAlarm();
     }
   }, 1000);
