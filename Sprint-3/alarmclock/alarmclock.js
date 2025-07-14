@@ -1,4 +1,7 @@
-function setAlarm() {}
+function setAlarm() {
+  // get the users input in seconds from the input element
+   const inputField = document.getElementById("alarmSet")
+}
 
 // DO NOT EDIT BELOW HERE
 
