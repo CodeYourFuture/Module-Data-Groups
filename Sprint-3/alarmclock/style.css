@@ -48,7 +48,7 @@ h1 {
 
 #alarmSet:focus {
   outline: none;
-  box-shadow: rgba(29, 240, 103, 0.871) 20px 20px;
+  box-shadow: rgba(29, 30, 37, 0.871) 20px 20px;
   transform: translate(-10px, -10px);
 }
 
