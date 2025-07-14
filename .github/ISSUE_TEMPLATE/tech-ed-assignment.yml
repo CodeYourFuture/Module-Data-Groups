@@ -1,26 +1,34 @@
 name: Tech Ed Coursework
 description: Assign a piece of technical coursework
-title: "[TECH ED] <title>"
-labels: [Tech Ed, 🏕 Priority Mandatory, 🐂 Size Medium]
+title: "<title>"
+labels: [Tech Ed, 🏕 Priority Mandatory, 🐂 Size Medium, 📅 Sprint 1]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to assign this coursework! 
+        Thanks for taking the time to assign this coursework!
 
-        To support our trainees with planning and prioritising their own learning journey, we want our coursework assignments to be more informative. 
+        To support our trainees with planning and prioritising their own learning journey, we want our coursework assignments to be more informative.
         We don't just want to tell them what to do, we want to tell them stuff like:
         - why we are doing it
         - what it's "for" (problem-solving, debugging, etc)
         - how long they should spend on it, maximum
-        - how to get help 
-        - how to review it with answers 
+        - how to get help
+        - how to review it with answers
         - how to get it reviewed from mentors and peers
   - type: input
     attributes:
       label: Link to the coursework
     validations:
       required: true
+  - type : textarea
+    attributes:
+      label: Learning Objectives
+      description: https://common.codeyourfuture.io/common-theme/shortcodes/objectives/
+      placeholder: |
+        <!--{{<objectives}}-->
+        - [ ] CYF format, task list formatting
+        <!--{{</objectives}}-->
   - type: textarea
     attributes:
       label: Why are we doing this?
@@ -37,14 +45,14 @@ body:
     attributes:
       label: How to get help
       description: State simply how trainees can get help with this assignment
-      placeholder: |
+      value: |
         Share your blockers in your class channel
-        https://syllabus.codeyourfuture.io/guides/asking-questions
+        https://curriculum.codeyourfuture.io/guides/getting-help/asking-questions/
   - type: textarea
     attributes:
       label: How to submit
       description: State in clear steps how a trainee can submit this assignment.
-      placeholder: |
+      value: |
         Fork the repo to your own GitHub account
         Make regular small commits with clear messages
         When you are ready, open a Pull Request to the CYF repo
@@ -72,9 +80,9 @@ body:
         1. Update labels
         - priority -- is this coursework key, mandatory, or stretch? Pick one.
         - size -- help trainees plan their time with rough estimation. Pick one
-        - topics -- add all that seem relevant to you. 
-        2. Add to milestone
-        - week 1,2,3,4
+        - topics -- add all that seem relevant to you.
+        2. Add a Sprint label to add to the backlog view
+        - sprint 1,2,3,4
 
         Once your ticket is complete, you may like to add it to the example project board attached to this repo.
         This is so you understand how trainees will use your work. Nobody has built a board copier yet, so trainees will be doing this step themselves.

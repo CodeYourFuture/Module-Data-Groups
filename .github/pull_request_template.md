@@ -2,11 +2,11 @@
 
 You must title your PR like this:
 
-REGION | COHORT_NAME | FIRST_NAME LAST_NAME | PROJ_NAME
+Region | Cohort | FirstName LastName | Sprint | Assignment Title
 
 For example,
 
-London | May-2025 | Carol Owen | Quote-generator
+London | 25-ITP-May | Carol Owen | Sprint 1 | Alarm Clock
 
 Complete the task list below this message.
 If your PR is rejected, check the task list.
@@ -18,10 +18,10 @@ If your PR is rejected, check the task list.
 Self checklist
 
 - [ ] I have committed my files one by one, on purpose, and for a reason
-- [ ] I have titled my PR with REGION | COHORT_NAME | FIRST_NAME LAST_NAME | PROJ_NAME
+- [ ] I have titled my PR with Region | Cohort | FirstName LastName | Sprint | Assignment Title
 - [ ] I have tested my changes
 - [ ] My changes follow the [style guide](https://curriculum.codeyourfuture.io/guides/reviewing/style-guide/)
-- [ ] My changes meet the requirements of this task
+- [ ] My changes meet the [requirements](./README.md) of this task
 
 ## Changelist
 
