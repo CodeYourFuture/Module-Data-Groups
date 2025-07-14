@@ -16,9 +16,9 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
-}
+// function pickFromArray(choices) {
+//   return choices[Math.floor(Math.random() * choices.length)];
+// }
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
@@ -491,3 +491,38 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+// quote: "Life isn't about getting and having, it's about giving and being.",
+//   author: "Kevin Kruse",
+
+let autoPlayInterval = null;
+function randomQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+
+  console.log(quotes[randomIndex].quote);
+  console.log(quotes[randomIndex].author);
+
+  const quoteValue = document.getElementById("quote");
+  const authorValue = document.getElementById("author");
+  quoteValue.textContent = quotes[randomIndex].quote;
+
+  authorValue.textContent = quotes[randomIndex].author;
+}
+randomQuote();
+
+document.getElementById("new-quote").addEventListener("click", () => {
+  randomQuote();
+});
+let autoPlayStatus = document.getElementById("autoStatus");
+document.getElementById("autoPlay").addEventListener("click", () => {
+  let autoPlayObj = document.getElementById("autoPlay");
+  if (autoPlayObj.checked == true) {
+    autoStatus;
+
+    autoPlayStatus.textContent = "Auto-play: ON";
+    autoPlayInterval = setInterval(randomQuote, 5000);
+  } else {
+    autoPlayStatus.textContent = "Auto-play: OFF";
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = null;
+  }
+});
