@@ -1,1 +1,56 @@
 /** Write your CSS in here **/
+body{
+    font-family: Arial, sans-serif;
+    background-color: #d78212;
+    color: #333;
+    text-align: center;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container {
+    background-color: lch(91.61% 4.87 231.45);
+    padding: 20px;
+    border-radius:0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap : 20px;
+    min-height: 20px;
+}
+#new-quote {
+    background-color: #ec8b0c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+#quote {
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.5;
+}
+#author {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #151510;
+    margin-top: 10px;
+    align-self: flex-end;
+    text-align: right;
+}
+#new-quote:hover {
+    background-color: #d78212;
+    transform: translateY(-2px);
+}
+#new-quote:active {
+    background-color: #ec8b0c;
+    transform: translateY(0);
+}
+
