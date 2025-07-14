@@ -32,7 +32,7 @@ h1 {
 #alarmSet {
   margin: 20px 40px;
   padding: 20px;
-  width: 400px;
+  max-width: 400px;
   height: 100px;
   font-size: clamp(1rem, 2vw, 2rem);
   box-shadow: #1b58db66 10px 10px;
@@ -48,7 +48,7 @@ h1 {
 
 #alarmSet:focus {
   outline: none;
-  box-shadow: rgba(31, 12, 1, 0.871) 20px 20px;
+  box-shadow: rgba(29, 240, 103, 0.871) 20px 20px;
   transform: translate(-10px, -10px);
 }
 
