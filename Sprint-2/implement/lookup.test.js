@@ -1,6 +1,6 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+// test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
@@ -33,3 +33,24 @@ It should return:
    'CA': 'CAD'
  }
 */
+//checing the result coming out or not
+test("checking the return object or not", () => {
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toEqual({ US: "USD", CA: "CAD" });
+});
+test("input pair invalid", () => {
+  expect(createLookup(["GB", "pound", "THAI", "BHAT"], ["US"])).toBe(
+    "Input pair is invalid"
+  );
+});
+
+test("empty array and throws error", () => {
+  expect(() => createLookup([])).toThrow("Should be Array and not empty array");
+  expect(() => createLookup("this is not array")).toThrow(
+    "Should be Array and not empty array"
+  );
+});
