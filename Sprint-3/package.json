@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/CodeYourFuture/Module-Data-Groups/issues"
   },
-  "homepage": "https://github.com/CodeYourFuture/Module-Data-Groups#readme"
+  "homepage": "https://github.com/CodeYourFuture/Module-Data-Groups#readme",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3"
+  }
 }
