@@ -11,12 +11,10 @@
 }*/
 
 module.exports = includes;
-function includes (list, target){
-  if (!Array.isArray(list) && list.length=== 0) return []
-  if(list.includes(target)){
-  return true
-}
-  else {
-  return false
-}
+function includes(list, target = undefined) {
+  if (!Array.isArray(list)) return false;
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === target) return true;
+  }
+  return false;
 }
