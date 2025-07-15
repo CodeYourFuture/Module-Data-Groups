@@ -6,3 +6,24 @@ const images = [
 
 
 // Write your code here
+
+let currentIndex = 0;
+
+const imgElement = document.getElementById("carousel-img");
+
+function slideShowBack() {
+    document.getElementById("backward-btn").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        imgElement.src = images[currentIndex];
+    });
+  }
+  slideShowBack();
+
+  function slideShowForward() {
+    document.getElementById("forward-btn").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1 + images.length) % images.length;
+        imgElement.src = images[currentIndex];
+    });
+  }
+  slideShowForward();
+
