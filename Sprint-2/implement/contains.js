@@ -3,9 +3,13 @@ function contains(obj, property) {
   if(Object.keys(obj).length === 0){
     return false;
   }
-  if(Object.hasOwn(obj,property)){
+
+  if (typeof obj !== "object" || Array.isArray(obj) || obj === null) {
+    throw new Error("Not a valid input");
+  }
+  if (Object.hasOwn(obj, property)) {
     return true;
-  }else{
+  } else {
     return false;
   }
 }
@@ -13,4 +17,6 @@ function contains(obj, property) {
 // console.log(contains({ a: 1, b: 2 }, "a"));
 // console.log(contains({ a: 1, b: 2 }, "c"));
 // console.log(contains({}, "c"))
+// console.log(contains([], "c"))
+
 module.exports = contains;

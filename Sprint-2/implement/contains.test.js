@@ -29,15 +29,28 @@ test("contains should returns false for an empty object", () => {
   expect(contains({}, "a")).toEqual(false);
 });
 
-
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("object passed to contains with an existing property name, should return true", () => {
+  const obj = { a: 1, b: 2 };
+  const property = "b";
+  expect(contains(obj, property)).toEqual(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
-
+test("When object passed to contains with non existent property name, should return false", () => {
+  const obj = { a: 1, b: " " };
+  const property = " ";
+  expect(contains(obj, property)).toEqual(false);
+});
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("When invalid parameters like array are passed to contains, should return false or throw error", () => {
+  const obj = [];
+  const property = "a";
+  expect(() => contains(obj, property)).toThrow("Not a valid input");
+});
