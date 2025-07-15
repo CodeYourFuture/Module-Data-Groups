@@ -29,4 +29,11 @@ describe("calculateMode()", () => {
 
     expect(calculateMode(nums)).toEqual(3);
   });
+
+  test("returns NaN for an empty array", () => {
+    const nums = [];
+
+    expect(calculateMode(nums)).toBeNaN();
+  });
+  
 });
