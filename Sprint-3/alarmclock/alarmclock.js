@@ -19,6 +19,7 @@ function setAlarm() {
     timeDisplay.textContext = `Time Remaining: ${formattedTime}`;
 
   }
+  updatedTime() // shows the starting time
 }
 
 // DO NOT EDIT BELOW HERE
