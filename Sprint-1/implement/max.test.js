@@ -16,28 +16,52 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("It should return -Infinity when given an empty array" , () =>
+    {expect(findMax([])).toEqual(-Infinity);
+
+ });
+
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("given one elemant array,return that number",() => {
+    expect(findMax([60])).toEqual(60);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test(
+  "input : an array with both positive and negative numbers and output : the largest number overall",() =>{
+    expect(findMax([3, -2, 7, 0, -10])).toEqual(7);
+  }
+);
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("input : an array with just negative numbers and output : the closest one to zero", () => {
+  expect(findMax([-3, -2, -7, -12, -10])).toEqual(-2);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("input : an array with  decimal numbers and output : the largest decimal number", () => {
+  expect(findMax([3.6, 2.9, 7.5, 1.12, 10.08])).toEqual(10.08);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("input : an array with  non-number values and output : the max and ignore non-numeric values", () => {
+  expect(findMax(["hey", 10, "hi", 60, 10])).toEqual(60);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("input : an array with  non-number values and output : the max and ignore non-numeric values", () => {
+  expect(findMax(["sheida", "test", "hi", "hey", "cyf"])).toEqual(-Infinity);
+});
