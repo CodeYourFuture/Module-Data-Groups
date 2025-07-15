@@ -10,8 +10,8 @@ function calculateMedian(list) {
      if (list.length === 0) return null;
 
   const numberOnly = list
-        .filter(element=>typeof element === "number")
-        .sort((a,b)=>(b-a))
+        .filter(element=>typeof element === "number" && !Number.isNaN(element))
+        .sort((a,b)=>(a-b))
        if (numberOnly.length === 0) return null;
 
   const middleIndex = Math.floor(numberOnly.length / 2);
