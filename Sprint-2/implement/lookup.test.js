@@ -33,3 +33,27 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+test("throws error when createLookup is given an empty array", () => {
+  const input = [];
+  const currentOutput = createLookup(input);
+  const targetOutput = "array is empty";
+  expect(currentOutput).toStrictEqual(targetOutput)
+
+})
+
+test("handel the case when createLookup has only one array inside an array", () => {
+  const input = [['US', 'USD']];
+  const currentOutput = createLookup(input);
+  const targetOutput = {'US': 'USD'};
+  expect(currentOutput).toStrictEqual(targetOutput)
+
+})
+
+test("handel the case when createLookup has more than one array inside an array", () => {
+  const input = [['US', 'USD'], ['CA', 'CAD']];
+  const currentOutput = createLookup(input);
+  const targetOutput = {'US': 'USD', 'CA': 'CAD'};
+  expect(currentOutput).toStrictEqual(targetOutput)
+
+})
