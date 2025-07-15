@@ -13,8 +13,8 @@
 module.exports = includes;
 function includes(list, target = undefined) {
   if (!Array.isArray(list)) return false;
-  for (let i = 0; i < list.length; i++) {
-    if (list[i] === target) return true;
+  for (const item of list) {
+    if (item === target) return true;
   }
   return false;
 }
