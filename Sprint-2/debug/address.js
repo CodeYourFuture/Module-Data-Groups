@@ -4,7 +4,7 @@
 // but it isn't working...
 // Fix anything that isn't working
 
-// I Think the issue isin the console.log statement. i will fix it buy using dot notation to access the houseNumber property of the address object.
+// I Think the issue is the console.log statement. I will fix it buy using dot notation to access the houseNumber property of the address object.
 // It is trying to access the houseNumber using an index, but it should use the property houseNumber.
 const address = {
   houseNumber: 42,

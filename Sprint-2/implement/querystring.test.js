@@ -10,3 +10,21 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring with multiple values", () => {
+  expect(parseQueryString("name=John&age=30")).toEqual({
+    "name": "John",
+    "age": "30",
+  });
+});
+test("parses querystring with multiple values with same key", () => {
+  expect(parseQueryString("name=John&name=Jane")).toEqual({
+    "name": "Jane", // Last value should overwrite previous ones
+  });
+});
+
+test("parses querystring without key", () => {
+  expect(parseQueryString("=Python")).toEqual({
+    "": "Python", // Empty key should be handled
+  });
+});
