@@ -12,7 +12,7 @@ test("parses querystring values containing =", () => {
 });
 
 test("parses querystring values containing %", () => {
-  expect(parseQueryString("https://example.com/search?query=hello%2520world")).toEqual({
-    "query": "hello world",
+  expect(parseQueryString("query=hello%2520world")).toEqual({
+    "query": "hello%20world",
   });
 });

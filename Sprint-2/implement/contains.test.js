@@ -17,7 +17,7 @@ as the object doesn't contains a key of 'c'
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
 test("when passed an object and a property name, then it should return true if the object contains the property, false otherwise", () => {
-    expect(contains({ property1: "first_property" }, "first_property")).toEqual(true);
+    expect(contains({ property1: "first_property" }, "property1")).toEqual(true);
     expect(contains({ property1: "first_property" }, "second_property")).toEqual(false);
 });
 
