@@ -12,4 +12,15 @@ function parseQueryString(queryString) {
       key = decodeURIComponent(pair);
       value = "";
     } else {
-      key = decodeURIComponent(pair.s
+      key = decodeURIComponent(pair.slice(0, index));
+      value = decodeURIComponent(pair.slice(index + 1));
+    }
+
+    result[key] = value;
+  }
+
+  return result;
+}
+
+
+module.exports = parseQueryString;
