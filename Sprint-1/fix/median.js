@@ -10,10 +10,8 @@ function calculateMedian(list) {
   // Ensure list is an array
   if (!Array.isArray(list)) return null;
 
-  // Convert all values to numbers and remove invalid entries e.g strings etc 
-  const numericList = list.filter(
-    item => typeof item === "number" && !Number.isNaN(item)
-  );
+  // // Filter only finite numbers (excludes NaN, Infinity, -Infinity, non-numbers)
+  const numericList = list.filter(item => Number.isFinite(item));
 
   // If no valid numbers remain, return null
   if (numericList.length === 0) return null;
