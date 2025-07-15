@@ -12,6 +12,6 @@ const author = {
 };
 
 for (const value of Object.keys(author)) {
-  console.log(value);
+  console.log(author[value]);
 } 
 // An object is not iterable.

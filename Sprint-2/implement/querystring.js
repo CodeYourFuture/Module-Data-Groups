@@ -6,11 +6,13 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    //const [key, value] = pair.split("=", 2);
-     const [key, value] = [pair.slice(0,pair.indexOf('=')),pair.slice(pair.indexOf('=')+1)];
+     const equalsIndex = pair.indexOf('=');
+     const keyPair = pair.slice(0,equalsIndex);
+     const valuePair = pair.slice(equalsIndex+1); // plus 1 to omit the '='
+     const [key, value] = [keyPair,valuePair];
      queryParams[key] = value;
   }
   return queryParams;
 }
-console.log(parseQueryString("a=1&b=2"))
+console.log(parseQueryString("a=&b=hello"))
 module.exports = parseQueryString;

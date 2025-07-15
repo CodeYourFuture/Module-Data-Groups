@@ -25,4 +25,17 @@ test("Handle more than 1 pair in the query string", () => {
   });
 });
 
+test("parses values with multiple '=' characters", () => {
+  expect(parseQueryString("a=b=c=c&b=a")).toEqual({
+    a: "b=c=c",
+    b: "a"
+  });
+});
+
+test("handles empty values", () => {
+  expect(parseQueryString("a=&b=hello")).toEqual({
+    a: "",
+    b: "hello"
+  });
+});
 
