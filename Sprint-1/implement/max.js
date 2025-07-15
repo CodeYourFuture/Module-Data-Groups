@@ -2,9 +2,6 @@ function findMax(list) {
     const numericList = list.filter(
     item => typeof item === "number" && !Number.isNaN(item))
 
-    if(list.length === 0){
-        return -Infinity
-  }
     if(numericList.length === 0){
         return null
   }
