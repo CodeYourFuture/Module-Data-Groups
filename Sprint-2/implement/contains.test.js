@@ -16,11 +16,19 @@ as the object doesn't contains a key of 'c'
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
-
+test("Given an object and a property name, should return true if object contains the property otherwise false", () => {
+  const obj = { a: 1, b: 2 };
+  const property = "a";
+  expect(contains(obj, property)).toEqual(true);
+});
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+
+test("contains should returns false for an empty object", () => {
+  expect(contains({}, "a")).toEqual(false);
+});
+
 
 // Given an object with properties
 // When passed to contains with an existing property name
