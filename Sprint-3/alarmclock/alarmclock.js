@@ -1,6 +1,30 @@
-function setAlarm() {}
+//set alarm
+function setAlarm(){
+    const timeRemaining = document.querySelector("#timeRemaining");
+    let secondsLeft=parseInt(alarmInput.value)
+    const countdown=setInterval(function(){
+    timeRemaining.innerText = `Time Remaining: 00:${secondsLeft}`
+    if (secondsLeft === 0) {
+      playAlarm();
+      clearInterval(countdown)
+    }else{secondsLeft--;}
+    },1000); 
+}
 
-// DO NOT EDIT BELOW HERE
+const alarmInput=document.querySelector("#alarmSet");
+const setAlarmButton=document.querySelector("#set");
+setAlarmButton.addEventListener("click",setAlarm);
+
+//stop alarm
+
+
+
+
+
+
+
+
+// DO NOT EDIT BELOW HERE.
 
 var audio = new Audio("alarmsound.mp3");
 
