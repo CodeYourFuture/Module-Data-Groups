@@ -16,12 +16,21 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+test("given an empty array, it returns an empty array", () => {
+    expect(dedupe([])).toEqual([]);
+
+});
 
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+test("given an array with no duplicates, return original array", () => {
+     expect(dedupe([1, 2, 4, 6])).toEqual([1, 2, 4, 6]);
+});
 
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+test("given an array with strings or numbers, returns one element from each duplicated value", () => {
+    expect(dedupe([1, 2, "Moon", 3, 4, 1, "Moon", 4, 2])).toEqual([1, 2, "Moon", 3, 4]);
+});
