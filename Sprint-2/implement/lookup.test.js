@@ -7,6 +7,14 @@ test("creates a country currency code lookup for multiple codes", () => {
   expect(lookupFunction).toEqual(expectedReturn);
 });
 
+//should return an empty object when given an empty array
+test("should return an empty object when given an empty array", () => {
+  const emptyArray  = [];
+  const lookupFunction = createLookup(emptyArray);
+  expect(lookupFunction).toEqual({});
+});
+
+
 /*
 
 Create a lookup object of key value pairs from an array of code pairs
