@@ -9,7 +9,7 @@ function setAlarm() {
    let secondsRemaining = Number(inputField.value);
 
    // check if input is not a number or less than or equal to zero and informs the user to enter a positive number
-   if (NaN(secondsRemaining) || secondsRemaining <= 0){
+   if (isNaN(secondsRemaining) || secondsRemaining <= 0){
     timeDisplay.textContent = "Enter a positive number."; 
     return;
    }
