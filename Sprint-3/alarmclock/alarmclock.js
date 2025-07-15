@@ -3,6 +3,7 @@ let countdownInterval;
 //keeps track of how many seconds are remaining in countdown 
 let timeRemaining = 0; 
 function setAlarm() {
+  document.body.style.backgroundColor = "";
   //This ensures that if a previous countdown was running it stops before starting a new one.
   clearInterval(countdownInterval); 
   //gets the input element (<input id="alarmSet">) and reads its value.
@@ -24,6 +25,7 @@ function setAlarm() {
       clearInterval(countdownInterval);
       playAlarm(); 
       updateTitle(); 
+      document.body.style.backgroundColor = "green";
     } else {
       updateTitle(); 
     }
