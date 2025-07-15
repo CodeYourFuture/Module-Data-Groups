@@ -3,4 +3,4 @@ node_modules
 .vscode
 **/.DS_Store
 .idea
-prep-for-data-groups-module*.js
+prep-for-data-groups-module/
