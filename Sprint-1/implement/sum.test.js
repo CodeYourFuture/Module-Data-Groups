@@ -39,7 +39,7 @@ test("given an array containing negative number,return correct total sum", ()=>{
 // Then it should return the correct total sum
 test("given an array containing float numbers ,return correct total sum", ()=>{
     const result = sum([2.5,4.6,3.5,2.2]);
-    expect(result).toBe(12.8);
+    expect(result).toBeCloseTo(12.8);
 })
 // Given an array containing non-number values
 // When passed to the sum function
