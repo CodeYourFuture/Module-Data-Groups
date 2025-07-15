@@ -9,18 +9,17 @@ function calculateMedian(list) {
     if (!Array.isArray(list)) return null;
      if (list.length === 0) return null;
 
-  const numberOnly = list.sort().filter(element=>typeof element === "number")
+  const numberOnly = list
+        .filter(element=>typeof element === "number")
+        .sort((a,b)=>(b-a))
        if (numberOnly.length === 0) return null;
 
-  if(numberOnly.length % 2 ===0){
-const middleIndexsSum = numberOnly.splice((numberOnly.length/2-1),2).reduce((sum,element)=>sum + element,0) 
-const median = middleIndexsSum/2
-return median
-  }
-const middleIndex = Math.floor(numberOnly.length / 2);
-  const median = numberOnly.splice(middleIndex, 1)[0];
+  const middleIndex = Math.floor(numberOnly.length / 2);
+    if(numberOnly.length % 2 === 0){
+  const median = (numberOnly[middleIndex - 1]+  numberOnly[middleIndex]) / 2;
   return median;
+    }else{
+    return numberOnly[middleIndex]
+    }
 }
-
-
 module.exports = calculateMedian;
