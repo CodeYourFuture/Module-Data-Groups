@@ -76,3 +76,4 @@ describe("Quote generator", () => {
     expect(authorP).toHaveTextContent("Rosa Parks");
   });
 });
+

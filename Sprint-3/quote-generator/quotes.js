@@ -491,3 +491,43 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+// DO NOT MODIFY THE QUOTES ARRAY, it must remain as is for testing
+
+
+// Query elements
+const quoteP = document.querySelector("#quote");
+const authorP = document.querySelector("#author");
+const newQuoteBtn = document.querySelector("#new-quote");
+const autoPlayToggle = document.querySelector("#auto-play-toggle");
+const autoPlayStatus = document.querySelector("#auto-play-status");
+
+let autoPlayInterval; // To store the interval ID for auto-play
+
+// Function to display a random quote
+function displayRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteP.innerText = randomQuote.quote;
+  authorP.innerText = `— ${randomQuote.author}`;
+}
+
+// Display a random quote when the page loads
+displayRandomQuote();
+
+// Add event listener to change quote when button is clicked
+newQuoteBtn.addEventListener("click", displayRandomQuote);
+
+// Function to toggle auto-play
+function toggleAutoPlay() {
+  if (autoPlayToggle.checked) {
+    // Enable auto-play
+    autoPlayStatus.innerText = "Auto-play: ON";
+    autoPlayInterval = setInterval(displayRandomQuote, 5000); // Change quote every 5 seconds
+  } else {
+    // Disable auto-play
+    autoPlayStatus.innerText = "Auto-play: OFF";
+    clearInterval(autoPlayInterval);
+  }
+}
+
+// Add event listener for the auto-play toggle
+autoPlayToggle.addEventListener("change", toggleAutoPlay);

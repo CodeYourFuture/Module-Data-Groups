@@ -21,9 +21,11 @@
     "jest": "^29.2.2",
     "jest-environment-jsdom": "^29.2.2"
   },
+  "dependencies": {
+    "quote-generator": "file:",
+    "util": "^0.12.5"
+  },
   "jest": {
-    "setupFilesAfterEnv": [
-      "./jest.setup.js"
-    ]
+    "testEnvironment": "jsdom"
   }
 }
