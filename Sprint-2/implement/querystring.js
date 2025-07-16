@@ -14,6 +14,8 @@ function parseQueryString(queryString) {
 
     const key = decodeURIComponent(rawKey.replace(/\+/g, " "));
     const value = decodeURIComponent(rest.join("=").replace(/\+/g, " "));
+    
+    
 
     if (Object.prototype.hasOwnProperty.call(queryParams, key)) {
       // already exists, convert to array or push

@@ -8,7 +8,7 @@ const parseQueryString = require("./querystring.js")
 // Test for parsing query strings with special characters
 test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
-    "equation": "x=y+1",
+    equation: "x=y 1", // + is space
   });
 });
 
