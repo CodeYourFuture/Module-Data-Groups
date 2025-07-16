@@ -7,6 +7,10 @@ function setAlarm() {
     return;
   }
   updateDisplayTime(inputTime);
+  setInterval(() => {
+    inputTime--;
+    updateDisplayTime(inputTime);
+    }, 1000);
  
 }
 
