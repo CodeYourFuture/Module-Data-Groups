@@ -4,12 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quote generator app</title>
+    <link rel="stylesheet" href="styles.css" />
     <script defer src="quotes.js"></script>
   </head>
   <body>
-    <h1>Words of Wisdom</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <div class="quote-container">
+      <h1>Words of Wisdom</h1>
+      <div class="auto-play-controls">
+        <label for="auto-play">Auto-play:</label>
+        <input type="checkbox" id="auto-play-toggle" />
+        <span id="auto-play-status">OFF</span>
+      </div>
+      <p id="quote"></p>
+      <p id="author"></p>
+      <button type="button" id="new-quote">New quote</button>
+    </div>
   </body>
 </html>
