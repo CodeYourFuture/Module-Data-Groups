@@ -7,6 +7,26 @@ function displayRandomQuote() {
   authorElement.textContent = `— ${randomQuote.author}`;
 }
 
+let autoPlayInterval = null;
+function startAutoPlay() {
+  if (autoPlayInterval) {
+    clearInterval(autoPlayInterval);
+  }
+  autoPlayInterval = setInterval(displayRandomQuote, 5000);
+}
+function stopAutoPlay() {
+  if (autoPlayInterval) {
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = null;
+  }
+}
+
+function updateAutoPlayStatus(isOn) {
+  const statusElement = document.getElementById("auto-play-status");
+  statusElement.textContent = isOn ? "ON" : "OFF";
+  statusElement.style.color = isOn ? "#28a745" : "#666";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   displayRandomQuote();
 });
@@ -14,6 +34,17 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const newQuoteButton = document.getElementById("new-quote");
   newQuoteButton.addEventListener("click", displayRandomQuote);
+
+  const autoPlayToggle = document.getElementById("auto-play-toggle");
+  autoPlayToggle.addEventListener("change", function () {
+    if (this.checked) {
+      startAutoPlay();
+      updateAutoPlayStatus(true);
+    } else {
+      stopAutoPlay();
+      updateAutoPlayStatus(false);
+    }
+  });
 });
 
 // DO NOT EDIT BELOW HERE
