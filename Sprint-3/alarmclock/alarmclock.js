@@ -26,6 +26,17 @@ function setAlarm() {
 
   }
   updatedTime() // shows the starting time
+  
+  let intervalId; // store a global variable to the interval ID, so we can clear it later
+  
+  // if there’s already a running interval clear it to avoid multiple timers
+    if (intervalId) {
+    clearInterval(intervalId);
+
+      alarmInterval = setInterval(() => {
+    // Decrementing the users input seconds by 1 to countdown
+    secondsRemaining--;
+  }); 
 }
 
 // DO NOT EDIT BELOW HERE
