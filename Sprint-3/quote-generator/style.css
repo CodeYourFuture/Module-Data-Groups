@@ -1,1 +1,65 @@
 /** Write your CSS in here **/
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #2d3e50; /* Dark teal background */
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+}
+h1{
+  padding-bottom: 2rem;
+  color: #2d3e50;
+}
+.quote-box {
+  background-color: #f0f4f8; /* Light grey background */
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.quote-text {
+  font-size: 1.8rem;
+  font-style: italic;
+  color: #2d3e50; /* Dark teal for contrast */
+  margin-bottom: 25px;
+}
+
+.quote-author {
+  font-size: 1.2rem;
+  color: #4e6478; /* Subtle grey-teal */
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.new-quote-btn {
+  background-color: #4fc1e9; /* Bright teal button */
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.new-quote-btn:hover {
+  background-color: #3aa3d4; /* Darker teal on hover */
+  transform: scale(1.05); /* Slight grow effect */
+}
