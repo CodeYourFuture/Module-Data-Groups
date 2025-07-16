@@ -7,12 +7,19 @@ function setAlarm() {
     return;
   }
   updateDisplayTime(inputTime);
-  setInterval(() => {
+  let secondsInterval=setInterval(() => {
     inputTime--;
     updateDisplayTime(inputTime);
-    }, 1000);
+    if ((inputTime === 0)) {
+      playAlarm();
+      clearInterval(secondsInterval);
+
+    } 
+  }, 1000);
  
 }
+
+
 
 function updateDisplayTime(inputTime){
   const timeRemain = document.getElementById("timeRemaining");
