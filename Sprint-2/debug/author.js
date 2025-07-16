@@ -20,6 +20,8 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }
+// This code will now correctly log all the values of the author object.
+// The fix was to use Object.values(author) to get an array of the values
