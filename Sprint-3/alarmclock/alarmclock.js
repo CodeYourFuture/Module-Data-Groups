@@ -43,7 +43,7 @@ function setAlarm() {
   } else {
     updatedTime();
     } 
-  }
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
