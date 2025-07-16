@@ -6,7 +6,8 @@ const images = [
 
 
 // Write your code here
-
+let forwardInterval;
+let backwardInterval;
 let currentIndex = 0;
 const image = document.querySelector("#carousel-img");
 
@@ -33,14 +34,46 @@ function moveImageBackward() {
 }
 
 
+// This function will be used to automatically move forward through the images.
+// You can implement a timer or interval here to call moveImageForward() repeatedly.
+function autoForward() {
+
+    forwardInterval = setInterval(moveImageForward, 2000); 
+};
+
+
+// This function will be used to automatically move backward through the images.
+// You can implement a timer or interval here to call moveImageBackward() repeatedly.
+function autoBackward() {
+    backwardInterval = setInterval(moveImageBackward, 2000); 
+};
+
+function stopButton() {
+    clearInterval(forwardInterval);
+    clearInterval(backwardInterval);
+};
+
+
 function setup() {
 
     document.querySelector("#backward-btn").addEventListener("click", ( ) => {
         moveImageBackward()
     });
 
+    document.querySelector("#stop").addEventListener("click", ( ) => {
+        stopButton()
+    });
+
     document.querySelector("#forward-btn").addEventListener("click", ( ) => {
         moveImageForward()
+    });
+
+    document.querySelector("#auto-backwards").addEventListener("click", ( ) => {
+        autoBackward()
+    });
+
+    document.querySelector("#auto-forward").addEventListener("click", ( ) => {
+        autoForward()
     });
 
     // Show first image on load
