@@ -34,6 +34,14 @@ function setAlarm() {
 
   // decrement the number to reduce the countdown
   secondsRemaining--;
+  
+  // check if the timer has reached 0
+  if (secondsRemaining < 0){
+    clearInterval(intervalId); // clear the interval when timer reaches 0
+    return timeDisplay.textContent = "times up!" // returns times up when 
+  } else {
+    updatedTime();
+  }
 }
 
 // DO NOT EDIT BELOW HERE
