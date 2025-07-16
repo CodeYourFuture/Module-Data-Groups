@@ -1,1 +1,74 @@
-/** Write your CSS in here **/
+* {
+  margin: 5;
+  padding: 2;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(209, 191, 237);
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: flex-start;
+}
+
+h1 {
+  color: #634592;
+  font-size: 4rem;
+  font-family: "Technor", sans-serif;
+}
+
+.title {
+  width: 80%;
+  justify-content: flex-start;
+  display: flex;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+.container {
+  background: rgb(236, 236, 230);
+  padding: 30px;
+  border-radius: 5px;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#quote {
+  color: rgb(3, 14, 16);
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+#author {
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  background-color: rgba(127, 255, 212, 0.304);
+}
+
+#new-quote {
+  background-color: rgb(209, 191, 237);
+  color: rgb(18, 15, 39);
+  padding: 5px 10px;
+  font-family: "Lucida Console";
+  font-size: 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+  display: block;
+  margin-left: auto;
+}
+
+#new-quote:hover {
+  background: rgb(214, 220, 237);
+}
