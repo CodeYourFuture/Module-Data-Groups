@@ -1,10 +1,14 @@
-const carouselImg = document.getElementById("carousel-img");
-const forwardBtn = document.getElementById("forward-btn");
-const backwardBtn = document.getElementById("backward-btn");
+/* put the stretch version here as it messes with the tests */
 
-const autoForwardBtn = document.getElementById("auto-forward");
-const autoBackwardBtn = document.getElementById("auto-backward");
-const stopBtn = document.getElementById("stop");
+document.addEventListener("DOMContentLoaded", () => {
+    const carouselImg = document.getElementById("image");
+const forwardBtn = document.getElementById("forwardBtn");
+const backwardBtn = document.getElementById("backwardBtn");
+
+const autoForwardBtn = document.getElementById("autoForwardBtn");
+const autoBackwardBtn = document.getElementById("autoBackwardBtn");
+const stopBtn = document.getElementById("stopAutoBtn");
+const delayInput = document.getElementById("delayInput");
 
 const images = [
   "./assets/cute-cat-a.png",
@@ -15,7 +19,7 @@ const images = [
 let currentIndex = 0;
 
 let autoPlayIntervalId;
-const intervalTime = 2000;
+let intervalTime = parseFloat(delayInput.value) * 1000;
 
 function updateImage() {
   carouselImg.src = images[currentIndex];
@@ -26,6 +30,7 @@ function setAutoPlayButtonState(disabled) {
   autoBackwardBtn.disabled = disabled;
   forwardBtn.disabled = disabled;
   backwardBtn.disabled = disabled;
+  delayInput.disabled = disabled;
 }
 
 function startAutoForward() {
@@ -65,4 +70,13 @@ autoForwardBtn.addEventListener("click", startAutoForward);
 autoBackwardBtn.addEventListener("click", startAutoBackward);
 stopBtn.addEventListener("click", stopAutoPlay);
 
+delayInput.addEventListener("change", () => {
+  intervalTime = parseFloat(delayInput.value) * 1000;
+  if (autoPlayIntervalId) {
+    stopAutoPlay();
+  }
+});
+
 updateImage();
+}
+);
