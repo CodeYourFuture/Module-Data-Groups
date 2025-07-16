@@ -505,6 +505,34 @@ function createContainer() {
 
   document.body.innerHTML = "";
   document.body.appendChild(container);
+
+  const autoPlayWrapper = document.createElement("div");
+  autoPlayWrapper.id = "auto-play-wrapper";
+  autoPlayWrapper.innerHTML = `
+    <label for="auto-play" class="auto-play-label">
+      <input type="checkbox" id="auto-play" />
+      <span>Auto Play:</span>
+      <span id="auto-play-status">OFF</span>
+    </label>
+    `;
+  document.body.appendChild(autoPlayWrapper);
+}
+
+let autoPlayInterval = null;
+
+function handleAutoPlayToggle() {
+  const checkbox = document.getElementById("auto-play");
+  const status = document.getElementById("auto-play-status");
+
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      status.textContent = "ON";
+      autoPlayInterval = setInterval(setQuoteAndAuthor, 3000);
+    } else {
+      status.textContent = "OFF";
+      clearInterval(autoPlayInterval);
+    }
+  });
 }
 
 function setQuoteAndAuthor() {
@@ -527,6 +555,7 @@ function renderQuote() {
   createContainer();
   setQuoteAndAuthor();
   handleButton();
+  handleAutoPlayToggle();
 }
 
 renderQuote();

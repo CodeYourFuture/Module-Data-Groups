@@ -2,6 +2,7 @@
 :root {
   --main-bg-color: #f1b847;
   --bg-color: #f5f5f5;
+  --shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 body {
   background-color: var(--main-bg-color);
@@ -23,8 +24,9 @@ button:hover {
 .container {
   background-color: var(--bg-color);
   color: var(--main-bg-color);
+  box-shadow: var(--shadow);
   text-align: right;
-  margin: 60px auto;
+  margin: 80px auto;
   padding: 30px 40px;
   max-width: 600px;
   min-height: 150px;
@@ -44,4 +46,23 @@ button:hover {
   display: inline-block;
   transform: translateY(0.4em);
   line-height: 1;
+}
+#auto-play-wrapper {
+  width: 130px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--bg-color);
+  color: var(--main-bg-color);
+  padding: 8px 12px;
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+}
+#auto-play-wrapper input {
+  cursor: pointer;
+}
+.auto-play-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
