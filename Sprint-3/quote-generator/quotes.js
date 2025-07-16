@@ -527,7 +527,7 @@ function handleAutoPlayToggle() {
   checkbox.addEventListener("change", () => {
     if (checkbox.checked) {
       status.textContent = "ON";
-      autoPlayInterval = setInterval(setQuoteAndAuthor, 3000);
+      autoPlayInterval = setInterval(setQuoteAndAuthor, 60000);
     } else {
       status.textContent = "OFF";
       clearInterval(autoPlayInterval);
