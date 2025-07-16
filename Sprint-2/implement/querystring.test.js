@@ -10,3 +10,8 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+
+// when invalid parameters are passed, should throw an error
+
+// When empty strings are passed, should return empty object
