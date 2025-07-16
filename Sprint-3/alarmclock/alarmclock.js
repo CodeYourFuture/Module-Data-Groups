@@ -13,9 +13,7 @@ function setAlarm() {
     if ((inputTime === 0)) {
       playAlarm();
       clearInterval(secondsInterval);
-      document.body.style.backgroundColor="yellow"
-     // document.getElementById("stop").style.backgroundColor="red";
-      
+           
     } 
   }, 1000);
  
@@ -46,7 +44,8 @@ function setup() {
 
 function playAlarm() {
   audio.play();
-  document.getElementById("stop").style.backgroundColor = "red";
+  document.getElementById("stop").style.backgroundColor = "rgb(191, 115, 47)";
+   document.body.style.backgroundColor = "rgb(218, 178, 119)";
 }
 
 function pauseAlarm() {
