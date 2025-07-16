@@ -11,19 +11,16 @@ function tally(items) {
   // Loop through each unique item
   for (let i = 0; i < uniqueItems.length; i++) {
     const currentItem = uniqueItems[i];
-    let count = 0;
 
-    // Count how many times it appears in the original array
-    for (let j = 0; j < items.length; j++) {
-      if (items[j] === currentItem) {
-        count++;
-      }
+    // If the item is already a key in 'result', add its count
+    // Otherwise, create it and give it a count of 1
+    if (result[currentItem]) {
+      result[currentItem]++;
+    } else {
+      result[currentItem] = 1;
     }
-
-    // Add the item and count to result
-    result[currentItem] = count;
-  }
-
+  };
+  
   return result;
 }
 
