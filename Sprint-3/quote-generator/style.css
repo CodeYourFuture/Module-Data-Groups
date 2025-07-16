@@ -11,11 +11,6 @@ body {
   margin: 0;
   padding: 20px;
 }
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
 
 .quote-container {
   max-width: 600px;
@@ -26,7 +21,13 @@ h1 {
   text-align: center;
 }
 
-.quote {
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#quote {
   font-size: 1.2em;
   font-style: italic;
   margin: 20px 0;
@@ -35,7 +36,7 @@ h1 {
   color: #333;
 }
 
-.author {
+#author {
   font-weight: bold;
   text-align: center;
   color: #555;
@@ -48,4 +49,42 @@ h1 {
   align-items: center;
   margin-bottom: 20px;
   font-size: 0.9em;
+}
+
+.auto-play-controls label {
+  font-weight: bold;
+  color: #333;
+}
+
+#auto-play-toggle {
+  transform: scale(1.2);
+}
+
+#auto-play-status {
+  min-width: 30px;
+  color: #666;
+  font-weight: bold;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#new-quote {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ffd700;
+  border: 2px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#new-quote:hover {
+  background-color: #ffed4e;
 }
