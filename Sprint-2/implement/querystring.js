@@ -1,10 +1,15 @@
 function parseQueryString(queryString) {
   const queryParams = {};
+
+  if (typeof queryString !== "string") {
+    throw new Error("Your input is not valid");
+  }
+
   if (queryString.length === 0) {
     return queryParams;
   }
+  
   const keyValuePairs = queryString.split("&");
-
 
   for (const pair of keyValuePairs) {
     //get the indexof the first occurrence of "="
@@ -20,6 +25,5 @@ function parseQueryString(queryString) {
 
   return queryParams;
 }
-console.log(parseQueryString("equation=x=y+1"));
 
 module.exports = parseQueryString;

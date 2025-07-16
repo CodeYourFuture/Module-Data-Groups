@@ -1,9 +1,9 @@
 function contains(obj, property) {
-  //return false if object is empty
-  if (Object.keys(obj).length === 0) {
+//return false if object is empty
+  if(Object.keys(obj).length === 0){
     return false;
   }
-  //throw error if parameters are invalid
+//throw error if parameters are invalid
   if (typeof obj !== "object" || Array.isArray(obj) || obj === null) {
     throw new Error("Not a valid input");
   }
