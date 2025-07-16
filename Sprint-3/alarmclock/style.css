@@ -1,15 +1,35 @@
-.centre {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
 #alarmSet {
-  margin: 20px;
-}
+  margin: 20px 40px;
+  padding: 20px;
+  max-width: 400px;
+  height: 100px;
+  font-size: clamp(1rem, 2vw, 2rem);
+  box-shadow: #1b58db66 10px 10px;
 
-h1 {
-  text-align: center;
-}
+    #alarmSet:focus {
+      outline: none;
+      box-shadow: rgba(29, 240, 103, 0.871) 20px 20px;
+      transform: translate(-10px, -10px);
+    }
+
+  button {
+    background-color: #1b58db66;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    display: inline-block;
+    font-size: clamp(1rem, 2vw, 2rem);
+    margin-top: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.114) 10px 10px;
+    border-radius: 3px;
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.9s;
+    
+  }
+    
+    button:hover {
+      box-shadow: #042b7ec4 20px 20px;
+      transform: translate(-10px, -10px);   
+    }   
