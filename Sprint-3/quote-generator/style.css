@@ -1,7 +1,7 @@
 /** Write your CSS in here **/
 body {
   font-family: Arial, sans-serif;
-  background: radial-gradient(ellipse, white 40%, #ffd700 80%);
+  background: radial-gradient(ellipse, rgb(232, 242, 247) 40%, #89dcfa 80%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@ body {
 
 .quote-container {
   max-width: 600px;
-  background-color: #f9f9f9;
+  background-color: #e5ecf3;
   border-radius: 10px;
   padding: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -79,12 +79,11 @@ button {
 #new-quote {
   padding: 10px 20px;
   font-size: 1em;
-  background-color: #ffd700;
-  border: 2px solid #333;
+  background-color: #04a5e5;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 #new-quote:hover {
-  background-color: #ffed4e;
+  background-color: #02364f;
 }
