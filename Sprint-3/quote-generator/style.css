@@ -16,3 +16,18 @@ h1 {
   margin-bottom: 20px;
   color: #333;
 }
+.quote {
+  font-size: 1.2em;
+  font-style: italic;
+  margin: 20px 0;
+  text-align: center;
+  line-height: 1.5;
+  color: #333;
+}
+
+.author {
+  font-weight: bold;
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+}
