@@ -43,7 +43,7 @@ function setAlarm() {
   } else {
     updatedTime();
     } 
-  }, 1000);
+  }, 1000); // updates the function by running it every 1000ms
 }
 
 // DO NOT EDIT BELOW HERE
