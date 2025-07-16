@@ -38,9 +38,11 @@ function setAlarm() {
   // check if the timer has reached 0
   if (secondsRemaining < 0){
     clearInterval(intervalId); // clear the interval when timer reaches 0
-    return timeDisplay.textContent = "times up!" // returns times up when 
+    timeDisplay.textContent = "times up!" // returns times up when timer reaches 0
+    return;
   } else {
     updatedTime();
+    } 
   }
 }
 
