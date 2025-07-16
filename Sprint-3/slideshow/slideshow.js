@@ -6,9 +6,8 @@ const images = [
 
 
 // Write your code here
-let forwardInterval;
-let backwardInterval;
 let currentIndex = 0;
+let autoTimer = null;
 const image = document.querySelector("#carousel-img");
 
 
@@ -37,22 +36,33 @@ function moveImageBackward() {
 // This function will be used to automatically move forward through the images.
 // You can implement a timer or interval here to call moveImageForward() repeatedly.
 function autoForward() {
-
-    forwardInterval = setInterval(moveImageForward, 2000); 
+    autoTimer = setInterval(moveImageForward, 2000);
+    disableAutoButtons(); 
 };
 
 
 // This function will be used to automatically move backward through the images.
 // You can implement a timer or interval here to call moveImageBackward() repeatedly.
 function autoBackward() {
-    backwardInterval = setInterval(moveImageBackward, 2000); 
+    autoTimer = setInterval(moveImageBackward, 2000);
+    disableAutoButtons();
 };
 
 function stopButton() {
-    clearInterval(forwardInterval);
-    clearInterval(backwardInterval);
+    clearInterval(autoTimer);
+    autoTimer = null;
+    enableAutoButtons();
 };
 
+function disableAutoButtons() {
+  document.querySelector("#auto-forward").disabled = true;
+  document.querySelector("#auto-backward").disabled = true;
+}
+
+function enableAutoButtons() {
+  document.querySelector("#auto-forward").disabled = false;
+  document.querySelector("#auto-backward").disabled = false;
+}
 
 function setup() {
 
@@ -68,7 +78,7 @@ function setup() {
         moveImageForward()
     });
 
-    document.querySelector("#auto-backwards").addEventListener("click", ( ) => {
+    document.querySelector("#auto-backward").addEventListener("click", ( ) => {
         autoBackward()
     });
 
