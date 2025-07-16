@@ -5,8 +5,28 @@
 
 const parseQueryString = require("./querystring.js")
 
+test("given a queryString with no query parameters, returns an empty object", function () {
+  const input = "";
+  const currentOutput = parseQueryString(input);
+  const targetOutput = {};
+  expect(currentOutput).toEqual(targetOutput);
+});
+
+test("given a queryString with one pair of query params, returns them in object form", function () {
+  const input = "fruit=banana";
+  const currentOutput = parseQueryString(input);
+  const targetOutput = { fruit: "banana" };
+  expect(currentOutput).toEqual(targetOutput);
+});
+
+test("given a queryString with multiple pairs of query params, returns them in object form",() => {
+  const input = "fruit=banana&music=florence&flavour=umami";
+  const currentOutput = parseQueryString(input);
+  const targetOutput = {fruit: "banana", music: "florence", flavour: "umami"};
+  expect(currentOutput).toEqual(targetOutput);
+});
+
+
 test("parses querystring values containing =", () => {
-  expect(parseQueryString("equation=x=y+1")).toEqual({
-    "equation": "x=y+1",
-  });
+  expect(parseQueryString("equation=x=y+1")).toEqual({"equation": "x=y+1"});
 });
