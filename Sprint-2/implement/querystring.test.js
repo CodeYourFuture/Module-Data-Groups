@@ -10,3 +10,27 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("handles empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("parses multiple key-value pairs", () => {
+  expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+
+test("handles key with empty value", () => {
+  expect(parseQueryString("a=")).toEqual({ a: "" });
+});
+
+test("handles missing key", () => {
+  expect(parseQueryString("=value")).toEqual({ "": "value" });
+});
+
+test("handles pair with no equal sign", () => {
+  expect(parseQueryString("lonelyKey")).toEqual({ lonelyKey: undefined });
+});
+
+test("parses value containing =", () => {
+  expect(parseQueryString("equation=x=y+1")).toEqual({ equation: "x=y+1" });
+});
