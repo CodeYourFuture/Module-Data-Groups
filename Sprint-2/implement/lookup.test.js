@@ -1,6 +1,16 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("given an array with inner arrays like [key,value], createLookup should return an object made from the key-value pairs", () => {
+  const countryCurrency = [['US', 'USD'], ['CA', 'CAD']];
+  const lookup = {US: 'USD', CA: 'CAD'};
+  expect(createLookup(countryCurrency)).toEqual(lookup);
+});
+
+
+test("an array with inner arrays that have length != 2 should cause createLookup to throw an error", () => {
+  const invalidArrs = [[1,2,3],['beans','toast']];
+  expect(() => createLookup(invalidArrs)).toThrow();
+})
 
 /*
 
