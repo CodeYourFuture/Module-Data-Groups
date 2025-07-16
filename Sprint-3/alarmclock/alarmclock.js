@@ -41,6 +41,8 @@ function tick() {
     clearInterval(timerId);
     timerId = null;
     playAlarm();
+    // Add flashing background when alarm goes off
+    document.body.classList.add("flash");
     return;
   }
   countdown--;
