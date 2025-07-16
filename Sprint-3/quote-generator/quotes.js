@@ -491,3 +491,42 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+function createContainer() {
+  const h1 = document.querySelector("h1");
+  if (h1) {
+    h1.remove();
+  }
+
+  const container = document.createElement('div');
+  container.id = 'quote-container';
+  container.className = 'container';
+
+  container.innerHTML = document.body.innerHTML;
+
+  document.body.innerHTML = "";
+  document.body.appendChild(container);
+}
+
+function setQuoteAndAuthor() {
+  const result = pickFromArray(quotes);
+  document.querySelector(
+    "#quote"
+  ).innerHTML = `<span class="mark">&ldquo;</span> ${result.quote}`;
+  document.querySelector('#author').innerHTML = `- ${result.author}`;
+}
+
+function handleButton() {
+  const button = document.getElementById("new-quote");
+
+  button.addEventListener("click", () => {
+    setQuoteAndAuthor();
+  });
+}
+
+function renderQuote() {
+  createContainer();
+  setQuoteAndAuthor();
+  handleButton();
+}
+
+renderQuote();
