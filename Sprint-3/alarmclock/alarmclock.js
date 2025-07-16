@@ -7,9 +7,10 @@ function setAlarm() {
     return;
   }
   console.log(inputTime);
-  let min = inputTime/60;
-  let sec = inputTime%60;
+  let min = String(Math.floor(inputTime/60)).padStart(2,"0");
+  let sec = String(inputTime%60).padStart(2,"0");
   console.log(min,sec);
+  timeRemain.textContent = `Time Remaining: ${min}:${sec}` ;
 }
 
 // DO NOT EDIT BELOW HERE
