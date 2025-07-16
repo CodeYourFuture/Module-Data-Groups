@@ -503,6 +503,6 @@ function grabAnotherQuote() {
 document.addEventListener("DOMContentLoaded", function () {
     const newQuoteButton = document.getElementById("new-quote");
 
-    grabAnotherQuote(); // Show a quote on load
-    newQuoteButton.onclick = grabAnotherQuote; // Bind click event
+    grabAnotherQuote(); 
+    newQuoteButton.onclick = grabAnotherQuote; 
 });
