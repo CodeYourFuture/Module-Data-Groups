@@ -30,3 +30,20 @@ test("given a queryString with multiple pairs of query params, returns them in o
 test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({"equation": "x=y+1"});
 });
+
+
+// handles missing "=" (i.e. "foo&noms=cheese")
+test("when = is missing between a key-pair, the text should be interpreted as a key with an empty value", () => {
+  const missingEquals = "foo&noms=cheese";
+  const missingEqualsTO = {foo:"", noms:"cheese"};
+  expect(parseQueryString(missingEquals)).toEqual(missingEqualsTO);
+})
+
+// handles missing value ("foo=&noms="cheese")
+test()
+
+// handles missing key ("=bar&noms=cheese")
+
+//duplicate keys ("x=1&x=2" => {x:2} / last one wins)
+
+
