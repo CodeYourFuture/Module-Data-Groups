@@ -502,6 +502,11 @@ function pickAndDisplayQuote() {
 document.getElementById("new-quote").addEventListener("click", () => {
   pickAndDisplayQuote();
 });
+document.getElementById("auto-play").addEventListener("change",(event)=>{
+  if (event.target.checked){
+    console.log("auto-play is on");
+  }
+});
 
 
 
