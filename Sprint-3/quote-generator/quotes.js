@@ -502,4 +502,8 @@ const quoteElements = document.getElementsById("quotes")
 
 // use the "pickFromArray()" function to pick one quote randomly from the array to display each time it runs
 const randomQuote = pickfromArray(quotes);
+
+// update the display with the selected author and quote by setting the text into there html elements
+quoteElements.textcontext = randomQuote.quote;
+authorElements.textcontext = randomQuote.author;
 }
