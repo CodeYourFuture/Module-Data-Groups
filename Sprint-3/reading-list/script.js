@@ -1,4 +1,6 @@
 // for the tests, do not modify this array of books.
+
+
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -29,26 +31,33 @@ const books = [
 
 
 
-//book1
-const book1Title=document.createElement("p")
-book1Title.textContent=books[0].title;
-const book1Author=document.createElement("p");
-book1Author.textContent=books[0].author;
+  function displaybooks(book) {
+    const bookTitle = document.createElement("p");
+    bookTitle.textContent = book.title;
+    const bookAuthor = document.createElement("p");
+    bookAuthor.textContent = book.author;
 
-const titleAuthor = document.createElement("p");
-titleAuthor.textContent =book1Title.textContent + " by " + book1Author.textContent;
+    const titleAuthor = document.createElement("p");
+    titleAuthor.textContent =
+      bookTitle.textContent + " by " + bookAuthor.textContent;
 
-const image1=document.createElement("img");
-image1.src=books[0].bookCoverImage
+    const image = document.createElement("img");
+    image.src = book.bookCoverImage;
 
-const allTogether=document.createElement("li");
-allTogether.appendChild(titleAuthor);
-allTogether.appendChild(image1);
+    const allTogether = document.createElement("li");
+    allTogether.appendChild(titleAuthor);
+    allTogether.appendChild(image);
 
-if(books[0].alreadyRead===false){allTogether.style.backgroundColor="red"}else{allTogether.style.backgroundColor="green"}
+    if (book.alreadyRead === false) {
+      allTogether.style.backgroundColor = "red";
+    } else {
+      allTogether.style.backgroundColor = "green";
+    }
 
-document.querySelector("#reading-list").appendChild(allTogether);
- 
+    document.querySelector("#reading-list").appendChild(allTogether);
+  }
 
-
+  for (let i = 0; i < books.length; i++) {
+    displaybooks(books[i]);
+  }
 
