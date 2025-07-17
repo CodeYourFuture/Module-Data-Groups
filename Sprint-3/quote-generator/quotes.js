@@ -497,13 +497,13 @@ const quotes = [
 function displayRandomQuote(){
 
   // get the html ID elements where we want to show author's name and quote's
-const authorElements = document.getElementsById("author");
-const quoteElements = document.getElementsById("quote")
+const authorElements = document.getElementById("author");
+const quoteElements = document.getElementById("quote")
 
 // use the "pickFromArray()" function to pick one quote randomly from the array to display each time it runs
 const randomQuote = pickFromArray(quotes);
 
 // update the display with the selected author and quote by setting the text into there html elements
-quoteElements.textcontent = randomQuote.quote;
-authorElements.textcontent = randomQuote.author;
+quoteElements.textContent = randomQuote.quote;
+authorElements.textContent = randomQuote.author;
 }
