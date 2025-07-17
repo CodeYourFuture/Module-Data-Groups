@@ -4,6 +4,14 @@
 // passing all the tests...
 // Fix the implementation of calculateMedian so it passes all tests
 
+//   All test cases are passing because:
+//   The calculateMedian function in median.js was updated to:
+//   • Filter out non-numeric values
+//   • Avoid mutating the input array
+//   • Correctly calculate medians for odd and even-length arrays
+//   • Handle unsorted and mixed-type inputs gracefully
+// This confirms the function behaves as expected across a wide range of scenarios.
+
 const calculateMedian = require("./median.js");
 
 describe("calculateMedian", () => {
