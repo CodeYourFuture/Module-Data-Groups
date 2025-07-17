@@ -50,3 +50,18 @@ test(`when tally is passed invalid input like a string, it should throw an error
     invalidInput = 'snowlover';
     expect(()=>{tally(invalidInput)}).toThrow();
 })
+
+// mixed data types
+test("tally counts correctly with mixed data types", () => {
+  const arr = ['a', 1, 'a', true, 1, false, true];
+  const expected = { 'a': 2, '1': 2, 'true': 2, 'false': 1 };
+  expect(tally(arr)).toEqual(expected);
+});
+
+
+// handles empty and 0 values
+test("tally handles empty strings and zero values correctly", () => {
+  const arr = ['', 0, '', 0];
+  const expected = { '': 2, '0': 2 };
+  expect(tally(arr)).toEqual(expected);
+});

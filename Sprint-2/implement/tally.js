@@ -1,5 +1,7 @@
 function tally(arr) {
 
+    if(!arr) {throw new Error(`You didn't pass an argument. You must pass an array to tally.`)}
+
     if (!Array.isArray(arr)) {
         throw new Error(`Tally can only count occurences of unique items in arrays. You passed it something that isn't an array.`)
     }
