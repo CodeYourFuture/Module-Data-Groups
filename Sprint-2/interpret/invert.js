@@ -10,20 +10,23 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key;
   }
 
   return invertedObj;
 }
 
+let call = invert({ a: 1, b: 2});
+console.log(call)
+
 // a) What is the current return value when invert is called with { a : 1 }
-
+// The return value is { key: 1 }
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-
+// The return value is { key: 2 }
 // c) What is the target return value when invert is called with {a : 1, b: 2}
-
+// The target return value is { '1': 'a', '2': 'b' }
 // c) What does Object.entries return? Why is it needed in this program?
-
+// Object.entries returns an array of key/value pairs of the same object and each pair is also an array with two elements(key and value). We need it in this program so that it will enable us to loop through the array and invert the items.
 // d) Explain why the current return value is different from the target output
-
+//The current return value is different from the target output because the code uses .key instead of [key]. Given that we are using .key, it gets interpreted as a property literal called "key" and not the value stored in the variable key. This causes the invert object to only have a single key called "key". To fix it and get the desired output, we need to use [key] so that the value it's storing can be use as property name when creating the new object.
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
