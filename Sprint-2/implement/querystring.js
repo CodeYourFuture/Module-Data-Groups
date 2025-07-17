@@ -7,9 +7,9 @@ function parseQueryString(queryString) {
     queryString = queryString.substring(1);
   }
 
-  if (queryString.length === 0) {
+  /*if (queryString.length === 0) {
     return queryParams;
-  }
+  }*/
 
   const keyValuePairs = queryString.split("&");
 
