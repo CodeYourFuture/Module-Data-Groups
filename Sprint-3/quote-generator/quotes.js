@@ -504,6 +504,6 @@ const quoteElements = document.getElementsById("quotes")
 const randomQuote = pickfromArray(quotes);
 
 // update the display with the selected author and quote by setting the text into there html elements
-quoteElements.textcontext = randomQuote.quote;
-authorElements.textcontext = randomQuote.author;
+quoteElements.textcontent = randomQuote.quote;
+authorElements.textcontent = randomQuote.author;
 }
