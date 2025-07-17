@@ -491,3 +491,12 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+// console.log(pickFromArray(quotes))
+
+// function to display random quote on the page
+function displayRandomQuote(){
+
+  // get the html ID elements where we want to show author's name and quote's
+const authorElements = document.getElementsById("author");
+const quoteElements = document.getElementsById("quotes")
+}
