@@ -22,7 +22,7 @@ body {
   padding-bottom: 2em;
 }
 
-.navbar-brand > img {
+.navbar-brand>img {
   max-height: 40px;
   width: auto;
 }
@@ -98,6 +98,7 @@ body {
 .article-title {
   margin-bottom: 0.5em;
   font-weight: 700;
+
 }
 
 .article-read-more a {
@@ -153,7 +154,20 @@ body {
 }
 
 @media screen and (min-width: 992px) {
-  .navbar-brand > img {
+  .navbar-brand>img {
     max-height: 80px;
   }
+}
+
+li {
+  margin-bottom: 20px;
+  border: 1px solid black;
+  ;
+}
+
+span {
+  content: "";
+  display: block;
+  margin-top: 5px;
+  padding: 10px;
 }
