@@ -21,7 +21,7 @@ const books = [
   },
 ];
 
-
+//
 //create <li> elements
 //add the content of the objects to the <li>s
     //extract each object from the array
@@ -34,13 +34,21 @@ const book1Title=document.createElement("p")
 book1Title.textContent=books[0].title;
 const book1Author=document.createElement("p");
 book1Author.textContent=books[0].author;
-const titleAuthor=book1Title.textContent +" by " + book1Author.textContent;
+
+const titleAuthor = document.createElement("p");
+titleAuthor.textContent =book1Title.textContent + " by " + book1Author.textContent;
+
 const image1=document.createElement("img");
-image1.innerHTML=books[0].bookCoverImage
+image1.src=books[0].bookCoverImage
 
-const list1 = document.createElement("li");
-document.querySelector("#reading-list").appendChild(titleAuthor);
+const allTogether=document.createElement("li");
+allTogether.appendChild(titleAuthor);
+allTogether.appendChild(image1);
+
+if(books[0].alreadyRead===false){allTogether.style.backgroundColor="red"}else{allTogether.style.backgroundColor="green"}
+
+document.querySelector("#reading-list").appendChild(allTogether);
+ 
 
 
-  
 
