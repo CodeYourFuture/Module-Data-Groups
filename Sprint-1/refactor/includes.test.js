@@ -1,5 +1,6 @@
 // Refactored version of includes should still pass the tests below:
-
+// All tests passed after refactoring includes.js to use a for...of loop.
+// These tests confirm the function still works correctly.
 const includes = require("./includes.js");
 
 test("returns true when target is in array", () => {
