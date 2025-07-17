@@ -491,3 +491,27 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+const card = document.querySelector("#wildCard");
+console.log(card);
+const author = document.querySelector("#author");
+console.log(author);
+const quote = document.querySelector("#quote");
+console.log(quote);
+const quoteButton = document.querySelector("#new-quote");
+console.log(quoteButton);
+
+window.addEventListener("load", function () {
+  // to invoke quotes when page loads
+  const result = pickFromArray(quotes);
+
+  quote.textContent = `${result.quote}`;
+  author.textContent = `-  ${result.author}`;
+});
+
+quoteButton.addEventListener("click", function () {
+  // invoke quotes when the button is clicked
+  const result = pickFromArray(quotes);
+
+  quote.textContent = `${result.quote}`;
+  author.textContent = `-  ${result.author}`;
+});
