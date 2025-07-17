@@ -502,12 +502,15 @@ function pickAndDisplayQuote() {
 document.getElementById("new-quote").addEventListener("click", () => {
   pickAndDisplayQuote();
 });
-
+let intervalId;
 document.getElementById("auto-play").addEventListener("change",(event)=>{
   if (event.target.checked){
     //console.log("auto-play is on");
     document.getElementById("auto-play-label").textContent = "auto-play : ON";
-    setInterval(pickAndDisplayQuote,5000);
+     intervalId=setInterval(pickAndDisplayQuote,5000);
+  }else{
+    document.getElementById("auto-play-label").textContent = "auto-play : OFF";
+    clearInterval(intervalId);
   }
 });
 
