@@ -1,4 +1,4 @@
-const contains = require("./contains.js");
+const contains = require("./contains");
 
 /*
 Implement a function called contains that checks an object contains a
@@ -50,7 +50,5 @@ test("When object passed to contains with non existent property name, should ret
 // When passed to contains
 // Then it should return false or throw an error
 test("When invalid parameters like array are passed to contains, should return false or throw error", () => {
-  const obj = [];
-  const property = "a";
-  expect(() => contains(obj, property)).toThrow("Not a valid input");
+  expect(contains([], 'c')).toEqual(false);
 });
