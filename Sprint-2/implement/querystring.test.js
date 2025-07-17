@@ -40,7 +40,12 @@ test("when = is missing between a key-pair, the text should be interpreted as a 
 })
 
 // handles missing value ("foo=&noms="cheese")
-test()
+test(`when a pair is missing a value, queryString should return 'key: ""' for that item`, () => {
+  const missingValue = "foo=&noms=cheese";
+  const missingValueTO = {foo:"", noms:"cheese"};
+  expect(parseQueryString(missingValue)).toEqual(missingValueTO);
+})
+
 
 // handles missing key ("=bar&noms=cheese")
 
