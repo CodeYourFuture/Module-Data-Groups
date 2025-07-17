@@ -4,6 +4,7 @@ function setup(){
        document.getElementById("new-quote").addEventListener("click", function() {
         newQuote();
         });
+        newQuote()
 }
 // const newQuoteBtn = document.querySelector("#new-quote");
 
