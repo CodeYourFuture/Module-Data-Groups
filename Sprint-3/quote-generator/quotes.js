@@ -7,7 +7,11 @@ function getRandomQuote() {
   quoteDom.textContent = quote;
   authorDom.textContent = author;
 }
-
+// add quote when page loaded first time
+document.addEventListener('DOMContentLoaded', function () {
+  getRandomQuote();
+});
+// add event to button for changing quotes
 let newQuoteButton = document.getElementById("new-quote");
 newQuoteButton.addEventListener("click", () => {
   getRandomQuote();
