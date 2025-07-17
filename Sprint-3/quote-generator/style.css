@@ -1,1 +1,72 @@
 /** Write your CSS in here **/
+/* Overall background */
+body {
+  background-color: #f4a42c; /* orange background */
+  font-family: 'Georgia', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* White box around quote */
+.quote-box {
+  background-color: white;
+  padding: 40px;
+  border: 3px solid #f4a42c; /* orange border */
+  border-radius: 8px;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+/* Greating text */
+#greating {
+  font-size: 1.8rem;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  color: #f0ece7; /* orange text */
+  margin-bottom: 800px; }
+
+/* Quote text */
+#quote {
+  font-size: 1.8rem;
+  font-family: 'Cursive', serif;
+  text-align: right;
+  color: #f4a42c; /* orange text */
+  margin-bottom: 20px;
+}
+
+/* Author text */
+#author {
+  font-size: 1.2rem;
+  font-family: 'Georgia', serif;
+  color: #f4a42c; /* orange text */
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+/* Button */
+#new-quote {
+  background-color: #f4a42c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#new-quote:hover {
+  background-color: #d68f27;
+}
+
+#quote::before {
+  content: "“"; /* Large opening quote */
+  font-size: 3rem;
+  vertical-align: top;
+  color: #f4a42c; /* Match your orange theme */
+  margin-right: 10px;
+  display: inline-block;}
