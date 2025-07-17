@@ -9,6 +9,10 @@
 function invert(obj) {
   const invertedObj = {};
 
+  if(typeof obj !== "object" || Array.isArray(obj)){
+    throw new Error("Your input is invalid!")
+  }
+
   for (const [key, value] of Object.entries(obj)) {
     invertedObj[value] = key;
   }
@@ -16,8 +20,10 @@ function invert(obj) {
   return invertedObj;
 }
 
-let call = invert({ a: 1, b: 2});
-console.log(call)
+// let call1 = invert([]);
+// let call2 = invert({ a: 1, b: 2});
+// console.log(call1)
+// console.log(call2)
 
 
 module.exports = invert;
