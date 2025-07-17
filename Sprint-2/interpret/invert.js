@@ -19,6 +19,8 @@ function invert(obj) {
 let call = invert({ a: 1, b: 2});
 console.log(call)
 
+
+module.exports = invert;
 // a) What is the current return value when invert is called with { a : 1 }
 // The return value is { key: 1 }
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
