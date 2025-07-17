@@ -19,16 +19,34 @@ const tally = require("./tally.js");
 // Given a function called tally
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
+test(`when tally is passed an array of items, if should return an object containing the count for each unique item`, () => {
+    arr = ['a', 'b', 'c'];
+    targetOutput = {a : 1, b: 1, c: 1};
+    expect(tally(arr)).toEqual(targetOutput);
+})
 
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+test("tally on an empty array returns an empty object", () => {
+    emptyArr = [];
+    expect(tally(emptyArr)).toEqual({});
+});
 
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+test(`when tally is passed an array of items, if should return an object containing the count for each unique item`, () => {
+    arr = ['a', 'a', 'a', 'b', 'b', 'c'];
+    targetOutput = {a : 3, b: 2, c: 1};
+    expect(tally(arr)).toEqual(targetOutput);
+})
 
 // Given an invalid input like a string
 // When passed to tally
-// Then it should throw an error
+// Then it should throw an error(
+// This already throws a TypeError without adding extra code, but the explanation it gives might not be helpful if someone couldn't see the code for the tally function. 
+test(`when tally is passed invalid input like a string, it should throw an error`, () => {
+    invalidInput = 'snowlover';
+    expect(()=>{tally(invalidInput)}).toThrow();
+})
