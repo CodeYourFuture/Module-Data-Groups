@@ -1,6 +1,12 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () => {
+  testArray1 = [
+    ["US", "USD"],
+    ["DRC", "CDF"],
+  ];
+  expect(createLookup(testArray1)).toStrictEqual({ US: "USD", DRC: "CDF" });
+});
 
 /*
 
