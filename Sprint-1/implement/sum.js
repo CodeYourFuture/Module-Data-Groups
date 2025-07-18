@@ -1,10 +1,7 @@
 function sum(arr) {
-  return arr.reduce((total, current) => {
-    if (typeof current === "number") {
-      return total + current;
-    }
-    return total;
-  }, 0);
+  return arr
+    .filter((item) => typeof item === "number")
+    .reduce((total, num) => total + num, 0);
 }
 
 module.exports = sum;
