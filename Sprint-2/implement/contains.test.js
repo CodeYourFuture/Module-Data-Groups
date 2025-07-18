@@ -20,16 +20,41 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("contains on empty object returns false", () => {
+  const object = {};
+
+  expect(contains(object, "cat")).toBe(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("Given object with properties, should return true if the property name is in the object", () => {
+  const object1 = {
+    test1: 56,
+    test2: "cat",
+    test3: "dog",
+  };
+  expect(contains(object1, "test2")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+test("When the property name isn't in the object, should return false", () => {
+  const object2 = {
+    test4: 52,
+    test5: "mango",
+    test6: "banana",
+  };
+  expect(contains(object2, "test7")).toBe(false);
+});
 
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("Given invalid parameters, should return false or an error", () => {
+  const array1 = ["duo", "mono", 105];
+
+  expect(contains(array1, "mono")).toBe(false);
+});
