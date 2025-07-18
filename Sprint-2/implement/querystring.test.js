@@ -28,3 +28,18 @@ test("parses querystring without key", () => {
     "": "Python", // Empty key should be handled
   });
 });
+
+test("parses query string with multiple = in value", () => {
+  const input = "math=2+2=4";
+  const expected = { math: "2+2=4" };
+  expect(parseQueryString(input)).toEqual(expected);
+});
+
+test("parses multiple key-value pairs with = in one of the values", () => {
+  const input = "name=John&equation=x=y+1";
+  const expected = {
+    name: "John",
+    equation: "x=y+1"
+  };
+  expect(parseQueryString(input)).toEqual(expected);
+});
