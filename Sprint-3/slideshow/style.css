@@ -1,1 +1,18 @@
 /** Write your CSS in here **/
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+img {
+    width: 600px;
+    height: 500px;
+    margin: 10px;
+}
+button {
+    width: 110px;
+    height: 50px;
+    margin: 5px;
+}
