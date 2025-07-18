@@ -503,3 +503,9 @@ function displayQuote() {
   document.getElementById("quote").textContent = `"${newQuote.quote}"`;
   document.getElementById("author").textContent = `— ${newQuote.author}`;
 }
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  displayQuote();
+  document.getElementById("new-quote").addEventListener("click", displayQuote);
+});
