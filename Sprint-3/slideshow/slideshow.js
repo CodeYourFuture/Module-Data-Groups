@@ -2,6 +2,10 @@ const images = [
     "./assets/cute-cat-a.png",
     "./assets/cute-cat-b.jpg",
     "./assets/cute-cat-c.jpg",
+    "./assets/cute-cat-d.png",
+    "./assets/cute-cat-e.png",
+    "./assets/cute-cat-f.png",
+
 ];
 function setup(){
 buttonBack = document.getElementById("backward-btn");
