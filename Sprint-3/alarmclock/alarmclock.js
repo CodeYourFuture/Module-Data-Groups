@@ -30,8 +30,8 @@ function setAlarm() {
 
 function updateDisplayTime(inputTime){
   const timeRemain = document.getElementById("timeRemaining");
-  let min = String(Math.floor(inputTime / 60)).padStart(2, "0");
-  let sec = String(inputTime % 60).padStart(2, "0");
+  const min = String(Math.floor(inputTime / 60)).padStart(2, "0");
+  const sec = String(inputTime % 60).padStart(2, "0");
   timeRemain.textContent = `Time Remaining: ${min}:${sec}`;
 }
 // DO NOT EDIT BELOW HERE
