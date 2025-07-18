@@ -5,12 +5,12 @@ function tally(array) {
     const counts = {};
 
   for (const item of array) {
-    if (counts[item]) {
-      counts[item] += 1;
-    } else {
-      counts[item] = 1;
-    }
+  if (item === undefined || item === null || typeof item === "object" || typeof item === "function") {
+    continue; // Skip invalid or problematic values
   }
+  const key = String(item); // Convert to string to avoid type confusion
+  counts[key] = (counts[key] || 0) + 1;
+}
 
   return counts;
 }

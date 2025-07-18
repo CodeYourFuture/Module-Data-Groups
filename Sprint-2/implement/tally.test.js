@@ -44,3 +44,11 @@ test("tally counts unique items in an array", () => {
 test("tally throws an error for invalid input", () => {
     expect(() => tally("invalid input")).toThrow("Input must be an array");
     });
+
+    
+// Given an array with mixed data types
+  test("tally skips undefined, null, objects, and functions", () => {
+  const currentOutput = tally(['a', undefined, null, {}, () => {}, 'a']);
+  const targetOutput = { a: 2 };
+  expect(currentOutput).toEqual(targetOutput);
+});
