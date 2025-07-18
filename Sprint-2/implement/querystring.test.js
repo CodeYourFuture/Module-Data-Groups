@@ -43,3 +43,9 @@ test("parses multiple key-value pairs with = in one of the values", () => {
   };
   expect(parseQueryString(input)).toEqual(expected);
 });
+
+test("parses URL encoded query strings correctly", () => {
+  const input = "name=Saleh%20O&city=New%20York";
+  const expected = { name: "Saleh O", city: "New York" };
+  expect(parseQueryString(input)).toEqual(expected);
+});
