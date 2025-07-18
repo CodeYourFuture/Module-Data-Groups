@@ -9,8 +9,10 @@ function calculateMedian(list) {
   // To correct the implementation with the test feedback, we need first to ensure that the function detects that list is an array of numbers and returns null if it is not.
   if (!Array.isArray(list)) return null;
 
-  // Secondly, we need to implement a function that filter out non numeric values.
-  const numbers = list.filter((item) => typeof item === "number");
+  // Secondly, we need to implement a function that filter out non numeric values and NAN.
+  const numbers = list.filter(
+    (item) => typeof item === "number" && !Number.isNaN(item)
+  );
 
   // Thirdly, we need  to make sure that the function returns null if the list is empty or has no numeric values.
   if (numbers.length === 0) {
