@@ -1,4 +1,4 @@
-var flashColor, secondsInterval, inputTime; 
+let flashColor, secondsInterval, inputTime; 
 
 function setAlarm() {
   const userInput=document.getElementById("alarmSet");
