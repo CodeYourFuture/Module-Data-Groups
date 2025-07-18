@@ -14,6 +14,12 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   let seconds  = parseInt(input.value, 10);
 
+  if (isNaN(seconds) || seconds <= 0 || input.value.trim() === "") {
+    alert("Please enter a valid number!");
+    return;
+  }
+
+
   clearInterval(countdownInterval);
   updateDisplay(seconds);
 
@@ -26,7 +32,7 @@ function setAlarm() {
       playAlarm();
       document.body.style.backgroundColor = "red";
       return;
-    }
+      }
 
     updateDisplay(seconds);
   }, 1000);
@@ -49,7 +55,10 @@ function setup() {
   });
 
   document.getElementById("stop").addEventListener("click", () => {
+    clearInterval(countdownInterval);
     pauseAlarm();
+    document.body.style.backgroundColor = "white";
+    document.getElementById("timeRemaining").textContent = "";
   });
 }
 
