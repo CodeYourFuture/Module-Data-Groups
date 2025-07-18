@@ -11,7 +11,7 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-ingredients:`);
+ingredients are:`);
 recipe.ingredients.forEach((ingredient) => {
   console.log(ingredient);
 });
