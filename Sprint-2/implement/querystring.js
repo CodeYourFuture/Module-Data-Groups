@@ -3,14 +3,25 @@ function parseQueryString(queryString) {
   if (queryString.length === 0) {
     return queryParams;
   }
-  const keyValuePairs = queryString.split("&");
+  const keyValuePairs = queryString;
+  let first = "";
+  let second = "";
+  let many = [];
+  for (let pair = 0 ; pair <  keyValuePairs.length ; pair++) {
+    if (!many.includes("=")) {
+      if (keyValuePairs[pair] == "=") {
+        many.push("=");
+      } else {
+        first += keyValuePairs[pair];
+      }
+    } else {
+      second += keyValuePairs[pair];
+    }
 
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
   }
-
+  queryParams[first] = second;
   return queryParams;
 }
+parseQueryString("equation=x=y+1");
 
 module.exports = parseQueryString;

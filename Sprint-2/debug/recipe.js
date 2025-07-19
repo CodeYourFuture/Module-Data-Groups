@@ -9,7 +9,11 @@ const recipe = {
   serves: 2,
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
+console.log(recipe.title);
+console.log(`serves:${recipe.serves}`);
+console.log(`ingredients:`);
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+for (let i of recipe.ingredients) {
+  console.log(i);
+}
+// We should loop recipe.ingredients  to  log them out separately 
