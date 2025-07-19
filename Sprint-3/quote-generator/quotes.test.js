@@ -2,7 +2,7 @@
 There are some Tests in this file that will help you work out if your code is working.
 */
 
-const path = require("path");
+const path = require("./quotes");
 const { JSDOM } = require("jsdom");
 const { default: userEvent } = require("@testing-library/user-event");
 
