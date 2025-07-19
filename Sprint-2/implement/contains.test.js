@@ -44,7 +44,7 @@ test("When key does not exist in object", () => {
 // Then it should return false or throw an error
 test("When value is not an object", () => {
   expect(contains(null, 'a')).toBe(false);
-  //expect(contains(123, 'a')).toBe(false);
-  //expect(contains("string", 'a')).toBe(false);
-  //expect(contains([], 'a')).toBe(false); 
+  expect(contains(123, 'a')).toBe(false);
+  expect(contains("string", 'a')).toBe(false);
+  expect(contains([], 'a')).toBe(false); 
 });
