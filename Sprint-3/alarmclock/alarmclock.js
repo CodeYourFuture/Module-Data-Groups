@@ -2,7 +2,8 @@ let countdown;
 let remainingTime = 0;
 
 function setAlarm() {
-
+//this fuction called when (when set alarm or clicked the set button
+  // Reset remaining time if already counting down
   // Get input value in seconds
   const input = document.getElementById("alarmSet").value;
   remainingTime = parseInt(input, 0);
@@ -27,9 +28,20 @@ function setAlarm() {
     }
   }, 1000);
 }
+
+// Updates both the title and <h1> display
+function updateDisplay(seconds) {
+  const formattedTime = formatTime(seconds);
+  document.title = `app: ${formattedTime}`;
+  document.getElementById("timeRemaining").textContent = `Time Remaining: ${formattedTime}`;
 }
 
-//this fuction called when (when set alarm or clicked the set button
+// Formats seconds to MM:SS
+function formatTime(seconds) {
+  const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  return `${mins}:${secs}`;
+}
 
 // DO NOT EDIT BELOW HERE
 
