@@ -1,4 +1,12 @@
+let countdown;
+let remainingTime = 0;
+
 function setAlarm() {}
+//this fuction called when (when set alarm or clicked the set button
+
+  // Get input value in seconds
+const input = document.getElementById("alarmSet").value;
+  remainingTime = parseInt(input, 0);
 
 // DO NOT EDIT BELOW HERE
 
