@@ -1,1 +1,41 @@
 /** Write your CSS in here **/
+body {
+    margin :0;
+    min-height : 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.box {
+    position: center;
+    width: 900px;
+    height: 350px;
+    
+    background: yellow;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#quote {
+    font-size: 1.7em;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    color: #1B2A59;
+}
+
+#author {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: rgb(8, 73, 73);
+}
+
+button{
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: rgb(84, 84, 204);
+}
