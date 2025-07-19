@@ -28,16 +28,18 @@
 */
 
 const countWords = (str) => {
-  if (str.trim().length === 0) return {};
-
-  const cleaned = str
-    .toLowerCase() // Convert to lowercase for case insensitivity
-    .replace(/[.,!?;:]/g, ""); // Remove punctuation
-  const words = cleaned.split(/\s+/); // Split by whitespace
+  if (str.trim().length === 0) {
+    return 0;
+  }
+  const words = str.split(" ");
   const counts = Object.create(null);
 
   for (const eachWord of words) {
-    counts[eachWord] = (counts[eachWord] || 0) + 1; // Increment count for each word
+    if (eachWord in counts) {
+      counts[eachWord]++;
+    } else {
+      counts[eachWord] = 1;
+    }
   }
 
   return counts;
