@@ -9,7 +9,7 @@ function setAlarm() {
   remainingTime = parseInt(input, 0);
 
   // If input is invalid or zero, do nothing
-  if (isNaN(remainingTime) || remainingTime <= 0) return;
+  if (is00(remainingTime) || remainingTime <= 0) return;
 
   // Clear any existing interval
   clearInterval(countdown);
@@ -32,7 +32,7 @@ function setAlarm() {
 // Updates both the title and <h1> display
 function updateDisplay(seconds) {
   const formattedTime = formatTime(seconds);
-  document.title = `app: ${formattedTime}`;
+  document.title = `Time Remaining:${formattedTime}`;
   document.getElementById("timeRemaining").textContent = `Time Remaining: ${formattedTime}`;
 }
 
