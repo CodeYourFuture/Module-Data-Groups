@@ -1,4 +1,6 @@
 // Predict and explain first...
+// To log each ingredient in new line, first we need to access the ingredients property through 'recipe.ingredients'
+// and then then join all ingredients with newline character.
 
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
@@ -10,6 +12,12 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
+/* console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe}`);*/
+
+/******** Fixing the code **********/
+
+console.log(`${recipe.title} serves ${recipe.serves}
+ingredients:
+${recipe.ingredients.join("\n")}`);
