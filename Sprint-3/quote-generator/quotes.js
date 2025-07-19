@@ -12,6 +12,8 @@ function displayQuote() {
   
   document.getElementById("quote").textContent = `"${newQuote.quote}"`;
   document.getElementById("author").textContent = `— ${newQuote.author}`;
+
+  lastQuote = newQuote;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
