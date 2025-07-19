@@ -35,3 +35,9 @@ test ("parses querystring with no equal sign", () => {
     bye: ""
   });
 });
+test ("parses full URL with query strings", () => {
+  expect(parseQueryString("https://example.com?name=John&age=30")).toEqual({
+    name: "John",
+    age: "30"
+  });
+});
