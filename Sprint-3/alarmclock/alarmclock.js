@@ -1,21 +1,31 @@
-  function setAlarm() {
+let countdownInterval;
+
+function setAlarm() {
   const inputArea = document.getElementById("alarmSet");
-  const seconds = Number(inputArea.value);
+  let remaining = Number(inputArea.value);
 
-  if (isNaN(seconds) || seconds <= 0) return;
+  if (isNaN(remaining) || remaining <= 0) return;
 
-  for (let i = 0; i <= seconds; i++) {
-    setTimeout(() => {
-      const countDown = document.getElementById("timeRemaining");
-      const remaining = seconds - i;
-      countDown.innerText = `Time Remaining: 00:${String(remaining).padStart(2, '0')}`;
+  updateDisplay(remaining); // update first time immediately
 
-      if (remaining === 0) {
-        playAlarm(); 
-      }
-    }, i * 1000); 
-  }
+  countdownInterval = setInterval(() => {
+    remaining--;
+    updateDisplay(remaining);
+
+    if (remaining <= 0) {
+      clearInterval(countdownInterval);
+      playAlarm();
+    }
+  }, 1000);
 }
+
+function updateDisplay(seconds) {
+  const countDown = document.getElementById("timeRemaining");
+  const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  countDown.innerText = `Time Remaining: ${minutes}:${secs}`;
+}
+
 
 // DO NOT EDIT BELOW HERE
 
