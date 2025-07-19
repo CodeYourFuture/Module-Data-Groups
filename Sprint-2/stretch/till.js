@@ -8,7 +8,10 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += parseInt(coin) * quantity;
+    total += coinValues[coin] * quantity;
+    if (!(coin in coinValues)) {
+      throw new Error(`Coin ${coin} is not recognized`);
+    }
   }
 
   return `£${(total / 100).toFixed(2)}`;
