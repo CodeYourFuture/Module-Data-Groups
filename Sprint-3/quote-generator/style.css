@@ -1,1 +1,80 @@
 /** Write your CSS in here **/
+/* General page styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Center quote container */
+.container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Quote text */
+#quote {
+  font-size: 1.5rem;
+  color: orange;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#quote::before {
+  content: '“';
+  font-size: 3rem;
+  position: absolute;
+  left: -30px;
+  top: -10px;
+  color: orange;
+}
+
+/* Author text */
+#author {
+  font-size: 1rem;
+  color: orange;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+/* New quote button */
+#new-quote {
+    
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#new-quote:hover {
+  background-color: darkorange;
+}
+
+/* Auto-play label and status */
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: orange;
+}
+
+#autoStatus {
+  font-size: 0.9rem;
+  color: orange;
+  margin-top: 10px;
+}
