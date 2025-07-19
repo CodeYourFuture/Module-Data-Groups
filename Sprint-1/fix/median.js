@@ -16,7 +16,7 @@ function calculateMedian(list) {
   if (onlyNumbers.length === 0) return null;
 
   //sorting Numeric values
-  const sorted = onlyNumbers.slice().sort((a, b) => a - b);
+  const sorted = [...onlyNumbers].sort((a, b) => a - b);
 
   //Find middle index
   const mid = Math.floor(sorted.length / 2);
