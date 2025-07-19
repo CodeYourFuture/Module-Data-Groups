@@ -58,7 +58,7 @@ function setup() {
     clearInterval(countdownInterval);
     pauseAlarm();
     document.body.style.backgroundColor = "white";
-    document.getElementById("timeRemaining").textContent = "Time Remaining: 00:00";
+    updateDisplay(0);
     document.getElementById("alarmSet").value = "";
   });
 }
