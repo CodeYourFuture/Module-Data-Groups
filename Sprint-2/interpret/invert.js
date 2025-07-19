@@ -33,4 +33,15 @@ console.log(invert({ a: 1, b: 2 }));
 // d) Explain why the current return value is different from the target output
 // it is different because current code is not doing what we was expecting.
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
-module.exports = invert;
+test("invert swaps keys and values in an object", () => {
+  const currentOutput = invert({ x: 10, y: 20 });
+  const targetOutput = { "10": "x", "20": "y" };
+  
+  expect(currentOutput).toEqual(targetOutput);
+});
+test("invert handles multiple key-value pairs", () => {
+  const currentOutput = invert({ a: 1, b: 2, c: 3 });
+  const targetOutput = { "1": "a", "2": "b", "3": "c" };
+  
+  expect(currentOutput).toEqual(targetOutput);
+});
