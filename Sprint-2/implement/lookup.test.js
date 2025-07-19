@@ -31,17 +31,14 @@ It should return:
    'CA': 'CAD'
  }
 */
-Test(
-  "given an array of country-currency pairs, createLookup should return an object with country codes as keys and currency codes as values",
-  () => {
-    expect(
-      createLookup([
-        ["US", "USD"],
-        ["CA", "CAD"],
-      ])
-    ).toEqual({
-      US: "USD",
-      CA: "CAD",
-    });
-  }
-);
+test("given an array of country-currency pairs, createLookup should return an object with country codes as keys and currency codes as values", () => {
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toEqual({
+    US: "USD",
+    CA: "CAD",
+  });
+});
