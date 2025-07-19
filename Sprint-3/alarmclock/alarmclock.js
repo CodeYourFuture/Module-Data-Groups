@@ -14,7 +14,7 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   let seconds  = parseInt(input.value, 10);
 
-  if (isNaN(seconds) || seconds <= 0 || input.value.trim() === "") {
+  if (isNaN(seconds) || seconds <= 0) {
     alert("Please enter a valid number!");
     return;
   }
