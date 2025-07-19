@@ -28,11 +28,12 @@ test("parses querystring values containing =", () => {
     });
   });
 
-  test("ignores empty key-value pairs created by multiple '&'", () => {
+  test("handles multiple '&' by returning correct object and no empty keys", () => {
     expect(parseQueryString("a=1&&b=2")).toEqual({
       "a": "1",
       "b": "2"
     });
+    expect(Object.keys(result)).not.toContain("")
   });
 
   test("parses querystring values containing '='", () => {
@@ -40,5 +41,4 @@ test("parses querystring values containing =", () => {
       "equation": "x=y+1",
     });
   });
-
 });

@@ -19,8 +19,6 @@ function contains(obj,propertyName) {
     
 }
 
-console.log(contains({first_name :'john'}, 'first_name'))
-console.log(contains({place_of_birth :'newYork'}, 'first_name'))
-console.log(contains({}, 'surname'))
-console.log(contains('hello', 'surname'))
+
+
 module.exports = contains;
