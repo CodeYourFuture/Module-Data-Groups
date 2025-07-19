@@ -1,3 +1,15 @@
+let quoteP = document.querySelector("#quote");
+let authorP = document.querySelector("#author");
+
+
+
+document.getElementById("new-quote").addEventListener("click", function() {
+  let qq = pickFromArray(quotes);
+  quoteP.innerText = qq.quote;
+  authorP.innerText = `- ${qq.author}`;
+});
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -491,3 +503,6 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+let qqq = pickFromArray(quotes);
+quoteP.innerText = qqq.quote;
+authorP.innerText = `- ${qqq.author}`;
