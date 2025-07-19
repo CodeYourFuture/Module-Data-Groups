@@ -19,13 +19,16 @@ function totalTillAlternative(till) {
 
   for (const [coin, quantity] of Object.entries(till)) {
     // Convert coin to a number and multiply by quantity
-    total += Number(coin.slice(0, -1)) * quantity; // Remove 'p' from coin string
-  }
+    total += coinValues[coin] * quantity;
+
+  if (!coin in coinValues) {
+      throw new Error(`Coin ${coin} is not recognized`);
+    }
 
   return `£${(total / 100).toFixed(2)}`;
 }
 
-const till = {
+const coinValues = {
   "1p": 10,
   "5p": 6,
   "50p": 4,
