@@ -1,28 +1,19 @@
 function newQuote() {
   // Get a random quote from the quotes array
+  console.log("new quote being clicked")
   const randomQuote = pickFromArray(quotes);
-  
+  console.log(randomQuote)
   // Update the quote and author in the HTML
   document.getElementById('quote').textContent = randomQuote.quote;
   document.getElementById('author').textContent = `- ${randomQuote.author}`;
 }
+
+
 document.querySelector('#new-quote').addEventListener('click', newQuote);
 
-function thirdQuotePick() {
-  // As the test is mocking Math.random() to return specific values
-  // for us to be able to pick the third quote, we have to call newQuote() and it does it for us
-  // .mockReturnValueOnce(0.02)  // index 2 → Einstein
-  // newQuote();
 
-  // this is how we can get the third quote if we didn't have the mock test
-  const thirdQuote = quotes[2];
-  document.getElementById('quote').textContent = thirdQuote.quote;
-  document.getElementById('author').textContent = `-${thirdQuote.author}`;
-};
-
-// is called when the page loads to set the initial quote
 document.addEventListener('DOMContentLoaded', () => {  
-  thirdQuotePick();
+  newQuote;
 });
 
 
