@@ -509,6 +509,9 @@ authorElements.textContent = randomQuote.author;
 }
 // use "DOMContentloaded" to ensure all html elements are loaded before updating the DOM to prevent returning null
 document.addEventListener("DOMContentLoaded", function(){
+  
+  displayRandomQuote(); // calls a random quote on page load
+  
   const newQuoteButton = document.getElementById("new-quote"); // gets the html element for the button new-quote
   newQuoteButton.addEventListener("click", displayRandomQuote); // shows a a random new quote each time the buttons clicked
 });
