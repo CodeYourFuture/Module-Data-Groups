@@ -11,7 +11,7 @@ function totalTill(till) {
     total += parseInt(coin) * quantity;
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
 function totalTillAlternative(till) {
@@ -22,7 +22,7 @@ function totalTillAlternative(till) {
     total += Number(coin.slice(0, -1)) * quantity; // Remove 'p' from coin string
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
 const till = {
@@ -36,8 +36,8 @@ const till = {
 // The expected output should be "£4.4" based on the given till object
 const result = totalTill(till);
 console.log(`Result: ${result}`); // Expected output: "£1.96"
-console.log(`Expected: £4.4`);
-console.log(`Test passes: ${result === "£4.4"}`); // This will be false, indicating the function needs fixing
+console.log(`Expected: £4.40`);
+console.log(`Test passes: ${result === "£4.40"}`); // This will be false, indicating the function needs fixing
 console.log(`Both methods match: ${result === totalTillAlternative(till)}`); // This will be true if both methods are correct
 console.log(`Alternative method result: ${totalTillAlternative(till)}`); // Expected output: "£4.4"
 
