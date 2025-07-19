@@ -1,11 +1,6 @@
 function contains(obj, property) {
   // Safety check: handle invalid inputs
-  if (
-    typeof obj !== "object" ||
-    obj === null ||
-    obj === undefined ||
-    Array.isArray(obj)
-  ) {
+  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
     return false; // Return false for non-object types, null, undefined, or arrays
   }
 
