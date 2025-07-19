@@ -1,11 +1,8 @@
 let lastQuote = null;
 
 function displayQuote() {
-  let newQuote;
-  do {
-    newQuote = pickFromArray(quotes);
-  } while (newQuote === lastQuote && quotes.length > 1);
-
+  let newQuote = pickFromArray(quotes);
+  
   document.getElementById("quote").textContent = `"${newQuote.quote}"`;
   document.getElementById("author").textContent = `— ${newQuote.author}`;
 }
