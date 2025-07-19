@@ -12,12 +12,12 @@ function thirdQuotePick() {
   // As the test is mocking Math.random() to return specific values
   // for us to be able to pick the third quote, we have to call newQuote() and it does it for us
   // .mockReturnValueOnce(0.02)  // index 2 → Einstein
-  newQuote();
+  // newQuote();
 
   // this is how we can get the third quote if we didn't have the mock test
-  // const thirdQuote = quotes[2];
-  // document.getElementById('quote').textContent = thirdQuote.quote;
-  // document.getElementById('author').textContent = - ${thirdQuote.author};
+  const thirdQuote = quotes[2];
+  document.getElementById('quote').textContent = thirdQuote.quote;
+  document.getElementById('author').textContent = `-${thirdQuote.author}`;
 };
 
 // is called when the page loads to set the initial quote
