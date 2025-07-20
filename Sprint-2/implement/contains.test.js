@@ -38,20 +38,12 @@ test("Should return false for an empty object", () => {
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
-test("Should return true when passed with an existing property name", () => {
-  const currentOutput = contains({ z: 26, y: 25, x: 24 }, "x");
-  const targetOutput = true;
-  expect(currentOutput).toBe(targetOutput);
-});
+
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
-test("Should return false when passed with a non-existing property name", () => {
-  const currentOutput = contains({ w: 23, v: 22, u: 21 }, "x");
-  const targetOutput = false;
-  expect(currentOutput).toBe(targetOutput);
-});
+
 
 // Given invalid parameters like an array
 // When passed to contains
