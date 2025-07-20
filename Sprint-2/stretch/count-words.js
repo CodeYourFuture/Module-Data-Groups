@@ -33,10 +33,7 @@ function countWords(str) {
     acc[word] = (acc[word] || 0) + 1;
     return acc;
   }, {});
-  const sorted = Object.entries(count).sort((a, b) => b[1] - a[1]);
-  return sorted;
+  return count;
 }
 
-
-console.log(countWords("you and me and you"));
 
