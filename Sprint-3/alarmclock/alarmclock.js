@@ -1,9 +1,9 @@
-let flashColor, secondsInterval, inputTime; 
+let flashColor, secondsInterval; 
 
 function setAlarm() {
   const userInput=document.getElementById("alarmSet");
   
-  inputTime=parseInt(userInput.value);
+  const inputTime=parseInt(userInput.value);
   if (inputTime <= 0 || isNaN(inputTime)) {
     alert("invalid input!!!");
     return;
