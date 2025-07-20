@@ -51,3 +51,7 @@ it("ignores non-numbers and returns the sum of the numerical elements",()=>{
 it("returns the least surprising value amongst non-numbers",()=>{
     expect(sum(["h",NaN,true])).toBe(0);
 })
+
+it("if the parameter is not an array returns null", () => {
+  expect(sum("")).toBe(null);
+});
