@@ -1,6 +1,8 @@
 function sum(elements) {
   //it checks if the parameter is an array, if not it returns the message 'not an array'
-  if (!Array.isArray(elements)) return "not an array";
+  if (!Array.isArray(elements)){
+    console.log('not an array') 
+    return null};
   
   //it filters out all non-numbers including NaN
   const elementsFiltered = elements.filter((item) => typeof item ==="number"&& !Number.isNaN(item));
@@ -17,5 +19,6 @@ function sum(elements) {
   }
   return sumArray;
 }
+console.log(sum([1,2]))
 
 module.exports = sum;
