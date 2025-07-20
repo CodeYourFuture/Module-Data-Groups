@@ -17,21 +17,22 @@ as the object doesn't contains a key of 'c'
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
 
-it("contains an empty object, returns false", () => {
-  expect(contains({}, "a")).toBe(false);
-});
+describe('Testing contains()', () => {
 
+  it("given an empty object, returns false", () => {
+    expect(contains({}, "a")).toBe(false);
+  });
 
-it("contains an object with existing property, returns true", () => {
-  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
-});
+  it("given an object with existing property, returns true", () => {
+    expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+  });
 
+  it("given an object with non-existent property, returns false", () => {
+    expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+  });
 
-it("contains an object with non-existent property, returns false", () => {
-  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
-});
+  it("given invalid parameters, returns false", () => {
+    expect(contains(null, 42)).toBe(false);
+  });
 
-
-it("contains invalid parameters, returns false", () => {
-  expect(contains(null, 42)).toBe(false);
 });
