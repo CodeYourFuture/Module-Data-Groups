@@ -11,6 +11,5 @@ function findMax(elements) {
   const largestNumber = omnlyNumbers.splice(omnlyNumbers.length - 1)[0];
   return largestNumber;
 }
-console.log(findMax([-9,-45,-6]))
-//findMax([-9, -45, -6]);
+
 module.exports = findMax;
