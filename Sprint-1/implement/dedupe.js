@@ -4,7 +4,7 @@ function dedupe(duplicate) {
 
 
         //if the array is empty it returns an empty array
-    if(duplicate.length===0)return [];
+    //if(duplicate.length===0)return [];
 
 
         //declares a variable with the same  value of duplicate but with only unique elements
