@@ -39,6 +39,5 @@ function getMostFrequentValue(freqs) {
 
   return maxFreq === 0 ? NaN : mode;
 }
-console.log(calculateMode([2, 4, 1, 2, 3, 2, 1]))
 
 module.exports = calculateMode;
