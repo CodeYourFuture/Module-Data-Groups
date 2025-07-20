@@ -8,7 +8,8 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin.slice("0", coin.length - 1) * quantity;
+    const x = coin.slice(0, coin.length - 1) * quantity
+    total += x;
   }
 
   return `£${total / 100}`;
@@ -21,7 +22,6 @@ const till = {
   "20p": 10, 
 };
 const totalAmount = totalTill(till);
-
 
 // a) What is the target output when totalTill is called with the till object
     // is to return the total amounts in pounds which is in this example qual to £4.4
