@@ -21,4 +21,15 @@ test ("returns empty object when input is empty", () => {
 test("invert with numeric keys", () => {
     expect(invert({ 1: 'one', 2: 'two' })).toEqual({ one: '1', two: '2' });
 });
+test("invert with duplicate values", () => {
+    expect(invert({ a: 1, b: 2, c: 1 })).toEqual({
+    '1': ['a', 'c'],
+    '2': 'b'
+});
+});
+test("invert with duplicate values", () => {
+  expect(invert({ a: 1, b: 2, c: 1 })).toEqual({ '1': ['a', 'c'], '2': 'b' });
+});
+
+
 

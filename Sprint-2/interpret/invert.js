@@ -10,19 +10,34 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    // invertedObj.key = value;
-    invertedObj[value] = key;
+    const valKey = String(value); 
+    if (invertedObj.hasOwnProperty(valKey)) {
+      if (Array.isArray(invertedObj[valKey])) {
+        invertedObj[valKey].push(key);
+      } else {
+        // Convert to array with existing + new key
+        invertedObj[valKey] = [invertedObj[valKey], key];
+      }
+    } else {
+      invertedObj[valKey] = key;
+    }
   }
 
   return invertedObj;
 }
-console.log(invert({ a: 1, b: 2 }));
 
 // a) What is the current return value when invert is called with { a : 1 }
-// Object.entries({ a: 1 })  gives [['a', 1]]
+// Object.entries({ a: 1 })  returns [['a', 1]] - an array with one pair: key "a" and value 1
 // so in the loop key = "a", value = 1
-// the line invertedObj.key = value;  it adds a property with the key "key"  rather than using the variable key.
-// { key: 1 }
+// If you write invertedObj.key = value;
+
+     //This creates a property literally named "key" on invertedObj,
+
+     //So the object becomes { key: 1 } — which is not what we want.
+// Instead, using bracket notation: invertedObj[key] = value;
+    //Uses the value of the variable key (which is "a"),
+    //So it creates a property "1" with value "a" on the inverted object,
+    //Resulting in { 1: "a" }, which is the intended behavior.
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
 // {key: 2} it overwrites the previous value of key
