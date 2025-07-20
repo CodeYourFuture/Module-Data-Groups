@@ -1,1 +1,28 @@
 /** Write your CSS in here **/
+body {
+    background-color: pink;
+}
+.button {
+    background-color: lightblue;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+#quote {
+    font-size: 24px;
+    font-style: italic;
+    color: darkblue;
+    text-align: center;
+}
+#author {
+    font-size: 20px;
+    font-style: italic;
+    color: darkgreen;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    color: darkred;
+}
