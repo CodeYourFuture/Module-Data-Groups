@@ -1,13 +1,18 @@
 let countdownInterval;
+
 function setAlarm() {
   const input = document.getElementById("alarmSet");
-  let seconds = Number(input.value);
-  if (isNaN(seconds) || seconds <= 0) {
+  const inputValue = input.value.trim();
+  if (!/^\d+$/.test(inputValue)) {
     alert("Please enter a valid number of seconds.");
-    return; 
-}
-updateDisplay(seconds);
-countdownInterval = setInterval(() => {
+    return;
+  }
+  let seconds = Number(inputValue);
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+  updateDisplay(seconds);
+  countdownInterval = setInterval(() => {
     seconds--;
     if (seconds <= 0) {
       clearInterval(countdownInterval);
