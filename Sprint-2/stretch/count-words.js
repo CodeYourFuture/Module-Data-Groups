@@ -27,7 +27,7 @@
 3. Order the results to find out which word is the most common in the input
 */
 const countWords = (str) => {
-  str = str.replace(/[.,!?]/g, "").toLowerCase();
+  str = str.replace(/[.,!?]/g, "").toLowerCase().trim();
   let count = {};
   let strToArr = str.split(/\s+/);
   for (let i = 0; i < strToArr.length; i++) {
@@ -40,4 +40,4 @@ const countWords = (str) => {
   return count;
 };
 
-console.log(countWords("Hello      World"));
+console.log(countWords("    Hello      World     "));
