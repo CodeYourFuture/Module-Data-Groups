@@ -494,21 +494,24 @@ const quotes = [
 
 const quotesP = document.getElementById("quote");
 const authorP = document.getElementById("author");
-const newQuoteButton = document.getElementById("new-quote");
-newQuoteButton.addEventListener("click", () => {
-  const h1 = document.getElementById("h1");
-  h1.style.display = 'none';
-  const leftBlock = document.getElementById('left-block');
-  leftBlock.style.textAlign = "right"
-  
-  
-  
+const initialView = document.getElementById("initial-view");
+const quoteView = document.getElementById("quote-view");
+const startBtn = document.getElementById("start-btn");
+const newQuoteBtn = document.getElementById("new-quote");
 
+function showFirstQuote() {
   const randomQuote = pickFromArray(quotes);
-  
-
-  quotesP.innerHTML = `<span><i class="fas fa-quote-left"></i></span>
-
-  ${randomQuote.quote}`;
+  quotesP.innerHTML = `<span><i class="fas fa-quote-left"></i></span> ${randomQuote.quote}`;
   authorP.textContent = randomQuote.author;
-});
+  initialView.style.display = "none";
+  quoteView.style.display = "block";
+}
+  
+function showNewQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quotesP.innerHTML = `<span><i class="fas fa-quote-left"></i></span> ${randomQuote.quote}`;
+  authorP.textContent = randomQuote.author;
+}
+
+startBtn.addEventListener("click", showFirstQuote);
+newQuoteBtn.addEventListener("click", showNewQuote);

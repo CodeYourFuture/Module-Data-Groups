@@ -1,5 +1,5 @@
 body {
-    background-color:rgb(241, 195, 165);
+    background-color: #f4e7b0;
     font-family: sans-serif;
     min-height: 100vh;
     display: flex;
@@ -19,13 +19,32 @@ body {
 
 
 }
-h1 {
- margin-bottom: 10px;
+#intro-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#quote {
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 
+#quote-footer {
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+#author {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 
-#new-quote {
+#start-btn, #new-quote {
   align-items: center;
   appearance: none;
   background-color: #fff;
@@ -63,8 +82,7 @@ h1 {
 
 
 
-#quote{
-    font-style: italic;
-    font-weight: bolder;
-    font-size: 36px;
+#start-btn:hover, #new-quote:hover {
+  background: #F6F9FE;
+  transform: translateY(-2px);
 }
