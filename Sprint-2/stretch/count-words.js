@@ -29,7 +29,11 @@
 
 function countWords(string) {
   const punctuation = /[\.,?!]/g; // regular expression to check the following punctuation marks (".", ",", "!", "?")
-  const stringsIntoArray = string.replace(punctuation, "").toLowerCase().split(" "); // remove the punctuation (e.g. ".", ",", "!", "?") from the string and make the string in lower case then split each word as an element of the array
+  const stringsIntoArray = string
+  .replace(punctuation, "")
+  .toLowerCase()
+  .split(" ")
+  .filter(word => word !== ""); // remove the punctuation (e.g. ".", ",", "!", "?") from the string and make the string in lower case then split each word as an element of the array and remove if there are empty strings
   const wordObject = {}; // create an empty object {}
 
   for (const word of stringsIntoArray) {
@@ -48,10 +52,6 @@ function countWords(string) {
       maxCount = count;
       mostCommonWord = word;
     }
-  }
-  console.log("🚀 ~ countWords ~ mostCommonWord:", mostCommonWord)
-  
+  }  
   return wordObject
-  
 }
-console.log(countWords("You and me and you you!!!!!"), )
