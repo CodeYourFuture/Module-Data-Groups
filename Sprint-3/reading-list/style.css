@@ -157,3 +157,95 @@ body {
     max-height: 80px;
   }
 }
+
+
+
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #388f72; 
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; 
+}
+h1{
+  font-family: 'Courier New', Courier, monospace;
+  color: #292b2c;
+}
+
+#reading-list {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 800px; 
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
+}
+
+#reading-list li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee; 
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+  transition: background-color 0.3s ease;
+}
+
+#reading-list li:last-child {
+  border-bottom: none; 
+}
+
+#reading-list li:hover {
+  background-color: #fdfdfd; 
+}
+
+.read-book {
+  background-color: green;
+  border-left: 5px solid black; 
+}
+
+.unread-book {
+  background-color:red; 
+  border-left: 5px solid black; 
+}
+
+.book-cover {
+  width: 150px; 
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 5px;
+  flex-shrink: 0; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-info { 
+  flex-grow: 1; 
+}
+
+.book-title {
+  font-size: 1.25em;
+  font-weight: 600;
+  color:black;
+  margin: 0 0 5px 0; 
+}
+
+.book-author {
+  font-size: 0.95em;
+  color: #2b0303;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  #reading-list li {
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 10px;
+  }
+}
