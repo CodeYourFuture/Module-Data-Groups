@@ -1,34 +1,31 @@
-let flashColor, secondsInterval; 
+let flashColor, secondsInterval;
 
 function setAlarm() {
-  const userInput=document.getElementById("alarmSet");
-  
-  const inputTime=parseInt(userInput.value);
+  const userInput = document.getElementById("alarmSet");
+
+  const inputTime = parseInt(userInput.value);
   if (inputTime <= 0 || isNaN(inputTime)) {
     alert("invalid input!!!");
     return;
   }
-  
-  clearInterval(secondsInterval); 
+
+  clearInterval(secondsInterval);
   clearInterval(flashColor);
   pauseAlarm();
   let remainingTime = inputTime;
   updateDisplayTime(remainingTime);
- 
-    secondsInterval=setInterval(() => {
-      remainingTime--;
+
+  secondsInterval = setInterval(() => {
+    remainingTime--;
     updateDisplayTime(remainingTime);
     if (remainingTime === 0) {
       clearInterval(secondsInterval);
       playAlarm();
-    } 
+    }
   }, 1000);
- 
 }
 
-
-
-function updateDisplayTime(inputTime){
+function updateDisplayTime(inputTime) {
   const timeRemain = document.getElementById("timeRemaining");
   const min = String(Math.floor(inputTime / 60)).padStart(2, "0");
   const sec = String(inputTime % 60).padStart(2, "0");
@@ -45,7 +42,6 @@ function setup() {
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
-   
   });
 }
 
@@ -53,14 +49,13 @@ function playAlarm() {
   audio.play();
   document.getElementById("stop").style.backgroundColor = "rgb(191, 115, 47)";
   document.body.style.backgroundColor = "rgb(218, 178, 119)";
-    flashColor=setInterval(() => {
-    if(document.body.style.backgroundColor === "rgb(218, 178, 119)"){
+  flashColor = setInterval(() => {
+    if (document.body.style.backgroundColor === "rgb(218, 178, 119)") {
       document.body.style.backgroundColor = "white";
-    }else{
+    } else {
       document.body.style.backgroundColor = "rgb(218, 178, 119)";
     }
-    
-   }, 500);
+  }, 500);
 }
 
 function pauseAlarm() {
@@ -70,6 +65,4 @@ function pauseAlarm() {
   document.body.style.backgroundColor = "white";
 }
 
- window.onload = setup;
-
-
+window.onload = setup;
