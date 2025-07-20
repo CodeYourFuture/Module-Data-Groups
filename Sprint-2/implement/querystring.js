@@ -18,5 +18,4 @@ function parseQueryString(queryString) {
   return queryParams;
 }
 
-console.log(parseQueryString("&&name=Ali&&"))
 module.exports = parseQueryString;
