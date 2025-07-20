@@ -14,15 +14,14 @@
 // Examples of use
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
-
 // You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
-}
+
+
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
+  
   {
     quote: "Life isn't about getting and having, it's about giving and being.",
     author: "Kevin Kruse",
@@ -489,5 +488,20 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+const quoteElement = document.getElementById('quote');
+const authorElement = document.getElementById('author');
+const quoteButton = document.getElementById('new-quote');
+function pickFromArray(choices) {
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+function displayRandomQuote(){
+  const selectedQuote = pickFromArray(quotes);
+  quoteElement.textContent = selectedQuote.quote;
+  authorElement.textContent = selectedQuote.author;
 
+  console.log(quoteElement, authorElement, selectedQuote);
+}
+
+displayRandomQuote();
+quoteButton.addEventListener('click', displayRandomQuote);
 // call pickFromArray with the quotes array to check you get a random quote
