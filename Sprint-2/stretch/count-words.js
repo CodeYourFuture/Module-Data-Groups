@@ -13,14 +13,14 @@ function countWords(text) {
     throw new Error("Input must be a string");
   }
 
-  // Clean punctuation and lowercase the string
   const formatted = text
     .toLowerCase()
-    .replace(/[.,!?]/g, "");
+    .replace(/[.,!?]/g, " ") // Replace punctuation with space
+    .trim();
 
-  const words = formatted.split(/\s+/); // Split by one or more spaces
+  const words = formatted.split(/\s+/).filter(Boolean); // Split + filter empty strings
 
-  const result = {};
+  const result = Object.create(null); // Prevent issues with 'constructor'
 
   for (const word of words) {
     if (word in result) {
@@ -30,12 +30,36 @@ function countWords(text) {
     }
   }
 
-  // Sort the result by count descending
   const sorted = Object.entries(result).sort(([, a], [, b]) => b - a);
-
   return Object.fromEntries(sorted);
 }
 
-module.exports = countWords;
+// Tests for countWords
 
-/* */ 
+test("Handles repeated words with punctuation", () => {
+  expect(countWords("Hello,World! Hello World!")).toEqual({
+    hello: 2,
+    world: 2,
+  });
+});
+
+test("Handles built-in object key like 'constructor'", () => {
+  expect(countWords("constructor constructor")).toEqual({
+    constructor: 2,
+  });
+});
+
+test("Handles leading and trailing spaces", () => {
+  expect(countWords("       Hello World      ")).toEqual({
+    hello: 1,
+    world: 1,
+  });
+});
+
+test("Returns empty object for empty string", () => {
+  expect(countWords("")).toEqual({});
+});
+
+test("Throws error for non-string input", () => {
+  expect(() => countWords(123)).toThrow("Input must be a string");
+});
