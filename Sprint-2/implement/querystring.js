@@ -6,8 +6,13 @@ function parseQueryString(queryString) {
   const pairs = queryString.split("&");
 
   for (const pair of pairs) {
-    const [key, ...rest] = pair.split("=");
-    const value = rest.join("="); // Handles multiple '=' signs
+    const [encodedKey, ...encodedRest] = pair.split("=");
+    const encodedValue = encodedRest.join("="); // Handles multiple '=' signs
+
+    // Decode both key and value to handle URL encoding (e.g., 5%25 → 5%)
+    const key = decodeURIComponent(encodedKey);
+    const value = decodeURIComponent(encodedValue);
+
     params[key] = value;
   }
 
@@ -15,4 +20,5 @@ function parseQueryString(queryString) {
 }
 
 module.exports = parseQueryString;
+
 
