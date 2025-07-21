@@ -2,20 +2,29 @@ function setAlarm() {
   //store user input
   let inputValue = document.querySelector("#alarmSet");
   let inputValueToNumber = parseInt(inputValue.value);
-  console.log(typeof inputValueToNumber);
-//convert user input to mm:ss time format
-  const minutes = Math.floor(inputValueToNumber / 60);
-  const seconds = inputValueToNumber % 60;
-  const minutesAndSeconds = `${String(minutes).padStart(2, "0")}:${String( seconds).padStart(2, "0")}`;
-  console.log(minutesAndSeconds);
 
+  //set interval
+  const timer = setInterval(() => {
+    //convert user input to mm:ss time format
+    const minutes = Math.floor(inputValueToNumber / 60);
+    const seconds = inputValueToNumber % 60;
+    let minutesAndSeconds = `${String(minutes).padStart(2, "0")}:${String(
+      seconds
+    ).padStart(2, "0")}`;
 
-  //accessing Time remaining H1
-  const timeLeft = document.querySelector("#timeRemaining");
-  timeLeft.innerText = `Time Remaining: ${minutesAndSeconds}`;
-  console.log(`you have ${minutesAndSeconds} minutes remaining`);
+    const timeLeft = document.querySelector("#timeRemaining");
+    timeLeft.innerText = `Time Remaining: ${minutesAndSeconds}`;
+    // console.log(`you have ${minutesAndSeconds} minutes remaining`);
+
+    if (inputValueToNumber <= 0) {
+      clearInterval(timer);
+      console.log("The countdown has now reached 0");
+      playAlarm();
+    }
+    //degrees the time
+    inputValueToNumber--;
+  }, 1000);
 }
-
 
 // DO NOT EDIT BELOW HERE
 
