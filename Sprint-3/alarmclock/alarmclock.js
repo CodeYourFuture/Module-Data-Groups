@@ -11,7 +11,9 @@ function setAlarm() {
   document.body.style.backgroundColor = ""; // reset background
 
   // Get seconds from input field
-  const alarmInput = document.getElementById("alarmSet").value;
+  const alarmInputElement = document.getElementById("alarmSet");
+  const alarmInput = alarmInputElement.value;
+  alarmInputElement.value = "";
 
   // This turns the string into a number.
   currentTime = parseInt(alarmInput, 10);
