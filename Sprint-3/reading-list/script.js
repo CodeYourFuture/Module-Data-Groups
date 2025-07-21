@@ -21,3 +21,33 @@ const books = [
   },
 ];
 
+
+function readingList(books) {
+  const readingListElement = document.getElementById("reading-list");
+
+  books.forEach((book) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("book-item");
+    listItem.style.backgroundColor = book.alreadyRead ? "green" : "red";
+
+    const bookDetails = document.createElement("div");
+    bookDetails.classList.add("book-details");
+    bookDetails.innerHTML = `
+      <span class="book-title">${book.title}</span><br />
+      <span class="book-author">by ${book.author}</span>
+    `;
+
+    const bookImage = document.createElement("div");
+    bookImage.classList.add("book-image");
+    bookImage.innerHTML = `<img src="${book.bookCoverImage}" alt="Book Cover" width="150" height="200" />`;
+
+    listItem.appendChild(bookDetails);
+    listItem.appendChild(bookImage);
+    readingListElement.appendChild(listItem);
+  });
+}
+
+// Call the function to render the books
+readingList(books);
+
+
