@@ -33,3 +33,25 @@ It should return:
    'CA': 'CAD'
  }
 */
+describe("createLookup", () => {
+  test("creates an object mapping country codes to currency codes", () => {
+    const input = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ];
+    const expected = { US: "USD", CA: "CAD" };
+    expect(createLookup(input)).toEqual(expected);
+  });
+
+  test("returns empty object when input is empty", () => {
+    expect(createLookup([])).toEqual({});
+  });
+
+  test("overwrites duplicate keys with last value", () => {
+    const input = [
+      ["US", "USD"],
+      ["US", "US Dollar"],
+    ];
+    expect(createLookup(input)).toEqual({ US: "US Dollar" });
+  });
+});
