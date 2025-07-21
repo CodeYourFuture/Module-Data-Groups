@@ -497,27 +497,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const newQuote = document.getElementById("new-quote");
   const autoQuote = document.getElementById("checkbox");
 
-  // Event listener for the "New Quote" button
+  if (!quoteElement || !authorElement || !newQuote || !autoQuote) {
+    console.error("One or more elements are missing in the DOM.");
+    return;
+  }
+
   newQuote.addEventListener("click", () => {
-    const quote = pickFromArray(quotes); // Get a new random quote
+    const quote = pickFromArray(quotes);
     quoteElement.textContent = quote.quote;
     authorElement.textContent = `— ${quote.author}`;
   });
 
-  // Variable to store the interval ID
   let autoQuoteInterval;
 
-  // Event listener for the checkbox
   autoQuote.addEventListener("change", () => {
     if (autoQuote.checked) {
-      // Start auto-quote generation
       autoQuoteInterval = setInterval(() => {
-        const quote = pickFromArray(quotes); // Get a new random quote
+        const quote = pickFromArray(quotes);
         quoteElement.textContent = quote.quote;
         authorElement.textContent = `— ${quote.author}`;
-      }, 5000); // Change quote every 5 seconds
+      }, 5000);
     } else {
-      // Stop auto-quote generation
       clearInterval(autoQuoteInterval);
     }
   });
