@@ -1,29 +1,41 @@
 function setAlarm() {
-  //store user input
-  let inputValue = document.querySelector("#alarmSet");
-  let inputValueToNumber = parseInt(inputValue.value);
 
+  //store user input
+  let userInput = document.querySelector("#alarmSet");
+  let userInputToNumber = parseInt(userInput.value);
+
+  if (isNaN(userInputToNumber) || userInputToNumber <= 0) {
+    alert("Your input is not valid!");
+    return; // just to remember that this stops execution if input is invalid
+  }
   //set interval
   const timer = setInterval(() => {
     //convert user input to mm:ss time format
-    const minutes = Math.floor(inputValueToNumber / 60);
-    const seconds = inputValueToNumber % 60;
+    const minutes = Math.floor(userInputToNumber / 60);
+    const seconds = userInputToNumber % 60;
     let minutesAndSeconds = `${String(minutes).padStart(2, "0")}:${String(
       seconds
     ).padStart(2, "0")}`;
 
     const timeLeft = document.querySelector("#timeRemaining");
     timeLeft.innerText = `Time Remaining: ${minutesAndSeconds}`;
-    // console.log(`you have ${minutesAndSeconds} minutes remaining`);
 
-    if (inputValueToNumber <= 0) {
+    if (userInputToNumber <= 0) {
       clearInterval(timer);
       console.log("The countdown has now reached 0");
       playAlarm();
+      backGroundColor();
+      //clear input field
+      userInput.value = "";
     }
     //degrees the time
-    inputValueToNumber--;
+    userInputToNumber--;
   }, 1000);
+}
+
+//function for bg color
+function backGroundColor() {
+  document.body.style.backgroundColor = '#ADD8E6';
 }
 
 // DO NOT EDIT BELOW HERE
