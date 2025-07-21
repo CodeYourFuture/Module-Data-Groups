@@ -33,15 +33,18 @@ console.log(invert({ a: 1, b: 2 }));
 // d) Explain why the current return value is different from the target output
 // it is different because current code is not doing what we was expecting.
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
-test("invert swaps keys and values in an object", () => {
-  const currentOutput = invert({ x: 10, y: 20 });
-  const targetOutput = { "10": "x", "20": "y" };
-  
-  expect(currentOutput).toEqual(targetOutput);
+const invert = require("./invert.js"); //added import statement
+
+//Case: Given an object with key,value pairs returns inverted object
+test("given an object with key,value pairs, returns inverted object", () => {
+  expect(invert({ x: 10, y: 20 })).toEqual({ 10: "x", 20: "y" });
+  expect(invert({ a: 1 })).toEqual({ 1: "a" });
+  expect(invert({ a: 1, b: 2 })).toEqual({ 1: "a", 2: "b" });
 });
-test("invert handles multiple key-value pairs", () => {
-  const currentOutput = invert({ a: 1, b: 2, c: 3 });
-  const targetOutput = { "1": "a", "2": "b", "3": "c" };
-  
-  expect(currentOutput).toEqual(targetOutput);
+
+//Case: Given an invalid input such as a string or array, throws as error
+test("given an invalid input, throws an error", () => {
+  expect(() => invert("a:1")).toThrow(new Error("Input must be an object"));
+  expect(() => invert(null)).toThrow(new Error("Input must be an object"));
+  expect(() => invert(1)).toThrow(new Error("Input must be an object"));
 });
