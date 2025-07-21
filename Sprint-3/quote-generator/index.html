@@ -3,13 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote generator app</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <script defer src="quotes.js"></script>
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <div id="container">
+      <div id="initial-view">
+        <div id="intro-text">
+          Would you like to get inspired by the great minds? Press the button to
+          generate a quote!
+        </div>
+        <button type="button" id="start-btn">Get Inspired</button>
+      </div>
+      <div id="quote-view" style="display: none">
+        <p>
+          <span><i class="fas fa-quote-left"></i></span><span id="quote"></span>
+        </p>
+        <div id="quote-control">
+          <p id="author"></p>
+          <button type="button" id="new-quote">New quote</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
