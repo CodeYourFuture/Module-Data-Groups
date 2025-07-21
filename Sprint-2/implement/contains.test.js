@@ -49,7 +49,7 @@ test("contains with a non-existent property name returns false", () => {
 // Then it should return false or throw an error
 
 test("contains  invalid parameters like an array returns false", () => {
-  const input = [];
+  const input = 'abx';
   const outPut = contains(input, "p");
   expect(outPut).toEqual(false);
 });

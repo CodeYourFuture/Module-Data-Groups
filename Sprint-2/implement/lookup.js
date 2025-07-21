@@ -1,11 +1,12 @@
 function createLookup(obj) {
+  if (!Array.isArray(obj) || !obj.every(Array.isArray)) {
+    throw new Error("Input must be an array of arrays");
+  }
   const cur = {};
   for (let list of obj) {
-    for (let country = 0; country < list.length; country++) {
       cur[list[0]] = list[1];
-    }
   }
-  return cur
+  return cur;
 }
 
 module.exports = createLookup;
