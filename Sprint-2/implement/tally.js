@@ -1,13 +1,15 @@
-function tally(list) {
-  if (!Array.isArray(list)) {
-    throw new Error("Not a valid input");
+function tally(arr) {
+  const result = Object.create(null); // Prevent prototype pollution (e.g., "toString")
+  for (const item of arr) {
+    if (result[item]) {
+      result[item]++;
+    } else {
+      result[item] = 1;
+    }
   }
-  const count = {};
-  for (const item of list) {
-    count[item] = (count[item] || 0) + 1;
-  }
-  return count;
+  return result;
 }
 
 module.exports = tally;
+
 

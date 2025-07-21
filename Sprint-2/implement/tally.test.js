@@ -20,7 +20,8 @@ test("Returns empty object for empty array", () => {
   expect(tally([])).toEqual({});
 });
 
-// Test: handles wrong input (not an array)
-test("Throws an error for non-array input", () => {
-  expect(() => tally("abc")).toThrow("Not a valid input");
+// Test: handles reserved key like 'toString'
+test("Handles 'toString' as a key correctly", () => {
+  expect(tally(["toString", "toString", "toString"])).toEqual({ toString: 3 });
 });
+
