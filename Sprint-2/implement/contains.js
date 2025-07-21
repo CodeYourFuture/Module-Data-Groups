@@ -1,10 +1,14 @@
 function contains(object, property) {
-    return Object.hasOwn(object, property);
+  if (
+    object === null ||
+    typeof object !== "object" ||
+    Array.isArray(object) ||
+    (typeof property !== "string" && typeof property !== "symbol")
+  ) {
+    return false;
+  }
+
+  return Object.prototype.hasOwnProperty.call(object, property);
 }
 
 module.exports = contains;
-
-console.log(contains({a: 1, b: 2}, 'a'));
-
-//
-
