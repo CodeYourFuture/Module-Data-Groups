@@ -491,3 +491,13 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+function pickAndDisplayQuote() {
+  const randomQuote = pickFromArray(quotes);
+  console.log(randomQuote);
+  }
+  
+  document.getElementById("new-quote").addEventListener("click", () => {
+    pickAndDisplayQuote();
+  });
+  window.onload = pickAndDisplayQuote;
+  
