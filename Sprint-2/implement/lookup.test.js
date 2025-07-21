@@ -33,3 +33,36 @@ It should return:
    'CA': 'CAD'
  }
 */
+//test cases:
+//test 1:
+test("creates a valid lookup object from country-currency pairs", () => {
+  const input = [['US', 'USD'], ['CA', 'CAD']];
+  const expectedOutput = { US: 'USD', CA: 'CAD' };
+  expect(createLookup(input)).toEqual(expectedOutput);
+});
+//test 2:
+test("throws an error when input is not an array of arrays", () => {
+  expect(() => createLookup("US, USD")).toThrow("Invalid input: Must be an array of arrays.");
+  expect(() => createLookup({ US: "USD" })).toThrow("Invalid input: Must be an array of arrays.");
+  expect(() => createLookup(123)).toThrow("Invalid input: Must be an array of arrays.");
+});
+//test 3:
+test("throws an error when pairs don't have exactly two elements", () => {
+  expect(() => createLookup([['US']])).toThrow(
+    "Invalid pair: Each pair must contain exactly two elements. Found: [\"US\"]"
+  );
+  expect(() => createLookup([['US', 'USD', 'Dollar']])).toThrow(
+    "Invalid pair: Each pair must contain exactly two elements. Found: [\"US\",\"USD\",\"Dollar\"]"
+  );
+});
+//test 4:
+test("throws an error when duplicate country codes are detected", () => {
+  expect(() => createLookup([['US', 'USD'], ['US', 'Dollar']])).toThrow(
+    "Duplicate country code detected: 'US'"
+  );
+});
+//test 5:
+test("returns an empty object for an empty input array", () => {
+  expect(createLookup([])).toEqual({});
+});
+
