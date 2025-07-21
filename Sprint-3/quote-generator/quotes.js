@@ -501,15 +501,15 @@ const newQuoteBtn = document.getElementById("new-quote");
 
 function showFirstQuote() {
   const randomQuote = pickFromArray(quotes);
-  quotesP.innerHTML = `<span><i class="fas fa-quote-left"></i></span> ${randomQuote.quote}`;
+  quotesP.innerHTML = `${randomQuote.quote}`;
   authorP.textContent = randomQuote.author;
   initialView.style.display = "none";
   quoteView.style.display = "block";
 }
-  
+
 function showNewQuote() {
   const randomQuote = pickFromArray(quotes);
-  quotesP.innerHTML = `<span><i class="fas fa-quote-left"></i></span> ${randomQuote.quote}`;
+  quotesP.textContent = ` ${randomQuote.quote}`;
   authorP.textContent = randomQuote.author;
 }
 
