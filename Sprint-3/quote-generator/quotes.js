@@ -1,4 +1,3 @@
-
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -492,4 +491,3 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
-
