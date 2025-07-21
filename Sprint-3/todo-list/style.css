@@ -1,1 +1,110 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #d3dab3;
+    color: #343d2d;
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Form Styling */
+#todoForm {
+    background-color: #ecbdbd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+#todoInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ee8989a4;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+#todoInput:focus {
+    outline: none;
+    border-color: #2f3903;
+}
+
+/* Button Styles */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add {
+    background-color: #1a7551;
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #559c53;
+}
+
+.btn-primary {
+    background-color: #a64fd1;
+    color: white;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #c96bf8;
+}
+
+/* Todo List Styling */
+#todo-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+#todo-list li {
+    background-color: #c6f8df;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+#todo-list li .icon {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #7c55ac;
+}
+
+#todo-list li .icon:hover {
+    color: #495057;
+}
+
 
