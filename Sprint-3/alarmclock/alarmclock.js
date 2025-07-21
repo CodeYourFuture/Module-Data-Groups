@@ -1,4 +1,4 @@
-let flashColor, secondsInterval;
+let flashColorInterval, secondsInterval;
 
 function setAlarm() {
   const userInput = document.getElementById("alarmSet");
@@ -10,7 +10,7 @@ function setAlarm() {
   }
 
   clearInterval(secondsInterval);
-  clearInterval(flashColor);
+  clearInterval(flashColorInterval);
   pauseAlarm();
   let remainingTime = inputTime;
   updateDisplayTime(remainingTime);
@@ -49,7 +49,7 @@ function playAlarm() {
   audio.play();
   document.getElementById("stop").style.backgroundColor = "rgb(191, 115, 47)";
   document.body.style.backgroundColor = "rgb(218, 178, 119)";
-  flashColor = setInterval(() => {
+  flashColorInterval = setInterval(() => {
     if (document.body.style.backgroundColor === "rgb(218, 178, 119)") {
       document.body.style.backgroundColor = "white";
     } else {
@@ -61,7 +61,7 @@ function playAlarm() {
 function pauseAlarm() {
   audio.pause();
   document.getElementById("stop").style.backgroundColor = "rgb(239, 239, 239)";
-  clearInterval(flashColor);
+  clearInterval(flashColorInterval);
   document.body.style.backgroundColor = "white";
 }
 
