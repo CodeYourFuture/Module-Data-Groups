@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
-    <script defer src="quotes.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="quotes.js" defer></script>
   </head>
-  <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
-  </body>
+<body>
+  <div class="quote-container">
+    <p id="quote" class="quote">Don't cry because it's over, smile because it happened.</p>
+    <p id="author" class="author">— Dr. Seuss</p>
+    <button id="new-quote" class="new-quote-btn">New quote</button>
+    <div class="auto-quote-container">
+      <input type="checkbox" id="checkbox">
+      <label for="checkbox">Auto-generate quotes</label>
+    </div>
+  </div>
+</body>
 </html>

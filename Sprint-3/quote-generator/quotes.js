@@ -491,3 +491,34 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+document.addEventListener("DOMContentLoaded", () => {
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+  const newQuote = document.getElementById("new-quote");
+  const autoQuote = document.getElementById("checkbox");
+
+  // Event listener for the "New Quote" button
+  newQuote.addEventListener("click", () => {
+    const quote = pickFromArray(quotes); // Get a new random quote
+    quoteElement.textContent = quote.quote;
+    authorElement.textContent = `— ${quote.author}`;
+  });
+
+  // Variable to store the interval ID
+  let autoQuoteInterval;
+
+  // Event listener for the checkbox
+  autoQuote.addEventListener("change", () => {
+    if (autoQuote.checked) {
+      // Start auto-quote generation
+      autoQuoteInterval = setInterval(() => {
+        const quote = pickFromArray(quotes); // Get a new random quote
+        quoteElement.textContent = quote.quote;
+        authorElement.textContent = `— ${quote.author}`;
+      }, 5000); // Change quote every 5 seconds
+    } else {
+      // Stop auto-quote generation
+      clearInterval(autoQuoteInterval);
+    }
+  });
+});
