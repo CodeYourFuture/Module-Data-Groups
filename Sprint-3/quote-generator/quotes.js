@@ -519,7 +519,7 @@ document.getElementById("autoPlay").addEventListener("click", () => {
     autoStatus;
 
     autoPlayStatus.textContent = "Auto-play: ON";
-    autoPlayInterval = setInterval(randomQuote, 5000);
+    autoPlayInterval = setInterval(randomQuote, 3000);
   } else {
     autoPlayStatus.textContent = "Auto-play: OFF";
     clearInterval(autoPlayInterval);
