@@ -499,17 +499,18 @@ const quoteView = document.getElementById("quote-view");
 const startBtn = document.getElementById("start-btn");
 const newQuoteBtn = document.getElementById("new-quote");
 
-function showFirstQuote() {
-  const randomQuote = pickFromArray(quotes);
-  quotesP.innerHTML = `${randomQuote.quote}`;
-  authorP.textContent = randomQuote.author;
+function switchToQuoteView() {
   initialView.style.display = "none";
   quoteView.style.display = "block";
+}
+function showFirstQuote() {
+  switchToQuoteView();
+  showNewQuote();
 }
 
 function showNewQuote() {
   const randomQuote = pickFromArray(quotes);
-  quotesP.textContent = ` ${randomQuote.quote}`;
+  quotesP.textContent = randomQuote.quote;
   authorP.textContent = randomQuote.author;
 }
 
