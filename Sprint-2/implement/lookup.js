@@ -1,10 +1,14 @@
-function createLookup(key, value) {
-  return Object.fromEntries([[key, value]]);
-  // implementation here
-  // This function should create an object with one key-value from the provided array by taking as parameter key and value
-  // The keys are the country codes
-  // The values are the corresponding currency codes
+function createLookup(keyValuePairs) {
+  //we are defining a function called createLookup that takes one parameter: pairs, 
+  //which should be an array of arrays (like [['US', 'USD'], ['CA', 'CAD']]).
 
+  return Object.fromEntries(keyValuePairs);
+/*This line uses the Object.fromEntries() method, which expects an iterable of key-value pairs, and converts it into an object.
+createLookup([['US', 'USD'], ['CA', 'CAD']])
+{
+'US': 'USD',
+'CA': 'CAD'
 }
-
+*/
+}
 module.exports = createLookup;
