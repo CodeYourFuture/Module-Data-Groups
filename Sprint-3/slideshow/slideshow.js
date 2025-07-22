@@ -4,4 +4,5 @@ const images = [
     "./assets/cute-cat-c.jpg",
 ];
 
+
 // Write your code here
