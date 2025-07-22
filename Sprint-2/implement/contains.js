@@ -11,7 +11,8 @@ function contains(obj, key) {
   }
 }
 
- 
+console.log(contains({a: 1, b: 2}, 'a')); // true
+console.log(contains({a: 1, b: 2}, 'c')); //
 
 module.exports = contains;
 
