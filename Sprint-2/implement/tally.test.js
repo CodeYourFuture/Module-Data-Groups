@@ -39,6 +39,12 @@ test("tally on an empty array returns an empty object", () => {
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+test("tally on an array with duplicates returns correct counts", () => {
+  const input = ['a', 'b', 'a', 'c', 'b', 'b'];
+  const expectedOutput = { a: 2, b: 3, c: 1 };
+  
+  expect(tally(input)).toEqual(expectedOutput);
+});
 
 // Given an invalid input like a string
 // When passed to tally
