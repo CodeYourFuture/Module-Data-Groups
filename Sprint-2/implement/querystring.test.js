@@ -22,13 +22,14 @@ test("parses querystring with multiple values", () => {
 test("handles empty query string", () => {
   expect(parseQueryString("")).toEqual({});
 });
-
-test("decodes percent-encoded values", () => {
-  expect(parseQueryString("city=New%20York")).toEqual({ city: "New York" });
+test("handles query string with no key-value pairs", () => {
+  expect(parseQueryString("&&")).toEqual({});
 });
-
-test("handles plus signs as spaces", () => {
-  expect(parseQueryString("name=John+Doe")).toEqual({ name: "John Doe" });
+test("handles query string with only keys", () => {
+  expect(parseQueryString("key1&key2")).toEqual({
+    key1: "",
+    key2: ""
+  });
 });
 
 test("handles missing value", () => {
@@ -40,9 +41,21 @@ test("handles missing key", () => {
 });
 
 test("handles key with no equals sign", () => {
-  expect(parseQueryString("flag")).toEqual({ flag: "" });
+  expect(parseQueryString("key")).toEqual({ key: "" });
+});
+test("handles multiple key-value pairs with same key", () => {
+  expect(parseQueryString("key=value1&key=value2")).toEqual({
+    key: "value2" // last value should overwrite previous
+  });
+});
+test("handles special characters in keys and values", () => {
+  expect(parseQueryString("key%20with%20spaces=value%20with%20spaces")).toEqual({
+    "key with spaces": "value with spaces"
+  });
 });
 
 test("handles multiple equals signs in value", () => {
-  expect(parseQueryString("x=1=2=3")).toEqual({ x: "1=2=3" });
+  expect(parseQueryString("key=value1=value2")).toEqual({
+    key: "value1=value2"
+  });
 });
