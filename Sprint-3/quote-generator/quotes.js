@@ -1,3 +1,22 @@
+function newQuote() {
+  // Get a random quote from the quotes array
+  console.log("new quote being clicked")
+  const randomQuote = pickFromArray(quotes);
+  console.log(randomQuote)
+  // Update the quote and author in the HTML
+  document.getElementById('quote').textContent = randomQuote.quote;
+  document.getElementById('author').textContent = `- ${randomQuote.author}`;
+}
+
+
+document.querySelector('#new-quote').addEventListener('click', newQuote);
+
+
+document.addEventListener('DOMContentLoaded', () => {  
+  newQuote();
+});
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
