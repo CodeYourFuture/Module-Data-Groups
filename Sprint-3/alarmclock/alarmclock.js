@@ -1,43 +1,49 @@
-// When you click the `Set Alarm` button the counter at the top of the screen should change 
-// to the number you entered in the `input` field. 
+// When you click the `Set Alarm` button the counter at the top of the screen should change
+// to the number you entered in the `input` field.
 // For example, if the `input` field says `10` then the title should say `Time Remaining: 00:10`.
 
 // Every one second the title should count down by one.
 
-// When the `Time Remaining` reaches `00:00` the alarm should play a sound. 
+// When the `Time Remaining` reaches `00:00` the alarm should play a sound.
 // You can make the sound happen by using `playAlarm()`.
 // You can stop the alarm sound by pressing the `Stop Alarm` button.
 
-
-//   Steps:
-// 1) we need to access the input area in the DOM.
-const inputArea = document.querySelector("#alarmSet")
-// 2) we need to access the value in the input area when an event occur
-inputArea.addEventListener("input", function () {
-  console.log("You reached input area")
-})
-// 3) we need to access the `Set Alarm` button in the DOM then get the click event of it
-const setAlarmButton = document.querySelector("#set")
-setAlarmButton.addEventListener("click", setAlarm)
-// 4) we need to access the `Stop Alarm` button in the DOM then get the click event of it
-const stopAlarmButton = document.querySelector("#stop")
-stopAlarmButton.addEventListener("click", function () {
-  console.log("stop alarm pressed")
-})
-// 5) we need to change the top of the screen to be updated with the input value.
-
+const inputArea = document.querySelector("#alarmSet"); // Access the input area in the DOM.
 
 function setAlarm() {
-  const timeInterval = Number(inputArea.value);
-  console.log("🚀 ~ setAlarm ~ secondsRemaining:", timeInterval);
-  const seconds = (timeInterval % 60).toString().padStart(2, '0');
-  const minutes = Math.floor(timeInterval / 60).toString().padStart(2, '0');
-  const timeRemainingInfo = document.querySelector("#timeRemaining");
-  timeRemainingInfo.innerText = `Time Remaining: ${minutes} : ${seconds}`;
-
+  const timeInterval = Number(inputArea.value); // Get the the entered value and converted to number.
+  // If the entered value is negative show message in DEV tool console and the timer not working.
+  if (timeInterval <= 0) {
+    console.error("Please enter a positive number of seconds.");
+    return;
+  }
+  const seconds = (timeInterval % 60).toString().padStart(2, "0"); // Get the seconds from the timeInterval and converted to string and make sure the padding is 2 digits
+  const minutes = Math.floor(timeInterval / 60)
+    .toString()
+    .padStart(2, "0"); // Get the minutes from the timeInterval and converted to string and make sure the padding is 2 digits
+  const timeRemainingInfo = document.querySelector("#timeRemaining"); // Access the heading object in the DOM.
+  timeRemainingInfo.innerText = `Time Remaining: ${minutes} : ${seconds}`; // Update the heading.
+  startCountdown(); // call countdown function
 }
 
-
+function startCountdown() {
+  let timeRemaining = Number(inputArea.value); // Get the value of
+  const timer = setInterval(function () {
+    timeRemaining--;
+    // 1. Convert to minutes and seconds
+    const seconds = (timeRemaining % 60).toString().padStart(2, "0");
+    const minutes = Math.floor(timeRemaining / 60)
+      .toString()
+      .padStart(2, "0");
+    // 2. Update the DOM
+    const timeRemainingInfo = document.querySelector("#timeRemaining");
+    timeRemainingInfo.innerText = `Time Remaining: ${minutes} : ${seconds}`;
+    if (timeRemaining === 0) {
+      clearInterval(timer);
+      playAlarm();
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
