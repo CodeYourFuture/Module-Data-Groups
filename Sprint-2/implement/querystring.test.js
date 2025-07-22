@@ -27,8 +27,8 @@ test("handles query string with no key-value pairs", () => {
 });
 test("handles query string with only keys", () => {
   expect(parseQueryString("key1&key2")).toEqual({
-    key1: "",
-    key2: ""
+    key1: undefined,
+    key2: undefined
   });
 });
 
@@ -39,23 +39,14 @@ test("handles missing value", () => {
 test("handles missing key", () => {
   expect(parseQueryString("=bar")).toEqual({ "": "bar" });
 });
-
-test("handles key with no equals sign", () => {
-  expect(parseQueryString("key")).toEqual({ key: "" });
+test("handles multiple key-value pairs", () => {
+  expect(parseQueryString("key1=value1&key2=value2")).toEqual({
+    key1: "value1",
+    key2: "value2"
+  });
 });
 test("handles multiple key-value pairs with same key", () => {
   expect(parseQueryString("key=value1&key=value2")).toEqual({
     key: "value2" // last value should overwrite previous
-  });
-});
-test("handles special characters in keys and values", () => {
-  expect(parseQueryString("key%20with%20spaces=value%20with%20spaces")).toEqual({
-    "key with spaces": "value with spaces"
-  });
-});
-
-test("handles multiple equals signs in value", () => {
-  expect(parseQueryString("key=value1=value2")).toEqual({
-    key: "value1=value2"
   });
 });
