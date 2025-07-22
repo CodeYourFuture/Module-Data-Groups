@@ -76,3 +76,4 @@ function deleteAllCompletedTodos() {
 document
   .getElementById("remove-all-completed")
   .addEventListener("click", deleteAllCompletedTodos);
+
