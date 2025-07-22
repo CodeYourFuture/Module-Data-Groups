@@ -5,10 +5,10 @@ function createLookup(pairs) {
   // loop through each of the pairs in the array
   for (const [country, currency] of pairs){
     // add new key value pairs to the object "country" is the key and "currency" is the value
-    result[country] = currency;
+    results[country] = currency;
   }
 
-  return result; //  returns the final object that maps each key to the corresponding values
+  return results; //  returns the final object that maps each key to the corresponding values
 }
 
 module.exports = createLookup;
