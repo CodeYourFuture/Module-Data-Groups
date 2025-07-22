@@ -20,8 +20,9 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
-
+test("contains on empty object returns false", () => {
+  expect(contains({}, 'a')).toBe(false);
+});
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
