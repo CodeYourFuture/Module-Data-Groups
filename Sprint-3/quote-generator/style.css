@@ -1,1 +1,67 @@
-/** Write your CSS in here **/
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fullscreen Flex Centered Layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #ffecd2, #fcb69f);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Wrapper to stack everything vertically */
+.container {
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Title */
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Quote text */
+#quote {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Author */
+#author {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+/* Button */
+#new-quote {
+  background-color: #fcb69f;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#new-quote:hover {
+  background-color: #ff8a65;
+}
