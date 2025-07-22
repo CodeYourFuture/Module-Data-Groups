@@ -4,6 +4,10 @@ test("creates a country currency code lookup for multiple codes", () => {
   expect(createLookup([['US', 'USD'], ['CA', 'CAD'], ['GB', 'GBP']]))
     .toEqual({ US: 'USD', CA: 'CAD', GB: 'GBP' });
 });
+
+test("returns an empty object when given an empty array", () => {
+  expect(createLookup([])).toEqual({});
+});
 /*
 
 Create a lookup object of key value pairs from an array of code pairs
