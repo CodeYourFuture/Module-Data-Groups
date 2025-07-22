@@ -1,6 +1,36 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () => {
+  const input = [['US', 'USD'], ['CA', 'CAD']];
+  const expectedOutput = { US : 'USD', CA: 'CAD' };
+  expect(createLookup(input)).toEqual(expectedOutput);
+});
+test("creates a country currency code lookup for single code", () => {
+  const input = [['US', 'USD']];
+  const expectedOutput = { US : 'USD' };
+  expect(createLookup(input)).toEqual(expectedOutput);
+});
+test("creates an empty lookup for no input", () => {
+  const input = [];
+  const expectedOutput = {};
+  expect(createLookup(input)).toEqual(expectedOutput);
+});
+test("creates a lookup with multiple entries", () => {
+  const input = [['US', 'USD'], ['CA', 'CAD'], ['UK', 'GBP']];
+  const expectedOutput = { US: 'USD', CA: 'CAD', UK: 'GBP' };
+  expect(createLookup(input)).toEqual(expectedOutput);
+});
+test("creates a lookup with duplicate country codes", () => {
+  const input = [['US', 'USD'], ['US', 'EUR']];
+  const expectedOutput = { US: 'EUR' }; 
+  // Last entry should overwrite previous
+  expect(createLookup(input)).toEqual(expectedOutput);
+});
+test("creates a lookup with mixed case country codes", () => {
+  const input = [['us', 'USD'], ['CA', 'CAD'], ['Us', 'EUR']];
+  const expectedOutput = { us: 'EUR', CA: 'CAD' };
+  expect(createLookup(input)).toEqual(expectedOutput);
+});
 
 /*
 
