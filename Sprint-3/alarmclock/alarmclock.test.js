@@ -1,6 +1,8 @@
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 There are some Tests in this file that will help you work out if your code is working.
 */
+
 
 const path = require("path");
 const { JSDOM } = require("jsdom");
@@ -26,14 +28,16 @@ beforeEach(async () => {
   });
 
   return new Promise((res) => {
-    page.window.document.addEventListener("load", res);
+    page.window.addEventListener("load", res);
   });
 });
 
 afterEach(() => {
   jest.useRealTimers();
+  delete page.window.HTMLElement.prototype.innerText;
   page = null;
 });
+
 
 test("should set heading when button is clicked", () => {
   const heading = page.window.document.querySelector("#timeRemaining");
