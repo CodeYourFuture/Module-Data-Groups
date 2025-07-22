@@ -12,11 +12,6 @@ const inputArea = document.querySelector("#alarmSet"); // Access the input area 
 
 function setAlarm() {
   const timeInterval = Number(inputArea.value); // Get the the entered value and converted to number.
-  // If the entered value is negative show message in DEV tool console and the timer not working.
-  if (timeInterval <= 0) {
-    console.error("Please enter a positive number of seconds.");
-    return;
-  }
   const seconds = (timeInterval % 60).toString().padStart(2, "0"); // Get the seconds from the timeInterval and converted to string and make sure the padding is 2 digits
   const minutes = Math.floor(timeInterval / 60)
     .toString()
