@@ -31,3 +31,27 @@ function showNextImage() {
     showPreviousImage()
 
  })
+ let autoForwardIntervalId;
+ let autoBackwardIntervalId // declared once globally or at the top of your JS file
+
+function startAutoForward() {
+  clearInterval(autoForwardIntervalId);
+  autoForwardIntervalId = setInterval(showNextImage, 2000);
+}
+document.getElementById("auto-forward-btn").addEventListener("click", function() {
+  startAutoForward();
+});
+function setAutoBackwards(){
+  clearInterval(autoBackwardIntervalId);
+  autoBackwardIntervalId = setInterval(showPreviousImage,2000);
+}
+document.getElementById("auto-backward-btn").addEventListener("click", function() {
+  setAutoBackwards();
+});
+function stopSlideshow() {
+  clearInterval(autoForwardIntervalId);
+  clearInterval(autoBackwardIntervalId);
+}
+document.getElementById("stop-btn").addEventListener("click", function() {
+  stopSlideshow();
+});
