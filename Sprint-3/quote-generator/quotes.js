@@ -491,3 +491,12 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+function getRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  return {
+    quote: randomQuote.quote,
+    author: randomQuote.author
+  };
+}
+console.log(getRandomQuote());
