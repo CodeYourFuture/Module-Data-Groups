@@ -1,43 +1,52 @@
-// When you click the `Set Alarm` button the counter at the top of the screen should change
-// to the number you entered in the `input` field.
-// For example, if the `input` field says `10` then the title should say `Time Remaining: 00:10`.
-
-// Every one second the title should count down by one.
-
-// When the `Time Remaining` reaches `00:00` the alarm should play a sound.
-// You can make the sound happen by using `playAlarm()`.
-// You can stop the alarm sound by pressing the `Stop Alarm` button.
+/**
+ * This script implements a simple countdown alarm clock.
+ * - When the user enters a number of seconds and clicks "Set Alarm",
+ *   the countdown begins and displays the remaining time in mm:ss format.
+ * - When the countdown reaches 00:00, an alarm sound is played.
+ * - The user can stop the alarm sound by clicking the "Stop Alarm" button.
+ */
 
 const inputArea = document.querySelector("#alarmSet"); // Access the input area in the DOM.
+const timeRemainingInfo = document.querySelector("#timeRemaining"); // Access the heading object in the DOM.
 
+/**
+ * Retrieves the user input and, if valid, starts the countdown.
+ * Also updates the display immediately before the countdown begins.
+ */
 function setAlarm() {
   const timeInterval = Number(inputArea.value); // Get the the entered value and converted to number.
-  const seconds = (timeInterval % 60).toString().padStart(2, "0"); // Get the seconds from the timeInterval and converted to string and make sure the padding is 2 digits
-  const minutes = Math.floor(timeInterval / 60)
-    .toString()
-    .padStart(2, "0"); // Get the minutes from the timeInterval and converted to string and make sure the padding is 2 digits
-  const timeRemainingInfo = document.querySelector("#timeRemaining"); // Access the heading object in the DOM.
-  timeRemainingInfo.innerText = `Time Remaining: ${minutes} : ${seconds}`; // Update the heading.
-  startCountdown(); // call countdown function
+  if (timeInterval > 0) {
+    updateTimeDisplay(timeInterval);
+    startCountdown() // call function to start counting down
+  } else {
+    alert("Please enter a time greater than 0 seconds.")
+  }
 }
 
+/** 
+ * Handles the countdown logic, updating the display every second.
+ * Plays the alarm sound when time reaches zero.
+ */
 function startCountdown() {
   let timeRemaining = Number(inputArea.value); // Get the value of
   const timer = setInterval(function () {
     timeRemaining--;
-    // 1. Convert to minutes and seconds
-    const seconds = (timeRemaining % 60).toString().padStart(2, "0");
-    const minutes = Math.floor(timeRemaining / 60)
-      .toString()
-      .padStart(2, "0");
-    // 2. Update the DOM
-    const timeRemainingInfo = document.querySelector("#timeRemaining");
-    timeRemainingInfo.innerText = `Time Remaining: ${minutes} : ${seconds}`;
+    updateTimeDisplay(timeRemaining);
     if (timeRemaining === 0) {
       clearInterval(timer);
       playAlarm();
     }
   }, 1000);
+}
+
+/**
+ * Converts the total time in seconds to mm:ss format and updates the DOM.
+ * @param {number} timeInSeconds - Total time to display, in seconds.
+ */
+function updateTimeDisplay(timeInSeconds) {
+  const seconds = (timeInSeconds % 60).toString().padStart(2, "0");
+  const minutes = Math.floor(timeInSeconds / 60).toString().padStart(2, "0");
+  timeRemainingInfo.innerText = `Time Remaining: ${minutes} : ${seconds}`;
 }
 
 // DO NOT EDIT BELOW HERE
