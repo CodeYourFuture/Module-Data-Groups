@@ -17,6 +17,7 @@ as the object doesn't contains a key of 'c'
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
 
+
 // Given an empty object
 // When passed to contains
 // Then it should return false
