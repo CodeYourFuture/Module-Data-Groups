@@ -18,3 +18,31 @@ test("parses querystring with multiple values", () => {
     "b": "2",
   });
 });
+//other edge cases
+test("handles empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("decodes percent-encoded values", () => {
+  expect(parseQueryString("city=New%20York")).toEqual({ city: "New York" });
+});
+
+test("handles plus signs as spaces", () => {
+  expect(parseQueryString("name=John+Doe")).toEqual({ name: "John Doe" });
+});
+
+test("handles missing value", () => {
+  expect(parseQueryString("foo=")).toEqual({ foo: "" });
+});
+
+test("handles missing key", () => {
+  expect(parseQueryString("=bar")).toEqual({ "": "bar" });
+});
+
+test("handles key with no equals sign", () => {
+  expect(parseQueryString("flag")).toEqual({ flag: "" });
+});
+
+test("handles multiple equals signs in value", () => {
+  expect(parseQueryString("x=1=2=3")).toEqual({ x: "1=2=3" });
+});
