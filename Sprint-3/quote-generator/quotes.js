@@ -13,7 +13,7 @@ document.querySelector('#new-quote').addEventListener('click', newQuote);
 
 
 document.addEventListener('DOMContentLoaded', () => {  
-  newQuote;
+  newQuote();
 });
 
 
