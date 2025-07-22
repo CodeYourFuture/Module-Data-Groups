@@ -5,7 +5,7 @@ let isPaused = false;
 
 function setAlarm() {
   const alarmInput = document.querySelector("#alarmSet");
-  const alarmSetValue = Number(alarmInput.value);;
+  const alarmSetValue = Number(alarmInput.value);
 
   // validates the input: acceptable is number 
   if (
