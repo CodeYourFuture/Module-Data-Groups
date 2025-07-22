@@ -1,9 +1,66 @@
 /** Write your CSS in here **/
+/* Center everything and add some spacing */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+/* Style the carousel image */
 #carousel-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  max-height: 400px; /* or any height that fits your design */
+  width: 350px;
+  height: 230px;
   object-fit: contain;
+  border: 4px solid #4a90e2;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  margin-bottom: 25px;
+  background-color: white;
+}
+
+/* Style all buttons uniformly */
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+button {
+  background-color: #a9457c;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 5px 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 6px rgba(74,144,226,0.5);
+}
+
+/* Hover effect on buttons */
+button:hover {
+  background-color: #357ABD;
+}
+
+/* Optional: Add focus outline for accessibility */
+button:focus {
+  outline: 2px solid #357ABD;
+  outline-offset: 2px;
+}
+
+/* Responsive tweak: smaller on narrow screens */
+@media (max-width: 400px) {
+  #carousel-img {
+    width: 90vw;
+    height: auto;
+  }
+  button {
+    width: 100%;
+    margin: 8px 0;
+  }
 }
