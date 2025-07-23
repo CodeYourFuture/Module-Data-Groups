@@ -30,5 +30,6 @@ console.log(totalAmount); // Should log the total amount in pounds
 // to iterate over the key-value pairs of the till object, allowing us to access both the coin denomination (key) and its quantity (value) in each iteration.
 
 // c) What does coin * quantity evaluate to inside the for...of loop?
+// It evaluates to the total value of that specific coin denomination in pence, calculated by multiplying the coin's value (in pence) by its quantity in the till.
 
 // d) Write a test for this function to check it works and then fix the implementation of totalTill
