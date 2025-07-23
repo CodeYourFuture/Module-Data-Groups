@@ -34,26 +34,3 @@ function calculateMode(list) {
 }
 
 module.exports = calculateMode;
-
-// Helper function to compare objects (shallow comparison)
-function objectsEqual(a, b) {
-  return JSON.stringify(a) === JSON.stringify(b);
-}
-
-// Test cases
-const testCases = [
-  { input: [1, 2, 2, 3], expected: 2 },
-  { input: [1, 1, 2, 3], expected: 1 },
-  { input: [1, 2, 3], expected: 1 }, // No mode
-  { input: [1, "a", 2], expected: 1 }, // Non-numeric values ignored
-  { input: [], expected: NaN }, // Empty list
-];
-// Run tests
-testCases.forEach(({ input, expected }, index) => {
-  const result = calculateMode(input);
-  if (objectsEqual(result, expected)) {
-    console.log(`Test case ${index + 1} passed.`);
-  } else {
-    console.error(`Test case ${index + 1} failed: expected ${expected}, got ${result}`);
-  }
-});
