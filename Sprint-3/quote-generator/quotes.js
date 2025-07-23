@@ -17,8 +17,12 @@
 
 // You don't need to change this function
 function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+
+  const randomQuote =  choices[Math.floor(Math.random() * choices.length)];
+  return randomQuote;
 }
+
+
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
@@ -490,4 +494,10 @@ const quotes = [
   },
 ];
 
+// get the p tag with id quote and assign the text of quote to it
+// get the p tag with id author and assign the text of author to it
+// then add event listener
+
 // call pickFromArray with the quotes array to check you get a random quote
+const allQuotes = pickFromArray(quotes);
+console.log(allQuotes.author,":", allQuotes.quote);
