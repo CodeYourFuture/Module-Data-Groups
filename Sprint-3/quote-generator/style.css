@@ -1,23 +1,30 @@
 /** Write your CSS in here **/
-body{
-  background-color: #f1a61b;
+:root {
+  --orange: #f1a61b;
+  --white: #ffffff;
+}
+
+body {
+  background-color: var(--orange);
   height: 100vh;
 }
-/*
-create div
-center the div
-div background color white
-text color orange
-btn color orange
-btn text color white
-author should have a - before it
-quote should start with a "
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
-*/
+.card {
+  margin: 0 auto;
+  width: 70%;
+  background-color: var(--white);
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  word-wrap: break-word;
+}
 
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+.text-right{
+  text-align: right;
 }
