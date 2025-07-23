@@ -12,4 +12,13 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);
+
+
+// 〰️ When the code logs ${recipe}, JavaScript converts the entire object into a string using its default toString() method, which returns [object Object].
+// 〰️ This happens because JavaScript doesn't know how to format the object automatically.
+// 〰️ Additionally, the code doesn't iterate over the ingredients array, so the list isn't displayed properly.
+
+// 〰️ We can fix it to use recipe.ingredients.join("\n") to join the ingredients with new lines, ensuring each appears on its own line.
+
+// 〰️ recipe.ingredients.join("\n") converts the array into a string with each ingredient on a new line, creating a clean and readable output.
