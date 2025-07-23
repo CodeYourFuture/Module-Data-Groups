@@ -27,6 +27,7 @@ console.log(totalAmount); // Should log the total amount in pounds
 // The target output is called with the till object is "£3.16".
 
 // b) Why do we need to use Object.entries inside the for...of loop in this function?
+// to iterate over the key-value pairs of the till object, allowing us to access both the coin denomination (key) and its quantity (value) in each iteration.
 
 // c) What does coin * quantity evaluate to inside the for...of loop?
 
