@@ -1,42 +1,66 @@
+let timer; //to store the setInterval and use it to clearInterval.
+let timerPaused; //to check if timer is currently paused
+let secondsLeft = 0; //to keep track of how many seconds left in the countdown
+
+//this function is to start the alarm countdown
 function setAlarm() {
-
-  //store user input
+  //stores user input
   let userInput = document.querySelector("#alarmSet");
-  let userInputToNumber = parseInt(userInput.value);
+  secondsLeft = parseInt(userInput.value); //converts user input to a num
 
-  if (isNaN(userInputToNumber) || userInputToNumber <= 0) {
+  if (isNaN(secondsLeft) || secondsLeft <= 0) {
     alert("Your input is not valid!");
-    return; // just to remember that this stops execution if input is invalid
+    return; // this stops execution if input is invalid
   }
-  //set interval
-  const timer = setInterval(() => {
-    //convert user input to mm:ss time format
-    const minutes = Math.floor(userInputToNumber / 60);
-    const seconds = userInputToNumber % 60;
-    let minutesAndSeconds = `${String(minutes).padStart(2, "0")}:${String(
-      seconds
-    ).padStart(2, "0")}`;
 
-    const timeLeft = document.querySelector("#timeRemaining");
-    timeLeft.innerText = `Time Remaining: ${minutesAndSeconds}`;
+  updateTheDisplay(secondsLeft); // this immediately displays the initial time on the screen
+  //setinterval() starts a timer that runs every 1000ms(1 second)
+  timer = setInterval(() => {
+    if (!timerPaused) {
+      secondsLeft--; //if timer is not pause, decrease the timer by 1
+    }
 
-    if (userInputToNumber <= 0) {
-      clearInterval(timer);
+    updateTheDisplay(secondsLeft);//this changes the timer countdown each second
+
+    if (secondsLeft <= 0) {
+      clearInterval(timer); //stops the timer from running
       console.log("The countdown has now reached 0");
       playAlarm();
-      backGroundColor();
-      //clear input field
-      userInput.value = "";
+      backGroundColor("#ADD8E6");
+      userInput.value = ""; //this clears the input field
     }
-    //degrees the time
-    userInputToNumber--;
   }, 1000);
 }
 
-//function for bg color
-function backGroundColor() {
-  document.body.style.backgroundColor = '#ADD8E6';
+//function for bg color when alarm goes off
+function backGroundColor(color) {
+  document.body.style.backgroundColor = color;
 }
+
+// function for updating the display
+function updateTheDisplay(seconds) {
+  const minutesDisplayed = Math.floor(seconds / 60);  //get full minutes
+  const secondsDisplayed = seconds % 60; //get full seconds
+    // Format minutes and seconds as "mm:ss"
+  let minutesAndSeconds = `${String(minutesDisplayed).padStart(2,"0")}:${String(secondsDisplayed).padStart(2, "0")}`;
+  const timeLeft = document.querySelector("#timeRemaining");
+  timeLeft.innerText = `Time Remaining: ${minutesAndSeconds}`;
+}
+
+//function for adding pause and resume
+function pauseTheCountDown() {
+  document.getElementById("pause").addEventListener("click", () => {
+    timerPaused = !timerPaused; // this is to toggle btw the pause state
+    const btn = document.getElementById("pause");
+    btn.textContent = timerPaused ? "Resume" : "Pause";
+
+    console.log(timerPaused ? "Paused" : "Resumed");
+  });
+}
+
+pauseTheCountDown();// Run the pause setup function so that the btn can work
+
+
 
 // DO NOT EDIT BELOW HERE
 
