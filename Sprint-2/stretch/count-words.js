@@ -18,6 +18,7 @@
     - Comparison inside if statements
     - Setting values on an object
 
+
 ## Advanced challenges
 
 1. Remove all of the punctuation (e.g. ".", ",", "!", "?") to tidy up the results
@@ -26,3 +27,32 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(str) {
+  // Remove punctuation using regex and convert to lowercase
+  const cleanedStr = str.replace(/[.,!?]/g, "").toLowerCase();
+
+  // Split the string into words
+  const words = cleanedStr.split(/\s+/);
+
+  // Create an object to store word counts
+  const wordCount = {};
+
+  for (let word of words) {
+    if (wordCount[word]) {
+      wordCount[word]++;
+    } else {
+      wordCount[word] = 1;
+    }
+  }
+
+  // Optional: Sort the results by frequency (most common first)
+  const sortedWordCount = Object.fromEntries(
+    Object.entries(wordCount).sort((a, b) => b[1] - a[1])
+  );
+
+  return sortedWordCount;
+}
+
+// Example usage
+console.log(countWords("You and me and YOU!"));
