@@ -32,3 +32,13 @@ function invert(obj) {
 // d) The current return value is different from the target output because the key is not being set correctly in the inverted object. Instead of using the value as the key and the key as the value, it incorrectly assigns the key as a static string "key".
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+function invert(obj) {
+  const invertedObj = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    invertedObj[value] = key; // Correctly assign value as key and key as value
+  }
+
+  return invertedObj;
+}
+
