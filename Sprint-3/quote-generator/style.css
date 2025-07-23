@@ -4,27 +4,47 @@
   --white: #ffffff;
 }
 
+
 body {
   background-color: var(--orange);
   height: 100vh;
+  font-family:sans-serif;
+  font-size: 24px;
 }
+h1{
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  color: var(--orange);
 }
 
 .card {
   margin: 0 auto;
-  width: 70%;
+  width: 50%;
   background-color: var(--white);
-  padding: 10px;
+  padding: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   word-wrap: break-word;
+  border-radius: 10px;
 }
 
-.text-right{
+.elements-right {
   text-align: right;
+}
+.elements-right button {
+  background: orange;
+  padding: 10px;
+  border-radius: 3px;
+  color: white;
+  border-style: none;
 }

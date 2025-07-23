@@ -23,8 +23,8 @@ function pickFromArray(choices) {
   // get the element by the  'id author
   const authorElement = document.getElementById("author");
 
-  quoteElement.textContent = `${randomQuote.quote}`;
-  authorElement.textContent = `${randomQuote.author}`;
+  quoteElement.textContent = `“ ${randomQuote.quote} ”`;
+  authorElement.textContent = `— ${randomQuote.author}`;
 
 }
 
