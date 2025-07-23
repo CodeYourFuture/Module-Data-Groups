@@ -11,19 +11,26 @@ function setAlarm() {
   updateDisplay(timeRemaining);
 
   // Clear any existing interval
-  if (window.alarmInterval) clearInterval(window.alarmInterval);
+  let alarmInterval;
+  if (alarmInterval) clearInterval(alarmInterval);
 
   // Start countdown
-  window.alarmInterval = setInterval(() => {
+  alarmInterval = setInterval(() => {
     timeRemaining--;
 
     updateDisplay(timeRemaining);
 
     if (timeRemaining <= 0) {
-      clearInterval(window.alarmInterval);
+      clearInterval(alarmInterval);
       playAlarm();
+      //document.getElementById("alarmSet").value = "";
     }
   }, 1000);
+  //stopping the alarm and clearing the input field
+  document.getElementById("stop").addEventListener("click", () => {
+    clearInterval(alarmInterval);
+    document.getElementById("alarmSet").value = "";
+  });
 }
 
 // minutes and seconds to be displayed properly
