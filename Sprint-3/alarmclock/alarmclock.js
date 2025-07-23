@@ -12,12 +12,24 @@ function updateTimeDisplay() {
 
 function setAlarm() {
   const input = document.getElementById("alarmSet");
+  const inputValue = input.value.trim();
+  if (inputValue === "") {
+    alert("Please enter a time value")
+    return;
+  }
+
+  const parsedValue = Number(inputValue);
+
+  if (isNaN(parsedValue) || parsedValue <= 0 || !Number.isInteger(parsedValue)) {
+    alert("Please enter a positive whole number");
+    return;
+  }
 
   if (intervalID) {
     clearInterval(intervalID);
   }
 
-  totalSeconds = Number(input.value);
+  totalSeconds = parsedValue;
 
   updateTimeDisplay();
 
@@ -28,6 +40,7 @@ function setAlarm() {
     if (totalSeconds === 0) {
       clearInterval(intervalID);
       playAlarm();
+      intervalID = null;
     }
   }, 1000);
 }
