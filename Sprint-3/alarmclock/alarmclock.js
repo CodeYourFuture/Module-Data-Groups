@@ -1,17 +1,25 @@
 let intervalID;
+let totalSeconds;
+
 function updateTimeDisplay() {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
-
+  const timeRemaining = document.getElementById("timeRemaining");
   timeRemaining.innerHTML = `Time Remaining ${minutes
     .toString()
     .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
 function setAlarm() {
-  const timeRemaining = document.getElementById("timeRemaining");
   const input = document.getElementById("alarmSet");
-  let totalSeconds = Number(input.value);
+
+  if (intervalID) {
+    clearInterval(intervalID);
+  }
+
+  totalSeconds = Number(input.value);
+
+  updateTimeDisplay();
 
   intervalID = setInterval(() => {
     --totalSeconds;
