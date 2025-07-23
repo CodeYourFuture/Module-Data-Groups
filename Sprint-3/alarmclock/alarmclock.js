@@ -4,8 +4,8 @@ function setAlarm() {
   const timeRemaining = document.getElementById("timeRemaining");
   const input = document.getElementById("alarmSet");
   let totalSeconds = Number(input.value);
-  let minutes = Math.floor(totalSeconds / 60);
-  let seconds = totalSeconds % 60;
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
 
   timeRemaining.innerHTML = `Time Remaining ${minutes
     .toString()
