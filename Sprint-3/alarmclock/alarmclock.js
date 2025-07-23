@@ -53,7 +53,7 @@ function togglePause() {
 
   if (timerId === null && countdown > 0) {
     isPaused = false;
-    timerId = setInterval(tick, 1000);
+
     pauseButton.textContent = "Pause";
     return;
   }
