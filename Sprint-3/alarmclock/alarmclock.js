@@ -8,11 +8,15 @@ function setAlarm() {
   clearInterval(countdownInterval); 
   //gets the input element (<input id="alarmSet">) and reads its value.
   const inputTime = document.querySelector("#alarmSet"); 
-  //This converts are string input to a Number with a base of 10
-  timeRemaining = parseInt(inputTime.value, 10); 
-  //These if conditions will make sure that our input is validated and always a number, not zero or a negative number.
-  if (isNaN(timeRemaining) || timeRemaining <= 0) {
-    alert("Please enter a valid number greater than 0.");
+  timeRemaining = parseFloat(inputTime.value);
+
+  // Input validation: must be a positive whole number
+  if (
+    isNaN(timeRemaining) ||
+    timeRemaining <= 0 ||
+    !Number.isInteger(timeRemaining)
+  ) {
+    alert("Please enter a whole number greater than 0.");
     return;
   }
   //This will update the userInterface immediately so we can see when countdown begins without the one second delay.
@@ -26,6 +30,7 @@ function setAlarm() {
       playAlarm(); 
       updateTitle(); 
       document.body.style.backgroundColor = "green";
+      inputTime.value = ""; //clears the input.
     } else {
       updateTitle(); 
     }
