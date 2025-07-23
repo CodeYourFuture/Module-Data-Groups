@@ -24,6 +24,7 @@ const totalAmount = totalTill(till);
 console.log(totalAmount); // Should log the total amount in pounds
 
 // a) What is the target output when totalTill is called with the till object
+// The target output is called with the till object is "£3.16".
 
 // b) Why do we need to use Object.entries inside the for...of loop in this function?
 
