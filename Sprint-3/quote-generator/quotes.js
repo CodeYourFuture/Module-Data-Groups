@@ -495,7 +495,7 @@ const quote = document.querySelector("#quote");
 const author = document.querySelector("#author");
 
 // Attach a click event listener to the "New Quote" button
-const newClick = document.getElementById("new-quote").addEventListener("click", () => {
+const newClick = document.querySelector(".btn").addEventListener("click", () => {
   generateQuote();
 });
 
