@@ -17,11 +17,21 @@
 
 // You don't need to change this function
 function pickFromArray(choices) {
+  const randomQuote = choices[Math.floor(Math.random() * choices.length)];
+  // get the element by the 'id quote
+  const quoteElement = document.getElementById("quote");
+  // get the element by the  'id author
+  const authorElement = document.getElementById("author");
 
-  const randomQuote =  choices[Math.floor(Math.random() * choices.length)];
-  return randomQuote;
+  quoteElement.textContent = `${randomQuote.quote}`;
+  authorElement.textContent = `${randomQuote.author}`;
+
 }
 
+// then add event listener
+document.getElementById("new-quote").addEventListener("click", () => {
+  pickFromArray(quotes);
+});
 
 
 // A list of quotes you can use in your app.
@@ -494,10 +504,7 @@ const quotes = [
   },
 ];
 
-// get the p tag with id quote and assign the text of quote to it
-// get the p tag with id author and assign the text of author to it
-// then add event listener
+
 
 // call pickFromArray with the quotes array to check you get a random quote
 const allQuotes = pickFromArray(quotes);
-console.log(allQuotes.author,":", allQuotes.quote);
