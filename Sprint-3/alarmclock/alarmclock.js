@@ -46,7 +46,7 @@ function startCountdown() {
 function updateTimeDisplay(timeInSeconds) {
   const seconds = (timeInSeconds % 60).toString().padStart(2, "0");
   const minutes = Math.floor(timeInSeconds / 60).toString().padStart(2, "0");
-  timeRemainingInfo.innerText = `Time Remaining: ${minutes} : ${seconds}`;
+  timeRemainingInfo.innerText = `Time Remaining: ${minutes}:${seconds}`;
 }
 
 // DO NOT EDIT BELOW HERE
