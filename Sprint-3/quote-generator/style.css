@@ -1,4 +1,23 @@
 /** Write your CSS in here **/
 body{
   background-color: #f1a61b;
+  height: 100vh;
+}
+/*
+create div
+center the div
+div background color white
+text color orange
+btn color orange
+btn text color white
+author should have a - before it
+quote should start with a "
+
+*/
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
