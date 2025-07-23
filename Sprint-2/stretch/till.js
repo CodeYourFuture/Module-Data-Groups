@@ -21,6 +21,7 @@ const till = {
   "20p": 10,
 };
 const totalAmount = totalTill(till);
+console.log(totalAmount); // Should log the total amount in pounds
 
 // a) What is the target output when totalTill is called with the till object
 
