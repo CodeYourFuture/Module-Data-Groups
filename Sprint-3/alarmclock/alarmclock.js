@@ -14,6 +14,8 @@ function formatTime(seconds) {
 
 function setAlarm() {
   document.body.style.backgroundColor = "";
+  alarmAudio.pause();
+  alarmAudio.currentTime = 0;
 
   const inputSeconds = parseInt(timeInput.value, 10);
 
@@ -56,6 +58,7 @@ function playAlarm() {
 }
 
 function pauseAlarmSound() {
+  document.body.style.backgroundColor = "";
   alarmAudio.pause();
   alarmAudio.currentTime = 0;
 }
