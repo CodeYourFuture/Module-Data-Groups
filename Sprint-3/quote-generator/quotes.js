@@ -492,20 +492,17 @@ const quotes = [
 
 // call pickFromArray with the quotes array to check you get a random quote
 function createContainer() {
-  const h1 = document.querySelector("h1");
-  if (h1) {
-    h1.remove();
-  }
-
   const container = document.createElement('div');
   container.id = 'quote-container';
   container.className = 'container';
-
-  container.innerHTML = document.body.innerHTML;
-
-  document.body.innerHTML = "";
+  
   document.body.appendChild(container);
+  [...document.body.children]
+    .filter((el) => el !== container)
+    .forEach((el) => container.appendChild(el));
+}
 
+function createAutoPlayCheckbox() {
   const autoPlayWrapper = document.createElement("div");
   autoPlayWrapper.id = "auto-play-wrapper";
   autoPlayWrapper.innerHTML = `
@@ -514,7 +511,7 @@ function createContainer() {
       <span>Auto Play:</span>
       <span id="auto-play-status">OFF</span>
     </label>
-    `;
+  `;
   document.body.appendChild(autoPlayWrapper);
 }
 
@@ -552,10 +549,15 @@ function handleButton() {
 }
 
 function renderQuote() {
-  createContainer();
   setQuoteAndAuthor();
+}
+
+function setup() {
+  createContainer();
+  createAutoPlayCheckbox()
+  renderQuote();
   handleButton();
   handleAutoPlayToggle();
 }
 
-renderQuote();
+setup();
