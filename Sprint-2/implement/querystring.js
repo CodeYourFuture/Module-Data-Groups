@@ -15,20 +15,19 @@ function parseQueryString(queryString) {
     //get the indexof the first occurrence of "="
     const index = pair.indexOf("=");
     //slice the first part and store in a variable
-    const slicedFirstPart = pair.slice(0, index)
+    const slicedFirstPart = pair.slice(0, index);
     //get the second part and store in a variable
     const slicedSecondPart = pair.slice(index + 1);
-
-    const decodeKey = decodeURIComponent(slicedFirstPart)
+    //decoding the key value pairs e.g ("a%25b=c%26d") results in { "a%b": "c&d" }
+    const decodeKey = decodeURIComponent(slicedFirstPart);
     const decodeValue = decodeURIComponent(slicedSecondPart);
 
-    //then add it to the queryParams object
+    //then add it to the queryParams 
     queryParams[decodeKey] = decodeValue;
-
   }
+
 
   return queryParams;
 }
 
 module.exports = parseQueryString;
-
