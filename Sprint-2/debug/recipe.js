@@ -1,4 +1,5 @@
 // Predict and explain first...
+//The programme will not print out the ingredients. To print out the ingredients we need ${recipe.ingredients.join("\n")}
 
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
@@ -12,4 +13,4 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);
