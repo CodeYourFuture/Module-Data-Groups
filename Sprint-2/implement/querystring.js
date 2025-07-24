@@ -8,7 +8,7 @@ function parseQueryString(queryString) {
   if (queryString.length === 0) {
     return queryParams;
   }
-  
+
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
@@ -18,8 +18,12 @@ function parseQueryString(queryString) {
     const slicedFirstPart = pair.slice(0, index)
     //get the second part and store in a variable
     const slicedSecondPart = pair.slice(index + 1);
+
+    const decodeKey = decodeURIComponent(slicedFirstPart)
+    const decodeValue = decodeURIComponent(slicedSecondPart);
+
     //then add it to the queryParams object
-    queryParams[slicedFirstPart] = slicedSecondPart;
+    queryParams[decodeKey] = decodeValue;
 
   }
 
@@ -27,3 +31,4 @@ function parseQueryString(queryString) {
 }
 
 module.exports = parseQueryString;
+
