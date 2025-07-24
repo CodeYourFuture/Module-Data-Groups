@@ -1,6 +1,27 @@
 let countdownTimer;
 let flashInterval;
 
+function formatTime(time) {
+  const pad = (num) => num.toString().padStart(2, "0");
+
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+
+  return `${pad(minutes)}:${pad(seconds)}`;
+}
+
+function updateTitle(time) {
+  document.getElementById("timeRemaining").textContent = `Time Remaining: ${formatTime(time)}`;
+}
+
+function flashingBackground() {
+  let isRed = false;
+  flashInterval = setInterval(() => {
+    document.body.style.backgroundColor = isRed ? "#ffffff" : "#ff4444";
+    isRed = !isRed;
+  }, 400);
+}
+
 function setAlarm() {
   document.getElementById("stop").addEventListener("click", () => {
     if (flashInterval) {
@@ -19,28 +40,7 @@ function setAlarm() {
 
   let timeLeft = alarmTime;
 
-  function formatTime(time) {
-    const pad = (num) => num.toString().padStart(2, "0");
-
-    const minutes = Math.floor(time / 60);
-    const seconds = time % 60;
-
-    return `${pad(minutes)}:${pad(seconds)}`;
-  }
-
-  function updateTitle(time) {
-    document.getElementById("timeRemaining").textContent = `Time Remaining: ${formatTime(time)}`;
-  }
-
   updateTitle(alarmTime);
-
-  function flashingBackground() {
-    let isRed = false;
-    flashInterval = setInterval(() => {
-      document.body.style.backgroundColor = isRed ? "#ffffff" : "#ff4444";
-      isRed = !isRed;
-    }, 400);
-  }
 
   if (countdownTimer) {
     clearInterval(countdownTimer);
