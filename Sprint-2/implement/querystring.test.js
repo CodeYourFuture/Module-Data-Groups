@@ -25,3 +25,9 @@ test("handles URL-encoded characters", () => {
     country: "United Kingdom",
   });
 });
+
+test("handles key without equals sign", () => {
+  expect(parseQueryString("name")).toEqual({
+    name: "",
+  });
+});
