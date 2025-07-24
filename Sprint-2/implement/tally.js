@@ -7,7 +7,13 @@ function tally(array) {
 
     // make an empty object to store items counted
     const itemCount = {};
-    
+
+    // loop over each item in the array
+    for (const item of array){
+        // if the item hasn't been counted yet treat it as 0
+        itemCount[item] = (itemCount[item] || 0) + 1; // then adds 1 to either start or increment the count for this item
+    }
+
     return itemCount;
 }
 
