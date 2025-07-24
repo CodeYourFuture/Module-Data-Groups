@@ -9,7 +9,7 @@ function setAlarm() {
   remainingTime = parseInt(input, 0);
 
   // If input is invalid or zero, do nothing
-  if (is00(remainingTime) || remainingTime <= 0) return;
+  if (isNaN(remainingTime) || remainingTime <= 0) return;
 
   // Clear any existing interval
   clearInterval(countdown);
