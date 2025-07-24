@@ -10,7 +10,7 @@ const author = {
   age: 40,
   alive: true,
 };
-
-for (const value of author) {
+//you have to add the object values to an array first, then log out the array
+for (const value of Object.values(author)) {
   console.log(value);
 }
