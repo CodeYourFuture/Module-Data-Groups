@@ -26,3 +26,31 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(string){
+  let countedWords = {};
+  let noPunctuation= string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+  //remove unnecessary spaces
+  noPunctuation = noPunctuation.replace(/\s{2,}/g," ");
+  noPunctuation = noPunctuation.toLowerCase();
+  const words = noPunctuation.split(" ");
+  for(i=0; i<words.length; i++){
+    if (Object.hasOwn(countedWords, words[i])){
+      countedWords[words[i]] += 1;
+    } else {
+      countedWords[words[i]] = 1;
+    }
+  }
+  let mostCommonWord = '';
+  let maxQuantity = 0;
+  for ( let word in countedWords){
+    if (countedWords[word] > maxQuantity){
+      maxQuantity = countedWords[word];
+      mostCommonWord = word;
+    }
+  }
+  console.log("Most common word: " + mostCommonWord);
+  return countedWords; 
+}
+
+console.log(countWords("You. !and Me and You"));
