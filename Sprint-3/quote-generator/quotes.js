@@ -495,11 +495,12 @@ function createContainer() {
   const container = document.createElement('div');
   container.id = 'quote-container';
   container.className = 'container';
-  
-  document.body.appendChild(container);
-  [...document.body.children]
-    .filter((el) => el !== container)
-    .forEach((el) => container.appendChild(el));
+
+  ['quote', 'author', 'new-quote'].forEach(id => {
+    container.appendChild(document.getElementById(id));
+  });
+
+  document.body.prepend(container);
 }
 
 function createAutoPlayCheckbox() {
@@ -548,14 +549,10 @@ function handleButton() {
   });
 }
 
-function renderQuote() {
-  setQuoteAndAuthor();
-}
-
 function setup() {
   createContainer();
   createAutoPlayCheckbox()
-  renderQuote();
+  setQuoteAndAuthor();
   handleButton();
   handleAutoPlayToggle();
 }
