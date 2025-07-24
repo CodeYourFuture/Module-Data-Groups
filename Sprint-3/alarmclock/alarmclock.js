@@ -11,6 +11,10 @@ function setAlarm() {
 
   clearInterval(countdownInterval);
 
+  document.body.style.backgroundColor = "white";
+  audio.pause();
+  audio.currentTime = 0;
+
   updateDisplay(time);
 
   countdownInterval = setInterval(() => {
