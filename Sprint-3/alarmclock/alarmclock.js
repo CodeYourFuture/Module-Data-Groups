@@ -12,12 +12,11 @@ function setAlarm() {
 
   // Input validation: must be a positive whole number
   if (
-    isNaN(timeRemaining) ||
-    timeRemaining <= 0 ||
-    !Number.isInteger(timeRemaining)
-  ) {
-    alert("Please enter a whole number greater than 0.");
-    return;
+  timeRemaining <= 0 ||
+  !Number.isInteger(timeRemaining)
+){
+  alert("Please enter a whole number greater than 0.");
+  return;
   }
   //This will update the userInterface immediately so we can see when countdown begins without the one second delay.
   updateTitle()
