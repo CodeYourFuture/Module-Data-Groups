@@ -1,11 +1,6 @@
 function contains(obj, property) {
-  //throw error if parameters are invalid
+  //return false or throw error if parameters are invalid
   if (typeof obj !== "object" || Array.isArray(obj) || obj === null) {
-    return false;
-  }
-
-  //return false if object is empty
-  if (Object.keys(obj).length === 0) {
     return false;
   }
   //check that the obj contains a property, and the property is not inherited.
@@ -16,9 +11,5 @@ function contains(obj, property) {
     return false;
   }
 }
-
-// console.log(contains({ a: 1, b: 2 }, "a"));
-// console.log(contains({ a: 1, b: 2 }, "c"));
-console.log(contains([], "c")); // console.log(contains({}, "c"))
 
 module.exports = contains;
