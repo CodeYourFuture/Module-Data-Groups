@@ -29,9 +29,7 @@ function setAlarm() {
   }
 
   function updateTitle(time) {
-    document.getElementById(
-      "timeRemaining"
-    ).innerHTML = `Time Remaining: ${formatTime(time)}`;
+    document.getElementById("timeRemaining").textContent = `Time Remaining: ${formatTime(time)}`;
   }
 
   updateTitle(alarmTime);
