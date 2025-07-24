@@ -13,9 +13,8 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe.ingredients[0]}
-${recipe.ingredients[1]}
-${recipe.ingredients[2]}
-${recipe.ingredients[3]}`);
+console.log(`${recipe.title} serves ${recipe.serves}`);
+console.log("  ingredients:");
+for (let ingredient of recipe.ingredients) {
+  console.log(`${ingredient}`);
+}
