@@ -13,7 +13,7 @@ function tally(list) {
     let currentItem = list[i];
     //if the current item exist, increment its count by 1.
     if (countItem[currentItem]) {
-      countItem[currentItem] + 1;
+      countItem[currentItem] ++;
     } else {
       //Otherwise initial its count by 1
       countItem[currentItem] = 1;
@@ -21,12 +21,12 @@ function tally(list) {
   }
   return countItem;
 }
-// // let call1 = tally("");
-// let call2 = tally(["a", "a", "b", "c"]);
+// let call1 = tally("");
+// let call2 = tally(["a", "a", "b", "a","c"]);
 // let call3 = tally(["a", "a", "a", "b", "z", "z"]);
-// let call4 = tally([]);
+// let call4 = tally(["a", "a"]);
 // // console.log(call1);
-// console.log(call2);
-// console.log(call3);
-// console.log(call4);
+// // console.log(call2);
+// // console.log(call3);
+// // console.log(call4);
 module.exports = tally;
