@@ -2,7 +2,7 @@ const contains = require("./contains.js");
 
 /*
 Implement a function called contains that checks an object contains a
-particular property
+particular property.
 
 E.g. contains({a: 1, b: 2}, 'a') // returns true
 as the object contains a key of 'a'
@@ -22,7 +22,7 @@ test("returns true if the object contains the property, false otherwise", ()=>{
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test("contains on empty object returns false",()=>{
+test("contains an empty object returns false",()=>{
     expect(contains({})).toEqual(false)
 });
 
