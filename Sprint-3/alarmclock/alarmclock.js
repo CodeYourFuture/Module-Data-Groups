@@ -5,6 +5,7 @@ let flashInterval;                                                              
 const random = num => Math.floor(Math.random() * (num + 1));                                // Return random integer to generate RGB color values for flashing background
 
 const setAlarm = () => {
+  pauseAlarm();                                                                             // Stop sound and flashing from any previous alarm
   clearInterval(runningTimer);                                                              // Clear any previous running timer
 
   const timeInput = document.getElementById("alarmSet");                                    // Get user input element 
