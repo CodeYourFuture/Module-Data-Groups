@@ -157,3 +157,19 @@ body {
     max-height: 80px;
   }
 }
+
+
+/* css reading list app */
+.book-card {
+  padding: 20px;
+  margin: 40px;
+  border-radius: 5px;
+  border: 1px solid rgb(153, 144, 144);
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+h1{
+  text-align: center;
+  margin-top: 50px;
+}
+

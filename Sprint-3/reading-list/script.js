@@ -21,3 +21,20 @@ const books = [
   },
 ];
 
+function readingList(books) {
+  const readingListUl = document.getElementById("reading-list");
+
+  for (let i = 0; i < books.length; i++) {
+    const li = document.createElement("li");
+    const bookDetails = document.createTextNode(`${books[i].title} by ${books[i].author}`
+    )
+
+    li.classList.add("book-card");
+    li.appendChild(bookDetails);
+
+     readingListUl.appendChild(li);
+  }
+
+}
+
+readingList(books);
