@@ -1,3 +1,4 @@
+let intervalId;
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   let timeRemaining = parseInt(input.value, 10);
