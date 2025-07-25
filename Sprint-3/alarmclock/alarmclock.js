@@ -24,7 +24,6 @@ function setAlarm() {
 
     if (secondsLeft <= 0) {
       clearInterval(timer); //stops the timer from running
-      console.log("The countdown has now reached 0");
       playAlarm();
       backGroundColor("#ADD8E6");
       userInput.value = ""; //this clears the input field
@@ -53,11 +52,8 @@ function pauseTheCountDown() {
     timerPaused = !timerPaused; // this is to toggle btw the pause state
     const btn = document.getElementById("pause");
     btn.textContent = timerPaused ? "Resume" : "Pause";
-
-    console.log(timerPaused ? "Paused" : "Resumed");
   });
 }
-
 pauseTheCountDown();// Run the pause setup function so that the btn can work
 
 
@@ -85,29 +81,3 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
-
-/*Given the user has entered a number in the input field
-When the user clicks the "Set Alarm" button
-Then the "Time Remaining" title should update to show the entered number in mm:ss format
-
-Given the alarm is set with a valid time
-When one second passes
-Then the "Time Remaining" title should decrement by 1 second
-
-Given the alarm is set with a time of 00:00
-When the timer reaches 00:00
-Then the alarm sound should play continuously
-
-Given the alarm sound is currently playing
-When the user clicks the "Stop Alarm" button
-Then the alarm sound should stop playing
-
-Given the alarm is set with a time of 00:10
-When the timer reaches 00:00
-Then the background color should change
-And the alarm sound should play
-
-Given the user has not set an alarm
-When the page first loads
-Then the "Time Remaining" title should show 00:00
-And no alarm sound should play*/
