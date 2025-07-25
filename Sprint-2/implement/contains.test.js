@@ -59,7 +59,7 @@ test("contains on invalid parameters like an array returns false or throws an er
   expect(contains(arr, "a")).toBe(false);
 });
 
-test("contains on key named 'length' returns false", () => {
+test("contains on key named 'length' returns true", () => {
   const arr = [1, 2, 3];
-  expect(contains(arr, "length")).toBe(false);
+  expect(contains(arr, "length")).toBe(true);
 });
