@@ -33,6 +33,12 @@ function readingList(books) {
     li.classList.add("book-card");
     li.appendChild(bookDetails);
 
+    if (books[i].alreadyRead) {
+      li.classList.add("read"); // If true, add the 'read' class
+    } else {
+      li.classList.add("not-read"); // If false, add the 'not-read' class
+    }
+
     const bookImg = document.createElement("img");
     bookImg.src = books[i].bookCoverImage;
     bookImg.alt = `cover of ${books[i].title}`;

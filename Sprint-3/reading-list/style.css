@@ -173,3 +173,14 @@ h1{
   margin-top: 50px;
 }
 
+.read{
+  background-color: red;
+}
+
+.not-read{
+  background-color: green
+}
+
+.book-card img{
+  margin-top: 20px;
+}
