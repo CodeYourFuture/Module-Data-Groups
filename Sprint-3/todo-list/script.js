@@ -1,24 +1,27 @@
 function populateTodoList(todos) {
-  const list = document.getElementById("todoList");
+  const list = document.getElementById("todo-list");
   list.innerHTML = "";
 
-  todos.forEach((todo, index) => {
+  todos.forEach((todo) => {
     const li = document.createElement("li");
     li.className = "d-flex justify-content-between align-items-center mb-2";
 
-    // Create span for task text
+    // Required by test: apply style directly to <li>
+    if (todo.completed) {
+      li.style.textDecoration = "line-through";
+      li.style.color = "gray";
+    } else {
+      li.style.textDecoration = "none";
+      li.style.color = "black";
+    }
+
     const taskText = document.createElement("span");
     taskText.textContent = todo.task;
     taskText.className = "todo-text";
-    if (todo.completed) {
-      taskText.classList.add("text-decoration-line-through", "text-muted");
-    }
 
-    // Badge container with icons
     const badge = document.createElement("span");
     badge.className = "badge bg-primary rounded-pill d-flex gap-2 px-2 py-1";
 
-    // Complete icon
     const checkIcon = document.createElement("i");
     checkIcon.className = "fa fa-check text-white";
     checkIcon.setAttribute("aria-hidden", "true");
@@ -28,13 +31,12 @@ function populateTodoList(todos) {
       populateTodoList(todos);
     });
 
-    // Delete icon
     const trashIcon = document.createElement("i");
     trashIcon.className = "fa fa-trash text-white";
     trashIcon.setAttribute("aria-hidden", "true");
     trashIcon.style.cursor = "pointer";
     trashIcon.addEventListener("click", () => {
-      todos.splice(index, 1);
+      todos = todos.filter((t) => t !== todo);
       populateTodoList(todos);
     });
 
@@ -47,33 +49,28 @@ function populateTodoList(todos) {
   });
 }
 
-// Initial todos array
-let todos = [];
+let todos = [
+  { task: "Wash the dishes", completed: false },
+  { task: "Do the shopping", completed: false }
+];
 
-populateTodoList(todos);
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const input = document.getElementById("todoInput");
+  const task = input.value.trim();
 
-// Add new todo handler
-function addNewTodo(event) {
-  event.preventDefault();
-  const todoInput = document.getElementById("to-do");
-  const newTodo = todoInput.value.trim();
-
-  if (newTodo) {
-    todos.push({ task: newTodo, completed: false });
+  if (task !== "") {
+    todos.push({ task, completed: false });
     populateTodoList(todos);
-    todoInput.value = "";
+    input.value = "";
   }
-}
-
-document.getElementById("addToDo").addEventListener("click", addNewTodo);
-
-// Remove all completed todos
-function deleteAllCompletedTodos() {
-  todos = todos.filter((todo) => !todo.completed);
-  populateTodoList(todos);
-}
+});
 
 document
   .getElementById("remove-all-completed")
-  .addEventListener("click", deleteAllCompletedTodos);
+  .addEventListener("click", () => {
+    todos = todos.filter((todo) => !todo.completed);
+    populateTodoList(todos);
+  });
 
+populateTodoList(todos);
