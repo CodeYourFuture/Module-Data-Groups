@@ -496,6 +496,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const authorElement = document.getElementById("author");
   const newQuote = document.getElementById("new-quote");
   const autoQuote = document.getElementById("checkbox");
+  const quote = pickFromArray(quotes);
+  quoteElement.textContent = quote.quote;
+  authorElement.textContent = `— ${quote.author}`;
 
   if (!quoteElement || !authorElement || !newQuote || !autoQuote) {
     console.error("One or more elements are missing in the DOM.");
