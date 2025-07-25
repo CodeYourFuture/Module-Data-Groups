@@ -35,11 +35,6 @@ function calculateMedian(list) {
   // Sort the array numerically
   sortedList.sort((a, b) => a - b);
 
-  // Handle empty sortedList (no valid numbers)
-  if (sortedList.length === 0) {
-    return null;
-  }
-
   const mid = Math.floor(sortedList.length / 2);
 
   // If length is odd, return middle element
