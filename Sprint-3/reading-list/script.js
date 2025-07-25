@@ -26,15 +26,23 @@ function readingList(books) {
 
   for (let i = 0; i < books.length; i++) {
     const li = document.createElement("li");
-    const bookDetails = document.createTextNode(`${books[i].title} by ${books[i].author}`
-    )
+    const bookDetails = document.createTextNode(
+      `${books[i].title} by ${books[i].author}`
+    );
 
     li.classList.add("book-card");
     li.appendChild(bookDetails);
 
-     readingListUl.appendChild(li);
-  }
+    const bookImg = document.createElement("img");
+    bookImg.src = books[i].bookCoverImage;
+    bookImg.alt = `cover of ${books[i].title}`;
+    bookImg.style.width = "150px";
 
+    li.appendChild(document.createElement("br"));
+    li.appendChild(bookImg);
+
+    readingListUl.appendChild(li);
+  }
 }
 
 readingList(books);
