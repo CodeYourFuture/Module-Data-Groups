@@ -1,1 +1,17 @@
 /** Write your CSS in here **/
+body {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 20px auto;
+}
+
+#carousel-img {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+}
