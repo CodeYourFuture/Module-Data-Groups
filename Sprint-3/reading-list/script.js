@@ -39,7 +39,7 @@ function readingList(books) {
 
     const bookImage = document.createElement("div");
     bookImage.classList.add("book-image");
-    bookImage.innerHTML = `<img src="${book.bookCoverImage}" alt="Book Cover" width="150" height="200" />`;
+    bookImage.innerHTML = `<img src="${book.bookCoverImage}" width="150" height="200" />`;
 
     listItem.appendChild(bookDetails);
     listItem.appendChild(bookImage);
