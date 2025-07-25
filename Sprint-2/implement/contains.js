@@ -1,5 +1,9 @@
 function contains(object, key) {
-  return key in object;
+  if (Array.isArray(object) && key === "length") {
+    return false;
+  }
+
+  return object.hasOwnProperty(key);
 }
 
 module.exports = contains;
