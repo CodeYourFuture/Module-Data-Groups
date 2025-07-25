@@ -6,9 +6,9 @@ const images = [
 
 // Write your code here
 let currentImage = 0;
-let imageDom = document.getElementById("carousel-img");
-let forwardButton = document.getElementById("forward-btn");
-let backwardButton = document.getElementById("backward-btn");
+const imageDom = document.getElementById("carousel-img");
+const forwardButton = document.getElementById("forward-btn");
+const backwardButton = document.getElementById("backward-btn");
 
 function moveCarousel(isDirectionForward) {
     isDirectionForward ? currentImage++ : currentImage--;
@@ -29,13 +29,13 @@ backwardButton.addEventListener("click", () => {
     moveCarousel(false);
 });
 
-let stopButton = document.getElementById("stop-btn");
-let autoForwardButton = document.getElementById("auto-forward-btn");
-let autoBackwardButton = document.getElementById("auto-backward-btn");
+const stopButton = document.getElementById("stop-btn");
+const autoForwardButton = document.getElementById("auto-forward-btn");
+const autoBackwardButton = document.getElementById("auto-backward-btn");
 
 autoForwardButton.addEventListener("click", () => {
     stopButton.click();// if user does not press stop before choose other direction
-    let interval = setInterval(function () {
+    const interval = setInterval(function () {
         moveCarousel(true);
         stopButton.addEventListener("click", () => {
             clearInterval(interval);
@@ -45,7 +45,7 @@ autoForwardButton.addEventListener("click", () => {
 
 autoBackwardButton.addEventListener("click", () => {
     stopButton.click();// if user does not press stop before choose other direction
-    let interval = setInterval(function () {
+    const interval = setInterval(function () {
         moveCarousel(false);
         stopButton.addEventListener("click", () => {
             clearInterval(interval);
