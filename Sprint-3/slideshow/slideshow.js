@@ -10,20 +10,23 @@ let imageDom = document.getElementById("carousel-img");
 let forwardButton = document.getElementById("forward-btn");
 let backwardButton = document.getElementById("backward-btn");
 
-forwardButton.addEventListener("click", () => {
-    currentImage++;
+function moveCarousel(isDirectionForward) {
+    isDirectionForward ? currentImage++ : currentImage--;
     if (currentImage == images.length) {
         currentImage = 0;
     }
-    imageDom.setAttribute("src", images[currentImage]);
-});
-
-backwardButton.addEventListener("click", () => {
-    currentImage--;
     if (currentImage < 0) {
         currentImage = images.length - 1;
     }
     imageDom.setAttribute("src", images[currentImage]);
+}
+
+forwardButton.addEventListener("click", () => {
+    moveCarousel(true);
+});
+
+backwardButton.addEventListener("click", () => {
+    moveCarousel(false);
 });
 
 let stopButton = document.getElementById("stop-btn");
@@ -33,27 +36,19 @@ let autoBackwardButton = document.getElementById("auto-backward-btn");
 autoForwardButton.addEventListener("click", () => {
     stopButton.click();// if user does not press stop before choose other direction
     let interval = setInterval(function () {
-        currentImage++;
-        if (currentImage == images.length) {
-            currentImage = 0;
-        }
+        moveCarousel(true);
         stopButton.addEventListener("click", () => {
             clearInterval(interval);
         });
-        imageDom.setAttribute("src", images[currentImage]);
     }, 2000);
 });
 
 autoBackwardButton.addEventListener("click", () => {
     stopButton.click();// if user does not press stop before choose other direction
     let interval = setInterval(function () {
-        currentImage--;
-        if (currentImage < 0) {
-            currentImage = images.length - 1;
-        }
+        moveCarousel(false);
         stopButton.addEventListener("click", () => {
             clearInterval(interval);
         });
-        imageDom.setAttribute("src", images[currentImage]);
     }, 2000);
 });
