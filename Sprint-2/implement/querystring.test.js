@@ -31,3 +31,9 @@ test("handles key without equals sign", () => {
     name: "",
   });
 });
+
+test("parses multiple equals sign in value", () => {
+  expect(parseQueryString("name=something=somethingelse")).toEqual({
+    name: "something=somethingelse",
+  });
+});
