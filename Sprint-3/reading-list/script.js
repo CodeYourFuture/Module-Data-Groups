@@ -21,3 +21,23 @@ const books = [
   },
 ];
 
+// This script renders the reading list to the DOM
+document.addEventListener("DOMContentLoaded", () => {
+  const readingList = document.querySelector("#reading-list");
+
+  books.forEach((book) => {
+    const li = document.createElement("li");
+    li.textContent = `${book.title} by ${book.author}`;
+
+    const img = document.createElement("img");
+    img.src = book.bookCoverImage;
+    li.appendChild(document.createElement("br"));
+    li.appendChild(img);
+
+    // Match test expectations exactly
+    li.style.backgroundColor = book.alreadyRead ? "red" : "green";
+
+    readingList.appendChild(li);
+  });
+});
+
