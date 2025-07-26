@@ -492,9 +492,9 @@ const quotes = [
 const quoteElement = document.getElementById('quote');
 const authorElement = document.getElementById('author');
 const quoteButton = document.getElementById('new-quote');
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
-}
+
+
+
 function displayRandomQuote(){
   const selectedQuote = pickFromArray(quotes);
   quoteElement.textContent = selectedQuote.quote;
