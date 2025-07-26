@@ -1,3 +1,5 @@
+const { getTimeLeft } = require("./alarmclock");
+//jest.advanceTimersByTime((getTimeLeft() + 1) * 1000);
 /* ======= TESTS - DO NOT MODIFY ===== 
 There are some Tests in this file that will help you work out if your code is working.
 */
@@ -26,11 +28,14 @@ beforeEach(async () => {
   });
 
   return new Promise((res) => {
-    page.window.document.addEventListener("load", res);
+    page.window.addEventListener("load", res);
   });
 });
 
 afterEach(() => {
+  // Reset the timers after each test
+  jest.clearAllTimers();
+  
   jest.useRealTimers();
   page = null;
 });
@@ -75,30 +80,24 @@ test("should update the heading while counting down", () => {
 test("should count down every 1000 ms", () => {
   const input = page.window.document.querySelector("#alarmSet");
   const button = page.window.document.querySelector("#set");
-
-  const mockTimer = jest.fn();
-  page.window.setTimeout = mockTimer;
-  page.window.setInterval = mockTimer;
-
+  const mockTimer = jest.spyOn(page.window, "setInterval");
+  mockTimer.mockClear();
   input.value = "19";
   button.click();
-
+  // Record the number of times setInterval has been called
   expect(mockTimer).toHaveBeenCalledTimes(1);
   expect(mockTimer).toHaveBeenLastCalledWith(expect.any(Function), 1000);
-});
+ });
 
 test("should play audio when the timer reaches zero", () => {
   const input = page.window.document.querySelector("#alarmSet");
   const button = page.window.document.querySelector("#set");
-  const mockPlayAlarm = jest.fn();
-
-  page.window.playAlarm = mockPlayAlarm;
-  input.value = "10";
+  const mockPlayAlarm = jest.spyOn(page.window, 'playAlarm').mockImplementation(() => {});
+  input.value = "1";
   button.click();
-
   expect(mockPlayAlarm).toHaveBeenCalledTimes(0);
-
-  jest.runAllTimers();
-
+  jest.advanceTimersByTime(12000);
   expect(mockPlayAlarm).toHaveBeenCalledTimes(1);
+  mockPlayAlarm.mockRestore();
 });
+

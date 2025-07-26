@@ -6,10 +6,14 @@
 
 const recipe = {
   title: "bruschetta",
-  serves: 2,
+  serves: "2",
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
+
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+ingredients:`);
+// The code will not log the ingredients, only the object. 
+for (const ingredient of recipe.ingredients) {
+  console.log(ingredient);
+}
