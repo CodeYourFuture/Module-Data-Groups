@@ -30,8 +30,6 @@ function updateAutoPlayStatus(isOn) {
 document.addEventListener("DOMContentLoaded", function () {
   displayRandomQuote();
 });
-
-document.addEventListener("DOMContentLoaded", function () {
   const newQuoteButton = document.getElementById("new-quote");
   newQuoteButton.addEventListener("click", displayRandomQuote);
 
