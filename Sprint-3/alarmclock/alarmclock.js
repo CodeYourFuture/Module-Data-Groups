@@ -1,6 +1,5 @@
 const timeRemainingDisplay = document.querySelector("#timeRemaining");
 const alarmSetInput = document.querySelector("#alarmSet");
-const alarmContainer = document.querySelector(".centre");
 const bodyContainer = document.querySelector("body");
 
 // Buttons
@@ -18,6 +17,7 @@ function init() {
   stopAlarmBtn.disabled = true;
   clearInterval(alarmTimer);
   audio.currentTime = 0;
+  bodyContainer.removeAttribute("style");
 }
 
 stopAlarmBtn.addEventListener("click", init);
@@ -53,6 +53,7 @@ function counter() {
   } else {
     clearInterval(alarmTimer);
     playAlarm();
+    bodyContainer.style.backgroundColor = "#FF5252";
     stopAlarmBtn.disabled = false;
   }
 }
