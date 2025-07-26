@@ -500,7 +500,6 @@ function displayRandomQuote(){
   quoteElement.textContent = selectedQuote.quote;
   authorElement.textContent = selectedQuote.author;
 
-  console.log(quoteElement, authorElement, selectedQuote);
 }
 
 displayRandomQuote();
