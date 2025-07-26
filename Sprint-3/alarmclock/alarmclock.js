@@ -17,19 +17,24 @@ function setAlarm() {
   const timeInterval = Number(inputArea.value); // Get the the entered value and converted to number.
   if (timeInterval > 0) {
     updateTimeDisplay(timeInterval);
-    startCountdown() // call function to start counting down
+    startCountdown(); // call function to start counting down
   } else {
-    alert("Please enter a time greater than 0 seconds.")
+    alert("Please enter a time greater than 0 seconds.");
   }
 }
 
-/** 
+/**
  * Handles the countdown logic, updating the display every second.
  * Plays the alarm sound when time reaches zero.
  */
+let timer = null; // Hold the currently active timer, if there is one.
 function startCountdown() {
+  if (timer !== null) {
+    clearInterval(timer); // cancel the previous one
+  }
+
   let timeRemaining = Number(inputArea.value); // Get the value of
-  const timer = setInterval(function () {
+  timer = setInterval(function () {
     timeRemaining--;
     updateTimeDisplay(timeRemaining);
     if (timeRemaining === 0) {
@@ -45,7 +50,9 @@ function startCountdown() {
  */
 function updateTimeDisplay(timeInSeconds) {
   const seconds = (timeInSeconds % 60).toString().padStart(2, "0");
-  const minutes = Math.floor(timeInSeconds / 60).toString().padStart(2, "0");
+  const minutes = Math.floor(timeInSeconds / 60)
+    .toString()
+    .padStart(2, "0");
   timeRemainingInfo.innerText = `Time Remaining: ${minutes}:${seconds}`;
 }
 
