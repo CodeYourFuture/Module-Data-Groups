@@ -45,20 +45,20 @@ function setAlarm() {
       updateTimeDisplay(0);
       playAlarm();
       flashBackground();
-  
+    document.getElementById("alarmSet").value = "";
+    document.getElementById("alarmSet").disabled = true;
+    document.getElementById("set").disabled = false;
+
       return;
     }
         updateTimeDisplay(timeLeft);
   }, 1000);
 }
 
-      //document.getElementById("alarmSet").value = "";
-      //document.getElementById("alarmSet").disabled = false;
-      //document.getElementById("set").disabled = false;
-
+      
 function pauseAlarm() {
   if (!paused) {
-    paused = false;
+    paused = true;
     audio.pause();
     clearInterval(flashingInterval);
     document.body.classList.remove("flash");
@@ -113,13 +113,3 @@ if (typeof window !== "undefined") {
   window.formatTime = formatTime;
 }
 
-// module.exports = {
-  setup,
-  setAlarm,
-  pauseAlarm,
-  resumeAlarm,
-  playAlarm,
-  flashBackground,
-  updateTimeDisplay,
-  formatTime,
-};
