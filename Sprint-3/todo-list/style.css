@@ -1,1 +1,99 @@
 
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form container */
+form {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+/* Input field */
+input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Remove all completed */
+#remove-all-completed {
+    background-color: #dc3545;
+    color: white;
+}
+
+#remove-all-completed:hover {
+    background-color: #a71d2a;
+}
+
+/* Todo list styling */
+ul#todo-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Individual todo item */
+ul#todo-list li {
+    background-color: #fff;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Completed todo */
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Icons */
+.todo-actions i {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.todo-actions i:hover {
+    color: #007bff;
+}
