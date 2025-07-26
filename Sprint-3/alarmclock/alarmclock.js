@@ -2,7 +2,14 @@ let timerId;
 
 function setAlarm() {
   const title = document.getElementById("timeRemaining");
-  let time = 10;
+  const inputElm = document.getElementById("alarmSet");
+  let time = Number(inputElm.value);
+
+
+  if (isNaN(time) || time <= 0) {
+    alert("Please enter a valid number");
+    return;
+  }
 
   if (timerId) {
     clearInterval(timerId);
