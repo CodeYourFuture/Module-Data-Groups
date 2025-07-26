@@ -1,3 +1,12 @@
+const timeRemainingDisplay = document.querySelector("#timeRemaining");
+const alarmSetInput = document.querySelector("#alarmSet");
+const alarmContainer = document.querySelector(".centre");
+const bodyContainer = document.querySelector("body");
+
+// Buttons
+const stopAlarmBtn = document.querySelector("#stop");
+const setAlarmBtn = document.querySelector("#set");
+
 function setAlarm() {}
 
 // DO NOT EDIT BELOW HERE
