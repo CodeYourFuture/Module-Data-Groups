@@ -1,11 +1,8 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
-  const keyValuePairs = queryString.split("&");
+  const pairs = queryString.split("&");
 
-  for (const pair of keyValuePairs) {
+  for (const pair of pairs) {
     const seperatorIndex = pair.indexOf("=");
 
     let key, value;

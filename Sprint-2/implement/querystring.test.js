@@ -22,3 +22,7 @@ test("handles repeated keys as arrays", () => {
     tag: ["js", "node"],
   });
 });
+
+test("correctly parses encoded characters in query string", () => {
+  expect(parseQueryString("a%25b=c%26d")).toEqual({ "a%b": "c&d" });
+});
