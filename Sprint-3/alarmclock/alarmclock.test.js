@@ -1,5 +1,7 @@
 /* ======= TESTS - DO NOT MODIFY ===== 
 There are some Tests in this file that will help you work out if your code is working.
+
+all tests pass now but i still cant get the pause and resume button to work.
 */
 
 const path = require("path");

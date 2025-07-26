@@ -32,3 +32,6 @@ Try and outline your strategy / approach for solving this problem before you get
 The end result should look something like this
 
 ![reading-list](reading-list.png)
+
+strategy:
+dont even bother launching in a client. go straight to tests and run them. from what fails write a function in script.js to pass the tests. pass the tests one by one. 

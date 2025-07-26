@@ -1,1 +1,77 @@
-/** Write your CSS in here **/
+/** Write your CSS in here 
+the thing is i dont really like writing css but okay
+body, quote container, author,  button, hover
+**/
+
+body {
+    font-family: 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #7CA982;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+
+}
+
+.quote-container {
+    text-align: right;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #C2A83E;
+    background-color: #243E36;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; 
+    color: #F1F7ED;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#quote {
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    color: #F1F7ED;
+    text-align: left, fill;
+    margin-right: 10px;
+    padding-right: 20px;
+    
+}
+#header {
+    text-align: top, left;
+    margin-bottom: 750px;
+    padding: 50px;
+    color: #243E36;
+    font-size: 4em;
+}
+#author {
+    text-align: bottom, right, fill;
+    margin-top: 100px;
+    text-overflow: wrap;
+    margin-right: 25px;
+    padding: 10px 0;
+    font-size: 1.1em;
+    color: #E0EEC6;
+}
+
+#new-quote {
+    position: centre;
+    margin-top: 600px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #C2A83E;
+    border: none;
+    border-radius: 5px;
+    text-align: bottom;
+    transition: background-color 0.3s ease-in-out;
+}
+#new-quote:hover {
+    background-color:#243E36;
+}
