@@ -34,7 +34,7 @@ describe("Mandatory tasks", () => {
     const todoList = page.window.document.querySelector("#todo-list");
     const listItems = [...page.window.document.querySelectorAll("li")];
 
-    expect(todoList).toHaveTextContent("Wash the dishes");
+    expect(todoList).toHaveTextContent("Wash the dishes"); // get a list displayed to pass 
     expect(todoList).toHaveTextContent("Do the shopping");
     expect(listItems.length).toBe(2);
   });

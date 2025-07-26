@@ -1,4 +1,5 @@
-/* put the stretch version here as it messes with the tests */
+/* put the stretch version here as it messes with the tests 
+its incomplete*/
 
 document.addEventListener("DOMContentLoaded", () => {
     const carouselImg = document.getElementById("image");

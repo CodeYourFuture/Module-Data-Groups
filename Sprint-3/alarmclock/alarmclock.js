@@ -57,3 +57,5 @@ function pauseAlarm() {
 window.onload = setup;
 
 module.exports = alarmclock;
+
+// passes all tests
