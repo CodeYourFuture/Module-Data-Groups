@@ -1,22 +1,34 @@
+let timerId;
 
 function setAlarm() {
   const title = document.getElementById("timeRemaining");
-  let time =10;
-  const timerId = setInterval(() => {
+  let time = 10;
+
+  if (timerId) {
+    clearInterval(timerId);
+  }
+
+  updateClock();
+  timerId=setInterval(()=>{
     time--;
-    const minutes=Math.floor(time / 60);
-    const seconds= time%60;
+    updateClock();
 
-    const formattedMinutes= minutes.toString().padStart(2, '0');
-    const formattedSeconds= seconds.toString().padStart(2, '0');
-
-    const formattedTime = `${formattedMinutes}: ${formattedSeconds}`;
-    title.textContent = `Time Remaining : ${formattedTime}`;
-    if (time<=0){
+    if (time <= 0) {
       clearInterval(timerId);
       playAlarm();
     }
-}, 1000);
+  }, 1000);
+
+  function updateClock() {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+
+    const formattedMinutes = minutes.toString().padStart(2, "0");
+    const formattedSeconds = seconds.toString().padStart(2, "0");
+
+    const formattedTime = `${formattedMinutes}: ${formattedSeconds}`;
+    title.textContent = `Time Remaining : ${formattedTime}`;
+  }
 }
 
 // DO NOT EDIT BELOW HERE
