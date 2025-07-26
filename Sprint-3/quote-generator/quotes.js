@@ -497,7 +497,7 @@ function showRandomQuote() {
   const authorElement = document.getElementById("author");
 
   quoteElement.textContent = `"${randomQuote.quote}"`;
-  authorElement.textContent = `— ${randomQuote.author}`;
+  authorElement.textContent = ` ${randomQuote.author}`;
 }
 
 function setup() {

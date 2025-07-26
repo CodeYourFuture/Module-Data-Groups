@@ -1,1 +1,65 @@
 /** Write your CSS in here **/
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+.quote-container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+#quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#author {
+    font-size: 1.1rem;
+    color: #05074a;
+    border-bottom: solid 2px #05074a;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#new-quote {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #5c6bc0;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#new-quote:hover {
+    background-color: #05074a;
+    color: white;
+}
