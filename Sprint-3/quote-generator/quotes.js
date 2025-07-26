@@ -491,3 +491,45 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+// DOM elements
+const quoteP = document.getElementById("quote");
+const authorP = document.getElementById("author");
+const newQuoteBtn = document.getElementById("new-quote");
+const autoPlayToggle = document.getElementById("auto-play-toggle");
+const autoPlayStatus = document.getElementById("auto-play-status");
+
+let autoPlayIntervalId = null;
+
+function getRandomQuote() {
+const index = Math.floor(Math.random() * quotes.length);
+return quotes[index];
+}
+
+function displayQuote(quoteObj) {
+quoteP.textContent = quoteObj.quote;
+authorP.textContent = quoteObj.author;
+}
+
+function showNewQuote() {
+const quote = getRandomQuote();
+displayQuote(quote);
+}
+
+newQuoteBtn.addEventListener("click", showNewQuote);
+
+autoPlayToggle.addEventListener("change", (e) => {
+if (e.target.checked) {
+autoPlayStatus.textContent = "Auto-play: ON";
+autoPlayIntervalId = setInterval(showNewQuote, 5000); // 5 seconds for testing
+} else {
+autoPlayStatus.textContent = "Auto-play: OFF";
+clearInterval(autoPlayIntervalId);
+autoPlayIntervalId = null;
+}
+});
+
+// Display an initial quote based on predictable test index
+window.addEventListener("load", () => {
+const initialQuote = getRandomQuote();
+displayQuote(initialQuote);
+});
