@@ -30,6 +30,7 @@ function setAlarm() {
 let timer = null; // Hold the currently active timer, if there is one.
 function startCountdown() {
   if (timer !== null) {
+    pauseAlarm();
     clearInterval(timer); // cancel the previous one
   }
 
