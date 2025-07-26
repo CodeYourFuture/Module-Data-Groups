@@ -13,3 +13,7 @@
 h1 {
   text-align: center;
 }
+.flash {
+  background-color: red;
+  transition: background-color 0.5s ease;
+}
