@@ -503,17 +503,14 @@ document.getElementById("new-quote").addEventListener("click", () => {
 });
 
 let intervalId;
-document.getElementById("auto-play").addEventListener("change",(event)=>{
-  if (event.target.checked){
-    //console.log("auto-play is on");
+document.getElementById("auto-play").addEventListener("change", (event) => {
+  if (event.target.checked) {
     document.getElementById("auto-play-label").textContent = "auto-play : ON";
-    
-     intervalId=setInterval(pickAndDisplayQuote,5000);
-  }else{
+    intervalId = setInterval(pickAndDisplayQuote, 5000);
+  } else {
     document.getElementById("auto-play-label").textContent = "auto-play : OFF";
     clearInterval(intervalId);
   }
 });
 
 window.onload = pickAndDisplayQuote;
- 
