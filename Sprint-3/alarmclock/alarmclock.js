@@ -12,15 +12,19 @@ function updateDisplay() {
 }
 
 function setAlarm() {
-   const input = document.getElementById("alarmSet");
-   const seconds = parseInt(input.value, 10);
+  pauseAlarm();
+  audio.currentTime = 0;
 
-  if (isNaN(seconds) || seconds < 0) {
+  const input = document.getElementById("alarmSet");
+  const seconds = parseInt(input.value, 10);
+
+  if (isNaN(seconds) || seconds <= 0) {
     alert("Please enter a valid number of seconds.");
     return;
   }
- remainingTime = seconds;
- updateDisplay(); 
+  
+  remainingTime = seconds;
+  updateDisplay(); 
 
   clearInterval(countdownInterval); // clear any previous countdown
   countdownInterval = setInterval(() => {
