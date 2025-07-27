@@ -22,7 +22,7 @@ describe("dedupe arrays  ", () => {
     { input: "it is not array", expected: null },
     { input: null, expected: null },
   ].forEach(({ input, expected }) =>
-    it(`returns empty or null ]`, () => expect(dedupe(input)).toEqual(expected))
+    it(`dedupe should returns empty or null `, () => expect(dedupe(input)).toEqual(expected))
   );
 // Given an array with no duplicates
 // When passed to the dedupe function
@@ -31,7 +31,7 @@ describe("dedupe arrays  ", () => {
     { input: ["a", "b", "c"], expected: ["a", "b", "c"] },
     { input: [5, 1, 2, 3, 8], expected: [5, 1, 2, 3, 8] },
   ].forEach(({ input, expected }) =>
-    it(`returns Dedupe Array with no duplicate]`, () => expect(dedupe(input)).not.toBe(input))
+    it(`unique elements: dedupe of ${input} should return a copy of the array`, () => expect(dedupe(input)).not.toBe(input))
   );
 // Given an array with strings or numbers
 // When passed to the dedupe function
@@ -41,6 +41,6 @@ describe("dedupe arrays  ", () => {
     { input: [5, 1, 1, 2, 3, 2, 5, 8], expected: [5, 1, 2, 3, 8] },
     { input: [1, 2, 1], expected: [1, 2] },
   ].forEach(({ input, expected }) =>
-    it(`returns Dedupe Array with strings or numbers ]`, () => expect(dedupe(input)).toEqual(expected))
+    it(`dedupe should return remove the duplicate values`, () => expect(dedupe(input)).toEqual(expected))
   );
 });
