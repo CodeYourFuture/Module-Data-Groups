@@ -6,16 +6,8 @@ function calculateMedian(list) {
   if (!Array.isArray(list)) return null;
   if (list.length == 0) return null;
 
-  let numeric = false;
-
-  for (let i = 0; i < list.length; i++) {
-    if (typeof list[i] === "number") {
-      numeric = true;
-    }
-  }
-  if (!numeric) return null;
-
   const numbers = list.filter((n) => typeof n === "number");
+  if (numbers.length==0) return null;
 
   numbers.sort((a, b) => a - b);
 

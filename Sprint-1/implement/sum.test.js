@@ -13,7 +13,7 @@ const sum = require("./sum.js");
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-describe("find Max", () => {
+describe("calculate sum of given array", () => {
   it("given an empty array, returns 0", () => {
     const list = [];
     const result = sum(list);
@@ -53,7 +53,13 @@ describe("find Max", () => {
   it("Given an array with non-number values, return the sum of the numerical elements", () => {
     const list = [-10.05, 82.15, "1000", "London", -2.85, true];
     const result = sum(list);
-    expect(result).toBeCloseTo(69.25, 2);
+    expect(result).toEqual(69.25);
+  });
+
+    it("Given an array with non-number values, return the sum of the numerical elements", () => {
+    const list = [ 1.2, 0.6 , 0.005 ];
+    const result = sum(list);
+    expect(result).toEqual(1.805);
   });
 
   // Given an array with only non-number values
@@ -61,6 +67,12 @@ describe("find Max", () => {
   // Then it should return the least surprising value given how it behaves for all other inputs
   it("Given an array with only non-number values, return the least surprising value given how it behaves for all other inputs", () => {
     const list = ["London", "Hello", "CYF", "Zebra"];
+    const result = sum(list);
+    expect(result).toEqual(-Infinity);
+  });
+
+    it("Given an array with only non-number values, return the least surprising value given how it behaves for all other inputs", () => {
+    const list = ["A"];
     const result = sum(list);
     expect(result).toEqual(-Infinity);
   });

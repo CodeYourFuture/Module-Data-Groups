@@ -74,6 +74,18 @@ describe("find Max", () => {
     expect(result).toEqual(82.15);
   });
 
+  it("Given an array with non-number values, return the max and ignore non-numeric values", () => {
+    const list = ["A"];
+    const result = findMax(list);
+    expect(result).toEqual(-Infinity);
+  });
+
+  it("Given an array with non-number values, return the max and ignore non-numeric values", () => {
+    const list = ["A",99];
+    const result = findMax(list);
+    expect(result).toEqual(99);
+  });
+
   // Given an array with only non-number values
   // When passed to the max function
   // Then it should return the least surprising value given how it behaves for all other inputs

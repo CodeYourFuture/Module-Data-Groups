@@ -1,22 +1,24 @@
 function findMax(elements) {
-  //First test should return -Infinity
-  if (elements.length < 1) {
+  
+  if (elements.length == 0 || !Array.isArray(elements)) {
     return -Infinity;
   }
+  
+  const numbers = elements.filter((n) => typeof n === "number");
+  if (numbers.length==0) return -Infinity;
+
   //If an array with one number it should return the value of the element
-  if (elements.length == 1) {
-    return elements[0];
+  if (numbers.length == 1) {
+    return numbers[0];
   }
 
-  let max = elements[0];
-  for (let i = 0; i < elements.length; i++) {
-    if (elements[i] > max && typeof elements[i] === "number") {
-      max = elements[i];
+  let max = numbers[0];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+      max = numbers[i];
     }
   }
-  if (typeof max === "number") {
-    return max;
-  } else return -Infinity;
+  return max; 
 }
 
 module.exports = findMax;
