@@ -12,6 +12,6 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}`);
 console.log("ingredients:");
-for (list in recipe.ingredients) {
-  console.log(recipe.ingredients[list]);
+for (const ingredient of recipe.ingredients) {
+   console.log(ingredient);
 }
