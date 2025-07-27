@@ -60,4 +60,12 @@ describe("parseQueryString function", () => {
       key2: "val2",
     });
   });
+
+  // Decoding URI
+  test("Decoding pairs with URI", () => {
+    expect(parseQueryString("key5%25=5%25&key2=val2")).toEqual({
+      "key5%": "5%",
+      key2: "val2",
+    });
+  });
 });

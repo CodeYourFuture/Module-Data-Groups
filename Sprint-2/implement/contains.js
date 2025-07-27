@@ -5,10 +5,8 @@ function contains(object, part) {
   }
 
   // Check if the property exists in the object
-  for (let key in object) {
-    if (key === part) {
-      return true;
-    }
+  if (Object.hasOwn(object, part)) {
+    return true;
   }
   return false;
 }

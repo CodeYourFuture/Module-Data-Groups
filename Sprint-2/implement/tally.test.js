@@ -106,5 +106,8 @@ describe("tally function", () => {
       hello: 2,
       42: 2, // 42 and '42' are coerced to the same key
     });
+    expect(tally(["toString", "toString"])).toEqual({
+      toString: 2,
+    });
   });
 });

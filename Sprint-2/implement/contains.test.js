@@ -46,7 +46,7 @@ describe("contains function", () => {
   // When passed to contains
   // Then it should return false
   test("contains returns false for invalid parameters", () => {
-    expect(contains([], "a")).toBe(false); // Array
+    expect(contains([1, 2, 3], "1")).toBe(false); // Array
     expect(contains(null, "a")).toBe(false); // null
     expect(contains(undefined, "a")).toBe(false); // undefined
     expect(contains(123, "a")).toBe(false); // number

@@ -4,17 +4,15 @@ function tally(items) {
     throw new Error("Input must be an array");
   }
 
-  // Initialize result object
-  const counts = {};
+  // Initialize result object with no inherited properties
+  const counts = Object.create(null);
 
   // Count frequency of each item
   for (const item of items) {
     // Validate item: allow only numbers and non-empty strings
     if (
-      item === null ||
-      item === undefined ||
-      item === "" ||
-      typeof item === "boolean"
+      (typeof item !== "number" || isNaN(item) || !isFinite(item)) &&
+      (typeof item !== "string" || item === "")
     ) {
       throw new Error("Array elements must be numbers or non-empty strings");
     }

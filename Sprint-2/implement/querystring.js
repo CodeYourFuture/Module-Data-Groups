@@ -36,6 +36,7 @@ function parseQueryString(queryString) {
       // No '=' in pair, treat as key with undefined value
       key = pair;
       value = undefined;
+      queryParams[key] = "";
     } else {
       key = pair.slice(0, firstEqualIndex);
       value = pair.slice(firstEqualIndex + 1);
@@ -43,10 +44,11 @@ function parseQueryString(queryString) {
 
     // Store in queryParams
     if (key) {
+      //  queryParams[key] = value;
       if (value !== undefined) {
-        queryParams[key] = value;
+        queryParams[decodeURIComponent(key)] = decodeURIComponent(value);
       } else {
-        queryParams[key] = "";
+        queryParams[decodeURIComponent(key)] = "";
       }
     }
   }
