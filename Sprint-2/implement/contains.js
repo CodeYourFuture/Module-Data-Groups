@@ -4,11 +4,8 @@ function contains(object, part) {
     return false;
   }
 
-  // Check if the property exists in the object
-  if (Object.hasOwn(object, part)) {
-    return true;
-  }
-  return false;
+  // return true if the property exists in the object
+  return Object.hasOwn(object, part)
 }
 
 module.exports = contains;
