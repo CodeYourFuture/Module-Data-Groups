@@ -68,12 +68,12 @@ describe("calculate sum of given array", () => {
   it("Given an array with only non-number values, return the least surprising value given how it behaves for all other inputs", () => {
     const list = ["London", "Hello", "CYF", "Zebra"];
     const result = sum(list);
-    expect(result).toEqual(-Infinity);
+    expect(result).toEqual(0);
   });
 
     it("Given an array with only non-number values, return the least surprising value given how it behaves for all other inputs", () => {
     const list = ["A"];
     const result = sum(list);
-    expect(result).toEqual(-Infinity);
+    expect(result).toEqual(0);
   });
 });

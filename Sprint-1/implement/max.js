@@ -1,6 +1,6 @@
 function findMax(elements) {
   
-  if (elements.length == 0 || !Array.isArray(elements)) {
+  if (!Array.isArray(elements) || elements.length == 0 ) {
     return -Infinity;
   }
   
