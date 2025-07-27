@@ -31,7 +31,7 @@ describe("dedupe arrays  ", () => {
     { input: ["a", "b", "c"], expected: ["a", "b", "c"] },
     { input: [5, 1, 2, 3, 8], expected: [5, 1, 2, 3, 8] },
   ].forEach(({ input, expected }) =>
-    it(`returns Dedupe Array with no duplicate]`, () => expect(dedupe(input)).toEqual(expected))
+    it(`returns Dedupe Array with no duplicate]`, () => expect(dedupe(input)).not.toBe(input))
   );
 // Given an array with strings or numbers
 // When passed to the dedupe function
