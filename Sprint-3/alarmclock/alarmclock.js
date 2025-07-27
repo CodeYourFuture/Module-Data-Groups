@@ -2,7 +2,10 @@ let countdownInterval;
 
 function setAlarm() {
   const inputArea = document.getElementById("alarmSet");
-  let remaining = Number(inputArea.value);
+
+  if (Number(inputArea.value)=="number")  inputArea.value=0;
+  document.getElementById("set").disabled = true;
+  let remaining = Math.round(Number(inputArea.value));
 
   if (isNaN(remaining) || remaining <= 0) return;
 
@@ -15,6 +18,7 @@ function setAlarm() {
     if (remaining <= 0) {
       clearInterval(countdownInterval);
       playAlarm();
+      document.getElementById("set").disabled = false;
     }
   }, 1000);
 }
