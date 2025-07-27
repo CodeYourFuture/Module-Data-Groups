@@ -11,7 +11,7 @@ function tally(items) {
   for (const item of items) {
     // Validate item: allow only numbers and non-empty strings
     if (
-      (typeof item !== "number" || isNaN(item) || !isFinite(item)) &&
+      Number.isFinite(item) &&
       (typeof item !== "string" || item === "")
     ) {
       throw new Error("Array elements must be numbers or non-empty strings");
