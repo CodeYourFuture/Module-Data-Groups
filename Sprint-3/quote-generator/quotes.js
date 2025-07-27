@@ -491,3 +491,42 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+function quoteGeneratorApp(quoteArray) {
+  // Elements
+  const quoteParagraph = document.querySelector("#quote");
+  const authorParagraph = document.querySelector("#author");
+  const newQuoteBtn = document.querySelector("#new-quote");
+  const toggleSwitch = document.querySelector("#flexSwitchCheckDefault");
+  const autoPlayIndicator = document.querySelector("#auto-play-indicator");
+
+  let autoGenerateQuotes;
+
+  function generateQuote() {
+    const { quote, author } = pickFromArray(quoteArray);
+    quoteParagraph.textContent = quote;
+    authorParagraph.innerHTML = `<blockquote>- ${author}</blockquote>`;
+  }
+
+  function toggleAutoQuotes() {
+    toggleSwitch.addEventListener("click", () => {
+      if (toggleSwitch.checked) {
+        autoGenerateQuotes = setInterval(() => generateQuote(), 6000);
+        autoPlayIndicator.textContent = "On";
+      } else {
+        clearInterval(autoGenerateQuotes);
+        autoPlayIndicator.textContent = "Off";
+      }
+    });
+  }
+
+  function init() {
+    toggleAutoQuotes();
+    autoPlayIndicator.textContent = "Off";
+    generateQuote();
+    newQuoteBtn.addEventListener("click", generateQuote);
+  }
+  init();
+}
+
+quoteGeneratorApp(quotes);
