@@ -14,13 +14,17 @@ const timeRemainingInfo = document.querySelector("#timeRemaining"); // Access th
  * Also updates the display immediately before the countdown begins.
  */
 function setAlarm() {
-  const timeInterval = Number(inputArea.value); // Get the the entered value and converted to number.
-  if (timeInterval > 0) {
+  const inputValidation = inputArea.value;
+  const digitOnlyPattern = /[^\d]/;
+  const timeInterval = Number(inputArea.value); // Get the entered value and converted to number.
+  if (inputValidation === "" || digitOnlyPattern.test(inputValidation) || timeInterval === 0) {
+    alert("Please enter a whole number greater than zero.");
+    return;
+  }
+  else if (timeInterval > 0) {
     updateTimeDisplay(timeInterval);
     startCountdown(); // call function to start counting down
-  } else {
-    alert("Please enter a time greater than 0 seconds.");
-  }
+  } 
 }
 
 /**
@@ -34,7 +38,7 @@ function startCountdown() {
     clearInterval(timer); // cancel the previous one
   }
 
-  let timeRemaining = Number(inputArea.value); // Get the value of
+  let timeRemaining = Number(inputArea.value); // Get the entered value and converted to number.
   timer = setInterval(function () {
     timeRemaining--;
     updateTimeDisplay(timeRemaining);
