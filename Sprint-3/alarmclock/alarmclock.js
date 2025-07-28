@@ -2,12 +2,16 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   const seconds = parseInt(input.value, 10);
 
-  if (isNaN(seconds) || seconds < 0) return;
+  if (isNaN(seconds) || seconds <= 0){
+    alert("Please enter a number greater than 0.");
+    return;
+  } 
 
   clearInterval(countdown); // Stop any running countdown
+  pauseAlarm(); // Stop the alarm sound if it's playing
 
   remainingSeconds = seconds;
-  input.value = ""; // Optional UX improvement
+  input.value = ""; 
   updateDisplay(remainingSeconds);
 
   countdown = setInterval(() => {
@@ -35,7 +39,9 @@ function setup() {
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
     clearInterval(countdown);
+    updateDisplay(0);
   });
+
 
   updateDisplay(0); // Show 00:00 on page load
 }
