@@ -11,5 +11,7 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+ingredients:
+${recipe.ingredients.join("\n")}`);
+// recipe.ingredients is an array.
+// Using join("\n") turns it into a string with each item on a new line.
