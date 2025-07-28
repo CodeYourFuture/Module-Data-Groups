@@ -4,11 +4,8 @@ function contains(obj, key) {
   }
 
   // Check if the key exists in the object
-  if (obj.hasOwnProperty(key)) {
-    return true;
-  } else {
-    return false;
-  }
+  return obj.hasOwnProperty(key);
+
 }
 
 console.log(contains({a: 1, b: 2}, 'a')); // true
