@@ -3,9 +3,9 @@ let timerId;
 function setAlarm() {
   const title = document.getElementById("timeRemaining");
   const inputElm = document.getElementById("alarmSet");
-  let time = Number(inputElm.value);
+  let time = Number(inputElm.value.trim());
 
-
+ 
   if (isNaN(time) || time <= 0) {
     alert("Please enter a valid number");
     return;
@@ -34,7 +34,7 @@ function setAlarm() {
     const formattedSeconds = seconds.toString().padStart(2, "0");
 
     const formattedTime = `${formattedMinutes}: ${formattedSeconds}`;
-    title.textContent = `Time Remaining : ${formattedTime}`;
+    title.textContent = `Time Remaining: ${formattedTime}`;
   }
 }
 
