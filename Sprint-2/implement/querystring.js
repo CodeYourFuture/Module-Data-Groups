@@ -8,6 +8,10 @@
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
+    if (!pair) {
+  console.warn("Skipping empty query segment");
+  continue;
+}
     const index = pair.indexOf("=");
 
     let key, value;
@@ -19,6 +23,10 @@
       key = decodeURIComponent(pair);
       value = "";
     }
+    if (!key) {
+  console.warn(`Skipping query pair with empty key: "${pair}"`);
+  continue;
+}
 
     if (queryParams.hasOwnProperty(key)) {
       if (Array.isArray(queryParams[key])) {
