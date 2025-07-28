@@ -56,9 +56,7 @@ function actButton(id) {
     case "auto-backward":
       clearInterval(intervalId);
       disableAutoButtons();
-      intervalId = setInterval(() => {
-        backward();
-      }, 2000);
+      intervalId = setInterval(backward, 2000);
       break;
 
     case "backward-btn":
