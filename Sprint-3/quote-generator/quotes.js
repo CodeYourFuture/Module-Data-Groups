@@ -20,19 +20,19 @@ function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-const btn = document.getElementById('new-quote')
+const btn = document.getElementById('new-quote');
 const paragraph1 = document.getElementById('quote')
 const paragraph2 = document.getElementById('author')
-let previousQ= null
+let previousQ;
 
 function getQuote(){
   let randomQ
   do {
-  randomQ = pickFromArray(quotes)
+    randomQ = pickFromArray(quotes)
   }
   while (randomQ ===previousQ && quotes.length > 1) 
   
-    paragraph1.textContent = `${randomQ.quote}`
+  paragraph1.textContent = `${randomQ.quote}`
     paragraph2.textContent = `< ${randomQ.author} >`
     previousQ = randomQ
   
@@ -509,4 +509,5 @@ const quotes = [
   },
 ];
 
+getQuote();
 // call pickFromArray with the quotes array to check you get a random quote
