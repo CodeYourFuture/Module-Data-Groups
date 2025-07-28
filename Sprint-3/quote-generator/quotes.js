@@ -509,15 +509,14 @@ function randomQuote() {
 }
 randomQuote();
 
-document.getElementById("new-quote").addEventListener("click", () => {
-  randomQuote();
-});
+document.getElementById("new-quote").addEventListener("click", randomQuote);
+
 let autoPlayStatus = document.getElementById("autoStatus");
+
 document.getElementById("autoPlay").addEventListener("click", () => {
   let autoPlayObj = document.getElementById("autoPlay");
-  if (autoPlayObj.checked == true) {
-    autoStatus;
-
+  if (autoPlayObj.checked) {
+    console.log("its true now");
     autoPlayStatus.textContent = "Auto-play: ON";
     autoPlayInterval = setInterval(randomQuote, 3000);
   } else {
