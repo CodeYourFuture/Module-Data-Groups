@@ -1,7 +1,7 @@
 
 window.onload = setup;
 function setup(){
-       document.getElementById("new-quote").addEventListener("click", NewQuote());
+       document.getElementById("new-quote").addEventListener("click", NewQuote);
         newQuote()
 }
 // const newQuoteBtn = document.querySelector("#new-quote");
