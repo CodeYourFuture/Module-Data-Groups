@@ -1,40 +1,59 @@
 // disable/enable buttons
-  function buttonsInitial(){
-  document.getElementById("stop").disabled = true;
-  document.getElementById("pause").disabled = true;
-  document.getElementById("reset").disabled = true;
-  document.getElementById("resume").disabled = true;
-  document.getElementById("set").disabled = false;
+function setButtonSates(states){
+  for ( const [id, disabled] of Object.entries(states)){
+   document.getElementByid(id).disabled = disabled:
   }
-  function buttonsAlarmRunning(){ // Buttons alarmRunning 
-  document.getElementById("stop").disabled = true;
-  document.getElementById("pause").disabled = false;
-  document.getElementById("reset").disabled = true;
-  document.getElementById("resume").disabled = true;
-  document.getElementById("set").disabled = true;
-  }
-  function buttonsAlarmPlayed(){
-    // buttons alarm played
-  document.getElementById("stop").disabled = false;
-  document.getElementById("pause").disabled = true;
-  document.getElementById("reset").disabled = true;
-  document.getElementById("resume").disabled = true;
-  document.getElementById("set").disabled = true;
-  }
-  function buttonsAlarmPaused(){
-  document.getElementById("stop").disabled = true;
-  document.getElementById("pause").disabled = true;
-  document.getElementById("reset").disabled = false;
-  document.getElementById("resume").disabled = false;
-  document.getElementById("set").disabled = true;
-  }
-  function buttonsAlarmResume(){
-  document.getElementById("stop").disabled = true;
-  document.getElementById("pause").disabled = false;
-  document.getElementById("reset").disabled = true;
-  document.getElementById("resume").disabled = true;
-  document.getElementById("set").disabled = true;
-  }
+}
+
+function buttonInitial (){ // Buttons state  
+   setButtonStates({
+    stop: true,
+    pause: true,
+    reset: true,
+    resume: true,
+    set: false
+   });
+}
+function buttonsAlarmRunning() {
+  setButtonStates({
+    stop: true,
+    pause: false,
+    reset: true,
+    resume: true,
+    set: true
+  });
+}
+
+function buttonsAlarmPlayed() {
+  setButtonStates({
+    stop: false,
+    pause: true,
+    reset: true,
+    resume: true,
+    set: true
+  });
+}
+
+function buttonsAlarmPaused() {
+  setButtonStates({
+    stop: true,
+    pause: true,
+    reset: false,
+    resume: false,
+    set: true
+  });
+}
+
+function buttonsAlarmResume() {
+  setButtonStates({
+    stop: true,
+    pause: false,
+    reset: true,
+    resume: true,
+    set: true
+  });
+}
+  
 // global variable, to save the interval an use it in pause/resume
 let runInterval = null;
   
@@ -93,9 +112,7 @@ function setAlarm() {
   }
 
   // reset function
-  document.getElementById("reset").addEventListener("click", function () {
-    reset();
-  });
+  document.getElementById("reset").addEventListener("click", reset());
   function reset() {
     clearInterval(runInterval);
     timeRemain = 0;
