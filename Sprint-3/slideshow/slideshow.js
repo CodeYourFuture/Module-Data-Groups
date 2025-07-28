@@ -4,49 +4,46 @@ const images = [
     "./assets/cute-cat-c.jpg",
 ];
 
-// Write your code here
 document.addEventListener("DOMContentLoaded", () => {
     const imgElement = document.getElementById("carousel-img");
     const counterElement = document.getElementById("counter");
-    let currentIndex = 0;
-    let intervalId;
 
-// Write your code here
+    let currentIndex = 0;
+    let intervalId = null;
+
     function updateImage() {
         imgElement.src = images[currentIndex];
-        counterElement.textContent = `Image: ${currentIndex}`;
+        counterElement.textContent = `Image: ${currentIndex + 1} of ${images.length}`;
     }
 
-    document.getElementById("backward-btn").addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
+    function changeImage(direction) {
+        currentIndex = (currentIndex + direction + images.length) % images.length;
         updateImage();
-    });
+    }
 
-    document.getElementById("forward-btn").addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateImage();
-    });
+    function startAutoSlide(direction) {
+        stopAutoSlide(); // Just to be safe
+        intervalId = setInterval(() => changeImage(direction), 1000);
+    }
 
-    document.getElementById("auto-backward-btn").addEventListener("click", () => {
-        clearInterval(intervalId);
-        intervalId = setInterval(() => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateImage();
-        }, 1000);
-    });
+    function stopAutoSlide() {
+        if (intervalId !== null) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+    }
 
-    document.getElementById("auto-forward-btn").addEventListener("click", () => {
-        clearInterval(intervalId);
-        intervalId = setInterval(() => {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateImage();
-        }, 1000);
-    });
+    // Manual buttons
+    document.getElementById("backward-btn").addEventListener("click", () => changeImage(-1));
+    document.getElementById("forward-btn").addEventListener("click", () => changeImage(1));
 
-    document.getElementById("stop-btn").addEventListener("click", () => {
-        clearInterval(intervalId);
-    });
+    // Auto-slide buttons
+    document.getElementById("auto-backward-btn").addEventListener("click", () => startAutoSlide(-1));
+    document.getElementById("auto-forward-btn").addEventListener("click", () => startAutoSlide(1));
 
-    // Initial image setup
+    // Stop button
+    document.getElementById("stop-btn").addEventListener("click", stopAutoSlide);
+
+    // Initial setup
     updateImage();
 });
