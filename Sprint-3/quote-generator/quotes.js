@@ -1,9 +1,7 @@
 
 window.onload = setup;
 function setup(){
-       document.getElementById("new-quote").addEventListener("click", function() {
-        newQuote();
-        });
+       document.getElementById("new-quote").addEventListener("click", NewQuote());
         newQuote()
 }
 // const newQuoteBtn = document.querySelector("#new-quote");
@@ -11,8 +9,7 @@ function setup(){
 function newQuote(){
   const quoteP = document.querySelector("#quote");
   const authorP = document.querySelector("#author");
-  let quoteToShow = {}
-  quoteToShow = pickFromArray(quotes)
+  let quoteToShow = pickFromArray(quotes)
   quoteP.innerText = quoteToShow.quote
   authorP.innerText = quoteToShow.author
 }
