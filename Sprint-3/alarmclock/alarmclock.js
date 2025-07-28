@@ -1,5 +1,5 @@
 /*
- * Explanation of work done so far:
+* Explanation of work done so far:
  * 
  * I started by implementing the basic functionality to read the user’s input in seconds,
  * then formatted it into a mm:ss display. I made sure to handle invalid or negative inputs gracefully.
@@ -11,11 +11,16 @@
  * To allow stopping the alarm, I created a pauseAlarm function that stops the sound,
  * clears the countdown interval, and resets the alarm state.
  *
- * I also connected the start and stop buttons to the respective functions in the setup function.
+ * I connected the start and stop buttons to the respective functions in the setup function.
  *
- * These changes correspond to commits 1 through 5, where I progressively built
- * the countdown, alarm playing, and stopping features.
+ * Additionally, I enhanced the user experience by changing the background color to red
+ * when the alarm triggers, providing a visual alert alongside the sound.
+ * When the alarm is stopped, the background color resets to its original state.
+ *
+ * These changes correspond to commits 1 through 7, progressively adding
+ * countdown, alarm playing, stopping, and visual feedback features.
  */
+
 
 let intervalId;
 let remainingSeconds = 0;
@@ -36,8 +41,10 @@ function setAlarm() {
 
     if (remainingSeconds <= 0) {
       clearInterval(intervalId);
-      playAlarm(); 
+      playAlarm();
       alarmPlaying = true;
+
+      document.body.style.backgroundColor = "#ffcccc";
     }
   }, 1000);
 }
@@ -54,6 +61,9 @@ function pauseAlarm() {
   audio.currentTime = 0;
   clearInterval(intervalId);
   alarmPlaying = false;
+
+  
+  document.body.style.backgroundColor = "";
 }
 
 
