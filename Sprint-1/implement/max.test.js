@@ -55,5 +55,5 @@ it("ignores all non-numbers",()=>{
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 it("returns the least surprising non-number value",()=>{
-    expect(findMax(["i",NaN,false])).toBeNaN();
+    expect(findMax(["i",NaN,false])).toBe(-Infinity);
 })
