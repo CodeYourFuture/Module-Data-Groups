@@ -1,6 +1,7 @@
 /* ======= TESTS - DO NOT MODIFY ===== 
 There are some Tests in this file that will help you work out if your code is working.
 */
+require('@testing-library/jest-dom/extend-expect');
 
 const path = require("path");
 const { JSDOM } = require("jsdom");
