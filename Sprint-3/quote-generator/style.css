@@ -1,1 +1,85 @@
 /** Write your CSS in here **/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: #b13e3e;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.quote-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.page-title {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 1.75rem;
+  color: #f0efea;
+  font-weight: bold;
+}
+
+.autoplay-toggle {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.autoplay-toggle input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #ffdd57;
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  left: 30px;
+  color: #fcfafa;
+}
+
+
+#author {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+#new-quote {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: hsl(171, 6%, 57%);
+  border: none;
+  border-radius: 8px;
+  color: #10100f;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#new-quote:hover {
+  background-color: #fb900e;
+}
