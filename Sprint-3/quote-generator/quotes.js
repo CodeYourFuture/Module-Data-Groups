@@ -16,7 +16,7 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(choices) {
+function randomQuoteGenerator(choices) {
   const randomQuote = choices[Math.floor(Math.random() * choices.length)];
   // get the element by the 'id quote
   const quoteElement = document.getElementById("quote");
@@ -30,7 +30,7 @@ function pickFromArray(choices) {
 
 // then add event listener
 document.getElementById("new-quote").addEventListener("click", () => {
-  pickFromArray(quotes);
+  randomQuoteGenerator(quotes);
 });
 
 
@@ -506,5 +506,5 @@ const quotes = [
 
 
 
-// call pickFromArray with the quotes array to check you get a random quote
-const allQuotes = pickFromArray(quotes);
+// Display random quote when page first loads
+randomQuoteGenerator(quotes);
