@@ -69,6 +69,7 @@ function setup() {
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
+    backGroundColor("white");
   });
 }
 
