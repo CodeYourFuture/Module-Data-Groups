@@ -1,6 +1,6 @@
 function readingList(books) {
   const bookList = document.getElementById("reading-list");
-  bookList.innerHTML = ""; // Clear any previous content
+  bookList.innerHTML = "";
 
   books.forEach((book) => {
     const bookItem = document.createElement("li");
