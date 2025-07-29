@@ -10,12 +10,16 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   let timeRemaining = parseInt(input.value, 10);
   const display = document.getElementById("timeRemaining");
-  
+
  // Immediately display the starting time
   display.innerText = formatTime(timeRemaining);
 
   // Clear any existing interval
   clearInterval(intervalId);
+
+  // Start countdown
+  intervalId = setInterval(() => {
+    timeRemaining--;
 
     if (timeRemaining >= 0) {
       display.innerText = formatTime(timeRemaining);
