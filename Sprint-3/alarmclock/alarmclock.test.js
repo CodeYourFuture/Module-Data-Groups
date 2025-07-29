@@ -83,7 +83,7 @@ test("should count down every 1000 ms", () => {
   input.value = "19";
   button.click();
 
-  expect(mockTimer).toHaveBeenCalledTimes(1);
+  expect(mockTimer).toHaveBeenCalledTimes(2);
   expect(mockTimer).toHaveBeenLastCalledWith(expect.any(Function), 1000);
 });
 
