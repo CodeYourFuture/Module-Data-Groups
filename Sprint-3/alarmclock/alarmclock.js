@@ -5,10 +5,11 @@ function formatTime(seconds) {
   const secs = String(seconds % 60).padStart(2, "0");
   return `Time Remaining: ${mins}:${secs}`;
 }
-
-  // Set initial time immediately
-  display.innerText = formatTime(timeRemaining);
-
+// Called when the "Set" button is clicked
+function setAlarm() {
+  const input = document.getElementById("alarmSet");
+  let timeRemaining = parseInt(input.value, 10);
+  const display = document.getElementById("timeRemaining");
   // Clear any existing timer
   clearInterval(intervalId);
 
