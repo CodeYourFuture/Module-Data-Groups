@@ -9,4 +9,4 @@ function dedupe(list) {
   return result;
 }
 
-console.log(dedupe([1, 1, 1, 2, 3, 4, 4, 5]));
+module.exports = dedupe;
