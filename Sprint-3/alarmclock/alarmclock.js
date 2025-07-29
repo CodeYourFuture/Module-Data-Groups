@@ -1,9 +1,10 @@
 let intervalId;
-function setAlarm() {
-  const input = document.getElementById("alarmSet");
-  let timeRemaining = parseInt(input.value, 10);
-
-  const display = document.getElementById("timeRemaining");
+// Formats seconds into MM:SS string
+function formatTime(seconds) {
+  const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  return `Time Remaining: ${mins}:${secs}`;
+}
 
   // Set initial time immediately
   display.innerText = formatTime(timeRemaining);
