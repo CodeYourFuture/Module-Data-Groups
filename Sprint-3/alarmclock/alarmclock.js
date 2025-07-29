@@ -10,11 +10,12 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   let timeRemaining = parseInt(input.value, 10);
   const display = document.getElementById("timeRemaining");
-  // Clear any existing timer
-  clearInterval(intervalId);
+  
+ // Immediately display the starting time
+  display.innerText = formatTime(timeRemaining);
 
-  intervalId = setInterval(() => {
-    timeRemaining--;
+  // Clear any existing interval
+  clearInterval(intervalId);
 
     if (timeRemaining >= 0) {
       display.innerText = formatTime(timeRemaining);
