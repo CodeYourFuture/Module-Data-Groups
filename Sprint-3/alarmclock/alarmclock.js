@@ -1,4 +1,44 @@
-function setAlarm() {}
+function remainingTime(totalSeconds) {
+  let timeRemaining = document.getElementById("timeRemaining");
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+
+   //timeRemaining.textContent = "Time Remaining  " + minutes + ":" + seconds;
+
+  if (minutes < 10) {
+    timeRemaining.textContent =
+      "Time Remaining  " + "0" + minutes + ":" + seconds;
+  } else if (seconds < 10) {
+    timeRemaining.textContent =
+      "Time Remaining  " + minutes + ":" + "0" + seconds;
+  } else {
+    timeRemaining.textContent = "Time Remaining  " + minutes + ":" + seconds;
+  }
+}
+
+
+function setAlarm() {
+  let inputTime = document.getElementById("alarmSet");
+  let totalSeconds = parseInt(inputTime.value);
+
+  if (isNaN(totalSeconds) || totalSeconds <= 0) {
+    alert("Please enter a valid positive number.");
+    return;
+  }
+
+  remainingTime(totalSeconds);
+
+  let Interval = setInterval(() => {
+    totalSeconds -= 1;
+    remainingTime(totalSeconds);
+    if (totalSeconds === 0) {
+      playAlarm();
+      clearInterval(Interval);
+    }
+  }, 1000);
+}
+
+
 
 // DO NOT EDIT BELOW HERE
 
