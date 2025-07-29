@@ -1,3 +1,28 @@
+const quote = document.querySelector("#quote");
+const author = document.querySelector("#author");
+const newQuoteBtn = document.querySelector("#new-quote");
+
+const autoToggle = document.querySelector("#auto-toggle");
+const autoStatus = document.querySelector("#auto-status");
+
+let autoQuoteInterval = null;
+
+//this function will pick a random quote from the quotes array
+function displayRandomQuote() {
+const randomQuote = pickFromArray(quotes);
+  quote.innerText = randomQuote.quote;
+  author.innerText = randomQuote.author;
+}
+autoToggle.addEventListener("change", () => {
+  if (autoToggle.checked) {
+    autoStatus.innerText = "Auto-play: ON";
+    autoQuoteInterval = setInterval(displayRandomQuote, 5000); // 5 seconds
+  } else {
+    autoStatus.innerText = "Auto-play: OFF";
+    clearInterval(autoQuoteInterval);
+  }
+});
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -489,5 +514,11 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+window.addEventListener("load", () => {
+  displayRandomQuote();
+});
+newQuoteBtn.addEventListener("click", () => {
+  displayRandomQuote();
+});
 
 // call pickFromArray with the quotes array to check you get a random quote
