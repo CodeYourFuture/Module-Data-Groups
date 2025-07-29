@@ -32,9 +32,10 @@ function setAlarm() {
   }, 1000);
 }
 
+// Event listener for the "Set" button
 document.getElementById("set").addEventListener("click", setAlarm);
 
-// Export for testing if needed
+// Export for testing environment
 if (typeof module !== "undefined") {
   module.exports = { setAlarm, playAlarm };
 }
