@@ -1,21 +1,25 @@
 function setAlarm() {
-  let timerDom = document.getElementById("timeRemaining");
+  const timerDom = document.getElementById("timeRemaining");
   let timeInputValue = document.getElementById("alarmSet").value;
   setTimer(timerDom, formatTime(timeInputValue));
-  let interval = setInterval(function () {
-    timeInputValue--;
+  const interval = setInterval(function () {
     setTimer(timerDom, formatTime(timeInputValue));
     if (timeInputValue == 0) {
       playAlarm();
       clearInterval(interval);
     }
+    timeInputValue--;
+    // to stop timer if new one entered
+    document.getElementById("set").addEventListener("click", () => {
+      clearInterval(interval);
+    });
   }, 1000);
 }
 
 function formatTime(seconds) {
-  let minutes = Math.trunc(seconds / 60);
-  let remainingSeconds = seconds % 60;
-  let formattedTime = minutes.toString().padStart(2, '0') + ':' + remainingSeconds.toString().padStart(2, '0');
+  const minutes = Math.trunc(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  const formattedTime = minutes.toString().padStart(2, '0') + ':' + remainingSeconds.toString().padStart(2, '0');
   return formattedTime;
 }
 
