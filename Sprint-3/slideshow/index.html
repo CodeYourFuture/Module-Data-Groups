@@ -3,12 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Image carousel</title>
+    <link rel="stylesheet" href="style.css" />
     <script defer src="slideshow.js"></script>
   </head>
   <body>
-    <img id="carousel-img" src="./assets/cute-cat-a.png" alt="cat-pic" />
-    <button type="button" id="backward-btn">Backwards</button>
+    <h1>Image Carousel</h1>
+    <img
+      id="carousel-img"
+      src="https://images.unsplash.com/photo-1751795195789-8dab6693475d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDl8RnpvM3p1T0hONnd8fGVufDB8fHx8fA%3D%3D"
+      alt="lighthouse-pic"
+    />
+    <button type="button" id="auto-back-btn">Auto Back</button>
+    <button type="button" id="backward-btn">Back</button>
+    <button id="stop-btn">Stop</button>
     <button type="button" id="forward-btn">Forward</button>
+    <button type="button" id="auto-forward-btn">Auto Forward</button>
   </body>
 </html>
