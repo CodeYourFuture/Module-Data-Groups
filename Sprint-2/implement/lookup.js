@@ -1,13 +1,15 @@
 function createLookup(nestedArray) {
-  // implementation here
   let finalObject = {};
 
-  for (let i = 0; i < nestedArray.length; i++) {
-    const key = nestedArray[i][0];
-    const value = nestedArray[i][1];
+  nestedArray.forEach((pair) => {
+    const key = pair[0];
+    const value = pair[1];
     finalObject[key] = value;
-  }
+  });
+
   return finalObject;
 }
+
+console.log(createLookup([["NG", "Naira"]]));
 
 module.exports = createLookup;

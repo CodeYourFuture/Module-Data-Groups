@@ -58,3 +58,21 @@ test("Given invalid parameters, should return false or an error", () => {
 
   expect(contains(array1, "mono")).toBe(false);
 });
+
+//Given a string as an object
+//When passed to contains
+//Then it should return false
+test("Given a string as an object, should return false or an error", () => {
+  const string1 = "hello";
+
+  expect(contains(string1, "mono")).toBe(false);
+});
+
+//Given an object that's 'null'
+//When passed to contains
+//Then it should return false
+test("Given a null object, should return false or an error", () => {
+  const object3 = null;
+
+  expect(contains(object3, "mono")).toBe(false);
+});
