@@ -25,5 +25,8 @@
     "setupFilesAfterEnv": [
       "./jest.setup.js"
     ]
-  }
+  },
+  "main": "jest.setup.js",
+  "keywords": [],
+  "author": ""
 }
