@@ -491,3 +491,8 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+function getRandomQuote() {
+  const index = Math.floor(Math.random() * quotes.length);
+  return quotes[index];
+
