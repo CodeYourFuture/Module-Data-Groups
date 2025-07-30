@@ -13,5 +13,3 @@ const address = {
 };
 
 console.log(`My house number is ${address[0]}`);
-//My houseNumber will be undefined
-console.log(`My house number is ${address["houseNumber"]}`);
