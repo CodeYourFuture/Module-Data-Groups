@@ -9,6 +9,6 @@ function contains(object, property) {
     return false;
   }
 
-  return Object.prototype.hasOwnProperty.call(object, property);
+  return Object.hasOwn(object, property);
 }
 module.exports = contains;

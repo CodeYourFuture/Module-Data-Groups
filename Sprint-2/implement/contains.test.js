@@ -40,7 +40,7 @@ test("contains returns false for non-existent property", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("contains returns false for invalid input like arrays", () => {
-  expect(contains([1, 2, 3], "length")).toBe(false);
+  expect(contains([1, 2, 3], "1")).toBe(false);
   expect(contains(null, "anything")).toBe(false);
   expect(contains(42, "toString")).toBe(false);
   expect(contains("string", "length")).toBe(false);
