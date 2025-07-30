@@ -1,1 +1,75 @@
 /** Write your CSS in here **/
+body {
+    background-image: url("/Sprint-3/quote-generator/assets/stars.webp");
+    background-size: cover;
+    text-align: center;
+    padding: 30px;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-quote {
+    background: linear-gradient(200deg, #000593, #00000000);
+    margin: 2rem;
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgb(163, 198, 221);
+
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.quote-box {
+    background-color: rgba(63, 59, 88, 0.286);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#quote{
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #3bffeb;
+}
+
+#author{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: italic;
+    color: #3bffeb;
+    text-overflow: white;
+}
+
+.btn {
+    background-color: #03fbff45;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 0.8rem;
+}
+
+.btn:hover {
+    background-color: #02ffe6;
+    transform: translateY(-2px);
+    color: blue;
+    font-weight: bold;
+
+}
+
+.btn:active {
+    /* background-color: #4b47b0; */
+    transform: translateY(0);               
+}
