@@ -6,6 +6,18 @@ function setAlarm() {
     alert("Please enter a valid number of seconds.");
     return;
   }
+  const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
+  let timeOnScreen = String(seconds % 60).padStart(2, "0");
+
+  const showTime = setInterval(() => {
+    timeOnScreen--;
+    document.getElementById(
+      "timeRemaining"
+    ).innerText = `TimeRemaining: ${mins}: ${timeOnScreen}`;
+    if (timeOnScreen == 0) {
+      clearInterval(showTime);
+    }
+  }, 1000);
 
   setTimeout(playAlarm, seconds * 1000); // play alarm after the entered time
 }

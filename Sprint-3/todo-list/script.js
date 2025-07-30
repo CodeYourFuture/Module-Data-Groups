@@ -4,8 +4,6 @@ function populateTodoList(todos) {
 
   todos.forEach((todo, index) => {
     const li = document.createElement("li");
-    li.className =
-      "list-group-item d-flex justify-content-between align-items-center";
     li.innerText = todo.task;
 
     if (todo.completed) {
@@ -13,14 +11,13 @@ function populateTodoList(todos) {
     }
 
     const span = document.createElement("span");
-    span.className = "badge bg-primary rounded-pill";
 
     const checkBtn = document.createElement("i");
     checkBtn.className = "fa fa-check mx-1";
     checkBtn.style.cursor = "pointer";
     checkBtn.addEventListener("click", () => {
       todo.completed = !todo.completed;
-      populateTodoList(todos);
+      li.style.textDecoration = todo.completed ? "line-through" : "none";
     });
 
     const trashBtn = document.createElement("i");

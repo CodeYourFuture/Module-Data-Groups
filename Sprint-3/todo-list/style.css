@@ -82,18 +82,14 @@ ul#todo-list li {
     align-items: center;
 }
 
-/* Completed todo */
-.completed {
-    text-decoration: line-through;
-    color: #888;
-}
 
 /* Icons */
-.todo-actions i {
-    margin-left: 10px;
+#todo-list i {
+    margin: 0 10px;
     cursor: pointer;
+
 }
 
-.todo-actions i:hover {
+#todo-list i:hover {
     color: #007bff;
 }
