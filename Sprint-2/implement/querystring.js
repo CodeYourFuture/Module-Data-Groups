@@ -9,9 +9,10 @@
 
   for (const pair of keyValuePairs) {
     if (!pair) {
-  console.warn("Skipping empty query segment");
-  continue;
-}
+      console.warn("Skipping empty query segment");
+      continue;
+    }
+    
     const index = pair.indexOf("=");
 
     let key, value;
@@ -24,9 +25,9 @@
       value = "";
     }
     if (!key) {
-  console.warn(`Skipping query pair with empty key: "${pair}"`);
-  continue;
-}
+      console.warn(`Skipping query pair with empty key: "${pair}"`);
+      continue;
+    }
 
     if (queryParams.hasOwnProperty(key)) {
       if (Array.isArray(queryParams[key])) {
@@ -41,8 +42,5 @@
 
   return queryParams;
 }
-
-
-
 
 module.exports = parseQueryString;
