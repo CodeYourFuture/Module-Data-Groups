@@ -8,7 +8,7 @@
 
 body.centre {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+  background: linear-gradient(to right, #1644da, #e2e2e2);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
