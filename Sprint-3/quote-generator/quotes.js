@@ -37,7 +37,11 @@ newQuoteButton.addEventListener("click", () => {
 // You don't need to change this function
 
 function pickFromArray(choices) {
-  if (!Array.isArray(choices) || choices.length === 0) return null;
+  if (quotes.length === 0) {
+    alert("Quote of the day will be ready soon. Stay tuned!");
+  }
+  
+  //if (!Array.isArray(choices) || choices.length === 0) return null;
   return choices[Math.floor(Math.random() * choices.length)];
 }
 // A list of quotes you can use in your app.
@@ -508,6 +512,7 @@ const quotes = [
     quote: "If you can dream it, you can achieve it.",
     author: "Zig Ziglar",
   },
+  
 ];
 
 console.log(pickFromArray(quotes));

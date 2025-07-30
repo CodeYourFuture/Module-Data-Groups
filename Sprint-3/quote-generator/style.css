@@ -30,7 +30,7 @@ body {
 /* Title */
 h1 {
   font-size: 2rem;
-  color: #333;
+  color: #222;
   margin-bottom: 1.5rem;
 }
 
@@ -38,21 +38,21 @@ h1 {
 #quote {
   font-size: 1.4rem;
   font-style: italic;
-  color: #555;
+  color: #333;
   margin-bottom: 1rem;
 }
 
 /* Author */
 #author {
   font-size: 1rem;
-  color: #777;
+  color: #444;
   margin-bottom: 2rem;
 }
 
 /* Button */
 #new-quote {
-  background-color: #fcb69f;
-  color: white;
+  background-color: #d95d39;
+  color: rgb(29, 9, 20);
   border: none;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -63,5 +63,5 @@ h1 {
 }
 
 #new-quote:hover {
-  background-color: #ff8a65;
+  background-color: #c94c29;
 }
