@@ -6,7 +6,7 @@ function setAlarm() {
   let time = Number(inputElm.value.trim());
 
  
-  if (isNaN(time) || time <= 0) {
+  if (isNaN(time) || time <= 0 || !Number.isInteger(time)){
     alert("Please enter a valid number");
     return;
   }
