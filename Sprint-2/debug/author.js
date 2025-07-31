@@ -1,5 +1,5 @@
-// Predict and explain first...
-
+// Predict and explain first...For loop is generally used with arrays or iterable objects.However, in this case , author is an object
+// it will not work directly with author
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -11,6 +11,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const [key, value] of Object.entries(author)){
+  console.log(`${key} : ${value}`);
 }

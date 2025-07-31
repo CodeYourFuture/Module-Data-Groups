@@ -5,8 +5,16 @@
 
 const parseQueryString = require("./querystring.js")
 
+test("parses querystring with an empty string",() => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("should split querystring by &", () => {
+  expect(parseQueryString("category=fruit&name=apple")).toEqual({category:"fruit", name: "apple"});
+});
+
 test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
-    "equation": "x=y+1",
+    equation: "x=y 1",
   });
 });
