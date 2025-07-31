@@ -1,15 +1,60 @@
-.centre {
+body {
+  background-image: url("./AlarmPageBG.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: relative;
+}
+
+.container {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  background-color: antiquewhite;
+  padding: 5em;
+  border-radius: 10px;
 }
 
 #alarmSet {
   margin: 20px;
+  width: 130px;
+  height: 30px;
 }
 
 h1 {
+  margin-top: 20px;
+}
+
+h2 {
   text-align: center;
+}
+
+.setAlarm {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 20px;
+}
+
+.alarmButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#set,
+#stop {
+  width: 45%;
+  height: 35px;
+  border: none;
+  background-color: rgb(38, 141, 107);
+  border-radius: 5px;
+  font-weight: bold;
+  color: antiquewhite;
+  font-size: large;
+}
+
+#set:hover,
+#stop:hover {
+  background-color: rgb(8, 54, 39);
 }
