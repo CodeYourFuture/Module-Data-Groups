@@ -491,3 +491,37 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+document.addEventListener("DOMContentLoaded", () => {
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+  const newQuote = document.getElementById("new-quote");
+  const autoQuote = document.getElementById("checkbox");
+  const quote = pickFromArray(quotes);
+  quoteElement.textContent = quote.quote;
+  authorElement.textContent = `— ${quote.author}`;
+
+  if (!quoteElement || !authorElement || !newQuote || !autoQuote) {
+    console.error("One or more elements are missing in the DOM.");
+    return;
+  }
+
+  newQuote.addEventListener("click", () => {
+    const quote = pickFromArray(quotes);
+    quoteElement.textContent = quote.quote;
+    authorElement.textContent = `— ${quote.author}`;
+  });
+
+  let autoQuoteInterval;
+
+  autoQuote.addEventListener("change", () => {
+    if (autoQuote.checked) {
+      autoQuoteInterval = setInterval(() => {
+        const quote = pickFromArray(quotes);
+        quoteElement.textContent = quote.quote;
+        authorElement.textContent = `— ${quote.author}`;
+      }, 5000);
+    } else {
+      clearInterval(autoQuoteInterval);
+    }
+  });
+});
