@@ -491,3 +491,37 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+// quote: "Life isn't about getting and having, it's about giving and being.",
+//   author: "Kevin Kruse",
+
+let autoPlayInterval = null;
+function randomQuote() {
+  const randomItem = pickFromArray(quotes);
+
+  console.log(randomItem.quote);
+  console.log(randomItem.author);
+
+  const quoteValue = document.getElementById("quote");
+  const authorValue = document.getElementById("author");
+  quoteValue.textContent = randomItem.quote;
+
+  authorValue.textContent = randomItem.author;
+}
+randomQuote();
+
+document.getElementById("new-quote").addEventListener("click", randomQuote);
+
+let autoPlayStatus = document.getElementById("autoStatus");
+
+document.getElementById("autoPlay").addEventListener("click", () => {
+  let autoPlayObj = document.getElementById("autoPlay");
+  if (autoPlayObj.checked) {
+    console.log("its true now");
+    autoPlayStatus.textContent = "Auto-play: ON";
+    autoPlayInterval = setInterval(randomQuote, 3000);
+  } else {
+    autoPlayStatus.textContent = "Auto-play: OFF";
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = null;
+  }
+});
