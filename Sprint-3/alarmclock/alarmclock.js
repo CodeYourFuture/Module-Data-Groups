@@ -15,7 +15,7 @@ function setAlarm(){
     return;
   }
 
-  updateTitle();
+  updateTimerDisplay();
 
   countdownInterval = setInterval(() => {
     timeRemaining--;
@@ -24,12 +24,12 @@ function setAlarm(){
       clearInterval(countdownInterval);
       playAlarm(); 
     }
-      updateTitle(); 
+      updateTimerDisplay();
     
   }, 1000);
 }
 
-function updateTitle() {
+function updateTimerDisplay() {
   const title = document.getElementById("timeRemaining");
   const minutes = String(Math.floor(timeRemaining / 60)).padStart(2, "0");
   const seconds = String(timeRemaining % 60).padStart(2, "0");
