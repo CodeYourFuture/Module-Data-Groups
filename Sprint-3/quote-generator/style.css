@@ -1,1 +1,74 @@
 /** Write your CSS in here **/
+/** Write your CSS in here **/
+
+:root {
+  --ink: #272727;
+  --body: #edede9;
+  --main: #ee9a85;
+  --accent: #3fa79a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 96px 32px;
+  color: #272727;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: var(--body);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: var(--accent);
+  border-radius: 999px;
+  border: none;
+  transition: all 0.3s;
+}
+
+button:active,
+button:hover {
+  background-color: #2a9d8f;
+}
+
+#author {
+  margin: 24px 0;
+  text-align: right;
+}
+
+#quote {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.container-md {
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background-color: var(--main);
+}
+
+.toggle {
+  margin-top: 36px;
+}
+
+.form-check-input:checked {
+  background-color: var(--accent);
+}
+
+.form-check-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0.25rem rgba(63, 167, 155, 0.25);
+}
+
+#auto-play {
+  margin-top: 16px;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  
+  border: 2px var(--accent) solid;
+}
