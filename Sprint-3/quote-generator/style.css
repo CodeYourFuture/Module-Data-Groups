@@ -1,1 +1,41 @@
 /** Write your CSS in here **/
+body {
+  background-image: url("image.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 600px;
+
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 10px 10px 10px black;
+  background-color: rgb(243, 218, 188);
+}
+#author {
+  margin-top: 10px;
+  font-style: italic;
+  text-align: right;
+}
+.button-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+#new-quote {
+  border-radius: 3px;
+  border: 0px;
+  background-color: rgb(232, 209, 180);
+  box-shadow: 10px 10px 10px black;
+  padding: 5px 10px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
