@@ -69,10 +69,9 @@ removeAllCompletedButton.addEventListener("click", () => {
 
 // Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
-  const activeListElements = listDom.children;
-  for (const item of activeListElements) {
-    if (item.classList.contains("completed")) {
-      item.remove();
+  for (let i = listDom.children.length - 1; i >= 0; i--) {
+    if (listDom.children[i].classList.contains("completed")) {
+      listDom.children[i].remove()
     }
   }
 }
