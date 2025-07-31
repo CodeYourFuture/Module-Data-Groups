@@ -36,23 +36,17 @@ test("tally on an array with duplicate items returns correct counts", () => {
   expect(tally(['a', 'a', 'b', 'c'])).toEqual({ a: 2, b: 1, c: 1 });
 });
 
-// Given an invalid input like a string
-// When passed to tally
-// Then it should throw an error
-test("tally throws an error on invalid input like a string", () => {
-  expect(() => tally("invalid input")).toThrow();
-});
+// Group invalid input tests together
+describe("Invalid input", () => {
+  test("tally throws an error on invalid input like a string", () => {
+    expect(() => tally("invalid input")).toThrow();
+  });
 
-// Given an invalid input like a number
-// When passed to tally
-// Then it should throw an error
-test("tally throws an error on invalid input like a number", () => {
-  expect(() => tally(123)).toThrow();
-});
+  test("tally throws an error on invalid input like a number", () => {
+    expect(() => tally(123)).toThrow();
+  });
 
-// Given an invalid input like null
-// When passed to tally
-// Then it should throw an error
-test("tally throws an error on invalid input like null", () => {
-  expect(() => tally(null)).toThrow();
+  test("tally throws an error on invalid input like null", () => {
+    expect(() => tally(null)).toThrow();
+  });
 });
