@@ -54,7 +54,7 @@ test("Given an array containing non-number values, should return the sum of the 
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
 
-test("Given an array with only non-number values, should return Infinity", () => {
+test("Given an array with only non-number values, should return 0", () => {
     const input = ["2.4", "hello", null, undefined];
     const output = 0;
     expect(sum(input)).toEqual(output);
