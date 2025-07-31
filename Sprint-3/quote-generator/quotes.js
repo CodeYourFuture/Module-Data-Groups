@@ -491,8 +491,8 @@ const quotes = [
 ];
 
 //  Get the quote and author elements from the DOM
-const quote = document.querySelector("#quote");
-const author = document.querySelector("#author");
+const quoteElement = document.querySelector("#quote");
+const authorElement = document.querySelector("#author");
 
 // Attach a click event listener to the "New Quote" button
 const newClick = document.querySelector(".btn").addEventListener("click", () => {
