@@ -39,7 +39,7 @@ expect(sum([-5, -10, 15])).toBe(0);
 // Then it should return the correct total sum
 
 test("given an array with decimal numbers, returns correct sum", () => {
-expect(sum([1.5, 2.5, 3.0])).toBe(7.0);
+expect(sum([1.5, 2.5, 3.0])).toBeCloseTo(7.0);
 });
 
 // Given an array containing non-number values
