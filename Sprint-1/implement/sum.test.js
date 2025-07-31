@@ -6,7 +6,7 @@ E.g. sum([10, 20, 30]), target output: 60
 E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical elements)
 */
 
-const { sum, closeEnough } = require("./sum.js");
+const sum = require("./sum.js");
 // Acceptance Criteria:
 
 // Given an empty array
@@ -36,10 +36,9 @@ test("Given an array containing negative numbers, should still return the correc
 // When passed to the sum function
 // Then it should return the correct total sum
 test("Given an array with decimal/float numbers, should return the correct total sum", () => {
-    const input = [1.5, 2.4, 3.5];
-    const result = sum(input);
-    const expected = 7.4;
-    expect(closeEnough(result, expected)).toBe(true);  
+    const input = [1.2, 0.6, 0.005];
+    const output = 1.805;
+    expect(sum(input)).toBeCloseTo(output);  
 });
 
 // Given an array containing non-number values
@@ -57,6 +56,6 @@ test("Given an array containing non-number values, should return the sum of the 
 
 test("Given an array with only non-number values, should return Infinity", () => {
     const input = ["2.4", "hello", null, undefined];
-    const output = Infinity;
+    const output = 0;
     expect(sum(input)).toEqual(output);
 });
