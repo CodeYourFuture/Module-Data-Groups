@@ -489,5 +489,20 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+const quoteElement = document.getElementById('quote');
+const authorElement = document.getElementById('author');
+const quoteButton = document.getElementById('new-quote');
+
+
+
+function displayRandomQuote(){
+  const selectedQuote = pickFromArray(quotes);
+  quoteElement.textContent = selectedQuote.quote;
+  authorElement.textContent = selectedQuote.author;
+
+}
+
+displayRandomQuote();
+quoteButton.addEventListener('click', displayRandomQuote);
 
 // call pickFromArray with the quotes array to check you get a random quote
