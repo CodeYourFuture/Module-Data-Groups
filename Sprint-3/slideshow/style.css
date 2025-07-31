@@ -1,1 +1,65 @@
 /** Write your CSS in here **/
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #81b29a;
+    color: #333;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+div {
+    text-align: center;
+    background: #f4f1de;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 90%;
+}
+
+/* Styling for the image */
+#carousel-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* General styling for buttons */
+button {
+    background-color: #3d405b;
+    color: white;
+    border: none;
+    padding: 7px 2px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 15%;
+    box-sizing: content-box;   
+}
+
+button:hover {
+    background-color: #e07a5f;
+}
+
+button:disabled {
+    background-color: hsl(13, 64%, 79%);
+    cursor: not-allowed;
+}
+
+/* Layout for buttons */
+#auto-forward,
+#backward-btn,
+#stop,
+#forward-btn,
+#auto-backward {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;    
+}
