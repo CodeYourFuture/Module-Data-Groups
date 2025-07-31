@@ -4,6 +4,7 @@ function setAlarm() {
   setTimer(timerDom, formatTime(timeInputValue));
   const interval = setInterval(function () {
     setTimer(timerDom, formatTime(timeInputValue));
+    //if value is 0 alarm starts immediately
     if (timeInputValue == 0) {
       playAlarm();
       clearInterval(interval);
