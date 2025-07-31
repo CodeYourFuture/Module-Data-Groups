@@ -5,7 +5,7 @@
  * Lesson: 1,2
  * Class: Scotland 2017
  */
-
+/*
 html,
 body {
   font-family: "Source Sans Pro", -apple-system, system-ui, BlinkMacSystemFont,
@@ -68,7 +68,7 @@ body {
   border-radius: 0;
 }
 
-/* Headings */
+/* Headings 
 .heading-underline {
   position: relative;
   margin-bottom: 2em;
@@ -90,7 +90,7 @@ body {
   background: #ce5f31;
 }
 
-/* Article */
+/* Article *
 .article {
   margin-bottom: 2em;
 }
@@ -156,4 +156,50 @@ body {
   .navbar-brand > img {
     max-height: 80px;
   }
-}
+} */
+    html,
+    body {
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      padding: 2rem;
+      
+    }
+
+    .book {
+      display: block;
+      align-items: left;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9; 
+    }
+
+    .book img {
+      height: 320px;
+      margin-right: 0rem;
+      border-radius: 4px;
+      margin-top: 10px;
+      margin-left: -1rem;
+      margin-bottom: -16px;
+    }
+
+    .book-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .book-info p {
+      margin: 0.3rem 0;
+    }
+
+    .read {
+      color: green;
+      font-weight: bold;
+    }
+
+    .unread {
+      color: red;
+      font-weight: bold;
+    }
+ 
+
