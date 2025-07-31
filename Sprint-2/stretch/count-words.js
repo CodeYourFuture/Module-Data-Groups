@@ -26,3 +26,32 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(string) {
+  const punctuation = /[\.,?!]/g; // regular expression to check the following punctuation marks (".", ",", "!", "?")
+  const stringsIntoArray = string
+  .replace(punctuation, "")
+  .toLowerCase()
+  .split(" ")
+  .filter(word => word !== ""); // remove the punctuation (e.g. ".", ",", "!", "?") from the string and make the string in lower case then split each word as an element of the array and remove if there are empty strings
+  const wordObject = {}; // create an empty object {}
+
+  for (const word of stringsIntoArray) {
+    if (wordObject[word]){
+      wordObject[word] += 1;
+    }
+    else {
+      wordObject[word] = 1;
+    }
+  }
+  // Find the most common word (advanced step)
+  let mostCommonWord = "";
+  let maxCount = 0;
+  for (const [word, count] of Object.entries(wordObject)) {
+    if (count > maxCount) {
+      maxCount = count;
+      mostCommonWord = word;
+    }
+  }  
+  return wordObject
+}
