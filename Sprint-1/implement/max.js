@@ -1,17 +1,15 @@
-function findMax(elements) {
-    //check if the function is empty, return -Infinity
-    if (elements.length == 0) {
-        return -Infinity;
-    }
-    //check if the function has only one element, return that element
-    else if (elements.length == 1) {
-        return elements[0];
-    }
-    else {
-        const numbersOnly = elements.filter(element => typeof element === 'number');
-        return  Math.abs(Math.max(...numbersOnly));
+/**
+ * find the largest numerical element of an array.
+ */
 
-    }
+function findMax(elements) {
+    // Function will return '-Infinity', If the array is empty or has only non numeric value.
+    // If the array has only one element, function will return that element as the largest value.
+    // If the array has only negative value, function will return the closest number to zero.
+    // Otherwise, function will return the largest value.
+    const numbersOnly = elements.filter(element => Number.isFinite(element));
+    return  Math.max(...numbersOnly);
 
 }
+
 module.exports = findMax;
