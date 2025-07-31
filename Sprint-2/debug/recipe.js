@@ -10,6 +10,7 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+console.log(`Title: ${recipe.title}\nServes: ${recipe.serves}\nIngredients:`);
+recipe.ingredients.forEach((ingredient) => console.log(ingredient));
+
+// We need to use forEach method to iterate over an array
