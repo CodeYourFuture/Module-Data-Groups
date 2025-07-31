@@ -1,1 +1,33 @@
 
+.icon {
+    font-size: 16px;
+    margin-left: 10px; 
+    padding: 5px; 
+    border-radius: 50%; 
+    cursor: pointer; /
+  }
+  
+  
+  .fa-check {
+    color: white;
+    background-color: green; 
+    transition: background-color 0.3s, transform 0.2s; 
+  }
+  
+  .fa-check:hover {
+    background-color: limegreen; 
+    transform: scale(1.2);
+  }
+  
+  
+  .fa-trash {
+    color: white;
+    background-color: red; 
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .fa-trash:hover {
+    background-color: darkred; 
+    transform: scale(1.2); 
+  }
+  
