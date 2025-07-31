@@ -1,4 +1,6 @@
 // Predict and explain first...
+// this was not working because we are dealing with an object not an array
+// we can not access values of objects by index but the key
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
@@ -12,4 +14,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address['houseNumber']}`);
