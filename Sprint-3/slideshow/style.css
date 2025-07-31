@@ -17,7 +17,7 @@ body {
   max-height: 50%;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.rem;
   margin-top: 2rem;
   transition: opacity 0.3s ease-in-out;
 }
@@ -27,13 +27,18 @@ button {
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
-  margin: 0 0.5rem;
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+.image-index {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  text-align: left;
+  color: #333;
+}
 
 button:hover {
   background-color: #005fa3;
