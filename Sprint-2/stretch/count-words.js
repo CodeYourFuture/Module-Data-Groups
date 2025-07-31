@@ -48,7 +48,7 @@ function countWords(str) {
 
   // Optional: Sort the results by frequency (most common first)
   const sortedWordCount = Object.fromEntries(
-    Object.entries(wordCount).sort((a, b) => b[1] - a[1])
+Object.entries(wordCount).sort(([, countA], [, countB]) => countB - countA)
   );
 
   return sortedWordCount;
