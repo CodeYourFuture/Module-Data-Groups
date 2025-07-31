@@ -1,1 +1,7 @@
 /** Write your CSS in here **/
+
+img {
+    width: 340px;
+    height: auto;
+    display: block;
+}
