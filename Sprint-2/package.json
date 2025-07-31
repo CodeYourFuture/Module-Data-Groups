@@ -2,14 +2,11 @@
   "name": "sprint-2",
   "version": "1.0.0",
   "description": "This README will guide you through the different sections for this sprint.",
-  "main": "",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "jest": "^29.7.0"
-  }
+  "license": "ISC"
 }
