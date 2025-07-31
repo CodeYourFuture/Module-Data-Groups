@@ -20,4 +20,19 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
+const readingList = document.getElementById("reading-list");
 
+books.forEach((book) => {
+  const li = document.createElement("li");
+  li.style.backgroundColor = book.alreadyRead ? "green" : "red";
+
+  const text = document.createElement("span");
+  text.textContent =(`${book.title} by ${book.author}`);
+  li.appendChild(text);
+
+  const img = document.createElement("img");
+  img.src = book.bookCoverImage;
+  li.appendChild(img);
+
+  readingList.appendChild(li);
+});
