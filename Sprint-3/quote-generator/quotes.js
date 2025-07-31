@@ -1,3 +1,36 @@
+const quoteE1 = document.querySelector("#quote");
+const authorE1 = document.querySelector("#author");
+const newQuoteBtnE1 = document.querySelector("#new-quote");
+
+const autoToggleE1 = document.querySelector("#auto-toggle");
+const autoStatusE1 = document.querySelector("#auto-status");
+
+let autoQuoteInterval = null;
+
+//this function will pick a random quote from the quotes array
+function displayRandomQuote() {
+const randomQuote = pickFromArray(quotes);
+  quoteE1.textContent = randomQuote.quote;
+  authorE1.textContent = randomQuote.author;
+}
+function handleAutoToggle() {
+  if (autoToggleE1.checked) {
+    autoStatusE1.textContent = "Auto-play: ON";
+    autoQuoteInterval = setInterval(displayRandomQuote, 5000); // 5 seconds
+  } else {
+    autoStatusE1.textContent = "Auto-play: OFF";
+    clearInterval(autoQuoteInterval);
+  }
+}
+newQuoteBtnE1.addEventListener("click", () => {
+  displayRandomQuote();
+});
+window.addEventListener("load", () => {
+  displayRandomQuote();
+});
+
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -22,8 +55,8 @@ function pickFromArray(choices) {
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
-const quotes = [
-  {
+const quotes = [  
+{
     quote: "Life isn't about getting and having, it's about giving and being.",
     author: "Kevin Kruse",
   },
@@ -489,5 +522,4 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
-
 // call pickFromArray with the quotes array to check you get a random quote

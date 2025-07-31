@@ -42,37 +42,37 @@ afterEach(() => {
 
 describe("Quote generator", () => {
   test("initially displays quote and author", () => {
-    const quoteP = page.window.document.querySelector("#quote");
-    const authorP = page.window.document.querySelector("#author");
+    const quoteE1 = page.window.document.querySelector("#quote");
+    const authorE1 = page.window.document.querySelector("#author");
 
-    expect(quoteP).toHaveTextContent(
+    expect(quoteE1).toHaveTextContent(
       "Strive not to be a success, but rather to be of value."
     );
-    expect(authorP).toHaveTextContent("Albert Einstein");
+    expect(authorE1).toHaveTextContent("Albert Einstein");
   });
   test("can change quote to another random quote", () => {
-    const quoteP = page.window.document.querySelector("#quote");
-    const authorP = page.window.document.querySelector("#author");
-    const newQuoteBtn = page.window.document.querySelector("#new-quote");
+    const quoteE1 = page.window.document.querySelector("#quote");
+    const authorE1 = page.window.document.querySelector("#author");
+    const newQuoteBtnE1 = page.window.document.querySelector("#new-quote");
 
-    expect(quoteP).toHaveTextContent(
+    expect(quoteE1).toHaveTextContent(
       "Strive not to be a success, but rather to be of value."
     );
-    expect(authorP).toHaveTextContent("Albert Einstein");
-    expect(newQuoteBtn).toHaveTextContent("New quote");
+    expect(authorE1).toHaveTextContent("Albert Einstein");
+    expect(newQuoteBtnE1).toHaveTextContent("New quote");
 
-    userEvent.click(newQuoteBtn);
+    userEvent.click(newQuoteBtnE1);
 
-    expect(quoteP).toHaveTextContent(
+    expect(quoteE1).toHaveTextContent(
       "I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel."
     );
-    expect(authorP).toHaveTextContent("Maya Angelou");
+    expect(authorE1).toHaveTextContent("Maya Angelou");
 
-    userEvent.click(newQuoteBtn);
+    userEvent.click(newQuoteBtnE1);
 
-    expect(quoteP).toHaveTextContent(
+    expect(quoteE1).toHaveTextContent(
       "I have learned over the years that when one's mind is made up, this diminishes fear."
     );
-    expect(authorP).toHaveTextContent("Rosa Parks");
+    expect(authorE1).toHaveTextContent("Rosa Parks");
   });
 });
