@@ -33,3 +33,23 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+test("description ", () => {
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toEqual({ US: "USD", CA: "CAD" });
+});
+
+test("description ", () => {
+  expect(
+    createLookup([
+      ["GB", "GBP"],
+      ["JP", "JPY"],
+      ["IN", "INR"],
+      ["DE", "EUR"],
+    ])
+  ).toEqual({ GB: "GBP", JP: "JPY", IN: "INR", DE: "EUR" });
+});
