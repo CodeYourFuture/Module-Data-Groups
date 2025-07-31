@@ -11,6 +11,10 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
-}
+// for (let value in author) {
+//   console.log(author[value]);
+// };
+
+ for (let key in author) {
+  console.log(author[key]);
+ };
