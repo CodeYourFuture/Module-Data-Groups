@@ -31,7 +31,7 @@ body {
     Margin: 1rem;
 }
 
-.btn {
+#btn {
   width: 140px;
   height: 50px;
   background: linear-gradient(to top, #00154c, #12376e, #23487f);
@@ -45,14 +45,14 @@ body {
   overflow: hidden;
 }
 
-.btn span {
+#btn span {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: top 0.5s;
 }
 
-.btn-text-one {
+#btn-text-one {
   position: absolute;
   width: 100%;
   top: 50%;
@@ -60,7 +60,7 @@ body {
   transform: translateY(-50%);
 }
 
-.btn-text-two {
+#btn-text-two {
   position: absolute;
   width: 100%;
   top: 150%;
@@ -68,11 +68,11 @@ body {
   transform: translateY(-50%);
 }
 
-.btn:hover .btn-text-one {
+#btn:hover #btn-text-one {
   top: -100%;
 }
 
-.btn:hover .btn-text-two {
+#btn:hover #btn-text-two {
   top: 50%;
 }
 

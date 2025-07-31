@@ -495,7 +495,7 @@ const quoteElement = document.querySelector("#quote");
 const authorElement = document.querySelector("#author");
 
 // Attach a click event listener to the "New Quote" button
-const newClick = document.querySelector(".btn").addEventListener("click", () => {
+document.querySelector("#btn").addEventListener("click", () => {
   generateQuote();
 });
 
@@ -504,7 +504,7 @@ const newClick = document.querySelector(".btn").addEventListener("click", () => 
  * and updates the DOM with the new quote and author.
  */
 function generateQuote() {
-  const randomQuote = pickFromArray(quotes)
-  quote.textContent = `${randomQuote.quote}`
-  author.textContent = `${randomQuote.author}`
-};
+  const randomQuote = pickFromArray(quotes);
+  quoteElement.textContent = `${randomQuote.quote}`;
+  authorElement.textContent = `${randomQuote.author}`;
+}
