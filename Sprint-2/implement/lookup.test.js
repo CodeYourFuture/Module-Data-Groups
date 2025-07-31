@@ -1,6 +1,34 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+// Given an array of arrays representing country code and currency code pairs,
+// when createLookup function is called with the country-currency array as an argument
+// returns object with [key, value] as [country code, currency code]
+test("given appropriate array of arrays, returns object with country code and currency code", ()=>{
+  expect(createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ]))
+    .toEqual({
+      US: "USD",
+      CA: "CAD",
+    });
+});
+
+// Given an array of only country codes ,
+// when createLookup function is called with the array as an argument
+// returns an error text
+test("given array with only country codes, returns error", ()=>{
+  expect(createLookup([ "US", "CA" ]))
+    .toEqual("Wrong input! should be an array  of 2 item arrays");
+});
+
+// Given an empty array,
+// when createLookup function is called with the array as an argument
+// returns an error text
+test("given empty array, returns empty object", ()=>{
+  expect(createLookup([]))
+    .toEqual({});
+});
 
 /*
 
@@ -33,3 +61,14 @@ It should return:
    'CA': 'CAD'
  }
 */
+// given an array with one the item being an empty string,
+// when createLookup function is called with the array as argument,
+//
+test("given array with an empty string as item, returns object that exclude the item with the empty string", () => {
+  expect(
+    createLookup([
+      ["", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toEqual({ CA: "CAD" });
+});
