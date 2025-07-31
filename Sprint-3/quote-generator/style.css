@@ -1,1 +1,52 @@
 /** Write your CSS in here **/
+body {
+    background-image: url("https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg");
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.quote-section {
+    width: 700px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    background-color: black;
+    padding: 10px 0;
+    color: #B19266;
+}
+
+#quote {
+    display: inline-block;
+}
+
+#new-quote {
+    background-color: #B19266;
+    border: none;
+    padding: 6px;
+    font-weight: bold;
+}
+
+#new-quote:hover,
+#new-quote:focus {
+    background-color: #4f2d1c;
+    border: none;
+    padding: 6px;
+    font-weight: bold;
+    color: white;
+}
+
+footer {
+    margin-top: auto;
+}
+
+footer p {
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .quote-section {
+        width: 100%;
+    }
+}
