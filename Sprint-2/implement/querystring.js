@@ -21,6 +21,7 @@
       key = decodeURIComponent(pair.substring(0, index));
       value = decodeURIComponent(pair.substring(index + 1));
     } else {
+      
       key = decodeURIComponent(pair);
       value = "";
     }
@@ -42,5 +43,10 @@
 
   return queryParams;
 }
+
+//console.log(parseQueryString("city=New%20Jersey&age=60&city=London"));
+console.log(parseQueryString("equation=x=y+1&city=New%20York&city=Los%20Angeles"));
+console.log(parseQueryString("city=New%20York&city=Los%20Angeles&city=London"));
+console.log(parseQueryString("occasion=happy%20birthday&gift=mobile%20phone"));
 
 module.exports = parseQueryString;

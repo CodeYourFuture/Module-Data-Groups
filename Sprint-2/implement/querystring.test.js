@@ -12,3 +12,26 @@ test("parses empty querystring", () => {
 test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({"equation": "x=y+1"});
   });
+
+test("handles multiple key and value pairs", () => {
+  expect(parseQueryString("city=New%20Jersey&age=60")).toEqual({city: "New Jersey", age: "60",});
+});
+
+test(" handles empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("decodes + as spaces and % ", () => {
+  expect(
+    parseQueryString("occasion=happy%20birthday&gift=mobile%20phone")
+  ).toEqual({
+    occasion: "happy birthday",
+    gift: "mobile phone",
+  });
+});
+
+test("handles key without value", () => {
+  expect(parseQueryString("city")).toEqual({
+    city: "",
+  });
+});
