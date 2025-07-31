@@ -25,5 +25,8 @@
     "setupFilesAfterEnv": [
       "./jest.setup.js"
     ]
-  }
+  },
+  "main": "slideshow.js",
+  "keywords": [],
+  "author": ""
 }
