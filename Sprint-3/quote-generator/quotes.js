@@ -491,3 +491,37 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+let autoGenerate = false;
+let autoGenerateInterval = null;
+buttonAuto = document.querySelector("#quote-generator");
+
+function displayQuote() {
+  const randomQuote = pickFromArray(quotes);
+  document.getElementById("quote").textContent = `"${randomQuote.quote}"`;
+  document.getElementById("author").textContent = `— ${randomQuote.author}`;
+}
+
+// Show one on page load
+displayQuote();
+
+function autoGenerateQuotes() {
+  if (autoGenerate) {
+    clearInterval(autoGenerateInterval);
+    autoGenerate = false;
+    buttonAuto.textContent = "Start Auto-Generate";
+  }
+  else {
+    autoGenerate = true;
+    buttonAuto.textContent = "Stop Auto-Generate";
+    autoGenerateInterval = setInterval(displayQuote, 5000); // Change quote every 5 seconds
+  }
+}
+
+
+
+// Add event listener to the button new quote
+document.getElementById("new-quote").addEventListener("click", displayQuote);
+
+// Add event listener to the button quote-generator
+document.getElementById("quote-generator").addEventListener("click", autoGenerateQuotes); 
