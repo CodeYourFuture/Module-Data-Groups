@@ -1,7 +1,10 @@
 let countdownInterval; 
 let timeRemaining = 0; 
 
-function setAlarm() {
+function setAlarm(){
+
+  pauseAlarm();
+  audio.currentTime = 0
   clearInterval(countdownInterval);
 
   const inputField = document.getElementById("alarmSet");
