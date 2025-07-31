@@ -23,10 +23,9 @@ function setAlarm(){
     if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
       playAlarm(); 
-      updateTitle(); 
-    } else {
-      updateTitle(); 
     }
+      updateTitle(); 
+    
   }, 1000);
 }
 
