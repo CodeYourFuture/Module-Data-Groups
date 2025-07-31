@@ -4,25 +4,15 @@
   "license": "CC-BY-SA-4.0",
   "description": "",
   "scripts": {
-    "test": "jest --testMatch='**/*.js'",
+    "test": "jest",
     "format": "prettier --write ."
-  },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "alarmclock",
-      "highlight-words",
-      "slideshow",
-      "reading-list",
-      "todo-list",
-      "quote-generator"
-    ]
   },
   "workspaces": [
     "alarmclock",
+    "quote-generator",
     "reading-list",
-    "highlight-words",
-    "todo-list",
-    "slideshow"
+    "slideshow",
+    "todo-list"
   ],
   "repository": {
     "type": "git",
@@ -31,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/CodeYourFuture/Module-Data-Groups/issues"
   },
-  "homepage": "https://github.com/CodeYourFuture/Module-Data-Groups#readme"
+  "homepage": "https://github.com/CodeYourFuture/Module-Data-Groups#readme",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/user-event": "^14.6.1",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4"
+  }
 }
