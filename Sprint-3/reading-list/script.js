@@ -21,3 +21,29 @@ const books = [
   },
 ];
 
+function readingListApp(books) {
+  const container = document.getElementById("reading-list-app");
+  if (!container) return;
+
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i];
+
+    const bookItem = document.createElement("div");
+    bookItem.className = "book";
+    bookItem.style.backgroundColor = book.alreadyRead ? "green" : "red";
+
+    const bookInfo = document.createElement("div");
+    bookInfo.innerHTML = `<strong>${book.title}</strong> by <strong>${book.author}</strong>`;
+
+    const img = document.createElement("img");
+    img.src = book.bookCoverImage;
+    img.alt = `${book.title} cover`;
+
+    bookItem.appendChild(bookInfo);
+    
+    bookItem.appendChild(img);
+    container.appendChild(bookItem);
+  }
+}
+
+readingListApp(books);
