@@ -1,17 +1,23 @@
-function readingList(books) {
+function createReadingList(books) {
   const bookList = document.getElementById("reading-list");
-  bookList.innerHTML = "";
 
   books.forEach((book) => {
     const bookItem = document.createElement("li");
     bookItem.classList.add("book");
     bookItem.classList.add(book.alreadyRead ? "read" : "unread");
 
-    bookItem.innerHTML = `
-          <h3>${book.title}</h3>
-          <p>by ${book.author}</p>
-          <img src="${book.bookCoverImage}" alt="Cover of ${book.title}">
-        `;
+    const titleElement = document.createElement("h3");
+    titleElement.textContent = book.title;
+
+    const authorElement = document.createElement("p");
+    authorElement.textContent = `by ${book.author}`;
+
+    const imageElement = document.createElement("img");
+    imageElement.src = book.bookCoverImage;
+
+    bookItem.appendChild(titleElement);
+    bookItem.appendChild(authorElement);
+    bookItem.appendChild(imageElement);
 
     bookList.appendChild(bookItem);
   });
@@ -39,4 +45,4 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
-readingList(books);
+createReadingList(books);
