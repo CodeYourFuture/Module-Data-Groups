@@ -1,1 +1,44 @@
-/** Write your CSS in here **/
+    body { 
+        font-family: Arial, sans-serif;
+        background-color: #ffffffff;
+        color: #cd4300;
+        margin: 0;
+        padding: 0;
+
+    }
+    
+    #quote {
+        font-size: 1.5em;
+        text-align: center;
+        margin: 20px;
+        font-weight: bold;
+        background-color: #f6e6ba;
+        color: #5c2c00; 
+        padding: 20px;
+        border-radius: 40px;
+        
+        
+    }
+
+    #author {
+        font-size: 1.2em;
+        text-align: center;
+        margin: 10px;
+        color: #444; 
+    }
+
+    #new-quote {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #ffc72c; 
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
