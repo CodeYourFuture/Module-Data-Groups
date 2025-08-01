@@ -490,4 +490,45 @@ const quotes = [
   },
 ];
 
-// call pickFromArray with the quotes array to check you get a random quote
+// initial quote upon initial loading of the app
+const initialQuote = pickFromArray(quotes);
+document.getElementById("quote").textContent = `"${initialQuote.quote}"`;
+document.getElementById("author").textContent = initialQuote.author;
+
+const QuoteButton = document.getElementById("new-quote");
+const displayQuote = document.getElementById("quote-display");
+
+// call pickFromArray with the quotes array to get a random quote
+//this method is for displaying new quotes and will be called every time we need a new quote
+function displayNewQuote() {
+  const randomQuote = pickFromArray(quotes);
+  document.getElementById("quote").textContent = `"${randomQuote.quote}"`;
+  document.getElementById("author").textContent = randomQuote.author;
+}
+QuoteButton.addEventListener("click", displayNewQuote);
+
+let autoplayInterval;
+let isAutoplayOn = false;
+
+const autoplayButton = document.getElementById("autoplay-toggle");
+autoplayButton.classList.add("autoplay-off");
+
+autoplayButton.addEventListener("click", function () {
+  if (isAutoplayOn) {
+    //off autoplay
+    clearInterval(autoplayInterval);
+    isAutoplayOn = false;
+    autoplayButton.textContent = "Autoplay:OFF";
+    autoplayButton.classList.remove("autoplay-on");
+    autoplayButton.classList.add("autoplay-off");
+  } else {
+    //on autoplay
+    autoplayInterval = setInterval(displayNewQuote, 5000);
+    isAutoplayOn = true;
+    autoplayButton.textContent = "Autoplay:ON";
+    autoplayButton.classList.remove("autoplay-off");
+    autoplayButton.classList.add("autoplay-on");
+  }
+});
+
+window.addEventListener("load", displayNewQuote);
