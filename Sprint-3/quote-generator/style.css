@@ -1,16 +1,32 @@
 body {
-  background-color: aqua;
+  margin: 0;
+  background-color: rgb(155, 253, 253);
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 50px;
 }
+
 .quote-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 50px 50px 50px;
+  background-color: rgb(255, 251, 235);
+  border-radius: 15px;
+  width: 1000px;
+  height: 400px;
+  margin-bottom: 50px;
+  line-height: 3rem;
 }
 
 #quote {
@@ -25,7 +41,7 @@ h1 {
 }
 
 button {
-  background-color: #40a6b0;
+  background-color: #69cad3;
   border: none;
   border-radius: 12px;
   color: white;
@@ -36,9 +52,15 @@ button {
   font-size: 16px;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
+  font-weight: bold;
 }
 
 button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

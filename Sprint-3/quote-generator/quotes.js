@@ -494,8 +494,11 @@ const quotes = [
 
 function displayRandomQuote() {
   const randomQuote = pickFromArray(quotes);
-  document.getElementById("quote").innerText = randomQuote.quote;
-  document.getElementById("author").innerText = `-${randomQuote.author}`;
+  document.getElementById("quote").innerText = randomQuote.quote; //It finds the element with the
+  //  ID quote and sets its text to the quote from the random quote object.
+  document.getElementById("author").innerText = `- ${randomQuote.author}`;
+  //It finds the element with the
+  // ID author and sets its text to the author, with a dash in front for style.
 }
 
 window.onload = function () {
@@ -504,3 +507,6 @@ window.onload = function () {
     .getElementById("new-quote")
     .addEventListener("click", displayRandomQuote);
 };
+// every time you click this button,
+//  the displayRandomQuote function runs,
+//  updating the quote and author with a new random quote.
