@@ -33,11 +33,11 @@ h1 {
 }
 
 .read {
-  background-color: #4caf50;
+  background-color: green;
 }
 
 .unread {
-  background-color: #f44336;
+  background-color: red;
 }
 
 .book h3 {
