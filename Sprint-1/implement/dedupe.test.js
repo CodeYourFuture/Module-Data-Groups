@@ -51,4 +51,10 @@ it("removes duplicate numbers and preserves order", () => {
     expect(dedupe([2, 2, 2, 2])).toEqual([2]);
   });
 
+  test('returns a new array, not the original', () => {
+    const input = [1, 2, 2, 3];
+    const result = dedupe(input);
+    expect(result).not.toBe(input); // Ensures a copy is returned
+  });
+
 });
