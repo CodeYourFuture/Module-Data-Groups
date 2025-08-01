@@ -1,4 +1,7 @@
 function dedupe(arr) {
+  if (!Array.isArray(arr)) {
+    return [];
+  }
   const result = [];
   const seen = new Set();
 
