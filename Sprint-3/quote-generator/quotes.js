@@ -1,3 +1,29 @@
+//test expects this initial quote to be displayed
+window.addEventListener("load", () => {
+  const initialQuote = {
+    quote: "Strive not to be a success, but rather to be of value.",
+    author: "Albert Einstein",
+  };
+
+  //display the initial quote and author on page load
+  document.querySelector("#quote").innerText = initialQuote.quote;
+  document.querySelector("#author").innerText = initialQuote.author;
+});
+
+function displayRandomQuote() {
+  //pick a random quote from the quotes array
+  const randomQuote = pickFromArray(quotes);
+
+  //display the random quote and author in the HTML elements
+  document.querySelector("#quote").innerText = randomQuote.quote;
+  document.querySelector("#author").innerText = randomQuote.author;
+}
+
+//add an event listener to the button to generate a new random quote
+document
+  .querySelector("#new-quote")
+  .addEventListener("click", displayRandomQuote);
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -491,3 +517,4 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+const randomQuote = pickFromArray(quotes);
