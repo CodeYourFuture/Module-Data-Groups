@@ -2,6 +2,7 @@ function contains(obj, key) {
   if (
     typeof obj !== "object" ||
     obj === null ||
+    Array.isArray(obj)||
     Object.keys(obj).length === 0
   ) {
     return false;
