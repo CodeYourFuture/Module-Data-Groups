@@ -1,4 +1,6 @@
+let countInterval;
 function setAlarm() {
+  clearInterval(countInterval);
   const timeInput = document.getElementById("alarmSet"); // now matches the HTML
   const seconds = parseInt(timeInput.value, 10);
 
@@ -6,22 +8,24 @@ function setAlarm() {
     alert("Please enter a valid number of seconds.");
     return;
   }
-let remainingSeconds = seconds;
+  let remainingSeconds = seconds;
 
-const showTime = setInterval(() => {
-  if (remainingSeconds <= 0) {
-    clearInterval(showTime);
-    playAlarm();
-    return;
-  }
+  countInterval = setInterval(() => {
+    if (remainingSeconds <= 0) {
+      clearInterval(showTime);
+      playAlarm();
+      return;
+    }
 
-  remainingSeconds--;
+    remainingSeconds--;
 
-  const mins = String(Math.floor(remainingSeconds / 60)).padStart(2, "0");
-  const secs = String(remainingSeconds % 60).padStart(2, "0");
+    const mins = String(Math.floor(remainingSeconds / 60)).padStart(2, "0");
+    const secs = String(remainingSeconds % 60).padStart(2, "0");
 
-  document.getElementById("timeRemaining").innerText = `Time Remaining: ${mins}:${secs}`;
-}, 1000);
+    document.getElementById(
+      "timeRemaining"
+    ).innerText = `Time Remaining: ${mins}:${secs}`;
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
