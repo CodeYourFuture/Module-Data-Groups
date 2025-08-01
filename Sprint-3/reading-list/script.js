@@ -1,3 +1,28 @@
+function createReadingList(books) {
+  const bookList = document.getElementById("reading-list");
+
+  books.forEach((book) => {
+    const bookItem = document.createElement("li");
+    bookItem.classList.add("book");
+    bookItem.classList.add(book.alreadyRead ? "read" : "unread");
+
+    const titleElement = document.createElement("h3");
+    titleElement.textContent = book.title;
+
+    const authorElement = document.createElement("p");
+    authorElement.textContent = `by ${book.author}`;
+
+    const imageElement = document.createElement("img");
+    imageElement.src = book.bookCoverImage;
+
+    bookItem.appendChild(titleElement);
+    bookItem.appendChild(authorElement);
+    bookItem.appendChild(imageElement);
+
+    bookList.appendChild(bookItem);
+  });
+}
+
 // for the tests, do not modify this array of books
 const books = [
   {
@@ -20,4 +45,4 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
-
+createReadingList(books);
