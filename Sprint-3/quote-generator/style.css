@@ -1,1 +1,45 @@
-/** Write your CSS in here **/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    
+    background-color:black;
+    font-family:'Press Start 2P', monospace;
+    color: lawngreen;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+h1 {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color:yellow;
+}
+#quote {
+    font-size: 2rem;
+    max-width: 90vw;
+    margin-bottom: 40px;
+    line-height: 2.5rem;
+}
+#author{
+    font-size: 1rem;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 50px;
+    padding-right: 1vw;
+    color: magenta;
+}
+button {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    border: 3px solid cyan;
+    background-color: black;
+    color: cyan;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0 cyan;
+    
+}
