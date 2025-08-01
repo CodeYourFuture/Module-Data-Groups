@@ -1,1 +1,89 @@
 /** Write your CSS in here **/
+body {
+  font-family: Arial, sans-serif;
+  background: radial-gradient(ellipse, rgb(232, 242, 247) 40%, #89dcfa 80%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.quote-container {
+  max-width: 600px;
+  background-color: #e5ecf3;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#quote {
+  font-size: 1.2em;
+  font-style: italic;
+  margin: 20px 0;
+  text-align: center;
+  line-height: 1.5;
+  color: #333;
+}
+
+#author {
+  font-weight: bold;
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.auto-play-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+}
+
+.auto-play-controls label {
+  font-weight: bold;
+  color: #333;
+}
+
+#auto-play-toggle {
+  transform: scale(1.2);
+}
+
+#auto-play-status {
+  min-width: 30px;
+  color: #666;
+  font-weight: bold;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#new-quote {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #04a5e5;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#new-quote:hover {
+  background-color: #02364f;
+}
