@@ -1,7 +1,8 @@
 /* ======= TESTS - DO NOT MODIFY ===== 
 There are some Tests in this file that will help you work out if your code is working.
 */
-
+global.TextEncoder = require("util").TextEncoder;
+global.TextDecoder = require("util").TextDecoder;
 const path = require("path");
 const { JSDOM } = require("jsdom");
 
