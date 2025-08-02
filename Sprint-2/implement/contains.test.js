@@ -43,5 +43,5 @@ test("should return false for an object with non-existent property", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("should return false for an array", () => {
-  expect(contains([1, 2, 3], "a")).toEqual(false);
+  expect(contains([1, 2, 3, 4], "length")).toEqual(false);
 });
