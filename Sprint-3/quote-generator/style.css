@@ -38,21 +38,21 @@ h1 {
 #quote {
   font-size: 1.4rem;
   font-style: italic;
-  color: #555;
+  color: #1f1e1e;
   margin-bottom: 1rem;
 }
 
 /* Author */
 #author {
   font-size: 1rem;
-  color: #777;
+  color: #050404;
   margin-bottom: 2rem;
 }
 
 /* Button */
 #new-quote {
-  background-color: #fcb69f;
-  color: white;
+  background-color: #000000;
+  color: #ffffff;
   border: none;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -63,5 +63,6 @@ h1 {
 }
 
 #new-quote:hover {
-  background-color: #ff8a65;
+  background-color: #d79640;
+
 }
