@@ -19,15 +19,13 @@ function setAlarm() {
   }
 
   // Start countdown
+   display.innerText = formatTime(timeRemaining);
+  clearInterval(intervalId);
   intervalId = setInterval(() => {
-    if (timeRemaining > 0) {
-      timeRemaining--;
-    } else if (timeRemaining < 0) {
-      timeRemaining++;
-    }
+    timeRemaining--
 
     display.innerText = formatTime(timeRemaining);
-    if (timeRemaining === 0) {
+    if (timeRemaining <= 0) {
       clearInterval(intervalId);
       playAlarm();
     }
