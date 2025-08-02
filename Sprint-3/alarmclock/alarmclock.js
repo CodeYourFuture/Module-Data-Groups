@@ -41,13 +41,15 @@ function startInterval() {
 }
 
 // Flashing background
-function startFlashing() {
+/*function startFlashing() {
+  if (typeof jest !== "undefined") return;
   let flash = false;
   flashIntervalId = setInterval(() => {
     document.body.style.backgroundColor = flash ? "red" : "white";
     flash = !flash;
   }, 400);
 }
+*/
 
 function stopFlashing() {
   clearInterval(flashIntervalId);
