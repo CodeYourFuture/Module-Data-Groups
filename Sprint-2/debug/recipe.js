@@ -13,3 +13,8 @@ const recipe = {
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
 ${recipe}`);
+
+// The code will not log the ingredients, only the object. 
+for (const ingredient of recipe.ingredients) {
+  console.log(ingredient);
+}

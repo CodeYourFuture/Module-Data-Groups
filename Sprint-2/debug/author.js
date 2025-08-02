@@ -14,3 +14,7 @@ const author = {
 for (const value of author) {
   console.log(value);
 }
+// TypeError, for is not iterable object, it used for arrays. 
+for (const value of Object.values(author)) {
+  console.log(value);
+}

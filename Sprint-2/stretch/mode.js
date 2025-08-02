@@ -9,24 +9,31 @@
 // into smaller functions using the stages above
 
 function calculateMode(list) {
-  // track frequency of each value
-  let freqs = new Map();
+  const freqs = buildFrequencyMap(list);
+  return findMostFrequentValue(freqs);
+}
+
+// Stage 1: Frequency mapping
+function buildFrequencyMap(list) {
+  const freqs = new Map();
 
   for (let num of list) {
-    if (typeof num !== "number") {
-      continue;
-    }
-
+    if (typeof num !== "number") continue;
     freqs.set(num, (freqs.get(num) || 0) + 1);
   }
 
-  // Find the value with the highest frequency
+  return freqs;
+}
+
+// Stage 2: Determine mode
+function findMostFrequentValue(freqs) {
   let maxFreq = 0;
-  let mode;
+  let mode = NaN;
+
   for (let [num, freq] of freqs) {
     if (freq > maxFreq) {
-      mode = num;
       maxFreq = freq;
+      mode = num;
     }
   }
 
