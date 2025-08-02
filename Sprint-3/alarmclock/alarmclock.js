@@ -1,79 +1,50 @@
 let timerId = null;
-let flashingInterval = null;
-let paused = false;
 let timeLeft = 0;
 let audio;
 
-const formatTime = (seconds) => {
-  const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
-  const secs = String(seconds % 60).padStart(2, "0");
-  return `Time Remaining: ${minutes}:${secs}`;
-};
-
-const updateTimeDisplay = (seconds) => {
-  const heading = document.getElementById("timeRemaining");
-  heading.innerText = formatTime(seconds);
-};
-
-function setAlarm() {
+function startAlarm() {
   const input = document.getElementById("alarmSet");
   timeLeft = parseInt(input.value, 10);
-  const display = document.getElementById("timeRemaining");
-
-  if (timerId) {
-    clearInterval(timerId);
-  }
 
   if (isNaN(timeLeft) || timeLeft <= 0) {
-    display.innerText = "Please enter a valid time.";
+    document.getElementById("timeRemaining").innerText = "Please enter a valid time.";
     return;
   }
-
-  updateTimeDisplay(timeLeft);
-  paused = false;
+  document.getElementById("alarmSet").disabled = true;
+  document.getElementById("start").disabled = true;
   document.getElementById("stop").disabled = false;
-  document.getElementById("resume").disabled = true;
 
   timerId = setInterval(() => {
-    if (paused) return;
-
     timeLeft--;
+    document.getElementById("timeRemaining").innerText = formatTime(timeLeft);
 
     if (timeLeft <= 0) {
       clearInterval(timerId);
       timerId = null;
-      updateTimeDisplay(0);
       playAlarm();
-      flashBackground();
-    document.getElementById("alarmSet").value = "";
-    document.getElementById("alarmSet").disabled = true;
-    document.getElementById("set").disabled = false;
-
-      return;
     }
-        updateTimeDisplay(timeLeft);
   }, 1000);
 }
 
-      
-function pauseAlarm() {
-  if (!paused) {
-    paused = true;
-    audio.pause();
-    clearInterval(flashingInterval);
-    document.body.classList.remove("flash");
-    document.getElementById("stop").disabled = true;
-    document.getElementById("resume").disabled = false;
+function stopAlarm() {
+  if (timerId) {
+    clearInterval(timerId);
+    timerId = null;
   }
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+  document.getElementById("alarmSet").disabled = false;
+  document.getElementById("start").disabled = false;
+  document.getElementById("stop").disabled = true;
+  document.getElementById("timeRemaining").innerText = formatTime(0);
 }
 
-function resumeAlarm() {
-  if (paused) {
-    paused = false;
-    audio.play();
-    document.getElementById("stop").disabled = false;
-    document.getElementById("resume").disabled = true;
-  }
+function formatTime(seconds) {
+  const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  return `Time Remaining: ${minutes}:${secs}`;
 }
 
 function playAlarm() {
@@ -81,35 +52,10 @@ function playAlarm() {
   audio.play();
 }
 
-function flashBackground() {
-  document.body.classList.add("flash");
-  flashingInterval = setInterval(() => {
-    document.body.classList.toggle("flash");
-  }, 500);
-}
-
 function setup() {
   audio = document.getElementById("alarmAudio");
-  if (!audio) {
-    console.warn("Alarm audio element not found.");
-    return;
-  }
-
-  document.getElementById("set").addEventListener("click", setAlarm);
-  document.getElementById("stop").addEventListener("click", pauseAlarm);
-  document.getElementById("resume").addEventListener("click", resumeAlarm);
+  document.getElementById("start").addEventListener("click", startAlarm);
+  document.getElementById("stop").addEventListener("click", stopAlarm);
 }
 
-// Attach setup on page load
-if (typeof window !== "undefined") {
-  window.onload = setup;
-  window.setup = setup;
-  window.setAlarm = setAlarm;
-  window.pauseAlarm = pauseAlarm;
-  window.resumeAlarm = resumeAlarm;
-  window.playAlarm = playAlarm;
-  window.flashBackground = flashBackground;
-  window.updateTimeDisplay = updateTimeDisplay;
-  window.formatTime = formatTime;
-}
-
+window.onload = setup;

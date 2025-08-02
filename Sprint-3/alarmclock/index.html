@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Alarm clock app</title>
-  </head>
-  <body>
-    <div class="centre">
-      <h1 id="timeRemaining">Time Remaining: 00:10</h1>
-      <label for="alarmSet">Set time to:</label>
-      <input id="alarmSet" type="number" min="0" />
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Alarm clock app</title>
+</head>
+
+<body>
+  <div class="centre">
+    <h1 id="timeRemaining">Time Remaining: 00:00</h1>
+    <label for="alarmSet">Set time to:</label>
+    <input id="alarmSet" type="number" min="Enter seconds" />
 
     <div class="buttons">
-      <button id="set" type="button">Set Alarm</button>
-      <button id="start" type="button" disabled>Start Alarm</button>
-      <button id="pause" type="button" disabled>Pause Alarm</button>
-      <button id="reset" type="button">Reset Alarm</button>
-      <button id="flash" type="button">Flash Background</button>
-      <button id="stop" type="button" disabled>Stop Alarm</button>
-      <button id="resume" type="button" disabled>Resume Alarm</button>
+      <button id="start">Start Alarm</button>
+      <button id="stop" disabled>Stop Alarm</button>
     </div>
-    
-      <audio id="alarmAudio" src="alarmsound.mp3" preload="auto"></audio>
-      <p id="alarmMessage" aria-live="polite"></p>
-    </div>
-    <script src="alarmclock.js"></script>
-  </body>
+
+    <audio id="alarmAudio" src="alarmsound.mp3" preload="auto"></audio>
+    <p id="alarmMessage" aria-live="polite"></p>
+  </div>
+  <script src="alarmclock.js"></script>
+</body>
+
 </html>
