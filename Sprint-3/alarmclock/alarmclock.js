@@ -1,11 +1,9 @@
 let intervalId;
-// Formats seconds into MM:SS string (handles negative times too)
+// Formats seconds into MM:SS string
 function formatTime(seconds) {
-  const absSeconds = Math.abs(seconds);
   const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
   const secs = String(seconds % 60).padStart(2, "0");
-  const sign = seconds < 0 ? "-" : "";
-  return `Time Remaining: ${sign}${mins}:${secs}`;
+  return `Time Remaining: ${mins}:${secs}`;
 }
 // Called when the "Set" button is clicked
 function setAlarm() {
