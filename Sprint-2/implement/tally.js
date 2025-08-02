@@ -6,13 +6,13 @@ function tally(arr) {
   if (arr.length === 0) {
     return obj;
   }
-  for (const item of arr) {
+  arr.forEach((item) => {
     if (obj[item]) {
       obj[item]++;
     } else {
       obj[item] = 1;
     }
-  }
+  });
   return obj;
 }
 
