@@ -13,7 +13,7 @@ function setAlarm() {
 
 // Validate input: must be a positive integer greater than 0
   if (isNaN(timeRemaining) || timeRemaining <= 0) {
-    display.innerText = "Time Remaining: NaNa";
+    display.innerText = "Time Remaining: N/A";
     clearInterval(intervalId);
     return;
   }
