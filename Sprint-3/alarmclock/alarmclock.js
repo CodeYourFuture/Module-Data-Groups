@@ -11,11 +11,12 @@ function setAlarm() {
   let timeRemaining = parseInt(input.value, 10);
   const display = document.getElementById("timeRemaining");
 
- // Immediately display the starting time
-  display.innerText = formatTime(timeRemaining);
-
-  // Clear any existing interval
-  clearInterval(intervalId);
+// Validate input: must be a positive integer greater than 0
+  if (isNaN(timeRemaining) || timeRemaining <= 0) {
+    display.innerText = "Time Remaining: NaNa";
+    clearInterval(intervalId);
+    return;
+  }
 
   // Start countdown
   intervalId = setInterval(() => {
