@@ -1,28 +1,65 @@
-/*
-  Count the number of times a word appears in a given string.
+/**
+ * This function takes a string and returns an object
+ * counting how many times each word appears.
+ * 
+ * It:
+ *  - Removes punctuation
+ *  - Ignores case
+ *  - Sorts the result by most frequent word
+ */
 
-  Write a function called countWords that
-    - takes a string as an argument
-    - returns an object where
-          - the keys are the words from the string and
-          - the values are the number of times the word appears in the string
+function countWords(text) {
+  if (typeof text !== "string") {
+    throw new Error("Input must be a string");
+  }
 
-  Example
-  If we call countWords like this:
+  const formatted = text
+    .toLowerCase()
+    .replace(/[.,!?]/g, " ") // Replace punctuation with space
+    .trim();
 
-  countWords("you and me and you") then the target output is { you: 2, and: 2, me: 1 }
+  const words = formatted.split(/\s+/).filter(Boolean); // Split + filter empty strings
 
-  To complete this exercise you should understand
-    - Strings and string manipulation
-    - Loops
-    - Comparison inside if statements
-    - Setting values on an object
+  const result = Object.create(null); // Prevent issues with 'constructor'
 
-## Advanced challenges
+  for (const word of words) {
+    if (word in result) {
+      result[word]++;
+    } else {
+      result[word] = 1;
+    }
+  }
 
-1. Remove all of the punctuation (e.g. ".", ",", "!", "?") to tidy up the results
+  const sorted = Object.entries(result).sort(([, a], [, b]) => b - a);
+  return Object.fromEntries(sorted);
+}
 
-2. Ignore the case of the words to find more unique words. e.g. (A === a, Hello === hello)
+// Tests for countWords
 
-3. Order the results to find out which word is the most common in the input
-*/
+test("Handles repeated words with punctuation", () => {
+  expect(countWords("Hello,World! Hello World!")).toEqual({
+    hello: 2,
+    world: 2,
+  });
+});
+
+test("Handles built-in object key like 'constructor'", () => {
+  expect(countWords("constructor constructor")).toEqual({
+    constructor: 2,
+  });
+});
+
+test("Handles leading and trailing spaces", () => {
+  expect(countWords("       Hello World      ")).toEqual({
+    hello: 1,
+    world: 1,
+  });
+});
+
+test("Returns empty object for empty string", () => {
+  expect(countWords("")).toEqual({});
+});
+
+test("Throws error for non-string input", () => {
+  expect(() => countWords(123)).toThrow("Input must be a string");
+});
