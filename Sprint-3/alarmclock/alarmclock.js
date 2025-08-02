@@ -10,17 +10,17 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   let timeRemaining = parseInt(input.value, 10);
   const display = document.getElementById("timeRemaining");
+  // Clear any existing interval
+  clearInterval(intervalId);
 
 // Validate input: must be a positive integer greater than 0
   if (isNaN(timeRemaining) || timeRemaining <= 0) {
     display.innerText = "Time Remaining: N/A";
-    clearInterval(intervalId);
     return;
   }
 
   // Start countdown
    display.innerText = formatTime(timeRemaining);
-  clearInterval(intervalId);
   intervalId = setInterval(() => {
     timeRemaining--
 
