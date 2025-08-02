@@ -15,6 +15,13 @@ describe("calculateMedian", () => {
   ].forEach(({ input, expected }) =>
     it(`returns the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
+  
+  [
+    { input: [3], expected: 3 },
+    { input: [5], expected: 5 },
+  ].forEach(({ input, expected }) =>
+    it(`returns the median for array with 1 entry: [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+  );
 
   [
     { input: [3, 1, 2], expected: 2 },
