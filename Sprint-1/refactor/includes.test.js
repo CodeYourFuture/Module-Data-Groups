@@ -1,4 +1,5 @@
 // Refactored version of includes should still pass the tests below:
+// include function has been modified using for...of loop
 
 const includes = require("./includes.js");
 

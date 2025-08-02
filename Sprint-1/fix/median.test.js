@@ -7,6 +7,7 @@
 const calculateMedian = require("./median.js");
 
 describe("calculateMedian", () => {
+
   [
     { input: [1, 2, 3], expected: 2 },
     { input: [1, 2, 3, 4, 5], expected: 3 },
@@ -15,6 +16,7 @@ describe("calculateMedian", () => {
   ].forEach(({ input, expected }) =>
     it(`returns the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
+  
 
   [
     { input: [3, 1, 2], expected: 2 },
