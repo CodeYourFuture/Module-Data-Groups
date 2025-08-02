@@ -16,9 +16,30 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+// function pickFromArray(choices) {
+//   return choices[Math.floor(Math.random() * choices.length)];
+// }
+// i dont need to. and i dont want to. i think for this the Math.random() function is the best way to go.
+// its giving Karel from Stanford vibes.
+// first we build the function getRandomQuote() then we put it on the page. with document.getElementById
+
+function getRandomQuote(){
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[randomIndex];
 }
+function displayQuote(){
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+  const randomQuote = getRandomQuote();
+//use .innerText
+  quoteElement.innerText = `"${randomQuote.quote}"`;
+  authorElement.innerText = `${randomQuote.author}`;
+}
+// time to connect the button
+document.getElementById("new-quote").addEventListener("click", displayQuote);
+
+// failed the test to show something upon loading so lets do something
+window.onload = displayQuote;
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
