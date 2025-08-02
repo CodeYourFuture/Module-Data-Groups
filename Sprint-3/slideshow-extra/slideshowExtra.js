@@ -1,4 +1,3 @@
-
 const images = [
   "./assets/first.jpg",
   "./assets/second.png",
@@ -7,17 +6,8 @@ const images = [
   "./assets/final.jpg"
 ];
 
-const altTexts = [
-  "programming-not-easy-pic",
-  "I-hate-programming-pic",
-  "stretching-pic",
-  "routine-habit-to-programming-pic",
-  "happiness-from-programming-pic"
-];
-
 let currentIndex = 0;
 let intervalId = null;
-const interval = 2000;  
 
 const carouselImg = document.getElementById("carousel-img");
 const forwardBtn = document.getElementById("forward-btn");
@@ -25,10 +15,10 @@ const backwardBtn = document.getElementById("backward-btn");
 const autoForwardBtn = document.getElementById("auto-forward-btn");
 const autoBackwardBtn = document.getElementById("auto-backward-btn");
 const stopBtn = document.getElementById("stop-btn");
+const delayInput = document.getElementById("delay-input");
 
 function updateImage() {
   carouselImg.src = images[currentIndex];
-  carouselImg.alt = altTexts[currentIndex];
 }
 
 function forward() {
@@ -43,16 +33,14 @@ function backward() {
 
 function autoForward() {
   stopInterval();
-  intervalId = setInterval(forward, interval);
-  autoForwardBtn.disabled = true;
-  autoBackwardBtn.disabled = true;
+  const delay = parseInt(delayInput.value, 10) || 3000;
+  intervalId = setInterval(forward, delay);
 }
 
 function autoBackward() {
   stopInterval();
-  intervalId = setInterval(backward, interval);
-  autoForwardBtn.disabled = true;
-  autoBackwardBtn.disabled = true;
+  const delay = parseInt(delayInput.value, 10) || 3000;
+  intervalId = setInterval(backward, delay);
 }
 
 function stopInterval() {
@@ -60,8 +48,6 @@ function stopInterval() {
     clearInterval(intervalId);
     intervalId = null;
   }
-  autoForwardBtn.disabled = false;
-  autoBackwardBtn.disabled = false;
 }
 
 forwardBtn.addEventListener("click", forward);
@@ -71,4 +57,3 @@ autoBackwardBtn.addEventListener("click", autoBackward);
 stopBtn.addEventListener("click", stopInterval);
 
 updateImage();
-
