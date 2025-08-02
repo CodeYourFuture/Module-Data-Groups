@@ -1,3 +1,73 @@
+function displayRandomQuote() {
+  if (!quotes.length) return; // Guard against empty quotes array
+  const randomQuote = pickFromArray(quotes);
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+
+  if (quoteElement && authorElement) {
+    quoteElement.textContent = randomQuote.quote;
+    authorElement.textContent = randomQuote.author;
+
+    // Style the quote
+    quoteElement.style.backgroundColor = "#f0f4f8"; // Light blue-gray background
+    quoteElement.style.padding = "20px"; // Padding for spacing
+    quoteElement.style.borderRadius = "8px"; // Rounded corners
+    quoteElement.style.fontSize = "1.2em"; // Larger font for readability
+    quoteElement.style.color = "#333"; // Dark text for contrast
+    quoteElement.style.margin = "20px"; // Margin for separation
+    quoteElement.style.textAlign = "center"; // Center the text
+    quoteElement.style.fontStyle = "italic"; // Italicize quote
+    quoteElement.style.borderLeft = "4px solid #007bff"; // Blue accent border
+
+    // Style the author
+    authorElement.style.color = "#007bff"; // Blue color for author
+    authorElement.style.padding = "10px 20px"; // Padding for spacing
+    authorElement.style.fontSize = "1em"; // Slightly smaller than quote
+    authorElement.style.textAlign = "right"; // Right-align author
+    authorElement.style.fontWeight = "bold"; // Bold for emphasis
+    authorElement.style.margin = "0 20px 20px 20px"; // Margin for separation
+  }
+
+  // Style the button
+  const buttonElement = document.getElementById("new-quote");
+  if (buttonElement) {
+    buttonElement.style.backgroundColor = "#007bff"; // Blue background
+    buttonElement.style.color = "#fff"; // White text
+    buttonElement.style.padding = "10px 20px"; // Padding for size
+    buttonElement.style.border = "none"; // Remove default border
+    buttonElement.style.borderRadius = "5px"; // Rounded corners
+    buttonElement.style.cursor = "pointer"; // Pointer on hover
+    buttonElement.style.fontSize = "1em"; // Readable font size
+    buttonElement.style.margin = "0 20px"; // Center with margin
+    buttonElement.style.transition = "background-color 0.3s"; // Smooth hover effect
+
+    // Add hover effect
+    buttonElement.addEventListener("mouseover", () => {
+      buttonElement.style.backgroundColor = "#0056b3"; // Darker blue on hover
+    });
+    buttonElement.addEventListener("mouseout", () => {
+      buttonElement.style.backgroundColor = "#007bff"; // Original blue
+    });
+  }
+
+  // Style the body for overall centering
+  document.body.style.display = "flex";
+  document.body.style.flexDirection = "column";
+  document.body.style.alignItems = "center";
+  document.body.style.backgroundColor = "#e9ecef"; // Light gray background
+  document.body.style.minHeight = "100vh"; // Full viewport height
+  document.body.style.margin = "0"; // Remove default margin
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementById("new-quote")) {
+    displayRandomQuote();
+    document
+      .getElementById("new-quote")
+      .addEventListener("click", displayRandomQuote);
+  }
+});
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
