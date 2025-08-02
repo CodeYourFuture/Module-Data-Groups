@@ -13,11 +13,9 @@ function startAlarm() {
   document.getElementById("alarmSet").disabled = true;
   document.getElementById("start").disabled = true;
   document.getElementById("stop").disabled = false;
-
-  timerId = setInterval(() => {
-    timeLeft--;
     document.getElementById("timeRemaining").innerText = formatTime(timeLeft);
-
+timerId = setInterval(() => {
+    timeLeft--;
     if (timeLeft <= 0) {
       clearInterval(timerId);
       timerId = null;
