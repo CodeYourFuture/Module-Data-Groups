@@ -4,6 +4,7 @@
   "license": "CC-BY-SA-4.0",
   "description": "",
   "scripts": {
+<<<<<<< HEAD
     "test": "jest",
     "format": "prettier --write ."
   },
@@ -13,6 +14,27 @@
     "reading-list",
     "slideshow",
     "todo-list"
+=======
+    "test": "jest --testMatch='**/*.js'",
+    "format": "prettier --write ."
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "alarmclock",
+      "highlight-words",
+      "slideshow",
+      "reading-list",
+      "todo-list",
+      "quote-generator"
+    ]
+  },
+  "workspaces": [
+    "alarmclock",
+    "reading-list",
+    "highlight-words",
+    "todo-list",
+    "slideshow"
+>>>>>>> a98491b (update: fixing json packages)
   ],
   "repository": {
     "type": "git",
@@ -22,11 +44,19 @@
     "url": "https://github.com/CodeYourFuture/Module-Data-Groups/issues"
   },
   "homepage": "https://github.com/CodeYourFuture/Module-Data-Groups#readme",
+<<<<<<< HEAD
+  "dependencies": {},
   "devDependencies": {
+    "jsdom": "^26.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/user-event": "^14.6.1",
     "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.4"
+  }
+=======
+  "dependencies": {
+    "jsdom": "^26.1.0"
+>>>>>>> a98491b (update: fixing json packages)
   }
 }

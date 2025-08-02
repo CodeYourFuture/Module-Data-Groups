@@ -1,27 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced ToDo List with Deadlines</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+</head>
+<body>
+  <h1>Advanced ToDo List</h1>
+
+  <form id="todo-form">
+    <input
+      type="text"
+      id="todoInput"
+      placeholder="New todo..."
+      aria-label="New todo"
+      required
+    />
+    <input
+      type="date"
+      id="todoDeadline"
+      aria-label="Deadline date (optional)"
+    />
+    <button type="submit" class="btn btn-primary">Add Todo</button>
+    <button
+      type="button"
+      id="remove-all-completed"
+      class="btn btn-primary"
+    >
+      Remove all completed
+    </button>
+  </form>
+
+  <ul id="todo-list"></ul>
+
+  <script src="script.js"></script>
+</body>
+=======
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Simple Todo List</title>
+
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Optional: Link to custom CSS file -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <form>
-      <div>
-        <input type="text" placeholder="New todo..." />
-      </div>
-      <div>
-        <button type="submit">Add Todo</button>
-        <button
-          type="button"
-          id="remove-all-completed"
-          class="btn btn-primary mb-3"
-        >
-          Remove all completed
-        </button>
-      </div>
-    </form>
+    <main>
+      <h1>Todo List</h1>
+
+  <form id="todo-form">
+    <input
+      type="text"
+      id="todoInput"
+      placeholder="New todo..."
+      aria-label="New todo"
+      required
+    />
+    <input
+      type="date"
+      id="todoDeadline"
+      aria-label="Deadline date (optional)"
+    />
+    <button type="submit" class="btn btn-primary">Add Todo</button>
+    <button
+      type="button"
+      id="remove-all-completed"
+      class="btn btn-primary"
+    >
+      Remove all completed
+    </button>
+  </form>
+
+      <!-- Unordered list where todos will appear -->
+      <ul id="todo-list" class="list-group">
+        <!-- JavaScript dynamically adds todos here -->
+      </ul>
+    </main>
+
+    <!-- Link to main JavaScript file -->
     <script src="script.js"></script>
   </body>
+>>>>>>> 526ad6b (update: fix markups including comments for easy to fix in todo-list/html)
 </html>
