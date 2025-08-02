@@ -32,7 +32,10 @@ module.exports = invert;
 // { "1": "a", "2": "b" }
 
 // c) What does Object.entries return? Why is it needed in this program?
-// it return key and value inverted;
+/*
+Using Object.entries() allows you to use a for...of loop 
+ to access both keys making it easy to swap them when creating a new object.
+ */
 
 // d) Explain why the current return value is different from the target output
 
