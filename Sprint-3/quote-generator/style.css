@@ -1,1 +1,55 @@
-/** Write your CSS in here **/
+body {
+  background-color: darkgoldenrod; /* Light gray background */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh;
+  margin: 0;
+  color: beige;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column; /* Stack quote and author vertically */
+  background-color: lightgray;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  color: darkslategray;
+  max-width: 600px; /* Limit the width of the quote container */
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: darkslategray;
+}
+
+p {
+  margin: 10px 0;
+}
+
+p#quote {
+  font-style: italic;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+p#author {
+  text-align: right;
+  font-weight: normal;
+}
+
+#new-quote {
+  background-color: darkgoldenrod;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#new-quote:hover {
+  background-color: darkslategray;
+}
