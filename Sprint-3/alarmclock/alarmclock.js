@@ -37,3 +37,4 @@ if (typeof document !== "undefined") {
 }
 
 module.exports = { setAlarm, playAlarm }; // Make functions testable
+
