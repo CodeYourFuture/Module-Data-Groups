@@ -2,18 +2,23 @@ let intervalId;
 function setAlarm() {
   if (intervalId) clearInterval(intervalId);
   let input = Number(document.getElementById("alarmSet").value);
+  const minutes = String(Math.floor(input / 60)).padStart(2, "0");
+  const seconds = String(input % 60).padStart(2, "0");
+  document.getElementById(
+    "timeRemaining"
+  ).textContent = `Time Remaining: ${minutes}:${seconds}`;
   intervalId = setInterval(() => {
-    const minutes = String(Math.floor(input / 60)).padStart(2, "0");
-    const seconds = String(input % 60).padStart(2, "0");
-    document.getElementById(
-      "timeRemaining"
-    ).textContent = `Time Remaining: ${minutes}:${seconds}`;
     if (input <= 0) {
       clearInterval(intervalId);
       playAlarm();
       return;
     }
     input--;
+    const minutes = String(Math.floor(input / 60)).padStart(2, "0");
+    const seconds = String(input % 60).padStart(2, "0");
+    document.getElementById(
+      "timeRemaining"
+    ).textContent = `Time Remaining: ${minutes}:${seconds}`;
   }, 1000);
 }
 
