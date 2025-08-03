@@ -66,25 +66,15 @@ function enableAutoButtons() {
 
 function setup() {
 
-    document.querySelector("#backward-btn").addEventListener("click", ( ) => {
-        moveImageBackward()
-    });
+    document.querySelector("#backward-btn").addEventListener("click", moveImageBackward);
 
-    document.querySelector("#stop").addEventListener("click", ( ) => {
-        stopButton()
-    });
+    document.querySelector("#stop").addEventListener("click", stopButton);
 
-    document.querySelector("#forward-btn").addEventListener("click", ( ) => {
-        moveImageForward()
-    });
+    document.querySelector("#forward-btn").addEventListener("click", moveImageForward);
 
-    document.querySelector("#auto-backward").addEventListener("click", ( ) => {
-        autoBackward()
-    });
+    document.querySelector("#auto-backward").addEventListener("click", autoBackward);
 
-    document.querySelector("#auto-forward").addEventListener("click", ( ) => {
-        autoForward()
-    });
+    document.querySelector("#auto-forward").addEventListener("click", autoForward);
 
     // Show first image on load
     showImage(currentIndex);
