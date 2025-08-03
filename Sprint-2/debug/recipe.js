@@ -4,6 +4,8 @@
 // Each ingredient should be logged on a new line
 // How can you fix it?
 
+// no access to recipe object properties causes problems. Hence we need to use the correct syntax to access the properties.
+
 const recipe = {
   title: "bruschetta",
   serves: 2,
@@ -11,5 +13,4 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+ingredients: ${recipe.ingredients.join("\n")}`);
