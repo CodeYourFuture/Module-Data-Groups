@@ -102,3 +102,19 @@ test("should play audio when the timer reaches zero", () => {
 
   expect(mockPlayAlarm).toHaveBeenCalledTimes(1);
 });
+
+test("should not start timer or update heading when input is 0 or negative", () => {
+  const heading = page.window.document.querySelector("#timeRemaining");
+  const input = page.window.document.querySelector("#alarmSet");
+  const button = page.window.document.querySelector("#set");
+
+  input.value = "0";
+  button.click();
+
+  expect(heading).toHaveTextContent("Time Remaining: 00:00");
+
+  input.value = "-5";
+  button.click();
+
+  expect(heading).toHaveTextContent("Time Remaining: 00:00");
+});
