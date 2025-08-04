@@ -9,7 +9,7 @@ function sum(elements) {
   for (let i = 0; i < sortedElements.length; i++) {
     total += sortedElements[i];
   }
-  return Number(total.toFixed(1));
+  return Number(total.toFixed(4));
 }
 
 module.exports = sum;
