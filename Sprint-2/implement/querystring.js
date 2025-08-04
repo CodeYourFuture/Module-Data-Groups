@@ -6,11 +6,17 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    if (!pair.includes("=")) {
+      continue;
+    }
+    const [key, ...value] = pair.split("=");
+    if (key === "") {
+      continue;
+    }
+    queryParams[key] = value.join("=");
   }
 
   return queryParams;
 }
-
+console.log(parseQueryString("=sort&colour=yellow"));
 module.exports = parseQueryString;
