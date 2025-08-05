@@ -29,6 +29,10 @@
 */
 
 function countWords(str) {
+    if (typeof str !== "string") {
+    throw new Error("Input must be a string");
+  }
+
   // Remove punctuation using regex and convert to lowercase
   const cleanedStr = str.replace(/[.,!?]/g, "").toLowerCase();
 
