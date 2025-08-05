@@ -8,7 +8,7 @@ const images = [
 // Write your code here
 
 let currentIndex = 0;
-let autoInterval = null;
+let autoIntervalId = null;
 
 const imgElement = document.getElementById("carousel-img");
 const forwardBtn = document.getElementById("forward-btn");
@@ -22,38 +22,30 @@ function updateImage() {
 }
 
 function stopAuto() {
-  if (autoInterval !== null) {
-    clearInterval(autoInterval);
-    autoInterval = null;
+  if (autoIntervalId !== null) {
+    clearInterval(autoIntervalId);
+    autoIntervalId = null;
   }
 }
 
-forwardBtn.addEventListener("click", () => {
+function changeImage(direction) {
   stopAuto();
-  currentIndex = (currentIndex + 1) % images.length;
+  currentIndex = (currentIndex + direction + images.length) % images.length;
   updateImage();
-});
+}
 
-backwardBtn.addEventListener("click", () => {
-  stopAuto();
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  updateImage();
-});
+forwardBtn.addEventListener("click", () => changeImage(1));
+backwardBtn.addEventListener("click", () => changeImage(-1));
 
-autoForwardBtn.addEventListener("click", () => {
+function startAutoPlay(direction) {
   stopAuto();
-  autoInterval = setInterval(() => {
-    currentIndex = (currentIndex + 1) % images.length;
+  autoIntervalId = setInterval(() => {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
     updateImage();
   }, 5000);
-});
+}
 
-autoBackBtn.addEventListener("click", () => {
-  stopAuto();
-  autoInterval = setInterval(() => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateImage();
-  }, 5000);
-});
+autoForwardBtn.addEventListener("click", () => startAutoPlay(1));
+autoBackBtn.addEventListener("click", () => startAutoPlay(-1));
 
 stopBtn.addEventListener("click", stopAuto);
