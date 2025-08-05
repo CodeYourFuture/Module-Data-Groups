@@ -34,9 +34,6 @@ function changeImage(direction) {
   updateImage();
 }
 
-forwardBtn.addEventListener("click", () => changeImage(1));
-backwardBtn.addEventListener("click", () => changeImage(-1));
-
 function startAutoPlay(direction) {
   stopAuto();
   autoIntervalId = setInterval(() => {
@@ -45,7 +42,8 @@ function startAutoPlay(direction) {
   }, 5000);
 }
 
+forwardBtn.addEventListener("click", () => changeImage(1));
+backwardBtn.addEventListener("click", () => changeImage(-1));
 autoForwardBtn.addEventListener("click", () => startAutoPlay(1));
 autoBackBtn.addEventListener("click", () => startAutoPlay(-1));
-
 stopBtn.addEventListener("click", stopAuto);
