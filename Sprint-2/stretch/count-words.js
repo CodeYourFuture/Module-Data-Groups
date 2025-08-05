@@ -68,3 +68,7 @@ Object.entries(wordCount).sort(([, countA], [, countB]) => countB - countA)
 
 // Example usage
 console.log(countWords("You and me and YOU!"));
+console.log(countWords("Hello,World! Hello World!"));  
+console.log(countWords("constructor constructor"));  
+console.log(countWords("          Hello World      ")); 
+module.exports = countWords;
