@@ -17,14 +17,19 @@
 
     let key, value;
 
-    if (index !== -1) {
+    try {
+      if (index !== -1) {
       key = decodeURIComponent(pair.substring(0, index));
       value = decodeURIComponent(pair.substring(index + 1));
     } else {
-      
       key = decodeURIComponent(pair);
       value = "";
     }
+  } catch (error) {
+      console.warn(`Invalid URL in query segment: "${pair}":`);
+      continue;
+  }
+
     if (!key) {
       console.warn(`Skipping query pair with empty key: "${pair}"`);
       continue;
@@ -45,8 +50,9 @@
 }
 
 //console.log(parseQueryString("city=New%20Jersey&age=60&city=London"));
-console.log(parseQueryString("equation=x=y+1&city=New%20York&city=Los%20Angeles"));
-console.log(parseQueryString("city=New%20York&city=Los%20Angeles&city=London"));
-console.log(parseQueryString("occasion=happy%20birthday&gift=mobile%20phone"));
+//console.log(parseQueryString("city=New%20York&city=Los%20Angeles&city=London"));
+//console.log(parseQueryString("occasion=happy%20birthday&gift=mobile%20phone"));
+
+//console.log(parseQueryString("name=John%&age=25"));
 
 module.exports = parseQueryString;
