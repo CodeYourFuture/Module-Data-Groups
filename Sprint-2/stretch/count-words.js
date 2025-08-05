@@ -34,8 +34,11 @@ function countWords(str) {
   }
 
   // Remove punctuation using regex and convert to lowercase
-  const cleanedStr = str.replace(/[.,!?]/g, "").toLowerCase();
-
+ const cleanedStr = str
+    .replace(/[.,!?;:"'(){}\[\]-]/g, "") // More comprehensive punctuation removal
+    .toLowerCase()
+    .trim()
+    
   // Split the string into words
   const words = cleanedStr.split(/\s+/);
 
