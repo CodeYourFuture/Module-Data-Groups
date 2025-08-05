@@ -22,6 +22,7 @@ export function deleteTask(todos, taskIndex) {
 
 // Toggle the "completed" property of todos[taskIndex] if the task exists.
 export function toggleCompletedOnTask(todos, taskIndex) {
-  if (todos[taskIndex])
+  if (todos[taskIndex]) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
+  }
 }
