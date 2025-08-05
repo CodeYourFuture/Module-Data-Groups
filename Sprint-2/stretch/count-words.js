@@ -38,7 +38,7 @@ function countWords(str) {
     .replace(/[.,!?;:"'(){}\[\]-]/g, "") // More comprehensive punctuation removal
     .toLowerCase()
     .trim()
-    
+
   // Split the string into words
   const words = cleanedStr.split(/\s+/);
 
@@ -51,8 +51,13 @@ function countWords(str) {
     } else {
       wordCount[word] = 1;
     }
-  }
+  // Sort by frequency (descending)
+  const sortedWordCount = Object.fromEntries(
+    Object.entries(wordCount).sort(([, a], [, b]) => b - a)
+  );
 
+  return sortedWordCount;
+}
   // Optional: Sort the results by frequency (most common first)
   const sortedWordCount = Object.fromEntries(
 Object.entries(wordCount).sort(([, countA], [, countB]) => countB - countA)
