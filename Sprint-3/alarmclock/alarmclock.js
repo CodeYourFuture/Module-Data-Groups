@@ -6,6 +6,11 @@ function setAlarm() {
     alert("Please enter positive number");
     return;
   }
+  if (input === 0) {
+    updateTime(0);
+    playAlarm();
+    return;
+  }
   updateTime(input);
 
   intervalId = setInterval(() => {
