@@ -1,66 +1,48 @@
-# Todo-list
+# ToDo List App
 
-## Explanation
+The files in this folder implements a ToDo List App that allows a user to
+- Create a new ToDo task
+- Delete a ToDo task
+- Display all ToDo tasks
+- Changing the "completed" status of a ToDo task
 
-This is a super handy, super simple to do list.
-
-You will be given a list of tasks which are "To Do". We call these tasks "ToDos"
-
-Each item in the list should have 2 buttons:
-
-- One to click when the ToDo has been completed - it will apply a line-through style to the text of the ToDo.
-- A second to delete the ToDo. This could be used to delete completed ToDos from the list, or remove ToDos that we are no longer interested in doing.
-
-We also want to be able to add ToDos to the list using an input field and a button. When ToDos are created this way they should be added to the list with the 2 above buttons.
-
-More details for the implementation of this challenge can be found in `script.js`
+Each ToDo task has two properties:
+  - `task`: A string describing the task 
+  - `completed`: a Boolean value that indicates whether the task is completed or not 
 
 ## Installation
 
-To view the website, open index.html in a browser.
+To view the website, open `index.html` with Live Server in VS Code.
 
-## Example Solution
+**Note**: The app is loaded **as ES modules** in the HTML file, and as such, the HTML file must be accessed via the HTTP or HTTPS protocol.
 
-A basic example of this can website can be found here
+## Understanding how the code is organized as ES modules
 
-https://chrisowen101.github.io/ToDoListSolution/
-
-This covers only the basic tasks, not the advanced tasks.
+- [What is ES Modules?](00-what_is_ES_modules.md)
+- [How to use ES modules with Node.js and Jest?](01-using_esm_with_nodejs_and_jest.md)
+- [A guide to modularize a web app](02-guide_to_modularize_code.md)
 
 ## Instructions
 
-The `populateTodoList()` function should iterate over the list of todos that we are given at the start, it should create a `<li>` for the todo along with some other stuff that you can find in index.html and below.
+In this exercise, your objective is to implement additional features.
 
-The items in the todo list are currently hard-coded into the HTML, refactor the code so that this function creates them and adds the following functionality to them:
+#### Feature 1: Mass delete of completed ToDos
 
-Each todo should have this HTML inside it:
+Add a "Delete completed tasks" button that, when clicked, will delete all the completed ToDos. You should 
+- In `todos.mjs`, implement a function to delete all completed tasks in the given ToDo List
+- In `todos.test.mjs`, implement a test to check your function.
+- In `script.js`, call the function to delete all completed tasks whenever the user clicks a "Delete All" button.
 
-```html
-<span class="badge bg-primary rounded-pill">
-  <i class="fa fa-check" aria-hidden="true"></i>
-  <i class="fa fa-trash" aria-hidden="true"></i>
-</span>
-```
-
-The first `<i>` tag needs an event listener that applies a line-through text-decoration styling to the text of the todo. It should remove the styling if it is clicked again.
-
-The second `<i>` tag needs an event listener that deletes the parent `<li>` element from the `<ul>`.
-
-## Advanced Challenge
-
-### Mass delete of completed ToDos
-
-Develop the ToDo list further and allow users to delete all completed ToDos.
-
-Add a button that users can click that will iterate through the list of ToDos and then delete them only if they have been completed.
-
-## Extra Advanced Challenge
-
-### Set deadlines for ToDos
+#### Stretch 1: Set deadlines for ToDos
 
 We want users to be able to set, and see, deadlines for their ToDos.
 
-When creating ToDos we want the user to be able to use a datepicker input so they can see when they need to complete the ToDo. The date can be added to the ToDo in the list. If there is no date set when the ToDo is created then this can be skipped.
+When creating a ToDo we want the user to be able to use a datepicker input to specify a deadline for the Todo.
+If no date is selected, the ToDo is considered having no deadline.
 
-EXTRA CHALLENGE: instead of displaying the date on the ToDo, implement a countdown of days left until the deadline. You can use the Javascript Date reference to accomplish this:
+When displaying a ToDo in the list, display the deadline only if the ToDo has one.
+
+#### Stretch 2: EXTRA CHALLENGE
+
+Instead of displaying the date on the ToDo, implement a countdown of days left until the deadline. You can use the Javascript Date reference to accomplish this:
 https://www.w3schools.com/jsref/jsref_obj_date.asp
