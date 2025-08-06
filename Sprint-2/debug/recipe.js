@@ -30,4 +30,4 @@ const recipe = {
 // Here's the fixed code:
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-  ${recipe.ingredients.join('\n')}`);
+  ${recipe.ingredients.join('\n')}`); // join() creates a string; original array remains unchanged
