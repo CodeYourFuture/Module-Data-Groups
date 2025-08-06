@@ -1,21 +1,17 @@
-//I used a Set to track seen values while looping to preserve order. 
+// Using Array.filter with a Set to track seen values and remove duplicates 
+// while maintaining original order
 // It passes all test cases including edge cases like empty arrays and type-sensitive inputs.
 
 function dedupe(array) {
-    if (!Array.isArray(array)) return [];
-  
-    const seen = new Set();
-    const result = [];
-  
-    for (const item of array) {
-      if (!seen.has(item)) {
-        seen.add(item);
-        result.push(item);
-      }
-    }
-  
-    return result;
-  }
+  if (!Array.isArray(array)) return [];
+
+  const seen = new Set();
+  return array.filter(item => {
+    if (seen.has(item)) return false;
+    seen.add(item);
+    return true;
+  });
+}
   
   module.exports = dedupe;
   
