@@ -14,24 +14,23 @@ function setAlarm() {
     clearInterval(window.alarmInterval);
   }
 
-  // Update the display immediately
-  document.getElementById(
-    "timeRemaining"
-  ).textContent = `Time Remaining: ${formatTime(time)}`;
-
-  // Start countdown
-  window.alarmInterval = setInterval(() => {
+  // Do countdown
+  window.alarmInterval = setInterval(function() {
+    // Decrement time first
+    time--;
+    
+    // Check if time is up
     if (time <= 0) {
       clearInterval(window.alarmInterval);
+      document.getElementById("timeRemaining").textContent = 
+        "Time Remaining: 00:00";
       playAlarm();
       return;
     }
-
-    time--;
-    // Update display
-    document.getElementById(
-      "timeRemaining"
-    ).textContent = `Time Remaining: ${formatTime(time)}`;
+    
+    // Update display AFTER checking
+    document.getElementById("timeRemaining").textContent = 
+      "Time Remaining: " + formatTime(time);
   }, 1000);
 }
 
