@@ -1,1 +1,35 @@
-/** Write your CSS in here **/
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 2em;
+  background: #004d76;
+}
+
+img {
+  height: 400px;
+  width: 400px;
+  outline: none;
+  width: 100%;
+  object-fit: contain;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.5rem;
+  font-weight: 600;
+  border: none;
+  margin: 0 1rem;
+  border-radius: 3px;
+  color: #004d76;
+}
