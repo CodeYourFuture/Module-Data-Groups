@@ -24,6 +24,11 @@ document.getElementById("new-quote").addEventListener("click", () => {
   document.getElementById("quote").innerText = `"${randomQuote.quote}"`;
   document.getElementById("author").innerText = `-${randomQuote.author}`;
 });
+window.addEventListener("DOMContentLoaded", () => {
+  const randomQuote = pickFromArray(quotes);
+  document.getElementById("quote").innerText = `"${randomQuote.quote}"`;
+  document.getElementById("author").innerText = `-${randomQuote.author}`;
+});
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
