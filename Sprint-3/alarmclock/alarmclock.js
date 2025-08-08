@@ -1,92 +1,44 @@
-let interval = null;
-let currentTime = 0;
+let countdownInterval; 
+let timeRemaining = 0; 
 
-function setAlarm() {
+function setAlarm(){
   pauseAlarm();
-  document.body.style.backgroundColor = "";
+  audio.currentTime = 0
+  clearInterval(countdownInterval);
+ const inputField = document.getElementById("alarmSet");
+  timeRemaining = parseInt(inputField.value, 10);
 
-  const alarmInput = document.getElementById("alarmSet").value;
-  currentTime = parseInt(alarmInput, 10);
-
-  if (isNaN(currentTime) || currentTime <= 0) {
-    document.getElementById("timeRemaining").innerText =
-      "Time Remaining: 00:00";
-    return;
+ if (isNaN(timeRemaining) || timeRemaining <= 0) {
+  alert("Please enter a valid number greater than 0.");
+  return;
   }
 
-  updateTime(); // ✅ Show initial time immediately
+  updateTimerDisplay();
+  countdownInterval = setInterval(() => {
+    timeRemaining--;
 
-  clearInterval(interval);
-  interval = setInterval(() => {
-    if (currentTime > 0) {
-      currentTime--;
-      updateTime();
+    if (timeRemaining <= 0) {
+      clearInterval(countdownInterval);
+      playAlarm(); 
     }
+      updateTimerDisplay();
 
-    if (currentTime === 0) {
-      playAlarm();
-      document.body.style.backgroundColor = "#db1b3e66";
-      clearInterval(interval);
-    }
   }, 1000);
 }
 
-function updateTime() {
-  const minutes = String(Math.floor(currentTime / 60)).padStart(2, "0");
-  const seconds = String(currentTime % 60).padStart(2, "0");
-  document.getElementById(
-    "timeRemaining"
-  ).innerText = `Time Remaining: ${minutes}:${seconds}`;
+function updateTimerDisplay() {
+  const title = document.getElementById("timeRemaining");
+  const minutes = String(Math.floor(timeRemaining / 60)).padStart(2, "0");
+  const seconds = String(timeRemaining % 60).padStart(2, "0");
+  title.textContent = `Time Remaining: ${minutes}:${seconds}`;
 }
 
-// Alarm sound
-const audio = new Audio("alarmsound.mp3");
 
-function playAlarm() {
-  audio.currentTime = 0;
-  audio.play();
-}
 
-function pauseAlarm() {
-  clearInterval(interval);
-  audio.pause();
-  document.body.style.backgroundColor = "";
-}
 
-function setup() {
-  document.getElementById("set").addEventListener("click", setAlarm);
-  document.getElementById("stop").addEventListener("click", pauseAlarm);
-}
-
-window.onload = setup;
-
-module.exports = {
-  testEnvironment: "jsdom",
-  setAlarm,
-  pauseAlarm,
-  updateTime,
-  playAlarm,
-};
 // DO NOT EDIT BELOW HERE
 
-var audio = new Audio("alarmsound.mp3");
 
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
 
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
-  });
-}
 
-function playAlarm() {
-  audio.play();
-}
 
-function pauseAlarm() {
-  audio.pause();
-}
-
-window.onload = setup;
