@@ -1,6 +1,6 @@
 /*
-* Explanation of work done so far:
- * 
+ * Explanation of work done:
+ *
  * I started by implementing the basic functionality to read the user’s input in seconds,
  * then formatted it into a mm:ss display. I made sure to handle invalid or negative inputs gracefully.
  *
@@ -17,16 +17,23 @@
  * when the alarm triggers, providing a visual alert alongside the sound.
  * When the alarm is stopped, the background color resets to its original state.
  *
- * These changes correspond to commits 1 through 7, progressively adding
- * countdown, alarm playing, stopping, and visual feedback features.
+ * Based on review feedback, I made further improvements:
+ * - Moved the audio object definition to the top of the script for clarity and safety.
+ * - Prevented users from starting multiple alarms at once by checking if an alarm or timer is already running.
+ * - Updated the pauseAlarm function to only run its logic if something is actually playing.
+ *
+ * These changes correspond to commits 1 through 10, progressively adding countdown, alarm triggering,
+ * stopping, visual feedback, and improved reliability through review-driven refinements.
  */
-
-
-let intervalId;
+let intervalId = null;
 let remainingSeconds = 0;
 let alarmPlaying = false;
 
+var audio = new Audio("alarmsound.mp3"); 
+
 function setAlarm() {
+  if (alarmPlaying || intervalId) return; 
+
   const input = document.getElementById("alarmSet");
   remainingSeconds = parseInt(input.value, 10);
 
@@ -41,9 +48,9 @@ function setAlarm() {
 
     if (remainingSeconds <= 0) {
       clearInterval(intervalId);
+      intervalId = null;
       playAlarm();
       alarmPlaying = true;
-
       document.body.style.backgroundColor = "#ffcccc";
     }
   }, 1000);
@@ -57,19 +64,18 @@ function updateDisplay() {
 }
 
 function pauseAlarm() {
+  if (!alarmPlaying && !intervalId) return; // Nothing to stop
+
   audio.pause();
   audio.currentTime = 0;
   clearInterval(intervalId);
+  intervalId = null;
   alarmPlaying = false;
 
-  
   document.body.style.backgroundColor = "";
 }
 
-
 // DO NOT EDIT BELOW HERE
-
-var audio = new Audio("alarmsound.mp3");
 
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
@@ -85,5 +91,5 @@ function playAlarm() {
   audio.play();
 }
 
-
 window.onload = setup;
+
