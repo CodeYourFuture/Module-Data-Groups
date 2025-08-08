@@ -6,7 +6,7 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
+    const [key, value] = pair.split(/=(.+)/); // We use regex to split only at first.
     queryParams[key] = value;
   }
 
