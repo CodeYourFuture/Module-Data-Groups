@@ -10,3 +10,12 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+test("parses multiple key-value pairs", () => {
+  expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+test("parses empty string as empty object", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+test("parses values with spaces encoded as +", () => {
+  expect(parseQueryString("name=John+Doe")).toEqual({ name: "John Doe" });
+});
