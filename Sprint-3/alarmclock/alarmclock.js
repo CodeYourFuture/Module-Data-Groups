@@ -3,6 +3,9 @@ function setAlarm() {
   const inputNum = document.getElementById("alarmSet");
   let alarmTime = Number(inputNum.value);
 
+  // reset the background color to white
+  document.body.style.backgroundColor = "white";
+
   // Update the time remaining display
   updateTimeRemaining(alarmTime);
 
@@ -29,9 +32,9 @@ function updateTimeRemaining(seconds) {
     .toString()
     .padStart(2, "0")}`;
 
-  // Set the alarm time in the Time remaining display
+  // Set the alarm time in the Time Remaining display
   document.getElementById("timeRemaining").innerText =
-    "Time remaining: " + formattedTime;
+    "Time Remaining: " + formattedTime;
 }
 
 // DO NOT EDIT BELOW HERE
@@ -45,6 +48,8 @@ function setup() {
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
+    //Reset the background color to white when the alarm is stopped
+    document.body.style.backgroundColor = "white";
   });
 }
 
