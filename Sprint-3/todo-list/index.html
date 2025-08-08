@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   </head>
   <body>
     <form>
       <div>
-        <input type="text" placeholder="New todo..." />
+        <input type="text" id="todoInput" placeholder="New todo..." />
       </div>
       <div>
-        <button type="submit">Add Todo</button>
+        <button type="submit" class="btn">Add Todo</button>
         <button
           type="button"
           id="remove-all-completed"
@@ -22,6 +23,11 @@
         </button>
       </div>
     </form>
+
+    <ul id="todo-list">
+      <!-- Todo items will be added here by JavaScript -->
+    </ul>
+    
     <script src="script.js"></script>
   </body>
 </html>

@@ -21,3 +21,35 @@ const books = [
   },
 ];
 
+// Function to display the reading list
+function displayReadingList() {
+  const readingList = document.getElementById("reading-list");
+  
+  // Loop through each book and create list items
+  books.forEach(book => {
+    // Create list item
+    const li = document.createElement("li");
+    
+    // Set background color based on whether the book has been read
+    li.style.backgroundColor = book.alreadyRead ? "green" : "red";
+    
+    // Create and add the book cover image
+    const img = document.createElement("img");
+    img.src = book.bookCoverImage;
+    li.appendChild(img);
+    
+    // Create and add the book information
+    const bookInfo = document.createElement("div");
+    bookInfo.innerHTML = `
+      <h2>${book.title}</h2>
+      <p>by ${book.author}</p>
+    `;
+    li.appendChild(bookInfo);
+    
+    // Add the list item to the reading list
+    readingList.appendChild(li);
+  });
+}
+
+// Call the function when the page loads
+window.addEventListener("load", displayReadingList);
