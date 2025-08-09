@@ -3,15 +3,19 @@
 // If you're in the Sprint-1 directory, you can run `npm test -- fix` to run the tests in the fix directory
 
 function calculateMedian(list) {
+  if (list.length === 0) {
+    return 0; // or null. this is the check for empty arrays 
+  }
+  const sortedList = list.sort((a, b) => a-b); // sorts list ascending
   const middleIndex = Math.floor(list.length / 2);
-
-  if (list.length % 2 === 0) {
+  
+  if (sortedList.length % 2 === 0) {
     // For even-length arrays, calculate the average of the two middle values
-    return (list[middleIndex - 1] + list[middleIndex]) / 2;
+    return (sortedList[middleIndex - 1] + sortedList[middleIndex]) / 2;
   }
 
   // For odd-length arrays, return the middle value
-  return list[middleIndex];
+  return sortedList[middleIndex];
 }
 
 module.exports = calculateMedian;
