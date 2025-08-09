@@ -44,6 +44,10 @@ function setup() {
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
   });
+
+  document.getElementById("pause").addEventListener("click", () => {
+    pauseTimer();
+  });
 }
 
 function playAlarm() {
