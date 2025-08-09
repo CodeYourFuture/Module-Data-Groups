@@ -1,6 +1,11 @@
+let countdownInterval; // Variable to hold the countdown interval
+
 function setAlarm() {
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
   // Get the input value from the alarm input field
-  const inputNum = document.getElementById("alarmSet");
+  let inputNum = document.getElementById("alarmSet");
   let alarmTime = Number(inputNum.value);
 
   // reset the background color to white
@@ -10,7 +15,7 @@ function setAlarm() {
   updateTimeRemaining(alarmTime);
 
   //Setting the interval so that when one second passes, the time remaining will be updated
-  let countdownInterval = setInterval(() => {
+  countdownInterval = setInterval(() => {
     alarmTime--;
 
     if (alarmTime <= 0) {
@@ -18,6 +23,7 @@ function setAlarm() {
       updateTimeRemaining(0);
       document.body.style.backgroundColor = "red";
       playAlarm();
+      return;
     } else {
       updateTimeRemaining(alarmTime);
     }
@@ -50,6 +56,7 @@ function setup() {
     pauseAlarm();
     //Reset the background color to white when the alarm is stopped
     document.body.style.backgroundColor = "white";
+    document.getElementById("alarmSet").value = "";
   });
 }
 
