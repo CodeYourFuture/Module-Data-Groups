@@ -21,3 +21,32 @@ const books = [
   },
 ];
 
+for (i = 0; i < books.length; i++) {
+    let container = document.getElementById("reading-list")
+
+    let listItem = document.createElement("li");
+    let text = document.createElement("p")
+    let image = document.createElement("img")
+
+    let title = books[i].title + " by " + books[i].author
+    text.innerHTML = title
+    text.style.fontSize = 18
+
+    image.src = books[i].bookCoverImage
+    image.width = 125
+    image.alt = books[i].title
+
+    listItem.style.marginBottom = 15
+
+    books[i].alreadyRead ? listItem.style.backgroundColor = "green" : listItem.style.backgroundColor = "red"
+
+    listItem.appendChild(text)
+    listItem.appendChild(image)
+
+    container.appendChild(listItem)
+}
+
+
+
+
+
