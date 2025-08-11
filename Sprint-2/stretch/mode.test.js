@@ -1,4 +1,4 @@
-const calculateMode = require("./mode.js");
+const calculateMode = require("./mode");
 
 // Acceptance criteria for calculateMode function
 
