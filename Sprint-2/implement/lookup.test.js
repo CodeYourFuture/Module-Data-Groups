@@ -33,3 +33,15 @@ It should return:
    'CA': 'CAD'
  }
 */
+test("It should return country codes and the country-currency", () => {
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toEqual({
+    US: "USD",
+    CA: "CAD",
+  });
+});
+
