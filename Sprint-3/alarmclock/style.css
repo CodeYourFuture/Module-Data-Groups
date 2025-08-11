@@ -13,3 +13,9 @@
 h1 {
   text-align: center;
 }
+
+p {
+  padding: 30px;
+  text-align: center;
+  color: red;
+}
