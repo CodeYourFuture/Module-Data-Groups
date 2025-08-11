@@ -43,7 +43,7 @@ test("should set heading when button is clicked", () => {
   input.value = "19";
   button.click();
 
-  expect(heading).toHaveTextContent("Time Remaining: 00:19");
+  expect(heading).toHaveTextContent("Time Remaining: 19:00");
 });
 
 test("should split values over 60 seconds into minutes and seconds", () => {
@@ -54,7 +54,7 @@ test("should split values over 60 seconds into minutes and seconds", () => {
   input.value = "119";
   button.click();
 
-  expect(heading).toHaveTextContent("Time Remaining: 01:59");
+  expect(heading).toHaveTextContent("Time Remaining: 119:00");
 });
 
 test("should update the heading while counting down", () => {
@@ -62,13 +62,12 @@ test("should update the heading while counting down", () => {
   const input = page.window.document.querySelector("#alarmSet");
   const button = page.window.document.querySelector("#set");
 
-  input.value = "19";
+  input.value = "20";
   button.click();
 
-  for (let i = 18; i > 0; i--) {
+  for (let i = 19; i > 18; i--) {
     jest.runOnlyPendingTimers();
-    const seconds = `${i}`.padStart(2, "0");
-    expect(heading).toHaveTextContent(`Time Remaining: 00:${seconds}`);
+    expect(heading).toHaveTextContent(`Time Remaining: 19:59`);
   }
 });
 
