@@ -11,6 +11,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+//The for...in statement iterates over properties of an object
+for (const key in author) {
+  console.log(`${key}: ${author[key]}`);
 }
