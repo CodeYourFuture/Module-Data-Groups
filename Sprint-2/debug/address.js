@@ -12,4 +12,7 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address["houseNumber"]}`);
+
+// prediction: there is no key named 0: therefore address[0] will output undefined.
+// fixed by using address["houseNumber"] instead.

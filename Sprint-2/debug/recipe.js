@@ -12,4 +12,8 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);
+
+// Prediction: recipe will only print recipe as a string as opposed to the recipe.title and recipe.serves
+// What will happen: It will instead print its string representation which is [object Object]
+// Fixed by changing "${recipe}`);" to "${recipe.ingredients.join("\n")}`);"
