@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form>
+    <form id="todo-form" >
+      <ul id="todo-list">
+
+      </ul>
       <div>
-        <input type="text" placeholder="New todo..." />
+        <input type="text" id="input-text" placeholder="New todo..." />
       </div>
       <div>
-        <button type="submit">Add Todo</button>
+        <button type="button" id="submit">Add Todo</button>
         <button
           type="button"
           id="remove-all-completed"
@@ -25,3 +28,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+
