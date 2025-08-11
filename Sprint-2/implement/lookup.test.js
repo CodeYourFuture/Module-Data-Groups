@@ -33,3 +33,13 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+test.todo("Given An array of arrays representing country code and currency code pairs"), () => {
+  const countryCurrencyPairs = [['US', 'USD'], ['CA', 'CAD']]
+
+  expected(createLookup(countryCurrencyPairs).ToEqual({
+    'US': 'USD',
+    'CA': 'CAD'
+  }));
+
+}
