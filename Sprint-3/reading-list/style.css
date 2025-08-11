@@ -157,3 +157,19 @@ body {
     max-height: 80px;
   }
 }
+
+.list {
+  margin: 20;
+  text-align: start;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: start;
+  font-size: 20px;
+}
+
+img {
+  display: block;
+  margin-top: 10px;
+}
