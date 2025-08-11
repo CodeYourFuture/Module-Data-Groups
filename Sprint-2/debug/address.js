@@ -12,4 +12,6 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`); //Objects in JavaScript do not have numerical indices like arrays.
+
+                         //address[0] is interpreted as a property with the key 0, which does not exist in the address object.
