@@ -1,1 +1,145 @@
 /** Write your CSS in here **/
+/** Write your CSS in here **/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(
+    to top,
+    #505285 0%,
+    #585e92 12%,
+    #65689f 25%,
+    #7474b0 37%,
+    #7e7ebb 50%,
+    #8389c7 62%,
+    #9795d4 75%,
+    #a2a1dc 87%,
+    #b5aee4 100%
+  );
+  background-attachment: fixed;
+  font-family: sans-serif;
+}
+
+main {
+  margin: 10vw auto;
+  padding: 20px 30px;
+  max-width: 44vw;
+  border: 3px solid #ffffff31;
+  display: grid;
+  row-gap: 20px;
+  border-radius: 8px;
+  box-shadow: rgba(234, 233, 233, 0.557) 0px 2px 111px 5px;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+button {
+  justify-self: end;
+  border: none;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: #a2a1dc;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #9795d4;
+}
+
+#quote,
+#author {
+  font-family: "Georgia", serif;
+  color: #fff;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1; /* Default visible state */
+}
+#quote {
+  font-family: "Georgia", serif;
+  font-size: 1.4em;
+  line-height: 1.8;
+  color: #fff;
+  position: relative;
+  padding-left: 20px;
+}
+
+#quote::before {
+  content: "“";
+  font-size: 2em;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: -15px;
+  transform: translateY(-10%);
+}
+
+#author {
+  font-family: "Georgia", serif;
+  color: #fff;
+}
+
+h1 {
+  color: #e7d6f5;
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style the fieldset for grouping */
+.options {
+  border: none;
+  background-color: rgba(245, 246, 249, 0.277);
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 10px 0;
+  color: #fff;
+  font-size: 15px;
+}
+
+/* Style legend */
+.options legend {
+  font-size: 1.2em;
+  color: #f8f6fa;
+  font-weight: bold;
+}
+
+/* Style custom checkbox */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  margin-right: 10px;
+  border: 2px solid #f8f6fa;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox input[type="checkbox"]:checked {
+  background-color: #ec09fc;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.custom-checkbox span {
+  margin-left: 5px;
+  transition: color 0.2s ease;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + span {
+  color: #fff;
+}
