@@ -13,7 +13,6 @@ const sum = require("./sum.js");
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0")
 
 // Given an array with just one number
 // When passed to the sum function
@@ -34,3 +33,29 @@ test.todo("given an empty array, returns 0")
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+// for clarity I have decided to group the test into describe blocks based on the expected output.
+
+describe("Returns 0 for empty or non-numeric arrays", () => {
+  [
+    { input: [], expected: 0 },
+    { input: ["hi", "hey", "hello", "yo"], expected: 0 },
+    { input: [null, undefined], expected: 0 },
+  ].forEach(({ input, expected }) =>
+    test(`Given an array sum returns the correct value of 0 for empty or non-numeric arrays [${input}]`, () =>
+      expect(sum(input)).toEqual(expected))
+  );
+});
+
+describe("Returns the correct sum for arrays with numbers", () => {
+  [
+    { input: [10, 20, 30], expected: 60 },
+    { input: [10], expected: 10 },
+    { input: [-10, -20, -30], expected: -60 },
+    { input: [1.5, 2.5, 3.5], expected: 7.5 },
+    { input: [10, "hi", 20, "hello"], expected: 30 },
+  ].forEach(({ input, expected }) =>
+    test(`Given an array sum returns the correct sum for arrays with numbers [${input}]`, () =>
+      expect(sum(input)).toEqual(expected))
+  );
+});
