@@ -12,4 +12,7 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+// console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
+
+//address 0 points to houseNumber, not number 42.
