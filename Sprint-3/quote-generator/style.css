@@ -1,1 +1,32 @@
 /** Write your CSS in here **/
+body {
+  background-color: #fcbc5d;
+}
+h1 {
+  color: #ffffff;
+}
+#quote-section {
+  background-color: white;
+  padding: 100px;
+}
+#new-quote {
+  display: flex;
+  font-size: 25px;
+  padding: 10px;
+  align-items: end;
+  margin-left: auto;
+  background-color: #fcbc5d;
+  border: none;
+  color: white;
+}
+#quote {
+  font-size: 40px;
+  color: #fcbc5d;
+  font-weight: 800;
+}
+#author {
+  text-align: end;
+  font-size: 25px;
+  color: #fcbc5d;
+  font-weight: 600;
+}
