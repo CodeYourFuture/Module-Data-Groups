@@ -27,7 +27,7 @@ Render the list of books on the page. Each book should have a title, author and 
 
 ## 🧭 Strategy
 
-Try and outline your strategy / approach for solving this problem before you get started. There is also a test suite provided to help you meet the acceptance criteria in the issue.
+Try and outline your strategy / approach for solving this problem before you get started. There is also a test suite provided to help you meet the acceptance criteria in the issue..
 
 The end result should look something like this
 
