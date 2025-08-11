@@ -1,3 +1,49 @@
+/*
+1.when button click random quote get
+2.assign quote and author name
+3.display it on the screen
+4.add toggle button off no change
+5.toggle button on change
+a.setinterval 60 seconds
+b.call random Value function 
+ */
+function buttonClick() {
+  const button = document.getElementById("new-quote");
+  button.addEventListener("click", () => getNewQuote());
+}
+function autoClick() {
+  const button = document.getElementById("new-quote");
+  button.click();
+}
+function getNewQuote() {
+  const randomValue = pickFromArray(quotes);
+  const newQuote = randomValue.quote;
+  const newAuthor = randomValue.author;
+  const findQuoteToChange = document.querySelector("#quote");
+  const findAuthorToChange = document.querySelector("#author");
+  findAuthorToChange.innerText = newAuthor;
+  findQuoteToChange.innerText = newQuote;
+}
+function toggleFun() {
+  let intervalId;
+  const checkToggle = document.getElementById("quote-autoplay");
+  const toggleLabelText = document.getElementById("quote-text");
+  checkToggle.addEventListener("change", () => {
+    if (checkToggle.checked) {
+      toggleLabelText.textContent = "On Quote Change";
+      intervalId = setInterval(autoClick, 60000);
+    } else {
+      clearInterval(intervalId);
+      toggleLabelText.textContent = "Off Quote Change";
+    }
+  });
+}
+function setup() {
+  buttonClick();
+  toggleFun();
+}
+window.onload = setup;
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
