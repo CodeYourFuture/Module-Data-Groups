@@ -12,4 +12,6 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+// The code didn't work due to the use of the square bracket notation instead of appending houseNumber
+console.log(`My house number is ${address.houseNumber}`);
+
