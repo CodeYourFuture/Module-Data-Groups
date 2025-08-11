@@ -10,3 +10,20 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("should handle empty string input", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("should handle keys without values", () => {
+  expect(parseQueryString("a&b")).toEqual({
+    a: null, // or undefined, depending on your desired behavior
+    b: null,
+  });
+});
+
+test("should handle URL encoded values", () => {
+  expect(parseQueryString("city=New%20York")).toEqual({
+    city: "New York", 
+  });
+});
