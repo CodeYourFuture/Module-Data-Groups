@@ -491,3 +491,25 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+//console.log(pickFromArray(quotes))
+
+//if the page reloads
+//get object from pickFromArray
+function newQuote(object) {
+
+  let quote = object["quote"];
+  let author = object["author"];
+
+  const htmlQuote = document.querySelector("#quote");
+  const htmlAuthor = document.querySelector("#author");
+
+  htmlQuote.innerText = `"${quote}"`;
+  htmlAuthor.innerText = `📖Author:  ${author}`;
+}
+//when the button is clicked, an event is taking place
+const quoteButton = document.querySelector("#new-quote");
+quoteButton.addEventListener("click", function () {
+  newQuote(pickFromArray(quotes))
+});
+window.onload = newQuote(pickFromArray(quotes));
