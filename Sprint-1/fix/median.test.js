@@ -8,6 +8,7 @@ const calculateMedian = require("./median.js");
 
 describe("calculateMedian", () => {
   [
+    {input :[10,2,3],expected:3},
     { input: [1, 2, 3], expected: 2 },
     { input: [1, 2, 3, 4, 5], expected: 3 },
     { input: [1, 2, 3, 4], expected: 2.5 },
@@ -39,6 +40,7 @@ describe("calculateMedian", () => {
 
   [
     { input: [1, 2, "3", null, undefined, 4], expected: 2 },
+    { input: [1, 2, 3, NaN], expected: 2 },
     { input: ["apple", 1, 2, 3, "banana", 4], expected: 2.5 },
     { input: [1, "2", 3, "4", 5], expected: 3 },
     { input: [1, "apple", 2, null, 3, undefined, 4], expected: 2.5 },
