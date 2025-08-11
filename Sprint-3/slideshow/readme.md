@@ -79,4 +79,4 @@ Congratulations, you've finished the basics!
 
 ## Further work
 
-See the `extra` folder of homework for further ideas for your Slideshow.
+See the `extra` folder of homework for further ideas for your Slideshow..
