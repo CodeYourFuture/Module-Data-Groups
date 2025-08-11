@@ -20,6 +20,33 @@ function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
+function displayRandomQuote() {
+  const quote = pickFromArray(quotes);
+  document.getElementById("quote").innerText = `"${quote.quote}"`;
+  document.getElementById("author").innerText = `— ${quote.author}`;
+}
+
+window.onload = displayRandomQuote;
+
+document
+  .getElementById("new-quote")
+  .addEventListener("click", displayRandomQuote);
+
+
+  let autoPlayInterval;
+
+document.getElementById('auto-play-toggle').addEventListener('change', (event) => {
+  const autoPlayStatus = document.getElementById('auto-play-status');
+  if (event.target.checked) {
+    autoPlayStatus.innerText = "Auto-play: ON";
+    autoPlayInterval = setInterval(displayRandomQuote, 60000); 
+  } else {
+    autoPlayStatus.innerText = "Auto-play: OFF";
+    clearInterval(autoPlayInterval); 
+  }
+});
+
+
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
