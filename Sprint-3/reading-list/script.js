@@ -1,4 +1,5 @@
 // for the tests, do not modify this array of books
+
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -21,3 +22,19 @@ const books = [
   },
 ];
 
+const ulElement = document.getElementById("reading-list");
+
+let index = 0;
+
+for (let book of books) {
+  let liElement = document.createElement("li");
+  liElement.innerHTML = `<p>${book.title} by ${book.author}</p>
+                          <img src="${book.bookCoverImage}" alt="${book.title} cover" style="width:400px">`;
+
+  if (book.alreadyRead) {
+    liElement.style.backgroundColor = "green";
+  } else {
+    liElement.style.backgroundColor = "red";
+  }
+  ulElement.appendChild(liElement);
+}
