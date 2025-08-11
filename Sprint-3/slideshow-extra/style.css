@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, skyblue, gray);
+    font-family: "Poppins", sans-serif;
+    
+    min-height: 100vh;
+}
+.wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container {
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#carousel-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 400px; /* Set a fixed height */
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#backward-btn, #forward-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(29, 168, 43, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 2rem;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+#backward-btn:hover, #forward-btn:hover {
+    opacity: 1;
+}
+
+#backward-btn {
+    left: -50px;
+}
+
+#forward-btn {
+    right: -50px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}
+
+.button-container button:disabled {
+    background-color: #ccc;
+    cursor: default;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #backward-btn, #forward-btn {
+        font-size: 1.5rem;
+        padding: 8px 16px;
+    }
+
+    #backward-btn {
+        left: -30px;
+    }
+
+    #forward-btn {
+        right: -30px;
+    }
+
+    #carousel-img {
+      height:300px; /* adjust height for smaller screens if needed*/
+    }
+}
