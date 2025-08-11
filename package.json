@@ -1,0 +1,20 @@
+{
+  "name": "module-data-groups-1",
+  "version": "1.0.0",
+  "description": "Like learning a musical instrument, programming requires daily practice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loveth900/Module-Data-Groups.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loveth900/Module-Data-Groups/issues"
+  },
+  "homepage": "https://github.com/loveth900/Module-Data-Groups#readme"
+}
