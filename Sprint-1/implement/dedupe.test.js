@@ -25,3 +25,12 @@ test.todo("given an empty array, it returns an empty array");
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+describe("dedupe", () => {
+    [
+        { input: ['a','a','a','b','b','c'], expected: ['a','b','c'] },
+        { input: [5, 1, 1, 2, 3, 2, 5, 8], expected: [5, 1, 2, 3, 8] },
+        { input: [1, 2, 1], expected: [1, 2] },
+    ].forEach(({ input, expected }) =>
+        it(`deduplicated array for [${input}]`, () => expect(dedupe(input)).toEqual(expected))
+    );
+});
