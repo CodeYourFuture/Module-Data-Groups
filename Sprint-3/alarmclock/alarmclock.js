@@ -3,15 +3,6 @@ let timeRemaining = 0;
 
 const timeInput = document.getElementById("alarmSet");
 
-function formatTime(sec) {
-  const mins = Math.floor((sec % 3600) / 60);
-  const secs = sec % 60;
-  return `${String(hrs).padStart(2, "0")}:${String(mins).padStart(
-    2,
-    "0"
-  )}:${String(secs).padStart(2, "0")}`;
-}
-
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   const seconds = parseInt(input.value);
@@ -30,11 +21,9 @@ function setAlarm() {
 
     if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
-      updateDisplay();
       playAlarm();
-    } else {
-      updateDisplay();
     }
+    updateDisplay();
   }, 1000);
 }
 
