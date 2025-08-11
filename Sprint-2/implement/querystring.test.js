@@ -10,3 +10,23 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+
+
+test("parses a single  key-value pair", () => {
+  expect(parseQueryString("country=UK")).toEqual({ country: "UK" });
+});
+
+test("parses multiple key-value pairs", () => {
+  expect(parseQueryString("firstName=Felix&lastName=Brown")).toEqual({
+    firstName: "Felix",
+    lastName: "Brown",
+  });
+});
+
+test("parses querystring with encoded values", () => {
+  expect(parseQueryString("name=John%20Doe&message=hello%3Dworld")).toEqual({
+    name: "John Doe",
+    message: "hello=world",
+  });
+});
