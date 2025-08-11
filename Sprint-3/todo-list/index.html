@@ -3,16 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Todo List📃</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/ffdbc20524.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <form>
       <div>
-        <input type="text" placeholder="New todo..." />
+        <input type="text" id="todo-input" placeholder="New todo..." />
       </div>
       <div>
-        <button type="submit">Add Todo</button>
+        <button type="submit" id="add-todo-btn">Add Todo</button>
         <button
           type="button"
           id="remove-all-completed"
@@ -21,6 +25,7 @@
           Remove all completed
         </button>
       </div>
+      <ul id="todo-list"></ul>
     </form>
     <script src="script.js"></script>
   </body>
