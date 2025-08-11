@@ -13,3 +13,19 @@
 h1 {
   text-align: center;
 }
+
+body {
+    background-color: white;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.blink-bg {
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    0% { background-color: yellow; }
+    40% { background-color: lightgreen; }
+    80% { background-color: aquamarine; }
+    100% { background-color: orange; }
+}
