@@ -44,10 +44,10 @@ describe("Mandatory tasks", () => {
 
     listItems.forEach((_, index) => {
       const tickIcon = page.window.document.querySelector(
-        `li:nth-child(${index + 1}) i.fa-check`
+        `li:nth-child(${index + 1}) .done-button`
       );
       const binIcon = page.window.document.querySelector(
-        `li:nth-child(${index + 1}) i.fa-trash`
+        `li:nth-child(${index + 1}) .delete-button`
       );
 
       expect(tickIcon).toBeInTheDocument();
@@ -72,7 +72,7 @@ describe("Mandatory tasks", () => {
 
   test("can strike through a todo when it is completed", () => {
     const li = page.window.document.querySelector("li");
-    const tickIcon = page.window.document.querySelector("li i");
+    const tickIcon = page.window.document.querySelector("li .done-button");
 
     userEvent.click(tickIcon);
 
@@ -83,7 +83,7 @@ describe("Mandatory tasks", () => {
 
   test("can undo a strikethrough on a todo", () => {
     const li = page.window.document.querySelector("li");
-    const tickIcon = page.window.document.querySelector("li i");
+    const tickIcon = page.window.document.querySelector("li .done-button");
     userEvent.click(tickIcon);
 
     expect(li).toHaveStyle({
@@ -111,7 +111,7 @@ describe("Mandatory tasks", () => {
     expect(listItems.length).toBe(3);
 
     const binIcon = page.window.document.querySelector(
-      "li:nth-child(3) i.fa-trash"
+      "li:nth-child(3) .delete-button"
     );
     userEvent.click(binIcon);
 
@@ -137,11 +137,11 @@ describe("Advanced tasks", () => {
     userEvent.click(button);
 
     const tickIcon2 = page.window.document.querySelector(
-      "li:nth-child(2) i.fa-check"
+      "li:nth-child(2) .done-button"
     );
     userEvent.click(tickIcon2);
     const tickIcon4 = page.window.document.querySelector(
-      "li:nth-child(4) i.fa-check"
+      "li:nth-child(4) .done-button"
     );
     userEvent.click(tickIcon4);
 
