@@ -10,6 +10,11 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+//console.log(`${recipe.title} serves ${recipe.serves}   //these codes will not return the expected output.  it will return:bruschetta serves 2    \n  ingredients:\n[object Object]
+  //ingredients:
+//${recipe}`);
+console.log(recipe.title)
+console.log(recipe.serves)
+for(const element of recipe.ingredients){
+  console.log(element)
+}
