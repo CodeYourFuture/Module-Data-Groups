@@ -55,21 +55,13 @@ function resetAlarm() {
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
+  document.getElementById("set").addEventListener("click", setAlarm);
 
-  document.getElementById("stop").addEventListener("click", () => {
-    stopAlarm();
-  });
+  document.getElementById("stop").addEventListener("click", stopAlarm);
 
-  document.getElementById("reset").addEventListener("click", () => {
-    resetAlarm();
-  });
+  document.getElementById("reset").addEventListener("click", resetAlarm);
 
-  document.getElementById("pause").addEventListener("click", () => {
-    pauseAlarm();
-  });
+  document.getElementById("pause").addEventListener("click", pauseAlarm);
 }
 
 function playAlarm() {
