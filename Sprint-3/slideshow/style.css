@@ -1,1 +1,18 @@
 /** Write your CSS in here **/
+#carousel-img {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+
+button {
+  margin: 5px;
+}
+
+#image-counter {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
