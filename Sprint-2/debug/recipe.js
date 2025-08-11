@@ -10,6 +10,19 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
+/* console.log(`${recipe.title} serves ${recipe.serves}
+  ingredients:
+${recipe}`);*/
+
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);
+
+// or:
+
+console.log("ingredients:");
+recipe.ingredients.forEach(ingredient => {
+  console.log(ingredient)
+});
+
+// the problem is using ${recipe} which attempts to convert the recipe into string without having .toString() implementation
