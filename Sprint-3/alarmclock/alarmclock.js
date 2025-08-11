@@ -2,6 +2,7 @@ let intervalId;
 let currentTime = 0; // Store the remaining time for pause/resume
 
 function setAlarm() {
+  clearInterval(intervalId); // clear any previous countdown
   currentTime = parseInt(document.getElementById("alarmSet").value);
   if (isNaN(currentTime) || currentTime <= 0) return;
 
