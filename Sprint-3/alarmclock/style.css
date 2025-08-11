@@ -13,3 +13,96 @@
 h1 {
   text-align: center;
 }
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(120deg, #bbceec, #c2e9fb); /* Gradient background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+}
+
+.centre {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+#alarmSet{
+  margin-left: auto;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+#timeRemaining {
+  color: #007acc; /* Bright blue for the time text */
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 0px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+
+}
+
+
+input[type="number"]:focus {
+  border-color: #007acc;
+}
+
+button {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button#set {
+  background-color: #007acc;
+  color: #fff;
+}
+
+button#stop {
+  background-color: #ff4d4d;
+  color: #fff;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
