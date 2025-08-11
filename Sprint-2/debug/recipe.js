@@ -7,9 +7,19 @@
 const recipe = {
   title: "bruschetta",
   serves: 2,
-  ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
+  ingredients: ["olive oil", "tomatoes", "salt", "pepper"]
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+//   ingredients:
+//  ${recipe.ingredients.join("\n")}`);
+ //
+
+   //OR
+//recipe.ingredients.forEach(ingredient => console.log(ingredient));
+
+
+ //.join ==> converts array in to a string. 
+
+ //("\n") ==>  this is called new line character which is used  to make sure the ingredients are 
+// listed in a new line instead of separated by commas.
