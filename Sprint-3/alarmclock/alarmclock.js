@@ -1,44 +1,60 @@
-let countdownInterval; 
-let timeRemaining = 0; 
+let countdown; 
+let ispaused = false;
+let timeRemaining; 
 
 function setAlarm(){
-  pauseAlarm();
-  audio.currentTime = 0
-  clearInterval(countdownInterval);
  const inputField = document.getElementById("alarmSet");
-  timeRemaining = parseInt(inputField.value, 10);
+  timeRemaining = parseInt(inputField.value);
 
- if (isNaN(timeRemaining) || timeRemaining <= 0) {
-  alert("Please enter a valid number greater than 0.");
-  return;
-  }
+  const updateTitle = () => {
+    const minutes = String(Math.floor(timeRemaining/60)).padStart(2, '0'); // minutes
+    const seconds = String(timeRemaining % 60).padStart(2, '0'); // seconds
+    document.getElementById("timeRemaining").innerText = `Time Remaining: ${minutes}:${seconds}`;
+  };
 
-  updateTimerDisplay();
-  countdownInterval = setInterval(() => {
-    timeRemaining--;
+  updateTitle();
+
+  countdown = setInterval(() => {
+   if (!isPaused){ 
+    timeRemaining = timeRemaining - 1;
+    updateTitle();
 
     if (timeRemaining <= 0) {
-      clearInterval(countdownInterval);
-      playAlarm(); 
+      clearInterval(countdown);
+      playAlarm();
     }
-      updateTimerDisplay();
-
+  }
   }, 1000);
 }
 
-function updateTimerDisplay() {
-  const title = document.getElementById("timeRemaining");
-  const minutes = String(Math.floor(timeRemaining / 60)).padStart(2, "0");
-  const seconds = String(timeRemaining % 60).padStart(2, "0");
-  title.textContent = `Time Remaining: ${minutes}:${seconds}`;
+function pauseTimer() {
+isPaused = !isPaused;
+document.getElementById("pause").innerText = isPaused ? "Resume Timer" : "Pause Timer";
 }
-
-
-
 
 // DO NOT EDIT BELOW HERE
 
+var audio = new Audio("alarmsound.mp3");
+function setup() {
+  document.getElementById("set").addEventListener("click", () => {
+    setAlarm();
+  });
+  document.getElementById("stop").addEventListener("click", () => {
+    pauseAlarm();
+  });
 
+  document.getElementById("pause").addEventListener("click", () => {
+    pauseTimer();
+  });
+}
+
+function playAlarm() {
+  audio.play();
+}
+function pauseAlarm() {
+  audio.pause();
+}
+window.onload = setup;
 
 
 
