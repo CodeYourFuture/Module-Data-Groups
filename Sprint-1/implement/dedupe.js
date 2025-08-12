@@ -4,13 +4,16 @@ function dedupe(elements) {
   }
   
   const seen = new Set();
-  return elements.filter(element => {
-    if (seen.has(element)) {
-      return false;
+  const result = [];
+  
+  elements.forEach(element => {
+    if (!seen.has(element)) {
+      seen.add(element);
+      result.push(element);
     }
-    seen.add(element);
-    return true;
   });
+  
+  return result;
 }
 
 module.exports = dedupe;
