@@ -63,10 +63,7 @@ function addNewTodo(event) {
   event.preventDefault();
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
 
-  let input =
-    document.getElementById("new-todo-input") ||
-    document.getElementById("todo-input") ||
-    document.querySelector('input[type="text"]');
+  let input = document.getElementById("new-todo-input");
 
   let todoText = input.value.trim();
 
