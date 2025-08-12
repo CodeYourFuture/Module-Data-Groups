@@ -14,7 +14,6 @@ beforeEach(async () => {
     runScripts: "dangerously",
   });
 
-  // do this so students can use element.innerText which jsdom does not implement
   Object.defineProperty(page.window.HTMLElement.prototype, "innerText", {
     get() {
       return this.textContent;
@@ -36,9 +35,10 @@ afterEach(() => {
 describe("Level 1 challenge", () => {
   test("renders the first image with control buttons", () => {
     const images = [
-      "./assets/cute-cat-a.png",
-      "./assets/cute-cat-b.jpg",
-      "./assets/cute-cat-c.jpg",
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
     const forwardBtn = page.window.document.querySelector("#forward-btn");
@@ -48,11 +48,13 @@ describe("Level 1 challenge", () => {
     expect(forwardBtn).toBeInTheDocument();
     expect(backwardBtn).toBeInTheDocument();
   });
+
   test("can move the image forwards once", () => {
     const images = [
-      "./assets/cute-cat-a.png",
-      "./assets/cute-cat-b.jpg",
-      "./assets/cute-cat-c.jpg",
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
     const forwardBtn = page.window.document.querySelector("#forward-btn");
@@ -66,9 +68,10 @@ describe("Level 1 challenge", () => {
 
   test("can move the image forwards multiple times", () => {
     const images = [
-      "./assets/cute-cat-a.png",
-      "./assets/cute-cat-b.jpg",
-      "./assets/cute-cat-c.jpg",
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
     const forwardBtn = page.window.document.querySelector("#forward-btn");
@@ -79,43 +82,29 @@ describe("Level 1 challenge", () => {
     expect(image).toHaveAttribute("src", images[2]);
   });
 
-  test("can move the image backwards to the end", () => {
+  test("can move the image forwards to the last image", () => {
     const images = [
-      "./assets/cute-cat-a.png",
-      "./assets/cute-cat-b.jpg",
-      "./assets/cute-cat-c.jpg",
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
-    const backwardBtn = page.window.document.querySelector("#backward-btn");
+    const forwardBtn = page.window.document.querySelector("#forward-btn");
 
-    expect(image).toHaveAttribute("src", images[0]);
+    userEvent.click(forwardBtn);
+    userEvent.click(forwardBtn);
+    userEvent.click(forwardBtn);
 
-    userEvent.click(backwardBtn);
-
-    expect(image).toHaveAttribute("src", images[2]);
-  });
-
-  test("can move the image backwards multiple times", () => {
-    const images = [
-      "./assets/cute-cat-a.png",
-      "./assets/cute-cat-b.jpg",
-      "./assets/cute-cat-c.jpg",
-    ];
-    const image = page.window.document.querySelector("#carousel-img");
-    const backwardBtn = page.window.document.querySelector("#backward-btn");
-    expect(image).toHaveAttribute("src", images[0]);
-
-    userEvent.click(backwardBtn);
-    userEvent.click(backwardBtn);
-
-    expect(image).toHaveAttribute("src", images[1]);
+    expect(image).toHaveAttribute("src", images[3]);
   });
 
   test("moving forwards will eventually wrap around to the start", () => {
     const images = [
-      "./assets/cute-cat-a.png",
-      "./assets/cute-cat-b.jpg",
-      "./assets/cute-cat-c.jpg",
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
     const forwardBtn = page.window.document.querySelector("#forward-btn");
@@ -125,6 +114,60 @@ describe("Level 1 challenge", () => {
     userEvent.click(forwardBtn);
     userEvent.click(forwardBtn);
     userEvent.click(forwardBtn);
+    userEvent.click(forwardBtn);
+
+    expect(image).toHaveAttribute("src", images[0]);
+  });
+
+  test("can move the image backwards to the last image", () => {
+    const images = [
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
+    ];
+    const image = page.window.document.querySelector("#carousel-img");
+    const backwardBtn = page.window.document.querySelector("#backward-btn");
+
+    expect(image).toHaveAttribute("src", images[0]);
+
+    userEvent.click(backwardBtn);
+
+    expect(image).toHaveAttribute("src", images[3]);
+  });
+
+  test("can move the image backwards multiple times", () => {
+    const images = [
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
+    ];
+    const image = page.window.document.querySelector("#carousel-img");
+    const backwardBtn = page.window.document.querySelector("#backward-btn");
+
+    userEvent.click(backwardBtn);
+    userEvent.click(backwardBtn);
+
+    expect(image).toHaveAttribute("src", images[2]);
+  });
+
+  test("moving backwards will eventually wrap around to the start", () => {
+    const images = [
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
+    ];
+    const image = page.window.document.querySelector("#carousel-img");
+    const backwardBtn = page.window.document.querySelector("#backward-btn");
+
+    expect(image).toHaveAttribute("src", images[0]);
+
+    userEvent.click(backwardBtn);
+    userEvent.click(backwardBtn);
+    userEvent.click(backwardBtn);
+    userEvent.click(backwardBtn);
 
     expect(image).toHaveAttribute("src", images[0]);
   });
@@ -137,11 +180,13 @@ describe("Level 2 challenge", () => {
   afterEach(() => {
     jest.useRealTimers();
   });
+
   test("can start moving images forward automatically", () => {
     const images = [
-      "./assets/cute-cat-a.png",
-      "./assets/cute-cat-b.jpg",
-      "./assets/cute-cat-c.jpg",
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
     const autoForwardBtn = page.window.document.querySelector("#auto-forward");
@@ -162,13 +207,18 @@ describe("Level 2 challenge", () => {
     expect(image).toHaveAttribute("src", images[2]);
 
     jest.advanceTimersByTime(interval);
+    expect(image).toHaveAttribute("src", images[3]);
+
+    jest.advanceTimersByTime(interval);
     expect(image).toHaveAttribute("src", images[0]);
   });
+
   test("can start moving images backward automatically", () => {
     const images = [
-      "./assets/cute-cat-a.png",
-      "./assets/cute-cat-b.jpg",
-      "./assets/cute-cat-c.jpg",
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
     const autoForwardBtn = page.window.document.querySelector("#auto-forward");
@@ -183,6 +233,9 @@ describe("Level 2 challenge", () => {
     expect(autoBackBtn).toBeDisabled();
 
     jest.advanceTimersByTime(interval);
+    expect(image).toHaveAttribute("src", images[3]);
+
+    jest.advanceTimersByTime(interval);
     expect(image).toHaveAttribute("src", images[2]);
 
     jest.advanceTimersByTime(interval);
@@ -191,11 +244,13 @@ describe("Level 2 challenge", () => {
     jest.advanceTimersByTime(interval);
     expect(image).toHaveAttribute("src", images[0]);
   });
+
   test("can stop the automatic timer", () => {
     const images = [
-      "./assets/cute-cat-a.png",
-      "./assets/cute-cat-b.jpg",
-      "./assets/cute-cat-c.jpg",
+      "./images/puppy1.jpg",
+      "./images/puppy2.jpg",
+      "./images/puppy3.jpg",
+      "./images/puppy4.jpg",
     ];
     const image = page.window.document.querySelector("#carousel-img");
     const autoForwardBtn = page.window.document.querySelector("#auto-forward");
