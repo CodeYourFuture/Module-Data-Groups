@@ -7,20 +7,17 @@ function parseQueryString(query) {
   if (query.startsWith("?")) {
     query = query.slice(1);
   }
-  
-function parseQueryString(queryString) {
-  const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
-  const keyValuePairs = queryString.split("&");
+   // Split by & and filter out empty chunks (but keep cases like '=')
+  const pairs = query.split("&").filter(Boolean);
 
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+  for (const pair of pairs) {
+    const [rawKey, rawValue] = pair.split("=");
+    const key = rawKey !== undefined ? decodeURIComponent(rawKey) : "";
+    const value = rawValue !== undefined ? decodeURIComponent(rawValue) : undefined;
+
+    result[key] = value; // Overwrites if key repeats
   }
 
-  return queryParams;
+  return result;
 }
-
 module.exports = parseQueryString;
