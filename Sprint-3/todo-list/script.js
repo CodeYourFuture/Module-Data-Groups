@@ -10,7 +10,7 @@ function populateTodoList(todos) {
   todos.forEach((todo, index) => {
     // create the todo elements
     const listItem = document.createElement("li"); // create list item
-    listItem.className = todo.completed ? "todo-item completed" : "todo-item";
+    listItem.className = "todo-item" + (todo.completed ? "completed" : "");
 
     let todoText = document.createElement("span");
     todoText.className = todo.completed ? "todo-text completed" : "todo-text";
