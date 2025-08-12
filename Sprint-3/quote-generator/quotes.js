@@ -16,19 +16,18 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function randomQuoteGenerator(choices) {
-  const randomQuote = choices[Math.floor(Math.random() * choices.length)];
-  const quoteElement = document.getElementById("quote");
-  const authorElement = document.getElementById("author");
-
-  quoteElement.textContent = `“ ${randomQuote.quote} ”`;
-  authorElement.textContent = `— ${randomQuote.author}`;
-
+function displayRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  document.getElementById("quote").innerText= `"${randomQuote.quote}"`;
+  document.getElementById("author").innerText = `-${randomQuote.author}`;
 }
-
-document.getElementById("new-quote").addEventListener("click", () => {
-  randomQuoteGenerator(quotes);
-});
+function pickFromArray(choices) {
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+document
+  .getElementById("new-quote")
+  .addEventListener("click", displayRandomQuote);
+window.addEventListener("DOMContentLoaded", displayRandomQuote);  
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
@@ -500,5 +499,3 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
-
-randomQuoteGenerator(quotes);
