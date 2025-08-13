@@ -1,1 +1,65 @@
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
 
+.todo-icon {
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 1.2rem;
+  padding: 8px;
+  color: inherit;
+}
+
+.completed .fa-check {
+  color: green;
+}
+
+.todo-icon:hover {
+  opacity: 0.7;
+}
+
+.todo-container {
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.todo-container form > div {
+  margin-bottom: 15px;
+}
+
+#todoInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button {
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  display: flex;
+  gap: 8px;
+  padding: 6px 10px;
+  background-color: #f8f9fa;
+  color: #000;
+  border-radius: 50px;
+}
