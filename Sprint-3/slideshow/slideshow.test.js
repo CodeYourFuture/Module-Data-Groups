@@ -279,4 +279,50 @@ describe("Level 2 challenge", () => {
     jest.runOnlyPendingTimers();
     expect(image).toHaveAttribute("src", images[2]);
   });
+
+  test("clicking forward or backward while auto-advancing stops auto mode", () => {
+  const images = [
+    "./images/puppy1.jpg",
+    "./images/puppy2.jpg",
+    "./images/puppy3.jpg",
+    "./images/puppy4.jpg",
+  ];
+  const image = page.window.document.querySelector("#carousel-img");
+  const autoForwardBtn = page.window.document.querySelector("#auto-forward");
+  const autoBackBtn = page.window.document.querySelector("#auto-backward");
+  const forwardBtn = page.window.document.querySelector("#forward-btn");
+  const backwardBtn = page.window.document.querySelector("#backward-btn");
+  const interval = 2000;
+
+  // Start auto-forward
+  userEvent.click(autoForwardBtn);
+  expect(autoForwardBtn).toBeDisabled();
+  expect(autoBackBtn).toBeDisabled();
+
+  // It advances once
+  jest.advanceTimersByTime(interval);
+  expect(image).toHaveAttribute("src", images[1]);
+
+  // Manual forward should STOP auto
+  userEvent.click(forwardBtn);
+  expect(autoForwardBtn).toBeEnabled();
+  expect(autoBackBtn).toBeEnabled();
+
+  // Time passes, but image no longer auto-advances
+  jest.advanceTimersByTime(interval * 2);
+  expect(image).toHaveAttribute("src", images[2]);
+
+  // Start auto-backward, then stop via manual backward
+  userEvent.click(autoBackBtn);
+  jest.advanceTimersByTime(interval);
+  expect(image).toHaveAttribute("src", images[1]);
+
+  userEvent.click(backwardBtn); // stops auto again
+  jest.advanceTimersByTime(interval);
+  expect(image).toHaveAttribute("src", images[0]);
+
+  // Cleanup pending timers in this test
+  jest.runOnlyPendingTimers();
+  });
+  
 });
