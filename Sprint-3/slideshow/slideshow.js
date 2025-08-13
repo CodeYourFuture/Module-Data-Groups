@@ -17,17 +17,28 @@ const autoForwardBtn = document.getElementById("auto-forward");
 const autoBackwardBtn = document.getElementById("auto-backward");
 const stopBtn = document.getElementById("stop");
 
-// Manual navigation
+// Show image helper
 function showImage(index) {
   carouselImg.src = images[index];
 }
 
+// Stop auto-advance
+function stopAuto() {
+  clearInterval(intervalId);
+  intervalId = null;
+  autoForwardBtn.disabled = false;
+  autoBackwardBtn.disabled = false;
+}
+
+// Manual navigation
 function nextImage() {
+  if (intervalId) stopAuto(); // stop auto if running
   currentIndex = (currentIndex + 1) % images.length;
   showImage(currentIndex);
 }
 
 function prevImage() {
+  if (intervalId) stopAuto(); // stop auto if running
   currentIndex = (currentIndex - 1 + images.length) % images.length;
   showImage(currentIndex);
 }
@@ -37,20 +48,19 @@ backwardBtn.addEventListener("click", prevImage);
 
 // Auto navigation
 function startAuto(directionFn) {
-  // Disable auto buttons while running
   autoForwardBtn.disabled = true;
   autoBackwardBtn.disabled = true;
-
   intervalId = setInterval(directionFn, intervalTime);
 }
 
-function stopAuto() {
-  clearInterval(intervalId);
-  intervalId = null;
-  autoForwardBtn.disabled = false;
-  autoBackwardBtn.disabled = false;
-}
+autoForwardBtn.addEventListener("click", () => startAuto(() => {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+}));
 
-autoForwardBtn.addEventListener("click", () => startAuto(nextImage));
-autoBackwardBtn.addEventListener("click", () => startAuto(prevImage));
+autoBackwardBtn.addEventListener("click", () => startAuto(() => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+}));
+
 stopBtn.addEventListener("click", stopAuto);
