@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <form>
       <div>
-        <input type="text" placeholder="New todo..." />
+        <input type="text" id="todoInput" placeholder="New todo...">
+        <input type="date" id="todoDate">
       </div>
       <div>
-        <button type="submit">Add Todo</button>
+        <button type="submit" class="btn">Add Todo</button>
         <button
           type="button"
           id="remove-all-completed"
@@ -22,6 +26,9 @@
         </button>
       </div>
     </form>
+
+    <ul id="todo-list"></ul>
+
     <script src="script.js"></script>
   </body>
 </html>
