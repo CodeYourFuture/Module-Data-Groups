@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image carousel</title>
-    <link rel="stylesheet" href="style.css">
     <script defer src="slideshow.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Image Carousel</h1>
+    <img id="carousel-img" src="images/puppy1.jpg" alt="puppy-pic">
 
-    <img id="carousel-img" src="./images/puppy1.jpg" alt="puppy-pic" />
+    <section aria-label="Slideshow controls">
+      <h2>Slideshow Controls</h2>
 
-    <div class="button-row">
-      <button id="backward-btn">Backwards</button>
-      <button id="forward-btn">Forward</button>
-    </div>
+      <!-- Manual navigation buttons -->
+      <div class="controls">
+        <button id="backward-btn">Backwards</button>
+        <button id="forward-btn">Forward</button>
+      </div>
 
-    <div class="button-row">
-      <button id="auto-backward">Auto Backwards</button>
-      <button id="auto-forward">Auto Forward</button>
-      <button id="stop">Stop</button>
-    </div>
+      <!-- Automatic navigation buttons -->
+      <div class="controls">
+        <button id="auto-backward">Auto Backwards</button>
+        <button id="auto-forward">Auto Forward</button>
+        <button id="stop">Stop</button>
+      </div>
+    </section>
   </body>
 </html>
