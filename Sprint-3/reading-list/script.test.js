@@ -68,16 +68,16 @@ describe("Reading list", () => {
     const firstLi = page.window.document.querySelector(
       "#reading-list > :first-child"
     );
-    expect(firstLi).toHaveStyle({ backgroundColor: "red" });
+    expect(firstLi).toHaveStyle("background-color: rgb(0, 128, 0)"); // first book NOT read
 
     const secondLi = page.window.document.querySelector(
       "#reading-list > :nth-child(2)"
     );
-    expect(secondLi).toHaveStyle({ backgroundColor: "green" });
+    expect(secondLi).toHaveStyle("background-color: rgb(255, 0, 0)"); // second book read
 
     const thirdLi = page.window.document.querySelector(
       "#reading-list > :nth-child(3)"
     );
-    expect(thirdLi).toHaveStyle({ backgroundColor: "green" });
+    expect(thirdLi).toHaveStyle("background-color: rgb(255, 0, 0)"); // third book read
   });
 });
