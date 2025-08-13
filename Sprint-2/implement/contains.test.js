@@ -44,3 +44,7 @@ test("contains on object with non-existent property returns false", () => {
 test("contains on an array returns false", () => {
   expect(contains([1, 2, 3], 4)).toBe(false);
 });
+
+test("contains on an array of length returns true", () => {
+  expect(contains([1, 2, 3, 4], "length")).toBe(true);
+}); // the test returns true because 'length' is a property of the array object
