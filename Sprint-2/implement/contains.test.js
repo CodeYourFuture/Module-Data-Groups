@@ -36,6 +36,10 @@ test("contains with array input returns false", () => {
 	expect(contains([1, 2, 3], "a")).toBe(false);
 });
 
+test("contains with array index property returns false", () => {
+	expect(contains([1, 2, 3], "1")).toBe(false);
+});
+
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true

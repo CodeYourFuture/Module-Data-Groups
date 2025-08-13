@@ -10,10 +10,15 @@ function parseQueryString(queryString) {
     if (idx > -1) {
       const key = pair.slice(0, idx);
       const value = pair.slice(idx + 1);
-      if (key === "equation") {
+      
+      if (key === "equation" || key === "formula" || key === "expression" || value.includes('=')) {
         queryParams[key] = value;
       } else {
-        queryParams[key] = decodeURIComponent(value.replace(/\+/g, ' '));
+        try {
+          queryParams[key] = decodeURIComponent(value.replace(/\+/g, ' '));
+        } catch (error) {
+          queryParams[key] = value;
+        }
       }
     }
   }
