@@ -1,25 +1,117 @@
-function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+function calculateDaysLeft(dateString) {
+  const today = new Date();
+  const deadline = new Date(dateString);
+  today.setHours(0, 0, 0, 0);
+  deadline.setHours(0, 0, 0, 0);
+
+  const diffTime = deadline - today;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays > 1) return { text: `${diffDays} days left`, status: "normal" };
+  if (diffDays === 1) return { text: "1 day left", status: "normal" };
+  if (diffDays === 0) return { text: "Due today", status: "due-today" };
+  return { text: "Overdue", status: "overdue" };
 }
 
-// These are the same todos that currently display in the HTML
-// You will want to remove the ones in the current HTML after you have created them using JavaScript
+function createTodoElement(todoText, completed = false, deadline = "") {
+  const li = document.createElement("li");
+  li.innerText = todoText;
+  if (completed) {
+    li.style.textDecoration = "line-through";
+  }
+
+  // Show deadline countdown if provided
+  if (deadline) {
+    const countdownInfo = calculateDaysLeft(deadline);
+    const countdown = document.createElement("small");
+    countdown.style.display = "block";
+    countdown.style.fontSize = "0.8em";
+
+    if (countdownInfo.status === "overdue") {
+      countdown.style.color = "red";
+    } else if (countdownInfo.status === "due-today") {
+      countdown.style.color = "orange";
+    } else {
+      countdown.style.color = "#555";
+    }
+
+    countdown.innerText = countdownInfo.text;
+    li.appendChild(countdown);
+  }
+
+  const span = document.createElement("span");
+  span.className = "badge bg-primary rounded-pill";
+
+  const tickIcon = document.createElement("i");
+  tickIcon.className = "fa fa-check";
+  tickIcon.setAttribute("aria-hidden", "true");
+  tickIcon.addEventListener("click", () => {
+    if (li.style.textDecoration === "line-through") {
+      li.style.textDecoration = "";
+    } else {
+      li.style.textDecoration = "line-through";
+    }
+  });
+
+  const binIcon = document.createElement("i");
+  binIcon.className = "fa fa-trash";
+  binIcon.setAttribute("aria-hidden", "true");
+  binIcon.addEventListener("click", () => {
+    li.remove();
+  });
+
+  span.appendChild(tickIcon);
+  span.appendChild(binIcon);
+  li.appendChild(span);
+
+  return li;
+}
+
+function populateTodoList(todos) {
+  const list = document.getElementById("todo-list");
+  list.innerHTML = "";
+  todos.forEach(todo => {
+    const li = createTodoElement(todo.task, todo.completed, todo.deadline || "");
+    list.appendChild(li);
+  });
+}
+
 let todos = [
-  { task: "Wash the dishes", completed: false },
-  { task: "Do the shopping", completed: false },
+  { task: "Wash the dishes", completed: false, deadline: "" },
+  { task: "Do the shopping", completed: false, deadline: "" },
 ];
 
 populateTodoList(todos);
 
-// This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
 function addNewTodo(event) {
-  // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
-  // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  const input = document.getElementById("todoInput");
+  const dateInput = document.getElementById("todoDate");
+
+  const value = input.value.trim();
+  const deadline = dateInput.value;
+
+  if (value) {
+    const li = createTodoElement(value, false, deadline);
+    document.getElementById("todo-list").appendChild(li);
+  }
+
+  input.value = "";
+  dateInput.value = "";
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
-  // Write your code here...
+  const list = document.getElementById("todo-list");
+  const completedItems = list.querySelectorAll("li");
+  completedItems.forEach(li => {
+    if (li.style.textDecoration === "line-through") {
+      li.remove();
+    }
+  });
 }
+
+// Event listeners
+document.querySelector("form").addEventListener("submit", addNewTodo);
+document
+  .getElementById("remove-all-completed")
+  .addEventListener("click", deleteAllCompletedTodos);
