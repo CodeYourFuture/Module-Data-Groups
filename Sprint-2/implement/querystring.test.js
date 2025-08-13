@@ -32,3 +32,9 @@ test("decodes URL-encoded characters", () => {
     city: "New York",
   });
 });
+
+test("parses values containing =", () => {
+  expect(parseQueryString("token=abc=123")).toEqual({
+    token: "abc=123"
+  });
+});
