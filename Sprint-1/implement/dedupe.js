@@ -3,17 +3,9 @@ function dedupe(elements) {
     return [];
   }
   
-  const seen = new Set();
-  const result = [];
+  const uniqueElements = new Set(elements);
   
-  elements.forEach(element => {
-    if (!seen.has(element)) {
-      seen.add(element);
-      result.push(element);
-    }
-  });
-  
-  return result;
+  return Array.from(uniqueElements);
 }
 
 module.exports = dedupe;
