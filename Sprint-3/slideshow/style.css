@@ -18,11 +18,12 @@ h1 {
   margin-bottom: 15px;
 }
 
-.button-row {
+/* Updated: use .controls instead of .button-row to match HTML */
+.controls {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 10px;           /* space between buttons in the same row */
+  margin-bottom: 20px;  /* space between rows (manual vs auto) */
 }
 
 button {
