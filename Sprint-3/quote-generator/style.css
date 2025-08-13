@@ -1,1 +1,90 @@
 /** Write your CSS in here **/
+/* Base styles and variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --accent-color: #f39c12;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: var(--accent-color);
+  transition: background-color 0.6s ease-in-out;
+  color: var(--text-color);
+}
+
+/* Center the quote box */
+.container {
+  max-width: 800px;
+  margin: 100px auto;
+  background: white;
+  padding: 60px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  transition: color 0.5s ease-in-out;
+  color: var(--text-color);
+}
+
+/* Quote text */
+#quote {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 30px;
+  position: relative;
+  transition: color 0.5s ease-in-out;
+}
+
+/* Quotation mark style */
+#quote::before {
+  content: "“";
+  font-size: 4rem;
+  position: absolute;
+  left: -40px;
+  top: -10px;
+  color: var(--accent-color);
+  transition: color 0.5s ease-in-out;
+}
+
+/* Author text */
+#author {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  text-align: right;
+  margin-top: 20px;
+  font-style: italic;
+  transition: color 0.5s ease-in-out;
+}
+
+/* Button styling */
+button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+button:hover {
+  filter: brightness(90%);
+}
+
+#auto-play-status {
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--accent-color);
+  transition: color 0.4s;
+}
+
+label {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
