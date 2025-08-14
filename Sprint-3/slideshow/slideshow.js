@@ -1,8 +1,57 @@
 const images = [
-    "./assets/cute-cat-a.png",
-    "./assets/cute-cat-b.jpg",
-    "./assets/cute-cat-c.jpg",
-];
+  "./assets/cute-cat-a.png",
+  "./assets/cute-cat-b.jpg",
+  "./assets/cute-cat-c.jpg",
+  "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80",
+]
 
 
-// Write your code here
+let currentIndex = 0;
+const carouselImg = document.getElementById("carousel-img");
+
+function showNextImage() {
+  currentIndex++;
+  if (currentIndex >= images.length) {
+    currentIndex = 0; // wrap to start
+  }
+  carouselImg.src = images[currentIndex];
+}
+ document.getElementById("forward-btn").addEventListener("click",function(){
+    showNextImage()
+
+ })
+ function showPreviousImage() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;  // assign the last index to currentIndex
+  }
+  carouselImg.src = images[currentIndex];
+}
+ document.getElementById("backward-btn").addEventListener("click",function(){
+    showPreviousImage()
+
+ })
+ let autoForwardIntervalId;
+ let autoBackwardIntervalId // declared once globally or at the top of your JS file
+
+function startAutoForward() {
+  clearInterval(autoForwardIntervalId);
+  autoForwardIntervalId = setInterval(showNextImage, 2000);
+}
+document.getElementById("auto-forward-btn").addEventListener("click", function() {
+  startAutoForward();
+});
+function setAutoBackwards(){
+  clearInterval(autoBackwardIntervalId);
+  autoBackwardIntervalId = setInterval(showPreviousImage,2000);
+}
+document.getElementById("auto-backward-btn").addEventListener("click", function() {
+  setAutoBackwards();
+});
+function stopSlideshow() {
+  clearInterval(autoForwardIntervalId);
+  clearInterval(autoBackwardIntervalId);
+}
+document.getElementById("stop-btn").addEventListener("click", function() {
+  stopSlideshow();
+});
