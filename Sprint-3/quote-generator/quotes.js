@@ -491,3 +491,70 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+function createContainer() {
+  const container = document.createElement('div');
+  container.id = 'quote-container';
+  container.className = 'container';
+
+  ['quote', 'author', 'new-quote'].forEach(id => {
+    container.appendChild(document.getElementById(id));
+  });
+
+  document.body.prepend(container);
+}
+
+function createAutoPlayCheckbox() {
+  const autoPlayWrapper = document.createElement("div");
+  autoPlayWrapper.id = "auto-play-wrapper";
+  autoPlayWrapper.innerHTML = `
+    <label for="auto-play" class="auto-play-label">
+      <input type="checkbox" id="auto-play" />
+      <span>Auto Play:</span>
+      <span id="auto-play-status">OFF</span>
+    </label>
+  `;
+  document.body.appendChild(autoPlayWrapper);
+}
+
+let autoPlayInterval = null;
+
+function handleAutoPlayToggle() {
+  const checkbox = document.getElementById("auto-play");
+  const status = document.getElementById("auto-play-status");
+
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      status.textContent = "ON";
+      autoPlayInterval = setInterval(setQuoteAndAuthor, 60000);
+    } else {
+      status.textContent = "OFF";
+      clearInterval(autoPlayInterval);
+    }
+  });
+}
+
+function setQuoteAndAuthor() {
+  const result = pickFromArray(quotes);
+  document.querySelector(
+    "#quote"
+  ).innerHTML = `<span class="mark">&ldquo;</span> ${result.quote}`;
+  document.querySelector('#author').innerHTML = `- ${result.author}`;
+}
+
+function handleButton() {
+  const button = document.getElementById("new-quote");
+
+  button.addEventListener("click", () => {
+    setQuoteAndAuthor();
+  });
+}
+
+function setup() {
+  createContainer();
+  createAutoPlayCheckbox()
+  setQuoteAndAuthor();
+  handleButton();
+  handleAutoPlayToggle();
+}
+
+setup();
