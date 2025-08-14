@@ -1,1 +1,30 @@
 /** Write your CSS in here **/
+body {
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+  background-color: azure;
+  width: 500px;
+  padding: 60px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+}
+
+#quote {
+  font-size: 24px;
+}
+
+#author {
+  font-size: 18px;
+}
+
+#new-quote {
+  padding: 16px 10px;
+  border-radius: 10px;
+}
