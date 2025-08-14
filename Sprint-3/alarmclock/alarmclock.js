@@ -1,5 +1,5 @@
 let countdown; 
-let ispaused = false;
+let isPaused = false;
 let timeRemaining; 
 
 function setAlarm(){
