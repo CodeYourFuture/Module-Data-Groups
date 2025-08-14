@@ -5,10 +5,8 @@ test("inverts an object with unique keys", () => {
 });
 
 test("inverts an object with string keys", () => {
-  expect(invert({ cat: "meow", dog: "bark" })).toStrictEqual({
-    meow: "cat",
-    bark: "dog",
-  });
+  // prettier-ignore
+  expect(invert({ cat: "meow", dog: "bark" })).toStrictEqual({ meow: "cat", bark: "dog"});
 });
 
 test("inverts an empty object", () => {
