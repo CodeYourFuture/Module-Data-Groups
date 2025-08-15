@@ -1,6 +1,6 @@
 let countdown; 
 let isPaused = false;
-let timeRemaining; 
+let timeRemaining;
 
 function setAlarm(){
  const inputField = document.getElementById("alarmSet");
