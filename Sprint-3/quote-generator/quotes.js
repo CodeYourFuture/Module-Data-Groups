@@ -1,3 +1,26 @@
+let lastQuote = null;
+
+function displayQuote() {
+  let newQuote;
+  
+  do {
+    newQuote = pickFromArray(quotes);
+  } while (lastQuote && 
+    newQuote.quote === lastQuote.quote &&
+    newQuote.author === lastQuote.author
+    );
+  
+  document.getElementById("quote").textContent = `"${newQuote.quote}"`;
+  document.getElementById("author").textContent = `— ${newQuote.author}`;
+
+  lastQuote = newQuote;
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  displayQuote();
+  document.getElementById("new-quote").addEventListener("click", displayQuote);
+});
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
