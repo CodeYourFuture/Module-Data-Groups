@@ -6,11 +6,26 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    if (!pair) {
+      continue;
+    } else if (pair.includes("=")) {
+      let i = pair.indexOf("=");
+      let key = decodeURIComponent(pair.slice(0, i).trim().replace(/\+/g, " "));
+      let value = decodeURIComponent(
+        pair
+          .slice(i + 1)
+          .trim()
+          .replace(/\+/g, " ")
+      );
+      queryParams[key] = value;
+    } else {
+      queryParams[pair.trim()] = "";
+    }
   }
 
   return queryParams;
 }
+const result = parseQueryString("more=1=1+0&equation = x = y + 1&goga");
+console.log(result);
 
 module.exports = parseQueryString;
