@@ -28,3 +28,7 @@ div {
   padding: 16px 10px;
   border-radius: 10px;
 }
+
+#new-quote:hover {
+  color: red;
+}
