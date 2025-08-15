@@ -27,6 +27,7 @@ div {
 #new-quote {
   padding: 16px 10px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #new-quote:hover {
