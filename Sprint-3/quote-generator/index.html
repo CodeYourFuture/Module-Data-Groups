@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Quote generator app</title>
     <script defer src="quotes.js"></script>
   </head>
   <body>
@@ -11,5 +12,10 @@
     <p id="quote"></p>
     <p id="author"></p>
     <button type="button" id="new-quote">New quote</button>
+    <p>
+      <label for="autoplay">Auto-play:</label>
+      <input type="checkbox" id="autoplay" />
+    </p>
+    <p id="autoplay-status">Auto-play: OFF</p>
   </body>
 </html>
