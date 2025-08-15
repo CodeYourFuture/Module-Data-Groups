@@ -12,4 +12,6 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
+
+//address is an object without a key, therefore address[0] is undefined. To fix this we write "address.houseNumber".
