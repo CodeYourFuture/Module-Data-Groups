@@ -8,8 +8,7 @@
 const parseQueryString = require("./querystring.js")
 
 test("parses querystring with single value", () => {
-  expect(parseQueryString("a=1")).toEqual({
-    "a": "1",
+  expect(parseQueryString("a=1")).toEqual({"a": "1",
   });
 });
 test("parses querystring with multiple values", () => {
@@ -18,6 +17,7 @@ test("parses querystring with multiple values", () => {
     "b": "2",
   });
 });
+
 //other edge cases
 test("handles empty query string", () => {
   expect(parseQueryString("")).toEqual({});
@@ -49,4 +49,22 @@ test("handles multiple key-value pairs with same key", () => {
   expect(parseQueryString("key=value1&key=value2")).toEqual({
     key: "value2" // last value should overwrite previous
   });
+});
+// Additional edge cases
+test("handles leading question mark", () => {
+  expect(parseQueryString("?a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+
+test("decodes percent-encoded characters", () => {
+  expect(parseQueryString("a=%20b%20")).toEqual({ a: " b " });
+});
+
+test("handles key with no value and then with value", () => {
+  expect(parseQueryString("key&key=value")).toEqual({
+    key: [undefined, "value"],
+  });
+});
+
+test("handles value with equals sign", () => {
+  expect(parseQueryString("a=1=2")).toEqual({ a: "1=2" });
 });
