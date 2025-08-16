@@ -11,6 +11,9 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const val in author) {
+  console.log(author[val]);
 }
+// Changing value to val so it does not conflict with fact that it is the keys that are being logged to 
+// display the 'value' they hold
+//Used for .... in  as this will iterate over the keys ie the indexes rather than the values

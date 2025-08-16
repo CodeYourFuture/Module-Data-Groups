@@ -11,5 +11,9 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+  ingredients:`);
+  for (const items of recipe.ingredients) {
+  console.log(items);
+};
+//we have to use for...of as it will loop directly over values of the array 
+// rather than the for ... in which will loop over the indexes.
