@@ -21,3 +21,31 @@ const books = [
   },
 ];
 
+function readingList(books) {
+  const readingListElement = document.querySelector("#reading-list");
+
+  books.forEach(book => {
+    const listItem = document.createElement('li'); // for each book, create a list item
+    listItem.style.backgroundColor = book.alreadyRead ? 'green' : 'red'; // set background color based on alreadyRead status
+
+    const titleAuthor = document.createElement("p"); // create a paragraph for title and author
+    titleAuthor.textContent = `${book.title} by ${book.author}`; // set text content to "title by author"
+
+    const coverImage = document.createElement("img");
+    coverImage.src = book.bookCoverImage;
+    //coverImage.alt = `Cover of ${book.title}`; // this make the test fail
+
+    listItem.appendChild(titleAuthor); 
+    listItem.appendChild(coverImage);
+
+    readingListElement.appendChild(listItem);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  readingList(books);
+});
+
+
+
+
