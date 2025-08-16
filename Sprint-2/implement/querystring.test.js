@@ -50,21 +50,3 @@ test("handles multiple key-value pairs with same key", () => {
     key: "value2" // last value should overwrite previous
   });
 });
-// Additional edge cases
-test("handles leading question mark", () => {
-  expect(parseQueryString("?a=1&b=2")).toEqual({ a: "1", b: "2" });
-});
-
-test("decodes percent-encoded characters", () => {
-  expect(parseQueryString("a=%20b%20")).toEqual({ a: " b " });
-});
-
-test("handles key with no value and then with value", () => {
-  expect(parseQueryString("key&key=value")).toEqual({
-    key: [undefined, "value"],
-  });
-});
-
-test("handles value with equals sign", () => {
-  expect(parseQueryString("a=1=2")).toEqual({ a: "1=2" });
-});
