@@ -60,20 +60,23 @@ function addNewTodo(event) {
   let input = document.getElementById("todoInput");
   let newTask = input.value.trim();
 
+  if (newTask === "") {
+    alert("Input field cannot be empty.");
+    return;
+  }
+
   if (/[^A-Za-z\s]/.test(newTask)) {
     alert("Please enter letters and spaces only.");
     input.value = "";
     return;
   }
 
-  if (newTask !== "") {
-    todos.push({ task: newTask, completed: false });
-    populateTodoList(todos);
-    input.value = "";
-  }
+  todos.push({ task: newTask, completed: false });
+  populateTodoList(todos);
+  input.value = "";
 }
 
-document.getElementById("todo-form").addEventListener("submit", addNewTodo);
+document.getElementById("add-btn").addEventListener("click", addNewTodo);
 document
   .getElementById("remove-all-completed")
   .addEventListener("click", deleteAllCompletedTodos);
