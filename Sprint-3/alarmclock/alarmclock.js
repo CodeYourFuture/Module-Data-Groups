@@ -12,7 +12,7 @@ function setAlarm() {
     return;
   }
 
-  if ((remainingSeconds > 86, 400)) {
+  if (remainingSeconds > 86400) {
     alert("Please enter a time less than 24 hourse (86,400)");
     return;
   }
