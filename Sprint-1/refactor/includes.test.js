@@ -1,7 +1,6 @@
 // Refactored version of includes should still pass the tests below:
 
 const includes = require("./includes.js");
-
 test("returns true when target is in array", () => {
   const currentOutput = includes(["a", "b", "c", "d"], "c");
   const targetOutput = true;
@@ -24,7 +23,7 @@ test("returns true when the target is in array multiple times", () => {
 });
 
 test("returns false for empty array", () => {
-  const currentOutput = includes([]);
+  const currentOutput = includes([], "anything");
   const targetOutput = false;
 
   expect(currentOutput).toEqual(targetOutput);
