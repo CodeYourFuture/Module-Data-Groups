@@ -4,12 +4,23 @@ let remainingSeconds = 0;
 function setAlarm() {
   let timeRemaining = document.getElementById("timeRemaining");
   let alarmSet = document.getElementById("alarmSet").value;
-  remainingSeconds = Number(alarmSet);
+
+  remainingSeconds = parseInt(alarmSet);
+
   if (isNaN(remainingSeconds) || remainingSeconds <= 0) {
-    prompt("please enter a value greater than zero!");
+    alert("please enter a value greater than zero!");
+    return;
+  }
+
+  if ((remainingSeconds > 86, 400)) {
+    alert("Please enter a time less than 24 hourse (86,400)");
     return;
   }
   displayTime();
+
+  if (countDown) {
+    clearInterval(countDown);
+  }
   countDown = setInterval(timer, 1000);
 }
 
