@@ -1,12 +1,22 @@
-function tally(arr) {
-  if (!Array.isArray(arr)) {
+function tally(countFrequency) {
+  if (!Array.isArray(countFrequency)) {
     throw new Error("Input must be an array");
   }
- return arr.reduce((acc, item) => {
-  acc[item] = (acc[item] || 0) + 1;
-  return acc;
-}, Object.create(null));
 
+  if (countFrequency.length === 0) {
+    return {};
+  }
+
+  const result = {};
+  for (item of countFrequency) {
+    if (result[item]) {
+      result[item]++;
+    } else {
+      result[item] = 1;
+    }
+  }
+  return result;
 }
+console.log(tally(["a", "a", "a"]));
 
 module.exports = tally;
