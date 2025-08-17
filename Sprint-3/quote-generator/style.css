@@ -1,1 +1,47 @@
 /** Write your CSS in here **/
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 40px;
+  background-color: lightgray;
+}
+
+div {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 2px 6px gray;
+}
+
+h1 {
+  color: black;
+  margin-bottom: 20px;
+}
+
+#quote {
+  font-size: 1.2em;
+  margin: 20px 0;
+  color: darkblue;
+}
+
+#author {
+  font-style: italic;
+  color: darkgreen;
+  margin-bottom: 25px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: magenta;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: navy;
+}
