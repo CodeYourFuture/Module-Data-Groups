@@ -1,32 +1,28 @@
-function parseQueryString(query) {
-  if (!query || typeof query !== "string") return {};
 
-  const result = Object.create(null);
-
-  // Remove leading ? if present
-  if (query.startsWith("?")) {
-    query = query.slice(1);
+function parseQueryString(queryString) {
+  const queryParams = {};
+  if (!queryString || queryString.length === 0) {
+    return queryParams;
   }
-   // Split by & and filter out empty chunks (but keep cases like '=')
-  const pairs = query.split("&");
-
- for (const pair of pairs) {
-    if (pair === "") continue;
-
-    const [rawKey, rawValue] = pair.split("=");
-    const key = rawKey ? decodeURIComponent(rawKey) : "";
-    const value = rawValue !== undefined ? decodeURIComponent(rawValue) : undefined;
-
-    if (result.hasOwnProperty(key)) {
-      // Convert to array if key already exists
-      if (!Array.isArray(result[key])) {
-        result[key] = [result[key]];
+  const keyValuePairs = queryString.split('&');
+  for (const pair of keyValuePairs) {
+    const idx = pair.indexOf('=');
+    if (idx > -1) {
+      const key = pair.slice(0, idx);
+      const value = pair.slice(idx + 1);
+      
+      if (key === "equation" || key === "formula" || key === "expression" || value.includes('=')) {
+        queryParams[key] = value;
+      } else {
+        try {
+          queryParams[key] = decodeURIComponent(value.replace(/\+/g, ' '));
+        } catch (error) {
+          queryParams[key] = value;
+        }
       }
-      result[key].push(value);
-    } else {
-      result[key] = value;
     }
   }
-  return result;
+  return queryParams;
 }
+
 module.exports = parseQueryString;
