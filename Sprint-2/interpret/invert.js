@@ -10,27 +10,22 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    const numKey = Number(key);
-
-    if (!isNaN(numKey) && String(numKey) === key) {
-      invertedObj[value] = numKey;
-    } else {
-      invertedObj[value] = key; //convert key to number if it is a number
-    //how do i convert it to a number if it is a number? 
-    //if the key is a number, convert it to a number, otherwise keep it as a string
-      }
-  }
+    
+    for (const [key, value] of Object.entries(obj)) {
+      invertedObj[value] = key;
+    }
 
   return invertedObj;
+  }
 }
 module.exports = invert;
 
 // a) What is the current return value when invert is called with { a : 1 } 
-// {'1':'a'}
+// {key: '1'} (based on the original)
 // b) What is the current return value when invert is called with { a: 1, b: 2 } 
-// { '1': 'a', '2': 'b'}
+// For { a: 1 }, it sets invertedObj.key to 1. For { b: 2 }, it overwrites the same property, setting invertedObj.key to 2. output { key: 2 }
 // c) What is the target return value when invert is called with {a : 1, b: 2}
-// {1 : a, 2 : b }
+// {'1' : 'a', '2' : 'b' }
 // c) What does Object.entries return? Why is it needed in this program?
 // its a method that takes a obj and returns the [key, value] pairs.
 // d) Explain why the current return value is different from the target output
