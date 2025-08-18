@@ -10,3 +10,14 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses empty querystring", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("parses querystring with multiple parameters", () => {
+  expect(parseQueryString("name=Nuel&age=75")).toEqual({
+    "name": "Nuel",
+    "age": "75",
+  });
+  });
