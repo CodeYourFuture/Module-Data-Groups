@@ -9,9 +9,10 @@ const recipe = {
   serves: 2,
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
-for(let ingredient of recipe.ingredients)
 
-console.log(`${recipe.title} serves ${recipe.serves} ingredients:
-${ingredient}`);
 
+console.log(`${recipe.title} serves ${recipe.serves} ingredients:`);
+for(let ingredient of recipe.ingredients) {
+  console.log(ingredient)
+}
 //I used a for...of loop to list each ingredient on a new line.
