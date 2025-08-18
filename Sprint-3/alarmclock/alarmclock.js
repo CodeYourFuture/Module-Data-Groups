@@ -17,6 +17,9 @@ function setAlarm() {
     clearInterval(alarmInterval);
   }
   
+  audio.pause();
+  audio.currentTime = 0;
+
   // Set the time remaining
   timeRemaining = seconds;
   
