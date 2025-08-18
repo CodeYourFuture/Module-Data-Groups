@@ -1,1 +1,43 @@
 /** Write your CSS in here **/
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 0 20px;
+  background: #198699;
+  color: #333;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 20px 0 5px 0;
+  color: #b0b7be;
+}
+
+#author {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 30px;
+  color: #7f8c8d;
+}
+
+button#new-quote {
+  background-color: #101a20;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#new-quote:hover {
+  background-color: #43494d;
+}
