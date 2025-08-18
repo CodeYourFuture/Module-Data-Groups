@@ -29,6 +29,7 @@ describe('contains', () => {
     it('should handle non-object inputs gracefully', () => {
         expect(contains(123, 'a')).toBe(false); // Number
         expect(contains("hello", 'a')).toBe(false); // String
+        expect(contains([1, 2, 3], '1')).toBe(false); // Array numeric string
         expect(contains([1, 2, 3], 'a')).toBe(false); // Array
         expect(contains(true, 'a')).toBe(false)
         expect(contains(NaN, 'a')).toBe(false)
