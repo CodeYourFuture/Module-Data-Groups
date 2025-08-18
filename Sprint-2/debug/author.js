@@ -11,6 +11,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value in author) {
   console.log(value);
 }
+// for...of works only with iterable objects like arrays, strings, maps..etc. In order to fix this problem we can use "for...in" to loop through the keys of the object.
