@@ -32,6 +32,7 @@ function setAlarm() {
     if (timeRemaining <= 0) {
       clearInterval(alarmInterval);
       playAlarm();
+      alarmInput.value = "";
     }
   }, 1000);
 }
