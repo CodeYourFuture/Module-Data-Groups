@@ -41,8 +41,8 @@ function displayReadingList() {
     // Create and add the book information
     const bookInfo = document.createElement("div");
     bookInfo.innerHTML = `
-      <h2>${book.title}</h2>
       <p>by ${book.author}</p>
+      <h2>${book.title}</h2>
     `;
     li.appendChild(bookInfo);
     

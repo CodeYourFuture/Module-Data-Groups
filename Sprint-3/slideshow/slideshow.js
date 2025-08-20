@@ -24,22 +24,24 @@ forwardBtn.addEventListener("click", moveForward);
 backwardBtn.addEventListener("click", moveBackward);
 
 let autoInterval = null;
-const AUTO_INTERVAL_TIME = 2000; // 2 seconds
+const AUTO_INTERVAL_TIME = 2000;
+
+const autoControlsContainer = document.querySelector(".auto-controls");
 
 const autoForwardBtn = document.createElement("button");
 autoForwardBtn.id = "auto-forward";
 autoForwardBtn.textContent = "Auto Forward";
-document.body.appendChild(autoForwardBtn);
+autoControlsContainer.appendChild(autoForwardBtn);
 
 const autoBackwardBtn = document.createElement("button");
 autoBackwardBtn.id = "auto-backward";
 autoBackwardBtn.textContent = "Auto Backward";
-document.body.appendChild(autoBackwardBtn);
+autoControlsContainer.appendChild(autoBackwardBtn);
 
 const stopBtn = document.createElement("button");
 stopBtn.id = "stop";
 stopBtn.textContent = "Stop";
-document.body.appendChild(stopBtn);
+autoControlsContainer.appendChild(stopBtn);
 
 function startAutoForward() {
     clearInterval(autoInterval);

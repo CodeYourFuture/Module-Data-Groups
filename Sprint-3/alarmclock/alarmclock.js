@@ -2,26 +2,27 @@ let timer;
 let secondsRemaining = 0;
 
 function setAlarm() {
-  // Clear existing timer if any
   if (timer) {
     clearInterval(timer);
   }
   
-  // Get the time from the input field
   const alarmInput = document.getElementById("alarmSet");
-  secondsRemaining = parseInt(alarmInput.value, 10);
+  const inputValue = parseInt(alarmInput.value, 10);
   
-  // Update the display immediately
+  if (isNaN(inputValue) || inputValue <= 0) {
+    alert("Please enter a valid positive number of seconds");
+    return;
+  }
+  
+  secondsRemaining = inputValue;
+  
   updateTimeDisplay();
   
-  // Start the timer
   timer = setInterval(function() {
     secondsRemaining--;
     
-    // Update the display
     updateTimeDisplay();
     
-    // Check if time is up
     if (secondsRemaining <= 0) {
       clearInterval(timer);
       playAlarm();
@@ -30,14 +31,17 @@ function setAlarm() {
 }
 
 function updateTimeDisplay() {
+  if (isNaN(secondsRemaining) || secondsRemaining < 0) {
+    document.getElementById("timeRemaining").innerText = "Time Remaining: 00:00";
+    return;
+  }
+  
   const minutes = Math.floor(secondsRemaining / 60);
   const seconds = secondsRemaining % 60;
   
-  // Format with leading zeros
   const formattedMinutes = String(minutes).padStart(2, '0');
   const formattedSeconds = String(seconds).padStart(2, '0');
   
-  // Update the display
   document.getElementById("timeRemaining").innerText = 
     `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
 }
