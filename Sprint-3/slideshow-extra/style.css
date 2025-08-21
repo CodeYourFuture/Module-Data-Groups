@@ -1,3 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
 .slideshow-container {
   width: 100%;
   max-width: 800px;
@@ -41,4 +49,19 @@
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   transition: background-color 0.3s ease;
+}
+
+.delay-control {
+  margin-top: 20px;
+}
+
+.delay-control label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.delay-control input {
+  width: 100px;
+  padding: 6px;
+  font-size: 1rem;
 }

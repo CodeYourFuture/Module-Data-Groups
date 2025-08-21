@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Carousel with Delay Control</title>
+  <script defer src="slideshowExtra.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="slideshow-container">
+    <img id="carousel-img" src="./assets/first.jpg" alt="programming-not-easy-pic" />
+    </div>
+    <div class="button-group">
+      <button type="button" id="backward-btn">Backwards</button>
+      <button type="button" id="forward-btn">Forward</button>
+      <button type="button" id="auto-backward-btn">Auto-Backwards</button>
+      <button type="button" id="auto-forward-btn">Auto-Forward</button>
+      <button type="button" id="stop-btn">Stop</button>
+    </div>
+
+    <div class="delay-control">
+      <label for="delay-input">Delay (ms):</label>
+      <input type="number" id="delay-input" value="3000" min="500" />
+    </div>
+</body>
+</html>
