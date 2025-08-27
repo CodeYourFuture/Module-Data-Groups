@@ -1,0 +1,20 @@
+{
+  "name": "module-data-groups",
+  "version": "1.0.0",
+  "description": "Like learning a musical instrument, programming requires daily practice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuWebOnes/Module-Data-Groups.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuWebOnes/Module-Data-Groups/issues"
+  },
+  "homepage": "https://github.com/SuWebOnes/Module-Data-Groups#readme"
+}

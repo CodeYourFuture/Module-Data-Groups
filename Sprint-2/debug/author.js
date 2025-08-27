@@ -11,6 +11,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {//accessing both key and value using se Object.values()
   console.log(value);
 }

@@ -1,13 +1,20 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
+  if (!queryString) return queryParams;
+
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    const indexOfEqual = pair.indexOf("=");
+
+    if (indexOfEqual === -1) {
+      // No '=' means key with no value
+      queryParams[decodeURIComponent(pair)] = "";
+    } else {
+      const key = decodeURIComponent(pair.slice(0, indexOfEqual));
+      const value = decodeURIComponent(pair.slice(indexOfEqual + 1));
+      queryParams[key] = value;
+    }
   }
 
   return queryParams;

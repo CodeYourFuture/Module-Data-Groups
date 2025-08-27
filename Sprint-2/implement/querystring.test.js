@@ -10,3 +10,35 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+//Test: Handles URL-encoded characters (e.g. space encoded as %20)
+test("decodes percent-encoded characters", () => {
+  expect(parseQueryString("note=hello%20world")).toEqual({
+    note: "hello world",
+  });
+});
+
+// Test: Key without a value (e.g. justKey)
+// Should treat missing value as an empty string
+
+test("parses key without value", () => {
+  expect(parseQueryString("justKey")).toEqual({
+    justKey: "",
+  });
+});
+
+// Test: Empty query string
+
+test("returns empty object for empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+
+// Test: Handles multiple pairs including one with no value
+
+test("handles mixed keys with and without values", () => {
+  expect(parseQueryString("name=Alice&flag")).toEqual({
+    name: "Alice",
+    flag: "",
+  });
+});
