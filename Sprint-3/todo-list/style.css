@@ -1,1 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
 
+h1 {
+  text-align: center;
+}
+
+#todo-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#todoInput {
+  flex: 2;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#todoDeadline {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  min-width: 140px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+#todo-list {
+  list-style-type: none;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#todo-list li {
+  background: #f0f0f0;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#todo-list li.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 4px;
+}
+
+.todo-task {
+  font-weight: bold;
+}
+
+.deadline {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.countdown {
+  font-size: 0.9rem;
+  color: #d9534f; /* red-ish */
+}
+
+.badge {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.badge i {
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  color: #007bff;
+}
+
+.badge i:hover {
+  color: #ff4d4d;
+}
