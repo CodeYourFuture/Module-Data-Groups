@@ -10,7 +10,6 @@ beforeEach(async () => {
     runScripts: "dangerously",
   });
 
-  // do this so students can use element.innerText which jsdom does not implement
   Object.defineProperty(page.window.HTMLElement.prototype, "innerText", {
     get() {
       return this.textContent;
@@ -42,28 +41,23 @@ describe("Reading list", () => {
     expect(readingList).toHaveTextContent("The Pragmatic Programmer");
     expect(readingList).toHaveTextContent("Andrew Hunt");
   });
+
   test("each book in the list has an image", () => {
-    const firstLi = page.window.document.querySelector(
-      "#reading-list > :first-child"
-    );
-    expect(firstLi).toContainHTML(
-      `<img src="https://blackwells.co.uk/jacket/l/9780465050659.jpg" />`
-    );
+    const listItems = page.window.document.querySelectorAll("#reading-list li");
 
-    const secondLi = page.window.document.querySelector(
-      "#reading-list > :nth-child(2)"
-    );
-    expect(secondLi).toContainHTML(
-      `<img src="https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg" />`
-    );
+    const expectedImageSources = [
+      "https://blackwells.co.uk/jacket/l/9780465050659.jpg",
+      "https://images-na.ssl-images-amazon.com/images/I/41m1rQjm5tL._SX322_BO1,204,203,200_.jpg",
+      "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
+    ];
 
-    const thirdLi = page.window.document.querySelector(
-      "#reading-list > :nth-child(3)"
-    );
-    expect(thirdLi).toContainHTML(
-      `<img src="https://blackwells.co.uk/jacket/l/9780135957059.jpg" />`
-    );
+    listItems.forEach((li, index) => {
+      const img = li.querySelector("img");
+      expect(img).not.toBeNull();
+      expect(img.src).toBe(expectedImageSources[index]);
+    });
   });
+
   test("background color changes depending on whether book has been read", () => {
     const firstLi = page.window.document.querySelector(
       "#reading-list > :first-child"

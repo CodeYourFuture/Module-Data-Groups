@@ -1,4 +1,4 @@
-// for the tests, do not modify this array of books
+// This array must not be modified
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -21,3 +21,39 @@ const books = [
   },
 ];
 
+
+// Get the UL element where books will be added
+const readingList = document.querySelector("#reading-list");
+
+// Loop through the books array and create list items
+books.forEach((book) => {
+  const li = document.createElement("li");
+
+  // Set background color based on alreadyRead
+  li.style.backgroundColor = book.alreadyRead ? "green" : "red";
+  li.style.padding = "10px";
+  li.style.marginBottom = "10px";
+  li.style.listStyle = "none";
+
+  // Create and add book image
+  const img = document.createElement("img");
+  img.src = book.bookCoverImage;
+  img.alt = `${book.title} cover`;
+  img.style.width = "100px";
+  img.style.display = "block";
+  img.style.marginBottom = "5px";
+  li.appendChild(img);
+
+  // Create and add book title
+  const titleP = document.createElement("p");
+  titleP.innerText = book.title;
+  li.appendChild(titleP);
+
+  // Create and add book author
+  const authorP = document.createElement("p");
+  authorP.innerText = book.author;
+  li.appendChild(authorP);
+
+  // Add the <li> to the #reading-list
+  readingList.appendChild(li);
+});
