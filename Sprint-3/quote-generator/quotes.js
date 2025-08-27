@@ -20,6 +20,23 @@ function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
+const btn = document.getElementById('new-quote');
+const paragraph1 = document.getElementById('quote');
+const paragraph2 = document.getElementById('author');
+let previousQ;
+
+function getQuote(){
+  let randomQ;
+  do {
+    randomQ = pickFromArray(quotes);
+  }
+  while (randomQ ===previousQ && quotes.length > 1) 
+    paragraph1.textContent = `${randomQ.quote}`;
+    paragraph2.textContent = `< ${randomQ.author} >`;
+    previousQ = randomQ;
+}
+btn.addEventListener('click',getQuote);
+
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
@@ -490,4 +507,5 @@ const quotes = [
   },
 ];
 
+getQuote();
 // call pickFromArray with the quotes array to check you get a random quote
