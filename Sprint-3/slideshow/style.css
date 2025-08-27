@@ -1,1 +1,46 @@
 /** Write your CSS in here **/
+
+body {
+    background-color: aquamarine;
+}
+
+#carousel-img {
+    width: 1000px;  
+    height: 600px; 
+    object-fit: cover; 
+    display: block; 
+    margin: 70px auto; 
+    border: 2px solid #333; 
+}
+
+.buttons-control {
+    text-align: center;
+    margin-top: -50px;
+
+
+}
+
+button {
+    font-style: italic;
+    padding: 20px 30px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width:180px;
+    box-shadow:5px 5px 15px black;
+    border: #333;
+}
+#stop-btn {
+    background-color:red
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#stop-btn:hover {
+    background-color:  #007bff;
+}
