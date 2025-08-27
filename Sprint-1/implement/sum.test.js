@@ -9,28 +9,46 @@ E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical
 const sum = require("./sum.js");
 
 // Acceptance Criteria:
+describe("Sum the numbers in an array", () => {
+  test("Given an empty array, return 0", () => {
+    const elements = [];
+    const currentOutput = sum(elements);
+    const targetOutput = 0;
+    expect(currentOutput).toBe(targetOutput);
+  });
 
-// Given an empty array
-// When passed to the sum function
-// Then it should return 0
-test.todo("given an empty array, returns 0")
+  test("Given an array with just one number, return that number", () => {
+    const elements = [8];
+    const currentOutput = sum(elements);
+    const targetOutput = 8;
+    expect(currentOutput).toBe(targetOutput);
+  });
 
-// Given an array with just one number
-// When passed to the sum function
-// Then it should return that number
+  test("Given an array containing negative numbers, return the correct total sum", () => {
+    const elements = [-1, -2, -3];
+    const currentOutput = sum(elements);
+    const targetOutput = -6;
+    expect(currentOutput).toBe(targetOutput);
+  });
 
-// Given an array containing negative numbers
-// When passed to the sum function
-// Then it should still return the correct total sum
+  test("Given an array containing decimal/float numbers, return the correct total sum", () => {
+    const elements = [-1.2, -2.2, -3.2];
+    const currentOutput = sum(elements);
+    const targetOutput = -6.6;
+    expect(currentOutput).toBe(targetOutput);
+  });
 
-// Given an array with decimal/float numbers
-// When passed to the sum function
-// Then it should return the correct total sum
+  test("Given an array containing non-number values, return sum of numerical values", () => {
+    const elements = ["CYF", "ITD", "ITP", 4, 6];
+    const currentOutput = sum(elements);
+    const targetOutput = 10;
+    expect(currentOutput).toBe(targetOutput);
+  });
 
-// Given an array containing non-number values
-// When passed to the sum function
-// Then it should ignore the non-numerical values and return the sum of the numerical elements
-
-// Given an array with only non-number values
-// When passed to the sum function
-// Then it should return the least surprising value given how it behaves for all other inputs
+  test("Given an array containing non-number values, return the least surprising value given how it behaves for all other inputs", () => {
+    const elements = ["CYF", "ITD", "ITP"];
+    const currentOutput = sum(elements);
+    const targetOutput = 0;
+    expect(currentOutput).toBe(targetOutput);
+  });
+});
