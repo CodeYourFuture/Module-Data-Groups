@@ -1,0 +1,1 @@
+console.log(`Test 1: Input {a:1}, Expected ${JSON.stringify(expected1)}, Actual ${JSON.stringify(result1)}`);
