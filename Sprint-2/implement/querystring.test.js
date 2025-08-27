@@ -10,3 +10,23 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("handles empty value", () => {
+  expect(parseQueryString("username=")).toEqual({ username: "" });
+});
+
+test("handles empty key", () => {
+  expect(parseQueryString("=value")).toEqual({ "": "value" });
+});
+
+test("handles only ampersands", () => {
+  expect(parseQueryString("&&&&")).toEqual({});
+});
+
+test("handles repeated keys", () => {
+  expect(parseQueryString("key=value1&key=value2")).toEqual({ key: "value2" });
+});
+
+test("handles ampersands at start and end", () => {
+  expect(parseQueryString("&&name=Ali&&")).toEqual({ name: "Ali" });
+});
