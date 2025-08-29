@@ -1,0 +1,20 @@
+{
+  "name": "mean.test.js",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  }, 
+  "name": "parse-query-string.test.js",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  }, 
+  "name": "median.test.js",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  }, 
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
+}
