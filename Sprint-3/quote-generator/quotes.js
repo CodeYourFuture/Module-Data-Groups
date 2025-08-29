@@ -15,6 +15,7 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
+
 // You don't need to change this function
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
@@ -490,4 +491,43 @@ const quotes = [
   },
 ];
 
+
 // call pickFromArray with the quotes array to check you get a random quote
+
+let autoGenerate = false;
+let autoGenerateInterval = null;
+const buttonAuto = document.querySelector("#quote-generator");
+const AutoPlayOn = document.getElementById("auto-play:ON");
+
+function displayQuote() {
+  const randomQuote = pickFromArray(quotes);
+  document.getElementById("quote").textContent = `"${randomQuote.quote}"`;
+  document.getElementById("author").textContent = `— ${randomQuote.author}`;
+}
+
+
+// Show one on page load
+displayQuote();
+
+function autoGenerateQuotes() {
+  if (autoGenerate) {
+    clearInterval(autoGenerateInterval);
+    autoGenerate = false;
+    buttonAuto.textContent = "Start Auto-Generate";
+    AutoPlayOn.textContent = "";
+  }
+  else {
+    autoGenerate = true;
+    buttonAuto.textContent = "Stop Auto-Generate";
+    autoGenerateInterval = setInterval(displayQuote, 60000); // Change quote every 60 seconds
+    AutoPlayOn.textContent = "Auto-Play: ON";
+  }
+}
+
+// Add event listener to the button new quote
+document.getElementById("new-quote").addEventListener("click", displayQuote);
+
+// Add event listener to the button quote-generator
+document.getElementById("quote-generator").addEventListener("click", autoGenerateQuotes); 
+
+
