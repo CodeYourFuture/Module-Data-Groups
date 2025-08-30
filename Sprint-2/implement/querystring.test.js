@@ -10,3 +10,10 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+// given a query string without equal,
+// when parseQueryString is called with the query string as parameter
+// returns the object with the key and value "".
+test("parses querystring without values", () => {
+  expect(parseQueryString("emptyKey")).toEqual({emptyKey: ""})
+});
