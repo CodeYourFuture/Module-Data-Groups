@@ -1,1 +1,115 @@
-/** Write your CSS in here **/
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: lighter
+}
+
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  width: 800px;
+  border-radius: 20px;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.autoForward,
+.autoBackward {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: 260px;
+  padding: 16px;
+  color: rgb(231, 17, 17);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next, .autoForward {
+  right: 0;
+}
+
+.prev, .autoBackward {
+    left: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dots {
+    text-align: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin-top: 12px;
+  }
+
+  .dot.active {
+    background-color: #717171;
+  }
+
+  #carousel-img {
+    width: 800px;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+  }
+
+  #carousel-img.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  #stop {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+
+  #stop:hover {
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+  }
+
+  .autoBackward,
+  .autoForward {
+    color: black;
+    font-size: 12px;
+  }
