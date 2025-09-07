@@ -6,11 +6,20 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    // Split on first '=' only
+    const indexOfEquals = pair.indexOf("=");
+    if (indexOfEquals === -1) {
+      // No '=' found, key with empty value
+      queryParams[pair] = "";
+    } else {
+      const key = pair.slice(0, indexOfEquals);
+      const value = pair.slice(indexOfEquals + 1);
+      queryParams[key] = value;
+    }
   }
 
   return queryParams;
 }
 
 module.exports = parseQueryString;
+

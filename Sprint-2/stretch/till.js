@@ -1,31 +1,43 @@
-// totalTill takes an object representing coins in a till
-
-// Given an object of coins
-// When this till object is passed to totalTill
-// Then it should return the total amount in pounds
-
 function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    // Remove the 'p' from the coin string and convert to number
+    const coinValue = Number(coin.replace("p", ""));
+    total += coinValue * quantity;
   }
 
   return `£${total / 100}`;
 }
 
-const till = {
-  "1p": 10,
-  "5p": 6,
-  "50p": 4,
-  "20p": 10,
-};
-const totalAmount = totalTill(till);
+module.exports = totalTill;
 
-// a) What is the target output when totalTill is called with the till object
+// a) What is the target output when totalTill is called with the till object?
+
+// Calculate total pence:
+
+// 1p * 10 = 10p
+
+// 5p * 6 = 30p
+
+// 50p * 4 = 200p
+
+// 20p * 10 = 200p
+
+// Total = 10 + 30 + 200 + 200 = 440p = £4.40
+
+// So, the target output is: "£4.4" or "£4.40".
 
 // b) Why do we need to use Object.entries inside the for...of loop in this function?
 
+// Because till is an object, Object.entries(till) gives an array of [key, value] pairs 
+// (coin name and quantity), which lets us loop through both the coin type and quantity at the same time.
+
 // c) What does coin * quantity evaluate to inside the for...of loop?
 
-// d) Write a test for this function to check it works and then fix the implementation of totalTill
+// coin is a string like "1p", "5p", etc.
+
+// quantity is a number.
+
+// Multiplying a string with a letter ("1p") by a number results in NaN because "1p" cannot be converted 
+// directly to a number.

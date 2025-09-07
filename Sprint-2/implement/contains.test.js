@@ -1,5 +1,32 @@
 const contains = require("./contains.js");
 
+test("contains on empty object returns false", () => {
+  expect(contains({}, "anyKey")).toBe(false);
+});
+
+test("contains returns true for existing property", () => {
+  const obj = { a: 1, b: 2 };
+  expect(contains(obj, "a")).toBe(true);
+  expect(contains(obj, "b")).toBe(true);
+});
+
+test("contains returns false for non-existent property", () => {
+  const obj = { a: 1, b: 2 };
+  expect(contains(obj, "c")).toBe(false);
+  expect(contains(obj, "z")).toBe(false);
+});
+
+test("contains returns false or throws for invalid parameters", () => {
+  expect(() => contains([], "a")).not.toThrow();
+  expect(contains([], "a")).toBe(false);
+  expect(() => contains(null, "a")).not.toThrow();
+  expect(contains(null, "a")).toBe(false);
+  expect(() => contains(undefined, "a")).not.toThrow();
+  expect(contains(undefined, "a")).toBe(false);
+  expect(() => contains(123, "a")).not.toThrow();
+  expect(contains(123, "a")).toBe(false);
+});
+
 /*
 Implement a function called contains that checks an object contains a
 particular property
@@ -20,8 +47,6 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
-
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true

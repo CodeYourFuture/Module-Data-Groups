@@ -1,28 +1,27 @@
-/*
-  Count the number of times a word appears in a given string.
+function countWords(str) {
+  const counts = {};
 
-  Write a function called countWords that
-    - takes a string as an argument
-    - returns an object where
-          - the keys are the words from the string and
-          - the values are the number of times the word appears in the string
+  // Step 1: Normalize the input
+  // - Convert to lowercase
+  // - Remove punctuation
+  const cleanedStr = str
+    .toLowerCase()
+    .replace(/[.,!?]/g, "") // remove basic punctuation
+    .trim();
 
-  Example
-  If we call countWords like this:
+  // Step 2: Split into words
+  const words = cleanedStr.split(/\s+/); // split by any space(s)
 
-  countWords("you and me and you") then the target output is { you: 2, and: 2, me: 1 }
+  // Step 3: Count each word
+  for (const word of words) {
+    if (word) {
+      counts[word] = (counts[word] || 0) + 1;
+    }
+  }
 
-  To complete this exercise you should understand
-    - Strings and string manipulation
-    - Loops
-    - Comparison inside if statements
-    - Setting values on an object
+  return counts;
+}
 
-## Advanced challenges
-
-1. Remove all of the punctuation (e.g. ".", ",", "!", "?") to tidy up the results
-
-2. Ignore the case of the words to find more unique words. e.g. (A === a, Hello === hello)
-
-3. Order the results to find out which word is the most common in the input
-*/
+// Example usage:
+console.log(countWords("You and me, and you!")); 
+// Output: { you: 2, and: 2, me: 1 }
