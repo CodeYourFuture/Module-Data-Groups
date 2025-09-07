@@ -1,25 +1,39 @@
-function setAlarm() {}
+// alarmclock.js
+function setAlarm() {
+  const timeInput = document.getElementById("alarmSet");
+  let timeRemaining = Number(timeInput.value);
+  const heading = document.getElementById("timeRemaining");
 
-// DO NOT EDIT BELOW HERE
+  function updateDisplay() {
+    const minutes = String(Math.floor(timeRemaining / 60)).padStart(2, "0");
+    const seconds = String(timeRemaining % 60).padStart(2, "0");
+    heading.textContent = `Time Remaining: ${minutes}:${seconds}`;
+  }
 
-var audio = new Audio("alarmsound.mp3");
+  updateDisplay(); // Show initial time
 
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
+  const timer = setInterval(() => {
+    timeRemaining--;
+    updateDisplay();
 
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
-  });
+    if (timeRemaining <= 0) {
+      clearInterval(timer);
+      playAlarm();
+    }
+  }, 1000);
 }
 
 function playAlarm() {
+  const audio = document.getElementById("alarm");
   audio.play();
 }
 
-function pauseAlarm() {
-  audio.pause();
+// Only attach this in browser, not during testing
+if (typeof document !== "undefined") {
+  const button = document.getElementById("set");
+  if (button) {
+    button.addEventListener("click", setAlarm);
+  }
 }
 
-window.onload = setup;
+module.exports = { setAlarm, playAlarm }; // Make functions testable

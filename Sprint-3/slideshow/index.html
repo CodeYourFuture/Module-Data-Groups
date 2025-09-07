@@ -3,12 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
-    <script defer src="slideshow.js"></script>
+    <title>Image carousel</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <img id="carousel-img" src="./assets/cute-cat-a.png" alt="cat-pic" />
+
     <button type="button" id="backward-btn">Backwards</button>
     <button type="button" id="forward-btn">Forward</button>
+
+    <button id="auto-forward">Auto Forward</button>
+    <button id="auto-backward">Auto Back</button>
+    <button id="stop">Stop</button>
+
+    <label for="delay-input">Delay between images (seconds): </label>
+    <input type="number" id="delay-input" min="1" max="10" value="2" />
+
+    <script src="slideshow.js"></script>
+    <script src="slideshow-extra.js"></script>
   </body>
 </html>

@@ -1,0 +1,18 @@
+{
+  "name": "interpret",
+  "version": "1.0.0",
+  "main": "invert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "scripts": {
+  "test": "jest"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
+}

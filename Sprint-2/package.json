@@ -1,15 +1,12 @@
 {
-  "name": "sprint-2",
+  "name": "debug",
   "version": "1.0.0",
-  "description": "This README will guide you through the different sections for this sprint.",
-  "main": "",
+  "main": "address.js",
   "scripts": {
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "jest": "^29.7.0"
-  }
+  "description": ""
 }

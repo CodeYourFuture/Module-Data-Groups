@@ -1,1 +1,42 @@
-/** Write your CSS in here **/
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 2em;
+}
+
+img#carousel-img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1em;
+}
+
+button,
+input[type="number"] {
+    margin: 0.3em;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:disabled,
+input:disabled {
+    cursor: not-allowed;
+    background-color: #eee;
+    color: #999;
+}
+
+button:hover:not(:disabled) {
+    background-color: #007bff;
+    color: white;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 0.5em;
+}
