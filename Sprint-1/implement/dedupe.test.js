@@ -1,27 +1,31 @@
 const dedupe = require("./dedupe.js");
-/*
-Dedupe Array
+describe("dedupe function", () => {
 
-📖 Dedupe means **deduplicate**
+  // Test 1: empty array
+  test("given an empty array, it returns an empty array", () => {
+    expect(dedupe([])).toEqual([]);
+  });
 
-In this kata, you will need to deduplicate the elements of an array
+  // Test 2: array with no duplicates
+  test("given an array with no duplicates, it returns a copy of the original array", () => {
+    const arr = [1, 2, 3, 4];
+    expect(dedupe(arr)).toEqual(arr);
+    expect(dedupe(arr)).not.toBe(arr); // ensure it returns a new array, not the same reference
+  });
 
-E.g. dedupe(['a','a','a','b','b','c']) target output: ['a','b','c']
-E.g. dedupe([5, 1, 1, 2, 3, 2, 5, 8]) target output: [5, 1, 2, 3, 8]
-E.g. dedupe([1, 2, 1]) target output: [1, 2]
-*/
+  // Test 3: array with duplicates (strings)
+  test("removes duplicate strings, preserving first occurrence", () => {
+    expect(dedupe(['a', 'a', 'a', 'b', 'b', 'c'])).toEqual(['a', 'b', 'c']);
+  });
 
-// Acceptance Criteria:
+  // Test 4: array with duplicates (numbers)
+  test("removes duplicate numbers, preserving first occurrence", () => {
+    expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
+  });
 
-// Given an empty array
-// When passed to the dedupe function
-// Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+  // Test 5: mixed array
+  test("removes duplicates in mixed arrays", () => {
+    expect(dedupe([1, 2, 1])).toEqual([1, 2]);
+  });
 
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
-
-// Given an array with strings or numbers
-// When passed to the dedupe function
-// Then it should remove the duplicate values, preserving the first occurence of each element
+});
