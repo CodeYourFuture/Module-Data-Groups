@@ -18,6 +18,4 @@ function calculateMedian(list) {
   // If even, return average of two middle numbers
   return (numbers[middleIndex - 1] + numbers[middleIndex]) / 2;
 }
-
 module.exports = calculateMedian;
-
