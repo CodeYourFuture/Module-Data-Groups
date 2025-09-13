@@ -74,6 +74,9 @@ function setup() {
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
   });
+  document.getElementById("pause").addEventListener("click", () => {
+  pauseCountdown();
+});
 }
 
 function playAlarm() {
