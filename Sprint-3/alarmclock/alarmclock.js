@@ -54,6 +54,7 @@ function updateDisplay() {
     el.textContent = `Time Remaining: ${minutes}:${seconds}`;
   }
 }
+// pauseCountdown stops the countdown timer
 function pauseCountdown() {
   if (timerId !== null) {
     clearInterval(timerId);
