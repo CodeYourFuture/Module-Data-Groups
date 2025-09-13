@@ -71,6 +71,7 @@ function setup() {
 
 function playAlarm() {
   audio.play();
+  document.body.classList.add("flash");
 }
 
 function pauseAlarm() {
