@@ -7,6 +7,7 @@ function setAlarm() {
   // Read input value (lowercase .value) and parse to integer seconds
   const raw = document.getElementById("alarmSet").value;
   const secs = parseInt(raw, 10);
+  document.getElementById("alarmSet").value = "";
  
 
   // Validate input
