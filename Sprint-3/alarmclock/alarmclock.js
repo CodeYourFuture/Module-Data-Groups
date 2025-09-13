@@ -76,6 +76,7 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  document.body.classList.remove("flash");
 }
 
 window.onload = setup;
