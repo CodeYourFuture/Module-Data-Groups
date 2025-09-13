@@ -54,6 +54,13 @@ function updateDisplay() {
     el.textContent = `Time Remaining: ${minutes}:${seconds}`;
   }
 }
+function pauseCountdown() {
+  if (timerId !== null) {
+    clearInterval(timerId);
+    timerId = null;
+  }
+}
+
 
 // DO NOT EDIT BELOW HERE
 
