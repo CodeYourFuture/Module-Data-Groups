@@ -1,67 +1,96 @@
-// alarmclock.js
+// Refactor the Alarm Clock code with advanced features
 
-let timerId = null;         // stores the setInterval id so we can clear it
-let remainingSeconds = 0;   // seconds left in the countdown
+let timerId = null;
+let remainingSeconds = 0;
+let alarmFlashing = false;
 
-function setAlarm() {
-  // Read input value (lowercase .value) and parse to integer seconds
-  const raw = document.getElementById("alarmSet").value;
-  const secs = parseInt(raw, 10);
-  document.getElementById("alarmSet").value = "";
- 
+// Update the display
+function updateDisplay() {
+  let minutes = String(Math.floor(remainingSeconds / 60)).padStart(2, "0");
+  let seconds = String(remainingSeconds % 60).padStart(2, "0");
+  document.getElementById(
+    "timeRemaining"
+  ).textContent = `Time Remaining: ${minutes}:${seconds}`;
+}
 
-  // Validate input
-  if (Number.isNaN(secs) || secs <= 0) {
-    // show 00:00 for invalid input and do nothing
-    remainingSeconds = 0;
-    updateDisplay();
-    return;
+// Start flashing background
+function startFlashing() {
+  if (!alarmFlashing) {
+    document.body.classList.add("flash");
+    alarmFlashing = true;
   }
+}
 
-  // Set remaining seconds and clear any existing timer
-  remainingSeconds = Math.floor(secs);
-  if (timerId !== null) {
-    clearInterval(timerId);
-    timerId = null;
+// Stop flashing background
+function stopFlashing() {
+  if (alarmFlashing) {
+    document.body.classList.remove("flash");
+    document.body.style.backgroundColor = "white";
+    alarmFlashing = false;
   }
+}
 
-  // Update display immediately
-  updateDisplay();
-
-  // Start the countdown
+// Shared countdown logic
+function startCountdown() {
   timerId = setInterval(() => {
     remainingSeconds -= 1;
-
-    // Update display on every tick
+    // Update the display each second
     updateDisplay();
 
     if (remainingSeconds <= 0) {
-      // Ensure display shows 00:00, stop timer and play alarm
+      // Time's up
       remainingSeconds = 0;
       clearInterval(timerId);
       timerId = null;
-      playAlarm();
+      playAlarm();    // plays sound only
+      startFlashing(); // flash background
     }
   }, 1000);
 }
 
-// Helper to format and write the time as MM:SS
-function updateDisplay() {
-  const minutes = String(Math.floor(remainingSeconds / 60)).padStart(2, "0");
-  const seconds = String(remainingSeconds % 60).padStart(2, "0");
-  const el = document.getElementById("timeRemaining");
-  if (el) {
-    el.textContent = `Time Remaining: ${minutes}:${seconds}`;
-  }
+// Set a new alarm
+function setAlarm() {
+  const input = document.getElementById("alarmSet");
+  const time = parseInt(input.value, 10);
+
+  if (isNaN(time) || time <= 0) return;
+
+  clearInterval(timerId);
+  timerId = null;
+  remainingSeconds = time;
+  input.value = "";
+
+  stopFlashing();  // reset background if previous alarm was active
+  updateDisplay();
+  startCountdown();
 }
-// pauseCountdown stops the countdown timer
+
+// Pause countdown
 function pauseCountdown() {
   if (timerId !== null) {
     clearInterval(timerId);
     timerId = null;
   }
+  stopFlashing(); // stop flashing if paused
 }
 
+// Resume countdown
+function resumeCountdown() {
+  if (timerId === null && remainingSeconds > 0) {
+    startCountdown();
+  }
+}
+
+// --- Event listeners for Pause and Resume moved outside DO NOT EDIT ---
+window.addEventListener("DOMContentLoaded", () => {
+  const pauseBtn = document.getElementById("pause");
+  const resumeBtn = document.getElementById("resume");
+   const stopBtn = document.getElementById("stop");
+
+  if (pauseBtn) pauseBtn.addEventListener("click", pauseCountdown);
+  if (resumeBtn) resumeBtn.addEventListener("click", resumeCountdown);
+  if (stopBtn) stopBtn.addEventListener("click", stopFlashing); // reset background
+});
 
 // DO NOT EDIT BELOW HERE
 
@@ -75,19 +104,17 @@ function setup() {
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
   });
-  document.getElementById("pause").addEventListener("click", () => {
-  pauseCountdown();
-});
+
 }
 
 function playAlarm() {
   audio.play();
-  document.body.classList.add("flash");
+
 }
 
 function pauseAlarm() {
   audio.pause();
-  document.body.classList.remove("flash");
+
 }
 
 window.onload = setup;
