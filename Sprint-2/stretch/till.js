@@ -10,7 +10,7 @@ function totalTill(till) {
   for (const [coin, quantity] of Object.entries(till)) {
     // coin is a string like "1p", "20p"
     // We need to strip the "p" and convert it into a number of pennies
-    const coinValue = parseInt(coin.replace("p", ""), 10);
+    const coinValue = parseInt(coin, 10);
     total += coinValue * quantity;
   }
 
