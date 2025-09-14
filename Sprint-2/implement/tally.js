@@ -3,10 +3,10 @@ function tally(items) {
     throw new Error("Input must be an array");
   }
 
-  const result = {};
+const result = Object.create(null);
   for (const item of items) {
-    if (Object.prototype.hasOwnProperty.call(result, item)) {
-      result[item] += 1;
+    if (result[item]) {
+      result[item] ++;
     } else {
       result[item] = 1;
     }
