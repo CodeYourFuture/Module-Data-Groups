@@ -1,7 +1,7 @@
-// Predict and explain first...
-
-// This program attempts to log out all the property values in the object.
-// But it isn't working. Explain why first and then fix the problem
+// Prediction and explanation:
+// The original code uses `for (const value of author)`, but `author` is an object,
+// not an array or other iterable. This will throw a TypeError.
+// To fix it, we need to loop over the object's values using Object.values().
 
 const author = {
   firstName: "Zadie",
@@ -11,6 +11,8 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+// Fix: use Object.values() to get an array of the values
+for (const value of Object.values(author)) {
   console.log(value);
 }
+
