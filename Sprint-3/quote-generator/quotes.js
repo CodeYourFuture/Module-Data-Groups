@@ -8,8 +8,9 @@ window.addEventListener("DOMContentLoaded", () => {
   // Function to display a random quote
   function displayRandomQuote() {
     const randomQuote = pickFromArray(quotes); // get random quote object
-    quoteEl.innerText = randomQuote.quote;     // set quote text
-    authorEl.innerText = randomQuote.author;   // set author text
+    quoteEl.innerHTML = `<div class="quote-symbol">“</div>${randomQuote.quote}`;
+    authorEl.innerText = `- ${randomQuote.author}`;
+    
   }
 
   // Display a quote immediately when page loads
