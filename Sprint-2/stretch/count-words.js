@@ -46,7 +46,7 @@ module.exports = countWords;
 */
 
 function countWordsAdvanced(str) {
-  const counts = {};
+  const counts = Object.create(null);
 
   // 1. Remove punctuation
   const noPunctuation = str.replace(/[.,!?]/g, "");
