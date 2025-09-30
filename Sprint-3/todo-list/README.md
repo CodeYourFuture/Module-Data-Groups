@@ -36,15 +36,20 @@ The items in the todo list are currently hard-coded into the HTML, refactor the 
 Each todo should have this HTML inside it:
 
 ```html
-<span class="badge bg-primary rounded-pill">
-  <i class="fa fa-check" aria-hidden="true"></i>
-  <i class="fa fa-trash" aria-hidden="true"></i>
-</span>
+<button type="button" class="btn btn-success" aria-label="Complete">
+  <i class="fas fa-check" aria-hidden="true"></i>
+</button>
+<button type="button" class="btn btn-danger" aria-label="Delete">
+  <i class="fas trash" aria-hidden="true"></i>
+</button>
 ```
+The first `<button>` tag needs an event listener that applies a line-through the text of the todo (to visually indicate 
+that the todo item was completed). If the button is clicked again, the styling should be removed.
 
-The first `<i>` tag needs an event listener that applies a line-through text-decoration styling to the text of the todo. It should remove the styling if it is clicked again.
+The second `<button>` tag needs an event listener that deletes the parent `<li>` element from the `<ul>`.
 
-The second `<i>` tag needs an event listener that deletes the parent `<li>` element from the `<ul>`.
+The `<i>` tags are icons from Font Awesome. Using icons is optional, but it is a good way to visually indicate what the
+button does.
 
 ## Advanced Challenge
 
