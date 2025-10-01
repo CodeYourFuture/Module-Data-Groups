@@ -1,15 +1,13 @@
-// The tests is designed to demonstrates we can test the functions
+// The tests is prepared to demonstrate we can test the functions
 // in a module independently.
 
 // Command to execute this script:
 //   npm test todos.test.mjs
 
-
 // Import all the exported members through an object
 import * as Todos from "./todos.mjs";
 
-// Return a mock ToDo List data
-// Tests in this file expect exactly 4 elements in the mocked ToDo List
+// Return a mock ToDo List data with exactly 4 elements.
 function createMockTodos() {
   return [
     { task: "Task 1 description", completed: true },
@@ -19,26 +17,26 @@ function createMockTodos() {
   ];
 }
 
+// A mock task to simulate user input
 const theTask = { task: "The Task", completed: false };
 
-
 describe("addTask()", () => {
-  test("Add a task to an empty array", () => {
+  test("Add a task to an empty ToDo list", () => {
     let todos = [];
     Todos.addTask(todos, theTask.task, theTask.completed);
     expect(todos).toHaveLength(1);
     expect(todos[0]).toEqual(theTask);
   });
 
-  test("Should append a task to end of an array", () => {
+  test("Should append a new task to the end of a ToDo list", () => {
 
     const todos = createMockTodos();
-    const lengthBeforeAddingTask = todos.length;
+    const lengthBeforeAddition = todos.length;
     Todos.addTask(todos, theTask.task, theTask.completed);
-    // Array should have one more task
-    expect(todos).toHaveLength(lengthBeforeAddingTask + 1);
+    // todos should now have one more task
+    expect(todos).toHaveLength(lengthBeforeAddition + 1);
 
-    // New task should be appended to the array
+    // New task should be appended to the todos
     expect(todos[todos.length - 1]).toEqual(theTask);
   });
 });
@@ -47,24 +45,24 @@ describe("deleteTask()", () => {
 
   test("Delete the first task", () => {
     const todos = createMockTodos();
-    const todosBeforeDeletion = createMockTodos();
-    const lengthBeforeAddingTask = todos.length;    
+    const todosBeforeDeletion = [...todos];
+    const lengthBeforeDeletion = todos.length;
     Todos.deleteTask(todos, 0);
 
-    expect(todos).toHaveLength(lengthBeforeAddingTask-1);
+    expect(todos).toHaveLength(lengthBeforeDeletion - 1);
 
     expect(todos[0]).toEqual(todosBeforeDeletion[1]);
     expect(todos[1]).toEqual(todosBeforeDeletion[2]);
     expect(todos[2]).toEqual(todosBeforeDeletion[3]);        
   });
 
-  test("Delete a middle task", () => {
+  test("Delete the second task (a middle task)", () => {
     const todos = createMockTodos();
-    const todosBeforeDeletion = createMockTodos();
-    const lengthBeforeAddingTask = todos.length;    
+    const todosBeforeDeletion = [...todos];
+    const lengthBeforeDeletion = todos.length;
     Todos.deleteTask(todos, 1);
 
-    expect(todos).toHaveLength(lengthBeforeAddingTask-1);
+    expect(todos).toHaveLength(lengthBeforeDeletion - 1);
 
     expect(todos[0]).toEqual(todosBeforeDeletion[0]);
     expect(todos[1]).toEqual(todosBeforeDeletion[2]);
@@ -73,11 +71,11 @@ describe("deleteTask()", () => {
 
   test("Delete the last task", () => {
     const todos = createMockTodos();
-    const todosBeforeDeletion = createMockTodos();
-    const lengthBeforeAddingTask = todos.length;    
-    Todos.deleteTask(todos, todos.length-1);
+    const todosBeforeDeletion = [...todos];
+    const lengthBeforeDeletion = todos.length;
+    Todos.deleteTask(todos, todos.length - 1);
 
-    expect(todos).toHaveLength(lengthBeforeAddingTask-1);
+    expect(todos).toHaveLength(lengthBeforeDeletion - 1);
 
     expect(todos[0]).toEqual(todosBeforeDeletion[0]);
     expect(todos[1]).toEqual(todosBeforeDeletion[1]);
@@ -86,7 +84,7 @@ describe("deleteTask()", () => {
 
   test("Delete a non-existing task", () => {
     const todos = createMockTodos();
-    const todosBeforeDeletion = createMockTodos();
+    const todosBeforeDeletion = [...todos];
     Todos.deleteTask(todos, 10);
     expect(todos).toEqual(todosBeforeDeletion);
 
@@ -100,18 +98,18 @@ describe("toggleCompletedOnTask()", () => {
   test("Expect the 'completed' property to toggle on an existing task", () => {
     const todos = createMockTodos();
     const taskIdx = 1;
-    const completedBeforeToggle = todos[taskIdx].completed;
+    const completedStateBeforeToggle = todos[taskIdx].completed;
     Todos.toggleCompletedOnTask(todos, taskIdx);
-    expect(todos[taskIdx].completed).toEqual(!completedBeforeToggle);
+    expect(todos[taskIdx].completed).toEqual(!completedStateBeforeToggle);
 
     // Toggle again
     Todos.toggleCompletedOnTask(todos, taskIdx);
-    expect(todos[taskIdx].completed).toEqual(completedBeforeToggle);  
+    expect(todos[taskIdx].completed).toEqual(completedStateBeforeToggle);
   });
 
-  test("Expect toggling on an existing task does not affect other tasks", () => {
+  test("Expect toggling on a task does not affect other tasks", () => {
     const todos = createMockTodos();
-    const todosBeforeToggle = createMockTodos();    
+    const todosBeforeToggle = [...todos];
     Todos.toggleCompletedOnTask(todos, 1);
     
     expect(todos[0]).toEqual(todosBeforeToggle[0]);    
@@ -122,7 +120,7 @@ describe("toggleCompletedOnTask()", () => {
 
   test("Expect no change when toggling on a non-existing task", () => {
     const todos = createMockTodos();
-    const todosBeforeToggle = createMockTodos();
+    const todosBeforeToggle = [...todos];
 
     Todos.toggleCompletedOnTask(todos, 10);
     expect(todos).toEqual(todosBeforeToggle);

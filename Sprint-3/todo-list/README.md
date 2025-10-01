@@ -24,25 +24,39 @@ To view the website, open `index.html` with Live Server in VS Code.
 
 ## Instructions
 
-In this exercise, your objective is to implement additional features.
+In this exercise, your objective is to extend the ToDo app by implementing new features. 
+Start with the main feature and then try the stretch goals if you have extra time.
 
-#### Feature 1: Mass delete of completed ToDos
+### Main Feature: Mass delete of completed ToDos
 
-Add a "Delete completed tasks" button that, when clicked, will delete all the completed ToDos. You should 
-- In `todos.mjs`, implement a function to delete all completed tasks in the given ToDo List
-- In `todos.test.mjs`, implement a test to check your function.
-- In `script.js`, call the function to delete all completed tasks whenever the user clicks a "Delete All" button.
+Add a button that deletes all completed tasks at once.
 
-#### Stretch 1: Set deadlines for ToDos
+Steps:
+1. In `index.html`, add a "Delete completed tasks" button.
 
-We want users to be able to set, and see, deadlines for their ToDos.
+2. In `todos.mjs`, implement a function `deleteCompleted(todoList)` that removes all completed 
+   ToDos from the given list.
 
-When creating a ToDo we want the user to be able to use a datepicker input to specify a deadline for the Todo.
-If no date is selected, the ToDo is considered having no deadline.
+3. In `todos.test.mjs`, write a Jest test that verifies `deleteCompleted()` works correctly.
 
-When displaying a ToDo in the list, display the deadline only if the ToDo has one.
+4. In `script.js`, call `deleteCompleted()` whenever the new button is clicked.
+    - ⚠️ You should not need to modify the `render()` function.
 
-#### Stretch 2: EXTRA CHALLENGE
+### Stretch 1: Add deadlines for ToDos
 
-Instead of displaying the date on the ToDo, implement a countdown of days left until the deadline. You can use the Javascript Date reference to accomplish this:
-https://www.w3schools.com/jsref/jsref_obj_date.asp
+Allow users to set and view deadlines for their tasks.
+    - When creating a ToDo, let the user select a deadline using an HTML **datepicker** input.
+    - If no date is selected, the ToDo has **no deadline**.
+    - When rendering a ToDo in the list, display the deadline only if it exists.
+
+### Stretch 2: Extra Challenge – Show time remaining
+
+Instead of showing the deadline as a date, display how many days are left until the 
+deadline (relative to today).
+    - Decide how overdue ToDos should be handled and then implement your chosen solution.
+
+👉 Hint: You can use the [JavaScript Date API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+to calculate the difference.
+
+
+

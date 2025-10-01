@@ -1,6 +1,7 @@
 # Why modularize code?
 
-Modularizing code means breaking a program into smaller, self-contained pieces (modules), each responsible for a specific functionality. This approach offers several key advantages:
+Modularizing code means breaking a program into smaller, self-contained pieces (modules),
+each responsible for a specific functionality. This approach offers several key advantages:
 
 - Reusability – You can use the same code in different parts of a project or in other projects.
 - Maintainability – It's easier to fix bugs or update features when code is organized into smaller parts.
@@ -12,9 +13,19 @@ Modularizing code means breaking a program into smaller, self-contained pieces (
 
 ## How to break a program into smaller modules?
 
-This is a relatively big topic and you will learn more about how to modularize a web app in the SDC course.
+This is a relatively big topic and you will learn more about how to modularize a web app in the 
+SDC course.
 
-For starters, we recommend focusing on breaking a web app into the **non-UI part** and the **UI part**.
+For starters, we recommend focusing on breaking a web app into the **non-UI part** and 
+the **UI part**. Some of the advantages of doing so include:
+
+1. Easier Testing
+    - Non-UI code can be tested independently with unit tests.
+    - You don't need browser environments or DOM simulations (e.g., `jsdom`) for testing logic.
+
+2. Easier Collaboration
+    - UI developers and business-logic developers can work more independently.
+    - Clearer separation of concerns makes the codebase easier to maintain over time.
 
 ### The Non-UI Part of a Web App
 

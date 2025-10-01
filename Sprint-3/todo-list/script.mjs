@@ -1,18 +1,10 @@
-// Note: Todos will be an object containing all the named exports from
-// the "./todos.mjs" module.
+// Store everything imported from './todos.mjs' module as properties of an object named Todos 
 import * as Todos from "./todos.mjs";
 
 // To store the todo tasks
 let todos = [];
 
-// First child of #todo-item-template is a <li> element.
-// We will create each ToDo list item as a clone of this node.
-const todoListItemTemplate = 
-  document.getElementById("todo-item-template").content.firstElementChild;
-
-const todoListEl = document.getElementById("todo-list");
-
-
+// Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
 
@@ -37,6 +29,12 @@ function addNewTodo() {
   taskInput.value = "";
 }
 
+// Note:
+// - Store the reference to the <ul> element with id "todo-list" here
+//   to avoid querying the DOM repeatedly inside render().
+// - This variable is declared here to be close to the only function that uses it.
+const todoListEl = document.getElementById("todo-list");
+
 // Render the whole todo list
 function render() {
   todoListEl.innerHTML = "";
@@ -46,6 +44,14 @@ function render() {
     todoListEl.append(todoListItem);
   });
 }
+
+
+// Note:
+// - First child of #todo-item-template is a <li> element.
+//   We will create each ToDo list item as a clone of this node.
+// - This variable is declared here to be close to the only function that uses it.
+const todoListItemTemplate = 
+  document.getElementById("todo-item-template").content.firstElementChild;
 
 // Create a <li> element for the given todo task
 function createListItem(todo, index) {

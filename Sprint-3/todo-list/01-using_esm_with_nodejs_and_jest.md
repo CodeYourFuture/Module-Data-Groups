@@ -4,7 +4,8 @@
 
 Node.js supports both CommonJS and ESM, with CommonJS being the default module system.
 
-To use ESM, we can add `"type": "module"` to `package.json`, or we can name the JS script files with `.mjs` file extension.
+To use ESM, we can add `"type": "module"` to `package.json`, or we can name the JavaScript files
+with `.mjs` file extension.
 
 **Important**:
 - Avoid mixing CommonJS and ESM in the same project unless you know what you're doing.
@@ -37,11 +38,13 @@ One way to execute Jest test script that uses ESM is to
 npm test -- <test_script_filename>
 ```
 
-**Note**: The `--` is optional if you do not have arguments to be forwarded to the underlying jest command.
+**Note**: The `--` is optional if you do not have arguments to be forwarded to the underlying 
+`jest` command.
 
 
 ## `jsdom`
 
-[**`jsdom`**](https://github.com/jsdom/jsdom), a pure-JavaScript implementation of DOM for use with Node.js, **does not yet support** `<script type="module">` tags in HTML.
+[**`jsdom`**](https://github.com/jsdom/jsdom), a pure-JavaScript implementation of DOM for 
+use with Node.js, **does not yet support** `<script type="module">` tags in HTML.
 
 Testing an ESM-based application with `jsdom` requires additional configuration and third-party tooling.
