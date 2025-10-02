@@ -9,7 +9,7 @@ JavaScript has two main ways to handle modules:
 
 - **ES Modules** (ESM) are the modern, standard way for browsers and Node.js. They use `import` and `export`.
 
-They are **not** fully compatible.
+They are **not** fully compatible. At CYF, you should use ESM, not CommonJS.
 
 ## Where can I learn ESM?
 - [Modules, introduction](https://javascript.info/modules-intro)
