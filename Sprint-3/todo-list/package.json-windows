@@ -5,6 +5,7 @@
   "description": "You must update this package",
   "type": "module",
   "scripts": {
+    "serve": "http-server",
     "test": "set NODE_OPTIONS=--experimental-vm-modules && jest"
   },
   "repository": {
@@ -16,6 +17,7 @@
   },
   "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
   "devDependencies": {
+    "http-server": "^14.1.1",
     "jest": "^30.0.4"
   }
 }

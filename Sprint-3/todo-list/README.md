@@ -14,7 +14,7 @@ Each ToDo task has two properties:
 
 To view the website, open `index.html` with Live Server in VS Code.
 
-**Note**: The app is loaded **as ES modules** in the HTML file, and as such, the HTML file must be accessed via the HTTP or HTTPS protocol.
+**Note**: The app is loaded **as ES modules** in the HTML file, and as such, the HTML file must be accessed via the HTTP or HTTPS protocol. In this project, we have included `http-server` as a dev-dependency, so after you `npm install`, you can run `npm run serve` from this directory to serve this project over HTTP.
 
 ## Understanding how the code is organized as ES modules
 

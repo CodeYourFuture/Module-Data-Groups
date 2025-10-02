@@ -29,7 +29,6 @@ describe("addTask()", () => {
   });
 
   test("Should append a new task to the end of a ToDo list", () => {
-
     const todos = createMockTodos();
     const lengthBeforeAddition = todos.length;
     Todos.addTask(todos, theTask.task, theTask.completed);
@@ -97,14 +96,14 @@ describe("toggleCompletedOnTask()", () => {
 
   test("Expect the 'completed' property to toggle on an existing task", () => {
     const todos = createMockTodos();
-    const taskIdx = 1;
-    const completedStateBeforeToggle = todos[taskIdx].completed;
-    Todos.toggleCompletedOnTask(todos, taskIdx);
-    expect(todos[taskIdx].completed).toEqual(!completedStateBeforeToggle);
+    const taskIndex = 1;
+    const completedStateBeforeToggle = todos[taskIndex].completed;
+    Todos.toggleCompletedOnTask(todos, taskIndex);
+    expect(todos[taskIndex].completed).toEqual(!completedStateBeforeToggle);
 
     // Toggle again
-    Todos.toggleCompletedOnTask(todos, taskIdx);
-    expect(todos[taskIdx].completed).toEqual(completedStateBeforeToggle);
+    Todos.toggleCompletedOnTask(todos, taskIndex);
+    expect(todos[taskIndex].completed).toEqual(completedStateBeforeToggle);
   });
 
   test("Expect toggling on a task does not affect other tasks", () => {
