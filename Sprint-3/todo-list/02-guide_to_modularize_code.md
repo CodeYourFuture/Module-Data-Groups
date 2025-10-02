@@ -44,6 +44,10 @@ It focuses on:
 - ✅ How to present data on the screen
 - ✅ Calling functions in the non-UI part to process the data
 
+### Dependencies
+
+The UI parts can depend on the non-UI parts (e.g. call functions from the non-UI parts). But the non-UI parts should not depend on the UI parts.
+
 ### Example: The ToDo App
 - The non-UI part is implemented in `todos.mjs`
 - The UI part is implemented in `script.mjs`
