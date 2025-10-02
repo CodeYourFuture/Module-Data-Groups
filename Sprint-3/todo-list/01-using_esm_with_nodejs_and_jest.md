@@ -8,7 +8,7 @@ To use ESM, we can add `"type": "module"` to `package.json`, or we can name the 
 with `.mjs` file extension.
 
 **Important**:
-- Avoid mixing CommonJS and ESM in the same project unless you know what you're doing.
+- Avoid mixing CommonJS and ESM in the same project. At CYF you should only use ESM.
 
 
 ## Jest
