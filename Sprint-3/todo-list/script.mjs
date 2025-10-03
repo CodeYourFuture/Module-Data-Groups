@@ -2,7 +2,7 @@
 import * as Todos from "./todos.mjs";
 
 // To store the todo tasks
-let todos = [];
+const todos = [];
 
 // Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
@@ -58,8 +58,9 @@ function createListItem(todo, index) {
   const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
 
   li.querySelector(".description").textContent = todo.task;
-  if (todo.completed)
+  if (todo.completed) {
     li.classList.add("completed");
+  }
 
   li.querySelector('.complete-btn').addEventListener("click", () => {
     Todos.toggleCompletedOnTask(todos, index);

@@ -12,9 +12,39 @@ Each ToDo task has two properties:
 
 ## Installation
 
-To view the website, open `index.html` with Live Server in VS Code.
+Run the following command in this directory to install all required dependencies: 
+```
+  npm install
+```
+> This will install
+- `jest` - for running unix test
+- `http-server` - for serving `index.html` over HTTP
+ 
+**Note:** If you are using a Windows CLI, replace `package.json` by `package.json-windows`.
 
-**Note**: The app is loaded **as ES modules** in the HTML file, and as such, the HTML file must be accessed via the HTTP or HTTPS protocol.
+## Running the App 
+
+Since the app uses **ES modules**, the HTML file **must be loaded via HTTP/HTTPS** rather than
+directly from the file system.
+
+Make sure you run the server in this directory where `index.html` is located.
+
+Two possible ways to serve `index.html` over HTTP:
+
+#### Option 1: `http-server`
+
+1. Run 
+   ```
+   npm run serve
+   ```
+   > Here, `serve` is a shortcut defined in `package.json` for running `http-server`.
+  
+  
+2. Open one of the URLs shown in the terminal (e.g., `http://127.0.0.1:8080`).
+
+
+#### Option 2: Open `index.html` with Live Server in VSCode.
+
 
 ## Understanding how the code is organized as ES modules
 
@@ -22,7 +52,9 @@ To view the website, open `index.html` with Live Server in VS Code.
 - [How to use ES modules with Node.js and Jest?](01-using_esm_with_nodejs_and_jest.md)
 - [A guide to modularize a web app](02-guide_to_modularize_code.md)
 
-## Instructions
+---
+
+## Exercise Instructions
 
 In this exercise, your objective is to extend the ToDo app by implementing new features. 
 Start with the main feature and then try the stretch goals if you have extra time.
