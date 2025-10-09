@@ -14,12 +14,13 @@ const findMax = require("./max.js");
 
 // Making sure the elements is an array
 test("throws an error if input is not an array", () => {
-  expect(() => findMax("not an array")).toThrow("Input must be an array");
-  expect(() => findMax(123)).toThrow("Input must be an array");
-  expect(() => findMax({})).toThrow("Input must be an array");
-  expect(() => findMax(null)).toThrow("Input must be an array");
-  expect(() => findMax(undefined)).toThrow("Input must be an array");
-  expect(() => findMax(true)).toThrow("Input must be an array");
+  const errorMessage = "Input must be an array";
+  expect(() => findMax("not an array")).toThrow(errorMessage);
+  expect(() => findMax(123)).toThrow(errorMessage);
+  expect(() => findMax({})).toThrow(errorMessage);
+  expect(() => findMax(null)).toThrow(errorMessage);
+  expect(() => findMax(undefined)).toThrow(errorMessage);
+  expect(() => findMax(true)).toThrow(errorMessage);
 });
 
 // Given an empty array

@@ -13,12 +13,13 @@ const sum = require("./sum.js");
 // Ensure the input is an array
 // If the input is not an array, throw an error
 test("throws an error if the input is not an array", () => {
-  expect(() => sum(123)).toThrow("Input must be an array");
-  expect(() => sum("not an array")).toThrow("Input must be an array");
-  expect(() => sum({ key: "value" })).toThrow("Input must be an array");
-  expect(() => sum(null)).toThrow("Input must be an array");
-  expect(() => sum(undefined)).toThrow("Input must be an array");
-  expect(() => sum(true)).toThrow("Input must be an array");
+  const errorMessage = "Input must be an array";
+  expect(() => sum(123)).toThrow(errorMessage);
+  expect(() => sum("not an array")).toThrow(errorMessage);
+  expect(() => sum({ key: "value" })).toThrow(errorMessage);
+  expect(() => sum(null)).toThrow(errorMessage);
+  expect(() => sum(undefined)).toThrow(errorMessage);
+  expect(() => sum(true)).toThrow(errorMessage);
 });
 
 // Given an empty array
