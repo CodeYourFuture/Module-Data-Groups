@@ -39,4 +39,4 @@ function countWords(str) {
   });
   return obj;
 }
-countWords("you and mE anD you me! me");
+// countWords("you and mE anD you me! me");
