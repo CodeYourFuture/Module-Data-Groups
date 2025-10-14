@@ -57,14 +57,16 @@ test("Given an array with arrays but some are displaced, return error message", 
 
 test("Given an array with array of non-strings, return accordingly", () => {
   const nonStringInput = [
-    ["US", undefined],
+    [undefined, true],
     ["CA", "CAD"],
     ["JP", null],
+    [123, 456],
   ];
   const target = {
-    US: undefined,
+    undefined: true,
     CA: "CAD",
     JP: null,
+    123: 456,
   };
   expect(createLookup(nonStringInput)).toStrictEqual(target);
 });
