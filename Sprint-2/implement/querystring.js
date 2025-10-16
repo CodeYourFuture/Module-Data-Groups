@@ -31,6 +31,4 @@ function parseQueryString(queryString) {
   return queryParams;
 }
 
-parseQueryString("aloneKey");
-
 module.exports = parseQueryString;

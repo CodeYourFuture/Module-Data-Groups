@@ -19,6 +19,4 @@ function tally(arr) {
   return result;
 }
 
-tally(["a", "a", "a"]);
-
 module.exports = tally;
