@@ -16,7 +16,7 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe.ingredients.map((ingredient) => `${ingredient}`).join("\n")}`);
+${recipe.ingredients.join("\n")}`);
 
 // After the first attempt, I realized that I can't use a for loop inside ${}
 // so, I tried map function to get each ingredient and added \n between them.
