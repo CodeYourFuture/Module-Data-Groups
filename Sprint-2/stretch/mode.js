@@ -21,10 +21,10 @@ function trackFrequency(list) {
   return frequency;
 }
 
-function highestFrequency(frequencyArray) {
+function highestFrequency(frequencyMap) {
   let maxFreq = 0;
   let mode;
-  for (let [num, freq] of frequencyArray) {
+  for (let [num, freq] of frequencyMap) {
     if (freq > maxFreq) {
       mode = num;
       maxFreq = freq;
@@ -35,11 +35,13 @@ function highestFrequency(frequencyArray) {
 
 function calculateMode(list) {
   // track frequency of each value
-  const frequencyArray = trackFrequency(list);
+  const frequencyMap = trackFrequency(list);
 
   // Find the value with the highest frequency
 
-  return highestFrequency(frequencyArray);
+  return highestFrequency(frequencyMap);
 }
+
+calculateMode([1, 3, "2", 2, 3, null]);
 
 module.exports = calculateMode;
