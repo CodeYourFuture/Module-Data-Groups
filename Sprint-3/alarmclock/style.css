@@ -4,6 +4,7 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 #alarmSet {
@@ -12,4 +13,49 @@
 
 h1 {
   text-align: center;
+}
+
+@keyframes flash {
+  0% {
+    background-color: silver;
+    color: white;
+  }
+  50% {
+    background-color: white;
+    color: black;
+  }
+  100% {
+    background-color: silver;
+    color: white;
+  }
+}
+
+.flash-background {
+  animation: flash 1s infinite;
+}
+
+#alarmInputField {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+#alarmSet {
+  height: 30px;
+  max-width: 80px;
+  font-size: large;
+  text-align: center;
+}
+
+#buttonField {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+button {
+  border-radius: 8px;
+  font-size: medium;
+  margin-top: 8px;
 }
