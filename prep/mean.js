@@ -9,4 +9,6 @@ function calculateMean(list) {
     return total / list.length;
 }
 
-calculateMean([1,2,3,4,5]);
+//calculateMean([1,2,3,4,5]);
+
+module.exports = calculateMean;
