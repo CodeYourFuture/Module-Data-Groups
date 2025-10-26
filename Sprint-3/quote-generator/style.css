@@ -1,1 +1,36 @@
 /** Write your CSS in here **/
+:root {
+  --primary-bg-color: #e9b066;
+  --primary-color: #ffffff;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--primary-bg-color);
+}
+
+#poster {
+  width: 80%;
+  padding: 25px;
+  background-color: var(--primary-color);
+  color: var(--primary-bg-color);
+  font-size: larger;
+  font-style: italic;
+  position: relative;
+  top: 100px;
+}
+
+#quote {
+  font-weight: bold;
+}
+
+button {
+  border-radius: 8px;
+  font-size: medium;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-color);
+  border: none;
+}
