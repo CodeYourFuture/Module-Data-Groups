@@ -14,5 +14,15 @@ module.exports = calculateMedian;
 
 // How to calculate the median of an array without muatating the array
 function calculateMedian(list) {
-  const arrayLength = list.length;
+  let median = "no implementation for this test case yet";
+  const arrayLength = list.length; // 3
+  if (arrayLength % 2 !== 0) {
+    const lengthDividedByTwo = Math.floor(arrayLength / 2);
+    median = lengthDividedByTwo;
+
+  }
+  return list[median];
 }
+
+const actualOutput = calculateMedian([10, 20, 30, 40, 50]);
+console.log("median", actualOutput);
