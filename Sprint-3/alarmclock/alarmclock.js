@@ -1,15 +1,14 @@
 let timer;
 let timeLeft = 0;
 let paused = false;
-const timeDisplay = document.getElementById("timeRemaining");
 const pauseBtn = document.getElementById("pauseAndResume");
 const setBtn = document.getElementById("set");
-const stopBtn = document.getElementById("stop");
 const inputField = document.getElementById("alarmSet");
 const audio = new Audio("alarmsound.mp3");
 
 // update alarm
 function updateDisplay() {
+  const timeDisplay = document.getElementById("timeRemaining");
   const mm = String(Math.floor(timeLeft / 60)).padStart(2, "0");
   const ss = String(timeLeft % 60).padStart(2, "0");
   timeDisplay.textContent = `Time Remaining: ${mm}:${ss}`;
@@ -93,6 +92,7 @@ function stopAlarm() {
 }
 
 function setup() {
+  const stopBtn = document.getElementById("stop");
   setBtn.addEventListener("click", setAlarm);
   pauseBtn.addEventListener("click", pauseResumeHandler);
   stopBtn.addEventListener("click", stopAlarm);
