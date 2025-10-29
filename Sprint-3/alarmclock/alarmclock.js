@@ -48,7 +48,10 @@ function startCountdown() {
 // set up alarm
 function setAlarm() {
   const val = parseInt(inputField.value);
-  if (!val || val <= 0) return;
+  if (!val || val <= 0) {
+    alert("Please enter a valid number of seconds.");
+    return;
+  }
 
   timeLeft = val;
   updateDisplay();
