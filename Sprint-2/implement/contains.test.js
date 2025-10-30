@@ -41,3 +41,8 @@ test("contains on object with non-existent property returns false", () => {
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("contains on invalid parameters returns false", () => {
+  expect(contains([], "a")).toBe(false);
+  expect(contains(null, "a")).toBe(false);
+  expect(contains(undefined, "a")).toBe(false);
+});

@@ -6,10 +6,11 @@ function contains(obj, key) {
    * @returns {boolean} - Returns true if the value is found, otherwise false.
    */
   if (obj === null || typeof obj !== "object" || Array.isArray(obj)) {
-    throw new TypeError("First argument must be a non-null object");
+    return false;
   }
 
   return Object.prototype.hasOwnProperty.call(obj, key);
 }
 
 module.exports = contains;
+
