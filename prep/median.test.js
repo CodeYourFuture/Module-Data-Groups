@@ -15,12 +15,10 @@ test("should not modify the input", () => {
   expect(currentOutput).toEqual(2);
 });
 
-test(
-  "should return the average of the two middle numbers as the median for an array with even length",
-  () => {
+test("should return the average of the two middle numbers as the median for an array with even length", () => {
     const list = [2, 6, 4, 3];
     const currentOutput = calculateMedian(list);
-    expect(currentOutput).toEqual(5);
+    expect(currentOutput).toEqual(5)
   }
 );
 
