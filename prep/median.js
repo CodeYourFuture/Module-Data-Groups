@@ -19,19 +19,13 @@ function calculateMedian(list) {
   const arrayLength = list.length; // 3
   if (arrayLength % 2 !== 0) {
     medianIndex = (arrayLength + 1) / 2;
-    console.log(medianIndex - 1);
     actualMedian = list[medianIndex - 1];
-  } 
-  else {
-  medianIndex = (arrayLength) / 2;
-  console.log(medianIndex);
-  firstMedianIndex = list[medianIndex - 1];
-  secondMedianIndex = list[medianIndex];
-  actualMedian = (firstMedianIndex + secondMedianIndex) / 2
-  
+  } else {
+    medianIndex = arrayLength / 2;
+
+    firstMedianIndex = list[medianIndex - 1];
+    secondMedianIndex = list[medianIndex];
+    actualMedian = (firstMedianIndex + secondMedianIndex) / 2;
   }
   return actualMedian;
 }
-
-const actualOutput = calculateMedian([10, 20, 30, 50]);
-console.log("median", actualOutput);
