@@ -10,3 +10,42 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses basic single parameter", () => {
+  expect(parseQueryString("name=John")).toEqual({
+    "name": "John",
+  });
+});
+
+test("parses multiple parameters", () => {
+  expect(parseQueryString("name=John&age=30&city=London")).toEqual({
+    "name": "John",
+    "age": "30",
+    "city": "London",
+  });
+});
+
+test("handles empty querystring", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("handles parameters with empty values", () => {
+  expect(parseQueryString("name=&age=30")).toEqual({
+    "name": "",
+    "age": "30",
+  });
+});
+
+test("handles parameters without values (no = sign)", () => {
+  expect(parseQueryString("flag&name=John")).toEqual({
+    "flag": undefined,
+    "name": "John",
+  });
+});
+
+test("handles multiple = signs in value", () => {
+  expect(parseQueryString("formula=a=b=c&x=1")).toEqual({
+    "formula": "a=b=c",
+    "x": "1",
+  });
+});
