@@ -45,7 +45,7 @@ describe("deleteTask()", () => {
 
   test("Delete the first task", () => {
     const todos = createMockTodos();
-    const todosBeforeDeletion = [...todos];
+    const todosBeforeDeletion = createMockTodos();
     const lengthBeforeDeletion = todos.length;
     Todos.deleteTask(todos, 0);
 
@@ -58,7 +58,7 @@ describe("deleteTask()", () => {
 
   test("Delete the second task (a middle task)", () => {
     const todos = createMockTodos();
-    const todosBeforeDeletion = [...todos];
+    const todosBeforeDeletion = createMockTodos();
     const lengthBeforeDeletion = todos.length;
     Todos.deleteTask(todos, 1);
 
@@ -71,7 +71,7 @@ describe("deleteTask()", () => {
 
   test("Delete the last task", () => {
     const todos = createMockTodos();
-    const todosBeforeDeletion = [...todos];
+    const todosBeforeDeletion = createMockTodos();
     const lengthBeforeDeletion = todos.length;
     Todos.deleteTask(todos, todos.length - 1);
 
@@ -84,7 +84,7 @@ describe("deleteTask()", () => {
 
   test("Delete a non-existing task", () => {
     const todos = createMockTodos();
-    const todosBeforeDeletion = [...todos];
+    const todosBeforeDeletion = createMockTodos();
     Todos.deleteTask(todos, 10);
     expect(todos).toEqual(todosBeforeDeletion);
 
@@ -109,7 +109,7 @@ describe("toggleCompletedOnTask()", () => {
 
   test("Expect toggling on a task does not affect other tasks", () => {
     const todos = createMockTodos();
-    const todosBeforeToggle = [...todos];
+    const todosBeforeToggle = createMockTodos();
     Todos.toggleCompletedOnTask(todos, 1);
     
     expect(todos[0]).toEqual(todosBeforeToggle[0]);    
@@ -120,7 +120,7 @@ describe("toggleCompletedOnTask()", () => {
 
   test("Expect no change when toggling on a non-existing task", () => {
     const todos = createMockTodos();
-    const todosBeforeToggle = [...todos];
+    const todosBeforeToggle = createMockTodos();
 
     Todos.toggleCompletedOnTask(todos, 10);
     expect(todos).toEqual(todosBeforeToggle);
