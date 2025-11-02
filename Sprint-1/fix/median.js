@@ -6,9 +6,17 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
-}
+  const numericValue = list.filter(n => typeof n === 'number' && !isNaN(n));
+  if (numericalValue === 0) return null;
+  numericValue.sort((a,b)=>a-b);
+
+  const middleIndex = Math.floor(numericValue.length / 2);
+  if (numericValue.length % 2===0){
+    return(numericValue[middleIndex-1]+numericValue[middleIndex])/2;
+   }
+   else {
+    return numericValue[middleIndex]
+   }
+  }
 
 module.exports = calculateMedian;
