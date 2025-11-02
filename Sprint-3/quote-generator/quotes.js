@@ -498,6 +498,10 @@ function updateQuoteAndAuthor() {
   document.getElementById("author").innerText = author;
 }
 
+function autoUpdateQuoteAndAuthor () {
+  
+}
+
 window.onload = () => {
   updateQuoteAndAuthor();
   document
