@@ -498,12 +498,23 @@ function updateQuoteAndAuthor() {
   document.getElementById("author").innerText = author;
 }
 
-function autoUpdateQuoteAndAuthor () {
-  
+function autoUpdateQuoteAndAuthor() {
+  let autoQuote = document.getElementById("toggle-btn");
+  let intervalId;
+  autoQuote.addEventListener("change", () => {
+    if (autoQuote.checked) {
+      intervalId = setInterval(() => {
+        updateQuoteAndAuthor();
+      }, 3000);
+    } else {
+      clearInterval(intervalId);
+    }
+  });
 }
 
 window.onload = () => {
   updateQuoteAndAuthor();
+  autoUpdateQuoteAndAuthor();
   document
     .getElementById("new-quote")
     .addEventListener("click", updateQuoteAndAuthor);
