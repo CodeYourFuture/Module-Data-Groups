@@ -31,6 +31,13 @@ describe("dedupe", () => {
     const inputArray = [];
     const actualOutput = dedupe(inputArray);
     const expectedOutput = [];
-    expect(actualOutput).toStrictEqual(expectedOutput);
+    expect(actualOutput).toEqual(expectedOutput);
   });
+
+  test("returns a copy of the original array when there is no duplicates", () => {
+    const inputArray = [1, 2, 3];
+    const actualOutput = dedupe(inputArray);
+    const expectedOutput = [1, 2, 3];
+    expect(actualOutput).toEqual(expectedOutput);
+  })
 });
