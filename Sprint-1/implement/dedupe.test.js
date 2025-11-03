@@ -25,3 +25,12 @@ test.todo("given an empty array, it returns an empty array");
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+
+describe("dedupe", () => {
+  test("returns an empty array when given an empty array", () => {
+    const inputArray = [];
+    const actualOutput = dedupe(inputArray);
+    const expectedOutput = [];
+    expect(actualOutput).toStrictEqual(expectedOutput);
+  });
+});
