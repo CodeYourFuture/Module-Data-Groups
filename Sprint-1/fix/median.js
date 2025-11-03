@@ -6,16 +6,12 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
-  // Check that the input passed to the function calculateMeddian is an array
+  // this statement checks that the input passed to the function calculateMeddian is an array
   if (!Array.isArray(list)) {
     return null;
   }
 
-  if (list.length % 2 !== 0) {
-    const middleIndex = Math.floor(list.length / 2);
-    const median = list.splice(middleIndex, 1)[0];
-    return median;
-  }
+ 
 }
 
 module.exports = calculateMedian;
