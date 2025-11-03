@@ -1,1 +1,71 @@
-/** Write your CSS in here **/
+/* Make the whole page background yellow and center the content */
+body {
+    background-color: #ff8904;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* full viewport height */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* The frame container for quote, author, and button */
+.container {
+    background-color: #ffffff;
+    /* white */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /* space between elements */
+    max-width: 500px;
+    width: 90%;
+}
+
+/* Style the quote */
+#quote {
+    color: #ff8904;
+    font-size: 1.2rem;
+    line-height: 1;
+    max-width: 100%;
+    text-align: left;
+    justify-content: left;
+}
+
+
+/* Style the author */
+#author {
+    color: #ff8904;
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: right;
+}
+
+/* Style the button */
+#new-quote {
+    background-color: #ff8904;
+    color: #ffffff;
+    border: none;
+    padding: 10px 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    width: 100px;
+    text-align: right;
+}
+
+/* Hover effect for button */
+#new-quote:hover {
+    background-color: hsl(32, 90%, 65%);
+}
+.quote-symbol {
+    font-size: 7rem;
+    color: #ff8904;
+    margin-right: 6px;
+    text-align: left;
+    justify-content: left;
+}
