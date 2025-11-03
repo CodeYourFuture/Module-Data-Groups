@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quote Generator</title>
-    <script defer src="quotes.js"></script>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quote Generator</title>
+  <script defer src="quotes.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="quote-wrapper">
     <h1 id="quote"></h1>
     <p id="author"></p>
-    <button type="button" id="new-quote" >New quote</button>
-    <br>
-    <label for="auto-play" id="auto-play-status">auto-play:OFF</label>
-    <input type="checkbox" id="auto-play">
-    
-  </body>
+    <div class="btns">
+      <label class="switch">
+        <input type="checkbox" id="auto-play">
+        <span for="auto-play" id="auto-play-status"
+          class="slider round">auto-play:OFF</span>
+      </label>
+      <button type="button" id="new-quote">New quote</button>
+    </div>
+
+  </div>
+</body>
+
 </html>
