@@ -15,6 +15,19 @@ function calculateMedian(list) {
   const validNumbers = list.filter(
     (item) => typeof item === "number" && !isNaN(item)
   );
+
+  // This statement returns `null` if the length of the array is strictly equals to zero
+  // i.e empty array or invalid array
+  if (validNumbers.length === 0) {
+    return null;
+  }
+
+  // this statement creates a copy of the array and variable copyArray will hold a reference to the new array
+  const copyArray = validNumbers.slice();
+
+  // this statement uses sort function to arrange the elements in the array in ascending order.
+  //  sort function mutates the `copyArray` so, sortArray and copyArray hold reference to the same array in memory
+  const sortArray = copyArray.sort((a, b) => a - b);
 }
 
 module.exports = calculateMedian;
