@@ -28,6 +28,20 @@ function calculateMedian(list) {
   // this statement uses sort function to arrange the elements in the array in ascending order.
   //  sort function mutates the `copyArray` so, sortArray and copyArray hold reference to the same array in memory
   const sortArray = copyArray.sort((a, b) => a - b);
+
+  // this statement divides the length of `sortArray` by 2, rounds it down to the
+  // nearest whole number, and assigns it to `middleIndex`
+  const middleIndex = Math.floor(sortArray.length / 2);
+
+  // this statement checks if `sortArray` has an odd number of elements, and if so, returns the middle element
+  if (sortArray.length % 2 !== 0) {
+    return sortArray[middleIndex];
+  } else {
+    // this statement checks if `sortArray` has an even number of length
+    const firstMiddleIndex = sortArray[middleIndex - 1];
+    const secondMiddleIndex = sortArray[middleIndex];
+    return (firstMiddleIndex + secondMiddleIndex) / 2;
+  }
 }
 
 module.exports = calculateMedian;
