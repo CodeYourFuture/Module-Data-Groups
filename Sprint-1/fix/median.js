@@ -11,7 +11,10 @@ function calculateMedian(list) {
     return null;
   }
 
- 
+  // this statement filters valid numbers and make variable validNumbers to hold a reference to the new array
+  const validNumbers = list.filter(
+    (item) => typeof item === "number" && !isNaN(item)
+  );
 }
 
 module.exports = calculateMedian;
