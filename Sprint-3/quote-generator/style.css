@@ -1,1 +1,35 @@
-/** Write your CSS in here **/
+* {
+  box-sizing: border-box;
+}
+:root {
+  --bg-color: rgba(5, 18, 4, 0.838);
+  --text-color: #ffffff;
+  --shado-color: #524f4f;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.main {
+  background-color: var(--text-color);
+  padding: 30px 50px;
+  max-width: 600px;
+  text-align: right;
+  max-height: 80vh;
+  color: var(--bg-color);
+}
+#new-quote {
+  background-color: var(--bg-color);
+  padding: 10px;
+  box-shadow: 1px 1px 2px var(--shado-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-size: large;
+}
