@@ -42,4 +42,10 @@ describe("dedupe", () => {
       test(`removes duplicate elements and keep the first occurrence for [${input}]`, () =>
         expect(dedupe(input)).toEqual(expected))
   );
+
+  [{ input: ["1", 1, "1", 1], expected: ["1", 1] }].forEach(
+    ({ input, expected }) =>
+      test(`removes duplicates from an array of numbers and strings, keeping the first occurrence of each element, for the input [${input}]`, () =>
+        expect(dedupe(input)).toEqual(expected))
+  );
 });
