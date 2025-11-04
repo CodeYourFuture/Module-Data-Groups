@@ -27,17 +27,19 @@ test.todo("given an empty array, it returns an empty array");
 // Then it should remove the duplicate values, preserving the first occurence of each element
 
 describe("dedupe", () => {
-  test("returns an empty array when given an empty array", () => {
-    const inputArray = [];
-    const actualOutput = dedupe(inputArray);
-    const expectedOutput = [];
-    expect(actualOutput).toEqual(expectedOutput);
-  });
+  [{ input: [], expected: [] }].forEach(({ input, expected }) =>
+    test(`returns an empty array for input [${input}]`, () =>
+      expect(dedupe(input)).toEqual(expected))
+  );
 
-  test("returns a copy of the original array when there is no duplicates", () => {
-    const inputArray = [1, 2, 3];
-    const actualOutput = dedupe(inputArray);
-    const expectedOutput = [1, 2, 3];
-    expect(actualOutput).toEqual(expectedOutput);
-  })
+  [{ input: [1, 2, 3], expected: [1, 2, 3] }].forEach(({ input, expected }) =>
+    test(`returns a copy of the array when no duplicates exist for input [${input}]`, () =>
+      expect(dedupe(input)).toEqual(expected))
+  );
+
+  [{ input: [5, 1, 1, 2, 3, 2, 5, 8], expected: [5, 1, 2, 3, 8] }].forEach(
+    ({ input, expected }) =>
+      test(`removes duplicate elements and keep the first occurrence for [${input}]`, () =>
+        expect(dedupe(input)).toEqual(expected))
+  );
 });
