@@ -26,7 +26,7 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
 
-describe("dedupe", () => {
+describe("dedupe - valid inputs", () => {
   [{ input: [], expected: [] }].forEach(({ input, expected }) =>
     test(`returns an empty array for input [${input}]`, () =>
       expect(dedupe(input)).toEqual(expected))
@@ -67,4 +67,6 @@ describe("dedupe", () => {
     test(`Ensures dedupe filters out invalid elements, removes duplicates, and returns a copy of the array`, () =>
       expect(dedupe(input)).toEqual(expected))
   );
+
+
 });
