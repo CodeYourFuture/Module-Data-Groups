@@ -55,7 +55,7 @@ describe("dedupe", () => {
     { input: [2, "3", "hello", 5], expected: [2, "3", "hello", 5] },
   ].forEach(({ input, expected }) =>
     test(`removes duplicates from an array of numbers and strings, keeping the first occurrence of each element, for the input [${input}]`, () =>
-      expect(dedupe(input)).toEqual(expected));
+      expect(dedupe(input)).toEqual(expected))
   );
 
   [
@@ -64,6 +64,6 @@ describe("dedupe", () => {
     { input: [false, 5, 5, "hello", () => {}, 5], expected: [5, "hello"] },
   ].forEach(({ input, expected }) =>
     test(`Ensures dedupe filters out invalid elements, removes duplicates, and returns a copy of the array`, () =>
-      expect(dedupe(input)).toEqual(expected));
+      expect(dedupe(input)).toEqual(expected))
   );
 });
