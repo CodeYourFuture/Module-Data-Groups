@@ -20,16 +20,17 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+console.log("Empty object test:", contains({}, "a")); // false
 
 // Given an object with properties
 // When passed to contains with an existing property name
-// Then it should return true
+console.log("Existing property test:", contains({ a: 1, b: 2 }, "a")); // true
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
-// Then it should return false
+console.log("Non-existent property test:", contains({ a: 1, b: 2 }, "c")); // false
 
 // Given invalid parameters like an array
 // When passed to contains
-// Then it should return false or throw an error
+console.log("Array input test:", contains([], "a")); // false
+console.log("Null input test:", contains(null, "a")); // false
