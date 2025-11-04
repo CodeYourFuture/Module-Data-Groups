@@ -67,6 +67,15 @@ describe("dedupe - valid inputs", () => {
     test(`Ensures dedupe filters out invalid elements, removes duplicates, and returns a copy of the array`, () =>
       expect(dedupe(input)).toEqual(expected))
   );
+});
 
+describe("dedupe - invalid inputs", () => {
+const invalidInputs = [null, undefined, 123, "string", {}, () => {}];
 
+invalidInputs.forEach((input) => 
+  test(`throws typeError when input is ${String(input)}`, () => {
+    expect(dedupe(input)).toThrow(TypeError);
+    expect(dedupe(input)).toThrow("Input must be an array")
+  })
+)
 });
