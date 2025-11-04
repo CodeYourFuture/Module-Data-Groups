@@ -62,6 +62,7 @@ describe("dedupe", () => {
     { input: [1, 2, true, 3, null, "a", {}], expected: [1, 2, 3, "a"] },
     { input: ["x", undefined, "x", "y", []], expected: ["x", "y"] },
     { input: [false, 5, 5, "hello", () => {}, 5], expected: [5, "hello"] },
+    { input: [1, NaN, 2, NaN, "hello"], expected: [1, NaN, 2, NaN, "hello"] },
   ].forEach(({ input, expected }) =>
     test(`Ensures dedupe filters out invalid elements, removes duplicates, and returns a copy of the array`, () =>
       expect(dedupe(input)).toEqual(expected))
