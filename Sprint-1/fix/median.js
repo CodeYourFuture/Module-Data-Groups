@@ -13,7 +13,7 @@ function calculateMedian(list) {
     return null;
 
   // filter out non-numeric values inside the list
-  list = list.filter(item => Number.isInteger(item));
+  list = list.filter(item => Number.isFinite(item));
 
   // to avoid dealing with empty arrays
   if (list.length === 0)
