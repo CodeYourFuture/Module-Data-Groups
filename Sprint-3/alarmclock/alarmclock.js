@@ -1,6 +1,33 @@
-function setAlarm() {}
+function setAlarm() {
+  // get the value from input and show it in the h1
+  let input = document.getElementById("alarmSet").value;
+  let time = Number(input);
 
-// DO NOT EDIT BELOW HERE
+  document.getElementById(
+    "timeRemaining"
+  ).textContent = `Time Remaining: 00:${time.toString().padStart(2, "0")}`;
+  document.title = `Time Remaining: 00:${time.toString().padStart(2, "0")}`;
+
+  // start the countdown
+  const interval = setInterval(() => {
+    //decress the numnber
+    time--;
+
+    //update the h1
+    document.getElementById(
+      "timeRemaining"
+    ).textContent = `Time Remaining: 00:${time.toString().padStart(2, "0")}`;
+    document.title = `Time Remaining: 00:${time.toString().padStart(2, "0")}`;
+
+    //make sure just countdown to 0
+    if (time <= 0) {
+      clearInterval(interval);
+      playAlarm();
+    }
+  }, 1000);
+}
+
+// DO NOT EDIT BELOW.# HERE
 
 var audio = new Audio("alarmsound.mp3");
 
