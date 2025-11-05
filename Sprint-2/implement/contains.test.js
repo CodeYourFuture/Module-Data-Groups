@@ -3,34 +3,31 @@ const contains = require("./contains.js");
 /*
 Implement a function called contains that checks an object contains a
 particular property
-
-E.g. contains({a: 1, b: 2}, 'a') // returns true
-as the object contains a key of 'a'
-
-E.g. contains({a: 1, b: 2}, 'c') // returns false
-as the object doesn't contains a key of 'c'
 */
 
-// Acceptance criteria:
+// Test 1: Empty object
+test("contains on empty object returns false", () => {
+  expect(contains({}, "a")).toBe(false);
+});
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
+// Test 2: Existing property
+test("returns true when the property exists in the object", () => {
+  const obj = { a: 1, b: 2 };
+  expect(contains(obj, "a")).toBe(true);
+});
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-console.log("Empty object test:", contains({}, "a")); // false
+// Test 3: Non-existent property
+test("returns false when the property does not exist in the object", () => {
+  const obj = { a: 1, b: 2 };
+  expect(contains(obj, "c")).toBe(false);
+});
 
-// Given an object with properties
-// When passed to contains with an existing property name
-console.log("Existing property test:", contains({ a: 1, b: 2 }, "a")); // true
+// Test 4: Invalid input - array
+test("returns false if input is an array", () => {
+  expect(contains([], "a")).toBe(false);
+});
 
-// Given an object with properties
-// When passed to contains with a non-existent property name
-console.log("Non-existent property test:", contains({ a: 1, b: 2 }, "c")); // false
-
-// Given invalid parameters like an array
-// When passed to contains
-console.log("Array input test:", contains([], "a")); // false
-console.log("Null input test:", contains(null, "a")); // false
+// Test 5: Invalid input - null
+test("returns false if input is null", () => {
+  expect(contains(null, "a")).toBe(false);
+});
