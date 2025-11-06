@@ -29,7 +29,7 @@
 function countWords(str) {
   const obj = {};
   let tidyStr = str.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, "");
-  let arr = tidyStr.toLowerCase().split(" ");
+  let arr = tidyStr.toLowerCase().split(/\s+/);
   arr.forEach((element) => {
     if (obj[element]) {
       obj[element] += 1;
