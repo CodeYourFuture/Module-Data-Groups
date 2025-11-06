@@ -11,6 +11,12 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+// for (const value of author) {
+//   console.log(value);
+// }
+// It will log syntax Error because Objects themselves aren’t directly iterable Unlike arrays we need to converted
+// and then we can loop
+
+for (const value of Object.values(author)) {
   console.log(value);
 }
