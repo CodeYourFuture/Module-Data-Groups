@@ -24,6 +24,4 @@ function dedupe(arrayInput) {
   return newArray;
 }
 
-console.log(dedupe([null, undefined]));
-
 module.exports = dedupe;
