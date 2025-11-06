@@ -12,8 +12,9 @@ function dedupe(arrayInput) {
 
   for (const item of arrayInput) {
     if (
-      (typeof item === "number" && !Number.isNaN(item) || typeof item === "string") &&
-      !seen.has(item)
+      !seen.has(item) &&
+      ((typeof item === "number" && !Number.isNaN(item)) ||
+        typeof item === "string")
     ) {
       newArray.push(item);
       seen.add(item);
