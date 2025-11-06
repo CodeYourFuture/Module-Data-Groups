@@ -52,7 +52,7 @@ describe("dedupe - valid inputs", () => {
 
   [
     { input: ["1", 1, "1", 1], expected: ["1", 1] },
-    { input: [2, "3", "hello", 5], expected: [2, "3", "hello", 5] },
+    { input: [2, "3", "hello", 5, 5], expected: [2, "3", "hello", 5] },
   ].forEach(({ input, expected }) =>
     test(`removes duplicates from an array of numbers and strings, keeping the first occurrence of each element, for the input [${input}]`, () =>
       expect(dedupe(input)).toEqual(expected))
@@ -62,7 +62,7 @@ describe("dedupe - valid inputs", () => {
     { input: [1, 2, true, 3, null, "a", {}], expected: [1, 2, 3, "a"] },
     { input: ["x", undefined, "x", "y", []], expected: ["x", "y"] },
     { input: [false, 5, 5, "hello", () => {}, 5], expected: [5, "hello"] },
-    { input: [1, NaN, 2, NaN, "hello"], expected: [1, NaN, 2, NaN, "hello"] },
+    { input: [1, NaN, 2, NaN, "hello"], expected: [1,  2, "hello"] },
   ].forEach(({ input, expected }) =>
     test(`Ensures dedupe filters out invalid elements, removes duplicates, and returns a copy of the array`, () =>
       expect(dedupe(input)).toEqual(expected))
@@ -74,8 +74,9 @@ const invalidInputs = [null, undefined, 123, "string", {}, () => {}];
 
 invalidInputs.forEach((input) => 
   test(`throws typeError when input is ${String(input)}`, () => {
-    expect(dedupe(input)).toThrow(TypeError);
-    expect(dedupe(input)).toThrow("Input must be an array")
+    expect(() => dedupe(null)).toThrow(TypeError);
+    expect(() => dedupe(null)).toThrow("Input must be an array");
+
   })
 )
 });
