@@ -61,3 +61,18 @@ test("given an array with non-number values, returns the max and ignore the non-
 test("given an array with only non-number values", () => {
   expect(findMax(["a", null, undefined])).toBe(-Infinity);
 });
+
+// Edge cases
+// Given an array with non-array values
+// when passed to the max function
+// Then it should throw and error
+test("given a non-array input, throws a TypeError with message 'Input must be an array'", () => {
+  expect(() => findMax(42)).toThrow(new TypeError("Input must be an array"));
+  expect(() => findMax("hello")).toThrow(
+    new TypeError("Input must be an array")
+  );
+  expect(() => findMax(null)).toThrow(new TypeError("Input must be an array"));
+  expect(() => findMax(undefined)).toThrow(
+    new TypeError("Input must be an array")
+  );
+});
