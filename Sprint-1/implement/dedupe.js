@@ -1,13 +1,28 @@
 function dedupe(arrayInput) {
-   if (!Array.isArray(arrayInput)) {
+  if (!Array.isArray(arrayInput)) {
     throw new TypeError("Input must be an array");
-   }
+  }
 
-   if (arrayInput.length === 0) {
+  if (arrayInput.length === 0) {
     return [];
-   }
+  }
+
+  const newArray = [];
+  const seen = new Set();
+
+  for (const item of arrayInput) {
+    if (
+      (typeof item === "number" && !Number.isNaN(item) || typeof item === "string") &&
+      !seen.has(item)
+    ) {
+      newArray.push(item);
+      seen.add(item);
+    }
+  }
+
+  return newArray;
 }
 
-console.log(dedupe("food"));
+console.log(dedupe([null, undefined]));
 
 module.exports = dedupe;
