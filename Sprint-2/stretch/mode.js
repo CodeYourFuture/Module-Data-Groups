@@ -19,11 +19,11 @@ function calculateMode(list) {
 
     freqs.set(num, (freqs.get(num) || 0) + 1);
   }
-  return highestFreg(freqs);
+  return highestFreq(freqs);
 }
 
 // Find the value with the highest frequency
-function highestFreg(freqs) {
+function highestFreq(freqs) {
   let maxFreq = 0;
   let mode;
   for (let [num, freq] of freqs) {
