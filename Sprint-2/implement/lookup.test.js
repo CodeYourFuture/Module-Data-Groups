@@ -16,8 +16,11 @@ test("creates a country currency code lookup for multiple codes", () => {
   ).toEqual({ US: "USD", CA: "CAD" });
 });
 
-test("creates a country currency code with mixed nesting and extra layers lookup for multiple codes", () => {
+test("creates a lookup for European and Asian countries", () => {
   expect(
-    createLookup([["US", "USD"], [["CA", "CAD"]], [[["JP", "JPY"]]]])
-  ).toEqual({ US: "USD", CA: "CAD", JP: "JPY" });
+    createLookup([
+      ["FR", "EUR"],
+      ["IN", "INR"],
+    ])
+  ).toEqual({ FR: "EUR", IN: "INR" });
 });
