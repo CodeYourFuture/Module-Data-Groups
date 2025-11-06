@@ -5,8 +5,4 @@ function createLookup(nestedArr) {
   }
   return result;
 }
-createLookup([
-  ["US", "USD"],
-  ["CA", "CAD"],
-]);
 module.exports = createLookup;
