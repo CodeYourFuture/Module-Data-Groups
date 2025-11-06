@@ -1,8 +1,8 @@
-// median.test.js
+// // median.test.js
 
-// Someone has implemented calculateMedian but it isn't
-// passing all the tests...
-// Fix the implementation of calculateMedian so it passes all tests
+// // Someone has implemented calculateMedian but it isn't
+// // passing all the tests...
+// // Fix the implementation of calculateMedian so it passes all tests
 
 const calculateMedian = require("./median.js");
 
@@ -48,3 +48,45 @@ describe("calculateMedian", () => {
     it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
 });
+
+// //trying to understand the code here:
+
+// // describe("calculateMedian", () => {
+// //   [
+// //     { input: [1, 2, 3], expected: 2 },
+// //     { input: [1, 2, 3, 4, 5], expected: 3 },
+// //     { input: [1, 2, 3, 4], expected: 2.5 },
+// //     { input: [1, 2, 3, 4, 5, 6], expected: 3.5 },
+// //   ].forEach(({ input, expected }) =>
+// //     it(`returns the median for [${input}]`, () =>
+// //       expect(calculateMedian(input)).toEqual(expected))
+// //   );
+// // });
+
+// describe("calculateMedian", () => {
+//   it("returns the median for [1, 2, 3]", () =>
+//     expect(calculateMedian([1, 2, 3])).toEqual(2));
+
+//   it("returns the median for [1, 2, 3, 4, 5]", () =>
+//     expect(calculateMedian([1, 2, 3, 4, 5])).toEqual(3));
+
+//   it("returns the median for [1, 2, 3, 4]", () =>
+//     expect(calculateMedian([1, 2, 3, 4])).toEqual(2.5));
+
+//   it("returns the median for [1, 2, 3, 4, 5, 6]", () =>
+//     expect(calculateMedian([1, 2, 3, 4, 5, 6])).toEqual(3.5));
+// });
+
+// describe("calculateMedian - Unsorted Arrays", () => {
+//   [
+//     { input: [3, 1, 2], expected: 2 },
+//     { input: [5, 1, 3, 4, 2], expected: 3 },
+//     { input: [4, 2, 1, 3], expected: 2.5 },
+//     { input: [6, 1, 5, 3, 2, 4], expected: 3.5 },
+//     { input: [110, 20, 0], expected: 20 },
+//     { input: [6, -2, 2, 12, 14], expected: 6 },
+//   ].forEach(({ input, expected }) =>
+//     it(`returns the correct median for unsorted array [${input}]`, () =>
+//       expect(calculateMedian(input)).toEqual(expected))
+//   );
+// });
