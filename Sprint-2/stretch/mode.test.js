@@ -1,3 +1,4 @@
+// testing the mode.js
 const calculateMode = require("./mode.js");
 
 // Acceptance criteria for calculateMode function
