@@ -23,7 +23,7 @@ console.log(items[1]); // 5.03
 console.log(items[2]); // 7.99
 console.log(items[3]); // 8.01
 // Accessing elements using index numbers
-*/
+
 const items = [4.6, 5.03, 7.99, 8.01];
 function calculateMean(list) {
   // Calculate the sum of all elements in the array
@@ -35,3 +35,25 @@ function calculateMean(list) {
   const mean = sum / list.length;
   return mean;
 }
+  */
+//const list = [4.6, 5.03, 7.99, 8.01];
+function calculateMean(list) {
+  //1. sum the elements of the array
+  let sum = 0;
+  for (let i = 0; i < list.length; i++) {
+    const arrayInValue = Number(list);
+    if (typeof list[i] === "number" && !isNaN(list[i])) {
+      sum += list[i];
+    }
+  }
+  //2. determine the length of the array
+  let count = list.length;
+  //3. divide #1 by #2
+  const mean = sum / count;
+  //4. return #3
+  return mean;
+}
+console.log(calculateMean([4.6, 5.03, 7.99, 8.01]));
+console.log(calculateMean([3, "50", 7]));
+
+//module.exports = calculateMean;
