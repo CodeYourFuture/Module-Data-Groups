@@ -7,6 +7,8 @@ function setAlarm() {
     seconds--;
 
     if (seconds === 0) {
+      document.body.className = "flash";
+
       playAlarm();
       clearInterval(intervalID);
     }
