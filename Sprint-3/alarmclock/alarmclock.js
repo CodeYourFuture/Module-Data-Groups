@@ -1,14 +1,14 @@
 function setAlarm() {
   const alarmSetInputElement = document.getElementById("alarmSet");
   const timeRemainingElement = document.getElementById("timeRemaining");
+
   let seconds = Number(alarmSetInputElement.value);
 
   const updateTimeRemaining = () => {
     seconds--;
 
-    if (seconds === 0) {
+    if (seconds <= 0) {
       document.body.className = "flash";
-
       playAlarm();
       clearInterval(intervalID);
     }
@@ -22,7 +22,7 @@ function setAlarm() {
   };
 
   const delay = 1 * 1000;
-  const intervalID = window.setInterval(updateTimeRemaining, delay);
+  const intervalID = setInterval(updateTimeRemaining, delay);
 }
 
 // DO NOT EDIT BELOW HERE
