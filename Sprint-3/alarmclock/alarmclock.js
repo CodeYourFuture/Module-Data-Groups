@@ -1,4 +1,24 @@
-function setAlarm() {}
+function setAlarm() {
+  const alarmSetInputElement = document.getElementById("alarmSet");
+  const timeRemainingElement = document.getElementById("timeRemaining");
+  let seconds = Number(alarmSetInputElement.value);
+
+  const updateTimeRemaining = () => {
+    seconds--;
+
+    if (seconds === 0) clearInterval(intervalID);
+
+    const timeString = new Date(seconds * 1000).toLocaleTimeString([], {
+      minute: "numeric",
+      second: "numeric",
+    });
+
+    timeRemainingElement.innerHTML = `Time Remaining: ${timeString}`;
+  };
+
+  const delay = 1 * 1000;
+  const intervalID = window.setInterval(updateTimeRemaining, delay);
+}
 
 // DO NOT EDIT BELOW HERE
 
