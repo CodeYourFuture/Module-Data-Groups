@@ -6,7 +6,10 @@ function setAlarm() {
   const updateTimeRemaining = () => {
     seconds--;
 
-    if (seconds === 0) clearInterval(intervalID);
+    if (seconds === 0) {
+      playAlarm();
+      clearInterval(intervalID);
+    }
 
     const timeString = new Date(seconds * 1000).toLocaleTimeString([], {
       minute: "numeric",
