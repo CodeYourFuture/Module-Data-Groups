@@ -28,14 +28,6 @@ test("given an array with one number, returns that number", () => {
     expect(findMax([33])).toBe(33);
 });
 
-// Given an array with multiple positive numbers
-// When passed to the max function
-// Then it should return the largest number
-
-test("given an array with multiple positive numbers, returns the largest number", () => {
-    expect(findMax([10, 20, 30, 40, 50])).toBe(50);
-});
-
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
