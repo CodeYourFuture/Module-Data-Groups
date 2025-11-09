@@ -9,5 +9,3 @@ function contains(someObject, propertyName) {
 
 module.exports = contains;
 
-// Implement a function called contains that checks an object contains a
-// particular property
