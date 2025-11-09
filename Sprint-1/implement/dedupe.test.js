@@ -13,25 +13,19 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 
 // Acceptance Criteria:
 
-// Given an empty array
-// When passed to the dedupe function
-// Then it should return an empty array
-// test.todo("given an empty array, it returns an empty array");
-
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
-
-// Given an array with strings or numbers
-// When passed to the dedupe function
-// Then it should remove the duplicate values, preserving the first occurence of each element
-
 describe("dedupe - valid inputs", () => {
+  // Given an empty array
+  // When passed to the dedupe function
+  // Then it should return an empty array
+  // test.todo("given an empty array, it returns an empty array");
   [{ input: [], expected: [] }].forEach(({ input, expected }) =>
     test(`returns an empty array for input [${input}]`, () =>
       expect(dedupe(input)).toEqual(expected))
   );
 
+  // Given an array with no duplicates
+  // When passed to the dedupe function
+  // Then it should return a copy of the original array
   [
     { input: [1, 2, 3], expected: [1, 2, 3] },
     { input: ["a", "b", "car"], expected: ["a", "b", "car"] },
@@ -50,6 +44,9 @@ describe("dedupe - valid inputs", () => {
       expect(dedupe(input)).toEqual(expected))
   );
 
+  // Given an array with strings or numbers
+  // When passed to the dedupe function
+  // Then it should remove the duplicate values, preserving the first occurence of each element
   [
     { input: ["1", 1, "1", 1], expected: ["1", 1] },
     { input: [2, "3", "hello", 5, 5], expected: [2, "3", "hello", 5] },
@@ -62,7 +59,7 @@ describe("dedupe - valid inputs", () => {
     { input: [1, 2, true, 3, null, "a", {}], expected: [1, 2, 3, "a"] },
     { input: ["x", undefined, "x", "y", []], expected: ["x", "y"] },
     { input: [false, 5, 5, "hello", () => {}, 5], expected: [5, "hello"] },
-    { input: [1, NaN, 2, NaN, "hello"], expected: [1,  2, "hello"] },
+    { input: [1, NaN, 2, NaN, "hello"], expected: [1, 2, "hello"] },
   ].forEach(({ input, expected }) =>
     test(`Ensures dedupe filters out invalid elements, removes duplicates, and returns a copy of the array`, () =>
       expect(dedupe(input)).toEqual(expected))
@@ -70,13 +67,12 @@ describe("dedupe - valid inputs", () => {
 });
 
 describe("dedupe - invalid inputs", () => {
-const invalidInputs = [null, undefined, 123, "string", {}, () => {}];
+  const invalidInputs = [null, undefined, 123, "string", {}, () => {}];
 
-invalidInputs.forEach((input) => 
-  test(`throws typeError when input is ${String(input)}`, () => {
-    expect(() => dedupe(null)).toThrow(TypeError);
-    expect(() => dedupe(null)).toThrow("Input must be an array");
-
-  })
-)
+  invalidInputs.forEach((input) =>
+    test(`throws typeError when input is ${String(input)}`, () => {
+      expect(() => dedupe(null)).toThrow(TypeError);
+      expect(() => dedupe(null)).toThrow("Input must be an array");
+    })
+  );
 });
