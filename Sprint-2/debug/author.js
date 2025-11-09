@@ -10,7 +10,8 @@ const author = {
   age: 40,
   alive: true,
 };
-
-for (const value of author) {
+//changed code at line 14
+for (const value of Object.values(author)) {
   console.log(value);
 }
+
