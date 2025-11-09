@@ -25,6 +25,8 @@ test("given an empty array, returns -Infinity", () => {
 // Then it should return that number
 test("given an array with one number, returns that number", () => {
   expect(findMax([8])).toBe(8);
+  expect(findMax([-42])).toBe(-42);
+  expect(findMax([0])).toBe(0);
 });
 
 // Given an array with both positive and negative numbers
@@ -32,6 +34,8 @@ test("given an array with one number, returns that number", () => {
 // Then it should return the largest number overall
 test("given an array with both positive and negative numbers, returns the largest number overall", () => {
   expect(findMax([10, -5, 20, 0])).toBe(20);
+  expect(findMax([-1, -100, -50, 30]));
+  expect(findMax([0, -10, 5])).toBe(5);
 });
 
 // Given an array with just negative numbers
@@ -39,6 +43,8 @@ test("given an array with both positive and negative numbers, returns the larges
 // Then it should return the closest one to zero
 test("given an array with just negative numbers, returns the closest one to zero", () => {
   expect(findMax([-10, -5, -20])).toBe(-5);
+  expect(findMax([-100, -50, -60])).toBe(-50);
+  expect(findMax([-1000, -60, -1])).toBe(-1);
 });
 
 // Given an array with decimal numbers
@@ -46,6 +52,8 @@ test("given an array with just negative numbers, returns the closest one to zero
 // Then it should return the largest decimal number
 test("given an array with decimal numbers, returns the largest decimal number", () => {
   expect(findMax([1.1, 2.5, 0.3])).toBe(2.5);
+  expect(findMax([-1.2, -0.5, -0.1])).toBe(-0.1);
+  expect(findMax([-1000.23, -80.54, -63.110])).toBe(-63.110);
 });
 
 // Given an array with non-number values
@@ -53,6 +61,8 @@ test("given an array with decimal numbers, returns the largest decimal number", 
 // Then it should return the max and ignore non-numeric values
 test("given an array with non-number values, returns the max and ignore the non-numeric values", () => {
   expect(findMax([10, "hi", 20, null])).toBe(20);
+  expect(findMax([0, false, 5, "a"])).toBe(5);
+  expect(findMax([undefined, 5, null, NaN, -9])).toBe(5);
 });
 
 // Given an array with only non-number values
@@ -60,6 +70,9 @@ test("given an array with non-number values, returns the max and ignore the non-
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given an array with only non-number values", () => {
   expect(findMax(["a", null, undefined])).toBe(-Infinity);
+  expect(findMax([{}, [], "hi"]));
+  expect(findMax([true, false, true])).toBe(-Infinity);
+  expect(findMax([Symbol("x"), () => {}, function () {}])).toBe(-Infinity);
 });
 
 // Edge cases
