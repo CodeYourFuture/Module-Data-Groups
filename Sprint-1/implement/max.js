@@ -1,11 +1,12 @@
 function findMax(elements) {
-    console.log("findMax called with:", elements);
-  if (Array.isArray(elements)) {
-    return Math.max(...elements);
-  }  else {
-       throw new TypeError("Input must be an array");
-   }
+  if (!Array.isArray(elements)) {
+    throw new TypeError("Input must be an array");
+  } else {
+    const filteredArray = elements.filter(
+      (ele) => typeof ele === "number" && !isNaN(ele)
+    )
+    return Math.max(...filteredArray);
+  }
 }
-
 
 module.exports = findMax;
