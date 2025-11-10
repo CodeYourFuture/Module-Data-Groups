@@ -2,8 +2,7 @@
 
 function includes(list, target) {
   for (const item of list) {
-    const element = item;
-    if (element === target) {
+    if (item === target) {
       return true;
     }
   }
