@@ -1,4 +1,5 @@
 function findMax(elements) {
+    if (!Array.isArray(elements)) return -Infinity;
   const elementsClone = [...elements];
 
   const numericElements = elementsClone.filter(
