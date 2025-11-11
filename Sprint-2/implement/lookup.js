@@ -1,5 +1,12 @@
-function createLookup() {
-  // implementation here
-}
+function createLookup(arrayOfPairs) {
+  let obj = {};
+ 
+  for (let i = 0; i < arrayOfPairs.length; i++) {
+    const [key, value] = arrayOfPairs[i];
+    obj[key] = value;
+    }
+  return obj;
+};
 
 module.exports = createLookup;
+console.log(createLookup([['US', 'USD'], ['CA', 'CAD']]));
