@@ -7,9 +7,3 @@ function includes(list, target) {
   return false;
 }
 module.exports = includes;
-
-// function includes(list, target) {
-
-//    return (list.indexOf(target)===-1)? false:true;
-// }
-// module.exports = includes;
