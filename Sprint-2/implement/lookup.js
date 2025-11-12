@@ -1,5 +1,5 @@
-function createLookup() {
-  // implementation here
+function createLookup(arrayPairs) {
+  return Object.fromEntries(arrayPairs);
 }
 
 module.exports = createLookup;
