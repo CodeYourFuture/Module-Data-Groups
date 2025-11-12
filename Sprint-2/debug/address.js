@@ -1,5 +1,5 @@
 // Predict and explain first...
-// when the console.log runs, it will return `My house number is undefined` because `0` is not a key in the object so its value will be undefined
+// Answer: when the console.log runs, it will return `My house number is undefined` because `0` is not a key in the object so its value will be undefined
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...

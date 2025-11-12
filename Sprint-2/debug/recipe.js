@@ -1,5 +1,6 @@
 // Predict and explain first...
-// When the code runs, `${recipe}` part of the console.log expression will output the string `[object Object]`
+// Answer: When the code runs, `${recipe}` part of the console.log expression will output the string `[object Object]`
+
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
 // How can you fix it?
