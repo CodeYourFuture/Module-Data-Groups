@@ -9,4 +9,3 @@ function createLookup(arrayOfPairs) {
 };
 
 module.exports = createLookup;
-console.log(createLookup([['US', 'USD'], ['CA', 'CAD']]));
