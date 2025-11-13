@@ -21,23 +21,25 @@ test.todo("given an empty array, returns -Infinity");
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test.todo("given an array with one number, returns that number");   
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
-
+test.todo("given an array with both positive and negative numbers, returns the largest number overall");
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
-
+test.todo("given an array with just negative numbers, returns the closest one to zero");
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
-
+test.todo("given an array with decimal numbers, returns the largest decimal number");
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
-
+test.todo("given an array with non-number values, returns the max and ignores non-numeric values");
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test.todo("given an array with only non-number values, returns the least surprising value given how it behaves for all other inputs");
