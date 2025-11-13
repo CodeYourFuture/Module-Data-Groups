@@ -1,1 +1,24 @@
 /** Write your CSS in here **/
+body{
+    background-color: orange;
+}
+#inner{
+    background-color: white;
+    width: 70%;
+    margin: 125px auto;
+    padding: 35px;
+    text-align: end;
+}
+p{
+    color: orange;
+
+}
+#quote{
+    font-size: 32px;
+}
+button{
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px;
+}
