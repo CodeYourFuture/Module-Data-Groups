@@ -26,3 +26,22 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(string) {
+  let outputObject = {};
+  let splitString = string.split(" ");
+  for ( let i = 0; i < splitString.length; i++) {
+    let word = splitString[i].toLowerCase();
+        word = word.replace(/[.,!?]/g, '');
+
+    if (word.length != 0) {
+        if (!outputObject[word])
+          outputObject[word] = 1;
+        else
+          outputObject[word]++;
+    }
+    //console.log(splitString[i]);
+  }
+  return outputObject;
+}
+console.log(countWords("Hello ah.med how are you Ahmed? are you ok? ha ?"));
