@@ -8,7 +8,7 @@
 // median.js
 function calculateMedian(list) {
   // 1) Must be an array
-  if (!Array.isArray(list)) return null;
+  if (!Array.isArray(list)) return null;  
 
   // 2) Keep only real numeric values (ignore strings, null, undefined, NaN, etc.)
   const numbers = list.filter(v => typeof v === 'number' && Number.isFinite(v));
