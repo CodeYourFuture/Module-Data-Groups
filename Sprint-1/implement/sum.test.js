@@ -34,3 +34,29 @@ test.todo("given an empty array, returns 0")
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+const sum = require("./sum.js");
+
+test("given an empty array, returns 0", () => {
+  expect(sum([])).toBe(0);
+});
+
+test("given one number, return that number", () => {
+  expect(sum([10])).toBe(10);
+});
+
+test("given negative numbers, returns correct total", () => {
+  expect(sum([-5, -10, 5])).toBe(-10);
+});
+
+test("given float/decimal numbers, returns correct total", () => {
+  expect(sum([1.5, 2.5, 3])).toBe(7);
+});
+
+test("ignore non-number values and sum only numbers", () => {
+  expect(sum(["hello", 10, "hi", 60, 10])).toBe(80);
+});
+
+test("array with only non-number values returns 0", () => {
+  expect(sum(["a", "b", {}, [], "hello"])).toBe(0);
+});
+
