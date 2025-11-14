@@ -10,15 +10,15 @@ function calculateMedian(list) {
     return null;
   }
 
-  const filteredArr = list.filter(
+  const filteredNumericArr = list.filter(
     (el) => typeof el === "number" && Number.isFinite(el)
   );
 
-  if (filteredArr.length === 0) {
+  if (filteredNumericArr.length === 0) {
     return null;
   }
 
-  const sortedArr = [...filteredArr].sort((a, b) => a - b);
+  const sortedArr = [...filteredNumericArr].sort((a, b) => a - b);
   const middleIndex = Math.floor(sortedArr.length / 2);
 
   if (sortedArr.length % 2 !== 0) {
