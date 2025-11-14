@@ -1,4 +1,7 @@
 function parseQueryString(queryString) {
+  if (typeof queryString !== "string") {
+    throw new TypeError("Invalid input: Input must be a string");
+  }
   const queryParams = {};
   if (queryString.length === 0) {
     return queryParams;
