@@ -1,5 +1,16 @@
 {
+
+  "name": "fix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "median.js",
+  "scripts": {
+    "test": "jest "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "devDependencies": {
-    "prettier": "3.6.2"
-  }
-}
+    "jest": "^30.2.0"
+
