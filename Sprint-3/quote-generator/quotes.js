@@ -494,8 +494,8 @@ const quotes = [
 
 function updateQuoteAndAuthor() {
   const { quote, author } = pickFromArray(quotes);
-  document.getElementById("quote").innerText = quote;
-  document.getElementById("author").innerText = author;
+  document.getElementById("quote").textContent = quote;
+  document.getElementById("author").textContent = author;
 }
 
 function autoUpdateQuoteAndAuthor() {
