@@ -7,44 +7,44 @@
 const calculateMedian = require("./median.js");
 
 describe("calculateMedian", () => {
-  [
-    { input: [1, 2, 3], expected: 2 },
-    { input: [1, 2, 3, 4, 5], expected: 3 },
-    { input: [1, 2, 3, 4], expected: 2.5 },
-    { input: [1, 2, 3, 4, 5, 6], expected: 3.5 },
-  ].forEach(({ input, expected }) =>
-    it(`returns the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
-  );
-
-  [
-    { input: [3, 1, 2], expected: 2 },
-    { input: [5, 1, 3, 4, 2], expected: 3 },
-    { input: [4, 2, 1, 3], expected: 2.5 },
-    { input: [6, 1, 5, 3, 2, 4], expected: 3.5 },
-    { input: [110, 20, 0], expected: 20 },
-    { input: [6, -2, 2, 12, 14], expected: 6 },
-  ].forEach(({ input, expected }) =>
-    it(`returns the correct median for unsorted array [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
-  );
-
-  it("doesn't modify the input array [3, 1, 2]", () => {
-    const list = [3, 1, 2];
-    calculateMedian(list);
-    expect(list).toEqual([3, 1, 2]);
+  it("returns median for sorted arrays", () =>{
+    expect(calculateMedian([1, 2, 3])).toBe(2);
+    expect(calculateMedian([1, 2, 3, 4, 5])).toBe(3);
+    expect(calculateMedian([1, 2, 3, 4])).toBe(2.5);
+    expect(calculateMedian([1, 2, 3, 4, 5, 6])).toBe(3.5);
   });
 
-  [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ].forEach(val =>
-    it(`returns null for non-numeric array (${val})`, () => expect(calculateMedian(val)).toBe(null))
-  );
+  it("returns median for unsorted arrays", () =>{
+    expect(calculateMedian([3, 1, 2])).toBe(2);
+    expect(calculateMedian([5, 1, 3, 4, 2])).toBe(3);
+    expect(calculateMedian([4, 2, 1, 3])).toBe(2.5);
+    expect(calculateMedian([6, 1, 5, 3, 2, 4])).toBe(3.5);
+    expect(calculateMedian([110, 20, 0])).toBe(20);
+    expect(calculateMedian([6, -2, 2, 12, 14])).toBe(6);
+  });
 
-  [
-    { input: [1, 2, "3", null, undefined, 4], expected: 2 },
-    { input: ["apple", 1, 2, 3, "banana", 4], expected: 2.5 },
-    { input: [1, "2", 3, "4", 5], expected: 3 },
-    { input: [1, "apple", 2, null, 3, undefined, 4], expected: 2.5 },
-    { input: [3, "apple", 1, null, 2, undefined, 4], expected: 2.5 },
-    { input: ["banana", 5, 3, "apple", 1, 4, 2], expected: 3 },
-  ].forEach(({ input, expected }) =>
-    it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
-  );
+  it("does not modify the original array", () => {
+    const arr = [3, 1, 2];
+    calculateMedian(arr);
+    expect(arr).toEqual([3, 1, 2]);
+  });
+
+  it("returns null for invalid or empty arrays", () =>{
+    expect(calculateMedian("not an array")).toBe(null);
+    expect(calculateMedian(123)).toBe(null);
+    expect(calculateMedian(null)).toBe(null);
+    expect(calculateMedian(undefined)).toBe(null);
+    expect(calculateMedian({})).toBe(null);
+    expect(calculateMedian([])).toBe(null);
+    expect(calculateMedian(["apple", null, undefined])).toBe(null);
+  });
+
+  it("filters out non-numbers and returns correct median", () =>{
+    expect(calculateMedian([1, 2, "3", null, undefined, 4])).toBe(2);
+    expect(calculateMedian(["apple", 1, 2, 3, "banana", 4])).toBe(2.5);
+    expect(calculateMedian([1, "2", 3, "4", 5])).toBe(3);
+    expect(calculateMedian([1, "apple", 2, null, 3, undefined, 4])).toBe(2.5);
+    expect(calculateMedian([3, "apple", 1, null, 2, undefined, 4])).toBe(2.5);
+    expect(calculateMedian(["banana", 5, 3, "apple", 1, 4, 2])).toBe(3);
+  });
 });
