@@ -1,1 +1,24 @@
 /** Write your CSS in here **/
+
+body {
+    background-color: #f3a83c;
+}
+
+div {
+    background-color: white;
+    padding: 2.5em;
+}
+
+#quote {
+    color: #f3a83c;
+}
+
+#author {
+    color: #f3a83c;
+}
+
+#new-quote {
+    background-color: #f3a83c;
+    color: white;
+    padding: 1em;
+}
