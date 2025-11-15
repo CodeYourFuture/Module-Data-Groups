@@ -32,10 +32,10 @@ body {
     line-height: 1.4;
     position: relative;
     padding-left: 60px;
-    /* space for the quote icon */
+    /* Space for the quote icon */
 }
 
-/* LEFT floating quotation mark */
+/* Left floating quotation mark */
 #quote::before {
     content: "“";
     font-size: 4rem;
@@ -65,4 +65,21 @@ body {
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
+}
+
+.auto-refresh {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auto-refresh label {
+    font-size: 1rem;
+    color: #f3a83c;
+    cursor: pointer;
+}
+
+.auto-refresh input {
+    transform: scale(1.2);
+    margin-right: 10px;
 }

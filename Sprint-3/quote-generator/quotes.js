@@ -503,4 +503,17 @@ document.getElementById("new-quote").addEventListener("click", () => {
   newRandomQuote();
 });
 
+let autoQuoteIntervalID = null;
+
+document.getElementById("auto-quote").addEventListener("change", function () {
+  if (this.checked) {
+    newRandomQuote();
+    const seconds = 60 * 1000;
+    autoQuoteIntervalID = setInterval(newRandomQuote, seconds);
+  } else {
+    clearInterval(autoQuoteIntervalID);
+    autoQuoteIntervalID = null;
+  }
+});
+
 newRandomQuote();
