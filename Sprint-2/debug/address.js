@@ -1,4 +1,7 @@
-// Predict and explain first...
+// Prediction:
+// The code will print "My house number is undefined"
+// because address[0] does not exist.
+// Objects use keys like address.houseNumber, not numbers.
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
@@ -12,4 +15,5 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+// Use the correct key of the object
+console.log(`My house number is ${address.houseNumber}`);
