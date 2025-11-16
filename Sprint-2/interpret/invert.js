@@ -8,7 +8,9 @@
 
 function invert(obj) {
   const invertedObj = {};
-
+  if (Object.prototype.toString.call(obj) !== "[object Object]") {
+    throw new TypeError("Invalid input: Input must be a plain object");
+  }
   for (const [key, value] of Object.entries(obj)) {
     invertedObj[value] = key;
   }
