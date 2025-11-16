@@ -1,18 +1,6 @@
-
-  const result = [];
-  const seen = new Set();
-
-  for (let item of arr) {
-    if (!seen.has(item)) {
-      seen.add(item);
-      result.push(item);
-    }
-  }
-
-  return result;
 function dedupe(arr) {
-  const result = [];
-  const seen = new Set();
+  const result = []; // This empty array will store unique items
+  const seen = new Set(); // Used to track what we've already seen
 
   for (let item of arr) {
     if (!seen.has(item)) {
