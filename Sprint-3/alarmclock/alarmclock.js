@@ -10,19 +10,22 @@ function setAlarm() {
 
   // start the countdown
   const interval = setInterval(() => {
-    //decress the numnber
-    time--;
+    //make sure the input is not null
+    if (input !== "") {
+      //decress the numnber
+      time--;
 
-    //update the h1
-    document.getElementById(
-      "timeRemaining"
-    ).textContent = `Time Remaining: 00:${time.toString().padStart(2, "0")}`;
-    document.title = `Time Remaining: 00:${time.toString().padStart(2, "0")}`;
+      //update the h1
+      document.getElementById(
+        "timeRemaining"
+      ).textContent = `Time Remaining: 00:${time.toString().padStart(2, "0")}`;
+      document.title = `Time Remaining: 00:${time.toString().padStart(2, "0")}`;
 
-    //make sure just countdown to 0
-    if (time <= 0) {
-      clearInterval(interval);
-      playAlarm();
+      //make sure just countdown to 0
+      if (time <= 0) {
+        clearInterval(interval);
+        playAlarm();
+      }
     }
   }, 1000);
 }
