@@ -1,16 +1,12 @@
 function sum(theArray) {
-
-  let onyNumbers = theArray.filter(item => typeof item === 'number');
-  
-
-  const theFinalSum = onyNumbers.reduce((runningTotal, currentNumber) => {
+  const onlyNumbers = theArray.filter((item) => typeof item === "number");
+  const theFinalSum = onlyNumbers.reduce((runningTotal, currentNumber) => {
     return runningTotal + currentNumber;
   }, 0);
-
   return theFinalSum;
 }
 
-console.log (sum(["hey", 10, "hi", 60, 10]));
+console.log(sum(["hey", 10, "hi", 60, 10]));
 
 module.exports = sum;
 

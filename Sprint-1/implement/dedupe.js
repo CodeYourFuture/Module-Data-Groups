@@ -1,6 +1,6 @@
 function dedupe(arr) {
-  let result = [];
-  for (let item of arr) {
+  const result = [];
+  for (const item of arr) {
     if (!result.includes(item)) {
       result.push(item);
     }

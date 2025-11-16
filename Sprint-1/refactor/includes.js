@@ -10,14 +10,13 @@
 //   return false;
 // }
 
-
-function includes(list,target){
-  for (let value of list) {
-   if (value === target) {
-  return true;
+function includes(list, target) {
+  for (const value of list) {
+    if (value === target) {
+      return true;
+    }
   }
+  return false;
 }
-   return false;
-};
 
 module.exports = includes;

@@ -1,6 +1,6 @@
 function findMax(numbersList) {
-    let onlyNumbers = numbersList.filter((item) => typeof item === "number");
- let currentMax = Math.max(...onlyNumbers); ;
+  let onlyNumbers = numbersList.filter((item) => typeof item === "number");
+  let currentMax = Math.max(...onlyNumbers);
   return currentMax;
 }
 

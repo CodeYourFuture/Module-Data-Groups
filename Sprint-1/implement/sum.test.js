@@ -23,7 +23,7 @@ test("given an empty array, returns 0", () => {
 // When passed to the sum function
 // Then it should return that number
 
-test("given an array with 1 number, it returns the sam number", () => {
+test("given an array with 1 number, it returns the sum number", () => {
   const inputNumber = [34];
   const result = sum(inputNumber);
   expect(result).toEqual(34);

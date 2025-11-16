@@ -25,7 +25,7 @@ test("dedupe an empty array returns an empty array", () =>{
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
-test(" Given an array with no duplicates", () => {
+test("Given an array with no duplicates", () => {
   const inputNoDuplicates = ["a", "b", "c" ];
   const result = dedupe(inputNoDuplicates);
   expect(result).toEqual(["a", "b", "c"]);
