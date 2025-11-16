@@ -16,7 +16,7 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
 Ingredients:
-${recipe.ingredients.map(ingredients => `-${ingredients}`).join("\n")}`);
+${recipe.ingredients.map(ingredient => `-${ingredient}`).join("\n")}`);
 // Using map to format each ingredient and join to create a single string with new lines 
 // between each ingredient.
 
