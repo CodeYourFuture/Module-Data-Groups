@@ -1,6 +1,6 @@
 // Predict and explain first...
 
-// adress is a object and use label to acess the information not a index 
+//An address is an object. Access its details using names (like 'houseNumber'), not by counting them with numbers
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
