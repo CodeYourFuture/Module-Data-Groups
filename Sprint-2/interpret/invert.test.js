@@ -7,3 +7,7 @@ test("Given an empty object, return an empty object", () => {
 test("Given a single key-value pair object, returns a swap value", () => {
   expect(invert({ a: 1 })).toEqual({ 1: "a" });
 });
+
+test("Given multiple key-value pairs object, returns a swap value", () => {
+  expect(invert({ a: 1, b: 2 })).toEqual({ 1: "a", 2: "b" });
+});
