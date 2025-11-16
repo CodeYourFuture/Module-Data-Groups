@@ -21,7 +21,9 @@ as the object doesn't contains a key of 'c'
 // When passed to contains
 // Then it should return false
 test("contains on empty object returns false", () => {
-  expect(contains({}, "a")).toBe(false);
+  expect(contains(null, "a")).toBe(false);
+  expect(contains(123, "a")).toBe(false);
+  expect(contains("not array", "a")).toBe(false);
 });
 
 // Given an object with properties
