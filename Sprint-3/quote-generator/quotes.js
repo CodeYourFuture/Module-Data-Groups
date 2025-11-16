@@ -491,3 +491,24 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+
+function displayRandomQuote() {
+  const random = pickFromArray(quotes);
+  const quoteEl = document.getElementById("quote");
+  const authorEl = document.getElementById("author");
+
+  if (quoteEl) quoteEl.textContent = random.quote; // plain text, no extra quotes
+  if (authorEl) authorEl.textContent = random.author; // plain author text
+}
+
+window.addEventListener("load", function () {
+  // initial display (consumes the first mocked Math.random)
+  displayRandomQuote();
+
+  // wire up the button to pick a new quote on each click
+  const newQuoteBtn = document.getElementById("new-quote");
+  if (newQuoteBtn) {
+    newQuoteBtn.addEventListener("click", displayRandomQuote);
+  }
+});
