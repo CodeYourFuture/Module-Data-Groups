@@ -10,3 +10,28 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses a simple key=value pair", () => {
+  expect(parseQueryString("name=Ali")).toEqual({
+    name: "Ali",
+  });
+});
+
+test("parses multiple key=value pairs", () => {
+  expect(parseQueryString("name=Ali&age=30")).toEqual({
+    name: "Ali",
+    age: "30",
+  });
+});
+
+test("returns empty object for empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("handles keys without values", () => {
+  expect(parseQueryString("flag")).toEqual({
+    flag: "",
+  });
+});
+
+
