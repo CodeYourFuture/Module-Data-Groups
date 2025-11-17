@@ -8,18 +8,24 @@ function createLookup(arr) {
   }
   for (const item of arr) {
     if (Array.isArray(item) && item.length >= 2) {
-      const country = item[0];
-      const currency = item[1];
-      if (Array.isArray(currency)) {
-        result[country] = currency;
-      }
+      
+      const [country, currency] = item;
+
       if (currency === null || currency === undefined) {
         continue;
       }
       
+
+      if (Array.isArray(currency) && typeof country === "string") {
+         result[country]
+           ? (result[country] = [result[country], currency])
+           : (result[country] = currency);
+      }
+      
       if (country.length && currency.length && typeof country === 'string' && typeof currency === 'string') {
-        result[country] ? result[country] = [result[country], currency]
-                        : result[country] = currency;
+         result[country]
+           ? (result[country] = [result[country], currency])
+           : (result[country] = currency);
       }
     }
   } 
