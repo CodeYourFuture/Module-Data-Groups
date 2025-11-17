@@ -1,17 +1,19 @@
 function setAlarm() {
-  const alarmSet = document.getElementById("alarmSet").value;
-  const timeRemaining = document.getElementById("timeRemaining");
+  const alarmTimeInput = document.getElementById("alarmSet");
+  const alarmTimeInSeconds = alarmTimeInput.value;
+  let totalSeconds = parseInt(alarmTimeInSeconds);
+  
+  if (isNaN(totalSeconds) || totalSeconds <= 0) {
+    alert("Please enter a valid number of seconds for the alarm.");
+    document.getElementById("alarmSet").value = "";
+    return;
+  }
 
-  let totalSeconds = parseInt(alarmSet);
+  updateTimeRemaining(totalSeconds);
 
   let countdown = setInterval(() => {
-    let minutes = Math.floor(totalSeconds / 60);
-    let seconds = totalSeconds % 60;
-
-    timeRemaining.textContent = `Time Remaining: ${String(
-      minutes
-    ).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-
+    totalSeconds--;
+    updateTimeRemaining(totalSeconds);
     if (totalSeconds <= 0) {
       clearInterval(countdown);
       playAlarm();
@@ -24,11 +26,22 @@ function setAlarm() {
         document.body.style.backgroundColor = "white";
       }, 5000);
     }
-
-    totalSeconds--;
   }, 1000); 
 }
 
+function updateTimeRemaining(totalSeconds) {
+  const timeRemaining = document.getElementById("timeRemaining");
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+  let minuteStr = padNumber(minutes);
+  let secondStr = padNumber(seconds);
+  let displayTime = "Time Remaining: " + minuteStr + ":" + secondStr;
+  timeRemaining.textContent = displayTime;
+}
+
+function padNumber(num) {
+  return String(num).padStart(2, "0");
+}
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
