@@ -49,8 +49,8 @@ test("parses querystring with no equals sign", () => {
 
 test("parses querystring with encoded characters", () => {
   expect(parseQueryString("name=John%20Doe&city=New%20York")).toEqual({
-    "name": "John%20Doe",
-    "city": "New%20York",
+    "name": "John Doe",
+    "city": "New York",
   });
 });
 
