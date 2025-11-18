@@ -1,7 +1,37 @@
+
 function setAlarm() {
+  const input = document.getElementById("alarmSet") // get the input field
+  let timeLeft = Number(input.value); // convert input value to a number
+
+  // validate the input value
+  if (!Number.isFinite(timeLeft) || timeLeft <= 0) {  // The Number.isFinite() method is a way to test whether a value 
+  // is a finite number value. and also prevents the error if the user types nothing or a negative number.
+    return "input is invalid"; //  input is invalid
+  }
+
+  updateDisplay(timeLeft); // show the starting time immediately
+
+  if (countdown) {
+    clearInterval(countdown)
+    // clear previous countdown if running 
+    // if a countdown is already running stop it before starting a new one.
+  }
+
+  // start countdown
+  countdown = setInterval(() => {
+    timeLeft -= 1; // reduce time by 1 seconds
+    updateDisplay(timeLeft); // update display
+    if (timeLeft <= 0) {  // when time reaches 0
+      clearInterval(countdown); // stop the countdown
+      countdown = null; // reset variable
+      playAlarm(); // play the alarm sound
+    }
+
+  }, 1000); // run every one second
 
   
 }
+let countdown = null; 
 
 function updateDisplay(totalSeconds) {
   console.log("updating display with", totalSeconds);
