@@ -49,11 +49,17 @@ test("should throw an error when no arguments are passed", () => {
 });
 
 //edge cases
-test("should handle array with null and undefined values", () => {
-  expect(tally([null, undefined, null, 'a', undefined])).toEqual({ null: 2, undefined: 2, a: 1 });
+test("should handle array with null/undefined values with strings of null/undefined", () => {
+  expect(tally([null, undefined, null, 'a', undefined])).toEqual({ '_null_': 2, '_undefined_': 2, a: 1 });
+  expect(tally([null, undefined, null, 'a', undefined, "null", "undefined"])).toEqual({ '_null_': 2, '_undefined_': 2, a: 1, "null": 1, "undefined": 1 });
+  expect(tally([undefined, undefined, , ,null, null, null])).toEqual({ '_undefined_': 4, '_null_': 3  });
 });
 
 test("should handle array with special characters", () => {
   expect(tally(['@', '#', '@', '$', '%', '#', '@'])).toEqual({ '@': 3, '#': 2, '$': 1, '%': 1 });
 });
 
+
+test("should handle array with object method ", () => {
+  expect(tally(['toString', 'valueOf', 'toString', 'hasOwnProperty'])).toEqual({ toString: 2, valueOf: 1, hasOwnProperty: 1 }); 
+});
