@@ -499,15 +499,21 @@ function updateQuoteAndAuthor() {
 }
 
 function autoUpdateQuoteAndAuthor() {
-  let autoQuote = document.getElementById("toggle-btn");
+  const autoQuote = document.getElementById("toggle-btn");
+  const newQuoteButton = document.getElementById("new-quote");
+  const autoDisplayNotice = document.getElementById("auto-play-notice");
   let intervalId;
   autoQuote.addEventListener("change", () => {
     if (autoQuote.checked) {
+      newQuoteButton.style.display = "none";
+      autoDisplayNotice.style.display = "block";
       intervalId = setInterval(() => {
         updateQuoteAndAuthor();
       }, 3000);
     } else {
       clearInterval(intervalId);
+      newQuoteButton.style.display = "block";
+      autoDisplayNotice.style.display = "none";
     }
   });
 }
