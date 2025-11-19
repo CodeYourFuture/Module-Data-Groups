@@ -3,7 +3,7 @@ function tally(input) {
         throw new Error("Input must be an array");
     }
 
-   const counts = {};
+   const counts = Object.create(null); // no prototype
     for (let item of input) {
         counts[item] = (counts[item] || 0) + 1;
     }
@@ -11,4 +11,7 @@ function tally(input) {
     return counts;
 }
 
+
+
 module.exports = tally;
+

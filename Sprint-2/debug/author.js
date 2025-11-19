@@ -10,7 +10,9 @@ const author = {
   age: 40,
   alive: true,
 };
-console.log(author)
+for (let value of Object.values(author)) {
+  console.log(value);
+}
 
 // for (const value of author) {
 //   console.log(author);
