@@ -43,7 +43,7 @@ test("given an array a negative number", () => {
 test("given an array with decimal number", () => {
   const input = [0.1, 0.2, 0.3, 0.4];
   const result = sum(input);
-  expect(result).toEqual(1);
+  expect(result).toBeCloseTo(1);
 });
 
 // Given an array containing non-number values

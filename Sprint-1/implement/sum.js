@@ -1,7 +1,12 @@
 function sum(elements) {
-    if (!Array.isArray(elements)) return null
-    const sumNum = elements.filter(n => typeof n === 'number' && !isNaN(n))
-    return sumNum.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-};
-
+  return elements.reduce((accumulator, currentValue) => {
+    if (typeof currentValue === "number") {
+      return accumulator + currentValue;
+    }
+    return accumulator;
+  }, 0);
+}   
+   
 module.exports = sum;
+
+ 
