@@ -65,6 +65,12 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  audio.currentTime = 0; // reset to start, make sure next time play alarm starts from the beginning.
+
+  if(countdown) {
+    clearInterval(countdown); // clearing the interval stops the countdown immediately if user press Stop alarm
+    countdown = null;
+  }
 }
 
 window.onload = setup;
