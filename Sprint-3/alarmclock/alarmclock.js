@@ -2,10 +2,21 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   const heading = document.getElementById("timeRemaining");
 
-  // Read total seconds from input
-  let totalSeconds = parseInt(input.value, 10);
-  if (Number.isNaN(totalSeconds) || totalSeconds < 0) {
-    totalSeconds = 0;
+  // Read and trim input
+  const raw = input.value.trim();
+
+  // If input is empty, do nothing (don't start the alarm)
+  if (raw === "") {
+    heading.innerText = `Time Remaining: 00:00`;
+    return;
+  }
+
+  // Parse total seconds from input
+  let totalSeconds = parseInt(raw, 10);
+  if (Number.isNaN(totalSeconds) || totalSeconds <= 0) {
+    // invalid or non-positive input -> do nothing
+    heading.innerText = `Time Remaining: 00:00`;
+    return;
   }
 
   // Format seconds into "MM:SS"
