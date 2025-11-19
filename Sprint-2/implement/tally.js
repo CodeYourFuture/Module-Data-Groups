@@ -3,7 +3,7 @@ function tally(items) {
     throw new Error("Input must be an array");
   }
 
-  const result = {};
+  const result = Object.create(null); // Create a clean object with no prototype
 
   for (const item of items) {
     if (result[item]) {
