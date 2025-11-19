@@ -16,28 +16,57 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+
+test("given an empty array, returns -Infinity", () => {
+  expect(findMax([])).toEqual(-Infinity);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
 
+test("given an array with one number, returns that number", () => {
+  expect(findMax([42])).toEqual(42);
+});
+
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+
+test("given an array with positive and negative numbers, returns the largest", () => {
+  expect(findMax([-10, 20, 5, -1])).toEqual(20);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
 
+test("given an array with only negative numbers, returns the closest to zero", () => {
+  expect(findMax([-50, -10, -100])).toEqual(-10);
+});
+
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+
+test("given an array with decimal numbers, returns the largest decimal", () => {
+  expect(findMax([1.2, 3.5, 2.8])).toEqual(3.5);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 
+test("given an array with non-number values, ignores them and returns the max number", () => {
+  expect(findMax(["a", 10, "b", 60, 10])).toEqual(60);
+});
+
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+test("given an array with only non-number values, returns -Infinity", () => {
+  expect(findMax(["a", "b", null, undefined])).toEqual(-Infinity);
+});
+
+// max.test.js test cases performed and function implemented
