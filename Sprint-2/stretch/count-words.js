@@ -26,3 +26,20 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+function countWords(input) {
+  
+  const wordCounts = {};
+  const words = input.split(/\s+/);
+
+  for (let word of words) {
+    
+    const cleanedWord = word.replace(/[.,!?;:()"]/g, '').toLowerCase();
+    if (cleanedWord) { 
+      wordCounts[cleanedWord] = (wordCounts[cleanedWord] || 0) + 1;
+    }
+  }
+
+  return wordCounts;
+}
+console.log(countWords("Hello, hello, World, feed him or keep him world! Hello."));
+console.log(countWords("You and me and you and Me again."));
