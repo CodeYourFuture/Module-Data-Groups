@@ -21,10 +21,14 @@ function setAlarm() {
   countdown = setInterval(() => {
     timeLeft -= 1; // reduce time by 1 seconds
     updateDisplay(timeLeft); // update display
+
     if (timeLeft <= 0) {  // when time reaches 0
       clearInterval(countdown); // stop the countdown
       countdown = null; // reset variable
       playAlarm(); // play the alarm sound
+
+      // change background color when the alarm clock finishes
+      document.body.style.backgroundColor = "red";
     }
 
   }, 1000); // run every one second
@@ -66,6 +70,9 @@ function playAlarm() {
 function pauseAlarm() {
   audio.pause();
   audio.currentTime = 0; // reset to start, make sure next time play alarm starts from the beginning.
+
+  // reset the background color to original
+  document.body.style.backgroundColor = "";
 
   if(countdown) {
     clearInterval(countdown); // clearing the interval stops the countdown immediately if user press Stop alarm
