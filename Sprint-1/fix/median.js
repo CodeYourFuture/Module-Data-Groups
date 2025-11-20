@@ -8,7 +8,7 @@
 // median.js
 function calculateMedian(list) {
   // 1) Must be an array
-   if (!Array.isArray(list) || list.length === 0) {
+   if (!Array.isArray(list) || list.length === 0){
     return null;
   }
   // 2) Keep only real numeric values 
@@ -29,7 +29,9 @@ function calculateMedian(list) {
   if (sorted.length % 2 === 0) {
     // even length → average of middle two
     return (sorted[middleIndex - 1] + sorted[middleIndex]) / 2;
-  
+  }
+
+  // odd length → middle element
    return sorted[middleIndex];
 }
 
