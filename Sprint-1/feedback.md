@@ -26,6 +26,23 @@ it cannot check whether the arrays are actually different objects:
 **Suggestion**: Find out how to test whether two arrays are different arrays in Jest.
 
 
+## `Sprint-1/implement/sum.js` and `Sprint-1/implement/max.js`
+
+### Ensuring a value is a number within an expected range
+
+What are the differences among the following approaches for checking if `num` is a number?
+Which of them suit your needs better?
+
+```javascript
+typeof num == "number"
+!isNaN(num)
+!Number.isNaN(num)
+isFinite(num)
+Number.isFinite(num)
+Number.isInteger(num)
+Number.isSafeInteger(num)
+```
+
 ## `Sprint-1/implement/sum.test.js`
 
 ### Comparing floating-point numbers correctly
