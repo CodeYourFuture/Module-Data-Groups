@@ -8,25 +8,29 @@
 // median.js
 function calculateMedian(list) {
   // 1) Must be an array
-  if (!Array.isArray(list)) return null;  
+   if (!Array.isArray(list) || list.length === 0) {
+    return null;
+  }
+  // 2) Keep only real numeric values 
+  const numbers = list.filter((item) => typeof item === "number");
 
-  // 2) Keep only real numeric values (ignore strings, null, undefined, NaN, etc.)
-  const numbers = list.filter(v => typeof v === 'number' && Number.isFinite(v));
-
-  // 3) If there are no numbers, return null
-  if (numbers.length === 0) return null;
+  if (numbers.length === 0) {
+    return null;
+  }
 
   // 4) Sort a copy numerically (don't mutate the original)
-  const sorted = numbers.slice().sort((a, b) => a - b);
+  const sorted =[...numbers].sort((a, b) => a - b);
 
   // 5) Pick middle index
-  const mid = Math.floor(sorted.length / 2);
+  const middleIndex = Math.floor(sorted.length / 2);
 
   // 6) Odd length -> middle element; Even length -> average of two middle elements
-  if (sorted.length % 2 === 1) {
-    return sorted[mid];
-  }
-  return (sorted[mid - 1] + sorted[mid]) / 2;
+ 
+  if (sorted.length % 2 === 0) {
+    // even length → average of middle two
+    return (sorted[middleIndex - 1] + sorted[middleIndex]) / 2;
+  
+   return sorted[middleIndex];
 }
 
 module.exports = calculateMedian;
