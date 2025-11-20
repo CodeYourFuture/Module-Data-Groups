@@ -45,7 +45,14 @@ test("contains returns false for non-existent property", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("contains returns false for invalid parameters", () => {
-	expect(contains([], 'a')).toBe(false);
+    const arr = [1, 2, 3];
+    arr.extra = "value";              // Add own property to prove arrays are rejected
+    expect(contains(arr, 'extra')).toBe(false); // Would be true if implementation wrongly treated arrays as objects
+
+    // Also ensure indexed keys are rejected (array has '0' as own property)
+    expect(contains(['x'], '0')).toBe(false);
+
+    expect(contains([], 'a')).toBe(false);
 	expect(contains(null, 'a')).toBe(false);
 	expect(contains(undefined, 'a')).toBe(false);
 	expect(contains(42, 'a')).toBe(false);
