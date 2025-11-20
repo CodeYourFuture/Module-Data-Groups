@@ -7,15 +7,17 @@ function parseQueryString(queryString) {
 
   for (const pair of keyValuePairs) {
     const parts = pair.split("=");
-    const key = parts[0];
-    
+    const decode = (s) => decodeURIComponent(s.replace(/\+/g, "%20"));
+    const rawKey = parts[0];
+    const key = decode(rawKey);
+
     if (parts.length === 1) {
-      // No = found, set value to undefined
+      // No '=' present → undefined value
       queryParams[key] = undefined;
     } else {
-      // Join everything after the first = back together
-      const value = parts.slice(1).join("=");
-      queryParams[key] = value;
+      // Rejoin remaining pieces (handles '=' inside value), then decode
+      const rawValue = parts.slice(1).join("=");
+      queryParams[key] = decode(rawValue);
     }
   }
 
