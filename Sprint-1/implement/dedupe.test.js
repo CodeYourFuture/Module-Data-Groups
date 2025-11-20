@@ -1,4 +1,5 @@
 const dedupe = require("./dedupe.js");
+
 /*
 Dedupe Array
 
@@ -17,10 +18,12 @@ describe("dedupe - valid inputs", () => {
   // Given an empty array
   // When passed to the dedupe function
   // Then it should return an empty array
-  // test.todo("given an empty array, it returns an empty array");
   [{ input: [], expected: [] }].forEach(({ input, expected }) =>
-    test(`returns an empty array for input [${input}]`, () =>
-      expect(dedupe(input)).toEqual(expected))
+    test(`returns an empty array for input [${input}]`, () => {
+      const result = dedupe(input);
+      expect(result).toEqual(expected);
+      expect(result).not.toBe(input); // ensures it's a new array
+    })
   );
 
   // Given an array with no duplicates
@@ -31,38 +34,50 @@ describe("dedupe - valid inputs", () => {
     { input: ["a", "b", "car"], expected: ["a", "b", "car"] },
     { input: [0, 1, 5, 6], expected: [0, 1, 5, 6] },
   ].forEach(({ input, expected }) =>
-    test(`returns a copy of the array when no duplicates exist for input [${input}]`, () =>
-      expect(dedupe(input)).toEqual(expected))
+    test(`returns a copy of the array when no duplicates exist for input [${input}]`, () => {
+      const result = dedupe(input);
+      expect(result).toEqual(expected);
+      expect(result).not.toBe(input); // ensures it's a new array
+    })
   );
 
+  // Given arrays with duplicates
   [
     { input: [5, 1, 1, 2, 3, 2, 5, 8], expected: [5, 1, 2, 3, 8] },
     { input: [1, 1, 1, 1], expected: [1] },
     { input: ["a", "a", "a", "b", "b", "c"], expected: ["a", "b", "c"] },
   ].forEach(({ input, expected }) =>
-    test(`removes duplicate elements and keep the first occurrence for [${input}]`, () =>
-      expect(dedupe(input)).toEqual(expected))
+    test(`removes duplicate elements and keeps the first occurrence for [${input}]`, () => {
+      const result = dedupe(input);
+      expect(result).toEqual(expected);
+      expect(result).not.toBe(input); // ensures it's a new array
+    })
   );
 
-  // Given an array with strings or numbers
-  // When passed to the dedupe function
-  // Then it should remove the duplicate values, preserving the first occurence of each element
+  // Given arrays with numbers and strings mixed
   [
     { input: ["1", 1, "1", 1], expected: ["1", 1] },
     { input: [2, "3", "hello", 5, 5], expected: [2, "3", "hello", 5] },
   ].forEach(({ input, expected }) =>
-    test(`removes duplicates from an array of numbers and strings, keeping the first occurrence of each element, for the input [${input}]`, () =>
-      expect(dedupe(input)).toEqual(expected))
+    test(`removes duplicates from an array of numbers and strings, keeping the first occurrence for input [${input}]`, () => {
+      const result = dedupe(input);
+      expect(result).toEqual(expected);
+      expect(result).not.toBe(input); // ensures it's a new array
+    })
   );
 
+  // Given arrays with invalid elements
   [
     { input: [1, 2, true, 3, null, "a", {}], expected: [1, 2, 3, "a"] },
     { input: ["x", undefined, "x", "y", []], expected: ["x", "y"] },
     { input: [false, 5, 5, "hello", () => {}, 5], expected: [5, "hello"] },
     { input: [1, NaN, 2, NaN, "hello"], expected: [1, 2, "hello"] },
   ].forEach(({ input, expected }) =>
-    test(`Ensures dedupe filters out invalid elements, removes duplicates, and returns a copy of the array`, () =>
-      expect(dedupe(input)).toEqual(expected))
+    test(`filters invalid elements, removes duplicates, and returns a copy for input [${input}]`, () => {
+      const result = dedupe(input);
+      expect(result).toEqual(expected);
+      expect(result).not.toBe(input); // ensures it's a new array
+    })
   );
 });
 
@@ -71,8 +86,8 @@ describe("dedupe - invalid inputs", () => {
 
   invalidInputs.forEach((input) =>
     test(`throws typeError when input is ${String(input)}`, () => {
-      expect(() => dedupe(null)).toThrow(TypeError);
-      expect(() => dedupe(null)).toThrow("Input must be an array");
+      expect(() => dedupe(input)).toThrow(TypeError);
+      expect(() => dedupe(input)).toThrow("Input must be an array");
     })
   );
 });
