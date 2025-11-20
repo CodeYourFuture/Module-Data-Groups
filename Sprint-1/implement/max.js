@@ -4,23 +4,19 @@ function findMax(elements) {
         return typeof item === 'number' && !isNaN(item);
     });
 
-    //  Check if any numbers exist, Given an empty array, it should return -Infinity
+    // Treat no numbers the same as empty input
     if (numbers.length === 0) {
-        if (elements.length === 0) {
-            return -Infinity;
-        } else {
-            return null;
-        }
+        return -Infinity;
     }
 
     // Find the maximum number
     let max = numbers[0];
     for (let i = 1; i < numbers.length; i++) {
-    if (numbers[i] > max) {
-        max = numbers[i];
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
     }
-}
-return max;
+    return max;
 }
     
 module.exports = findMax;
