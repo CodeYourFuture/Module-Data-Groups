@@ -5,8 +5,8 @@ function contains(obj, property) {
     typeof obj === "object" &&
     obj !== null &&
     !Array.isArray(obj) &&
-    Object.hasOwn(obj, property
-  )) {
+    Object.hasOwn(obj, property)
+  ) {
     return true;
   } else {
     return false;
