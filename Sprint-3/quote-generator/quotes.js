@@ -498,8 +498,8 @@ function pickFromArray(choices) {
 // this function picks a random quote from the quotes array and updates the DOM elements
 function displayRandomQuote() {
   const randomQuote = pickFromArray(quotes); // get a random quote
-  quoteElement.textContent = `"${randomQuote.quote}"`; // update quote
-  authorElement.textContent = `- ${randomQuote.author}`; // update author
+  quoteElement.textContent = randomQuote.quote; // update quote
+  authorElement.textContent = randomQuote.author; // update author
 }
 
 // show a random quote when page loads
