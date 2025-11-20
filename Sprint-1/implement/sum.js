@@ -10,7 +10,7 @@ function sum(elements) {
   for (const item of filteredElements) {
     sumElements += item;
   }
-  return Number(sumElements);
+  return sumElements;
 }
 
 module.exports = sum;
