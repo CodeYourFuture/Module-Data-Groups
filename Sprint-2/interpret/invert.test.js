@@ -4,12 +4,9 @@ test('inverts object with single key-value pair', () => {
   expect(invert({ a: 1 })).toEqual({ "1": "a" });
 });
 
-test('inverts object with multiple key-value pairs', () => {
-  expect(invert({ a: 1, b: 2 })).toEqual({ "1": "a", "2": "b" });
-});
-
-test('inverts object with string values', () => {
-  expect(invert({ x: 10, y: 20 })).toEqual({ "10": "x", "20": "y" });
+// Combined test for numeric and string values
+test('inverts object with multiple key-value pairs (numeric and string values)', () => {
+  expect(invert({ a: 1, b: 2, x: 10, y: 20 })).toEqual({ "1": "a", "2": "b", "10": "x", "20": "y" });
 });
 
 test('inverts object with string keys and values', () => {
