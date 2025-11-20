@@ -27,6 +27,13 @@ test("given an empty array, it returns an empty array", () => {
 test("given an array with no duplicates, returns a copy of the original array", () => {
 	expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);
 	expect(dedupe(["a", "b", "c"])).toEqual(["a", "b", "c"]);
+
+	// Reference copy check
+	const original = [7, 8, 9];
+	const result = dedupe(original);
+	expect(result).toEqual(original);      // same values
+	expect(result).not.toBe(original);     // different reference
+
 });
 
 // Given an array with strings or numbers
