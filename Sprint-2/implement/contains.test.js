@@ -32,17 +32,13 @@ test("Checks if an object contains the specified property", () => {
   expect(contains(obj1, "city")).toBe(false); // The property "city" does not exist
 });
 
-// contains({ a: 1, b: 2 }, 'a') // returns true
+// contains({ a: 1, b: 2 }, 'a') // returns true and contains({ a: 1, b: 2 }, 'c') // returns false
 test("Checks if an object contains the specified property", () => {
   const obj1 = { a: 1, b: 2 };
   expect(contains(obj1, "a")).toBe(true); // The property "name" exists
-});
-
-// contains({ a: 1, b: 2 }, 'c') // returns false
-test("Checks if an object contains the specified property", () => {
-  const obj1 = { a: 1, b: 2 };
   expect(contains(obj1, "c")).toBe(false); // The property "c" does not exist
 });
+
 
 // when given an array instead of an object returns false
 test(" when given an array instead of an object returns false", () => {
