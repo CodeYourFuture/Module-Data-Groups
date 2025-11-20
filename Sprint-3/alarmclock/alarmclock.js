@@ -1,6 +1,18 @@
 // Declare a global variable to store the countdown currently running
 let intervalId;
 
+// Helper function to format total seconds and update the UI
+function updateDisplay(totalSeconds) {
+  let timeRemainingMinutes = Math.floor(totalSeconds / 60)
+    .toString()
+    .padStart(2, "0");
+  let timeRemainingSeconds = (totalSeconds % 60).toString().padStart(2, "0");
+
+  document.getElementById(
+    "timeRemaining"
+  ).textContent = `Time Remaining: ${timeRemainingMinutes}:${timeRemainingSeconds}`;
+}
+
 function setAlarm() {
   if (intervalId) {
     clearInterval(intervalId); // when the set alarm button is clicked, if there is a countdown running, clear it
@@ -22,36 +34,22 @@ function setAlarm() {
 
   let inputElement = document.getElementById("alarmSet"); // this is used to grab the input element so I can read whatever the user typed
   let totalSeconds = Number(inputElement.value); //this converts the input from string to number
-  let timeRemainingMinutes = Math.floor(totalSeconds / 60);
-  let timeRemainingSeconds = totalSeconds % 60;
 
-  timeRemainingMinutes = timeRemainingMinutes.toString().padStart(2, "0");
-  timeRemainingSeconds = timeRemainingSeconds.toString().padStart(2, "0");
-
-  document.getElementById(
-    "timeRemaining"
-  ).textContent = `Time Remaining: ${timeRemainingMinutes}:${timeRemainingSeconds}`;
-
+  updateDisplay(totalSeconds);
+  // start the countdown
   intervalId = setInterval(() => {
     // the code you write here will run every one second or 1000 milliseconds
     totalSeconds = totalSeconds - 1;
-    if (totalSeconds <= 0) {
+    if (totalSeconds === 0) {
       clearInterval(intervalId);
       playAlarm();
       document.getElementById("timeRemaining").textContent =
         "Time Remaining: 00:00";
+      document.getElementById()
       return;
     }
 
-    let timeRemainingMinutes = Math.floor(totalSeconds / 60);
-    let timeRemainingSeconds = totalSeconds % 60;
-
-    timeRemainingMinutes = timeRemainingMinutes.toString().padStart(2, "0");
-    timeRemainingSeconds = timeRemainingSeconds.toString().padStart(2, "0");
-
-    document.getElementById(
-      "timeRemaining"
-    ).textContent = `Time Remaining: ${timeRemainingMinutes}:${timeRemainingSeconds}`;
+    updateDisplay(totalSeconds);
   }, 1000);
 }
 
@@ -78,3 +76,5 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
+
+
