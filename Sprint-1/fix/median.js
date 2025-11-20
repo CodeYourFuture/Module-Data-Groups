@@ -21,19 +21,19 @@ function calculateMedian(list) {
     return null;
   }
 
-  // Create a shallow copy of `validNumbers` and sort it in ascending order
-  // This avoids modifying the original array
-  const sorted = [...validNumbers].sort((a, b) => a - b);
+  // Sort `validNumbers` in ascending order
+  // Sort validNumbers (safe to mutate because it's a new array created by filter)
+  validNumbers.sort((a, b) => a - b);
 
   // Calculate the middle index of the sorted array
-  const middleIndex = Math.floor(sorted.length / 2);
+  const middleIndex = Math.floor(validNumbers.length / 2);
 
   // If the array has an odd number of elements, return the middle element
-  if (sorted.length % 2 !== 0) {
-    return sorted[middleIndex];
+  if (validNumbers.length % 2 !== 0) {
+    return validNumbers[middleIndex];
   } else {
     // If the array has an even number of elements, return the average of the two middle elements
-    return (sorted[middleIndex - 1] + sorted[middleIndex]) / 2;
+    return (validNumbers[middleIndex - 1] + validNumbers[middleIndex]) / 2;
   }
 }
 
