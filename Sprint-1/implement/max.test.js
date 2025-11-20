@@ -34,7 +34,7 @@ test("given an array with one number, returns that number", () => {
 // Then it should return the largest number overall
 test("given an array with both positive and negative numbers, returns the largest number overall", () => {
   expect(findMax([10, -5, 20, 0])).toBe(20);
-  expect(findMax([-1, -100, -50, 30]));
+  expect(findMax([-1, -100, -50, 30])).toBe(30);
   expect(findMax([0, -10, 5])).toBe(5);
 });
 
@@ -70,7 +70,7 @@ test("given an array with non-number values, returns the max and ignore the non-
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given an array with only non-number values", () => {
   expect(findMax(["a", null, undefined])).toBe(-Infinity);
-  expect(findMax([{}, [], "hi"]));
+  expect(findMax([{}, [], "hi"])).toBe(-Infinity);
   expect(findMax([true, false, true])).toBe(-Infinity);
   expect(findMax([Symbol("x"), () => {}, function () {}])).toBe(-Infinity);
 });
