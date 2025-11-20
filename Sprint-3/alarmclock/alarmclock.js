@@ -40,17 +40,20 @@ function setAlarm() {
     alert("Please enter a positive number!");
     return;
   }
-  
+
+  document.getElementById("timeRemaining").style.backgroundColor = "";
+
   updateDisplay(totalSeconds);
   // start the countdown
   intervalId = setInterval(() => {
     // the code you write here will run every one second or 1000 milliseconds
     totalSeconds = totalSeconds - 1;
-    if (totalSeconds === 0) {
+    if (totalSeconds <= 0) {
       clearInterval(intervalId);
       playAlarm();
       document.getElementById("timeRemaining").textContent =
         "Time Remaining: 00:00";
+      document.getElementById("timeRemaining").style.backgroundColor = "blue";
       document.getElementById("alarmSet").value = "";
       return;
     }
@@ -82,5 +85,3 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
-
-
