@@ -35,6 +35,12 @@ function setAlarm() {
   let inputElement = document.getElementById("alarmSet"); // this is used to grab the input element so I can read whatever the user typed
   let totalSeconds = Number(inputElement.value); //this converts the input from string to number
 
+  // Validate input
+  if (totalSeconds <= 0 || isNaN(totalSeconds)) {
+    alert("Please enter a positive number!");
+    return;
+  }
+  
   updateDisplay(totalSeconds);
   // start the countdown
   intervalId = setInterval(() => {
@@ -45,7 +51,7 @@ function setAlarm() {
       playAlarm();
       document.getElementById("timeRemaining").textContent =
         "Time Remaining: 00:00";
-      document.getElementById()
+      document.getElementById("alarmSet").value = "";
       return;
     }
 
