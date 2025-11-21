@@ -1,6 +1,5 @@
 const path = require("path");
 const { JSDOM } = require("jsdom");
-const { default: userEvent } = require("@testing-library/user-event");
 
 let page = null;
 
