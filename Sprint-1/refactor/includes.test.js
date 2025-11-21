@@ -36,3 +36,6 @@ test("searches for null", () => {
 
   expect(currentOutput).toEqual(targetOutput);
 });
+
+
+// include.test.js passed the test after refactoring the include-function with (for ... of)
