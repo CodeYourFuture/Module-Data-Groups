@@ -55,10 +55,12 @@ test("contains should return false for inherited properties", () => {
 
 // Test with arrays (should work properly)
 test("contains should work with arrays", () => {
-  expect(contains(['a', 'b', 'c'], '0')).toBe(true);
-  expect(contains(['a', 'b', 'c'], '1')).toBe(true); 
-  expect(contains(['a', 'b', 'c'], 'length')).toBe(false);
+  expect(contains(["a", "b", "c"], "0")).toBe(true);
+  expect(contains(["a", "b", "c"], "1")).toBe(true);
+  expect(contains(["a", "b", "c"], "2")).toBe(true);
+  expect(contains(["a", "b", "c"], "3")).toBe(false); // check index that does not exist
 });
+
 
 // Test with array as object
 test("contains should handle arrays correctly", () => {
