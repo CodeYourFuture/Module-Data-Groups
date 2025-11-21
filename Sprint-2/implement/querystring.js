@@ -6,6 +6,11 @@ function parseQueryString(queryString) {
   if (queryString.length === 0) {
     return queryParams;
   }
+
+  if (decodeURI(queryString) === decodeURIComponent(queryString)) {
+    queryString = decodeURIComponent(queryString);
+  }
+
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
@@ -24,6 +29,5 @@ function parseQueryString(queryString) {
 
   return queryParams;
 }
-
 
 module.exports = parseQueryString;
