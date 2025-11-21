@@ -12,8 +12,8 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`titie: ${recipe.title}, serves: ${recipe.serves}, ingredients:\n`);
-
-for (const ingredient of recipe.ingredients) {
-  console.log(ingredient);
-}
+console.log(
+  `titie: ${recipe.title}, serves: ${
+    recipe.serves
+  }, ingredients: ${recipe.ingredients.join(", ")}`
+);

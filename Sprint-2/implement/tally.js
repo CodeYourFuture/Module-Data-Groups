@@ -5,7 +5,7 @@ function tally(array) {
     const value = accumulator[currentValue];
     accumulator[currentValue] = value ? value + 1 : 1;
     return accumulator;
-  }, {});
+  }, Object.create(null));
 }
 
 module.exports = tally;
