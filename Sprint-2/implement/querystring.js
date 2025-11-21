@@ -7,10 +7,6 @@ function parseQueryString(queryString) {
     return queryParams;
   }
 
-  if (decodeURI(queryString) === decodeURIComponent(queryString)) {
-    queryString = decodeURIComponent(queryString);
-  }
-
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
@@ -24,6 +20,14 @@ function parseQueryString(queryString) {
       key = pair.slice(0, index);
       value = pair.slice(index + 1);
     }
+
+    try {
+      key = decodeURIComponent(key);
+      value = decodeURIComponent(value);
+    } catch (err) {
+      throw new Error("Invalid URL-encoded string");
+    }
+
     queryParams[key] = value;
   }
 
