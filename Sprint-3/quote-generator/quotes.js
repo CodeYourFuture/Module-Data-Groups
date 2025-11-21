@@ -505,7 +505,7 @@ const newQuoteButton = document.getElementById("new-quote");
 function showRandomQuote () {
   const randomQuote = pickFromArray(quotes);// pick a random quote from the quote array.
   quoteText.innerText = randomQuote.quote; // display the quote text in the HTML
-  authorText.innerText = randomQuote.quote; // display the author's in the HTML
+  authorText.innerText = randomQuote.author; // display the author's in the HTML
 }
 // Display quote on page load
 showRandomQuote();
