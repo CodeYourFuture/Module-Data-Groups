@@ -1,1 +1,92 @@
 /** Write your CSS in here **/
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family:;
+  background-color:#f3a83b;
+}
+
+.quote-wrapper {
+  background: white;
+  color: #f3a83b;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 8px;
+  max-width: 80%;
+  height: auto;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+#author {
+  text-align: right;
+  margin-top: 10px;
+}
+
+button {
+  background-color:#f3a83b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.controls {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  width: 125px;
+  padding: 10px 12px;
+  text-align: center;
+  background-color: white;
+  color: #f3a83b;
+  border: 1px solid #f3a83b;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+label::before {
+  content: "x";
+  color: white;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  margin-top: 6.5px;
+  background-color: #f3a83b;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.toggle:checked + label {
+  background-color: #f3a83b;
+  color: white;
+}
+
+.toggle:checked + label::before {
+  content: '✔';
+  color: #f3a83b;
+  transform: translateX(120px);
+  background-color: white;
+}
