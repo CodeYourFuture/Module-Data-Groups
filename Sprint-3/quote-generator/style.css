@@ -1,1 +1,13 @@
 /** Write your CSS in here **/
+
+body {
+  background-color: #121212;   
+  color: #ffffff;              
+  font-family: Arial, sans-serif; 
+  height: 100vh;               
+  display: flex;               
+  flex-direction: column;      
+  justify-content: center;     
+  align-items: center;         
+  margin: 0;                   
+}

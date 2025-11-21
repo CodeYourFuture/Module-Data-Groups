@@ -509,3 +509,8 @@ function showRandomQuote () {
 }
 // Display quote on page load
 showRandomQuote();
+
+// Make the button work
+// .addEventListener("click", ...) do something when the button is clicked
+// Every time the user clicks the button, a new random quotes appears.
+newQuoteButton.addEventListener("click", showRandomQuote);
