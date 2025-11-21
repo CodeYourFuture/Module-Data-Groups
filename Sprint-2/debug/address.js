@@ -1,4 +1,8 @@
 // Predict and explain first...
+// Prediction: The code will print "My house number is undefined".
+// Explanation: The code uses address[0], but address is an object, not an array.
+// Objects cannot be accessed using numeric indexes. Therefore address[0] does not exist
+// and evaluates to undefined.
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
@@ -12,4 +16,5 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
+// Expected output: My house number is 42
