@@ -1,1 +1,58 @@
 /** Write your CSS in here **/
+/* Reset some default styles */
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  background-color: #ec8a09;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column; /* stack quote, author, button vertically */
+  align-items: center; /* center quote and author horizontally */
+  background-color: #f7f3ee;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 15px;
+  color: #f86510;
+}
+
+#author {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f86510;
+  margin-bottom: 20px;
+  align-self: flex-end; /* moves author to the right */
+}
+
+#new-quote {
+  align-self: flex-end; /* pushes button to the right edge of container */
+  margin-top: 20px; /* optional spacing from the quote */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#new-quote:hover {
+  background-color: #45a049;
+}
