@@ -55,26 +55,14 @@ test("Given an object with properties, when passed to contains with a non-existe
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("Given invalid parameters, when passed to contains, throws an error", () => {
-  expect(() => contains("hello", "location")).toThrow(
-    new TypeError("Invalid input: obj must be a plain object")
-  );
-  expect(() => contains(null, "a")).toThrow(
-    new TypeError("Invalid input: obj must be a plain object")
-  );
-  expect(() => contains(undefined, "a")).toThrow(
-    new TypeError("Invalid input: obj must be a plain object")
-  );
-  expect(() => contains(123, "a")).toThrow(
-    new TypeError("Invalid input: obj must be a plain object")
-  );
-  expect(() => contains(true, "a")).toThrow(
-    new TypeError("Invalid input: obj must be a plain object")
-  );
-  expect(() => contains([], "a")).toThrow(
-    new TypeError("Invalid input: obj must be a plain object")
-  );
-  expect(() => contains(() => {}, "a")).toThrow(
-    new TypeError("Invalid input: obj must be a plain object")
-  );
+test("Given invalid parameters, contains throws a TypeError", () => {
+  const invalidInputs = ["hello", null, undefined, 123, true, [], () => {}];
+
+  invalidInputs.forEach(input => {
+    expect(() => contains(input, "a")).toThrow(
+      new TypeError("Invalid input: obj must be a plain object")
+    );
+  });
 });
+
+
