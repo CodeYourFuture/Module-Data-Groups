@@ -17,13 +17,13 @@ as the object doesn't contains a key of 'c'
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
 
+
 // Given an empty object
 // When passed to contains
 // Then it should return false
 test("contains on empty object returns false", () => {
   expect(contains({}, "a")).toBe(false);
 });
-
 
 // Given an object with properties
 // When passed to contains with an existing property name
@@ -44,4 +44,26 @@ test("contains on object with non-existent property returns false", () => {
 // Then it should return false or throw an error
 test("contains on invalid parameters returns false", () => {
   expect(contains([], "a")).toBe(false);
+});
+
+// === NEW TESTS ADDED BELOW ===
+
+// Test for inherited properties (should return false)
+test("contains should return false for inherited properties", () => {
+  expect(contains({a: 1, b: 2}, 'toString')).toBe(false);
+});
+
+// Test with arrays (should work properly)
+test("contains should work with arrays", () => {
+  expect(contains(['a', 'b', 'c'], '0')).toBe(true);
+  expect(contains(['a', 'b', 'c'], '1')).toBe(true); 
+  expect(contains(['a', 'b', 'c'], 'length')).toBe(false);
+});
+
+// Test with array as object
+test("contains should handle arrays correctly", () => {
+  const arr = ['x', 'y', 'z'];
+  expect(contains(arr, '0')).toBe(true);
+  expect(contains(arr, '2')).toBe(true);
+  expect(contains(arr, '3')).toBe(false);
 });
