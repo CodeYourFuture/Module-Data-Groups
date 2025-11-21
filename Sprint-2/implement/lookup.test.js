@@ -1,6 +1,28 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+//test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () =>{
+   const countryCurrencyPairs =[
+
+    ['US', 'USD'],
+    ['CA', 'CAD'],
+    ['JP', 'JPY']
+
+  ];
+
+  const expected ={
+
+    'US': 'USD',
+    'CA': 'CAD',
+    'JP': 'JPY'
+    
+  };
+
+  const result = createLookup(countryCurrencyPairs);
+
+ expect(result).toEqual(expected);
+
+});
 
 /*
 
