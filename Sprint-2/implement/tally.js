@@ -3,7 +3,7 @@ function tally(arr) {
     throw new TypeError("Invalid input: Input must be an array");
   }
 
-  const result = {};
+  const result = Object.create(null);
 
   for (const item of arr) {
     if (result[item]) {
