@@ -15,6 +15,7 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
+
 // You don't need to change this function
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
@@ -491,3 +492,33 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+// STEP 1: Get references to the HTML elements we need to update
+// These lines find the HTML elements by their ID so we can change their content later
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+
+// STEP 2: Create a function to display a random quote
+// This function will be called when page loads AND when button is clicked
+function displayRandomQuote() {
+  // Use the provided pickFromArray function to get a random quote object
+  // The quotes array contains objects, each with 'quote' and 'author' properties
+  const randomQuote = pickFromArray(quotes);
+
+  // Update the quote text on the webpage
+  // randomQuote.quote gets the actual quote text from the random quote object
+  quoteElement.textContent = randomQuote.quote;
+
+  // Update the author text on the webpage
+  // randomQuote.author gets the author's name from the random quote object
+  authorElement.textContent = "- " + randomQuote.author;
+}
+
+// STEP 3: Set up the button click event
+// When someone clicks the "New quote" button, run displayRandomQuote function
+newQuoteButton.addEventListener("click", displayRandomQuote);
+
+// STEP 4: Show a random quote when the page first loads
+// This makes sure a quote is displayed immediately when someone visits the page
+displayRandomQuote();
