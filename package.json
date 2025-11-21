@@ -1,0 +1,21 @@
+{
+  "name": "module-data-groups",
+  "version": "1.0.0",
+  "description": "Like learning a musical instrument, programming requires daily practice.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saff-coder/Module-Data-Groups.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saff-coder/Module-Data-Groups/issues"
+  },
+  "homepage": "https://github.com/saff-coder/Module-Data-Groups#readme"
+}

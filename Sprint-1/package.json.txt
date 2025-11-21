@@ -1,14 +1,14 @@
 {
-  "name": "sprint-1",
+  "name": "cyf-sprint-1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Code Your Future Sprint-1 exercises",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "jest": "^29.0.0"
   }
