@@ -32,7 +32,7 @@ For example,
 
 > `tags%5B%5D=hello%20world` -> key is `tags[]`, value is `hello world`
 
-Can you function handle URL-encoded query string?
+Can your function handle URL-encoded query string?
 
 Suggestion: Look up "How to decode a URL-encoded string in JavaScript".
 
