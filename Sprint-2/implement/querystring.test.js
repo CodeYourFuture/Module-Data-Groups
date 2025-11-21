@@ -31,8 +31,11 @@ test("parses multiple key-value pairs", () => {
 
 test("parses values with spaces or special characters", () => {
   expect(parseQueryString("name=John%20Doe&city=New+York")).toEqual({
-    name: "John%20Doe",
+    name: "John Doe",
     city: "New+York",
+  });
+  expect(parseQueryString("tags%5B%5D=hello%20world")).toEqual({
+    "tags[]": "hello world",
   });
 });
 
