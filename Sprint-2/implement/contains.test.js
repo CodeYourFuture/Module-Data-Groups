@@ -56,7 +56,7 @@ test("if contains on object with non-existent property returns false", () => {
 // Then it should return false or throw an error
 test.todo("if contains with invalid parameters returns false or throws an error");
 test("if contains with invalid parameters returns false or throws an error", () => {
-    expect(contains(['a','b','c'], "a")).toBe(false);
+    expect(contains(['a','b','c'], "1")).toBe(false);
     expect(contains("string", "a")).toBe(false);
     expect(contains(12345, "a")).toBe(false);
 });

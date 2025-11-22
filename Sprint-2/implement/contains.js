@@ -1,7 +1,9 @@
 function contains(obj, find) {
-  if (obj.hasOwnProperty(find)) return true;
-  return false;
+
+  if(typeof obj !== 'object' || !obj || Array.isArray(obj)) {
+    return false;
+  }
+  return obj.hasOwnProperty(find);
 }
 
-//console.log(contains({a: 1, b: 2}, 'toString'));
 module.exports = contains;
