@@ -1,23 +1,16 @@
 function setAlarm() {
   const timer = Number(document.querySelector("#alarmSet").value);
-  const timeRemainingHTML = document.querySelector("#timeRemaining");
-  const pageTitle = document.querySelector("title");
+  const timeRemainingEl = document.querySelector("#timeRemaining");
 
   let targetTime = new Date().getTime() + timer * 1000;
-  console.log(targetTime);
 
   const doAlarm = setInterval( () => {
-    let timeThisSecond = new Date().getTime();
-    let timeDifference = targetTime - timeThisSecond;
-    let secondsLeft = Math.max(0, Math.ceil(timeDifference / 1000));
+    const timeThisSecond = new Date().getTime();
+    const timeDifference = targetTime - timeThisSecond;
+    const secondsLeft = Math.max(0, Math.ceil(timeDifference / 1000));
 
-    timeRemainingHTML.innerHTML = `Time Remaining: ${toMMSS(secondsLeft)}`;
-    pageTitle.innerHTML = `Time Remaining: ${toMMSS(secondsLeft)}`;
-
-    document.getElementById("pause").addEventListener("click", () => {
-        pauseAlarm();
-        clearInterval(doAlarm);
-      });
+    timeRemainingEl.innerHTML = `Time Remaining: ${formatTimeMMSS(secondsLeft)}`;
+    document.title = `Time Remaining: ${formatTimeMMSS(secondsLeft)}`;
 
     if (secondsLeft === 0) {
       playAlarm();
@@ -26,7 +19,7 @@ function setAlarm() {
   }, 1000);
 }
 
-function toMMSS (seconds) {
+function formatTimeMMSS (seconds) {
   const minutes = Math.floor(seconds / 60);
   seconds = seconds % 60;
   return `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
@@ -36,6 +29,11 @@ function toMMSS (seconds) {
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
+  document.getElementById("pause").addEventListener("click", () => {
+      pauseAlarm();
+      clearInterval(doAlarm);
+    });
+      
   document.getElementById("set").addEventListener("click", () => {
     setAlarm();
   });
