@@ -11,17 +11,17 @@ function calculateMedian(list) {
     return null;
   }
 
-  // Filter the list to keep only numbers
-  // We use 'filter' to create a new array with only numeric values
+  // Filter the list to keep only numbers.
+  // `filter` creates a new array with only numeric values.
   const numericList = list.filter((item) => typeof item === "number");
 
-  // If there are no numbers, return null
+  // If there are no numbers, return null.
   if (numericList.length === 0) {
     return null;
   }
 
-  // Sort the numbers in ascending order
-  // We provide a compare function to ensure numerical sorting, not alphabetical
+  // Sort the numbers in ascending order.
+  // `sort` ensure numerical sorting, not alphabetical.
   numericList.sort((a, b) => a - b);
 
   const length = numericList.length;
