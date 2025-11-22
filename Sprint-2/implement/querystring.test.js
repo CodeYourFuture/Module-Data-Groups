@@ -34,4 +34,12 @@ test("handles keys without values", () => {
   });
 });
 
+test("decodes multiple URL-encoded pairs", () => {
+  const query = "name%20first=Sophia&name%20last=Mohamed";
+  const result = parseQueryString(query); 
 
+  expect(result).toEqual({
+    "name first": "Sophia",
+    "name last": "Mohamed"
+  });
+});
