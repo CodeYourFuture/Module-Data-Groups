@@ -1,3 +1,6 @@
+
+  
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -14,6 +17,7 @@
 // Examples of use
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
+ 
 
 // You don't need to change this function
 function pickFromArray(choices) {
@@ -491,3 +495,17 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+let randomQuote = pickFromArray(quotes);
+console.log(randomQuote); // maybe logs { quote: "...", author: "..." }  
+
+const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author"); 
+  const newquoteButton = document.getElementById("new-quote");
+ 
+  function displayRandomQuote() {
+    const randomQuote = pickFromArray(quotes);
+    quoteElement.innerText = `"${randomQuote.quote}"`;
+    authorElement.innerText = `- ${randomQuote.author}`;
+  }
+    displayRandomQuote();
+    newquoteButton.addEventListener("click", displayRandomQuote);
