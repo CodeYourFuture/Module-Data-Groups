@@ -6,8 +6,8 @@ let remaining = 0;
 let intervalId = null;
 
 function format(seconds) {
-  const m = String(Math.floor(seconds / 60)).padStart(2, "0");
-  const s = String(seconds % 60).padStart(2, "0");
+  const minute = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const second = String(seconds % 60).padStart(2, "0");
   return `${m}:${s}`;
 }
 
@@ -31,6 +31,7 @@ function tick() {
 
 function setAlarm() {
   const value = parseInt(input.value, 10);
+  // Guard clause: ignore invalid or non-positive input
   if (!Number.isFinite(value) || value <= 0) return;
   if (intervalId) clearInterval(intervalId);
   remaining = value;
