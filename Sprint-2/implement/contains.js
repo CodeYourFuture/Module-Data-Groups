@@ -1,11 +1,7 @@
 function contains(obj, key) {
-  if (!obj || typeof obj !== "object" || Array.isArray(obj)) {//check if we have an object and makes sure it's not an array
-    return false;
-  }
-  if (Object.keys(obj).length === 0) {
-    return false;
-  }
-  return key in obj;
+  if (obj === null || typeof obj !== "object") return false;
+
+  return Object.prototype.hasOwnProperty.call(obj, key);// Updated to use hasOwnProperty to check for own properties only
 }
 
 module.exports = contains;

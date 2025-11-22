@@ -50,3 +50,8 @@ test("contains on invalid parameters returns false", () => {
   expect(contains(123, "a")).toBe(false);
   expect(contains("hello", "a")).toBe(false);
 });
+test("works with arrays using index keys", () => {
+  const arr = ["a", "b"];
+  expect(contains(arr, "0")).toBe(true);   // own property
+  expect(contains(arr, "2")).toBe(false);  // not there
+});
