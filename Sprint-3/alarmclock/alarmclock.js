@@ -1,5 +1,6 @@
 // Declare a global variable to store the countdown currently running
 let intervalId;
+const timesRemaining = "Time Remaining:";
 
 // Helper function to format total seconds and update the UI
 function updateDisplay(totalSeconds) {
@@ -10,7 +11,7 @@ function updateDisplay(totalSeconds) {
 
   document.getElementById(
     "timeRemaining"
-  ).textContent = `Time Remaining: ${timeRemainingMinutes}:${timeRemainingSeconds}`;
+  ).textContent = `${timesRemaining} ${timeRemainingMinutes}:${timeRemainingSeconds}`;
 }
 
 function setAlarm() {
@@ -52,7 +53,7 @@ function setAlarm() {
       clearInterval(intervalId);
       playAlarm();
       document.getElementById("timeRemaining").textContent =
-        "Time Remaining: 00:00";
+        `${timesRemaining} 00:00`;
       document.getElementById("timeRemaining").style.backgroundColor = "blue";
       document.getElementById("alarmSet").value = "";
       return;
