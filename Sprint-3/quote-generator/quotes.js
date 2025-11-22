@@ -498,17 +498,22 @@ function displayRandomQuote() {
   const quoteEl = document.getElementById("quote");
   const authorEl = document.getElementById("author");
 
-  if (quoteEl) quoteEl.textContent = random.quote; // plain text, no extra quotes
-  if (authorEl) authorEl.textContent = random.author; // plain author text
+  if (quoteEl) quoteEl.textContent = random.quote;
+  if (authorEl) authorEl.textContent = random.author;
 }
 
-window.addEventListener("load", function () {
-  // initial display (consumes the first mocked Math.random)
-  displayRandomQuote();
+function displayRandomQuote() {
+  const random = pickFromArray(quotes);
+  const quoteEl = document.getElementById("quote");
+  const authorEl = document.getElementById("author");
 
-  // wire up the button to pick a new quote on each click
-  const newQuoteBtn = document.getElementById("new-quote");
-  if (newQuoteBtn) {
-    newQuoteBtn.addEventListener("click", displayRandomQuote);
-  }
-});
+  if (quoteEl) quoteEl.textContent = random.quote; 
+  if (authorEl) authorEl.textContent = random.author; 
+}
+
+displayRandomQuote();
+
+const newQuoteBtn = document.getElementById("new-quote");
+if (newQuoteBtn) {
+  newQuoteBtn.addEventListener("click", displayRandomQuote);
+}
