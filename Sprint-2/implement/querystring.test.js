@@ -10,3 +10,35 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses multiple key=value pairs",() =>{
+  expect(parseQueryString("a=1&b=2&c=3")).toEqual({
+
+    a: "1",
+    b: "2",
+    c: "3",
+
+  });
+});
+
+test("handles empty querystring",() =>{
+
+  expect(parseQueryString("")).toEqual({});
+});
+
+
+test("handles key with no value",() =>{
+  
+  expect(parseQueryString("foo")).toEqual({ foo:""});
+});
+
+
+test("handles mix of empty and non-empty values",() =>{
+
+  expect(parseQueryString("foo=&bar=42")).toEqual({
+
+    foo: "",
+    bar: "42",
+
+  });
+});
