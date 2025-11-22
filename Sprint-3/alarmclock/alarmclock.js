@@ -10,7 +10,6 @@ function setAlarm() {
     const secondsLeft = Math.max(0, Math.ceil(timeDifference / 1000));
 
     timeRemainingEl.innerHTML = `Time Remaining: ${formatTimeMMSS(secondsLeft)}`;
-    document.title = `Time Remaining: ${formatTimeMMSS(secondsLeft)}`;
 
     if (secondsLeft === 0) {
       playAlarm();
