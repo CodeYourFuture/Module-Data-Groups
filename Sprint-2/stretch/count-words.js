@@ -28,9 +28,9 @@
 */
 
 function countWords(string) {
-  let outputObject = {};
-  let sortedByCount = [];
+  let outputObject = Object.create(null);
   let splitString = string.split(" ");
+  
   for ( let i = 0; i < splitString.length; i++) {
     let word = splitString[i].toLowerCase();
         word = word.replace(/[.,!?]/g, '');
@@ -41,18 +41,10 @@ function countWords(string) {
         else
           outputObject[word]++;
     }
-    //console.log(splitString[i]);
   }
 
-  sortedByCount = Object.entries(outputObject);
-  sortedByCount.sort((a, b) => b[1] - a[1]);
-  sortedByCount.reduce((acc, [key, value]) => {
-    acc[key] = value;
-    return acc;
-  }, {});
-  return sortedByCount;
+  return outputObject;
 }
-console.log(countWords("first first first second third second"));
-console.log(countWords("first second third first"));
-console.log(countWords("first second third third"));
-console.log(countWords("first second third third second first"));
+console.log(countWords("Hello,World! Hello World!"));
+console.log(countWords("constructor constructor"));
+console.log(countWords("          Hello World      "));
