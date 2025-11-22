@@ -1,3 +1,36 @@
+document.addEventListener("DOMContentLoaded", () => {
+  //elements of page to interact with
+   for (let book of books){
+    const title = book.title;
+    const author = book.author;
+    const alreadyRead = book.alreadyRead;
+    const bookCoverImage = book.bookCoverImage;
+    const readingListDom = document.getElementById("reading-list")
+
+    let bookDiv = document.createElement("div");
+    bookDiv.classList.add("book");
+    if (alreadyRead == true){
+      bookDiv.classList.add("alreadyRead");
+    }
+    let titleDom = document.createElement("p");
+    titleDom.innerText = title;
+    let authorDom = document.createElement("p");
+    authorDom.innerText = author;
+    let imageDom = document.createElement("img");
+    imageDom.src = bookCoverImage; 
+
+
+    bookDiv.appendChild(titleDom);
+    bookDiv.appendChild(authorDom);
+    bookDiv.appendChild(imageDom);
+
+    readingListDom.appendChild(bookDiv);
+   }
+   
+});
+
+
+
 // for the tests, do not modify this array of books
 const books = [
   {
