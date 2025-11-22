@@ -27,12 +27,12 @@ function calculateMedian(list) {
   const length = numericList.length;
   const middleIndex = Math.floor(length / 2);
 
-  // Check if the list has an odd number of elements
+  // Check if the list has an odd number of elements.
   if (length % 2 !== 0) {
-    // If odd, return the middle element
+    // If odd, return the middle element.
     return numericList[middleIndex];
   } else {
-    // If even, calculate the average of the two middle elements
+    // If even, calculate the average of the two middle elements.
     return (numericList[middleIndex - 1] + numericList[middleIndex]) / 2;
   }
 }
