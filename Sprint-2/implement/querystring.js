@@ -2,16 +2,24 @@ function parseQueryString(queryString) {
   const queryParams = {};
   if (!queryString) return queryParams;
 
-  const eqIndex = queryString.indexOf("=");
+  const pairs = queryString.split("&");
+  
+  for (const pair of pairs) {
+    const eqIndex = pair.indexOf("=");
+    
+    let key, value;
+    if (eqIndex === -1) {
+      key = decodeURIComponent(pair);
+      value = "";
+    } else {
+      key = decodeURIComponent(pair.slice(0, eqIndex));
+      value = decodeURIComponent(pair.slice(eqIndex + 1));
+    }
 
-  let firstPart = decodeURIComponent(queryString.slice(0, eqIndex));
-  let secondPart = decodeURIComponent(queryString.slice(eqIndex + 1));
-
-  queryParams[firstPart] = secondPart;
+    queryParams[key] = value;
+  }
 
   return queryParams;
 }
 
 module.exports = parseQueryString;
-
-//console.log(parseQueryString("equation=x=y+1"));

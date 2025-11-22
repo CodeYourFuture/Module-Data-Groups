@@ -20,3 +20,21 @@ test("parses single key-value pair", () => {
     "name": "John",
   });
 });
+
+test("parses key with empty value", () => {
+  expect(parseQueryString("key=")).toEqual({
+    "key": "",
+  });
+});
+
+test("parses empty key with value", () => {
+  expect(parseQueryString("=value")).toEqual({
+    "": "value",
+  });
+});
+
+test("parses key without '=' separator", () => {
+  expect(parseQueryString("key")).toEqual({
+    "key": "",
+  });
+});
