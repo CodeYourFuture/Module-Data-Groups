@@ -3,7 +3,7 @@ function tally(array) {
     throw new Error("Input must be an array");
     // check if the input ia an array. if not, throw an error.
   }
-  const tally = {};
+  const tally = Object.create(null);
 
   for (const item of array) {
     tally[item] = (tally[item] || 0) + 1;
@@ -12,8 +12,10 @@ function tally(array) {
   }
 
   return tally;
+  
 }
 
 console.log(tally(["a", "a", "a"]));
+console.log(tally(["toString","toString"]));
 
 module.exports = tally;
