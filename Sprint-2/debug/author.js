@@ -1,5 +1,7 @@
 // Predict and explain first...
 
+// The code will not log the values of the object because a for of loop cannot be used on an object
+
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -11,6 +13,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const value in author) {
+  console.log(author[value]);
 }
