@@ -1,5 +1,5 @@
 function tally(arr) {
-    let obj = {};
+    let obj = Object.create(null);
     if (!Array.isArray(arr)) {
         throw new Error("Input must be an array");
     }
