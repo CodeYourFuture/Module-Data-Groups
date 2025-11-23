@@ -4,7 +4,7 @@ function sum(elements) {
   }
 
   const filteredElements = elements.filter(
-    (element) => typeof element === "number"
+    (element) => typeof element === "number" && !Number.isNaN(element)
   );
   if (filteredElements.length === 0) {
     return NaN;
