@@ -20,10 +20,10 @@ console.log(invert({ a: 1, b: 2 })); // {1: "a", 2: "b"}
 module.exports = invert;
 
 // a) What is the current return value when invert is called with { a : 1 }
-// The current return value is {1: "a"}
+// The current return value is {'1': 'a'}
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-// The current return value is {1: "a", 2: "b"}
+// The current return value is {'1': 'a', '2': 'b'}
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 // The target return value is {1: "a", 2: "b"}
