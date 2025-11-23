@@ -26,9 +26,8 @@ function readingList() {
   for (const book of books) {
     const newList = document.createElement("li");
     const newImage = document.createElement("img");
-    const title = book.title;
-    const author = book.author;
-    newImage.src = book.bookCoverImage;
+    const { title, author, bookCoverImage } = book;
+    newImage.src = bookCoverImage;
     const paragraph = document.createElement("p");
     paragraph.textContent = `${title} by ${author}`;
     newList.appendChild(paragraph);
