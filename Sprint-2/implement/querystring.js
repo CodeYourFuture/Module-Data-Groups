@@ -1,26 +1,18 @@
 function parseQueryString(query) {
   const result = {};
-  if (!query) return result;
 
-  const pairs = query.split("&");
+  if (!query) {
+    return result;
+  }
 
-  for (let pair of pairs) {
-    const index = pair.indexOf("=");
+  // URLSearchParams treats "+" as space (" ").
+  // Our tests expect "+" to stay as "+" (e.g. "x=y+1"),
+  // so we temporarily encode "+" as "%2B" before parsing.
+  const safeQuery = query.replace(/\+/g, "%2B");
 
-    // Key has no "=" → value is empty string
-    if (index === -1) {
-      const key = decodeURIComponent(pair);
-      result[key] = "";
-      continue;
-    }
+  const params = new URLSearchParams(safeQuery);
 
-    // Key is before "=", value is EVERYTHING after "="
-    const rawKey = pair.slice(0, index);
-    const rawValue = pair.slice(index + 1);
-
-    const key = decodeURIComponent(rawKey);
-    const value = decodeURIComponent(rawValue);
-
+  for (const [key, value] of params) {
     result[key] = value;
   }
 
@@ -28,7 +20,3 @@ function parseQueryString(query) {
 }
 
 module.exports = parseQueryString;
-
-
-
-
