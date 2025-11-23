@@ -27,7 +27,7 @@ function setAlarm() {
   if (!input) return;
 
   const seconds = Number(input.value);
-document.body.style.backgroundColor = "red";
+
 
   // Ignore invalid or non-positive numbers
   if (Number.isNaN(seconds) || seconds <= 0) {
@@ -52,13 +52,14 @@ document.body.style.backgroundColor = "red";
       // Make sure we end at 00:00
       remainingSeconds = 0;
       updateTimeDisplay();
-
+document.body.style.backgroundColor = "red";
       // Stop the interval
       clearInterval(countdownId);
       countdownId = null;
 
       // Play the alarm sound
       playAlarm();
+      
     }
   }, 1000);
 }
@@ -67,8 +68,10 @@ document.body.style.backgroundColor = "red";
 function stopAlarm() {
   // Stop the countdown if it is running
   if (countdownId !== null) {
+
     clearInterval(countdownId);
     countdownId = null;
+   
   }
 
   // Reset the time to 0 and update the display
