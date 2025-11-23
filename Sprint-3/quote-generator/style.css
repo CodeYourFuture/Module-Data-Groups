@@ -1,1 +1,67 @@
-/** Write your CSS in here **/
+/* Page background */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f19d17;   /* light  orange color */
+  font-family: Georgia, "Times New Roman", serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Center white box */
+#quote-container {
+  background: white;
+  padding: 60px 80px;
+  width: 70%;
+  max-width: 900px;
+  border-radius: 4px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Quote text */
+#quote {
+  font-size: 2rem;
+  color: #fdc682; /* matching orange tone */
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  position: relative;
+  padding-left: 50px;
+}
+
+/* Big quotation mark style */
+#quote::before {
+  content: "❝";
+  font-size: 3rem;
+  color: #f4b48a;
+  position: absolute;
+  left: 0;
+  top: -10px;
+}
+
+/* Author text */
+#author {
+  text-align: right;
+  font-size: 1.2rem;
+  color: #ed8208;
+  margin-bottom: 40px;
+}
+
+/* Button styling */
+#new-quote {
+  background-color: #a0e0ed;
+  color: rgb(146, 160, 185);
+  padding: 12px 30px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  cursor: pointer;
+  float: right;
+}
+
+#new-quote:hover {
+  background-color: #cf7f22;
+}
