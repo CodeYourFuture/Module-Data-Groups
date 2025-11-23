@@ -5,8 +5,8 @@ function setup() {
 
   function showRandomQuote() {
     const randomQuote = pickFromArray(quotes);
-    quoteText["textContent"] = `“${randomQuote.quote}”`;
-    authorText["textContent"] = `- ${randomQuote.author}`;
+    quoteText.textContent = `“${randomQuote.quote}”`;
+    authorText.textContent = `- ${randomQuote.author}`;
   }
 
   quoteButton.addEventListener("click", showRandomQuote);
@@ -14,7 +14,7 @@ function setup() {
   showRandomQuote();
 }
 
-window.onload = setup;
+document.addEventListener("DOMContentLoaded", setup);
 
 
 // DO NOT EDIT BELOW HERE
