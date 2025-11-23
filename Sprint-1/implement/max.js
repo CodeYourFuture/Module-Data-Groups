@@ -5,11 +5,13 @@ function findMax(elements) {
 
   // If there are no numeric values, return infinity
   if (numericElements.length === 0) {
-    return Infinity;
+    return -Infinity;
   }
 
   // use Math.max with spread (...) to get the maximum number
   return Math.max(...numericElements);
+
 }
+
 
 module.exports = findMax;
