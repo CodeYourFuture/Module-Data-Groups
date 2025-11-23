@@ -21,3 +21,23 @@ const books = [
   },
 ];
 
+function readingList() {
+  const unorderedList = document.querySelector("#reading-list");
+  for (const book of books) {
+    const newList = document.createElement("li");
+    const newImage = document.createElement("img");
+    const { title, author, bookCoverImage } = book;
+    newImage.src = bookCoverImage;
+    const paragraph = document.createElement("p");
+    paragraph.textContent = `${title} by ${author}`;
+    newList.append(paragraph, newImage);
+    if (book.alreadyRead) {
+      newList.classList.add("read");
+    } else {
+      newList.classList.add("notRead");
+    }
+
+    unorderedList.appendChild(newList);
+  }
+}
+readingList();

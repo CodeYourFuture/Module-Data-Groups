@@ -152,6 +152,27 @@ body {
   background: #87ca8a;
 }
 
+#reading-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.read {
+  background-color: #87ca8a;
+}
+
+.notRead {
+  background-color: red;
+}
+
+#reading-list img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 @media screen and (min-width: 992px) {
   .navbar-brand > img {
     max-height: 80px;

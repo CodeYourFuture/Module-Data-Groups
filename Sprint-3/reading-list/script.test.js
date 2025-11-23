@@ -67,16 +67,16 @@ describe("Reading list", () => {
     const firstLi = page.window.document.querySelector(
       "#reading-list > :first-child"
     );
-    expect(firstLi).toHaveStyle({ backgroundColor: "red" });
+    expect(firstLi).toHaveClass("notRead");
 
     const secondLi = page.window.document.querySelector(
       "#reading-list > :nth-child(2)"
     );
-    expect(secondLi).toHaveStyle({ backgroundColor: "green" });
+    expect(secondLi).toHaveClass("read");
 
     const thirdLi = page.window.document.querySelector(
       "#reading-list > :nth-child(3)"
     );
-    expect(thirdLi).toHaveStyle({ backgroundColor: "green" });
+    expect(thirdLi).toHaveClass("read");
   });
 });
