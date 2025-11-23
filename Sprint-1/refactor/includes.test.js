@@ -1,4 +1,4 @@
-// Refactored version of includes should still pass the tests below:
+// Refactored version of includes should still pass the tests below :
 
 const includes = require("./includes.js");
 

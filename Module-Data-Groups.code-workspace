@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "name": "Sprint-1",
+      "path": "./Sprint-1"
+    },
+    {
+      "name": "Sprint-2",
+      "path": "./Sprint-2"
+    },
+    {
+      "name": "Sprint-3",
+      "path": "./Sprint-3"
+    }
+  ],
+  "settings": {
+    "jest.disabledWorkspaceFolders": ["Sprint-2", "Sprint-3"],
+    "jest.jestCommandLine": "npm test --"
+  }
+}
