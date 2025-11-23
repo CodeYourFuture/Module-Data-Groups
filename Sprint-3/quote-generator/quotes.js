@@ -498,10 +498,10 @@ const quoteDisplay = document.querySelector("#quote");
 function displayQuote() {
   const randomQuote = pickFromArray(quotes);
 
-  const objectQuote = randomQuote.quote;
-  const objectAuthor = randomQuote.author;
+  const quote = randomQuote.quote;
+  const author = randomQuote.author;
 
-  quoteDisplay.innerText = `${objectQuote}\n${objectAuthor}`;
+  quoteDisplay.innerText = `${quote}\n${author}`;
 }
 
 displayQuote();
