@@ -1,12 +1,16 @@
 function tally(arr) {
-    if (!Array.isArray(arr)) {// if it is not array (string or number throw an error message
-        throw new TypeError("Input must be an array");
-    }
+  if (!Array.isArray(arr)) {
+    throw new TypeError("Input must be an array");
+  }
 
-    return arr.reduce((counts, item) => {
-        counts[item] = (counts[item] || 0) + 1;// loops through the array and count 
-        return counts;
-    }, {});
+  // Use an object with no prototype to avoid collisions with keys like "constructor"
+  const counts = Object.create(null);
+
+  for (const item of arr) {
+    counts[item] = (counts[item] || 0) + 1;
+  }
+
+  return counts;
 }
 
 module.exports = tally;

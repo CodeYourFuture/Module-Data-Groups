@@ -23,7 +23,7 @@ const tally = require("./tally.js");
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+
 test("returns an empty object for an empty array", () => {
  const keys =Object.keys(tally([]));
   expect(keys.length).toBe(0);
@@ -31,7 +31,7 @@ test("returns an empty object for an empty array", () => {
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
-test.todo("tally counts each unique item in the array");
+
 test("counts how many times each item appears", () => {
   expect(tally(["a", "b", "a", "c", "b", "a"])).toEqual({
     a: 3,
@@ -43,9 +43,14 @@ test("counts how many times each item appears", () => {
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
-test.todo("tally throws an error for non-array input");
+
 test("throws an error if input is not an array", () => {
   expect(() => tally("not an array")).toThrow(TypeError);
   expect(() => tally(123)).toThrow(TypeError);
   expect(() => tally({})).toThrow(TypeError);
+});
+test("handles object prototype keys safely", () => {
+  expect(tally(["constructor", "constructor"])).toEqual({
+    constructor: 2,
+  });
 });
