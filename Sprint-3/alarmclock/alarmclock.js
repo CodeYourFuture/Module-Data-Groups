@@ -1,5 +1,6 @@
 let countdown = null; 
 function setAlarm() {
+  document.body.style.backgroundColor = ""; // reset the background color when set Alarm button is clicked
   const input = document.getElementById("alarmSet") // get the input field
   let timeLeft = Number(input.value); // convert input value to a number
 
