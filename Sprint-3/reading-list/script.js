@@ -34,9 +34,9 @@ function readingList() {
     newList.appendChild(paragraph);
     newList.appendChild(newImage);
     if (book.alreadyRead) {
-      newList.style.backgroundColor = "green";
+      newList.classList.add("read");
     } else {
-      newList.style.backgroundColor = "red";
+      newList.classList.add("notRead");
     }
 
     unorderedList.appendChild(newList);
