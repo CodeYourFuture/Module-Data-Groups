@@ -30,8 +30,7 @@ function readingList() {
     newImage.src = bookCoverImage;
     const paragraph = document.createElement("p");
     paragraph.textContent = `${title} by ${author}`;
-    newList.appendChild(paragraph);
-    newList.appendChild(newImage);
+    newList.append(paragraph, newImage);
     if (book.alreadyRead) {
       newList.classList.add("read");
     } else {
