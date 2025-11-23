@@ -45,11 +45,12 @@ test("contains on object with non-existent property returns false", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("contains on invalid parameters returns false", () => {
-  expect(contains([], "a")).toBe(false);
-  expect(contains(null, "a")).toBe(false);
+ expect(contains("not an object", "a")).toBe(false);
   expect(contains(123, "a")).toBe(false);
-  expect(contains("hello", "a")).toBe(false);
+  expect(contains(null, "a")).toBe(false);
+  expect(contains(undefined, "a")).toBe(false);
 });
+
 test("works with arrays using index keys", () => {
   const arr = ["a", "b"];
   expect(contains(arr, "0")).toBe(true);   // own property
