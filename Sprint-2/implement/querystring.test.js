@@ -3,10 +3,38 @@
 // Below is one test case for an edge case the implementation doesn't handle well.
 // Fix the implementation for this test, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js")
+const parseQueryString = require("./querystring.js") 
 
 test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
     "equation": "x=y+1",
+  });
+});
+
+test("parses empty querystring", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("parses single key-value pair", () => {
+  expect(parseQueryString("name=John")).toEqual({
+    "name": "John",
+  });
+});
+
+test("parses key with empty value", () => {
+  expect(parseQueryString("key=")).toEqual({
+    "key": "",
+  });
+});
+
+test("parses empty key with value", () => {
+  expect(parseQueryString("=value")).toEqual({
+    "": "value",
+  });
+});
+
+test("parses key without '=' separator", () => {
+  expect(parseQueryString("key")).toEqual({
+    "key": "",
   });
 });

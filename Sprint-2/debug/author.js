@@ -1,4 +1,6 @@
 // Predict and explain first...
+// Prediction: the code will throw an error
+// Explanation: An object can not be used or accessed as an array.
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
@@ -11,6 +13,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for ( const key in author ) {
+console.log(author[key]);
 }
