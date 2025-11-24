@@ -508,8 +508,8 @@ let autoQuoteIntervalID = null;
 document.getElementById("auto-quote").addEventListener("change", function () {
   if (this.checked) {
     newRandomQuote();
-    const seconds = 60 * 1000;
-    autoQuoteIntervalID = setInterval(newRandomQuote, seconds);
+    const oneMinute = 60 * 1000;
+    autoQuoteIntervalID = setInterval(newRandomQuote, oneMinute);
   } else {
     clearInterval(autoQuoteIntervalID);
     autoQuoteIntervalID = null;
