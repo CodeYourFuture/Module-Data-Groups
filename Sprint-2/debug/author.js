@@ -18,11 +18,8 @@ const author = {
 // This means that we need to check if the property belongs to the object using hasownproperty whenever we loop through an object with the `for ... in` loop.
 
 for (const key in author) {
- // if (author.hasOwnProperty(key)) {
     console.log(`${key}: ${author[key]}`);
   }
-//}
 
-//for (const value of author) {
-// console.log(value);
-//}
+
+
