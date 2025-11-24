@@ -3,11 +3,7 @@ function contains(obj, property) {
     throw new Error("Parameter is not an object literal");
   }
 
-  if (property in obj) {
-    return true;
-  }
-
-  return false;
+  return property in obj;
 }
 
 module.exports = contains;
