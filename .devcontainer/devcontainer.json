@@ -1,0 +1,31 @@
+// Docker rootless development container
+{
+    "name": "Code-Your-Future",
+    "image": "debian:latest",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "upgradePackages": true
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations" : {
+        "vscode" : {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            },
+            "extensions": [
+                    "esbenp.prettier-vscode",
+                    "dbaeumer.vscode-eslint",
+                    "streetsidesoftware.code-spell-checker",
+                    "eamodio.gitlens",
+                    "ritwickdey.LiveServer",
+                    "vsliveshare.vsliveshare",
+                    "Orta.vscode-jest"
+            ]
+        }
+    }
+}
