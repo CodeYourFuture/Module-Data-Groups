@@ -2,6 +2,8 @@ const heading = document.getElementById("timeRemaining");
 const input = document.getElementById("alarmSet");
 const setBtn = document.getElementById("set");
 
+const ONE_SECOND = 1000;
+
 let remaining = 0;
 let intervalId = null;
 
@@ -36,7 +38,7 @@ function setAlarm() {
   if (intervalId) clearInterval(intervalId);
   remaining = value;
   updateHeading();
-  intervalId = setInterval(tick, 1000);
+  intervalId = setInterval(tick, ONE_SECOND);
 }
 
 setBtn.addEventListener("click", setAlarm);
