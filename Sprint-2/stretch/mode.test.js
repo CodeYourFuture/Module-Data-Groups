@@ -6,6 +6,12 @@ const calculateMode = require("./mode.js");
 // When calculateMode is called on the array
 // Then it should return the number that appears most frequently in the array
 
+test("calculateMode is a function ,returns the most frequent number", () => {
+  const nums = [1, 2, 2, 3, 4];
+  
+  expect(typeof calculateMode).toBe("function");
+  expect(calculateMode(nums)).toBe(2);
+});
 // Example:
 // Given [2,4,1,2,3,2,1]
 // When calculateMode is called on [2,4,1,2,3,2,1]
