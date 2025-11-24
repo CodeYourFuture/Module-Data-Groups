@@ -1,6 +1,6 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if (queryString.length === 0) {
+  if (typeof queryString !== "string" || !queryString) {
     return queryParams;
   }
 
