@@ -16,28 +16,65 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+// This one is good to go!
+test("given an empty array, returns -Infinity",() => {
+  const input = [];
+  const result = findMax(input); 
+  expect(result).toEqual(-Infinity); 
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("given an array with 1 number, it returns the number ",() => {;
+  const inputMax1 = [3];
+    const result = findMax(inputMax1);
+expect(result).toEqual(3);
+});
+
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("give 2 positive numbers return the largest nunber",() => {
+    const inputMax2= [5,8];
+    const result = findMax(inputMax2);
+    expect(result).toEqual(8);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test ("Given an array with just negative numbers return colest to Zero",() =>{
+const inputMax3= [-5,-3];
+const result = findMax(inputMax3);
+expect (result).toEqual(-3);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test ("Given an array with decimal numbers, should return the largest decimal number",() => {
+const inputMax4= [2.4,3.5];
+const result= findMax(inputMax4);
+expect(result).toEqual(3.5);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("Given an array with non-number values,it should return the max and ignore non-numeric values ",() => {
+const inputMax5 = [2, "apple", 5, "banana", 8, "watermelon"];
+const result= findMax(inputMax5);
+expect(result).toEqual(8);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test(" Given an array with only non-number values,it should return the least surprising value given how it behaves for all other inputs ", () => {
+    const inputMax6= [ "computer", "bike", "car", "ball"];
+const result= findMax(inputMax6);
+expect(result).toEqual(-Infinity);
+});
+
