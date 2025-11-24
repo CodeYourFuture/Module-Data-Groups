@@ -8,7 +8,7 @@ let intervalId = null;
 function format(seconds) {
   const minute = String(Math.floor(seconds / 60)).padStart(2, "0");
   const second = String(seconds % 60).padStart(2, "0");
-  return `${m}:${s}`;
+  return `${minute}:${second}`;
 }
 
 function updateHeading() {
