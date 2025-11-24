@@ -43,6 +43,8 @@ function readingList() {
     // Image first
     const img = document.createElement("img");
     img.src = book.bookCoverImage;
+    img.alt = `${book.title} by ${book.author} — book cover`;
+    img.loading = "lazy";
     li.appendChild(img);
 
     // Text
