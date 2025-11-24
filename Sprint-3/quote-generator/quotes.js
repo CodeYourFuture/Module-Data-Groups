@@ -506,13 +506,16 @@ document.getElementById("new-quote").addEventListener("click", () => {
 let autoQuoteIntervalID = null;
 
 document.getElementById("auto-quote").addEventListener("change", function () {
+  const autoplayStatus = document.getElementById("autoplay-status");
+
   if (this.checked) {
-    newRandomQuote();
     const oneMinute = 60 * 1000;
     autoQuoteIntervalID = setInterval(newRandomQuote, oneMinute);
+    autoplayStatus.style.display = "block";
   } else {
     clearInterval(autoQuoteIntervalID);
     autoQuoteIntervalID = null;
+    autoplayStatus.style.display = "none";
   }
 });
 
