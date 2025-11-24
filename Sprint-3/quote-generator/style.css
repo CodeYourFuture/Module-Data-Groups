@@ -1,1 +1,100 @@
 /** Write your CSS in here **/
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #f3a83c;
+    overflow: hidden;
+}
+
+.container {
+    background: white;
+    border-radius: 10px;
+    padding: 60px 80px;
+    width: 65%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+}
+
+#quote {
+    color: #f3a83c;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 60px;
+    /* Space for the quote icon */
+}
+
+/* Left floating quotation mark */
+#quote::before {
+    content: "“";
+    font-size: 4rem;
+    color: #f3a83c;
+    position: absolute;
+    left: 0;
+    top: -10px;
+}
+
+#author {
+    color: #f3a83c;
+    text-align: right;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.button-wrapper {
+    text-align: right;
+}
+
+#new-quote {
+    background-color: #f3a83c;
+    color: white;
+    padding: 0.8em 1.4em;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.auto-refresh {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auto-refresh label {
+    font-size: 1rem;
+    color: #f3a83c;
+    cursor: pointer;
+}
+
+.auto-refresh input {
+    transform: scale(1.2);
+    margin-right: 10px;
+}
+
+#autoplay-status {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    font-size: 1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: none;
+    /* hidden by default */
+    pointer-events: none;
+    /* so clicks pass through */
+}
