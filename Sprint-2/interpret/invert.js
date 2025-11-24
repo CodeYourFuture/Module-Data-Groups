@@ -6,15 +6,25 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
+// function invert(obj) {
+//   const invertedObj = {};
+
+//   for (const [key, value] of Object.entries(obj)) {
+//     invertedObj[value] = key;
+//   }
+
+//   return invertedObj;
+// }
 function invert(obj) {
   const invertedObj = {};
 
-  for (const [key, value] of Object.entries(obj)) {
-    invertedObj[value] = key;
+  for (const key in obj) {
+    invertedObj[obj[key]] = key; // <-- this is correct
   }
 
   return invertedObj;
 }
+
 console.log(invert({ a: 1 })); // {1: "a"}
 console.log(invert({ a: 1, b: 2 })); // {1: "a", 2: "b"}
 module.exports = invert;
