@@ -12,4 +12,10 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join(", ")}`);
+
+
+// I guess, because the values of ingredients are given as array, 
+// the way ingredients is passed to the log is not right.   
+
+// recipe.js log function corrected. 
