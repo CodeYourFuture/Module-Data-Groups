@@ -36,7 +36,7 @@ module.exports = invert;
 // The current return value is {'1': 'a', '2': 'b'}
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
-// The target return value is {1: "a", 2: "b"}
+// The target return value is {'1': 'a', '2': 'b'}
 
 // c) What does Object.entries return? Why is it needed in this program?
 // Object.entries takes an object and return an array of key-value pairs.
