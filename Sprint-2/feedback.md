@@ -50,7 +50,7 @@ Suggestion: Look up an approach to create an empty object with no inherited prop
 
 ## `Sprint-2/stretch/count-words.js`
 
-Does the following function calls return what you expect?
+Do the following function calls return what you expect?
 
 ```
 countWords("Hello,World! Hello World!");
