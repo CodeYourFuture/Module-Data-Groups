@@ -19,14 +19,14 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const key in obj) {
-    invertedObj[obj[key]] = key; // <-- this is correct
+    invertedObj[obj[key]] = key; 
   }
 
   return invertedObj;
 }
 
-console.log(invert({ a: 1 })); // {1: "a"}
-console.log(invert({ a: 1, b: 2 })); // {1: "a", 2: "b"}
+console.log(invert({ a: 1 })); // {'1': 'a'}
+console.log(invert({ a: 1, b: 2 })); // {'1': 'a', '2': 'b'}
 module.exports = invert;
 
 // a) What is the current return value when invert is called with { a : 1 }
