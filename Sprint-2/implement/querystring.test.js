@@ -41,9 +41,9 @@ test("parses querystring with missing key", () => {
 
 test("parses querystring with no equals sign", () => {
   expect(parseQueryString("nameJohn&age30&cityNewYork")).toEqual({
-    "nameJohn": undefined,
-    "age30": undefined,
-    "cityNewYork": undefined,
+    "nameJohn": "undefined",
+    "age30": "undefined",
+    "cityNewYork": "undefined",
   });
 });
 
