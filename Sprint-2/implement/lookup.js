@@ -16,17 +16,11 @@ function createLookup(arr) {
       }
       
 
-      if (Array.isArray(currency) && typeof country === "string") {
-         result[country]
-           ? (result[country] = [result[country], currency])
-           : (result[country] = currency);
+      if (((Array.isArray(currency) && currency.length)|| (typeof currency === 'string' && currency.length)) 
+        && typeof country === "string" && country.length) {
+        result[country] = result[country] ? [result[country], currency] : currency; 
       }
       
-      if (country.length && currency.length && typeof country === 'string' && typeof currency === 'string') {
-         result[country]
-           ? (result[country] = [result[country], currency])
-           : (result[country] = currency);
-      }
     }
   } 
   return result;
