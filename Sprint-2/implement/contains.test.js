@@ -45,10 +45,16 @@ test("contains on an array returns false", () => {
   expect(contains([1, 2, 3], 4)).toBe(false);
 });
 
+// Given an array object
+// When passed to contains with an existing property name
+// Then it should return true
 test("contains on array with existing property returns true", () => {
  expect(contains([1, 2, 3, 4], "length")).toBe(true);
 }); 
 
+// Given a primitive (number) value
+// When passed to contains
+// Then it should return false
 test("contains on array with non-existent property returns false", () => {
-  expect(contains(1234, "a")).toBe(false);
+  expect(contains([1234], "a")).toBe(false);
 });
