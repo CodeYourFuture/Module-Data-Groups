@@ -32,7 +32,11 @@ test("given an array with no duplicates, it returns a copy of the original array
     { input: ["a", "b", "c"], expected: ["a", "b", "c"] },
     { input: [true, false], expected: [true, false] },
   ].forEach(({ input, expected }) => {
+    const result = dedupe(input);
+
     expect(dedupe(input)).toEqual(expected);
+    expect(result).not.toBe(input);
+
   });
 });
 
