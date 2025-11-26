@@ -9,7 +9,7 @@ function findMax(num) {
     if (Math.sign(num) === -1 && num.length > 1) {
       return Math.max(...num);
     }
-    if (num.isDecimal === true) {
+    if (num.isInteger === true) {
       return Math.max(...num);
     }
     if (typeof num[i] !== "number") {
