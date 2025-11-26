@@ -1,23 +1,13 @@
-function findMax(num) {
-  for (let i = 0; i < num.length; i++) {
-    if (num.length === 0) {
-      return -Infinity;
-    }
-    if (num.length === 1) {
-      return num[0];
-    }
-    if (Math.sign(num) === -1 && num.length > 1) {
-      return Math.max(...num);
-    }
-    if (num.isInteger === true) {
-      return Math.max(...num);
-    }
-    if (typeof num[i] !== "number") {
-      num.splice(i, 1);
-      i--;
-    }
+function findMax(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return -Infinity;
+
+  const numbers = arr.filter((n) => typeof n === "number" && !isNaN(n));
+
+  if (numbers.length > 0) {
+    return Math.max(...numbers);
   }
-  return Math.max(...num);
+
+  return arr[arr.length - 1];
 }
 
 module.exports = findMax;
