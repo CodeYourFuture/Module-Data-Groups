@@ -29,7 +29,7 @@ test("given an empty array, it returns an empty array", () => {
 test("given an array with no duplicates", () => {
   const input = [1, 2, 3, 4, 5];
   const result = dedupe(input);
-  expect(result).toEqual([1, 2, 3, 4, 5]);
+  expect(result).toStrictEqual([1, 2, 3, 4, 5]);
 });
 
 // Given an array with strings or numbers
