@@ -1,25 +1,33 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if(!queryString) {
+
+  if (!queryString) {
     return queryParams;
   }
-    if (queryString.startsWith("?")) {
+
+  if (queryString.startsWith("?")) {
     queryString = queryString.slice(1);
   }
- 
+
   const keyValuePairs = queryString.split("&");
+
   for (const pair of keyValuePairs) {
-    if (!pair) continue; 
+    if (!pair) continue;
+
     const firstEq = pair.indexOf("=");
+
     let key;
-     let value;
+    let value;
+
     if (firstEq === -1) {
-      key = pair;
+      // No "=" found → key with empty value
+      key = decodeURIComponent(pair);
       value = "";
     } else {
-      key = pair.slice(0, firstEq);
-      value = pair.slice(firstEq + 1);
+      key = decodeURIComponent(pair.slice(0, firstEq));
+      value = decodeURIComponent(pair.slice(firstEq + 1));
     }
+
     queryParams[key] = value;
   }
 
@@ -27,3 +35,4 @@ function parseQueryString(queryString) {
 }
 
 module.exports = parseQueryString;
+console.log(parseQueryString("?text=Hello%20World&amount=5%25"));
