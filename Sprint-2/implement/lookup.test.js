@@ -1,6 +1,21 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+
+
+test("creates a country currency code lookup for multiple codes", () => {
+  const input = [["UK","Pound"], ["EU", "Euro"], ["Kenya", "Ksh"], ["Norway", "NK"], ["Eritrea", "ENKF"], ["USA", "USD"], ["Japan", "JPY"]];
+  const result = createLookup(input);
+  expect(result).toEqual({
+   'UK': 'Pound',
+   'EU': 'Euro',
+   'Kenya': 'Ksh',
+   'Norway': 'NK',
+   'Eritrea': 'ENKF',
+   'USA': 'USD',
+   'Japan': 'JPY'
+ })
+});
+
 
 /*
 
