@@ -6,6 +6,7 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
+
 // function invert(obj) {
 //   const invertedObj = {};
 
@@ -15,6 +16,7 @@
 
 //   return invertedObj;
 // }
+
 function invert(obj) {
   const invertedObj = {};
 
@@ -26,14 +28,14 @@ function invert(obj) {
 }
 
 console.log(invert({ a: 1 })); // {'1': 'a'}
-console.log(invert({ a: 1, b: 2 })); // {'1': 'a', '2': 'b'}
+ console.log(invert({ a: 1, b: 2 })); // {'1': 'a', '2': 'b'}
 module.exports = invert;
 
 // a) What is the current return value when invert is called with { a : 1 }
-// The current return value is {'1': 'a'}
+// The current return value is {key: 1}
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-// The current return value is {'1': 'a', '2': 'b'}
+// The current return value is {key: 2}
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 // The target return value is {'1': 'a', '2': 'b'}
@@ -43,6 +45,9 @@ module.exports = invert;
 // it needed because it converts the object into an array of [key, value] pairs which makes it easy to loop over both key and value at the same time.
 
 // d) Explain why the current return value is different from the target output
-// because it returns the [key, value] of an object in reverse order [value,key]
+// The current return value is different from the target output
+// because the original function is incorrectly assigning values to the literal property 'key'
+// instead of using the actual variable key from the object.
+
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
