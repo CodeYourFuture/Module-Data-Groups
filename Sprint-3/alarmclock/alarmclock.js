@@ -8,10 +8,11 @@ let remaining = 0;
 let intervalId = null;
 
 function format(seconds) {
-  const minute = String(Math.floor(seconds / 60)).padStart(2, "0");
-  const second = String(seconds % 60).padStart(2, "0");
-  return `${minute}:${second}`;
+  const minutes = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${minutes}m : ${secs}s`;
 }
+
 
 function updateHeading() {
   heading.textContent = `Time Remaining: ${format(remaining)}`;
