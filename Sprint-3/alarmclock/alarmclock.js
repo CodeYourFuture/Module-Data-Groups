@@ -36,7 +36,6 @@ function setAlarm() {
       format(time % 60);
   }, 1000);
 }
-
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
