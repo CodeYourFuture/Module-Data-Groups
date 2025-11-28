@@ -26,7 +26,7 @@ describe("tally",()=>{
       expect(tally([])).toEqual({});
     });
     it("throw an error for invalid input",()=>{
-        expect(()=>tally("CYF")).toThrow("Invalid error")
+        expect(()=>tally("CYF")).toThrow("Invalid input")
     })
 })
 // Acceptance criteria:
