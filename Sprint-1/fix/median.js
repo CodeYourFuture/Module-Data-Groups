@@ -6,31 +6,35 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
-
-  // First: ensure input is actually an array BEFORE calling array methods
+  // Check that the input passed to the function is an array
   if (!Array.isArray(list)) {
     return null;
   }
 
-  // Filter only number values
-  const numbers = list.filter((item) => typeof item === "number");
+  // Filter valid numbers and store them in `validNumbers`
+  const validNumbers = list.filter(
+    (item) => typeof item === "number" && !isNaN(item)
+  );
 
-  // Return null if no valid numbers exist
-  if (numbers.length === 0) {
+  // Return `null` if there are no valid numbers
+  if (validNumbers.length === 0) {
     return null;
   }
 
-  // Sort values without modifying original input
-  const sortedNumbers = [...numbers].sort((a, b) => a - b);
-  const middleIndex = Math.floor(sortedNumbers.length / 2);
+  // Sort `validNumbers` in ascending order
+  // Sort validNumbers (safe to mutate because it's a new array created by filter)
+  validNumbers.sort((a, b) => a - b);
 
-  // Odd length → return middle value
-  if (sortedNumbers.length % 2 !== 0) {
-    return sortedNumbers[middleIndex];
+  // Calculate the middle index of the sorted array
+  const middleIndex = Math.floor(validNumbers.length / 2);
+
+  // If the array has an odd number of elements, return the middle element
+  if (validNumbers.length % 2 !== 0) {
+    return validNumbers[middleIndex];
+  } else {
+    // If the array has an even number of elements, return the average of the two middle elements
+    return (validNumbers[middleIndex - 1] + validNumbers[middleIndex]) / 2;
   }
-
-  // Even length → return average of two middle values
-  return (sortedNumbers[middleIndex - 1] + sortedNumbers[middleIndex]) / 2;
 }
 
 module.exports = calculateMedian;

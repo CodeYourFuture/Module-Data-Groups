@@ -1,11 +1,16 @@
 function sum(elements) {
-  // If input is not an array, return 0 (least surprising behaviour)
-  if (!Array.isArray(elements)) return 0;
+  if (!Array.isArray(elements)) {
+    throw new TypeError("Input must be an array");
+  }
+  const filteredElements = elements.filter(
+    (ele) => typeof ele === "number" && !isNaN(ele)
+  );
+  let sumElements = 0;
 
-  // Sum only numeric values
-  return elements.reduce((total, item) => {
-    return typeof item === "number" ? total + item : total;
-  }, 0);
+  for (const item of filteredElements) {
+    sumElements += item;
+  }
+  return sumElements;
 }
 
 module.exports = sum;
