@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+// this code will give an error because the for...of is generally used to iterate over iterable objects like arrays or strings. thus, we should use for...in loop to iterate over the properties of an object.
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -11,6 +11,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
-}
+for (const value in author) {
+  console.log(`${value}: ${author[value]}`);
+};

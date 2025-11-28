@@ -6,7 +6,21 @@
 const parseQueryString = require("./querystring.js")
 
 test("parses querystring values containing =", () => {
-  expect(parseQueryString("equation=x=y+1")).toEqual({
-    "equation": "x=y+1",
-  });
+  expect(parseQueryString("equation=x=y+1")).toEqual({ equation: "x=y+1" });
+});
+
+test("parses multiple key=value pairs", () => {
+  expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+
+test("parses empty querystring", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("parses key with no '=' (a)", () => {
+  expect(parseQueryString("a")).toEqual({ a: "" });
+});
+
+test("last value wins for duplicate keys", () => {
+  expect(parseQueryString("a=1&a=2")).toEqual({ a: "2" });
 });
