@@ -490,37 +490,22 @@ const quotes = [
   },
 ];
 
-// ************************************************************
-// YOUR CODE STARTS HERE
-// ************************************************************
-
-/**
- * Updates the content of the quote and author elements
- * with a random quote from the quotes array.
- */
 function displayRandomQuote() {
   const randomQuote = pickFromArray(quotes);
-
   const quoteElement = document.getElementById("quote");
   const authorElement = document.getElementById("author");
 
-  if (!quoteElement || !authorElement) {
-    console.error("Quote or author element not found in the DOM.");
-    return;
-  }
+  if (!quoteElement || !authorElement) return;
 
   quoteElement.innerText = randomQuote.quote;
   authorElement.innerText = randomQuote.author;
 }
 
-// ************************************************************
-// INITIALIZATION (no need for DOMContentLoaded because of defer)
-// ************************************************************
-displayRandomQuote();
+window.addEventListener("load", () => {
+  displayRandomQuote();
 
-const newQuoteButton = document.getElementById("new-quote");
-if (newQuoteButton) {
-  newQuoteButton.addEventListener("click", displayRandomQuote);
-} else {
-  console.error("New quote button not found in the DOM.");
-}
+  const newQuoteButton = document.getElementById("new-quote");
+  if (newQuoteButton) {
+    newQuoteButton.addEventListener("click", displayRandomQuote);
+  }
+});
