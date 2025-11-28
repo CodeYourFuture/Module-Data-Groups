@@ -1,18 +1,33 @@
 const createLookup = require("./lookup.js");
-describe("createLookup",()=>{
-  it("creates an object from country/currency pairs", ()=>{   expect(createLookup([["US", "USD"],["CA", "CAD"],])).toEqual({US:"USD",CA:"CAD"});  });
-
-  it("returns an empty object for an empty array",()=>{ expect(createLookup([])).toEqual({}) });
-  
-  it("returns 'Invalid input' for non-array inputs",()=>{ 
-    expect(createLookup("CYF")).toBe("Invalid input");
-      expect(createLookup(123)).toBe("Invalid input");
-        expect(createLookup(null)).toBe("Invalid input");
+describe("createLookup", () => {
+  it("creates an object from country/currency pairs", () => {
+    expect(
+      createLookup([
+        ["US", "USD"],
+        ["CA", "CAD"],
+      ])
+    ).toEqual({ US: "USD", CA: "CAD" });
   });
- 
-   it("overwrites repeated keys with the last value",()=>
-    {expect(createLookup([["US","USD"],["US","USD"]])).toEqual({US:"USD"})  });
-} )
+
+  it("returns an empty object for an empty array", () => {
+    expect(createLookup([])).toEqual({});
+  });
+
+  it("returns 'Invalid input' for non-array inputs", () => {
+    expect(createLookup("CYF")).toBe("Invalid input");
+    expect(createLookup(123)).toBe("Invalid input");
+    expect(createLookup(null)).toBe("Invalid input");
+  });
+
+  it("overwrites repeated keys with the last value", () => {
+    expect(
+      createLookup([
+        ["US", "USDxx"],
+        ["US", "USD"],
+      ])
+    ).toEqual({ US: "USD" });
+  });
+});
 
 /*
 
