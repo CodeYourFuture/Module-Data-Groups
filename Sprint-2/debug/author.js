@@ -1,10 +1,5 @@
 // Predict and explain first...
-// Prediction: This code will throw a TypeError saying that author is not iterable.
-// Explanation: The for...of loop only works on iterable objects (arrays, strings, maps, etc.).
-// Regular objects like "author" are NOT iterable, so JavaScript cannot loop over them using for...of.
-// To loop through an object's values, we need to use Object.values(author), Object.keys(author),
-// or Object.entries(author).
-
+// this code will give an error because the for...of is generally used to iterate over iterable objects like arrays or strings. thus, we should use for...in loop to iterate over the properties of an object.
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -16,12 +11,6 @@ const author = {
   alive: true,
 };
 
-for (const value of Object.values(author)) {
-  console.log(value);
-}
-// Expected output:
-// Zadie
-// Smith
-// writer
-// 40
-// true 
+for (const value in author) {
+  console.log(`${value}: ${author[value]}`);
+};

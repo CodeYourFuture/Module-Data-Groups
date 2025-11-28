@@ -1,15 +1,22 @@
 function tally(items) {
-  if (!Array.isArray(items)) {
-    throw new Error("Input must be an array");
-  }
+    if (!Array.isArray(items)) {
+        throw new TypeError('Input must be an array');
+    }
 
-  const counts = {};
+    const tallyResult = Object.create(null);
 
-  for (const item of items) {
-    counts[item] = (counts[item] || 0) + 1;
-  }
+    for (const item of items) {
+        if (tallyResult[item] === undefined) {
+            tallyResult[item] = 1;
+        } else {
+            tallyResult[item]++;
+        }
+    }
 
-  return counts;
+    return tallyResult;
 }
 
 module.exports = tally;
+
+console.log("Test : tally with 'toString':");
+console.log(tally(["toString", "toString"]));
