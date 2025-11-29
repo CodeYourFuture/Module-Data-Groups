@@ -1,107 +1,65 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+.completed {
+  text-decoration: line-through;
+  color: gray;
 }
 
-body {
-  background-color: #f4f4f4;
-  padding: 40px;
-}
-
-.todo-container {
-  max-width: 500px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.todo-input {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.todo-input input {
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.todo-input button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 6px;
+.todo-icon {
   cursor: pointer;
+  margin-left: 8px;
+  font-size: 1.2rem;
+  padding: 8px;
+  color: inherit;
 }
 
-.todo-input button:hover {
-  background-color: #45a049;
-}
-
-.todo-list {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: #fff;
-}
-
-.description {
-  flex: 1;
-  margin-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.actions {
-  display: flex;
-  gap: 10px;
-}
-
-.actions button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-}
-
-.complete-btn i {
+.completed .fa-check {
   color: green;
 }
 
-.delete-btn i {
-  color: red;
+.todo-icon:hover {
+  opacity: 0.7;
 }
 
-.todo-item.completed .description {
-  text-decoration: line-through;
-  color: gray;
+.todo-container {
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.todo-container form > div {
+  margin-bottom: 15px;
+}
+
+#todoInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button {
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  display: flex;
+  gap: 8px;
+  padding: 6px 10px;
+  background-color: #f8f9fa;
+  color: #000;
+  border-radius: 50px;
 }
