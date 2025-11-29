@@ -44,14 +44,10 @@ function sum(elements) {
       return Number(totalSum.toFixed(checkIfFloat));
     }
   } else {
-    const returnValue = elements.reduce(
+    return elements.reduce(
       (accumulator, currentValue) => accumulator + currentValue
     );
-
-    return returnValue;
   }
 }
-
-sum([-34.6, 1.87, 10.67, -7.984, 15.5, -1.1, 8.0]);
 
 module.exports = sum;
