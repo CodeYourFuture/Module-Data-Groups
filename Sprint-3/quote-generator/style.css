@@ -1,1 +1,43 @@
-/** Write your CSS in here **/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7a6;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+  }
+  .quote-box {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+  }
+  #quote {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  #author {
+    padding: 10px 2px;
+    font-size: 20px;
+    color: #f7a6;
+    margin-bottom: 2px;
+    font-weight: bold;
+  }
+  #new-quote {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f7a6;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+  }
+    #new-quote:hover {
+        background-color: rgba(196, 64, 112, 0.4);
+        cursor: pointer;
+    }
+    .name-button {
+        text-align: right;
+        float: right;
+    }
