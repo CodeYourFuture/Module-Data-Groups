@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+//it will log everything in one line, we need to add \n
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
 // How can you fix it?
@@ -10,6 +10,6 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+console.log(`${recipe.title}, serves ${recipe.serves}, ingredients:`);
+
+recipe.ingredients.forEach((ingredient) => console.log(ingredient));

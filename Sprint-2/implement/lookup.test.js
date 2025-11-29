@@ -1,7 +1,20 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () => {
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+      ["RO", "RON"],
+    ])
+  ).toEqual({ US: "USD", CA: "CAD", RO: "RON" });
+});
 
+test("throw error if the argument is not an object", () => {
+  expect(() => createLookup("notAnObject")).toThrow(
+    "Argument must be an array"
+  );
+});
 /*
 
 Create a lookup object of key value pairs from an array of code pairs
