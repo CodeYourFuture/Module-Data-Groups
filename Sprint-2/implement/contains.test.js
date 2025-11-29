@@ -17,63 +17,49 @@ as the object doesn't contains a key of 'c'
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
 
-test("given an object contains a property name, returns true", function (){
-    const input = {a: 1, b: 2};
-    const propertyName = 'a';
-    const currentOutput = contains(input, propertyName);
-    const targetOutput = true;
-
-    expect(currentOutput).toEqual(targetOutput);
+test("given an object contains a property name, returns true", () => {
+    const input = { a: 1, b: 2 };
+    const propertyName = "a";
+    expect(contains(input, propertyName)).toBe(true);
 });
 
 // Given an empty object
 // When passed to contains
 // Then it should return false
 
-test("given an empty object, returns false", function (){
+test("given an empty object, returns false", () => {
     const input = {};
-    const propertyName = 'a';
-    const currentOutput = contains(input, propertyName);
-    const targetOutput = false;
-
-    expect(currentOutput).toEqual(targetOutput);
+    const propertyName = "a";
+    expect(contains(input, propertyName)).toBe(false);
 });
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
 
-test("given an object contains a property name, returns true", function (){
-    const input = {a: 1, b: 2};
-    const propertyName = 'a';
-    const currentOutput = contains(input, propertyName);
-    const targetOutput = true;
-
-    expect(currentOutput).toEqual(targetOutput);
+test("given an object contains a property name, returns true", () => {
+    const input = { a: 1, b: 2 };
+    const propertyName = "a";
+    expect(contains(input, propertyName)).toBe(true);
 });
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
 
-test("given an object does not contain a property name, returns false", function (){
-    const input = {a: 1, b: 2};
-    const propertyName = 'c';
-    const currentOutput = contains(input, propertyName);
-    const targetOutput = false;
-
-    expect(currentOutput).toEqual(targetOutput);
+test("given an object does not contain a property name, returns false", () => {
+    const input = { a: 1, b: 2 };
+    const propertyName = "c";
+    expect(contains(input, propertyName)).toBe(false);
 });
+
 
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
 
-test("given invalid parameters like an array, returns false", function (){
-    const input = [1, 2, 3];
-    const propertyName = 'a';
-    const currentOutput = contains(input, propertyName);
-    const targetOutput = false;
-
-    expect(currentOutput).toEqual(targetOutput);
+test("given invalid parameters like an array, returns false", () => {
+    const input = [1, 2, 3];     
+    const propertyName = "0";    
+    expect(contains(input, propertyName)).toBe(false);
 });
