@@ -1,33 +1,12 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-
-  if (!queryString) {
+  if (queryString.length === 0) {
     return queryParams;
   }
-
-  if (queryString.startsWith("?")) {
-    queryString = queryString.slice(1);
-  }
-
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    if (!pair) continue;
-
-    const firstEq = pair.indexOf("=");
-
-    let key;
-    let value;
-
-    if (firstEq === -1) {
-      
-      key = pair;
-      value = "";
-    } else {
-      key = pair.slice(0, firstEq);
-      value = pair.slice(firstEq + 1);
-    }
-
+    const [key, value] = pair.split("=");
     queryParams[key] = value;
   }
 
