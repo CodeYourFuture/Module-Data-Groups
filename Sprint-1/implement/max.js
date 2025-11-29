@@ -44,6 +44,4 @@ function findMax(elements) {
   }
 }
 
-findMax(["zero", -4, -80, -100, -120, 0, "tom"]);
-
 module.exports = findMax;
