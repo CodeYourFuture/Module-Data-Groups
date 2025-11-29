@@ -1,1 +1,67 @@
-/** Write your CSS in here **/
+/** Styles for the Quote Generator app **/
+
+body {
+  font-family: Georgia, serif;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #555;
+  max-width: 600px;
+  text-align: center;
+  line-height: 1.6;
+  margin: 20px 0 10px;
+}
+
+#author {
+  font-size: 1.1rem;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+#author::before {
+  content: "— ";
+}
+
+#new-quote {
+  background-color: #4a90d9;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#new-quote:hover {
+  background-color: #357abd;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #555;
+}
+
+#auto-play-status {
+  font-style: italic;
+  color: #4a90d9;
+}
