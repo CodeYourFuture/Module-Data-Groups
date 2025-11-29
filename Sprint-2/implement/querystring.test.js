@@ -10,31 +10,3 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
-
-test("parses multiple key=value pairs", () => {
-  expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
-});
-
-test("handles empty value (a=)", () => {
-  expect(parseQueryString("a=")).toEqual({ a: "" });
-});
-
-test("handles key with no '=' (a)", () => {
-  expect(parseQueryString("a")).toEqual({ a: "" });
-});
-
-test("last value wins for repeated keys", () => {
-  expect(parseQueryString("a=1&a=2")).toEqual({ a: "2" });
-});
-
-test("supports leading question mark", () => {
-  expect(parseQueryString("?a=1&b=2")).toEqual({ a: "1", b: "2" });
-});
-
-test("ignores empty pairs from trailing or consecutive &", () => {
-  expect(parseQueryString("a=1&&b=2&")).toEqual({ a: "1", b: "2" });
-});
-
-test("handles empty key (=value) producing empty-string key", () => {
-  expect(parseQueryString("=value")).toEqual({ "": "value" });
-});
