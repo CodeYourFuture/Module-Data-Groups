@@ -14,4 +14,8 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title}\n serves ${recipe.serves}\n ingredients:\n ${recipe.ingredients[0]}\n ${recipe.ingredients[1]}\n ${recipe.ingredients[2]}\n ${recipe.ingredients[3]}`);
+console.log(
+  `${recipe.title}\n serves ${
+    recipe.serves
+  }\n ingredients:\n ${recipe.ingredients.join(", ")}`
+);
