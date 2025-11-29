@@ -1,9 +1,3 @@
-function contains(input, propertyName) {
-    if (input && typeof input === 'object' && !Array.isArray(input)) {
-        return input.hasOwnProperty(propertyName);
-    }
-    return false;
-
-}
+function contains() {}
 
 module.exports = contains;
