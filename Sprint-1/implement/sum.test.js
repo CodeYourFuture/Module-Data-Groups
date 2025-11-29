@@ -43,7 +43,7 @@ test("given an array with decimal numbers in returns the correct total sum", () 
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
 test("given an array containing non-numerical values ignore non-numerical and returns correct total sum", () => {
-    expect(sum([2, "hello", 26.5, "hey", -6.6, 8])).toBe(29.9);
+    expect(sum([2, "hello", 26.5, "hey", -6.6, 8])).toBeEqualTo(29.9);
 });
 
 // Given an array with only non-number values
