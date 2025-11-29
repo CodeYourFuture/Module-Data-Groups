@@ -1,6 +1,17 @@
 function dedupe(arr) {
-    const deduplicatedArray = arr.filter((item, index) => arr.indexOf(item) === index);
-    return deduplicatedArray;
+  if (!Array.isArray(arr)) return null;
+
+  const seen = new Set();
+  const result = [];
+
+  for (const item of arr) {
+    if (!seen.has(item)) {
+      seen.add(item);
+      result.push(item);
+    }
+  }
+
+  return result;
 }
- 
+
 module.exports = dedupe;
