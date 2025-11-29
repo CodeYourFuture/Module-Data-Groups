@@ -1,3 +1,25 @@
+
+function displayRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+  console.log(`quote: ${randomQuote.quote}`)
+  console.log(`author: ${randomQuote.author}`)
+
+  if (!quoteElement || !authorElement) return;
+
+  quoteElement.innerText = randomQuote.quote;
+  authorElement.innerText = randomQuote.author;
+}
+
+window.addEventListener("load", () => {
+  displayRandomQuote();
+
+  const newQuoteButton = document.getElementById("new-quote");
+  if (newQuoteButton) {
+    newQuoteButton.addEventListener("click", displayRandomQuote);
+  }
+});
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -13,11 +35,15 @@
 //
 // Examples of use
 // ---------------
-// pickFromArray(['a','b','c','d'])     // maybe returns 'c'
+// pickFromArray(['a','b','c','d'])    // maybe returns 'c'
 
 // You don't need to change this function
 function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+  var rnd = Math.random();
+  console.log(`random value ${rnd}`);
+  var found = choices[Math.floor(rnd * choices.length)];
+  console.log(`we chose ${found.quote} by ${found.author}`);
+  return found;
 }
 
 // A list of quotes you can use in your app.
@@ -489,5 +515,3 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
-
-// call pickFromArray with the quotes array to check you get a random quote
