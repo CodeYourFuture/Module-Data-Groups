@@ -1,9 +1,7 @@
 function parseQueryString(queryString) {
   const queryParams = {};
 
-  if (!queryString) {
-    return queryParams;
-  }
+  if (!queryString) return queryParams;
 
   if (queryString.startsWith("?")) {
     queryString = queryString.slice(1);
@@ -20,13 +18,15 @@ function parseQueryString(queryString) {
     let value;
 
     if (firstEq === -1) {
-      
       key = pair;
       value = "";
     } else {
       key = pair.slice(0, firstEq);
       value = pair.slice(firstEq + 1);
     }
+
+    key = decodeURIComponent(key);
+    value = decodeURIComponent(value);
 
     queryParams[key] = value;
   }
