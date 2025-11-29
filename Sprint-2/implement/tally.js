@@ -3,7 +3,7 @@ function tally(items) {
     throw new Error("tally expects an array");
   }
 
-  const counts = {};
+  const counts = Object.create(null);
 
   for (const item of items) {
     if (counts[item] === undefined) {
