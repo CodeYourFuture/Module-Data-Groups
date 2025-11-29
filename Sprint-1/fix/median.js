@@ -8,31 +8,29 @@
 
 function calculateMedian(list) {
   if (!Array.isArray(list)) {
-          
     return null;
-  } 
-  // Filter out non-numeric values
-  const filteredList = list.filter(item => typeof item === 'number' && !isNaN(item));
+  }
 
-  // If there are no valid numbers, return null
+  // Filter non-numbers 
+  const filteredList = list.filter(
+    (item) => typeof item === "number" && !isNaN(item)
+  );
+
   if (filteredList.length === 0) {
     return null;
   }
 
-  // Sort numerically (without modifying the original array)
-  const sortedList = filteredList.slice().sort((a, b) => a - b);
+  // We can safely sort filteredList directly 
+  filteredList.sort((a, b) => a - b);
 
-  // Compute the median
-  const midIndex = Math.floor(sortedList.length / 2);
-  let median;
+  const mid = Math.floor(filteredList.length / 2);
 
-  if (sortedList.length % 2 === 0) {
-    median = (sortedList[midIndex - 1] + sortedList[midIndex]) / 2;
-  } else {
-    median = sortedList[midIndex];
+  if (filteredList.length % 2 === 0) {
+    return (filteredList[mid - 1] + filteredList[mid]) / 2;
+  } 
+  else {
+    return filteredList[mid];
   }
-
-  return median;
 }
 
 module.exports = calculateMedian;
