@@ -16,14 +16,12 @@ function dedupe(myArray) {
     }
   }
 
-  const noDupeArray = myArray.filter(checkForDupe);
-
   if (myArray.length === 0) {
     //return empty array for empty array
     return [];
-  } else if (myArray.length === noDupeArray.length) {
+  } else if (myArray.length === myArray.filter(checkForDupe).length) {
     //return copy of array if no duplicates
-    return noDupeArray;
+    return myArray;
   }
 
   //to remove duplicates first we take a given item in an array
@@ -46,11 +44,7 @@ function dedupe(myArray) {
     }
   });
 
-  console.log(`my final array for duplicates is ${myArray}`);
-
   return myArray;
 }
-
-dedupe(["ben", "two", "two", 2, "shine", "count", 9, "man"]);
 
 module.exports = dedupe;
