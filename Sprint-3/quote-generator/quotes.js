@@ -491,3 +491,27 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+// console.log(pickFromArray(quotes))
+
+// function to display random quote on the page
+function displayRandomQuote(){
+
+  // get the html ID elements where we want to show author's name and quote's
+const authorElements = document.getElementById("author");
+const quoteElements = document.getElementById("quote")
+
+// use the "pickFromArray()" function to pick one quote randomly from the array to display each time it runs
+const randomQuote = pickFromArray(quotes);
+
+// update the display with the selected author and quote by setting the text into there html elements
+quoteElements.textContent = randomQuote.quote;
+authorElements.textContent = randomQuote.author;
+}
+// use "DOMContentloaded" to ensure all html elements are loaded before updating the DOM to prevent returning null
+document.addEventListener("DOMContentLoaded", function(){
+  
+  displayRandomQuote(); // calls a random quote on page load
+  
+  const newQuoteButton = document.getElementById("new-quote"); // gets the html element for the button new-quote
+  newQuoteButton.addEventListener("click", displayRandomQuote); // shows a a random new quote each time the buttons clicked
+});
