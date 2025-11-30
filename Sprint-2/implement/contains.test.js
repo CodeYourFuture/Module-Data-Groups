@@ -21,7 +21,7 @@ as the object doesn't contain a key of 'c'
 // When passed to contains
 // Then it should return false
 
-test.todo("contains an empty object returns false", () => {
+test("contains an empty object returns false", () => {
   expect(contains({}, "a")).toBe(false);
 });
 
@@ -40,7 +40,7 @@ test("contains array-like object,invalid object and null  returns false",() => {
 // Then it should return true
 test("returns true for existent property", () => {
     const obj = {a: 1, b: 2}
-    expect(contains("a")).toBe(true);   
+    expect(contains(obj, "a")).toBe(true);   
 });
 
 

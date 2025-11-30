@@ -1,6 +1,6 @@
 function contains(obj, key) {
     
-    if(typeof obj !== object || obj === null || Array.isArray(obj)){
+    if(typeof obj !== "object" || obj === null || Array.isArray(obj)){
         return false;
     }
 
