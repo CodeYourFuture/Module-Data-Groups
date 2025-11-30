@@ -4,7 +4,7 @@
   "license": "CC-BY-SA-4.0",
   "description": "You must update this package",
   "scripts": {
-    "test": "jest --config=../jest.config.js reading-list"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
   },
-  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme"
+  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1"
+  }
 }

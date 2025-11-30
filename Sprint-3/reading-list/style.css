@@ -157,3 +157,12 @@ body {
     max-height: 80px;
   }
 }
+.red {
+  background-color: red;
+}
+.read {
+  background-color: green;
+}
+.notRead {
+  background-color: red;
+}
