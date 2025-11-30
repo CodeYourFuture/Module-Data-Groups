@@ -19,7 +19,10 @@ test("handles key with no value", () => {
   });
 });
 test("parses multiple pairs when one value contains '='", () => {
-  expect(parseQueryString("user=ahmad&equation=x=y+1&mode=advanced")).toEqual({
-    user: "ahmad",  equation: "x=y+1",   mode: "advanced",
+  expect(parseQueryString("user=ahmad&equation=x=y+1&city=Manchester")).toEqual({
+    user: "ahmad",  equation: "x=y+1",   city: "Manchester",
   });
 });
+test("Handling URL-encoded query string",()=>{
+expect(parseQueryString("tags%5B%5D=hello%20world")).toEqual({"tags[]":"hello world"})
+})

@@ -6,12 +6,16 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key,...rest] = pair.split("=");
-    const value=rest.join("=");
+    const [keyBeforeDecoding,...rest] = pair.split("=");
+    const valueBeforeDecoding=rest.join("=");
+    const key=decodeURIComponent(keyBeforeDecoding);
+    const value=decodeURIComponent(valueBeforeDecoding);
+
     queryParams[key] = value;
   }
 
   return queryParams;
 }
+console.log(parseQueryString("tags%5B%5D=hello%20world "));
 
 module.exports = parseQueryString;
