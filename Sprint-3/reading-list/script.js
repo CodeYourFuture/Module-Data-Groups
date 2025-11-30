@@ -34,7 +34,6 @@ function readingList() {
 
     newList.append(paragraph, newImage);
 
-    // Apply classes expected by the test
     if (book.alreadyRead) {
       newList.classList.add("read");
     } else {
