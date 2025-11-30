@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+// After i run it will be undefined or throw an error because this is an object not an array to use the square bracket.
 // This code should log out the houseNumber from the address object
 // but it isn't working...
 // Fix anything that isn't working
