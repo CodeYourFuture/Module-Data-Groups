@@ -20,7 +20,6 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
 
 // Given an object with properties
 // When passed to contains with an existing property name
@@ -33,3 +32,31 @@ test.todo("contains on empty object returns false");
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+describe("contains", () => {
+    it("throws an error when the first parameter is not an object",()=>{
+        expect(()=> contains([],"a")).toThrow("Invalid input")
+    });
+
+  it("contains an empty object returns false", () => {
+    expect(contains({}, "a")).toBe(false);
+  });
+
+  [
+    { input: { a: 1, b: 2 }, prop: "a", expected: true },
+    { input: { a: 1, b: 2 }, prop: "b", expected: true },
+    { input: { a: 1, b: 2, c: 3 }, prop: "c", expected: true },
+  ].forEach(({ input, prop, expected }) => {
+    it(`returns true when the property exists in the given object , for object ${JSON.stringify(input)} with property "${prop}"`, () =>
+      expect(contains(input, prop)).toBe(expected));
+  });
+
+
+  [
+    { input: { a: 1, b: 2 }, prop: "c", expected: false },
+    { input: { a: 1, b: 2 }, prop: "e", expected: false },
+    { input: { a: 1, b: 2, c: 3 }, prop: "w", expected: false },
+  ].forEach(({ input, prop, expected }) => {
+    it(`returns false when the property non-existent in the given object , for object ${JSON.stringify(input)} with property "${prop}"`, () =>
+      expect(contains(input, prop)).toBe(expected));
+  });
+});

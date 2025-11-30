@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+// address is object so you can not reach the values by index you can use address.houseNumber or address[houseNumber]
 // This code should log out the houseNumber from the address object
 // but it isn't working...
 // Fix anything that isn't working
@@ -12,4 +12,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
