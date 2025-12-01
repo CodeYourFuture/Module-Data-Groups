@@ -40,9 +40,10 @@ describe("sum", () => {
   [
     { input: [11.1, 14.1, 17.223, 16], expected: 58.423 },
     { input: [11.1, 11.33, 11.34, 11.2999], expected: 45.0699 },
+    { input: [1.2, 0.6, 0.005], expected: 1.805 },
   ].forEach(({ input, expected }) =>
     it(`returns the  sum for decimal values for array [${input}]`, () =>
-      expect(sum(input)).toBe(expected))
+      expect(sum(input)).toBeCloseTo(expected))
   );
   it("ignores non-numeric values and returns the sum of numeric ones", () => {
     expect(sum(["2", 2, null, undefined, 13, 18])).toBe(33);
