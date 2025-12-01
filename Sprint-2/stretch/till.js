@@ -22,6 +22,7 @@ const till = {
   "20p": 10,
 };
 const totalAmount = totalTill(till);
+console.log(totalAmount);
 
 module.exports = totalTill;
 
