@@ -38,7 +38,7 @@ module.exports = invert;
 // It is needed to iterate over each key-value pair in the input object.
 
 // d) Explain why the current return value is different from the target output
-// Numeric key values are converted to strings in the output object keys.
+// They are the same. Object keys are always strings, so the functions converts values into string keys and assigns the original key as the new value. 
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
 // Invert function passes 4 edge case tests.
