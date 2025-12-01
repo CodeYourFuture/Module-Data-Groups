@@ -1,5 +1,5 @@
 h1 {
-font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 58px;
   color: #0b013d;
   text-align: center;
@@ -7,7 +7,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 body {
   background-color: #6396d9;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   text-align: center;
   padding: 40px;
 }
