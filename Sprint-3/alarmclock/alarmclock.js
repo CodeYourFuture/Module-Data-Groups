@@ -1,7 +1,12 @@
 let countdownTimerId = null;
-// interval id for the running countdown (null = no countdown running)
+
+const finishedBackgroundColor = "#007BA7";
+const normalBackgroundColor = "";
 
 function setAlarm() {
+  // Resets background each time user sets a new alarm (optional but nice)
+  document.body.style.backgroundColor = normalBackgroundColor;
+
   // Stops any previous countdown + stops any currently playing alarm sound
   if (countdownTimerId !== null) clearInterval(countdownTimerId);
   pauseAlarm();
@@ -31,6 +36,10 @@ function setAlarm() {
     if (totalSecRemaining <= 0) {
       clearInterval(countdownTimerId);
       countdownTimerId = null;
+
+      // Change background when alarm finishes
+      document.body.style.backgroundColor = finishedBackgroundColor;
+
       playAlarm();
       return;
     }
