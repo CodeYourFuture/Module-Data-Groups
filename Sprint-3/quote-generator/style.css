@@ -1,1 +1,52 @@
-/** Write your CSS in here **/
+h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 58px;
+  color: #0b013d;
+  text-align: center;
+}
+
+body {
+  background-color: #6396d9;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  padding: 40px;
+}
+
+.container {
+  width: 60%;
+  margin: auto;
+}
+
+.quote-box {
+  background: rgb(242, 242, 243);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.quote-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2e1717;
+}
+
+.quote-author {
+  font-size: 24px;
+  color: #191919;
+  margin-top: 10px;
+}
+
+.quote-button {
+  background: #f4efef;
+  color: rgb(19, 8, 80);
+  margin-top: 20px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.quote-button:hover {
+  background: #bbbfc2;
+}

@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote Generator App</title>
     <script defer src="quotes.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <h1>Quote Generator</h1>
+    <div class="quote-box"> 
+    <blockquote id="quote" class="quote-text"></blockquote>
+    <cite id="author" class="quote-author"></cite>
+    </div>
+    <button type="button" id="new-quote" class="quote-button">New quote</button>
+  </div>
   </body>
 </html>
