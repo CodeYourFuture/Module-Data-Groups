@@ -44,6 +44,12 @@ describe("Dedupe", () => {
     it("treats different types separately", () => {
         expect(dedupe([1, "1", true, "true", false, 0])).toEqual([1, "1", true, "true", false, 0]);
     });
+    it("Test if the input array and result array are different",()=>{
+        const input=[1,2,3,3,2,1]
+        const result=dedupe(input)
+        expect(input).not.toBe(result)
+        expect(result).toEqual([1,2,3])
+    })
 });
 
 // Given an array with no duplicates
