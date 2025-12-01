@@ -1,3 +1,25 @@
+// Wait until the DOM is fully loaded
+window.addEventListener("DOMContentLoaded", () => {
+  // Get references to the HTML elements
+  const quoteEl = document.getElementById("quote");
+  const authorEl = document.getElementById("author");
+  const newQuoteBtn = document.getElementById("new-quote");
+
+  // Function to display a random quote
+  function displayRandomQuote() {
+    const randomQuote = pickFromArray(quotes); // get random quote object
+    quoteEl.innerHTML = `<div class="quote-symbol">“</div>${randomQuote.quote}`;
+    authorEl.innerText = `- ${randomQuote.author}`;
+    
+  }
+
+  // Display a quote immediately when page loads
+  displayRandomQuote();
+
+  // Display a new quote when button is clicked
+  newQuoteBtn.addEventListener("click", displayRandomQuote);
+});
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
