@@ -6,6 +6,12 @@ function updateDisplay(heading, time) {
 
 function setAlarm() {
   let time = Number(document.getElementById("alarmSet").value);
+
+  if (!time || time <= 0) {
+    alert("Please enter a valid time in seconds.");
+    return;
+  }
+
   const heading = document.getElementById("timeRemaining");
 
   audio.loop = true;
