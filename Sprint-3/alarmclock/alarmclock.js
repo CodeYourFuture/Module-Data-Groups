@@ -11,6 +11,19 @@ function setAlarm() {
   if (countdownTimerId !== null) clearInterval(countdownTimerId);
   pauseAlarm();
 
+  const input = document.getElementById("alarmSet");
+
+  // only allows positive integers
+  const seconds = Number(input.value);
+  const isValid = Number.isInteger(seconds) && seconds > 0;
+
+  if (!isValid) {
+    input.setCustomValidity("Please enter a whole number greater than 0.");
+    input.reportValidity();
+    return;
+  }
+  input.setCustomValidity("");
+
   // Reads the number of seconds the user typed
   let totalSecRemaining =
     parseInt(document.getElementById("alarmSet").value, 10) || 0;
