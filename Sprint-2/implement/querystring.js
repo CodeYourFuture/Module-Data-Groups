@@ -17,9 +17,8 @@ function parseQueryString(queryString) {
       const value = pair.substring(idx + 1);
     queryParams[key] = value;
   }
-
-  return queryParams;
 }
+return queryParams;
 }
 
 module.exports = parseQueryString;
