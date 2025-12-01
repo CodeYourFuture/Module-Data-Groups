@@ -8,7 +8,7 @@ const { JSDOM } = require("jsdom");
 let page = null;
 
 beforeEach(async () => {
-  page = await JSDOM.fromFile(path.join(__dirname, "alarmclockapp.html"), {
+  page = await JSDOM.fromFile(path.join(__dirname, "index.html"), {
     resources: "usable",
     runScripts: "dangerously",
   });
