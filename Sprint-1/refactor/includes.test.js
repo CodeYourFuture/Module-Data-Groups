@@ -36,3 +36,4 @@ test("searches for null", () => {
 
   expect(currentOutput).toEqual(targetOutput);
 });
+
