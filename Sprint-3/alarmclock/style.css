@@ -1,15 +1,63 @@
-.centre {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.container {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 15px;
 }
 
-#alarmSet {
-  margin: 20px;
+.time-label {
+  font-size: 44px;
+  font-weight: bold;
 }
 
-h1 {
+.time-input {
+  font-size: 64px;
+  text-align: center;
+  width: 200px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 3px solid #0904b0;
+}
+
+.increment-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.increment-buttons button {
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 2px solid #444;
+}
+
+.set-button {
+  font-size: 30px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 3px solid green;
+}
+
+.time-remaining {
+  font-size: 36px;
+  font-weight: 900;
   text-align: center;
 }
+
+.stop-button {
+  font-size: 40px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 4px solid red;
+}
+
+.stop-large-button {
+  font-size: 40px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 4px solid red;
+}
+
