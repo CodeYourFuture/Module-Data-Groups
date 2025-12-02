@@ -63,6 +63,8 @@ function stopTimer() {
 window.incrementTime = incrementTime;
 window.setAlarm = setAlarm;
 window.stopTimer = stopTimer;
+window.playAlarm = playAlarm;
+window.pauseAlarm = pauseAlarm;
 
 // DO NOT EDIT BELOW HERE
 var audio = new Audio("alarmsound.mp3");
@@ -75,6 +77,5 @@ function pauseAlarm() {
   audio.pause();
 }
 
-window.playAlarm = playAlarm;
-window.pauseAlarm = pauseAlarm;
+
 
