@@ -503,13 +503,15 @@ function autoUpdateQuoteAndAuthor() {
   const newQuoteButton = document.getElementById("new-quote");
   const autoDisplayNotice = document.getElementById("auto-play-notice");
   let intervalId;
+  const preferredSecond = 60;
+  const intervalMS = 1000;
   autoQuote.addEventListener("change", () => {
     if (autoQuote.checked) {
       newQuoteButton.style.display = "none";
       autoDisplayNotice.style.display = "block";
       intervalId = setInterval(() => {
         updateQuoteAndAuthor();
-      }, 3000);
+      }, preferredSecond * intervalMS);
     } else {
       clearInterval(intervalId);
       newQuoteButton.style.display = "block";
