@@ -15,19 +15,27 @@ function parseInputTime(value) {
 }
 
 function updateDisplay() {
-  document.getElementById("alarmSet").value = formatTime(totalSeconds);
-  document.getElementById("timeRemaining").textContent = `Time Remaining: ${formatTime(totalSeconds)}`;
+  const heading = document.getElementById("timeRemaining");
+  const input = document.getElementById("alarmSet");
+
+  // clamp BEFORE formatting
+  totalSeconds = Math.max(0, totalSeconds);
+  const formatted = formatTime(totalSeconds);
+
+  input.value = formatted;
+  heading.innerHTML = `Time Remaining:<br><br>${formatted}`;
 }
 
 function incrementTime(amount) {
-  totalSeconds += amount;
-  if (totalSeconds < 0) totalSeconds = 0;
+  // correctly ADD or SUBTRACT 5 seconds
+  totalSeconds = Math.max(0, totalSeconds + amount);
   updateDisplay();
 }
 
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   const parsed = parseInputTime(input.value);
+
   if (parsed === null) {
     alert("Use MM:SS format");
     return;
@@ -40,8 +48,10 @@ function setAlarm() {
 
   timer = setInterval(() => {
     totalSeconds--;
+    totalSeconds = Math.max(0, totalSeconds); // clamp again for safety
     updateDisplay();
-    if (totalSeconds <= 0) {
+
+    if (totalSeconds === 0) {
       clearInterval(timer);
       timer = null;
       playAlarm();
@@ -50,21 +60,17 @@ function setAlarm() {
 }
 
 function stopTimer() {
-  if (timer) {
-    clearInterval(timer);
-    timer = null;
-  }
+  if (timer) clearInterval(timer);
+  timer = null;
   totalSeconds = 0;
   updateDisplay();
-  pauseAlarm();
+  audio.pause();
 }
 
-// attach to window so HTML buttons can call them
+// expose to the browser
 window.incrementTime = incrementTime;
 window.setAlarm = setAlarm;
 window.stopTimer = stopTimer;
-window.playAlarm = playAlarm;
-window.pauseAlarm = pauseAlarm;
 
 // DO NOT EDIT BELOW HERE
 var audio = new Audio("alarmsound.mp3");
@@ -76,6 +82,3 @@ function playAlarm() {
 function pauseAlarm() {
   audio.pause();
 }
-
-
-
