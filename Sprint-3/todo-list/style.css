@@ -41,7 +41,7 @@ h1 {
 .todo-input button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 6px;
@@ -104,4 +104,24 @@ h1 {
 .todo-item.completed .description {
   text-decoration: line-through;
   color: gray;
+}
+
+/* Styling for delete completed button */
+.todo-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.delete-completed-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-completed-btn:hover {
+  background-color: #da190b;
 }
