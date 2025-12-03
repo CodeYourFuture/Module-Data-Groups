@@ -3,13 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote generator app</title>
     <script defer src="quotes.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <div id="slide-bar">
+      <label class="switch">
+        <input id="toggle-btn" type="checkbox" aria-label="auto button" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div id="poster">
+      <p id="quote"></p>
+      <p id="author"></p>
+      <div id="button-field">
+        <button type="button" id="new-quote">New quote</button>
+      </div>
+      <div id="display-notice">
+        <p id="auto-play-notice" style="display: none">Auto-Play: On</p>
+      </div>
+    </div>
   </body>
 </html>
