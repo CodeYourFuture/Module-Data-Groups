@@ -5,15 +5,11 @@ function sum(elements) {
 
   if (numbers.length === 0) return 0;
 
-  const maxDecimalPlaces = numbers.reduce(
-    (currMax, el) => Math.max(currMax, (String(el).split(".") || "").length),
-    0
-  );
-  const decMultiplier = 10 ** maxDecimalPlaces;
-
   const total = numbers.reduce((acc, el) => acc + el, 0);
 
-  return Math.round((total + Number.EPSILON) * decMultiplier) / decMultiplier;
+  const decMultiplier = 100;
+
+  return Math.round(total * decMultiplier) / decMultiplier;
 }
 
 module.exports = sum;
