@@ -18,7 +18,6 @@ function updateDisplay() {
   const heading = document.getElementById("timeRemaining");
   const input = document.getElementById("alarmSet");
 
-  // clamp BEFORE formatting
   totalSeconds = Math.max(0, totalSeconds);
   const formatted = formatTime(totalSeconds);
 
@@ -27,7 +26,6 @@ function updateDisplay() {
 }
 
 function incrementTime(amount) {
-  // correctly ADD or SUBTRACT 5 seconds
   totalSeconds = Math.max(0, totalSeconds + amount);
   updateDisplay();
 }
@@ -48,7 +46,7 @@ function setAlarm() {
 
   timer = setInterval(() => {
     totalSeconds--;
-    totalSeconds = Math.max(0, totalSeconds); // clamp again for safety
+    totalSeconds = Math.max(0, totalSeconds);
     updateDisplay();
 
     if (totalSeconds === 0) {
@@ -67,10 +65,10 @@ function stopTimer() {
   audio.pause();
 }
 
-// expose to the browser
-window.incrementTime = incrementTime;
-window.setAlarm = setAlarm;
-window.stopTimer = stopTimer;
+document.getElementById("up").addEventListener("click", () => incrementTime(5));
+document.getElementById("down").addEventListener("click", () => incrementTime(-5));
+document.getElementById("set").addEventListener("click", setAlarm);
+document.getElementById("stop").addEventListener("click", stopTimer);
 
 // DO NOT EDIT BELOW HERE
 var audio = new Audio("alarmsound.mp3");

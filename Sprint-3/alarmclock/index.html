@@ -20,17 +20,17 @@
       />
 
       <div class="increment-buttons">
-        <button onclick="incrementTime(5)">▲ +5</button>
-        <button onclick="incrementTime(-5)">▼ -5</button>
+        <button id="up">▲ +5</button>
+        <button id="down">▼ -5</button>
       </div>
 
-      <button class="set-button" onclick="setAlarm()">SET</button>
+      <button id="set" class="set-button">SET</button>
 
       <h1 id="timeRemaining" class="time-remaining">
         Time Remaining:<br />00:00
       </h1>
 
-      <button class="stop-button" onclick="stopTimer()">STOP</button>
+      <button id="stop" class="stop-button">STOP</button>
     </div>
 
     <script src="alarmclock.js"></script>
