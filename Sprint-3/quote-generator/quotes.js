@@ -491,3 +491,33 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+const quoteEl = document.getElementById("quote");
+const authorEl = document.getElementById("author");
+const newQuoteBtn = document.getElementById("new-quote");
+const autoPlayToggle = document.getElementById("auto-play-toggle");
+const autoPlayStatus = document.getElementById("auto-play-status");
+
+newQuoteBtn.addEventListener("click", showRandomQuote);
+
+let autoPlayInterval = null;
+
+autoPlayToggle.addEventListener("click", () => {
+  if (autoPlayToggle.checked) {
+    autoPlayStatus.innerText = "auto-play: ON";
+    autoPlayInterval = setInterval(showRandomQuote, 4000);
+  } else {
+    autoPlayStatus.innerText = "auto-play: OFF";
+    clearInterval(autoPlayInterval);
+  }
+});
+
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+
+  quoteEl.innerText = randomQuote.quote;
+
+  authorEl.innerText = randomQuote.author;
+}
+
+showRandomQuote();
