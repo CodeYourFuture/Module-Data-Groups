@@ -14,8 +14,8 @@ function calculateMedian(list) {
 
   if (numbers.length === 0) return null; // Must have at least one number
 
-  const sorted = [...numbers].sort((a, b) => a - b);
-  // numeric array copied before sorting in ascending order so that original array not mutated
+  const sorted = numbers.slice().sort((a, b) => a - b);
+  // replaced unnecessary array clone 
 
   const mid = Math.floor(sorted.length / 2); // math.floor gives the correct index
   if (sorted.length % 2 === 1) {
