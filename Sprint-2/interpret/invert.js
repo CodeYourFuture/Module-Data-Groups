@@ -7,23 +7,39 @@
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
 function invert(obj) {
+  // Guard: only accept plain objects (not null, not arrays, not primitives)
+  if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) {
+    return {};
+  }
+
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    // Ensure the value is used as a string key (object keys are strings)
+    invertedObj[String(value)] = key;
   }
 
   return invertedObj;
 }
 
+module.exports = invert;
+
 // a) What is the current return value when invert is called with { a : 1 }
+// { key: 1 }
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
+// { key: 2 }
 
-// c) What is the target return value when invert is called with {a : 1, b: 2}
+// c.1) What is the target return value when invert is called with {a : 1, b: 2}
+// { '1': 'a', '2': 'b' }
 
-// c) What does Object.entries return? Why is it needed in this program?
+// c.2) What does Object.entries return? Why is it needed in this program?
+// It returns  an array of key-value pairs from the object.
+// It is needed to iterate over each key-value pair in the input object.
 
 // d) Explain why the current return value is different from the target output
+// The code incorrectly used invertedObj.key = value instead of invertedObj[key] = value,
+// which led to all values being assigned to the same key 'key' in the inverted object.
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+// Invert function passes 4 edge case tests.
