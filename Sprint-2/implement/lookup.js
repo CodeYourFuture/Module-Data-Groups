@@ -1,8 +1,8 @@
 function createLookup(myArray) {
   if (!Array.isArray(myArray)) return "Invalid input";
   const myObject = {};
-  for (let i = 0; i < myArray.length; i++) {
-    myObject[myArray[i][0]] = myArray[i][1];
+  for (const pairs of myArray) {
+    myObject[pairs[0]] = pairs[1];
   }
   return myObject;
 }
