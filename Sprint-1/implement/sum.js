@@ -3,8 +3,8 @@ function sum(arr) {
 
   for (let element of arr) {
     // iterate through each element in the array
-    if (typeof element === "number") {
-      // check if the element is a number
+    if (Number.isFinite(element)) {
+      // check if the element is a number, without counting NaN or Infinity
       total += element; // add the number to the total sum
     }
   }
