@@ -11,8 +11,8 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
+const ingredientsList=recipe.ingredients.join("\n");
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:`);
-for (const ingredient of recipe.ingredients) {
-  console.log(ingredient);
-}
+  ingredients:\n${ingredientsList}`);
+  
+
