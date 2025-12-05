@@ -30,7 +30,16 @@ function incrementTime(amount) {
   updateDisplay();
 }
 
+function resetAlarmState() {
+  if (timer) clearInterval(timer);
+  timer = null;
+
+  audio.pause();
+  audio.currentTime = 0;
+}
+
 function setAlarm() {
+  resetAlarmState();
   const input = document.getElementById("alarmSet");
   const parsed = parseInputTime(input.value);
 
@@ -66,7 +75,9 @@ function stopTimer() {
 }
 
 document.getElementById("up").addEventListener("click", () => incrementTime(5));
-document.getElementById("down").addEventListener("click", () => incrementTime(-5));
+document
+  .getElementById("down")
+  .addEventListener("click", () => incrementTime(-5));
 document.getElementById("set").addEventListener("click", setAlarm);
 document.getElementById("stop").addEventListener("click", stopTimer);
 
