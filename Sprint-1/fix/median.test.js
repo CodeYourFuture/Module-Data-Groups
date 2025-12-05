@@ -47,4 +47,4 @@ describe("calculateMedian", () => {
   ].forEach(({ input, expected }) =>
     it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
-});
+ });
