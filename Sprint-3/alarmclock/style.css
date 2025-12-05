@@ -13,3 +13,17 @@
 h1 {
   text-align: center;
 }
+/* Add the advanced task that make the screen flashing */
+.flash {
+  animation: flash-bg 1s infinite alternate;
+}
+
+@keyframes flash-bg {
+  from {
+    background-color: white;
+  }
+
+  to {
+    background-color: red;
+  }
+}
