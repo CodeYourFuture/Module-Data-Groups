@@ -10,9 +10,10 @@ function updateDisplay() {
 }
 
 function startCountdown() {
+  if (remainingSeconds < 0) remainingSeconds = 0;
   timerId = setInterval(() => {
-    
     updateDisplay();
+
     if (remainingSeconds <= 0) {
       remainingSeconds = 0;
       clearInterval(timerId);
@@ -25,14 +26,12 @@ function startCountdown() {
 
 function setAlarm() {
   const input = document.getElementById("alarmSet");
-  if (input.value==="")return;
+  if (input.value === "") return;
   const inputValue = Number(input.value);
-
-  
   clearInterval(timerId);
   timerId = null;
   remainingSeconds = inputValue;
-  
+
   updateDisplay();
   startCountdown();
   input.value = "";
