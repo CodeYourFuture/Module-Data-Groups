@@ -28,9 +28,10 @@ function setAlarm() {
   clearInterval(timerId);
   timerId = null;
   remainingSeconds = inputValue;
-
+  
   updateDisplay();
   startCountdown();
+  input.value = "";
 }
 
 // DO NOT EDIT BELOW HERE
