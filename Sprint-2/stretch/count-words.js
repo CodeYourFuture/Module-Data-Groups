@@ -25,4 +25,32 @@
 2. Ignore the case of the words to find more unique words. e.g. (A === a, Hello === hello)
 
 3. Order the results to find out which word is the most common in the input
+
 */
+function countWords(string) {
+  //  validation of input
+  if (typeof string !== "string") {
+    throw new Error("Input should be a string");
+  }
+  if (string === "") return {};
+  const counts = {};
+
+  // Remove punctuation and lowercase everything
+  
+  const cleanText = string.replace(/[.,!?]/g, "").toLowerCase();
+  const words = cleanText.split(" ");
+
+  // Count word frequencies
+  for (const word of words) {
+    counts[word] = (counts[word] || 0) + 1;
+  }
+
+  // Sort by frequency (most common first)
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+  return Object.fromEntries(sorted);
+}
+
+console.log(countWords("Hello!, my friend, You and me, and you."));
+
+// In count-words.js function countWords implemented. 
