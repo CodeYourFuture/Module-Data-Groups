@@ -3,6 +3,8 @@ There are some Tests in this file that will help you work out if your code is wo
 */
 
 const path = require("path");
+// const { setAlarm } = require("./alarmclock.js");
+
 const { JSDOM } = require("jsdom");
 
 let page = null;
@@ -34,6 +36,8 @@ afterEach(() => {
   jest.useRealTimers();
   page = null;
 });
+
+
 
 test("should set heading when button is clicked", () => {
   const heading = page.window.document.querySelector("#timeRemaining");
@@ -89,16 +93,16 @@ test("should count down every 1000 ms", () => {
 
 test("should play audio when the timer reaches zero", () => {
   const input = page.window.document.querySelector("#alarmSet");
-  const button = page.window.document.querySelector("#set");
+  const startButton = page.window.document.querySelector("#set");
   const mockPlayAlarm = jest.fn();
 
   page.window.playAlarm = mockPlayAlarm;
   input.value = "10";
-  button.click();
+  startButton.click();
 
   expect(mockPlayAlarm).toHaveBeenCalledTimes(0);
 
   jest.runAllTimers();
-
+  
   expect(mockPlayAlarm).toHaveBeenCalledTimes(1);
 });
