@@ -1,5 +1,7 @@
 // Predict and explain first...
 
+// Logging the entire recipe object instead of iterating through each element in the ingredients array
+
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
 // How can you fix it?
@@ -12,4 +14,4 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);

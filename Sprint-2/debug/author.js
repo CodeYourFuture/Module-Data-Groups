@@ -1,5 +1,9 @@
 // Predict and explain first...
 
+// For..of loop only supports iterable objects (arrays), not objects
+// Should use For..in instead
+// Value needs to be accessed from the object using bracket notation
+
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -11,6 +15,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const value in author) {
+  console.log(author[value]);
 }
