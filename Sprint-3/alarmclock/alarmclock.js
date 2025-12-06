@@ -27,6 +27,7 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   if (input.value === "") return;
   remainingSeconds = Number(input.value);
+  if (!Number.isFinite(remainingSeconds)) return;
   clearInterval(timerId);
   timerId = null;
 
