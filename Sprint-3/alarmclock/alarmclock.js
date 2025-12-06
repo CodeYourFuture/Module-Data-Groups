@@ -7,16 +7,18 @@ let timer = null;
 let flashing = null;
 
 // DOM references
-const display = document.getElementById("timeRemaining");
+window.addEventListener("DOMContentLoaded", () => {
+// const display = document.getElementById("timeRemaining");
 const setButton = document.getElementById("set");
 const stopButton = document.getElementById("stop");
 
 // Event listeners
-setButton.addEventListener("click", setAlarm);
-stopButton.addEventListener("click", stopAlarm);
+// if (setButton) setButton.addEventListener("click", () => playAlarm());
+if (stopButton) stopButton.addEventListener("click", stopAlarm);
 
 // Show 00:00 on load
 updateDisplay(0);
+});
 
 // -------------------------------
 // FUNCTIONS
@@ -53,17 +55,22 @@ function setAlarm() {
 function updateDisplay(seconds) {
   const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
   const secs = String(seconds % 60).padStart(2, "0");
-  display.innerText = `Time Remaining: ${mins}:${secs}`;
+  
+  const display = document.getElementById("timeRemaining");
+  if (!display) return; 
+  display.textContent = `Time Remaining: ${mins}:${secs}`;
 }
 
 function startAlarm() {
-  if (typeof playAlarm === "function") playAlarm();
+  playAlarm();
 
   // Flashing background
-  flashing = setInterval(() => {
+  if (!flashing){
+    flashing = setTimeout(() => {
     document.body.style.backgroundColor =
       document.body.style.backgroundColor === "red" ? "orange" : "red";
   }, 300);
+}
 }
 
 function stopAlarm() {
@@ -74,7 +81,8 @@ function stopAlarm() {
   document.body.style.backgroundColor = "";
 }
 
-module.exports= setAlarm;
+
+// module.exports= setAlarm;
 
 
 // DO NOT EDIT BELOW HERE
