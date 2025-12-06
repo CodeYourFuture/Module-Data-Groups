@@ -51,8 +51,6 @@ function setAlarm() {
   totalSeconds = parsed;
   updateDisplay();
 
-  if (timer) clearInterval(timer);
-
   timer = setInterval(() => {
     totalSeconds--;
     totalSeconds = Math.max(0, totalSeconds);
