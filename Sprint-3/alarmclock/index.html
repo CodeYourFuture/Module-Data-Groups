@@ -4,17 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Title here</title>
+    <title>Alarm Clock App</title>
   </head>
   <body>
-    <div class="centre">
-      <h1 id="timeRemaining">Time Remaining: 00:00</h1>
-      <label for="alarmSet">Set time to:</label>
-      <input id="alarmSet" type="number" />
+    <div class="container">
+      <label for="alarmSet" class="time-label">Set time to:</label>
 
-      <button id="set" type="button">Set Alarm</button>
-      <button id="stop" type="button">Stop Alarm</button>
+      <input
+        id="alarmSet"
+        class="time-input"
+        type="text"
+        maxlength="5"
+        placeholder="00:00"
+        value="00:00"
+      />
+
+      <div class="increment-buttons">
+        <button id="up">▲ +5</button>
+        <button id="down">▼ -5</button>
+      </div>
+
+      <button id="set" class="set-button">SET</button>
+
+      <h1 id="timeRemaining" class="time-remaining">
+        Time Remaining:<br />00:00
+      </h1>
+
+      <button id="stop" class="stop-button">STOP</button>
     </div>
+
     <script src="alarmclock.js"></script>
   </body>
 </html>

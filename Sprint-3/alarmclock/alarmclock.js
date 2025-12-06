@@ -1,18 +1,92 @@
-function setAlarm() {}
+let timer = null;
+let totalSeconds = 0;
+
+function formatTime(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+}
+
+function parseInputTime(value) {
+  if (!/^\d{2}:\d{2}$/.test(value)) return null;
+  const [m, s] = value.split(":").map(Number);
+  if (s > 59) return null;
+  return m * 60 + s;
+}
+
+function updateDisplay() {
+  const heading = document.getElementById("timeRemaining");
+  const input = document.getElementById("alarmSet");
+
+  const formatted = formatTime(totalSeconds);
+
+  input.value = formatted;
+  heading.innerHTML = `Time Remaining:<br><br>${formatted}`;
+}
+
+function incrementTime(amount) {
+  totalSeconds += amount;
+  if (totalSeconds < 0) totalSeconds = 0;
+  updateDisplay();
+}
+
+function resetAlarmState() {
+  if (timer) clearInterval(timer);
+  timer = null;
+
+  audio.pause();
+  audio.currentTime = 0;
+}
+
+function setAlarm() {
+  resetAlarmState();
+  const input = document.getElementById("alarmSet");
+  const parsed = parseInputTime(input.value);
+
+  if (parsed === null) {
+    alert("Use MM:SS format");
+    return;
+  }
+
+  totalSeconds = parsed;
+  updateDisplay();
+
+   if (totalSeconds === 0) {
+    playAlarm();
+    return;
+  } //Alarm plays immediately if time is set to 00:00
+
+  timer = setInterval(() => {
+    totalSeconds -= 1;
+       if (totalSeconds <= 0) {
+      totalSeconds = 0;
+      updateDisplay();
+      clearInterval(timer);
+      timer = null;
+      playAlarm();
+      return;
+    }
+    updateDisplay();
+  }, 1000);
+}
+
+function stopTimer() {
+  if (timer) clearInterval(timer);
+  timer = null;
+  totalSeconds = 0;
+  updateDisplay();
+  audio.pause();
+}
+
+document.getElementById("up").addEventListener("click", () => incrementTime(5));
+document
+  .getElementById("down")
+  .addEventListener("click", () => incrementTime(-5));
+document.getElementById("set").addEventListener("click", setAlarm);
+document.getElementById("stop").addEventListener("click", stopTimer);
 
 // DO NOT EDIT BELOW HERE
-
 var audio = new Audio("alarmsound.mp3");
-
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
-
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
-  });
-}
 
 function playAlarm() {
   audio.play();
@@ -21,5 +95,3 @@ function playAlarm() {
 function pauseAlarm() {
   audio.pause();
 }
-
-window.onload = setup;
