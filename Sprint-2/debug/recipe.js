@@ -1,4 +1,5 @@
 // Predict and explain first...
+/*The code will show [object Object] instead of the ingredients because it tries to print the whole object as a string.*/
 
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
@@ -11,5 +12,6 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+ingredients:
+${recipe.ingredients.join("\n")}`);
+
