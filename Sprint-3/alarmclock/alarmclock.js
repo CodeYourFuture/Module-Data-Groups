@@ -18,7 +18,6 @@ function updateDisplay() {
   const heading = document.getElementById("timeRemaining");
   const input = document.getElementById("alarmSet");
 
-  totalSeconds = Math.max(0, totalSeconds);
   const formatted = formatTime(totalSeconds);
 
   input.value = formatted;
@@ -26,7 +25,8 @@ function updateDisplay() {
 }
 
 function incrementTime(amount) {
-  totalSeconds = Math.max(0, totalSeconds + amount);
+  totalSeconds += amount;
+  if (totalSeconds < 0) totalSeconds = 0;
   updateDisplay();
 }
 
@@ -51,16 +51,22 @@ function setAlarm() {
   totalSeconds = parsed;
   updateDisplay();
 
-  timer = setInterval(() => {
-    totalSeconds--;
-    totalSeconds = Math.max(0, totalSeconds);
-    updateDisplay();
+   if (totalSeconds === 0) {
+    playAlarm();
+    return;
+  } //Alarm plays immediately if time is set to 00:00
 
-    if (totalSeconds === 0) {
+  timer = setInterval(() => {
+    totalSeconds -= 1;
+       if (totalSeconds <= 0) {
+      totalSeconds = 0;
+      updateDisplay();
       clearInterval(timer);
       timer = null;
       playAlarm();
+      return;
     }
+    updateDisplay();
   }, 1000);
 }
 
