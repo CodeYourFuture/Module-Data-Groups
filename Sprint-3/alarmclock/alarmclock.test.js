@@ -2,6 +2,7 @@
 There are some Tests in this file that will help you work out if your code is working.
 */
 
+require("@testing-library/jest-dom");
 const path = require("path");
 const { JSDOM } = require("jsdom");
 
@@ -102,3 +103,6 @@ test("should play audio when the timer reaches zero", () => {
 
   expect(mockPlayAlarm).toHaveBeenCalledTimes(1);
 });
+
+
+// In alarmclock.test.js tests passed

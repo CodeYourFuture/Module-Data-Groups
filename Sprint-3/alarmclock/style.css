@@ -1,15 +1,63 @@
+/* Center everything on the page */
 .centre {
   position: fixed;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-#alarmSet {
-  margin: 20px;
-}
-
+/* Heading */
 h1 {
   text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease; 
 }
+
+/* Input field */
+#alarmSet {
+  width: 80px;
+  padding: 5px;
+  font-size: 1em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px; /* space between buttons */
+  margin-top: 10px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Input and buttons spacing */
+input,
+button {
+  margin: 5px;
+}
+
