@@ -3,13 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote generator app</title>
     <script defer src="quotes.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <div class="page">
+      <main class="quote-card">
+        <figure class="quote">
+          <span class="quote-mark">❝</span>
+          <blockquote id="quote-text">
+            Don't cry because it's over, smile because it happened.
+          </blockquote>
+          <figcaption id="quote-author">– Dr. Seuss</figcaption>
+        </figure>
+    
+        <button id="new-quote-btn" type="button">
+          New quote
+        </button>
+      </main>
+    </div>
   </body>
 </html>
