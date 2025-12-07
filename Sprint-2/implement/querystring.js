@@ -10,13 +10,13 @@ function parseQueryString(queryString) {
     const idx = pair.indexOf("=");
    
     if (idx === -1) {
-      // No '=' found, treat entire pair as key with empty value
-      queryParams[pair] = "";
-    } else {
-    const key = pair.substring(0, idx);
-      const value = pair.substring(idx + 1);
-    queryParams[key] = value;
-  }
+         const key = decodeURIComponent(pair.replace(/\+/g, " "));
+      queryParams[key] = "";
+    }  else {
+      const key = decodeURIComponent(pair.substring(0, idx).replace(/\+/g, " "));
+      const value = decodeURIComponent(pair.substring(idx + 1).replace(/\+/g, " "));
+      queryParams[key] = value;
+    }
 }
 return queryParams;
 }
