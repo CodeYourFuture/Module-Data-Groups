@@ -490,4 +490,34 @@ const quotes = [
   },
 ];
 
+function showRandomQuote() {
+  const random = pickFromArray(quotes);
+  document.getElementById("quote").textContent = random.quote;
+  document.getElementById("author").textContent = `– ${random.author}`;
+}
+
+document.addEventListener("DOMContentLoaded", showRandomQuote);
+
+document.getElementById("new-quote").addEventListener("click", showRandomQuote);
+
+let intervalId = null;
+const toggle = document.getElementById("autoplay-toggle");
+const statusText = document.getElementById("autoplay-status");
+
+// Change every 5 seconds (60 seconds for final version)
+const INTERVAL_TIME = 5000;
+
+toggle.addEventListener("change", function () {
+  if (this.checked) {
+    // Turn ON auto-play
+    statusText.textContent = "Auto-play: ON";
+    intervalId = setInterval(showRandomQuote, INTERVAL_TIME);
+  } else {
+    // Turn OFF auto-play
+    statusText.textContent = "Auto-play: OFF";
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+});
+
 // call pickFromArray with the quotes array to check you get a random quote
