@@ -8,6 +8,7 @@ function setAlarm() {
     const secs = remainingSeconds % 60;
     const formattedTime = `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
     heading.textContent = `Time Remaining: ${formattedTime}`;
+    document.body.style.backgroundColor = "";
   }
 
   // Set initial display
@@ -21,6 +22,7 @@ function setAlarm() {
     if (seconds <= 0) {
       clearInterval(timerId);
       playAlarm();
+      document.body.style.backgroundColor = "red";
     }
   }, 1000);
 }
