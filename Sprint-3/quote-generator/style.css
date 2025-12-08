@@ -1,1 +1,54 @@
 /** Write your CSS in here **/
+body {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  margin: 50px;
+  color: #222843;
+  background-color: #5372ef;
+}
+
+#card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+#quote {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  padding: 0 2rem;
+}
+
+#quote::before,
+#quote::after {
+  content: '"';
+  font-size: 1.5rem;
+}
+
+#author {
+  font-style: italic;
+  margin-top: 10px;
+  margin-bottom: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 1.5rem;
+  color: #555555;
+  text-align: right;
+  border-bottom: #e8e8e8 1px solid;
+}
+
+#author::before {
+  content: "— ";
+}
+
+#new-quote {
+  background-color: #5372ef;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+}
