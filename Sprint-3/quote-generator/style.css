@@ -1,1 +1,66 @@
-/** Write your CSS in here **/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5a742;
+  font-family: Georgia, serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+#quote {
+  background-color: white;
+  padding: 80px 60px 40px;
+  margin: 0;
+  font-size: 2.5rem;
+  color: #f5a742;
+  line-height: 1.5;
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+}
+
+#quote::before {
+  content: '"';
+  font-size: 5rem;
+  left: 30px;
+  top: 10px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#author {
+  background-color: white;
+  padding: 20px 60px 80px;
+  margin: 0;
+  text-align: right;
+  font-size: 1.5rem;
+  color: #f5a742;
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+}
+
+#new-quote {
+  position: absolute;
+  bottom: 30px;
+  right: 60px;
+  background-color: #f5a742;
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+#new-quote:hover {
+  background-color: #e69630;
+}
