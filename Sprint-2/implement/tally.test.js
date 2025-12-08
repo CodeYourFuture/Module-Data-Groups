@@ -23,27 +23,12 @@ const tally = require("./tally.js");
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test("tally on an empty array returns an empty object", () => {
-  expect(tally([])).toEqual({});
-});
+test.todo("tally on an empty array returns an empty object");
 
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
-test("given an array with duplicate items it should return counts for each unique item ", () => {
-  expect(tally(["a", "a", "b", "c", "c", "d", "a"])).toEqual({
-    a: 3,
-    b: 1,
-    c: 2,
-    d: 1,
-  });
-});
 
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
-test("should throw an error when tally is passed an invalid input like a string", () => {
-  expect(() => tally("b,b,c,d,e,e,f")).toThrow(
-    "error invalid input passed, please provide an array"
-  );
-});

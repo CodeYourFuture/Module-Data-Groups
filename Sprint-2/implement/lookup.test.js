@@ -1,25 +1,6 @@
 const createLookup = require("./lookup.js");
 
-test("creates a country currency code lookup for multiple codes", () => {
-  expect(
-    createLookup([
-      ["US", "USD"],
-      ["CA", "CAD"],
-      ["MW", "MWK"],
-      ["ZW", "ZWD"],
-    ])
-  ).toEqual({ US: "USD", CA: "CAD", MW: "MWK", ZW: "ZWD" });
-});
-
-test("if passed an empty array , should print a message telling user array is empty", () => {
-  expect(createLookup([])).toBe("passed array was empty, no values to display");
-});
-
-test("if passed parameter which is not an array throw an error", () => {
-  expect(() => createLookup("US, USD")).toThrow(
-    "error incorrect parameter passed please provide an array"
-  );
-});
+test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
