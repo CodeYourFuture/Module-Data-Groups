@@ -1,11 +1,16 @@
 let inputTime = 0;
 let timer = null;
+let changeBgColor = false;
 
 function setAlarm() {
   inputTime = Number(document.querySelector("#alarmSet").value);
 
   if (Number.isInteger(inputTime) && !isNaN(inputTime) && inputTime >= 0) {
     if (inputTime === 10) {
+      changeBgColor = true;
+    } else if (inputTime === 0) {
+      displayTime(inputTime);
+      playAlarm();
     }
     displayTime(inputTime);
     if (timer) clearInterval(timer);
@@ -30,9 +35,20 @@ function countDown() {
 
   if (inputTime === 0) {
     playAlarm();
+
+    if (changeBgColor) {
+      changeColor();
+      changeBgColor = false;
+    }
+
     clearInterval(timer);
     timer = null;
   }
+}
+
+function changeColor() {
+  const bgColor = document.querySelector("div");
+  bgColor.classList.add("myBgColor");
 }
 /*
 the the value for time remaining

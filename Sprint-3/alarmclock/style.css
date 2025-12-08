@@ -6,6 +6,10 @@
   transform: translate(-50%, -50%);
 }
 
+.myBgColor {
+  background-color: #f0f8ff;
+}
+
 #alarmSet {
   margin: 20px;
 }
