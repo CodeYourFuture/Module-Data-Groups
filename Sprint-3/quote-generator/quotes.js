@@ -1,3 +1,40 @@
+function displayQuote() {
+  const firstQuote = pickFromArray(quotes);
+  const initialQuote = document.querySelector("#quote");
+  initialQuote.innerText = firstQuote.quote;
+
+  const author = document.querySelector("#author");
+  author.innerText = firstQuote.author;
+}
+
+function generateQuote() {
+  displayQuote();
+
+  document.querySelector("#new-quote").addEventListener("click", () => {
+    displayQuote();
+  });
+}
+
+window.onload = generateQuote;
+
+/**
+- onload get random quote from array
+  - get the length of the array
+  - generate random number between 0 and last index of array
+  - use number to fetch quote from array and store in variable randomQuote
+- display quote
+  - display quote stored in randomQuote
+- display author associated with quote
+
+- when button clicked
+  - get random quote from array
+    - get the length of the array
+  - generate random number between 0 and last index of array
+  - use number to fetch quote from array and store in variable randomQuote
+- display quote
+  - display quote stored in randomQuote
+- display author associated with quote
+ */
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -19,25 +56,6 @@
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
-
-/**
-- onload get random quote from array
-  - get the length of the array
-  - generate random number between 0 and last index of array
-  - use number to fetch quote from array and store in variable randomQuote
-- display quote
-  - display quote stored in randomQuote
-- display author associated with quote
-
-- when button clicked
-  - get random quote from array
-    - get the length of the array
-  - generate random number between 0 and last index of array
-  - use number to fetch quote from array and store in variable randomQuote
-- display quote
-  - display quote stored in randomQuote
-- display author associated with quote
- */
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
