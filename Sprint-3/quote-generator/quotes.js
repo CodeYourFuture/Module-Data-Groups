@@ -20,6 +20,25 @@ function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
+/**
+- onload get random quote from array
+  - get the length of the array
+  - generate random number between 0 and last index of array
+  - use number to fetch quote from array and store in variable randomQuote
+- display quote
+  - display quote stored in randomQuote
+- display author associated with quote
+
+- when button clicked
+  - get random quote from array
+    - get the length of the array
+  - generate random number between 0 and last index of array
+  - use number to fetch quote from array and store in variable randomQuote
+- display quote
+  - display quote stored in randomQuote
+- display author associated with quote
+ */
+
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [

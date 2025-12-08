@@ -10,7 +10,24 @@ First off, once you've branched off `main`, then update the title element in `in
 
 When the page loads it should show a random quote from the `quotes` array on the screen. It should also show who said the quote.
 
+- onload get random quote from array
+  - get the length of the array
+  - generate random number between 0 and last index of array
+  - use number to fetch quote from array and store in variable randomQuote
+- display quote
+  - display quote stored in randomQuote
+- display author associated with quote
+
 When you click a button on the screen it should change the quote on the screen.
+
+- when button clicked
+  - get random quote from array
+    - get the length of the array
+  - generate random number between 0 and last index of array
+  - use number to fetch quote from array and store in variable randomQuote
+- display quote
+  - display quote stored in randomQuote
+- display author associated with quote
 
 It can look however you like but there is an example in this folder at `quote_generator_example.png`
 
