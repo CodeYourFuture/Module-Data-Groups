@@ -20,15 +20,74 @@ const tally = require("./tally.js");
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
 
+// Counts a single item
+test("tally counts a single item in an array", () => {
+  const input = ["a"];
+
+  const expectedOutput = { a: 1 };
+
+  expect(tally(input)).toEqual(expectedOutput);
+});
+
+// Counts repeated items correctly
+test("tally counts multiple occurrences of the same item", () => {
+  const input = ["a", "a", "a"];
+
+  const expectedOutput = { a: 3 };
+
+  expect(tally(input)).toEqual(expectedOutput);
+});
+
+// Counts different items with varying frequencies
+test("tally counts different items with varying frequencies", () => {
+  const input = ["a", "a", "b", "c"];
+
+  const expectedOutput = { a: 2, b: 1, c: 1 };
+
+  expect(tally(input)).toEqual(expectedOutput);
+});
+
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+
+// Returns an empty object for an empty array
+test("tally on an empty array returns an empty object", () => {
+  const input = [];
+
+  const expectedOutput = {};
+
+  expect(tally(input)).toEqual(expectedOutput);
+});
 
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
 
-// Given an invalid input like a string
+// Handles real-world data with duplicates
+test("tally handles an array with many duplicate items", () => {
+  const input = ["apple", "banana", "apple", "orange", "banana", "apple"];
+
+  const expectedOutput = { apple: 3, banana: 2, orange: 1 };
+
+  expect(tally(input)).toEqual(expectedOutput);
+});
+
+// Given invalid input like a string
 // When passed to tally
 // Then it should throw an error
+
+// Throws an error for a string input
+test("tally throws an error when given a string instead of an array", () => {
+  expect(() => tally("not an array")).toThrow("Input must be an array");
+});
+
+// Throws an error for null
+test("tally throws an error when given null", () => {
+  expect(() => tally(null)).toThrow("Input must be an array");
+});
+
+// Throws an error for undefined
+test("tally throws an error when given undefined", () => {
+  expect(() => tally(undefined)).toThrow("Input must be an array");
+});
