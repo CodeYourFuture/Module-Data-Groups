@@ -6,11 +6,7 @@
 function createLookup(arrayOfPairs) {
   const lookupObject = {};
 
-  for (const pair of arrayOfPairs) {
-    const key = pair[0];
-    const value = pair[1];
-
-    // Bracket notation allows using a variable as the property name
+  for (const [key, value] of arrayOfPairs) {
     lookupObject[key] = value;
   }
 
