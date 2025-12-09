@@ -64,7 +64,7 @@ test("contains returns false when the property is not present", () => {
 
 // Handles invalid inputs gracefully
 test("contains handles invalid parameters", () => {
-  expect(contains([], "a")).toBe(false);
+  expect(contains([], "length")).toBe(false);
   expect(contains(null, "a")).toBe(false);
   expect(contains(undefined, "a")).toBe(false);
 });
