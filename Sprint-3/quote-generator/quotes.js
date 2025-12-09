@@ -492,11 +492,19 @@ const quotes = [
 
 // call pickFromArray with the quotes array to check you get a random quote
 
-const quoteEl = document.getElementById("quote");
-const authorEl = document.getElementById("author");
-const newQuoteBtn = document.getElementById("new-quote");
-const autoPlayToggle = document.getElementById("auto-play-toggle");
-const autoPlayStatus = document.getElementById("auto-play-status");
+function getElement(id) {
+  const element = document.getElementById(id);
+  if (!element) {
+    throw new Error(`Element with id "${id}" not found in the HTML`);
+  }
+  return element;
+}
+
+const quoteEl = getElement("quote");
+const authorEl = getElement("author");
+const newQuoteBtn = getElement("new-quote");
+const autoPlayToggle = getElement("auto-play-toggle");
+const autoPlayStatus = getElement("auto-play-status");
 
 newQuoteBtn.addEventListener("click", showRandomQuote);
 
