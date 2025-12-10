@@ -3,7 +3,7 @@ function tally(arr) {
     throw new Error();
   }
 
-  let result = {};
+  let result = Object.create(null);
 
   for (const element of arr) {
     if (element in result) {

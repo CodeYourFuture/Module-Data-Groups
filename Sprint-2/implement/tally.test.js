@@ -20,4 +20,9 @@ describe("tally", () => {
     expect(() => tally(null)).toThrow();
     expect(() => tally(undefined)).toThrow();
   });
+
+  test("tally returns an object with no inherited properties", () => {
+    const result = tally(["a", "b", "a"]);
+    expect(Object.getPrototypeOf(result)).toBeNull();
+  });
 });
