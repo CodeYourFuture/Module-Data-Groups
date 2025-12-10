@@ -11,17 +11,11 @@ function tally(arrayOfItems) {
     throw new Error("Input must be an array");
   }
 
-  const countObject = {};
+  const countObject = Object.create(null);
 
   for (const item of arrayOfItems) {
-    // If the item is already counted, add 1; otherwise start at 1
-    const itemAlreadyCounted = countObject[item] !== undefined;
-
-    if (itemAlreadyCounted) {
-      countObject[item] = countObject[item] + 1;
-    } else {
-      countObject[item] = 1;
-    }
+    const currentCount = countObject[item] || 0;
+    countObject[item] = currentCount + 1;
   }
 
   return countObject;
