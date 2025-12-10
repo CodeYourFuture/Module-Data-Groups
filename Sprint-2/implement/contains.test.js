@@ -52,11 +52,13 @@ test("Should return false when object does not have the property", () => {
 // When passed to contains
 // Then it should return false or throw an error
 
-test("Should return false when invalid parameters are used", () => {
+test("Should correctly detect keys in arrays", () => {
   expect(contains([1, 2, 3], "1")).toEqual(true); // "1" is a key
   expect(contains([1, 2, 3], "3")).toEqual(false); // "3" is not a key
-  //expect(contains([], "a")).toEqual(false);      // array
-  expect(contains(null, "a")).toEqual(false);    // null 
+});
+
+test("Should return false when invalid parameters are used", () => {
+   expect(contains(null, "a")).toEqual(false);    // null 
   expect(contains(5, "a")).toEqual(false);       // number 
   expect(contains("hello", "a")).toEqual(false); // string 
 })
@@ -64,3 +66,5 @@ test("Should return false when invalid parameters are used", () => {
 // In contains.test.js tests for contains.test.js passed 
 
 // contains.test.js re-tested.
+
+// test case description differentiated. 
