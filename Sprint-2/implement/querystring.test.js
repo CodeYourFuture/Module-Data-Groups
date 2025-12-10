@@ -15,15 +15,15 @@ test("parses querystring values containing =", () => {
 // Parses a simple key-value pair
 test("parses a simple key-value pair", () => {
   expect(parseQueryString("name=John")).toEqual({
-    name: "Samantha",
+    name: "John",
   });
 });
 
 // Parses multiple pairs separated by "&"
 test("parses multiple key-value pairs", () => {
   expect(parseQueryString("name=John&age=25")).toEqual({
-    name: "Samantha",
-    age: "33",
+    name: "John",
+    age: "25",
   });
 });
 
@@ -49,7 +49,7 @@ test("parses querystring with multiple = signs in value", () => {
 // Handles a mix of simple and complex values
 test("parses mixed simple and complex key-value pairs", () => {
   expect(parseQueryString("name=John&equation=1+1=2&city=London")).toEqual({
-    name: "Samantha",
+    name: "John",
     equation: "1+1=2",
     city: "London",
   });
