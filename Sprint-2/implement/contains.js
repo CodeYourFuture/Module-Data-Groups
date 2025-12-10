@@ -1,7 +1,7 @@
 function contains(obj, key) {
-  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
+  if (typeof obj !== "object" || obj === null) {
     return false;
-}
+  }
 //return key in obj;
 return Object.hasOwn(obj, key);
 
@@ -16,3 +16,4 @@ module.exports = contains;
   console.log( Object.hasOwn(obj, propertyName) );   // false
 
   // In contains.js modified return function as return Object.hasOwn(obj, key);
+  // The  "if (typeof obj !== "object" || obj === null)" modified.
