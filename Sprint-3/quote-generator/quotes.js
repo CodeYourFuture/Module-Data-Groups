@@ -513,10 +513,13 @@ let autoPlayInterval = null;
 autoPlayToggle.addEventListener("click", () => {
   if (autoPlayToggle.checked) {
     autoPlayStatus.innerText = "auto-play: ON";
-    autoPlayInterval = setInterval(showRandomQuote, 4000);
+    if (!autoPlayInterval) {
+      autoPlayInterval = setInterval(showRandomQuote, 4000);
+    }
   } else {
     autoPlayStatus.innerText = "auto-play: OFF";
     clearInterval(autoPlayInterval);
+    autoPlayInterval = null;
   }
 });
 
