@@ -4,24 +4,26 @@
 // - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
 // - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
 
+// Sprint-2/implement/querystring.js
+
 function parseQueryString(queryString) {
   const queryParams = {};
+  if (!queryString) return queryParams;
 
-  // Returns early if the string is empty
-  if (queryString.length === 0) {
-    return queryParams;
-  }
+  const pairs = queryString.split("&");
 
-  const keyValuePairs = queryString.split("&");
+  for (const pair of pairs) {
+    const equalsIndex = pair.indexOf("=");
 
-  for (const pair of keyValuePairs) {
-    // Finds only the first "=" since values may contain "=" too
-    const firstEqualsIndex = pair.indexOf("=");
-
-    const key = pair.slice(0, firstEqualsIndex);
-    const value = pair.slice(firstEqualsIndex + 1);
-
-    queryParams[key] = value;
+    if (equalsIndex === -1) {
+      // Handle keys with no value
+      const key = decodeURIComponent(pair);
+      queryParams[key] = null;
+    } else {
+      const key = decodeURIComponent(pair.slice(0, equalsIndex));
+      const value = decodeURIComponent(pair.slice(equalsIndex + 1));
+      queryParams[key] = value;
+    }
   }
 
   return queryParams;
