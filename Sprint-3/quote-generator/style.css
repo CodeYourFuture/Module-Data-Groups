@@ -58,3 +58,39 @@ label {
   gap: 0.4rem;
   margin: 0;
 }
+
+.quote-box {
+  min-height: 5rem;
+  margin-bottom: 1rem;
+}
+
+#quote {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.quote-clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#author {
+  font-style: italic;
+  color: #4b5563;
+}
+
+#toggle-quote {
+  margin-bottom: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #cbd5f5;
+  background: #e5f0ff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+#toggle-quote.hidden {
+  display: none;
+}

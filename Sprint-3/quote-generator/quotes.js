@@ -505,10 +505,33 @@ const authorEl = getElement("author");
 const newQuoteBtn = getElement("new-quote");
 const autoPlayToggle = getElement("auto-play-toggle");
 const autoPlayStatus = getElement("auto-play-status");
+const toggleQuoteBtn = getElement("toggle-quote");
 
 newQuoteBtn.addEventListener("click", showRandomQuote);
 
 let autoPlayInterval = null;
+
+let isQuoteExpanded = false;
+
+function updateQuoteToggleVisibility() {
+  if (quoteEl.scrollHeight <= quoteEl.clientHeight) {
+    toggleQuoteBtn.classList.add("hidden");
+  } else {
+    toggleQuoteBtn.classList.remove("hidden");
+  }
+}
+
+toggleQuoteBtn.addEventListener("click", () => {
+  if (isQuoteExpanded) {
+    quoteEl.classList.add("quote-clamped");
+    toggleQuoteBtn.innerText = "Show more";
+    isQuoteExpanded = false;
+  } else {
+    quoteEl.classList.remove("quote-clamped");
+    toggleQuoteBtn.innerText = "Show less";
+    isQuoteExpanded = true;
+  }
+});
 
 autoPlayToggle.addEventListener("click", () => {
   if (autoPlayToggle.checked) {
@@ -527,8 +550,13 @@ function showRandomQuote() {
   const randomQuote = pickFromArray(quotes);
 
   quoteEl.innerText = randomQuote.quote;
-
   authorEl.innerText = randomQuote.author;
+
+  isQuoteExpanded = false;
+  quoteEl.classList.add("quote-clamped");
+  toggleQuoteBtn.innerText = "Show more";
+
+  updateQuoteToggleVisibility();
 }
 
 showRandomQuote();
