@@ -33,12 +33,12 @@ function countWords(string) {
     throw new Error("Input should be a string");
   }
   if (string === "") return {};
-  const counts = {};
+  const counts = Object.create(null) // prevents inherent properties.
 
   // Remove punctuation and lowercase everything
   
   const cleanText = string.replace(/[.,!?]/g, "").toLowerCase();
-  const words = cleanText.split(" ");
+  const words = cleanText.split(" ").filter(Boolean); // removes empty strings
 
   // Count word frequencies
   for (const word of words) {
@@ -52,5 +52,9 @@ function countWords(string) {
 }
 
 console.log(countWords("Hello!, my friend, You and me, and you."));
+console.log(countWords("constructor constructor"));
+console.log(countWords("          Hello   World      "));
 
 // In count-words.js function countWords implemented. 
+
+// Modified to handle inherent property cases and to remove empty spaces. 
