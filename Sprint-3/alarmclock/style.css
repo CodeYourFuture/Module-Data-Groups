@@ -61,3 +61,14 @@ button {
   margin: 5px;
 }
 
+/* Flashing background */
+@keyframes alarm-flash {
+  0%, 100% { background-color: white; }
+  50% { background-color: #add8e6; }
+}
+
+.alarm-flashing {
+  animation: alarm-flash 0.5s steps(1, end) infinite;
+}
+
+
