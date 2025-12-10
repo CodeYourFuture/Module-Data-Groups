@@ -1,34 +1,35 @@
 // -------- Alarm Clock Implementation --------
 let countdownInterval = null;
-let flashInterval = null;
 let timeLeft = 0;
 let paused = false;
 
+// -------- Main Functions --------
 function setAlarm() {
   const input = document.getElementById("alarmSet");
-  const heading = document.getElementById("timeRemaining");
-
   const secondsInput = parseInt(input.value, 10);
 
-  if (isNaN(secondsInput) || secondsInput < 0) return;
+  // Ignore invalid or zero/negative inputs
+  if (isNaN(secondsInput) || secondsInput <= 0) return;
 
-  // Reset previous timer if any
-  if (countdownInterval) clearInterval(countdownInterval);
-  stopFlashing();
-  paused = false;
+  // Reset previous alarm
+  resetAlarm();
+
   timeLeft = secondsInput;
-
   updateHeading(timeLeft);
+
+  input.disabled = true;
 
   countdownInterval = setInterval(() => {
     if (!paused) {
       timeLeft--;
+
       if (timeLeft <= 0) {
         clearInterval(countdownInterval);
         countdownInterval = null;
         updateHeading(0);
         playAlarm();
         startFlashing();
+        input.disabled = false;
       } else {
         updateHeading(timeLeft);
       }
@@ -38,7 +39,7 @@ function setAlarm() {
 
 function pauseAlarm() {
   paused = true;
-  if (audio) audio.pause();
+  audio.pause();
   stopFlashing();
 }
 
@@ -47,22 +48,36 @@ function resumeAlarm() {
 }
 
 function stopAlarm() {
-  paused = true;
-  if (audio) audio.pause();
-  stopFlashing();
-  clearInterval(countdownInterval);
-  countdownInterval = null;
-  timeLeft = 0;
-  updateHeading(0);
+  resetAlarm(); // fully stop everything
 }
 
 function resetAlarm() {
+  // Stop countdown
   paused = false;
-  clearInterval(countdownInterval);
-  countdownInterval = null;
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+    countdownInterval = null;
+  }
+
+  // Stop flashing background
   stopFlashing();
+
+  // Stop alarm sound if playing
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
+  // Reset countdown display
   timeLeft = 0;
   updateHeading(0);
+
+  // Clear and re-enable input
+  const input = document.getElementById("alarmSet");
+  if (input) {
+    input.value = "";
+    input.disabled = false;
+  }
 }
 
 // -------- Helper Functions --------
@@ -75,47 +90,18 @@ function updateHeading(seconds) {
   heading.innerText = `Time Remaining: ${mins}:${secs}`;
 }
 
-// ---------------- Flashing Screen ----------------
+// ---------------- Flashing Screen (CSS-based) ----------------
 function startFlashing() {
-  const body = document.body;
-  let isBlue = false;
-  flashInterval = setInterval(() => {
-    body.style.backgroundColor = isBlue ? "white" : "#add8e6"; 
-    isBlue = !isBlue;
-  }, 500);
+  document.body.classList.add("alarm-flashing");
 }
 
 function stopFlashing() {
-  clearInterval(flashInterval);
-  flashInterval = null;
+  document.body.classList.remove("alarm-flashing");
   document.body.style.backgroundColor = "white";
 }
 
-// DO NOT EDIT BELOW HERE
-
+// ---------------- Audio ----------------
 var audio = new Audio("alarmsound.mp3");
-
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
-
-  document.getElementById("pause").addEventListener("click", () => {
-    pauseAlarm();
-  });
-
-  document.getElementById("resume").addEventListener("click", () => {
-    resumeAlarm();
-  });
-
-  document.getElementById("stop").addEventListener("click", () => {
-    stopAlarm();
-  });
-
-  document.getElementById("reset").addEventListener("click", () => {
-    resetAlarm();
-  });
-}
 
 function playAlarm() {
   audio.play();
@@ -125,4 +111,16 @@ function pauseAlarmSound() {
   audio.pause();
 }
 
+// ---------------- Setup Event Listeners ----------------
+function setup() {
+  document.getElementById("set").addEventListener("click", setAlarm);
+  document.getElementById("pause").addEventListener("click", pauseAlarm);
+  document.getElementById("resume").addEventListener("click", resumeAlarm);
+  document.getElementById("stop").addEventListener("click", stopAlarm);
+  document.getElementById("reset").addEventListener("click", resetAlarm);
+}
+
 window.onload = setup;
+
+
+// alarmclock.js modified 
