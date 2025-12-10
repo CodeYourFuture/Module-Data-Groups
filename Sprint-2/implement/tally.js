@@ -7,7 +7,7 @@ function tally(items) {
     return {};
   }
 
-  const counts = {};
+  const counts = Object.create(null);
 
   for (const item of items) {
 
@@ -19,6 +19,11 @@ function tally(items) {
   return counts;
 }
 
+console.log(tally(["toStrin", "toStrin"]));
+console.log(tally(["toString", "toString"]));
+
 module.exports = tally;
 
 // In tally.js function tally() implemented. 
+
+// modification made. 
