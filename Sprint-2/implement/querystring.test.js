@@ -22,3 +22,10 @@ test("handles key without value", () => {
     key3: "value3",
   });
 });
+
+test("should decode URL-encoded query strings", () => {
+  const queryString = "tags%5B%5D=hello%20world";
+  const expected = { "tags[]": "hello world" };
+  const result = parseQueryString(queryString);
+  expect(result).toEqual(expected);
+});
