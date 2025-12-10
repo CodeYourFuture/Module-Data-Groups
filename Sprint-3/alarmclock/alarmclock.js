@@ -25,10 +25,22 @@ updateDisplay(0);
 // -------------------------------
 
 function setAlarm() {
-  const input = document.getElementById("alarmSet").value;
-  const parsed = parseInt(input, 10);
+  const inputEl = document.getElementById("alarmSet");
+const input = inputEl.value.trim();
 
-  if (isNaN(parsed) || parsed < 0) return;
+// Check empty input
+if (input === "") {
+  alert("Please enter a number of seconds.");
+  return;
+}
+
+const parsed = parseInt(input, 10);
+
+// Check invalid or negative number
+if (isNaN(parsed) || parsed < 0) {
+  alert("Please enter a valid non-negative number.");
+  return;
+}
 
   timeLeft = parsed;
 
