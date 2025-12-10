@@ -12,10 +12,11 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe.ingredients.join(", ")}`);
+${recipe.ingredients.join("\n")}`);
 
 
 // I guess, because the values of ingredients are given as array, 
 // the way ingredients is passed to the log is not right.   
 
 // recipe.js log function corrected. 
+// recipe.js modified  "${recipe.ingredients.join("\n")}`) to make ingredients appear on new line.
