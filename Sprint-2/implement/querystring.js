@@ -27,7 +27,7 @@ function parseQueryString(queryString) {
 
       // If '=' not found we have a key exists but value is empty
 
-      paramKey = pair;
+      paramKey = decodeURIComponent(pair);
       paramValue = "";
     } else {
       paramKey = decodeURIComponent(pair.slice(0, equalSignIndex));
@@ -43,3 +43,4 @@ function parseQueryString(queryString) {
 module.exports = parseQueryString;
 
 // In querystring.js function implemented. 
+// Decoding of   paramKey = decodeURIComponent(pair); added. 
