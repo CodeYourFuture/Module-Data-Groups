@@ -36,7 +36,7 @@ beforeEach(async () => {
   });
 });
 
-afterEach(() => {
+afterEach(() => { 
   page = null;
   jest.restoreAllMocks();
 });
