@@ -18,7 +18,9 @@
 // You don't need to change this function
 function pickFromArray(choices) {
   // You already have pickFromArray() and quotes[] above this comment
-
+  return choices[Math.floor(Math.random() * choices.length)]
+};
+window.addEventListener("load", () => {
 const quoteEl = document.getElementById("quote");
 const authorEl = document.getElementById("author");
 const button = document.getElementById("new-quote");
@@ -43,7 +45,7 @@ displayRandomQuote();
 button.addEventListener("click", displayRandomQuote);
 
   // return choices[Math.floor(Math.random() * choices.length)];
-}
+});
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
