@@ -17,7 +17,32 @@
 
 // You don't need to change this function
 function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+  // You already have pickFromArray() and quotes[] above this comment
+
+const quoteEl = document.getElementById("quote");
+const authorEl = document.getElementById("author");
+const button = document.getElementById("new-quote");
+
+// Generate a random quote using Math.random (required for tests)
+function getRandomQuote() {
+  const index = Math.floor(Math.random() * quotes.length);
+  return quotes[index];
+}
+
+// Put the quote + author into the DOM
+function displayRandomQuote() {
+  const q = getRandomQuote();
+  quoteEl.textContent = q.quote;
+  authorEl.textContent = q.author;
+}
+
+// Show initial quote immediately
+displayRandomQuote();
+
+// Button shows a new quote
+button.addEventListener("click", displayRandomQuote);
+
+  // return choices[Math.floor(Math.random() * choices.length)];
 }
 
 // A list of quotes you can use in your app.
