@@ -1,26 +1,43 @@
+let currentTimerId = null;
+
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   const heading = document.getElementById("timeRemaining");
   let seconds = Number(input.value);
+
+  // Sanitise input
+  if (!Number.isInteger(seconds) || seconds <= 0) {
+    alert("Please enter a positive whole number");
+    return;
+  }
+
+  // Reset before starting new countdown
+  if (currentTimerId !== null) {
+    clearInterval(currentTimerId);
+  }
+
+  pauseAlarm();
+
+  document.body.style.backgroundColor = "";
 
   function updateDisplay(remainingSeconds) {
     const minutes = Math.floor(remainingSeconds / 60);
     const secs = remainingSeconds % 60;
     const formattedTime = `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
     heading.textContent = `Time Remaining: ${formattedTime}`;
-    document.body.style.backgroundColor = "";
   }
 
   // Set initial display
   updateDisplay(seconds);
 
   // Start countdown
-  const timerId = setInterval(() => {
+  currentTimerId = setInterval(() => {
     seconds--;
     updateDisplay(seconds);
 
     if (seconds <= 0) {
-      clearInterval(timerId);
+      clearInterval(currentTimerId);
+      currentTimerId = null;
       playAlarm();
       document.body.style.backgroundColor = "red";
     }
