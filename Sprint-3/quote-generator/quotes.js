@@ -43,6 +43,27 @@ displayRandomQuote();
 
 // Button shows a new quote
 button.addEventListener("click", displayRandomQuote);
+let autoPlayInterval = null;
+
+const toggle = document.getElementById("auto-play-toggle");
+const statusText = document.getElementById("auto-status");
+
+toggle.addEventListener("change", () => {
+  if (toggle.checked) {
+    statusText.textContent = "auto-play:ON";
+
+    // Change every 5 seconds (easy for testing)  
+    autoPlayInterval = setInterval(() => {
+      pickQuoteAndAuthor();
+    }, 5000);
+
+    pickQuoteAndAuthor(); // Change immediately
+  } else {
+    statusText.textContent = "auto-play:OFF";
+    clearInterval(autoPlayInterval);
+  }
+});
+
 
   // return choices[Math.floor(Math.random() * choices.length)];
 });

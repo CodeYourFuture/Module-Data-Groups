@@ -1,41 +1,109 @@
 /** Write your CSS in here **/
 
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(135deg, #f089cc, #d6eaff);
   margin: 0;
-  padding: 20px;
+  padding: 40px;
   text-align: center;
 }
 
+/* Page title */
 h1 {
-  color: #333;
-}
-
-#quote {
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-#author {
-  font-size: 1.1rem;
-  color: #555;
+  color: black ;
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
+/* Quote styling */
+#quote {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black ;
+  margin: 20px auto 10px;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* Author name */
+#author {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Button styling */
 #new-quote {
-  padding: 10px 20px;
+  padding: 12px 30px;
   font-size: 1rem;
-  border: none;
-  background-color: #4a90e2;
+  background-color: #007bff;
   color: white;
-  border-radius: 6px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: 0.25s ease;
 }
 
+/* Hover effect */
 #new-quote:hover {
-  background-color: #357ac9;
+  background-color: #005ec2;
+  transform: scale(1.05);
 }
 
+
+/* Toggle switch container */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  margin-top: 20px;
+}
+
+/* Hide default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider background */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 26px;
+  transition: 0.4s;
+}
+
+/* Slider circle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* ON state */
+input:checked + .slider {
+  background-color: #4a90e2;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+#auto-status {
+  margin-top: 10px;
+  color: #333;
+  font-weight: bold;
+}
