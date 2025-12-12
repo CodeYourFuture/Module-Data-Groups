@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -7,13 +7,18 @@
     <title>Title here</title>
   </head>
   <body>
-    <div class="centre">
+    <div class="centre container">
       <h1 id="timeRemaining">Time Remaining: 00:00</h1>
-      <label for="alarmSet">Set time to:</label>
-      <input id="alarmSet" type="number" />
 
-      <button id="set" type="button">Set Alarm</button>
-      <button id="stop" type="button">Stop Alarm</button>
+      <div class="input-group">
+        <label for="alarmSet">Set time (seconds):</label>
+        <input id="alarmSet" type="number" min="0" placeholder="e.g. 10" />
+      </div>
+
+      <div class="controls">
+        <button id="set" type="button">Set Alarm</button>
+        <button id="stop" type="button">Stop Alarm</button>
+      </div>
     </div>
     <script src="alarmclock.js"></script>
   </body>
