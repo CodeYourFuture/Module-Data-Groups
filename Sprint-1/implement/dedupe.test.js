@@ -28,10 +28,19 @@ test("given an empty array, it returns an empty array", () => {
 // Then it should return a copy of the original array
 
 test("Given an array with no duplicates, it returns an the same array", () => {
-    const currentOutput = dedupe([1,4,6,"d","a","x","e",0,7,8]);
+    const input = [1,4,6,"d","a","x","e",0,7,8];
+    const currentOutput = dedupe(input);
     const targetOutput = [1,4,6,"d","a","x","e",0,7,8];
 
     expect(currentOutput).toEqual(targetOutput);
+});
+
+test("The copy must not be the very same array in memory", () => {
+    const input = [3, 1, 2];
+    const currentOutput = dedupe(input);
+
+    expect(currentOutput).toEqual([3, 1, 2]);
+    expect(currentOutput).not.toBe(input); // make sure the function returns a copy
 });
 // Given an array with strings or numbers
 // When passed to the dedupe function

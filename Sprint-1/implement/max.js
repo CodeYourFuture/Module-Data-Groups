@@ -8,7 +8,8 @@ function findMax(elements) {
     for (let i = 0; i < elements.length; i++) {
         let current = elements[i];
 
-        if (typeof current === "number") {
+        // using Number.isFinite keeps NaN or Infinity out of the comparison
+        if (typeof current === "number" && Number.isFinite(current)) {
             if (current > max) {
                 max = current;
             }

@@ -51,7 +51,7 @@ test("given an  array whit a decimal/float number, returns correct total (decima
     const currentOutput = sum([1,2,3,4,3.5,]);
     const targetPitPut= 13.5;
 
-    expect(currentOutput).toEqual(targetPitPut);
+    expect(currentOutput).toBeCloseTo(targetPitPut); // allow tiny floating point differences
 })
 
 

@@ -7,7 +7,8 @@ function sum(elements) {
         let current = elements[i]; // get the current element
 
         // Only add it if it's a number
-        if (typeof current === "number" && !Number.isNaN(current)) {
+        // Number.isFinite skips NaN and Infinity, so only real numbers add to total
+        if (typeof current === "number" && Number.isFinite(current)) {
             total = total + current; // add to total
         }
     }
