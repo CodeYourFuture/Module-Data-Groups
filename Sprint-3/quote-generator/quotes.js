@@ -20,6 +20,34 @@ function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
+function displayQuote() {
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+  const randomItem = pickFromArray(quotes);
+
+  if (!quoteElement || !authorElement) {
+    return;
+  }
+
+  quoteElement.innerText = randomItem.quote;
+  authorElement.innerText = `— ${randomItem.author}`;
+}
+
+function setupQuoteGenerator() {
+  const button = document.getElementById("new-quote");
+
+  if (button) {
+    button.addEventListener("click", () => {
+      displayQuote();
+    });
+  }
+
+  // Show one quote when the page opens
+  displayQuote();
+}
+
+window.addEventListener("DOMContentLoaded", setupQuoteGenerator);
+
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [

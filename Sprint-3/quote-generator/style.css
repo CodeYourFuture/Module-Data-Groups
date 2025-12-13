@@ -1,1 +1,79 @@
-/** Write your CSS in here **/
+.page {
+  font-family: "Georgia", "Times New Roman", serif;
+  background-color: #efa73d;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Keep the main area simple and centered */
+.quote-app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.quote-card {
+  max-width: 900px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 40px 60px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quote-title {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #2b2d42;
+  font-size: 24px;
+}
+
+.quote-text {
+  font-size: 32px;
+  line-height: 1.5;
+  color: #d9812a;
+  margin: 0;
+  position: relative;
+}
+
+.quote-text::before {
+  content: "❝";
+  font-size: 56px;
+  color: #d9812a;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.quote-author {
+  text-align: right;
+  font-size: 20px;
+  color: #d9812a;
+  margin: 0;
+}
+
+.quote-button {
+  align-self: flex-end;
+  min-width: 140px;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e7891b;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.quote-button:hover {
+  background-color: #cc6c07;
+}
+
+.quote-button:focus {
+  outline: 2px solid #9b4a00;
+  outline-offset: 2px;
+}
