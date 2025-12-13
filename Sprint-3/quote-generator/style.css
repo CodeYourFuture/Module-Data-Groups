@@ -3,7 +3,7 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  background: #eea73b; 
+  background: #eea73b; /* رنگ نارنجی مثل عکس */
   display: flex;
   justify-content: center;
   align-items: center;
