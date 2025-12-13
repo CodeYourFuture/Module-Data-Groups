@@ -17,23 +17,6 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background: white;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-/* Simple border to make the alarm box stand out */
-.alarm-card {
-  border: 2px solid #a0c4ff;
-  max-width: 320px;
-}
-
-h1 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
 }
 
 .timer-title {
