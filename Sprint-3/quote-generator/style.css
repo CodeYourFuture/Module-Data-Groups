@@ -1,1 +1,57 @@
-/** Write your CSS in here **/
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #eea73b; /* رنگ نارنجی مثل عکس */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Georgia", serif;
+}
+
+.quote-box {
+  background: #ffffff;
+  width: 75%;
+  max-width: 1200px;
+  padding: 60px 80px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  text-align: left;
+}
+
+.quote-text {
+  font-size: 2.4rem;
+  line-height: 1.4;
+  color: #d6861e; 
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.quote-text i {
+  font-size: 3.5rem;
+  color: #d6861e;
+}
+
+.author {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 1.4rem;
+  color: #d6861e;
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  background: #d6861e;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
