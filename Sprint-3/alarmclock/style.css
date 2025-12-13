@@ -10,11 +10,24 @@ body {
 }
 
 .flash {
-  background-color: #ffcccc !important; /* Pastel red for alarm */
+  animation: flash-animation 1s infinite;
+}
+
+/* Flashing background colour animation */
+@keyframes flash-animation {
+  0% {
+    background-color: #ffcccc;
+  }
+  50% {
+    background-color: #ff0000;
+  }
+  100% {
+    background-color: #ffcccc;
+  }
 }
 
 .container {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 30px;
