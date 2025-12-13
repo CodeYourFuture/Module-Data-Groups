@@ -31,12 +31,12 @@ body {
   max-width: 700px;
   text-align: center;
   position: relative;
-  /* Simple crisp shadow or none based on flat design of example, keeping slight shadow for visibility */
+  /* Applies a simple crisp shadow for visibility, maintaining the flat design aesthetic */
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
 }
 
 h1 {
-  display: none; /* The example image doesn't show a visible title inside the card */
+  display: none; /* Hides the title as it is not visible in the reference design */
 }
 
 #quote {
@@ -45,20 +45,20 @@ h1 {
   color: var(--text-color);
   margin-bottom: 1.5rem;
   position: relative;
-  padding-left: 3rem; /* Space for the quote icon */
+  padding-left: 3rem; /* Reserves space for the decorative quote icon */
   text-align: left;
 }
 
 #quote::before {
-  content: '“'; /* Large quote mark using curved quotes */
+  content: '“'; /* Renders a large curved quote mark */
   font-size: 6rem;
   color: var(--primary-color);
   position: absolute;
   top: -1.5rem;
   left: -1rem;
   line-height: 1;
-  font-family: sans-serif; /* Quote marks often look better in sans-serif or specific fonts */
-  opacity: 1; /* Solid colour in example */
+  font-family: sans-serif; /* Uses sans-serif for the quote mark for better visual appeal */
+  opacity: 1; /* Maintains solid opacity matching the design */
 }
 
 #author {
@@ -66,10 +66,10 @@ h1 {
   color: var(--text-color);
   margin-bottom: 2.5rem;
   text-align: right;
-  font-style: italic; /* Authors are often italicised in this style */
+  font-style: italic; /* Applies italics to distinguish the author name */
 }
 
-/* Add dash before author if not present in JS, but here we style assuming content */
+/* Appends a dash before the author name if not dynamically added by JS */
 #author::before {
   content: '- ';
 }
@@ -77,7 +77,7 @@ h1 {
 .controls {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Button aligned to right in some designs, or center. Example shows right or center. Let's align right to match typical 'next' flows or keep center if safer. Example looks right-aligned for button. */
+  align-items: flex-end; /* Aligns controls to the right to match typical progression flows */
 }
 
 button {
@@ -96,12 +96,12 @@ button:hover {
   opacity: 0.9;
 }
 
-/* Auto-play Switch - adjusting to fit the new theme */
+/* Auto-play Switch - adjusts layout to fit the theme */
 .auto-play-container {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 1rem; /* Separate from main button */
+  margin-top: 1rem; /* Separates the switch from the main action button */
   align-self: flex-end;
 }
 
@@ -132,9 +132,9 @@ button:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #e4e4e4; /* Light grey for off */
+  background-color: #e4e4e4; /* Sets light grey background for the 'off' state */
   transition: .4s;
-  border-radius: 0; /* Square/Rectangular look or keep rounded? Let's keep rounded for standard UI toggle */
+  border-radius: 0; /* Maintains square/rectangular shape for a standard toggle look */
 }
 
 .slider:before {
