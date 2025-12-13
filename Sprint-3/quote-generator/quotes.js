@@ -54,10 +54,12 @@ toggle.addEventListener("change", () => {
 
     // Change every 5 seconds (easy for testing)  
     autoPlayInterval = setInterval(() => {
-      pickQuoteAndAuthor();
+    displayRandomQuote()
     }, 5000);
 
-    pickQuoteAndAuthor(); // Change immediately
+    // pickQuoteAndAuthor();
+    
+    displayRandomQuote() // Change immediately
   } else {
     statusText.textContent = "auto-play:OFF";
     clearInterval(autoPlayInterval);
