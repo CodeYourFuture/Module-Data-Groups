@@ -66,7 +66,7 @@ h1 {
   color: var(--text-color);
   margin-bottom: 2.5rem;
   text-align: right;
-  font-style: italic; /* Authors are often italicized in this style */
+  font-style: italic; /* Authors are often italicised in this style */
 }
 
 /* Add dash before author if not present in JS, but here we style assuming content */

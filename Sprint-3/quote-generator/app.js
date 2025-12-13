@@ -1,7 +1,7 @@
 /* globals quotes, pickFromArray */
 
 // Use a constant for the auto-play time to make it easy to change later.
-const AUTO_PLAY_INTERVAL_MS = 5000;
+const AUTO_PLAY_INTERVAL_MS = 60000;
 
 // Defines variables to track the state of the app.
 // Uses 'let' because the timer ID will change when we start/stop auto-play.
@@ -40,7 +40,7 @@ function startAutoPlay() {
   // Shows the "auto-play: ON" status text to inform the user it is active.
   autoPlayStatus.classList.add("active");
 
-  // Sets a repeating timer that calls 'displayNewQuote' every 5000 milliseconds (5 seconds).
+  // Sets a repeating timer that calls 'displayNewQuote' every 60000 milliseconds (60 seconds).
   autoPlayIntervalId = setInterval(function () {
     displayNewQuote();
   }, AUTO_PLAY_INTERVAL_MS);
@@ -76,7 +76,7 @@ function handleAutoPlayToggle(event) {
   }
 }
 
-// Adds an event listener to the "New Quote" button.
+// Adds an event listener to the "New quote" button.
 // When clicked, it shows a new quote and resets the auto-play timer if it's running.
 newQuoteButton.addEventListener("click", function () {
   displayNewQuote();
