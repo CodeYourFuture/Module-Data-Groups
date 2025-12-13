@@ -8,16 +8,14 @@ const AUTO_PLAY_INTERVAL_MS = 60000;
 let autoPlayIntervalId = null;
 
 // Caches DOM references to avoid repeated lookups during runtime.
-const quoteElement = document.getElementById("quote");
-const authorElement = document.getElementById("author");
-const newQuoteButton = document.getElementById("new-quote");
-const autoPlaySwitch = document.getElementById("auto-play-switch");
-const autoPlayStatus = document.getElementById("auto-play-status");
+const quoteElement = document.getElementById('quote');
+const authorElement = document.getElementById('author');
+const newQuoteButton = document.getElementById('new-quote');
+const autoPlaySwitch = document.getElementById('auto-play-switch');
+const autoPlayStatus = document.getElementById('auto-play-status');
 
-/**
- * Retrieves a random quote from the data source and updates the DOM.
- * Updates both the quote text and the author name.
- */
+// Retrieves a random quote from the data source and updates the DOM.
+// Updates both the quote text and the author name.
 function displayNewQuote() {
   // Selects a random quote object from the global 'quotes' array.
   const randomQuote = pickFromArray(quotes);
@@ -27,10 +25,8 @@ function displayNewQuote() {
   authorElement.innerText = randomQuote.author;
 }
 
-/**
- * Initiates the auto-play feature.
- * Establishes a recurring timer to refresh the displayed quote.
- */
+// Initiates the auto-play feature.
+// Establishes a recurring timer to refresh the displayed quote.
 function startAutoPlay() {
   // Clears any existing timer to prevent overlapping intervals.
   if (autoPlayIntervalId) {
@@ -38,7 +34,7 @@ function startAutoPlay() {
   }
 
   // Activates the visual status indicator for auto-play.
-  autoPlayStatus.classList.add("active");
+  autoPlayStatus.classList.add('active');
 
   // Schedules the 'displayNewQuote' function to execute every 60 seconds.
   autoPlayIntervalId = setInterval(function () {
@@ -46,10 +42,8 @@ function startAutoPlay() {
   }, AUTO_PLAY_INTERVAL_MS);
 }
 
-/**
- * Terminates the auto-play feature.
- * Clears the active timer and resets the state.
- */
+// Terminates the auto-play feature.
+// Clears the active timer and resets the state.
 function stopAutoPlay() {
   // Verifies if a timer exists before attempting to clear it.
   if (autoPlayIntervalId) {
@@ -58,15 +52,11 @@ function stopAutoPlay() {
   }
 
   // Deactivates the visual status indicator.
-  autoPlayStatus.classList.remove("active");
+  autoPlayStatus.classList.remove('active');
 }
 
-/**
- * Manages the state change when the auto-play switch is toggled.
- * Routes execution to start or stop auto-play based on the switch state.
- *
- * @param {Event} event - The change event triggered by the checkbox.
- */
+// Manages the state change when the auto-play switch is toggled.
+// Routes execution to start or stop auto-play based on the switch state.
 function handleAutoPlayToggle(event) {
   // Evaluates the checked state of the toggle switch.
   if (event.target.checked) {
@@ -78,7 +68,7 @@ function handleAutoPlayToggle(event) {
 
 // Attaches a click event listener to the "New quote" button.
 // Triggers a manual update of the quote and resets the auto-play timer if active.
-newQuoteButton.addEventListener("click", function () {
+newQuoteButton.addEventListener('click', function () {
   displayNewQuote();
 
   // Restarts the auto-play timer if the feature is currently enabled.
@@ -90,7 +80,7 @@ newQuoteButton.addEventListener("click", function () {
 
 // Attaches a change event listener to the auto-play toggle switch.
 // Invokes the handler function whenever the user interacts with the switch.
-autoPlaySwitch.addEventListener("change", handleAutoPlayToggle);
+autoPlaySwitch.addEventListener('change', handleAutoPlayToggle);
 
 // Initializes the view by displaying a random quote upon page load.
 displayNewQuote();

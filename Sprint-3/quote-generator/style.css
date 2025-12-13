@@ -1,10 +1,10 @@
 /** Write your CSS in here **/
 
 :root {
+  --bg-color: #f5ac2d;
+  --card-bg: #fff;
   --primary-color: #f5ac2d;
   --text-color: #f5ac2d;
-  --bg-color: #f5ac2d;
-  --card-bg: #ffffff;
   --transition-speed: 0.3s;
 }
 
@@ -15,24 +15,24 @@
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: var(--bg-color);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: var(--bg-color);
+  display: flex;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  justify-content: center;
+  min-height: 100vh;
   padding: 1rem;
 }
 
 .container {
   background: var(--card-bg);
-  padding: 3rem 4rem;
-  width: 100%;
-  max-width: 700px;
-  text-align: center;
-  position: relative;
   /* Applies a simple crisp shadow for visibility, maintaining the flat design aesthetic */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  padding: 3rem 4rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
 }
 
 h1 {
@@ -40,33 +40,33 @@ h1 {
 }
 
 #quote {
+  color: var(--text-color);
   font-size: 1.8rem;
   line-height: 1.4;
-  color: var(--text-color);
   margin-bottom: 1.5rem;
-  position: relative;
   padding-left: 3rem; /* Reserves space for the decorative quote icon */
+  position: relative;
   text-align: left;
 }
 
 #quote::before {
-  content: '“'; /* Renders a large curved quote mark */
-  font-size: 6rem;
   color: var(--primary-color);
-  position: absolute;
-  top: -1.5rem;
+  content: '“'; /* Renders a large curved quote mark */
+  font-family: sans-serif; /* Uses sans-serif for the quote mark for better visual appeal */
+  font-size: 6rem;
   left: -1rem;
   line-height: 1;
-  font-family: sans-serif; /* Uses sans-serif for the quote mark for better visual appeal */
   opacity: 1; /* Maintains solid opacity matching the design */
+  position: absolute;
+  top: -1.5rem;
 }
 
 #author {
-  font-size: 1.1rem;
   color: var(--text-color);
+  font-size: 1.1rem;
+  font-style: italic; /* Applies italics to distinguish the author name */
   margin-bottom: 2.5rem;
   text-align: right;
-  font-style: italic; /* Applies italics to distinguish the author name */
 }
 
 /* Appends a dash before the author name if not dynamically added by JS */
@@ -75,21 +75,21 @@ h1 {
 }
 
 .controls {
+  align-items: flex-end; /* Aligns controls to the right to match typical progression flows */
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Aligns controls to the right to match typical progression flows */
 }
 
 button {
   background-color: var(--primary-color);
-  color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-family: Arial, sans-serif; 
+  color: #fff;
   cursor: pointer;
-  transition: opacity var(--transition-speed) ease;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
   font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  transition: opacity var(--transition-speed) ease;
 }
 
 button:hover {
@@ -98,54 +98,54 @@ button:hover {
 
 /* Auto-play Switch - adjusts layout to fit the theme */
 .auto-play-container {
-  display: flex;
   align-items: center;
+  align-self: flex-end;
+  display: flex;
   gap: 1rem;
   margin-top: 1rem; /* Separates the switch from the main action button */
-  align-self: flex-end;
 }
 
 .switch-label {
-  font-weight: normal;
-  font-size: 0.9rem;
   color: var(--text-color);
   font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: normal;
 }
 
 .switch {
-  position: relative;
   display: inline-block;
-  width: 50px;
   height: 26px;
+  position: relative;
+  width: 50px;
 }
 
 .switch input {
+  height: 0;
   opacity: 0;
   width: 0;
-  height: 0;
 }
 
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-color: #e4e4e4; /* Sets light grey background for the 'off' state */
-  transition: .4s;
   border-radius: 0; /* Maintains square/rectangular shape for a standard toggle look */
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 3px;
+  background-color: #fff;
   bottom: 3px;
-  background-color: white;
+  content: '';
+  height: 20px;
+  left: 3px;
+  position: absolute;
   transition: .4s;
+  width: 20px;
 }
 
 input:checked + .slider {
@@ -161,13 +161,13 @@ input:checked + .slider:before {
 }
 
 .status-indicator {
+  align-self: flex-end;
+  color: var(--primary-color);
+  font-family: Arial, sans-serif;
   font-size: 0.8rem;
   font-weight: bold;
-  color: var(--primary-color);
-  opacity: 0;
   margin-top: 0.5rem;
-  align-self: flex-end;
-  font-family: Arial, sans-serif;
+  opacity: 0;
 }
 
 .status-indicator.active {
