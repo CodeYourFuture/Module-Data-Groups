@@ -10,15 +10,8 @@ function formatTime(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
 
-  let formattedMinutes = `${minutes}`;
-  if (minutes < 10) {
-    formattedMinutes = `0${minutes}`;
-  }
-
-  let formattedSeconds = `${seconds}`;
-  if (seconds < 10) {
-    formattedSeconds = `0${seconds}`;
-  }
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(seconds).padStart(2, '0');
 
   return `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
 }
