@@ -1,3 +1,5 @@
+const titleElement = document.getElementById("timeRemaining");
+
 const ONE_SECOND_IN_MILLISECONDS = 1000;
 
 let timeRemainingInSeconds = 0;
@@ -20,8 +22,6 @@ function formatTime(totalSeconds) {
  * Updates the display and checks if the alarm should sound.
  */
 function updateTime() {
-  const titleElement = document.getElementById("timeRemaining");
-
   timeRemainingInSeconds = timeRemainingInSeconds - 1;
   titleElement.innerText = formatTime(timeRemainingInSeconds);
 
@@ -29,6 +29,7 @@ function updateTime() {
     playAlarm();
     document.body.classList.add("flash");
     clearInterval(alarmTimerIdentifier);
+    alarmTimerIdentifier = null; // ← reset to null for proper state management
   }
 }
 
@@ -58,7 +59,6 @@ function setAlarm() {
   audio.play();
   audio.pause();
 
-  const titleElement = document.getElementById("timeRemaining");
   titleElement.innerText = formatTime(timeRemainingInSeconds);
 
   alarmTimerIdentifier = setInterval(() => {
