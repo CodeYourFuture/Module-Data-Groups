@@ -23,14 +23,22 @@ function formatTime(totalSeconds) {
  */
 function updateTime() {
   timeRemainingInSeconds = timeRemainingInSeconds - 1;
-  titleElement.innerText = formatTime(timeRemainingInSeconds);
+  displayTime();
 
   if (timeRemainingInSeconds === 0) {
     playAlarm();
     document.body.classList.add("flash");
     clearInterval(alarmTimerIdentifier);
-    alarmTimerIdentifier = null; // ← reset to null for proper state management
+    alarmTimerIdentifier = null; // Reset to null for proper state management
   }
+}
+
+/**
+ * Displays the remaining time.
+ */
+function displayTime() {
+  const titleElement = document.getElementById("timeRemaining");
+  titleElement.innerText = formatTime(timeRemainingInSeconds);
 }
 
 /**
@@ -59,7 +67,7 @@ function setAlarm() {
   audio.play();
   audio.pause();
 
-  titleElement.innerText = formatTime(timeRemainingInSeconds);
+  displayTime();
 
   alarmTimerIdentifier = setInterval(() => {
     updateTime();
