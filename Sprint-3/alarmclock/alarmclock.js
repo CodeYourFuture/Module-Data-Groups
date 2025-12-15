@@ -26,11 +26,15 @@ function updateTime() {
   displayTime();
 
   if (timeRemainingInSeconds === 0) {
+    titleElement.innerText = formatTime(0);
     playAlarm();
     document.body.classList.add("flash");
-    clearInterval(alarmTimerIdentifier);
-    alarmTimerIdentifier = null; // Reset to null for proper state management
+    return;
   }
+
+  alarmTimerIdentifier = setInterval(() => {
+    updateTime();
+  }, ONE_SECOND_IN_MILLISECONDS);
 }
 
 /**
