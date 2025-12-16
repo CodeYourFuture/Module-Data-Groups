@@ -29,6 +29,4 @@ function contains(checkObj, checkProp) {
   }
 }
 
-contains({ d: "me" }, 4);
-
 module.exports = contains;

@@ -26,7 +26,7 @@ test("parses querystring without an =, it should throw an error", () => {
 });
 
 test("if our function is passed only one string but there is no =", () => {
-  expect(parseQueryString("color,brown")).toEqual(
+  expect(() => parseQueryString("color,brown")).toThrow(
     "error invalid format string, no = to separate key value pair"
   );
 });

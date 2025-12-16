@@ -4,7 +4,7 @@
 // This code should log out the houseNumber from the address object
 // but it isn't working...
 // Fix anything that isn't working
-//fixed it by puting "houseNumber" in the square brackets.
+//fixed it by putting "houseNumber" in the square brackets.
 
 const address = {
   houseNumber: 42,

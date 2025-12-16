@@ -39,6 +39,4 @@ function parseQueryString(queryString) {
   return queryParams;
 }
 
-console.log(`with ${parseQueryString("equation=x=y+1")}`);
-
 module.exports = parseQueryString;

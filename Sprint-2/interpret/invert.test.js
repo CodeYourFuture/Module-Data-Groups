@@ -21,11 +21,8 @@ describe("tests to see if invert function swaps around the keys and values in a 
     ).toEqual({ Birmingham: "city", 345908: "population", 20: "boroughs" });
   });
 });
-
-/*
 test("if invert is passed an object which has an array or object as one of its values, it should throw an error", () => {
-    expect(() => invert({ cars: { toyota: 2, bmw: 1, benz: 4 } })).toThrow(
-      "error invalid input entered, expecting an object to have only strings as values"
-    );
-  });
-*/
+  expect(() => invert({ cars: { toyota: 2, bmw: 1, benz: 4 } })).toThrow(
+    "error invalid input entered, expecting an object to have only strings as values"
+  );
+});

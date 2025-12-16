@@ -27,13 +27,10 @@ function tally(inputArray) {
         tallyObject[tempArray[0]] = tempArray.length;
       }
     }
-    console.log(`the new array and the new object ${tallyObject}`);
     return tallyObject;
   } else {
     throw new Error("error invalid input passed, please provide an array");
   }
 }
-
-console.log(`new object is ${tally(["a", "a", "b", "c", "c", "d", "a"])}`);
 
 module.exports = tally;

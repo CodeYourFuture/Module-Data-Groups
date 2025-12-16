@@ -11,6 +11,16 @@ function invert(obj) {
 
   if (Object.prototype.toString.call(obj) === "[object Object]") {
     for (const [key, value] of Object.entries(obj)) {
+      if (
+        value === null ||
+        Array.isArray(value) ||
+        (typeof value === "object" && !Array.isArray(value))
+      ) {
+        throw new Error(
+          "error invalid input entered, expecting an object to have only strings as values"
+        );
+      }
+
       invertedObj[value] = key;
     }
   } else {
@@ -21,25 +31,6 @@ function invert(obj) {
 }
 
 module.exports = invert;
-
-console.log(
-  `the return value when invert is called with ${invert({
-    cars: { toyota: 2, bmw: 1, benz: 4 },
-  })}`
-);
-
-/*
-for (const property in obj) {
-      if (typeof obj[property] !== "string") {
-        throw new Error(
-          "error invalid input entered, expecting an object to have only strings as values"
-        );
-      } else {
-        
-      }
-    }
-
-*/
 
 // a) What is the current return value when invert is called with { a : 1 }
 //it returns a string describing the object.
