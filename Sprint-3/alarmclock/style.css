@@ -10,10 +10,30 @@
   background-color: #f0f8ff;
 }
 
-#alarmSet {
+#theTime {
+  font-size: 24px;
+  text-align: center;
   margin: 20px;
 }
 
-h1 {
+#timeRemaining {
+  font-size: 24px;
   text-align: center;
+  margin: 20px;
+}
+
+#alarmSet {
+  margin: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+#set {
+  font-size: 14px;
+  padding: 5px;
+}
+
+#stop {
+  font-size: 14px;
+  padding: 5px;
+  margin-left: 20px;
 }

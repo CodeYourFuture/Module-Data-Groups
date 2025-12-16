@@ -5,15 +5,19 @@ let changeBgColor = false;
 function setAlarm() {
   inputTime = Number(document.querySelector("#alarmSet").value);
 
-  if (Number.isInteger(inputTime) && !isNaN(inputTime) && inputTime >= 0) {
+  if (Number.isInteger(inputTime) && inputTime >= 0) {
     if (inputTime === 10) {
       changeBgColor = true;
     } else if (inputTime === 0) {
       displayTime(inputTime);
       playAlarm();
+      document.querySelector("#alarmSet").value = "";
     }
     displayTime(inputTime);
-    if (timer) clearInterval(timer);
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
     timer = setInterval(countDown, 1000);
   }
 }
