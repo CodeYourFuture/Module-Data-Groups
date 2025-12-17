@@ -1,12 +1,12 @@
 function parseQueryString(queryString) {
   const queryParams = {};
+
   if (queryString.length === 0) {
     return queryParams;
   }
 
   if (queryString.includes("&")) {
     const keyValuePairs = queryString.split("&");
-    console.log(keyValuePairs + "our 2 pairs");
 
     for (const pair of keyValuePairs) {
       if (!pair.includes("=")) {
@@ -36,5 +36,3 @@ function parseQueryString(queryString) {
 }
 
 module.exports = parseQueryString;
-
-console.log(parseQueryString("color=brown&width=100"));

@@ -9,6 +9,7 @@ function tally(inputArray) {
     let n = 0;
 
     while (inputArray.length > 0) {
+      itemCount = 0;
       const tempArray = [];
       let i = 0;
       let currentArrayItem = inputArray[0];
@@ -20,11 +21,11 @@ function tally(inputArray) {
           i--;
         }
 
-        i++;
-      }
+        if (itemCount > 0) {
+          tallyObject[currentArrayItem] = itemCount;
+        }
 
-      if (tempArray.length > 0) {
-        tallyObject[tempArray[0]] = tempArray.length;
+        i++;
       }
     }
     return tallyObject;
