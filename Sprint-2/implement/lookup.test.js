@@ -11,8 +11,8 @@ test("creates a country currency code lookup for multiple codes", () => {
   ).toEqual({ US: "USD", CA: "CAD", MW: "MWK", ZW: "ZWD" });
 });
 
-test("if passed an empty array , should print a message telling user array is empty", () => {
-  expect(createLookup([])).toBe("passed array was empty, no values to display");
+test("if passed an empty array , should return an empty object", () => {
+  expect(createLookup([])).toEqual({});
 });
 
 test("if passed parameter which is not an array throw an error", () => {
