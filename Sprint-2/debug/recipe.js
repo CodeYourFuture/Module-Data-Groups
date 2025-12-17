@@ -12,8 +12,15 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
+//changed console to display for any number of ingredients
 console.log(`${recipe.title} serves ${recipe.serves} 
   ingredients: ${recipe.ingredients[0]}
                 ${recipe.ingredients[1]}
                 ${recipe.ingredients[2]}
                 ${recipe.ingredients[3]}`);
+
+console.log(`${recipe.title} serves ${recipe.serves} 
+  ingredients:`);
+for (let ingredient of recipe.ingredients) {
+  console.log(`              ${ingredient}`);
+}
