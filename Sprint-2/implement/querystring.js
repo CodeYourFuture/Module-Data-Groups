@@ -6,25 +6,21 @@ function parseQueryString(queryString) {
 
   if (queryString.includes("&")) {
     const keyValuePairs = queryString.split("&");
+    console.log(keyValuePairs + "our 2 pairs");
 
     for (const pair of keyValuePairs) {
-      let countMatch = 0;
-
-      if (pair.includes("=")) {
-        const equalSignIndex = pair.indexOf("=");
-
-        queryParams[pair.slice(0, equalSignIndex)] = pair.slice(
-          equalSignIndex + 1
-        );
-      } else {
+      if (!pair.includes("=")) {
         throw new Error(
           "error invalid format string, no = to separate key value pairs"
         );
+      } else {
+        const keyValuePair = pair.split("=");
+        console.log(keyValuePair + "the single pair");
+
+        queryParams[keyValuePair[0]] = keyValuePair[1];
       }
     }
-  }
-
-  if (queryString.includes("=")) {
+  } else if (queryString.includes("=")) {
     const equalSignIndex = queryString.indexOf("=");
 
     queryParams[queryString.slice(0, equalSignIndex)] = queryString.slice(
@@ -40,3 +36,5 @@ function parseQueryString(queryString) {
 }
 
 module.exports = parseQueryString;
+
+console.log(parseQueryString("color=brown&width=100"));

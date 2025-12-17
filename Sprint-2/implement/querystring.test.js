@@ -9,6 +9,13 @@ test("parseQueryString receives an empty string", () => {
   expect(parseQueryString("")).toEqual({});
 });
 
+test("if our function is passed 2 key - value pairs", () => {
+  expect(parseQueryString("color=brown&width=100")).toEqual({
+    color: "brown",
+    width: "100",
+  });
+});
+
 test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
     equation: "x=y+1",
