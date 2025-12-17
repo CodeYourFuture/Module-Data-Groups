@@ -9,13 +9,9 @@
 function invert(obj) {
   const invertedObj = {};
 
-  if (Object.prototype.toString.call(obj) === "[object Object]") {
+  if (obj !== null && !Array.isArray(obj) && typeof obj === "object") {
     for (const [key, value] of Object.entries(obj)) {
-      if (
-        value === null ||
-        Array.isArray(value) ||
-        (typeof value === "object" && !Array.isArray(value))
-      ) {
+      if (typeof value != "string" && typeof value !== "number") {
         throw new Error(
           "error invalid input entered, expecting an object to have only strings as values"
         );
@@ -36,7 +32,7 @@ module.exports = invert;
 //it returns a string describing the object.
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-//it aso returns a string describing the object.
+//it aso returns the type of the object.
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 //the target return value is {"1": "a", "2": "b"}.
