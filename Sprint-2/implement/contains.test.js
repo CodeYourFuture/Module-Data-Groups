@@ -39,6 +39,6 @@ test("returns false when an object with properties is passed to contains with a 
 // When passed to contains
 // Then it should return false or throw an error
 test("should throw an error when when an invalid parameter like an array is passed to contains", () =>
-  expect(() => contains([1, 4, 5])).toThrow(
+  expect(() => contains([1, 4, 5], 0)).toThrow(
     "error invalid parameter please provide an object"
   ));
