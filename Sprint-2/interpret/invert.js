@@ -32,7 +32,7 @@ module.exports = invert;
 //it returns a string describing the object.
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-//it aso returns the type of the object.
+//it returns an object with one key value pair, the key is key and value is 2
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 //the target return value is {"1": "a", "2": "b"}.
