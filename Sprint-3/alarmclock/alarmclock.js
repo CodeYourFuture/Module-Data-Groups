@@ -49,6 +49,11 @@ if (isNaN(parsed) || parsed < 0) {
 
   // Clear previous countdown
   clearInterval(timer);
+  clearInterval(flashing);     // stop flashing if it was active
+  flashing = null;
+  document.body.style.backgroundColor = "";
+  pauseAlarm();                // stop any playing audio
+  audio.currentTime = 0;
 
   // Start countdown every 1000ms
   timer = setInterval(() => {
