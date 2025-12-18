@@ -54,18 +54,19 @@ if (isNaN(parsed) || parsed < 0) {
   pauseAlarm();                // stop any playing audio
   audio.currentTime = 0;
 
-  // Start countdown every 1000ms
-  timer = setInterval(() => {
-    if (timeLeft > 0) {
-      timeLeft--;
-      updateDisplay(timeLeft);
-    }
+  function tick() {
+  if (timeLeft > 0) {
+    timeLeft--;
+    updateDisplay(timeLeft);
+  } else {
+    clearInterval(timer);
+    startAlarm();
+  }
+}
 
-    if (timeLeft === 0) {
-      clearInterval(timer);
-      startAlarm();
-    }
-  }, 1000);
+// Run once immediately for consistency
+tick();
+timer = setInterval(tick, 1000);
 }
 
 function updateDisplay(seconds) {
