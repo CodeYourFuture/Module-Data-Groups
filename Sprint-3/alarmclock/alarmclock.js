@@ -9,7 +9,6 @@ let flashing = null;
 // DOM references
 window.addEventListener("DOMContentLoaded", () => {
 
-const setButton = document.getElementById("set");
 const stopButton = document.getElementById("stop");
 
 // Event listeners
