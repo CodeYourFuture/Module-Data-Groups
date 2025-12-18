@@ -42,12 +42,17 @@ function setAlarm() {
   updateDisplay(timeLeft);
 
   // Clear previous countdown
+  function resetAlarmState() {
   clearInterval(timer);
-  clearInterval(flashing); // stop flashing if it was active
+  clearInterval(flashing);
   flashing = null;
   document.body.style.backgroundColor = "";
-  pauseAlarm(); // stop any playing audio
+  pauseAlarm();
   audio.currentTime = 0;
+}
+
+resetAlarmState();
+
 
   function tick() {
     if (timeLeft > 0) {
