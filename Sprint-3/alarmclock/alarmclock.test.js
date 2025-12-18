@@ -37,8 +37,6 @@ afterEach(() => {
   page = null;
 });
 
-
-
 test("should set heading when button is clicked", () => {
   const heading = page.window.document.querySelector("#timeRemaining");
   const input = page.window.document.querySelector("#alarmSet");
@@ -103,6 +101,6 @@ test("should play audio when the timer reaches zero", () => {
   expect(mockPlayAlarm).toHaveBeenCalledTimes(0);
 
   jest.runAllTimers();
-  
+
   expect(mockPlayAlarm).toHaveBeenCalledTimes(1);
 });

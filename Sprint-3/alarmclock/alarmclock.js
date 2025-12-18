@@ -1,22 +1,17 @@
-
-
-
-
 let timeLeft = 0;
 let timer = null;
 let flashing = null;
 
 // DOM references
 window.addEventListener("DOMContentLoaded", () => {
+  const stopButton = document.getElementById("stop");
 
-const stopButton = document.getElementById("stop");
+  // Event listeners
 
-// Event listeners
+  if (stopButton) stopButton.addEventListener("click", stopAlarm);
 
-if (stopButton) stopButton.addEventListener("click", stopAlarm);
-
-// Show 00:00 on load
-updateDisplay(0);
+  // Show 00:00 on load
+  updateDisplay(0);
 });
 
 // -------------------------------
@@ -25,21 +20,21 @@ updateDisplay(0);
 
 function setAlarm() {
   const inputEl = document.getElementById("alarmSet");
-const input = inputEl.value.trim();
+  const input = inputEl.value.trim();
 
-// Check empty input
-if (input === "") {
-  alert("Please enter a number of seconds.");
-  return;
-}
+  // Check empty input
+  if (input === "") {
+    alert("Please enter a number of seconds.");
+    return;
+  }
 
-const parsed = parseInt(input, 10);
+  const parsed = parseInt(input, 10);
 
-// Check invalid or negative number
-if (isNaN(parsed) || parsed < 0) {
-  alert("Please enter a valid non-negative number.");
-  return;
-}
+  // Check invalid or negative number
+  if (isNaN(parsed) || parsed < 0) {
+    alert("Please enter a valid non-negative number.");
+    return;
+  }
 
   timeLeft = parsed;
 
@@ -48,33 +43,33 @@ if (isNaN(parsed) || parsed < 0) {
 
   // Clear previous countdown
   clearInterval(timer);
-  clearInterval(flashing);     // stop flashing if it was active
+  clearInterval(flashing); // stop flashing if it was active
   flashing = null;
   document.body.style.backgroundColor = "";
-  pauseAlarm();                // stop any playing audio
+  pauseAlarm(); // stop any playing audio
   audio.currentTime = 0;
 
   function tick() {
-  if (timeLeft > 0) {
-    timeLeft--;
-    updateDisplay(timeLeft);
-  } else {
-    clearInterval(timer);
-    startAlarm();
+    if (timeLeft > 0) {
+      timeLeft--;
+      updateDisplay(timeLeft);
+    } else {
+      clearInterval(timer);
+      startAlarm();
+    }
   }
-}
 
-// Run once immediately for consistency
-tick();
-timer = setInterval(tick, 1000);
+  // Run once immediately for consistency
+  tick();
+  timer = setInterval(tick, 1000);
 }
 
 function updateDisplay(seconds) {
   const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
   const secs = String(seconds % 60).padStart(2, "0");
-  
+
   const display = document.getElementById("timeRemaining");
-  if (!display) return; 
+  if (!display) return;
   display.textContent = `Time Remaining: ${mins}:${secs}`;
 }
 
@@ -82,24 +77,21 @@ function startAlarm() {
   playAlarm();
 
   // Flashing background
-  if (!flashing){
+  if (!flashing) {
     flashing = setTimeout(() => {
-    document.body.style.backgroundColor =
-      document.body.style.backgroundColor === "red" ? "orange" : "red";
-  }, 300);
-}
+      document.body.style.backgroundColor =
+        document.body.style.backgroundColor === "red" ? "orange" : "red";
+    }, 300);
+  }
 }
 
 function stopAlarm() {
-
   clearInterval(flashing);
   flashing = null;
   document.body.style.backgroundColor = "";
 }
 
-
 // module.exports= setAlarm;
-
 
 // DO NOT EDIT BELOW HERE
 
@@ -121,6 +113,6 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
-} 
+}
 
 window.onload = setup;
