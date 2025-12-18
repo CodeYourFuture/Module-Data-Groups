@@ -121,6 +121,6 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
-}
+} 
 
 window.onload = setup;
