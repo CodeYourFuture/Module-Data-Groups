@@ -43,32 +43,31 @@ function setAlarm() {
 
   // Clear previous countdown
   function resetAlarmState() {
-  clearInterval(timer);
-  clearInterval(flashing);
-  flashing = null;
-  document.body.style.backgroundColor = "";
-  pauseAlarm();
-  audio.currentTime = 0;
-}
-
-resetAlarmState();
-
-
-  function tick() {
-    if (timeLeft > 0) {
-      timeLeft--;
-      updateDisplay(timeLeft);
-    } else {
-      clearInterval(timer);
-      startAlarm();
-    }
+    clearInterval(timer);
+    clearInterval(flashing);
+    flashing = null;
+    document.body.style.backgroundColor = "";
+    pauseAlarm();
+    audio.currentTime = 0;
   }
 
-  // Run once immediately for consistency
-  tick();
-  timer = setInterval(tick, 1000);
-}
+  resetAlarmState();
 
+  if (timeLeft === 0) {
+    // Special case: alarm should start immediately
+    startAlarm();
+  } else {
+    timer = setInterval(() => {
+      timeLeft--;
+      updateDisplay(timeLeft);
+
+      if (timeLeft === 0) {
+        clearInterval(timer);
+        startAlarm();
+      }
+    }, 1000);
+  }
+}
 function updateDisplay(seconds) {
   const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
   const secs = String(seconds % 60).padStart(2, "0");
