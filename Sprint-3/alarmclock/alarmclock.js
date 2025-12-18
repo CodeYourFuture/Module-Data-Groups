@@ -1,6 +1,6 @@
 
 
-// function setAlarm() {}
+
 
 let timeLeft = 0;
 let timer = null;
@@ -8,12 +8,12 @@ let flashing = null;
 
 // DOM references
 window.addEventListener("DOMContentLoaded", () => {
-// const display = document.getElementById("timeRemaining");
+
 const setButton = document.getElementById("set");
 const stopButton = document.getElementById("stop");
 
 // Event listeners
-// if (setButton) setButton.addEventListener("click", () => playAlarm());
+
 if (stopButton) stopButton.addEventListener("click", stopAlarm);
 
 // Show 00:00 on load
@@ -86,7 +86,6 @@ function startAlarm() {
 }
 
 function stopAlarm() {
-  if (typeof pauseAlarm === "function") pauseAlarm();
 
   clearInterval(flashing);
   flashing = null;
