@@ -10,11 +10,6 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
-test("parses querystring values containing =", () => {
-  expect(parseQueryString("equation=x=y+1")).toEqual({
-    "equation": "x=y+1",
-  });
-});
 
 test("parses empty query string", () => {
   expect(parseQueryString("")).toEqual({});
@@ -30,4 +25,10 @@ test("parses key with empty value", () => {
 
 test("parses empty key with value", () => {
   expect(parseQueryString("=bar")).toEqual({ "": "bar" });
+});
+
+test("parses url encoded key and value", () => {
+  expect(parseQueryString("tags%5B%5D=hello%20world")).toEqual({
+    "tags[]": "hello world",
+  });
 });

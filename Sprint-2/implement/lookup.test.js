@@ -34,8 +34,6 @@ It should return:
  }
 */
 
-const createLookup = require("./lookup.js");
-
 test("creates a country currency code lookup for multiple codes", () => {
   const countryCurrencyPairs = [['US', 'USD'], ['CA', 'CAD'], ['GB', 'GBP']];
   const result = createLookup(countryCurrencyPairs);
