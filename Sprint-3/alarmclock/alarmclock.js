@@ -3,6 +3,8 @@ let timer = null;
 let changeBgColor = false;
 
 function setAlarm() {
+  resetState();
+
   inputTime = Number(document.querySelector("#alarmSet").value);
 
   if (!Number.isInteger(inputTime) || inputTime < 0) {
@@ -11,21 +13,10 @@ function setAlarm() {
   if (inputTime === 10) {
     changeBgColor = true;
   } else if (inputTime === 0) {
-    displayTime(inputTime);
     playAlarm();
-    document.querySelector("#alarmSet").reset();
   }
+
   displayTime(inputTime);
-  if (typeof audio !== "undefined" && audio) {
-    audio.pause();
-    try {
-      audio.currentTime = 0;
-    } catch (e) {}
-    audio.loop = false; // disable looping if it was set
-  }
-  if (timer) {
-    clearInterval(timer);
-  }
   timer = setInterval(countDown, 1000);
 }
 
@@ -46,6 +37,7 @@ function countDown() {
 
   if (inputTime === 0) {
     playAlarm();
+    document.getElementById("alarmSet").value = "";
 
     if (changeBgColor) {
       changeColor();
@@ -61,11 +53,25 @@ function changeColor() {
   const bgColor = document.querySelector("div");
   bgColor.classList.add("myBgColor");
 }
-/*
-the the value for time remaining
-check its a valid time (greater than 00:00)
-decrease value of time remaining by 1 sec for each sec that passes
-*/
+
+function resetState() {
+  if (typeof audio !== "undefined" && audio) {
+    audio.pause();
+    try {
+      audio.currentTime = 0;
+    } catch (e) {} // audio may not be ready
+    audio.loop = false;
+  }
+
+  if (timer) {
+    clearInterval(timer);
+  }
+
+  const container = document.querySelector("div");
+  if (container && container.classList.contains("myBgColor")) {
+    container.classList.remove("myBgColor");
+  }
+}
 
 // DO NOT EDIT BELOW HERE
 
