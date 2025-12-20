@@ -1,37 +1,13 @@
 function tally(inputArray) {
-  if (Array.isArray(inputArray)) {
-    if (inputArray.length === 0) {
-      return {};
-    }
-
-    let itemCount = 0;
-    const tallyObject = {};
-    let n = 0;
-
-    while (inputArray.length > 0) {
-      itemCount = 0;
-      const tempArray = [];
-      let i = 0;
-      let currentArrayItem = inputArray[0];
-
-      while (i < inputArray.length) {
-        if (currentArrayItem === inputArray[i]) {
-          itemCount++;
-          tempArray.push(inputArray.splice(i, 1));
-          i--;
-        }
-
-        if (itemCount > 0) {
-          tallyObject[currentArrayItem] = itemCount;
-        }
-
-        i++;
-      }
-    }
-    return tallyObject;
-  } else {
+  if (!Array.isArray(inputArray)) {
     throw new Error("error invalid input passed, please provide an array");
   }
+
+  const tallyObject = {};
+  for (const item of inputArray) {
+    tallyObject[item] = (tallyObject[item] || 0) + 1;
+  }
+  return tallyObject;
 }
 
 module.exports = tally;
