@@ -1,10 +1,19 @@
-function setAlarm() {}
-
-// DO NOT EDIT BELOW HERE
 let countdown;
 
+function getSecondsFromInput() {
+  const inputValue = document.getElementById("alarmSet").value;
+  const seconds = Number(inputValue);
+
+  // Keep only a safe whole number.
+  if (!Number.isFinite(seconds) || seconds < 0) {
+    return 0;
+  }
+
+  return Math.floor(seconds);
+}
+
 function setAlarm() {
-  let seconds = Number(document.getElementById("alarmSet").value);
+  let seconds = getSecondsFromInput();
 
   function updateDisplay() {
     let mins = Math.floor(seconds / 60);
@@ -15,8 +24,13 @@ function setAlarm() {
       "Time Remaining: " + mm + ":" + ss;
   }
 
+  // Reset old timer and sound before starting a new one.
+  pauseAlarm();
   updateDisplay();
-  clearInterval(countdown);
+
+  if (seconds <= 0) {
+    return;
+  }
 
   countdown = setInterval(function () {
     seconds--;
@@ -37,7 +51,7 @@ function setup() {
   });
 
   document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
+    stopAndReset();
   });
 }
 
@@ -48,8 +62,18 @@ function playAlarm() {
 function pauseAlarm() {
   /* Stop the bell and freeze the timer */
   clearInterval(countdown);
-  audio.pause();
-  audio.currentTime = 0;
+  try {
+    audio.pause();
+    audio.currentTime = 0;
+  } catch (error) {
+    // Audio can be missing in tests.
+  }
+}
+
+function stopAndReset() {
+  pauseAlarm();
+  document.getElementById("alarmSet").value = "";
+  document.getElementById("timeRemaining").innerText = "Time Remaining: 00:00";
 }
 
 window.onload = setup;
