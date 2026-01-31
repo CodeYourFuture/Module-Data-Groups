@@ -13,7 +13,6 @@ const sum = require("./sum.js");
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0")
 
 // Given an array with just one number
 // When passed to the sum function
@@ -34,3 +33,16 @@ test.todo("given an empty array, returns 0")
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+describe("sum", () => {
+  [
+    { input: ["apple", "banana", 1, 10], expected: 11 },
+    { input: [1, -1, -100], expected: -100 },
+    { input: [-10, -20, -3, -4], expected: -37 },
+    { input: [1.5, 10.5, 0.5], expected: 12.5 },
+    { input: ["apple", "banana", "cherry"], expected: -Infinity },
+  ].forEach(({ input, expected }) =>
+    it(`returns the sum for [${input}]`, () =>
+      expect(sum(input)).toEqual(expected))
+  );
+});

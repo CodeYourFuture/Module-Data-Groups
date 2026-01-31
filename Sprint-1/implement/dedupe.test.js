@@ -16,7 +16,6 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
 
 // Given an array with no duplicates
 // When passed to the dedupe function
@@ -25,3 +24,23 @@ test.todo("given an empty array, it returns an empty array");
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+
+describe("dedupe", () => {
+  [
+    { input: [], expected: [] },
+    { input: ["apple", "banana", 1, 10], expected: ["apple", "banana", 1, 10] },
+    {
+      input: [1, -1, -100, -100, "apple", "apple"],
+      expected: [1, -1, -100, "apple"],
+    },
+    { input: [-10, -20, -3, -4], expected: [-10, -20, -3, -4] },
+    { input: [1.5, 10.5, 0.5], expected: [1.5, 10.5, 0.5] },
+    {
+      input: ["apple", "banana", "cherry"],
+      expected: ["apple", "banana", "cherry"],
+    },
+  ].forEach(({ input, expected }) =>
+    it(`returns the deduped array for [${input}]`, () =>
+      expect(dedupe(input)).toEqual(expected))
+  );
+});
