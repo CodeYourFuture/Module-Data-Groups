@@ -10,27 +10,82 @@ const sum = require("./sum.js");
 
 // Acceptance Criteria:
 
-// Given an empty array
-// When passed to the sum function
-// Then it should return 0
-test.todo("given an empty array, returns 0")
+describe("sum()", () => {
+  it("returns 0 for empty array", () => expect(sum([])).toBe(0));
 
-// Given an array with just one number
-// When passed to the sum function
-// Then it should return that number
+  [
+    { input: [4], expected: 4 },
+    { input: [367], expected: 367 },
+    { input: [7958463], expected: 7958463 },
+  ].forEach(({ input, expected }) => {
+    it(`returns the sum for arrays with one number`, () =>
+      expect(sum(input)).toBe(expected));
+  });
 
-// Given an array containing negative numbers
-// When passed to the sum function
-// Then it should still return the correct total sum
+  [
+    { input: [-9], expected: -9 },
+    { input: [-367, -5], expected: -372 },
+    { input: [-7958463, -100, -202, -6453], expected: -7965218 },
+  ].forEach(({ input, expected }) =>
+    it("returns the correct sum for array with only negative values", () =>
+      expect(sum(input)).toBe(expected))
+  );
 
-// Given an array with decimal/float numbers
-// When passed to the sum function
-// Then it should return the correct total sum
+  [
+    { input: [-9, 9], expected: 0 },
+    { input: [-367, -5, 70, 2], expected: -300 },
+    { input: [-7958463, -100, -202, -6453, 153, 45621], expected: -7919444 },
+  ].forEach(({ input, expected }) =>
+    it("returns the correct sum for array containing negative numbers", () =>
+      expect(sum(input)).toBe(expected))
+  );
 
-// Given an array containing non-number values
-// When passed to the sum function
-// Then it should ignore the non-numerical values and return the sum of the numerical elements
+  [
+    { input: [-9, 9, 0.1], expected: 0.1 },
+    { input: [-367, -5, 70, 2, -4.567], expected: -304.567 },
+    {
+      input: [-7958463, -100, -202, -6453, 153, 45621, -1.48, 8976.456],
+      expected: -7910469.024,
+    },
+  ].forEach(({ input, expected }) =>
+    it("returns the correct sum for array containing decimal/float numbers", () =>
+      expect(sum(input)).toBe(expected))
+  );
 
-// Given an array with only non-number values
-// When passed to the sum function
-// Then it should return the least surprising value given how it behaves for all other inputs
+  [
+    { input: [-9, 9, 0.1, () => {}], expected: 0.1 },
+    {
+      input: [-367, -5, "-234", 70, 2, { fruit: "apple" }, -4.567],
+      expected: -304.567,
+    },
+    {
+      input: [
+        -7958463,
+        -100,
+        "Iran",
+        -202,
+        -6453,
+        "UK",
+        153,
+        [],
+        45621,
+        "Egypt",
+        -1.48,
+        8976.456,
+        {},
+      ],
+      expected: -7910469.024,
+    },
+  ].forEach(({ input, expected }) =>
+    it("returns the correct sum for array containing decimal/float numbers", () =>
+      expect(sum(input)).toBe(expected))
+  );
+
+  [
+    ["not an array", null, undefined, {}, []],
+    [("apple", null, undefined)],
+  ].forEach((item) =>
+    it("returns 0 for arrays with only non-number values", () =>
+      expect(sum(item)).toBe(0))
+  );
+});
