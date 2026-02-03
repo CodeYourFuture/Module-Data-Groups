@@ -26,3 +26,14 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(string) {
+  const noPunctuationStr = string.replace(/[.,!?]/g, "");
+  const wordArray = noPunctuationStr.split(" ");
+  let wordCount = new Map();
+  for (let word of wordArray) {
+    wordCount.set(word, (wordCount.get(word) || 0) + 1);
+  }
+  const sortedWordCount = [...wordCount.entries()].sort((a, b) => b[1] - a[1]);
+  return sortedWordCount;
+}

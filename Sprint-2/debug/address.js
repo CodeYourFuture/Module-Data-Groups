@@ -12,4 +12,8 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address["houseNumber"]}`);
+
+// Code returns undefined
+// because address is an object but it is accessed like an array
+// in an object values can be accessed by using their proper keys
