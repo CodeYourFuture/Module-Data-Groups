@@ -1,1 +1,49 @@
-/** Write your CSS in here **/
+:root {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background-color: #ffa500;
+  color: #ffa500;
+}
+section {
+  width: 60%;
+  height: 60%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.quote {
+  max-width: 100%;
+  font-size: 2.5rem;
+}
+
+section div {
+  width: 90%;
+  max-width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.author {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+button {
+  border: 0;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: #ffa500;
+  padding: 1rem;
+}
