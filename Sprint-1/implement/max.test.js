@@ -56,7 +56,8 @@ describe("max()", () => {
   );
 
   [
-    { input: [1, 2, "3", null, undefined, 4], expected: 4 },
+    { input: [0, NaN, 1], expected: 1 },
+    { input: [1, 2, "3", null, undefined, NaN, 4], expected: 4 },
     { input: ["apple", 1, 2, 34, "banana", 4], expected: 34 },
     { input: [1, "2", 3, "4", 5], expected: 5 },
     { input: [1, "apple", 2, null, 3, undefined, 4], expected: 4 },

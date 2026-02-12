@@ -11,7 +11,7 @@ const sum = require("./sum.js");
 // Acceptance Criteria:
 
 describe("sum()", () => {
-  it("returns 0 for empty array", () => expect(sum([])).toBe(0));
+  it("returns 0 for empty array", () => expect(sum([])).toBeCloseTo(0));
 
   [
     { input: [4], expected: 4 },
@@ -19,7 +19,7 @@ describe("sum()", () => {
     { input: [7958463], expected: 7958463 },
   ].forEach(({ input, expected }) => {
     it(`returns the sum for arrays with one number`, () =>
-      expect(sum(input)).toBe(expected));
+      expect(sum(input)).toBeCloseTo(expected));
   });
 
   [
@@ -28,7 +28,7 @@ describe("sum()", () => {
     { input: [-7958463, -100, -202, -6453], expected: -7965218 },
   ].forEach(({ input, expected }) =>
     it("returns the correct sum for array with only negative values", () =>
-      expect(sum(input)).toBe(expected))
+      expect(sum(input)).toBeCloseTo(expected))
   );
 
   [
@@ -37,7 +37,7 @@ describe("sum()", () => {
     { input: [-7958463, -100, -202, -6453, 153, 45621], expected: -7919444 },
   ].forEach(({ input, expected }) =>
     it("returns the correct sum for array containing negative numbers", () =>
-      expect(sum(input)).toBe(expected))
+      expect(sum(input)).toBeCloseTo(expected))
   );
 
   [
@@ -49,17 +49,19 @@ describe("sum()", () => {
     },
   ].forEach(({ input, expected }) =>
     it("returns the correct sum for array containing decimal/float numbers", () =>
-      expect(sum(input)).toBe(expected))
+      expect(sum(input)).toBeCloseTo(expected))
   );
 
   [
-    { input: [-9, 9, 0.1, () => {}], expected: 0.1 },
+    { input: [-9, 9, 0.1, () => {}, undefined], expected: 0.1 },
     {
-      input: [-367, -5, "-234", 70, 2, { fruit: "apple" }, -4.567],
+      input: [-367, -5, "-234", 70, 2, null, { fruit: "apple" }, -4.567],
       expected: -304.567,
     },
+    { input: [Infinity, -Infinity, 1, , NaN, 10, -9], expected: 2 },
     {
       input: [
+        NaN,
         -7958463,
         -100,
         "Iran",
@@ -77,8 +79,8 @@ describe("sum()", () => {
       expected: -7910469.024,
     },
   ].forEach(({ input, expected }) =>
-    it("returns the correct sum for array containing decimal/float numbers", () =>
-      expect(sum(input)).toBe(expected))
+    it("returns the correct sum for array containing finite and infinite values", () =>
+      expect(sum(input)).toBeCloseTo(expected))
   );
 
   [
@@ -86,6 +88,6 @@ describe("sum()", () => {
     [("apple", null, undefined)],
   ].forEach((item) =>
     it("returns 0 for arrays with only non-number values", () =>
-      expect(sum(item)).toBe(0))
+      expect(sum(item)).toBeCloseTo(0))
   );
 });

@@ -27,8 +27,11 @@ describe("dedupe", () => {
       expected: [4542543, 65756756, 433254],
     },
   ].forEach(({ input, expected }) =>
-    it("returns a copy of original array when passed array with no duplicates ", () =>
-      expect(dedupe(input)).toEqual(expected))
+    it(
+      "returns a copy of original array when passed array with no duplicates ",
+      () => expect(dedupe(input)).toEqual(expected),
+      expect(dedupe(input)).not.toBe(expected)
+    )
   );
 
   [
