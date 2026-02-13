@@ -19,7 +19,7 @@ describe("sum()", () => {
     { input: [7958463], expected: 7958463 },
   ].forEach(({ input, expected }) => {
     it(`returns the sum for arrays with one number`, () =>
-      expect(sum(input)).toBeCloseTo(expected));
+      expect(sum(input)).toEqual(expected));
   });
 
   [
@@ -28,7 +28,7 @@ describe("sum()", () => {
     { input: [-7958463, -100, -202, -6453], expected: -7965218 },
   ].forEach(({ input, expected }) =>
     it("returns the correct sum for array with only negative values", () =>
-      expect(sum(input)).toBeCloseTo(expected))
+      expect(sum(input)).toEqual(expected))
   );
 
   [
@@ -37,7 +37,7 @@ describe("sum()", () => {
     { input: [-7958463, -100, -202, -6453, 153, 45621], expected: -7919444 },
   ].forEach(({ input, expected }) =>
     it("returns the correct sum for array containing negative numbers", () =>
-      expect(sum(input)).toBeCloseTo(expected))
+      expect(sum(input)).toEqual(expected))
   );
 
   [
@@ -88,6 +88,6 @@ describe("sum()", () => {
     [("apple", null, undefined)],
   ].forEach((item) =>
     it("returns 0 for arrays with only non-number values", () =>
-      expect(sum(item)).toBeCloseTo(0))
+      expect(sum(item)).toEqual(0))
   );
 });

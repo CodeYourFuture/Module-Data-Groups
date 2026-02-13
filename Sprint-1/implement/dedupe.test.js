@@ -30,7 +30,7 @@ describe("dedupe", () => {
     it(
       "returns a copy of original array when passed array with no duplicates ",
       () => expect(dedupe(input)).toEqual(expected),
-      expect(dedupe(input)).not.toBe(expected)
+      expect(dedupe(input)).not.toBe(input)
     )
   );
 
