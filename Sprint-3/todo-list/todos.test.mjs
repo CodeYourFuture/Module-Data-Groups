@@ -129,9 +129,10 @@ describe("toggleCompletedOnTask()", () => {
 describe("deleteCompleted()", () => {
   test("Delete the completed tasks", () => {
     const todos = createMockTodos();
-    const todosAfterDeletion = createMockTodos().filter(
-      (todo) => !todo.completed
-    );
+    const todosAfterDeletion = [
+      { task: "Task 2 description", completed: false },
+      { task: "Task 4 description", completed: false },
+    ];
     Todos.deleteCompleted(todos);
     expect(todos).toHaveLength(2);
     expect(todos).toEqual(todosAfterDeletion);
