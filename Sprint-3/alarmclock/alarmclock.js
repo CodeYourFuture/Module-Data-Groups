@@ -8,6 +8,11 @@ function setScreenTimer(totalSeconds) {
 function setAlarm() {
   const alarmSet = document.getElementById("alarmSet");
   let totalSeconds = Number(alarmSet.value);
+  if (totalSeconds <= 0) {
+    alert("Input must be more than 0");
+    alarmSet.value = "";
+    return;
+  }
 
   setScreenTimer(totalSeconds);
 
