@@ -34,7 +34,7 @@ const sum = require("./sum.js");
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
 
-test(`Should return the correct sum of values`, () => {
+test(`Should return the correct sum of the numerical elements of an array`, () => {
   expect(sum(["apple", "banana", 1, 10])).toEqual(11);
   expect(sum([1, -1, -100])).toEqual(-100);
   expect(sum([-10, -20, -3, -4])).toEqual(-37);
