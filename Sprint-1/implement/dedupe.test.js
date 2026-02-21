@@ -43,4 +43,11 @@ describe("dedupe", () => {
     it(`returns the deduped array for [${input}]`, () =>
       expect(dedupe(input)).toEqual(expected))
   );
+
+  it("returns a copy not the original array", () => {
+    const input = [1, 2, 3];
+    const result = dedupe(input);
+    expect(result).toEqual(input);
+    expect(result).not.toBe(input);
+  });
 });
