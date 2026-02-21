@@ -28,6 +28,8 @@ function addNewTodo() {
   if (task) {
     Todos.addTask(todos, task, false, deadline);
     render();
+  } else {
+    alert("Please enter a task description.");
   }
 
   taskInput.value = "";
