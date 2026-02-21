@@ -34,15 +34,10 @@ const sum = require("./sum.js");
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
 
-describe("sum", () => {
-  [
-    { input: ["apple", "banana", 1, 10], expected: 11 },
-    { input: [1, -1, -100], expected: -100 },
-    { input: [-10, -20, -3, -4], expected: -37 },
-    { input: [1.5, 10.5, 0.5], expected: 12.5 },
-    { input: ["apple", "banana", "cherry"], expected: -Infinity },
-  ].forEach(({ input, expected }) =>
-    it(`returns the sum for [${input}]`, () =>
-      expect(sum(input)).toEqual(expected))
-  );
+test(`Should return the correct sum of values`, () => {
+  expect(sum(["apple", "banana", 1, 10])).toEqual(11);
+  expect(sum([1, -1, -100])).toEqual(-100);
+  expect(sum([-10, -20, -3, -4])).toEqual(-37);
+  expect(sum([1.5, 10.5, 0.5])).toBeCloseTo(12.5);
+  expect(sum(["apple", "banana", "cherry"])).toEqual(-Infinity);
 });
