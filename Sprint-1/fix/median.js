@@ -11,7 +11,7 @@ function calculateMedian(list) {
     return null;
   } else {
     // Get only numeric values
-    const numericList = list.filter((item) => typeof item === "number");
+    const numericList = list.filter((item) => Number.isFinite(item));
     // Check if its empty after filtering
     if (numericList.length === 0) {
       return null;
