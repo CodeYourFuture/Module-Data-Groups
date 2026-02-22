@@ -33,6 +33,7 @@ test("tally on an array with duplicate items returns an object with the count of
   expect(tally(["a"])).toEqual({ a: 1 });
   expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
   expect(tally(["a", "a", "a"])).toEqual({ a: 3 });
+  expect(tally(["toString", "toString"])).toEqual({ toString: 2 });
 });
 
 // Given an invalid input like a string

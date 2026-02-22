@@ -1,10 +1,9 @@
 function contains(obj, property) {
-  try {
-    const keys = Object.keys(obj);
-    return keys.includes(property);
-  } catch (error) {
-    throw new Error("The parameter given is not a plain JS object.");
-  }
+  if (Object.prototype.toString.call(obj) !== "[object Object]") return false;
+
+  return Object.hasOwn(obj, property);
 }
+
+console.log(contains(undefined, "key1"));
 
 module.exports = contains;

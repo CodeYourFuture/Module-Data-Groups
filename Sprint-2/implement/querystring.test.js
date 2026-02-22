@@ -39,3 +39,11 @@ test("parses querystring values missing = sign", () => {
     age: "",
   });
 });
+
+test("parses querystring with encoded keys and values", () => {
+  expect(
+    parseQueryString(
+      "search=hello%20world&city=New%20York&search=happy%20coding"
+    )
+  ).toEqual({ search: ["hello world", "happy coding"], city: "New York" });
+});

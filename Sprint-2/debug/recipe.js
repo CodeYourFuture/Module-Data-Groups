@@ -10,8 +10,9 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}\ningredients:`);
-recipe.ingredients.forEach((ingredient) => console.log(ingredient));
+console.log(
+  `${recipe.title} serves ${recipe.serves}\ningredients:\n${recipe.ingredients.join("\n")}`
+);
 
 // everything is logged on one line
 // console.log is logging the recipe object array as a whole

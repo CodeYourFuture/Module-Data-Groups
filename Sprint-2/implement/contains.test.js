@@ -40,12 +40,9 @@ test("contains returns false when object does not contain the given property", (
 // Then it should return false or throw an error
 it("contains returns false or throws an error if given parameter is not a valid object", () => {
   expect(contains([], "key1")).toEqual(false);
-  expect(contains("key1:value1", "key1")).toEqual(false);
+  expect(contains([1, 2], 1)).toEqual(false);
+  expect(contains("key1:value1", "1")).toEqual(false);
   expect(contains(5235, "key1")).toEqual(false);
-  expect(() => contains(undefined, "key1")).toThrow(
-    "The parameter given is not a plain JS object."
-  );
-  expect(() => contains(null, "key1")).toThrow(
-    "The parameter given is not a plain JS object."
-  );
+  expect(contains(undefined, "key1")).toEqual(false);
+  expect(contains(null, "key1")).toEqual(false);
 });

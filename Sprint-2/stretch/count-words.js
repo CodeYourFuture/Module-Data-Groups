@@ -28,12 +28,14 @@
 */
 
 function countWords(string) {
-  const noPunctuationStr = string.replace(/[.,!?]/g, "");
-  const wordArray = noPunctuationStr.split(" ");
+  const wordArray = string
+    .toLowerCase()
+    .split(/[.,!? ]+/)
+    .filter(Boolean);
   let wordCount = new Map();
   for (let word of wordArray) {
     wordCount.set(word, (wordCount.get(word) || 0) + 1);
   }
-  const sortedWordCount = [...wordCount.entries()].sort((a, b) => b[1] - a[1]);
+  const sortedWordCount = new Map([...wordCount].sort(([, a], [, b]) => b - a));
   return sortedWordCount;
 }

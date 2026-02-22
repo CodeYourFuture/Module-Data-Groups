@@ -11,16 +11,15 @@ function parseQueryString(queryString) {
     let equalSignIndex = pair.indexOf("=");
 
     if (equalSignIndex === -1) {
-      key = pair;
+      key = decodeURIComponent(pair);
       value = "";
     } else {
-      key = pair.slice(0, equalSignIndex);
-      value = pair.slice(equalSignIndex + 1);
+      key = decodeURIComponent(pair.slice(0, equalSignIndex));
+      value = decodeURIComponent(pair.slice(equalSignIndex + 1));
     }
 
-    const existingKeys = Object.keys(queryParams);
     if (key === "" && value === "") continue;
-    if (existingKeys.includes(key)) {
+    if (queryParams[key]) {
       if (queryParams[key] === value) continue;
       if (Array.isArray(queryParams[key])) {
         queryParams[key].push(value);
