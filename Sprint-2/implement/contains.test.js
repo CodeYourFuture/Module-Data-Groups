@@ -35,7 +35,7 @@ test("contains returns true when object contains the given property", () =>
 test("contains returns false when object does not contain the given property", () =>
   expect(contains({ key1: "value1", key2: "value2" }, "key4")).toEqual(false));
 
-// Given invalid parameters like an array
+// Given parameters which are not key-value pair type
 // When passed to contains
 // Then it should return false or throw an error
 it("contains returns false or throws an error if given parameter is not a valid object", () => {

@@ -1,9 +1,10 @@
 function contains(obj, property) {
-  if (Object.prototype.toString.call(obj) !== "[object Object]") return false;
-
+  if (Array.isArray(obj) || obj === null || typeof obj !== "object") {
+    console.log("here");
+    return false;
+  }
+  if (obj instanceof Map) return obj.has(property);
   return Object.hasOwn(obj, property);
 }
-
-console.log(contains(undefined, "key1"));
 
 module.exports = contains;
