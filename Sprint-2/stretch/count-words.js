@@ -32,17 +32,13 @@ function countWords(string) {
     .toLowerCase()
     .split(/[.,!? ]+/)
     .filter(Boolean);
-  const wordCount = {};
+  const wordCount = new Map();
   for (let word of wordArray) {
-    wordCount[word] = (wordCount[word] || 0) + 1;
+    wordCount.set(word, (wordCount.get(word) || 0) + 1);
   }
   const sortedWordCount = Object.fromEntries(
-    [...Object.entries(wordCount)].sort(
-      ([wordA, countA], [wordB, countB]) => countB - countA
-    )
+    [...wordCount].sort(([wordA, countA], [wordB, countB]) => countB - countA)
   );
 
   return sortedWordCount;
 }
-
-console.log(countWords("you and me and  ? ? . . you    "));
