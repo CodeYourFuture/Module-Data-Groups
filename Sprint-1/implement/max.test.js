@@ -12,7 +12,8 @@ describe("findMax", () => {
 
     singleNumbers.forEach((num) => {
       try {
-        expect(findMax(num)).toEqual(num);
+        const expected = num;
+        expect(findMax([num])).toEqual(expected);
       } catch (error) {
         throw new Error(
           `Failed to return ${num} when given an array with a single number: ${error.message}`
@@ -87,15 +88,18 @@ describe("findMax", () => {
   // Case 6: Given an array with non-number values, it returns the max and ignore non-numeric values
   test("given an array with non-number values, it returns the max and ignore non-numeric values", () => {
     const withNonNums = [
-        { input: [1, 2, "hello", 3, null, 4, undefined, 5], expected: 5 },
-        { input: ["a", "b", 0], expected: 0 },
-        { input: [null, undefined, false, true, -Infinity, NaN, -100], expected: -100 },
+      { input: [1, 2, "hello", 3, null, 4, undefined, 5], expected: 5 },
+      { input: ["a", "b", 0], expected: 0 },
+      {
+        input: [null, undefined, false, true, -Infinity, NaN, -100],
+        expected: -100,
+      },
     ];
 
     withNonNums.forEach(({ input, expected }) => {
-        try {
-      expect(findMax(input)).toEqual(expected);
-    } catch (error) {
+      try {
+        expect(findMax(input)).toEqual(expected);
+      } catch (error) {
         throw new Error(
           `Failed to return the expected value ${expected} when given the array [${input}]: ${error.message}`
         );
@@ -111,14 +115,14 @@ describe("findMax", () => {
       { input: [NaN, Infinity, -Infinity], expected: -Infinity },
     ];
 
-      onlyNonNums.forEach(({ input, expected }) => {
-        try {
-          expect(findMax(input)).toEqual(expected);
-        } catch (error) {
-          throw new Error(
-            `Failed to return the expected value ${expected} when given the array [${input}]: ${error.message}`
-          );
-        }
-      });
+    onlyNonNums.forEach(({ input, expected }) => {
+      try {
+        expect(findMax(input)).toEqual(expected);
+      } catch (error) {
+        throw new Error(
+          `Failed to return the expected value ${expected} when given the array [${input}]: ${error.message}`
+        );
+      }
     });
   });
+});
