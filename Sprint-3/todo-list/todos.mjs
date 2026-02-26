@@ -28,8 +28,9 @@ export function toggleCompletedOnTask(todos, taskIndex) {
   }
 }
 
-// returns a filtered array, doesn't alter the supplied array
-// good cos functional, bad cos not in keeping other functions
+// filters and then splices
 export function deleteCompleted(todos) {
-  return todos.filter((item) => !item.completed);
+  const incompleteOnly = todos.filter((item) => !item.completed);
+  todos.splice(0, todos.length, ...incompleteOnly);
+  return todos;
 }

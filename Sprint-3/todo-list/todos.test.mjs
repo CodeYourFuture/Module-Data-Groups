@@ -154,12 +154,4 @@ describe("deleteCompleted()", () => {
     ];
     expect(Todos.deleteCompleted(allTaskCompleted)).toEqual([]);
   });
-
-  // feel this is necessary, as deleteCompleted() returns a filtered list,
-  // rather than mutating the original, so need to make sure the assumption
-  // stands up to testing.
-  test("Expect original to not be mutated", () => {
-    Todos.deleteCompleted(todos);
-    expect(todos).toEqual(todos);
-  });
 });
