@@ -27,3 +27,9 @@ export function toggleCompletedOnTask(todos, taskIndex) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
 }
+
+// returns a filtered array, doesn't alter the supplied array
+// good cos functional, bad cos not in keeping other functions
+export function deleteCompleted(todos) {
+  return todos.filter((item) => !item.completed);
+}
