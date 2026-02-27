@@ -5,10 +5,25 @@
 // Hint: Please consider scenarios when 'list' doesn't have numbers (the function is expected to return null)
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
-function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
+// [...list] create a new exactly array but independent
+
+function calculateMedian(list) { 
+  // order the array to find the middle number
+  //we will use the spread operator to save with no order.
+  const sortArr = list.sort((a, b) => a - b);
+  console.log(sortArr);
+
+  // divide the array to find the middle position.
+  const middleIndex = Math.floor(sortArr.length / 2);
+
+  //if residual is 0, when the array is even
+  if (sortArr.length % 2 === 0) {
+    const leftHalf = sortArr[middleIndex - 1];
+    const rightHalf = sortArr[middleIndex];
+    return (leftHalf + rightHalf) / 2;
+  }
+  return sortArr[middleIndex];
+  
 }
 
 module.exports = calculateMedian;
