@@ -1,4 +1,20 @@
-function setAlarm() {}
+function formatTime(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(seconds).padStart(2, "0");
+
+  return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+function setAlarm() {
+  const input = document.getElementById("alarmSet");
+  const heading = document.getElementById("timeRemaining");
+
+  const totalSeconds = Number(input.value);
+  heading.innerText = `Time Remaining: ${formatTime(totalSeconds)}`;
+}
 
 // DO NOT EDIT BELOW HERE
 
