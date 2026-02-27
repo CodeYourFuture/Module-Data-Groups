@@ -24,12 +24,3 @@ function calculateMedian(list) {
 
 module.exports = calculateMedian;
 
-
-
-
-
-// function arr(item) {
-//   if (typeof item === "number")
-//     return true;
-//   return false;
-// }
