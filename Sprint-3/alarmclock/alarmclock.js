@@ -26,6 +26,12 @@ function setAlarm() {
     remainingSeconds -= 1;
 
     heading.innerText = `Time Remaining: ${formatTime(remainingSeconds)}`;
+
+    if (remainingSeconds === 0) {
+      playAlarm();
+      clearInterval(intervalId);
+      intervalId = null;
+    }
   }, 1000);
 }
 
