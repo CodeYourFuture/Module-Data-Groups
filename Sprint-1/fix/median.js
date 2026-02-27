@@ -9,8 +9,10 @@
 
 function calculateMedian(list) { 
   // order the array to find the middle number
-  //we will use the spread operator to save with no order.
-  const sortArr = list.sort((a, b) => a - b);
+  // const sortArr = list.sort((a, b) => a - b);
+  //using [...list] is a safe immutable sorting
+  const sortArr = [...list].sort((a, b) => a - b);
+
   console.log(sortArr);
 
   // divide the array to find the middle position.
