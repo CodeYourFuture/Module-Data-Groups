@@ -9,6 +9,10 @@ function showRandomQuote () {
   const randomQuote = pickFromArray(quotes);
   displayQuote(randomQuote);
 }
+
+window.onload = function () {
+  showRandomQuote();
+};
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
