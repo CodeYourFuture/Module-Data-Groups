@@ -1,3 +1,9 @@
+function displayQuote(quoteObject) {
+  const quoteP = document.getElementById("quote");
+  const authorP = document.getElementById("author");
+  quoteP.innerText = quoteObject.quote;
+  authorP.innerText = quoteObject.author;
+}
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
