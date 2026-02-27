@@ -12,6 +12,11 @@ function showRandomQuote () {
 
 window.onload = function () {
   showRandomQuote();
+
+  const newQuoteBtn = document.getElementById("new-quote")
+  newQuoteBtn.addEventListener("click", () => {
+    showRandomQuote();
+  });
 };
 // DO NOT EDIT BELOW HERE
 
