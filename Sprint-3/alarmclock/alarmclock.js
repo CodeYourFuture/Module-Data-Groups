@@ -14,14 +14,18 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   const heading = document.getElementById("timeRemaining");
 
-  const totalSeconds = Number(input.value);
-  heading.innerText = `Time Remaining: ${formatTime(totalSeconds)}`;
+  let remainingSeconds = Number(input.value);
+
+  heading.innerText = `Time Remaining: ${formatTime(remainingSeconds)}`;
 
   if (intervalId !== null) {
     clearInterval(intervalId);
   }
-  
+
   intervalId = setInterval(() => {
+    remainingSeconds -= 1;
+
+    heading.innerText = `Time Remaining: ${formatTime(remainingSeconds)}`;
   }, 1000);
 }
 
