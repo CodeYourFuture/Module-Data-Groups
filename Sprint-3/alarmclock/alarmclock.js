@@ -1,3 +1,5 @@
+let intervalId = null;
+
 function formatTime(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
@@ -14,6 +16,13 @@ function setAlarm() {
 
   const totalSeconds = Number(input.value);
   heading.innerText = `Time Remaining: ${formatTime(totalSeconds)}`;
+
+  if (intervalId !== null) {
+    clearInterval(intervalId);
+  }
+  
+  intervalId = setInterval(() => {
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
