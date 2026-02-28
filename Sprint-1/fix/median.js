@@ -6,7 +6,13 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 // [...list] create a new exactly array but independent
-  // const sortArr = list.sort((a, b) => a - b); this modify the array
+// const sortArr = list.sort((a, b) => a - b); this modify the array
+
+// order the array to find the middle number
+//using [...list] is a safe immutable sorting
+// const sortArr = [...list].sort((a, b) => a - b);
+
+
 
 function calculateMedian(list) { 
   // if is not an array 
@@ -24,16 +30,8 @@ function calculateMedian(list) {
     return null;
   }
 
-
-  // order the array to find the middle number
-  //using [...list] is a safe immutable sorting
-  // const sortArr = [...list].sort((a, b) => a - b);
-
   // now we change to use the numsOnly otherwise will take string as numbers
   const sortArr = [...numsOnly].sort((a, b) => a - b);
-
-
-  console.log(sortArr);
 
   // divide the array to find the middle position.
   const middleIndex = Math.floor(sortArr.length / 2);
