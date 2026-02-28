@@ -27,7 +27,11 @@ function calculateMedian(list) {
 
   // order the array to find the middle number
   //using [...list] is a safe immutable sorting
-  const sortArr = [...list].sort((a, b) => a - b);
+  // const sortArr = [...list].sort((a, b) => a - b);
+
+  // now we change to use the numsOnly otherwise will take string as numbers
+  const sortArr = [...numsOnly].sort((a, b) => a - b);
+
 
   console.log(sortArr);
 
