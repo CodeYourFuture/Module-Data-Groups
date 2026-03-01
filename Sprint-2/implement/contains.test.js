@@ -22,7 +22,9 @@ test("contains on empty object return false", () => {
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("returns true when object contains property", () => {
+    expect(contains({a: 1,b: 2 }, "a")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
