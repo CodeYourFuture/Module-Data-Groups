@@ -1,5 +1,7 @@
 const createLookup = require("./lookup.js");
 
+const  result=createLookup([['US','USD'],['CA','CAD']])
+console.log (result)
 test.todo("creates a country currency code lookup for multiple codes");
 
 /*
@@ -33,3 +35,12 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+// create single country currency in countryCurrencyPairs
+const result1=createLookup([['GB','GBP']])
+console.log(result1)
+test.todo('creates a single county code currency ')
+
+//given an empty country currency pair/array
+console.log(createLookup([[]]))
+test.todo('return an empty object with empty pair given')
