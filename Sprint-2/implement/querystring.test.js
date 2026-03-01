@@ -10,3 +10,31 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+//  Duplicate keys, last one wins
+test('duplicate keys overwrite previous', () => {
+  expect(parseQueryString('color=blue&color=red')).toEqual({
+    color: 'red'
+  });
+});
+
+//  Empty string input
+test('returns empty object for empty string', () => {
+  expect(parseQueryString('')).toEqual({});
+});
+
+//  Null/invalid input
+test('returns empty object for null or non-string', () => {
+  expect(parseQueryString(null)).toEqual({});
+  expect(parseQueryString(123)).toEqual({});
+});
+
+//  Missing value
+test('handles keys with empty values', () => {
+  expect(parseQueryString('empty=')).toEqual({ empty: '' });
+});
+
+// Missing key
+test('ignores pairs without keys', () => {
+  expect(parseQueryString('=novalue')).toEqual({ '': 'novalue' });
+});
