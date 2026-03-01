@@ -1,9 +1,9 @@
 // Refactor the implementation of includes to use a for...of loop
 
 function includes(list, target) {
-  for (let index = 0; index < list.length; index++) {
-    const element = list[index];
-    if (element === target) {
+  for (let i = 0; i < list.length; i++) {
+    const element = list[i];
+    if (element == target) {
       return true;
     }
   }
