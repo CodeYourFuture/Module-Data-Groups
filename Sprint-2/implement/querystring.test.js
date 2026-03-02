@@ -25,3 +25,8 @@ test("parses a single key/value pair", () => {
 test("parses multiple key/value pairs", () => {
   expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
 });
+
+// Empty value should be an empty string
+test("handles a key with an empty value", () => {
+  expect(parseQueryString("a=")).toEqual({ a: "" });
+});
