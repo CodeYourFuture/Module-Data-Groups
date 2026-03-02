@@ -15,3 +15,8 @@ test("parses querystring values containing =", () => {
 test("returns empty object for empty string", () => {
   expect(parseQueryString("")).toEqual({});
 });
+
+// Normal single pair
+test("parses a single key/value pair", () => {
+  expect(parseQueryString("a=1")).toEqual({ a: "1" });
+});
