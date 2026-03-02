@@ -6,21 +6,17 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
-  const numbersOnly = list.filter((element) => typeof element === "number");
-  numbersOnly.sort((a, b) => a - b);
-  const middleIndex = Math.floor(numbersOnly.length / 2);
-  let middle = 0;
-  if (numbersOnly.length === 0) {
+  list = list.filter((element) => typeof element === "number");
+  if (list.length === 0) {
     return null;
-  }
-  if (numbersOnly.length % 2 === 0) {
-    middle = numbersOnly[middleIndex];
-    return middle;
   } else {
-    let oneDown = numbersOnly.length / 2 - 1;
-    let oneUp = numbersOnly.length / 2;
-    middle = (numbersOnly[oneDown] + numbersOnly[oneUp]) / 2;
-    return middle;
+    list.sort((a, b) => a - b);
+    const middleIndex = Math.floor(list.length / 2);
+    if (list.length % 2 === 0) {
+      return (list[middleIndex - 1] + list[middleIndex]) / 2;
+    } else {
+      return list[middleIndex];
+    }
   }
 }
 // const numbers = elements.filter((element) => typeof element === "number");
