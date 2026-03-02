@@ -20,3 +20,8 @@ test("returns empty object for empty string", () => {
 test("parses a single key/value pair", () => {
   expect(parseQueryString("a=1")).toEqual({ a: "1" });
 });
+
+// Normal multiple pairs
+test("parses multiple key/value pairs", () => {
+  expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
