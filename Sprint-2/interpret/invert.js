@@ -30,6 +30,8 @@ module.exports = invert;
 // Object keys are stored as strings. 
 
 // d) What does Object.entries return? Why is it needed in this program?
+// Object.entries({ a: 1, b: 2}) return [["a", 1]], ["b", 2]]
+// It is needed because objects are not iterable with for...of, but the entries array is, so we can loop key/value pairs.
 
 // e) Explain why the current return value is different from the target output
 
