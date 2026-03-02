@@ -41,3 +41,6 @@ test("counts frequency of items in array", () => {
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+test("throws error for invalid input", () => {
+  expect(() => tally("abc")).toThrow();
+});
