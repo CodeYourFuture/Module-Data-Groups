@@ -25,7 +25,7 @@ module.exports = invert;
 // The second iterations overwrites the first, so the current value returned is { key: 2 }
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
-// The target output should swap keys and value, therefore the output using Node REPL is { '1': 'a', '2': 'b' }
+// The target output should swap keys and value, therefore the output (using Node REPL) after the fix is { '1': 'a', '2': 'b' }
 // After fixing the bug in the code. The values become keys, and the keys become the values. 
 // Object keys are stored as strings. 
 
@@ -34,5 +34,7 @@ module.exports = invert;
 // It is needed because objects are not iterable with for...of, but the entries array is, so we can loop key/value pairs.
 
 // e) Explain why the current return value is different from the target output
+// In the code (before the bug fix) invertedObj.key = value creates a literal property called "key" each time, overwriting it.
+// It does not use the variable key/value for dynamic property names, so it can't swap keys and values correctly.
 
 // f) Fix the implementation of invert (and write tests to prove it's fixed!)
