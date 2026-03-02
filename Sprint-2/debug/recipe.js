@@ -3,6 +3,7 @@
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
 // How can you fix it?
+// The recipe is an object so it needs to be in square brackets to be call each element by its key and index.
 
 const recipe = {
   title: "bruschetta",
@@ -10,6 +11,11 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
+console.log(` ${recipe.title} 
+  serves ${recipe.serves}
   ingredients:
-${recipe}`);
+  ${recipe.ingredients[0]}
+  ${recipe.ingredients[1]}
+  ${recipe.ingredients[2]}
+  ${recipe.ingredients[3]}
+  `);

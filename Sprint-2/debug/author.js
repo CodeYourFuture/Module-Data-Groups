@@ -2,6 +2,7 @@
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
+// the "author" is an object so it needs to be in square brackets to be called
 
 const author = {
   firstName: "Zadie",
@@ -11,6 +12,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of [author]) {
   console.log(value);
 }
