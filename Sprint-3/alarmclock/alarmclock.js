@@ -1,19 +1,52 @@
+let countdownInterval = null;
+let secondsLeft = 0;
+
 function setAlarm() {
-  // Find the input box by its id
+  // Read the minutes from the input
   const input = document.getElementById("alarmSet");
-  // Get whatever number the user typed,
-  // and convert it to a real number
   const minutes = parseInt(input.value, 10);
   // If nothing useful was entered, do nothing
   if (isNaN(minutes) || minutes <= 0) {
     return;
   }
-  // Turn minutes to mm:ss format
-  const displayMinutes = minutes.toString().padStart(2, "0");
-  const display = `Time Remaining: ${displayMinutes}:00`;
-  // Find the <h1> and update it
+  // Convert to total seconds
+  secondsLeft = minutes * 60;
+  // Stop any existing countdown
+  if (countdownInterval !== null) {
+    clearInterval(countdownInterval);
+    countdownInterval = null;
+  }
+  // Show starting time right away
+  updateTimeDisplay();
+
+  // Start the countdown
+  countdownInterval = setInterval(() => {
+    secondsLeft = secondsLeft - 1;
+
+    updateTimeDisplay();
+
+    if (secondsLeft <= 0) {
+      // Time's up
+      clearInterval(countdownInterval);
+      countdownInterval = null;
+      secondsLeft = 0;
+      // Makes sure to show exactly 00:00
+      updateTimeDisplay();
+      playAlarm();
+    }
+  }, 1000);
+}
+
+// Helper function
+function updateTimeDisplay() {
+  const minutes = Math.floor(secondsLeft / 60);
+  const seconds = secondsLeft % 60;
+
+  const displayMin = minutes.toString().padStart(2, "0");
+  const displaySec = seconds.toString().padStart(2, "0");
+
   const heading = document.getElementById("timeRemaining");
-  heading.textContent = display;
+  heading.textContent = `Time Remaining: ${displayMin}:${displaySec}`;
 }
 
 // DO NOT EDIT BELOW HERE
