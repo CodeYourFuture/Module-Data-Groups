@@ -10,7 +10,7 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key;
   }
 
   return invertedObj;
@@ -25,6 +25,9 @@ module.exports = invert;
 // The second iterations overwrites the first, so the current value returned is { key: 2 }
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
+// The target output should swap keys and value, therefore the output using Node REPL is { '1': 'a', '2': 'b' }
+// After fixing the bug in the code. The values become keys, and the keys become the values. 
+// Object keys are stored as strings. 
 
 // c) What does Object.entries return? Why is it needed in this program?
 
