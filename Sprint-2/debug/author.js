@@ -11,6 +11,14 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
-}
+/* Prediction */
+// It will print out only the name of the keys (i.e. firstName, lastName, occupation, age, and alive), but not their actual values
+// for (const { value, key } of author) {
+//   console.log(value);
+// }
+
+// /* Fix */
+// for (const key of author) {
+//   console.log(author[key]);
+// }
+
