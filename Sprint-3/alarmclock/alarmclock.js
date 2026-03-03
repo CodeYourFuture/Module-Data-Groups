@@ -10,7 +10,7 @@ function setAlarm() {
     return;
   }
   // Convert to total seconds
-  secondsLeft = minutes * 60;
+  secondsLeft = minutes;
   // Stop any existing countdown
   if (countdownInterval !== null) {
     clearInterval(countdownInterval);
