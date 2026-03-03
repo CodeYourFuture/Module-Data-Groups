@@ -512,3 +512,24 @@ function updateQuote() {
 newQuoteButton.addEventListener("click", updateQuote);
 // Show a random quote immediately when the page loads
 updateQuote();
+
+// Get the new elements from the DOM
+const autoplayToggle = document.getElementById("autoplay-toggle");
+const autoplayStatus = document.getElementById("autoplay-status");
+
+// Track timer
+let timerId = null;
+
+// Event listener to the checkbox
+autoplayToggle.addEventListener("change", () => {
+  if (autoplayToggle.checked) {
+    // Switch is ON
+    autoplayStatus.innerText = "auto-play: ON";
+    timerId = setInterval(updateQuote, 5000);
+  } else {
+    // Switch is OFF
+    autoplayStatus.innerText = "auto-play: OFF";
+    // Stop the timer
+    clearInterval(timerId);
+  }
+});
