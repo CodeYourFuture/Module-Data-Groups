@@ -1,5 +1,9 @@
 // Predict and explain first...
 
+// Prediction: address is an object, not an array.
+// Using address[0] will return undefined because objects are accessed using keys, not indexes.
+// So the output will be: "My house number is undefined"
+
 // This code should log out the houseNumber from the address object
 // but it isn't working...
 // Fix anything that isn't working
