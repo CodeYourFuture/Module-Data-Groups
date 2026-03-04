@@ -1,7 +1,8 @@
 // Predict and explain first...
-// for..of requires an iterable, like arrays or strings
-// Plain objects are not iterable → throws TypeError: author is not iterable
-// Nothing gets logged.
+// The 'author' variable is an object, not an array or string.
+// for..of loops require an iterable, but plain objects are not iterable.
+// This will throw a TypeError: author is not iterable.
+// Nothing will be logged to the console.
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
