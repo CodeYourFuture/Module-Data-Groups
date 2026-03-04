@@ -1,4 +1,7 @@
 // Predict and explain first...
+// for..of requires an iterable, like arrays or strings
+// Plain objects are not iterable → throws TypeError: author is not iterable
+// Nothing gets logged.
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
@@ -11,6 +14,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }
