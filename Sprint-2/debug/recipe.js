@@ -1,4 +1,6 @@
 // Predict and explain first...
+// ${recipe} in template literal becomes "[object Object]" (not useful)
+// No loop to print each ingredient on a new line
 
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
@@ -10,6 +12,9 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+console.log(`${recipe.title} serves ${recipe.serves}`);
+console.log(" ingredients:");
+
+for (const ing of recipe.ingredients) {
+  console.log(` - ${ing}`);
+}
