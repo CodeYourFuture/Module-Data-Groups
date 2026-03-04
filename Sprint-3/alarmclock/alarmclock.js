@@ -14,7 +14,17 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   const heading = document.getElementById("timeRemaining");
 
-  let remainingSeconds = Number(input.value);
+  let value = input.value
+
+  if (value === "") {
+    return;
+  }
+
+  let remainingSeconds = Number(value);
+
+  if (remainingSeconds <= 0 || isNaN(remainingSeconds)) {
+    return;
+  }
 
   heading.innerText = `Time Remaining: ${formatTime(remainingSeconds)}`;
 
@@ -24,14 +34,15 @@ function setAlarm() {
 
   intervalId = setInterval(() => {
     remainingSeconds -= 1;
-
-    heading.innerText = `Time Remaining: ${formatTime(remainingSeconds)}`;
-
-    if (remainingSeconds === 0) {
+    
+    if (remainingSeconds <= 0) {
+      heading.innerText = `Time Remaining: ${formatTime(0)}`;
       playAlarm();
       clearInterval(intervalId);
       intervalId = null;
+      return;
     }
+    heading.innerText = `Time Remaining: ${formatTime(remainingSeconds)}`;
   }, 1000);
 }
 
