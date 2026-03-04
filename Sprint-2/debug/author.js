@@ -19,3 +19,4 @@ const author = {
 for (const key in author) {
   console.log(author[key]);
 }
+
