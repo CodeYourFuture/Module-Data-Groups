@@ -17,6 +17,7 @@ function setAlarm() {
   let value = input.value
 
   if (value === "") {
+    heading.innerText = "Please enter a number of seconds.";
     return;
   }
 
