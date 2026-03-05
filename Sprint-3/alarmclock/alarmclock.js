@@ -24,6 +24,7 @@ function setAlarm() {
   let remainingSeconds = Number(value);
 
   if (remainingSeconds <= 0 || isNaN(remainingSeconds)) {
+    heading.innerText = "Please enter a positive number greater than 0.";
     return;
   }
 
