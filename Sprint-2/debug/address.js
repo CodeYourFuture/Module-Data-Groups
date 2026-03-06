@@ -1,4 +1,5 @@
 // Predict and explain first...
+//The console.log will log out undefined because there is no such a key as 0 in the address object
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
@@ -12,4 +13,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
