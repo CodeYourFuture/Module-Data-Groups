@@ -1,13 +1,29 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if (queryString.length === 0) {
+
+  // Handle empty string or just "?"
+  if (!queryString || queryString === "?") {
     return queryParams;
   }
-  const keyValuePairs = queryString.split("&");
+
+  // Remove leading ? if present
+  const cleaned = queryString.startsWith("?")
+    ? queryString.slice(1)
+    : queryString;
+  const keyValuePairs = cleaned.split("&").filter(Boolean);
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    // Only split on the first =
+    const equalIndex = pair.indexOf("=");
+
+    if (equalIndex === -1) {
+      // key without = → value is empty string
+      queryParams[pair] = "";
+    } else {
+      const key = pair.slice(0, equalIndex);
+      const value = pair.slice(equalIndex + 1);
+      queryParams[key] = value;
+    }
   }
 
   return queryParams;
