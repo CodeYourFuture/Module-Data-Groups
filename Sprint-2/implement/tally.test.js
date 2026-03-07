@@ -44,3 +44,8 @@ test("given invalid input like a string, throw error", () => {
 test("elements of the list must be string or number, or throw error", () => {
   expect(() => tally([{ a: 12 }, { b: "c" }, { a: 12 }])).toThrow();
 });
+
+// given arr of numbers, returns correct tally
+test("accepts numbers as elements", () => {
+  expect(tally([1, 1, 2])).toEqual({ 1: 2, 2: 1 });
+});
