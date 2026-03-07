@@ -10,18 +10,18 @@ function parseQueryString(queryString) {
   const cleaned = queryString.startsWith("?")
     ? queryString.slice(1)
     : queryString;
-  const keyValuePairs = cleaned.split("&").filter(Boolean);
 
-  for (const pair of keyValuePairs) {
-    // Only split on the first =
-    const equalIndex = pair.indexOf("=");
+  // Split into segments and ignore empty ones
+  const segments = cleaned.split("&").filter(Boolean);
 
-    if (equalIndex === -1) {
-      // key without = → value is empty string
-      queryParams[pair] = "";
-    } else {
-      const key = pair.slice(0, equalIndex);
-      const value = pair.slice(equalIndex + 1);
+  for (const segment of segments) {
+    // Split only on the first =, but everything after is a value
+    const eqIndex = segment.indexOf("=");
+
+    const key = eqIndex === -1 ? segment : segment.slice(0, eqIndex);
+    const value = eqIndex === -1 ? "" : segment.slice(eqIndex + 1);
+
+    if (key) {
       queryParams[key] = value;
     }
   }
