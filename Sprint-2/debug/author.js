@@ -1,3 +1,4 @@
+/* ======== Initial Script ======= */
 const author = {
   firstName: "Zadie",
   lastName: "Smith",
@@ -6,7 +7,6 @@ const author = {
   alive: true,
 };
 
-/* ======== Initial Script ======= */
 try {
   for (const value of author) {
     console.log(value);
