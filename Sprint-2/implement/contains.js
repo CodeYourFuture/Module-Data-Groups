@@ -4,7 +4,7 @@ function isObject(item) {
 
 function contains(object, key) {
   if (isObject(object)) {
-    return Object.keys(object).includes(key);
+    return key in object;
   }
   throw new TypeError("Item is not plain object, Date, or Map");
 }
