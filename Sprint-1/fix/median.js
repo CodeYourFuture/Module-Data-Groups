@@ -13,7 +13,7 @@ function calculateMedian(list) {
   // filter out non-numbers and then sort
   const filteredList = list
     .filter((item) => typeof item === "number")
-    .sort((a, b) => a - b);
+    .toSorted((a, b) => a - b);
 
   if (filteredList.length === 0) {
     return null;
