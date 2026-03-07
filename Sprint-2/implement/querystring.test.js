@@ -12,7 +12,7 @@ test("empty query string returns {}", () => {
 });
 
 // null or undefined
-test("empty query string returns {}", () => {
+test("null or undefined input returns {}", () => {
   expect(parseQueryString(null)).toEqual({});
   expect(parseQueryString(undefined)).toEqual({});
   expect(parseQueryString()).toEqual({});
@@ -80,4 +80,9 @@ test("trims whitespace from keys and values", () => {
     name: "Alice",
     age: "30",
   });
+});
+
+test("string with only delimiters returns {}", () => {
+  expect(parseQueryString("&")).toEqual({});
+  expect(parseQueryString("&&")).toEqual({});
 });
