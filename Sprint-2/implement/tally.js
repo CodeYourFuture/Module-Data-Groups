@@ -3,7 +3,7 @@ function tally(list) {
     throw new TypeError("Invalid input: not an array");
   }
   return (itemCountMapping = list.reduce((acc, curr) => {
-    if (typeof curr !== "string" && curr !== "number") {
+    if (typeof curr !== "string" && typeof curr !== "number") {
       throw new Error(`Invalid element: ${curr} must be a string or number`);
     }
     acc[curr] = (acc[curr] ?? 0) + 1;
