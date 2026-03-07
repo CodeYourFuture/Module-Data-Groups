@@ -33,3 +33,9 @@ test("array with no duplicates returns copy of original", () => {
 test("removes duplicates, while preserving first occurrance of each element", () => {
   expect(dedupe([1, 3, 3, "as", "as", "df"])).toEqual([1, 3, "as", "df"]);
 });
+
+// Given an array where all elements are the same
+// When passed to the dedupe function
+// Then it should return an array with that single element
+test("when all items are same, return array containing one single one of that item", () => {});
+expect(dedupe(["a", "a", "a", "a"])).toEqual(["a"]);
