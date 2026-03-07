@@ -16,28 +16,58 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+
+test("returns -Infinity for an empty array", () => {
+    expect(findMax([])).toEqual(-Infinity);
+})
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
 
+test("given an array with one number, should return that number", () => {
+    expect(findMax([8])).toEqual(8);
+    expect(findMax([-5])).toEqual(-5);
+    expect(findMax([0])).toEqual(0);
+})
+
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+
+test("return the largest number overall", () => {
+    expect(findMax([-8, -4, 0, 4, 8])).toEqual(8);
+    expect(findMax([-3, -2, -1, 4, 2, 3])).toEqual(4);
+})
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
 
+test("given an array with only negative numbers, should return closest to 0", () => {
+    expect(findMax([-2, -4, -1, -3, -100])).toEqual(-1);
+})
+
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+
+test("an array with decimal numbers, should return the largest decimal number", () => {
+    expect(findMax([0.1, 0.2, 0.9, 0.8, 0.3, 0.7, 0.4, 0.6])).toEqual(0.9);
+})
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 
+test("ignore the non-numeric values", () => {
+    expect(findMax(["Blue", 3, "White", "Orange", "Pink"])).toEqual(3);
+})
+
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+test("an array with only non-number values", () => {
+    expect(findMax(["Blue", "White", "Orange", "Pink"])).toEqual(-Infinity);
+})
