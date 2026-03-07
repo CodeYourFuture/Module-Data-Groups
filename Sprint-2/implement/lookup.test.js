@@ -73,7 +73,7 @@ test("when input is not a  2d array throw error", () => {
 });
 
 test("when length of internal array not 1 < arr.length < 3", () => {
-  expect(() => createLookup(["a"])).toThrow();
+  expect(() => createLookup([["a"]])).toThrow();
   expect(() => createLookup(["a", "b", "c"])).toThrow();
 });
 
