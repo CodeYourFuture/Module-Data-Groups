@@ -62,5 +62,5 @@ test("contains incorrect object returns false", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("contains incorrect object type returns false", () => {
-  expect(contains([], "d")).toBe("Invalid Entry please try again");
+  expect(contains([], "d")).toBe(false);
 });
