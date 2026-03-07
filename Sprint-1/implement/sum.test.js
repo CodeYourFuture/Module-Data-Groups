@@ -32,7 +32,7 @@ test("should return correct sum for negative and positive numbers", () =>
 // Then it should return the correct total sum
 
 // use toBeCloseTo to account for floating point
-test("should sum floats", () => expect(sum([0.1 + 0.2])).toBeCloseTo(0.3));
+test("should sum floats", () => expect(sum([0.1, 0.2])).toBeCloseTo(0.3));
 
 // Given an array containing non-number values
 // When passed to the sum function
