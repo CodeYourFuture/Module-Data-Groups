@@ -36,7 +36,7 @@ test("should return false when object does not contain passed property name", ()
       expect(contains(obj, prop)).toEqual(false);
     } catch (error) {
       throw new Error(
-        `Failed to return false when ${prop} is not present in obj: ${error.message}`
+        `Failed to return false when ${ob} is not present in obj: ${error.message}`
       );
     }
   });
@@ -54,4 +54,24 @@ test("should return false when object is empty", () => {
 });
 
 // Case 4: Should throw an error if a non-object is passed
-test("should throw error when non-object is passed");
+test("should throw error when non-object is passed", () => {
+  const nonObjects = [
+    null,
+    undefined,
+    42,
+    "The Curse",
+    true,
+    Infinity,
+    ["string"],
+  ];
+
+  nonObjects.forEach((nonObj) => {
+    try {
+      expect(() => contains(nonObj, "prop")).toThrow();
+    } catch (error) {
+      throw new Error(
+        `Failed to throw error when non-object ${nonObj} is passed: ${error.message}`
+      );
+    }
+  });
+});
