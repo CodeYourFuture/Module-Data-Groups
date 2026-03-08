@@ -45,3 +45,4 @@ module.exports = invert;
 // so you only ever get the last value.
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+// Fixed implementation of invert and added tests cases to prove it's fixed.
