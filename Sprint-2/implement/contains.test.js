@@ -1,77 +1,79 @@
 const contains = require("./contains.js");
 
-// Case 1: Should return true if the property exists in object.
-test("should return true when object contains passed property name", () => {
-  const objsWithValidProps = [
-    [{ a: 1, b: 2 }, "b"],
-    [{ name: "John", age: 30 }, "name"],
-    [{ nested: { key: "value" } }, "nested"],
-    [{ id: 123, status: "active", language: "JavaScript" }, "status"],
-    [{ data: [], items: null }, "data"],
-  ];
+describe("contains", () => {
+  // Case 1: Should return true if the property exists in object.
+  test("should return true when object contains passed property name", () => {
+    const objsWithValidProps = [
+      [{ a: 1, b: 2 }, "b"],
+      [{ name: "John", age: 30 }, "name"],
+      [{ nested: { key: "value" } }, "nested"],
+      [{ id: 123, status: "active", language: "JavaScript" }, "status"],
+      [{ data: [], items: null }, "data"],
+    ];
 
-  objsWithValidProps.forEach(([obj, prop]) => {
+    objsWithValidProps.forEach(([obj, prop]) => {
+      try {
+        expect(contains(obj, prop)).toEqual(true);
+      } catch (error) {
+        throw new Error(
+          `Failed to return true when ${prop} is present in obj: ${error.message}`
+        );
+      }
+    });
+  });
+
+  // Case 2: Should return false if the object does not contain the given property.
+  test("should return false when object does not contain passed property name", () => {
+    const objsWithoutProps = [
+      [{ a: 1, b: 2 }, "c"],
+      [{ name: "John", age: 30 }, "email"],
+      [{ nested: { key: "value" } }, "nonexistent"],
+      [{ id: 123, status: "active", language: "JavaScript" }, "description"],
+      [{ data: [], items: null }, "nonexistent"],
+    ];
+
+    objsWithoutProps.forEach(([obj, prop]) => {
+      try {
+        expect(contains(obj, prop)).toEqual(false);
+      } catch (error) {
+        throw new Error(
+          `Failed to return false when ${prop} is not present in obj: ${error.message}`
+        );
+      }
+    });
+  });
+
+  // Case 3: Should return false if the object is empty.
+  test("should return false when object is empty", () => {
     try {
-      expect(contains(obj, prop)).toEqual(true);
+      expect(contains({}, "anyProperty")).toEqual(false);
     } catch (error) {
       throw new Error(
-        `Failed to return true when ${prop} is present in obj: ${error.message}`
+        `Failed to return false when object is empty: ${error.message}`
       );
     }
   });
-});
 
-// Case 2: Should return false if the object does not contain the given property.
-test("should return false when object does not contain passed property name", () => {
-  const objsWithoutProps = [
-    [{ a: 1, b: 2 }, "c"],
-    [{ name: "John", age: 30 }, "email"],
-    [{ nested: { key: "value" } }, "nonexistent"],
-    [{ id: 123, status: "active", language: "JavaScript" }, "description"],
-    [{ data: [], items: null }, "nonexistent"],
-  ];
+  // Case 4: Should throw an error if a non-object is passed
+  test("should throw error when non-object is passed", () => {
+    const nonObjects = [
+      null,
+      undefined,
+      42,
+      "The Curse",
+      true,
+      Infinity,
+      ["string"],
+    ];
 
-  objsWithoutProps.forEach(([obj, prop]) => {
-    try {
-      expect(contains(obj, prop)).toEqual(false);
-    } catch (error) {
-      throw new Error(
-        `Failed to return false when ${ob} is not present in obj: ${error.message}`
-      );
-    }
-  });
-});
-
-// Case 3: Should return false if the object is empty.
-test("should return false when object is empty", () => {
-  try {
-    expect(contains({}, "anyProperty")).toEqual(false);
-  } catch (error) {
-    throw new Error(
-      `Failed to return false when object is empty: ${error.message}`
-    );
-  }
-});
-
-// Case 4: Should throw an error if a non-object is passed
-test("should throw error when non-object is passed", () => {
-  const nonObjects = [
-    null,
-    undefined,
-    42,
-    "The Curse",
-    true,
-    Infinity,
-    ["string"],
-  ];
-
-  nonObjects.forEach((nonObj) => {
-    try {
-      expect(() => contains(nonObj, "prop")).toThrow();
-    } catch (error) {
-      throw new Error(
-        `Failed to throw error when non-object ${nonObj} is passed: ${error.message}`
-      );
-    }
+    nonObjects.forEach((nonObj) => {
+      try {
+        expect(() => contains(nonObj, "prop")).toThrow();
+      } catch (error) {
+        throw new Error(
+          `Failed to throw error when non-object ${nonObj} is passed: ${error.message}`
+        );
+      }
+    });
   });
 });
