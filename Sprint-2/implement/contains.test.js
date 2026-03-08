@@ -63,4 +63,6 @@ test("contains incorrect object returns false", () => {
 // Then it should return false or throw an error
 test("contains incorrect object type returns false", () => {
   expect(contains([], "d")).toBe(false);
+  expect(contains("h", "d")).toBe(false);
+  expect(contains(9, "d")).toBe(false);
 });

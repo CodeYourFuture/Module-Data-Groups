@@ -6,24 +6,43 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
+// function invert(obj) {
+//   const invertedObj = {};
+
+//   for (const [key, value] of Object.entries(obj)) {
+//     invertedObj.key = value;
+//   }
+
+//   return invertedObj;
+// }
+// console.log(invert({ a: 1, b: 2 }));
+
+// a) What is the current return value when invert is called with { a : 1 }
+// it only returns { key: 1 }.
+
+// b) What is the current return value when invert is called with { a: 1, b: 2 }
+// it only returns 2 because the loop continues and rewrights the key
+
+// c) What is the target return value when invert is called with {a : 1, b: 2}
+// it should return { "1": "a", "2": "b" }
+
+// d) What does Object.entries return? Why is it needed in this program
+// Object.entries returns the key, value pairs for the object it is given.
+
+// e) Explain why the current return value is different from the target output
+// The invertedObj.key = value; is using the literal string "key" as its key instead of the variable key
+
+// f) Fix the implementation of invert (and write tests to prove it's fixed!)
+
 function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key;
   }
 
   return invertedObj;
 }
+console.log(invert({ a: 1, b: 2 }));
 
-// a) What is the current return value when invert is called with { a : 1 }
-
-// b) What is the current return value when invert is called with { a: 1, b: 2 }
-
-// c) What is the target return value when invert is called with {a : 1, b: 2}
-
-// c) What does Object.entries return? Why is it needed in this program?
-
-// d) Explain why the current return value is different from the target output
-
-// e) Fix the implementation of invert (and write tests to prove it's fixed!)
+module.exports = invert;
