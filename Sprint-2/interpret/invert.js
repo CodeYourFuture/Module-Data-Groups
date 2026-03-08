@@ -17,13 +17,21 @@ function invert(obj) {
 }
 
 // a) What is the current return value when invert is called with { a : 1 }
+// The current return value when invert is called with { a : 1 } is { key:1 }
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
+// The current return value when invert is called with { a: 1, b: 2 } is { key:2 }
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
+// The target return value when invert is called with {a : 1, b: 2} is { "1": "a", "2": "b" }
 
 // c) What does Object.entries return? Why is it needed in this program?
+// Object.entries converts an object into an array of [key, value] pairs,
+// it's needed so you can loop through both the key and value at the same time
 
 // d) Explain why the current return value is different from the target output
+// The bug is invertedObj.key = value - dot notation sets a literal key called "key",
+// instead of using the variable. It also overwrites itseld on every loop iteration,
+// so you only ever get the last value.
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
