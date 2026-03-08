@@ -1,35 +1,33 @@
 const contains = require("./contains.js");
 
-/*
-Implement a function called contains that checks an object contains a
-particular property
+// Case 1: Should return true if the property exists in object.
+test("should return true when object contains passed property name", () => {
+  const objsWithValidProps = [
+    [{ a: 1, b: 2 }, "b"],
+    [{ name: "John", age: 30 }, "name"],
+    [{ nested: { key: "value" } }, "nested"],
+    [{ id: 123, status: "active", language: "JavaScript" }, "status"],
+    [{ data: [], items: null }, "data"],
+  ];
 
-E.g. contains({a: 1, b: 2}, 'a') // returns true
-as the object contains a key of 'a'
+  objsWithValidProps.forEach((obj, prop) => {
+    try {
+      expect(contains(obj, prop)).toEqual(true);
+    } catch (error) {
+      throw new Error(
+        `Failed to return true when ${prop} is present in obj: ${error.message}`
+      );
+    }
+  });
+});
 
-E.g. contains({a: 1, b: 2}, 'c') // returns false
-as the object doesn't contains a key of 'c'
-*/
+// Case 2: Should return false if the object does not contain the given property.
+test.todo(
+  "should return false when object does not contain passed property name"
+);
 
-// Acceptance criteria:
+// Case 3: Should return false if the object is empty.
+test.todo("should return false when object is empty");
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
-
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
-
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
-
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
-
-// Given invalid parameters like an array
-// When passed to contains
-// Then it should return false or throw an error
+// Case 4: Should throw an error if a non-object is passed
+test.todo("should throw error when non-object is passed");
