@@ -54,4 +54,4 @@ test("should return false when object is empty", () => {
 });
 
 // Case 4: Should throw an error if a non-object is passed
-test.todo("should throw error when non-object is passed");
+test("should throw error when non-object is passed");
