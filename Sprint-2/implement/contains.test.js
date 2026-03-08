@@ -43,7 +43,15 @@ test("should return false when object does not contain passed property name", ()
 });
 
 // Case 3: Should return false if the object is empty.
-test.todo("should return false when object is empty");
+test("should return false when object is empty", () => {
+  try {
+    expect(contains({}, "anyProperty")).toEqual(false);
+  } catch (error) {
+    throw new Error(
+      `Failed to return false when object is empty: ${error.message}`
+    );
+  }
+});
 
 // Case 4: Should throw an error if a non-object is passed
 test.todo("should throw error when non-object is passed");
