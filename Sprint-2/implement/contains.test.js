@@ -22,9 +22,25 @@ test("should return true when object contains passed property name", () => {
 });
 
 // Case 2: Should return false if the object does not contain the given property.
-test.todo(
-  "should return false when object does not contain passed property name"
-);
+test("should return false when object does not contain passed property name", () => {
+  const objsWithoutProps = [
+    [{ a: 1, b: 2 }, "c"],
+    [{ name: "John", age: 30 }, "email"],
+    [{ nested: { key: "value" } }, "nonexistent"],
+    [{ id: 123, status: "active", language: "JavaScript" }, "description"],
+    [{ data: [], items: null }, "nonexistent"],
+  ];
+
+  objsWithoutProps.forEach(([obj, prop]) => {
+    try {
+      expect(contains(obj, prop)).toEqual(false);
+    } catch (error) {
+      throw new Error(
+        `Failed to return false when ${prop} is not present in obj: ${error.message}`
+      );
+    }
+  });
+});
 
 // Case 3: Should return false if the object is empty.
 test.todo("should return false when object is empty");
