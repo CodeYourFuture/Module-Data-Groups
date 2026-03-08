@@ -7,14 +7,24 @@
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
 function invert(obj) {
+  // Check if the input is not an object
+  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
+    throw new Error("Input must be an object");
+  }
+
   const invertedObj = {};
 
+  // Loop through each key value pair and swap them
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    // bracket notation uses the variable,
+    // not the literal string "key"
+    invertedObj[value] = key;
   }
 
   return invertedObj;
 }
+
+module.exports = invert;
 
 // a) What is the current return value when invert is called with { a : 1 }
 // The current return value when invert is called with { a : 1 } is { key:1 }
