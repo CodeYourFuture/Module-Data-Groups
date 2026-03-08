@@ -10,7 +10,7 @@ test("should return true when object contains passed property name", () => {
     [{ data: [], items: null }, "data"],
   ];
 
-  objsWithValidProps.forEach((obj, prop) => {
+  objsWithValidProps.forEach(([obj, prop]) => {
     try {
       expect(contains(obj, prop)).toEqual(true);
     } catch (error) {
