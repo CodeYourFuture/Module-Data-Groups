@@ -11,7 +11,7 @@ function totalTill(till) {
     total += Number(coin.slice(0, -1)) * Number(quantity);
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
 const till = {

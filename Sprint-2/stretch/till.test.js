@@ -8,7 +8,7 @@ test("given an object of coins, returns the total amount in pounds", () => {
       "20p": 10,
   };
   const givenInput = totalTill(till);
-  const expectedOutcome = "£4.4";
+  const expectedOutcome = "£4.40";
 
   expect(givenInput).toEqual(expectedOutcome);
 });
