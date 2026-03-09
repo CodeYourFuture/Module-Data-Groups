@@ -26,3 +26,26 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(str) {
+  const arr = str.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().split(" ")
+
+  let countObj = {};
+
+  for (const item of arr) {
+    
+    if (countObj[item]) {
+      countObj[item] = countObj[item] + 1
+    } else {
+      countObj[item] = 1;
+    }
+  }
+
+  // `Object.entries()` converts object to array
+  const sortedArray = Object.entries(countObj).sort((a, b) => b[1] - a[1]);
+
+  // `Object.fromEntries()` coverts the sorted array to object
+  return Object.fromEntries(sortedArray);
+}
+
+console.log(countWords("you? and! me, and you. me me me me hello Me"));
