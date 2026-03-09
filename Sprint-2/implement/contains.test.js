@@ -20,16 +20,38 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+
+test("contains on empty object returns false", () => {
+    expect(contains({})).toStrictEqual(false)
+});
+
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
 
+test("contains on object with an existing property name returns true", () => {
+    expect(contains({a: 1, b: 2, c: 3}, 'c')).toStrictEqual(true);
+    expect(contains({name: "John Doe", job: "developer"}, 'job')).toStrictEqual(true)
+    expect(contains({color: "blue", size: "xxl", madeOf: "China"}, 'madeOf')).toStrictEqual(true);
+})
+
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
 
+test("contains on object with properties with non-existent property name return false", () => {
+    expect(contains({a: 1, b: 2, c: 3}, 'g')).toStrictEqual(false);
+    expect(contains({a: 1, b: 2, c: 3}, 'abc')).toStrictEqual(false);
+    expect(contains({name: "John Doe", age: 31}, 'job')).toStrictEqual(false);
+})
+
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+
+test("contains on invalid parameters returns false", () => {
+    expect(contains(["a", "b", "c"])).toStrictEqual(false);
+    expect(contains("I am a string")).toStrictEqual(false);
+    expect(contains(777)).toStrictEqual(false);
+})
