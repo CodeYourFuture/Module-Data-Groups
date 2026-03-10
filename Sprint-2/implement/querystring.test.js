@@ -10,3 +10,23 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses a key without = as an empty string value", () => {
+  expect(parseQueryString("debug")).toEqual({
+    debug: "",
+  });
+});
+
+test("ignores empty pairs between separators", () => {
+  expect(parseQueryString("a=1&&b=2&")).toEqual({
+    a: "1",
+    b: "2",
+  });
+});
+
+test("supports query strings starting with ?", () => {
+  expect(parseQueryString("?name=cyf&city=manchester")).toEqual({
+    name: "cyf",
+    city: "manchester",
+  });
+});
