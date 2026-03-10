@@ -515,3 +515,23 @@ function displayQuotes() {
 displayQuotes();
 
 btn.addEventListener('click', displayQuotes)
+
+
+
+const checkAutoPlay = document.getElementById('autoplay');
+
+let intervalId;
+
+checkAutoPlay.addEventListener('change', e => {
+
+  if (e.target.checked) {
+
+    intervalId = setInterval(() => {
+      displayQuotes()
+    }, 5000);
+
+  } else {
+    clearInterval(intervalId);
+  }
+});
+
