@@ -8,19 +8,12 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    const coinValueInPence = Number.parseInt(coin, 10);
+    total += coinValueInPence * quantity;
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
-
-const till = {
-  "1p": 10,
-  "5p": 6,
-  "50p": 4,
-  "20p": 10,
-};
-const totalAmount = totalTill(till);
 
 // a) What is the target output when totalTill is called with the till object
 
@@ -29,3 +22,5 @@ const totalAmount = totalTill(till);
 // c) What does coin * quantity evaluate to inside the for...of loop?
 
 // d) Write a test for this function to check it works and then fix the implementation of totalTill
+
+module.exports = totalTill;
