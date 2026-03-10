@@ -496,11 +496,20 @@ const quoteParagraph = document.getElementById('quote');
 const authorParagraph = document.getElementById('author');
 const btn = document.getElementById('new-quote');
 
-function displayQuotes() {
-  const randomQuote = pickFromArray(quotes);
+let lastIndex = -1;
 
-  quoteParagraph.textContent = randomQuote.quote;
-  authorParagraph.textContent = randomQuote.author;
+function displayQuotes() {
+
+  let randomIndex;
+
+  do {
+    randomIndex = Math.floor(Math.random() * quotes.length);
+  } while (randomIndex === lastIndex);
+  
+  lastIndex = randomIndex;
+
+  quoteParagraph.textContent = quotes[randomIndex].quote;
+  authorParagraph.textContent = quotes[randomIndex].author;
 }
 
 displayQuotes();
