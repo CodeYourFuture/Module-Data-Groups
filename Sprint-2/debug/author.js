@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+// for...of can’t iterate plain objects directly, so it will throw a TypeError .
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
