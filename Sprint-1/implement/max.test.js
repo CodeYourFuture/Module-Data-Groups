@@ -62,5 +62,5 @@ test("ignores non-number values and returns the max number", () => {
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given an array with non-number values, returns Not a Number (NaN)", () => {
-  expect(findMax(["a", "b", "c"])).toEqual(NaN);
+  expect(findMax(["a", "b", "c"])).toBeNaN() // note: NaN !== NaN,
 });
