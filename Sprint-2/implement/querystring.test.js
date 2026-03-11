@@ -10,3 +10,28 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring with multiple key-value pairs", () => {
+  expect(parseQueryString("equation1=x=y+1&equation2=z=w+1")).toEqual({
+    "equation1": "x=y+1",
+    "equation2": "z=w+1"
+  });
+});
+
+
+test("parses querystring with keys but no values", () => {
+  expect(parseQueryString("equation1&equation2")).toEqual({
+    "equation1": "",
+    "equation2": ""
+  });
+});
+
+test ("parse querystring with empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+}); 
+
+test ("parses querystring with values and empty keys", () => {
+  expect(parseQueryString("z=w+1")).toEqual({
+    "": "z=w+1"
+  });
+});
