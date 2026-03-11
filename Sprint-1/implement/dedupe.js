@@ -1,3 +1,4 @@
+// start with the function;
 function dedupe(arr) {
   if (arr.length === 0) return [];
   let cleanArr = [];
