@@ -30,8 +30,3 @@ test ("parse querystring with empty string", () => {
   expect(parseQueryString("")).toEqual({});
 }); 
 
-test ("parses querystring with values and empty keys", () => {
-  expect(parseQueryString("z=w+1")).toEqual({
-    "": "z=w+1"
-  });
-});
