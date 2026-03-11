@@ -495,6 +495,10 @@ const quotes = [
 const quoteP = document.querySelector("#quote");
 const authorP = document.querySelector("#author");
 const newQuoteBtn = document.querySelector("#new-quote");
+const autoplayToggle = document.querySelector("#autoplay-toggle");
+const autoplayStatus = document.querySelector("#autoplay-status");
+
+let autoplayId = null;
 
 function showRandomQuote() {
   const randomQuote = pickFromArray(quotes);
@@ -502,5 +506,35 @@ function showRandomQuote() {
   authorP.innerText = randomQuote.author;
 }
 
+function setAutoplayStatus(isEnabled) {
+  autoplayStatus.innerText = isEnabled ? "auto-play:ON" : "auto-play:OFF";
+}
+
+function startAutoplay() {
+  if (autoplayId !== null) {
+    clearInterval(autoplayId);
+  }
+  autoplayId = setInterval(showRandomQuote, 60000);
+  setAutoplayStatus(true);
+}
+
+function stopAutoplay() {
+  if (autoplayId !== null) {
+    clearInterval(autoplayId);
+    autoplayId = null;
+  }
+  setAutoplayStatus(false);
+}
+
+function handleAutoplayToggle() {
+  if (autoplayToggle.checked) {
+    startAutoplay();
+  } else {
+    stopAutoplay();
+  }
+}
+
 showRandomQuote();
 newQuoteBtn.addEventListener("click", showRandomQuote);
+autoplayToggle.addEventListener("change", handleAutoplayToggle);
+setAutoplayStatus(false);

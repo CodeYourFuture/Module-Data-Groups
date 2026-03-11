@@ -57,6 +57,17 @@ h1 {
   cursor: pointer;
   border-radius: 4px;
 }
+
+#autoplay-controls {
+  margin-top: 14px;
+  color: white;
+  text-align: center;
+}
+
+#autoplay-status {
+  margin: 8px 0 0;
+}
+
 * {
   box-sizing: border-box;
 }
