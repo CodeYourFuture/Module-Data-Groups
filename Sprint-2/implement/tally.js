@@ -3,6 +3,10 @@ function tally(items) {
     throw new Error("Input must be an array");
   }
 
+  if (items.length === 0) {
+    return {};
+  }
+
   const counts = {};
 
   for (const item of items) {
