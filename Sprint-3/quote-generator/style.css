@@ -26,17 +26,19 @@ h1 {
 }
 
 .quote-box {
-  background: black;
+  width: 100%;
+  max-width: 700px;
+  background: white;
   padding: 30px;
   border-radius: 6px;
-  border: 2px solid #cc5500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   margin-bottom: 20px;
 }
 
 #quote {
   font-size: 26px;
   line-height: 1.5;
-  color: white;
+  color: #222;
   margin: 0;
   text-align: center;
 }
@@ -44,7 +46,7 @@ h1 {
 #author {
   margin-top: 20px;
   text-align: right;
-  color: white;
+  color: #333;
   font-weight: 600;
 }
 
