@@ -1,11 +1,12 @@
 function sum(elements) {
-  const filteredElements = elements.filter((element) =>
-    Number.isFinite(element)
-  );
+  const sumElements = elements.reduce((total, num) => {
+    if (Number.isFinite(num)) {
+      return total + num;
+    }
+    return total;
+  }, 0);
 
-  return parseFloat(
-    filteredElements.reduce((total, num) => total + num, 0).toFixed(10)
-  );
+  return parseFloat(sumElements.toFixed(10));
 }
 
 module.exports = sum;
