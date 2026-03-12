@@ -10,12 +10,11 @@ function calculateMedian(list) {
   if (!Array.isArray(list)) return null;
 
   // Filter only real numbers
-  const numbers = list.filter(
-    (item) => typeof item === "number" && !isNaN(item)
-  );
-
+  const numbers = list.filter((item) => Number.isFinite(item));
+  
   // If no numbers, return null
   if (numbers.length === 0) return null;
+
 
   // Sort numerically
   numbers.sort((a, b) => a - b);
