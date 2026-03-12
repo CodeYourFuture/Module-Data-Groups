@@ -55,8 +55,9 @@ test("contains returns false for non-existent property", () => {
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("contains handles invalid parameters", () => {
-  expect(contains([], "a")).toBe(false);
-  expect(contains(null, "a")).toBe(false);
-  expect(contains(undefined, "a")).toBe(false);
-});
+test("contains returns false for invalid input types", () => {
+  const arr = [1, 2, 3];
+  expect(contains(arr, "0")).toBe(false); // Arrays do not have properties like objects, so it should return false
+  expect(contains(null, "a")).toBe(false); // null is not an object, so it should return false
+  expect(contains(undefined, "a")).toBe(false); // undefined is not an object, so it should return false
+});   
