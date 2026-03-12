@@ -29,7 +29,7 @@ const currentReturnValue3 = invert({ a: 1, b: 2 });
 console.log(currentReturnValue3); // Output: { "1": "a", "2": "b" }
 
 // c) What does Object.entries return? Why is it needed in this program?
-// Object.entries returns an array of a given object's own enumerable string-keyed property [key, value] pairs. It is needed in this program to iterate over the key-value pairs of the input object so that we can swap them and create the inverted object.
+// Object.entries returns an array of a given object's  [key, value] pairs. It is needed in this program to iterate over the key-value pairs of the input object so that we can swap them and create the inverted object.
 
 // d) Explain why the current return value is different from the target output
 // The current return value is different from the target output because in the current implementation, we are assigning the value to a property named "key" in the inverted object, instead of using the actual key from the original object. This results in only the last key-value pair being stored in the inverted object, and it does not correctly swap the keys and values as intended.
