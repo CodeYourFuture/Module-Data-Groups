@@ -4,9 +4,7 @@ function sum(elements) {
   }
 
   // Filter only numeric values
-  const numbers = elements.filter(function (item) {
-    return typeof item === "number" && !isNaN(item);
-  });
+  const numbers = elements.filter((item) => Number.isFinite(item));
 
   // If no numeric values, return 0
   if (numbers.length === 0) {
