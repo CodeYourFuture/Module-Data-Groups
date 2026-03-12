@@ -19,7 +19,7 @@ function findMax(elements) {
   }
 
   // Otherwise, return the largest number
-  return Math.max.apply(null, numbers);
+  return Math.max(...numbers);
 }
 
 module.exports = findMax;
