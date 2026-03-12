@@ -9,4 +9,16 @@ test("parses querystring values containing =", () => {
   expect(parseQueryString("equation=x=y+1")).toEqual({
     equation: "x=y+1",
   });
+  expect(parseQueryString("FIVE=5")).toEqual({
+    FIVE: "5",
+  });
+  expect(parseQueryString("equation=x4=y+1")).toEqual({
+    equation: "x4=y+1",
+  });
+});
+
+test("Test for a null/empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+
+  //  expect(parseQueryString("=")).toEqual({":"});
 });
