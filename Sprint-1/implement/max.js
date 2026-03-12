@@ -9,9 +9,7 @@ function findMax(elements) {
   }
 
   // Filter only numeric values
-  const numbers = elements.filter(function (item) {
-    return typeof item === "number" && !isNaN(item);
-  });
+  const numbers = elements.filter((item) => Number.isFinite(item));
 
   // If there are no numeric values but the array wasn't empty, return null
   if (numbers.length === 0) {
