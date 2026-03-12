@@ -14,7 +14,3 @@ function tally(arr) {
 
 console.log(tally(["a", "a", "b", "c"]));
 module.exports = tally;
-// let chars = arr.reduce(
-//     (accsess, currentVal, i) => ({ ...arr, [i]: currentVal }),
-//     {}
-//   );
