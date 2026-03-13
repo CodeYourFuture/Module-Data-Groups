@@ -1,1 +1,25 @@
 /** Write your CSS in here **/
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10%;
+    background-color:rgba(35, 81, 56, 0.361);
+}
+
+#quote-box {
+    background-color:rgba(255, 255, 255, 0.918);
+    border-style: solid;
+    padding: 10%;
+}
+#author {
+    text-align: right;
+}
+#new-quote {
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(35, 81, 56, 0.361);
+    border-style: solid;
+}
