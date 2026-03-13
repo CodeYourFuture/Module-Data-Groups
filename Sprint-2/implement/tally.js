@@ -1,14 +1,14 @@
 function tally(array) {
-    let object = {};
-    if (Array.isArray(array)) {
-        for (const i of array) {
-            if (object.hasOwnProperty(i)) {
-                object[i] = object[i] + 1;
-            }
-            else object[i] = 1;
-        }
-    return object;}
-    else throw new Error("Invalid input");
+    if (!Array.isArray(array)) {
+        throw new Error("Invalid input");
+    }
+
+    let countedDuplicates = {};
+    for (const i of array) {
+        countedDuplicates[i] ??= 0;
+        countedDuplicates[i] = countedDuplicates[i] + 1;
+    }
+    return countedDuplicates;
 }
 
 module.exports = tally;
