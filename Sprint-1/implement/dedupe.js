@@ -1,1 +1,19 @@
-function dedupe() {}
+function dedupe(input) {
+  if (!Array.isArray(input)) {
+    return null;
+  }
+
+  const newArray = [];
+
+  for (let i = 0; i < input.length; i++) {
+    const element = input[i];
+    
+    if (!newArray.includes(element)) {
+      newArray.push(element);
+    }
+  }
+
+  return newArray;
+}
+
+module.exports = dedupe;
