@@ -1,5 +1,5 @@
 function findMax(elements) {
-  const numbers = elements.filter((element) => typeof element === "number");
+  const numbers = elements.filter(element.isFinite);
   if (numbers.length === 0) {
     return -Infinity;
   }
