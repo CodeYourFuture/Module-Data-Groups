@@ -74,3 +74,8 @@ function createListItem(todo, index) {
 
   return li;
 }
+
+document.getElementById("delete-completed-btn").addEventListener("click", () => {
+  Todos.deleteCompleted(todos);
+  render();
+});

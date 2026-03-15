@@ -27,3 +27,13 @@ export function toggleCompletedOnTask(todos, taskIndex) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
 }
+
+// Delete all completed tasks from the list
+export function deleteCompleted(todoList) {
+  // creating filtered object that holds not completed tasks
+  let filteredList = todoList.filter((element) => element.completed === false);
+  // removing all properties from todoList(todos)
+  todoList.length = 0;
+  // adding filtered tasks to todoList(todos)
+  filteredList.forEach((item) => todoList.push(item));
+}
