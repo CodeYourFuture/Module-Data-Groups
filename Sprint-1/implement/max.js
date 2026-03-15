@@ -1,10 +1,19 @@
 function findMax(elements) {
-  const numbers = elements.filter(element.isFinite);
-  if (numbers.length === 0) {
+  check = elements.constructor === Array;
+  if (check === true) {
+    let numbers = elements.filter((element = isFinite));
+    console.log("the value returned by numbers is = to " + numbers);
+    if (numbers.length === 0) {
+      return -Infinity;
+    }
+
+    let numbersA = Math.max(...numbers);
+    return numbersA;
+  } else {
     return -Infinity;
   }
-  numbers.sort((a, b) => a - b);
-  return numbers[numbers.length - 1];
 }
+
+console.log(findMax([4, "6", 2, "car", 1]));
 
 module.exports = findMax;
