@@ -6,10 +6,10 @@ function sum(elements) {
   return numbers.reduce((total, nextNumber) => total + nextNumber, 0);
 }
 console.log(sum([])); // 0
-console.log(sum([1]));// 1
-console.log(sum([5, 2, -3]));//4
-console.log(sum([1.5, 2.5, 3.5]));//7.5
-console.log(sum(["h", 2.5, "e", 3.5]));//6
-console.log(sum(["a", "b", "c", "d"]));//Nan
-6
+console.log(sum([1])); // 1
+console.log(sum([5, 2, -3])); //4
+console.log(sum([1.5, 2.5, 3.5])); //7.5
+console.log(sum(["h", 2.5, "e", 3.5])); //6
+console.log(sum(["a", "b", "c", "d"])); //Nan
+
 module.exports = sum;

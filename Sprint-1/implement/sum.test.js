@@ -48,5 +48,5 @@ test("given an array containing non-number values, it should ignore the non-numb
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given an array with non-number values, returns Not a Number (NaN)", () => {
-  expect(sum(["a", "b", "c"])).toBeNaN() // note: NaN !== NaN,
+  expect(sum(["a", "b", "c"])).toBeNaN(); // note: NaN !== NaN,
 });

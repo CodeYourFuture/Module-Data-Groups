@@ -2,7 +2,7 @@ function dedupe(arr) {
   if (arr.length === 0) {
     //checks if array is empty
     return arr;
-  }
+  };
   const newArray = []; // to store the new values after checking and deduplicating
   for (let i = 0; i < arr.length; i++) {
     // checks every item in array for dupes
@@ -10,9 +10,9 @@ function dedupe(arr) {
       //checks if new item is already in newArray
       newArray.push(arr[i]); // adds new item !in newArray and appends it
     }
-  }
+  };
   return newArray; // returns new array without duplicates/empty
-}
+};
 
 console.log(dedupe([])); // prints: []
 console.log(dedupe([1, 2, 3])); // prints: [ 1, 2, 3 ]

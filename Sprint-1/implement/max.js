@@ -2,7 +2,7 @@ function findMax(elements) {
   if (!Array.isArray(elements)) return null;
 
   if (elements.length === 0) return -Infinity;
-// must include declaration for infinity or test fails.
+  // must include declaration for infinity or test fails.
   const numbers = elements.filter((num) => typeof num === "number");
   if (numbers.length === 0) return NaN;
   // it returns NaN if no numbers found, there is  no need to sort the numbers

@@ -22,7 +22,7 @@ function calculateMedian(list) {
   }
   return sortedList[middleIndex];
   //if it is odd it returns the middle number
-}
+};
 //checking
 // console.log(calculateMedian([1, 2, "3", null, undefined, 4])); // 2
 // console.log(calculateMedian([1, 2, 3, 4])); // 2.5
