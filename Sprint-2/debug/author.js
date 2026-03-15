@@ -21,4 +21,4 @@ for (const value of Object.values(author)) {
   //writer
   //40
   //true
-}
+};
