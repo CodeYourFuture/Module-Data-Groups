@@ -2,7 +2,6 @@ function findMax(elements) {
   check = elements.constructor === Array;
   if (check === true) {
     let numbers = elements.filter((element = isFinite));
-    console.log("the value returned by numbers is = to " + numbers);
     if (numbers.length === 0) {
       return -Infinity;
     }
