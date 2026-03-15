@@ -33,6 +33,16 @@ test("Should throw an error for an invalid parameters", () => {
   const propertyName = "a";
   expect(() => contains(object, propertyName)).toThrow();
 });
+test("Should throw an error for an invalid parameters", () => {
+  const object = null;
+  const propertyName = "a";
+  expect(() => contains(object, propertyName)).toThrow();
+});
+test("Should throw an error for an invalid parameters", () => {
+  const object = "hi";
+  const propertyName = "a";
+  expect(() => contains(object, propertyName)).toThrow();
+});
 // Acceptance criteria:
 
 // Given a contains function
