@@ -20,7 +20,11 @@ const tally = require("./tally.js");
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
 test("tally on an empty array returns an empty object", () => {
-  expect(tally(["a", "b", "a"])).toEqual({ a: 2, b: 1 });
+  expect(tally(["apples", "bananas", "apples", "orange", "bananas"])).toEqual({
+    apples: 2,
+    bananas: 2,
+    orange: 1,
+  });
   expect(tally(["ants", "bear", "ants", "antalope"])).toEqual({
     ants: 2,
     bear: 1,
@@ -45,7 +49,10 @@ test("tally on an empty array returns an empty object", () => {
 // When passed to tally
 // Then it should return counts for each unique item
 test("tally it should return counts for each unique item", () => {
-  expect(tally(["a", "b", "a"])).toEqual({ a: 2, b: 1 });
+  expect(tally(["armadillos", "boa_constrictor", "armadillos"])).toEqual({
+    armadillos: 2,
+    boa_constrictor: 1,
+  });
   expect(tally(["ants", "bear", "ants", "antalope"])).toEqual({
     ants: 2,
     bear: 1,

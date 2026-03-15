@@ -12,5 +12,5 @@ function tally(arr) {
   return count;
 }
 
-console.log(tally(["a", "a", "b", "c"]));
+console.log(tally("cheese"));
 module.exports = tally;
