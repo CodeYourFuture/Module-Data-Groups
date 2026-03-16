@@ -1,9 +1,10 @@
+// 1. filter: leep only elements that are onlyNumbers.
+// 2. spread (...) take the numbers out of the Array
+// 3. Math.max find the largest number and return -infinity if empty.
+
 function findMax(elements) {
-  if (elements.length === 0 || elements.every((el) => typeof el !== "number")) {
-    return -Infinity;
-  } else {
-    return Math.max(...elements.filter((el) => typeof el === "number"));
-  }
+    const onlyNumbers = elements.filter((element) => typeof element === "number")
+    return Math.max(...onlyNumbers);
 }
 
 module.exports = findMax;
