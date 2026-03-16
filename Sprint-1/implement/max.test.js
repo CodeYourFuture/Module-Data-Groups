@@ -40,7 +40,7 @@ test("should return the largest number when given both positive and negative num
 // When passed to the max function
 // Then it should return the closest one to zero
 test("should return the closest number to zero when given only negative numbers", () => {
-  expect(findMax([-1, -3, -2, 0])).toEqual(-1);
+  expect(findMax([-1, -3, -2, 0])).toEqual(0);
 });
 
 // Given an array with decimal numbers
