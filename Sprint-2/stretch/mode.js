@@ -9,28 +9,29 @@
 // into smaller functions using the stages above
 
 function calculateMode(list) {
-  // track frequency of each value
-  let freqs = new Map();
-
+  // Stage 1: Count frequencies
+  let freqs = {};
   for (let num of list) {
-    if (typeof num !== "number") {
-      continue;
+    if (typeof num !== "number") continue; // skip non-number values
+
+    if (freqs[num] === undefined) {
+      freqs[num] = 1;
+    } else {
+      freqs[num] += 1;
     }
-
-    freqs.set(num, (freqs.get(num) || 0) + 1);
   }
-
-  // Find the value with the highest frequency
+  // Stage 2: Find the value with the highest frequency
   let maxFreq = 0;
-  let mode;
-  for (let [num, freq] of freqs) {
-    if (freq > maxFreq) {
-      mode = num;
-      maxFreq = freq;
+  let mode = null;
+
+  for (let num in freqs) {
+    if (freqs[num] > maxFreq) {
+      maxFreq = freqs[num];
+      mode = Number(num); // convert string key to number
     }
   }
 
-  return maxFreq === 0 ? NaN : mode;
+  return mode;
 }
 
 module.exports = calculateMode;
