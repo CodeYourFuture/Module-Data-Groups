@@ -8,7 +8,7 @@ function dedupe(list) {
   {
     if(!result.includes(item))
     {
-        result.push(item)
+        result.push(item);
     }
     }
     return result;
