@@ -31,8 +31,18 @@ function setAlarm() {
 }
 
 // mm:ss formatting
+function updateTimeDisplay(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
 
-//00:00 format
+  //00:00 format
+  const formattedMinutes = minutes.toString().padStart(2, "0");
+  const formattedSeconds = seconds.toString().padStart(2, "0");
+
+  const timeString = `${formattedMinutes}:${formattedSeconds}`;
+  document.getElementById("timeRemaining").innerText =
+    `Time Remaining: ${timeString}`;
+}
 
 // DO NOT EDIT BELOW HERE
 
