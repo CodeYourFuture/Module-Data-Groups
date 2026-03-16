@@ -2,8 +2,7 @@
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
-// the "author" is an object so it needs to be in square brackets to be called
-
+// using the key word "Object.velues" and assigning it to a variable passes only the values to the Object
 const author = {
   firstName: "Zadie",
   lastName: "Smith",
@@ -11,7 +10,5 @@ const author = {
   age: 40,
   alive: true,
 };
-
-for (const value of [author]) {
-  console.log(value);
-}
+let details = Object.values(author);
+console.log(details);
