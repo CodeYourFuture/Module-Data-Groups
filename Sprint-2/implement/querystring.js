@@ -1,6 +1,10 @@
 function parseQueryString(queryString) {
+  // const type = typeof queryString;
+  // if (type !== "string") {
+  //   return "invalid input";
+  // }
   const queryParams = {};
-  if (queryString.length === 0) {
+  if (queryString.length === 0 || queryString.match(/[^=]\w*/)) {
     return queryParams;
   }
   const keyValuePairs = queryString.split("&");
@@ -16,8 +20,8 @@ function parseQueryString(queryString) {
 
   return queryParams;
 }
-console.log(parseQueryString("y=8&r=y"));
+console.log(parseQueryString("3=89"));
+console.log(parseQueryString("5"));
 console.log(parseQueryString("equation=x=y+1"));
-console.log(parseQueryString("="));
 
 module.exports = parseQueryString;

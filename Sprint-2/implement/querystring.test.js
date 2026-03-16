@@ -21,4 +21,5 @@ test("Test for a null/empty string", () => {
   expect(parseQueryString("")).toEqual({});
 
   expect(parseQueryString("=")).toEqual({ "": "" });
+  expect(parseQueryString("abc").toEqual({}));
 });

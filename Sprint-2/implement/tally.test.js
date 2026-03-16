@@ -69,3 +69,9 @@ test("tally it should return counts for each unique item", () => {
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+test("When given an input other than an array", () => {
+  expect(tally("feet")).toBe("input requires an array");
+  expect(tally(67)).toBe("input requires an array");
+  expect(tally(true)).toBe("input requires an array");
+  expect(tally({ 3: 4 })).toBe("input requires an array");
+});
