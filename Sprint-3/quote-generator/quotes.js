@@ -491,3 +491,47 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+const quoteParagraph = document.getElementById('quote');
+const authorParagraph = document.getElementById('author');
+const btn = document.getElementById('new-quote');
+
+let lastIndex = -1;
+
+function displayQuotes() {
+
+  let randomIndex;
+
+  do {
+    randomIndex = Math.floor(Math.random() * quotes.length);
+  } while (randomIndex === lastIndex);
+  
+  lastIndex = randomIndex;
+
+  quoteParagraph.textContent = quotes[randomIndex].quote;
+  authorParagraph.textContent = quotes[randomIndex].author;
+}
+
+displayQuotes();
+
+btn.addEventListener('click', displayQuotes)
+
+
+
+const checkAutoPlay = document.getElementById('autoplay');
+
+let intervalId;
+
+checkAutoPlay.addEventListener('change', e => {
+
+  if (e.target.checked) {
+
+    intervalId = setInterval(() => {
+      displayQuotes()
+    }, 5000);
+
+  } else {
+    clearInterval(intervalId);
+  }
+});
+
