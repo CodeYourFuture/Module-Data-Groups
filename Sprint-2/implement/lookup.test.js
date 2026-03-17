@@ -13,29 +13,23 @@ test("creates a country currency code lookup for a single code pair", () => {
 
 // Case 2: Returns country currency codes lookup for multiple country-currency pairs
 test("creates a country currency code lookup for multiple codes", () => {
-  try {
-    const countryCurrencyPairs = [
-      ["US", "USD"],
-      ["CA", "CAD"],
-      ["GB", "GBP"],
-      ["ZA", "ZAR"],
-      ["NG", "NGN"],
-    ];
+  const countryCurrencyPairs = [
+    ["US", "USD"],
+    ["CA", "CAD"],
+    ["GB", "GBP"],
+    ["ZA", "ZAR"],
+    ["NG", "NGN"],
+  ];
 
-    const currencyObj = createLookup(countryCurrencyPairs);
+  const currencyObj = createLookup(countryCurrencyPairs);
 
-    expect(currencyObj).toEqual({
-      US: "USD",
-      CA: "CAD",
-      GB: "GBP",
-      ZA: "ZAR",
-      NG: "NGN",
-    });
-  } catch (error) {
-    throw new Error(
-      `Failed to create the currency lookup object for ${JSON.stringify(countryCurrencyPairs)}: ${error.message}`
-    );
-  }
+  expect(currencyObj).toEqual({
+    US: "USD",
+    CA: "CAD",
+    GB: "GBP",
+    ZA: "ZAR",
+    NG: "NGN",
+  });
 });
 
 /*
