@@ -11,6 +11,10 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const key in author) {
+  console.log(author[key]);
 }
+
+// for iterating in an object for...in can be used
+// and each iteration it returns the key
+// then each value can be accessed
