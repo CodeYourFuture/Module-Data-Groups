@@ -1,34 +1,33 @@
-h1{font-size: 0;}
+h1 {
+  font-size: 0;
+}
 body {
   background-color: rgb(2, 185, 176);
 }
 .contaner {
-    height: 300px;
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 25% 25% 25% 25%
-     margin: 10%;
-     padding: 20px;
-     background-color: rgb(8, 248, 232);
+  height: 300px;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 25% 25% 25% 25%;
+  background-color: rgb(8, 248, 232);
 }
 .contaner div {
   text-shadow: 4px;
   padding: 10px;
 }
 .item1 {
-    font-size: 40px;
-    grid-row: 1/5;
-    grid-column: 1 / 5;
+  font-size: 40px;
+  grid-row: 1/5;
+  grid-column: 1 / 5;
 }
 .item2 {
-        font-size: 20px;
-        grid-row: 3/4;
-        grid-column: 5/6;
+  font-size: 20px;
+  grid-row: 3/4;
+  grid-column: 5/6;
 }
-.item3{
-    border-radius: 40px;
-    font-size: 15px;
-    grid-row: 4/5;
-    grid-column: 5 / 6;
-
+.item3 {
+  border-radius: 40px;
+  font-size: 15px;
+  grid-row: 4/5;
+  grid-column: 5 / 6;
 }
