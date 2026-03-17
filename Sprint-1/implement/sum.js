@@ -1,10 +1,6 @@
 function sum(elements) {
 
-    let initialValue = 0;
-    const onlyNumbers = elements.filter((element) => typeof element === "number");
-    let totalSum = onlyNumbers.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue);
-    
-    return totalSum;
+    return elements.reduce((acc, curr) => (typeof curr === "number" ? acc + curr : acc), 0)
 }
 
 module.exports = sum;
