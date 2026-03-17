@@ -1,0 +1,17 @@
+{
+  "name": "quote-generator",
+  "version": "1.0.0",
+  "license": "CC-BY-SA-4.0",
+  "description": "You must update this package",
+  "scripts": {
+    "test": "jest --config=../jest.config.js quote-generator"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeYourFuture/CYF-Coursework-Template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
+  },
+  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme"
+}
