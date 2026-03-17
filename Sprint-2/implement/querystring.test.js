@@ -10,3 +10,18 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+test("An empty string should return an empty object",()=>{
+  expect(parseQueryString("")).toEqual({});
+});
+test("parses querystring parameters with an empty value",()=>{
+  expect(parseQueryString("name=")).toEqual({name :""});
+});
+test("handles querystring parameters that have no = sign",()=>{
+  expect(parseQueryString("flag")).toEqual({flag:""})
+});
+test("parses querystring values containing multiple = characters",()=>{
+  expect(parseQueryString("token=a=b=c=d")).toEqual({token:"a=b=c=d"});
+});
+test("handles multiple querystring parameters when one value contains =",()=>{
+  expect(parseQueryString("a=1&equation=x=y+1")).toEqual({a:"1", equation:"x=y+1"});
+});
