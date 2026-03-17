@@ -3,14 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <link href="style.css" rel="stylesheet" />
+    <title>Quote of the day page</title>
     <script defer src="quotes.js"></script>
   </head>
-  <body onload="pickNewQuoteToDisplay()">
-    <h1>hello there</h1>
 
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" class="button" id="new-quote">New quote</button>
+  <body onload="pickNewQuoteToDisplay()">
+    <h1>quote for today</h1>
+    <div class="contaner">
+      <div class="item1"><p id="quote"></p></div>
+      <div class="item2"><p id="author"></p></div>
+
+      <button type="button" class="item3" id="new-quote">New quote</button>
+    </div>
   </body>
 </html>

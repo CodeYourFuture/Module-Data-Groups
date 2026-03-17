@@ -8,8 +8,8 @@ function pickNewQuoteToDisplay(quote) {
   let quoteForDisplay = quoteAndAuther.quote;
   let authorForDisplay = quoteAndAuther.author;
   // prints the values to the page
-  document.getElementById("quote").innerHTML = quoteForDisplay;
-  document.getElementById("author").innerHTML = authorForDisplay;
+  document.getElementById("quote").innerHTML = "'" + quoteForDisplay + "'";
+  document.getElementById("author").innerHTML = ":-" + authorForDisplay;
 }
 
 //function randomQuote()
