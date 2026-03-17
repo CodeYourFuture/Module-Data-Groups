@@ -47,4 +47,12 @@ describe("dedupe", () => {
     it(`returns a copy of array removing the duplicates from [${input}]`, () =>
       expect(dedupe(input)).toEqual(expected))
   );
+
+  // Given an input value that is not array could be null or undefined or just a number or string
+  // When passed to the dedupe function
+  // Then it should thrown an error
+  [null, 930, "just a string", undefined, {}].forEach((val) =>
+    it("throw an error if the input is not an array", () =>
+      expect(() => dedupe(val)).toThrow(val + " is not an array"))
+  );
 });

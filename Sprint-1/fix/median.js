@@ -7,15 +7,23 @@
 
 function calculateMedian(list) {
   let median = null;
-  if (Array.isArray(list) && !list.every((item) => typeof item != "number")) {
-    numericList = list.filter((item) => typeof item === "number");
-    sortedList = numericList.toSorted((a, b) => a - b);
-    const middleIndex = Math.floor(sortedList.length / 2);
-    if (sortedList.length % 2 === 0) {
-      const medianArray = sortedList.splice(middleIndex - 1, 2);
-      median = (medianArray[0] + medianArray[1]) / 2;
-    } else median = sortedList.splice(middleIndex, 1)[0];
-  }
+  //return null if the list is not an array
+  if (!Array.isArray(list)) return median;
+
+  // return null if none of the items in the array is a number
+  if (!list.some((item) => typeof item === "number")) return median;
+
+  let numericArray = list.filter((item) => typeof item === "number");
+  let sortedArray = numericArray.toSorted((a, b) => a - b);
+  const middleIndex = Math.floor(sortedArray.length / 2);
+
+  //check if the number of items in the array are even or odd
+  // and then calculate the median accordingly
+  if (sortedArray.length % 2 === 0)
+    median = (sortedArray[middleIndex - 1] + sortedArray[middleIndex]) / 2;
+  else median = sortedArray[middleIndex];
+
+  if (median === null) throw new Error("Median can't be null");
   return median;
 }
 

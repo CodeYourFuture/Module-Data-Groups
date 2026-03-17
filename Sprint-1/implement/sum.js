@@ -1,9 +1,11 @@
 function sum(array) {
-  numbersArray = array.filter((value) => typeof value === "number");
-  let sum = 0;
-  numbersArray.forEach((element) => {
-    sum += element;
-  });
+  if (!Array.isArray(array)) throw new Error(array + " is not an array");
+  let numbersArray = array.filter((value) => typeof value === "number");
+  let initialValue = 0;
+  let sum = numbersArray.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue
+  );
   return sum;
 }
 

@@ -104,4 +104,12 @@ describe("findMax", () => {
     it(`returns the least surprising value for only non-numbers array [${input}]`, () =>
       expect(findMax(input)).toEqual(expected))
   );
+
+  // Given an input that is not array could be null or undefined or just a number or string
+  // When passed to the findMax function
+  // Then it should thrown an error
+  [null, 930, "just a string", undefined, {}].forEach((val) =>
+    it("throw an error if the input is not an array", () =>
+      expect(() => findMax(val)).toThrow(val + " is not an array"))
+  );
 });

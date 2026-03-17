@@ -1,6 +1,7 @@
+const fs = require("fs"); //getting file system to read file
+
 function getFinalFrequency() {
   let finalFrequency = 0;
-  const fs = require("fs"); //getting file system to read file
 
   const data = fs.readFileSync("input.txt", "utf8");
   const numbers = data

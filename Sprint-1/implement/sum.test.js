@@ -75,4 +75,12 @@ describe("sum", () => {
     it(`array containing only non-number values [${input}] should should return 0`, () =>
       expect(sum(input)).toEqual(expected))
   );
+
+  // Given an input value that is not array could be null or undefined or just a number or string
+  // When passed to the sum function
+  // Then it should thrown an error
+  [null, 930, "just a string", undefined, {}].forEach((val) =>
+    it("throw an error if the input is not an array", () =>
+      expect(() => sum(val)).toThrow(val + " is not an array"))
+  );
 });
