@@ -10,3 +10,16 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring values doesn't contain =", () => {
+  expect(parseQueryString("equationxy1")).toEqual({});
+});
+
+test("given a query string with no query parameters, returns an empty object", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("given a query string with multiple key-value pairs, returns them in object form", () => {
+  expect(parseQueryString("sort=lowest&colour=yellow")).toEqual({sort: "lowest", colour: "yellow"});
+});
+

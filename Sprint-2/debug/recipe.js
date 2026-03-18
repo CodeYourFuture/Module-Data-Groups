@@ -1,4 +1,5 @@
 // Predict and explain first...
+// the issue here is with line 16 ${recipe}. I guess it will log out thw whole content of the recipe object, both key and value. 
 
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
@@ -12,4 +13,4 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join('\n')}`);
