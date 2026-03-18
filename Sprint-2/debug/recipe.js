@@ -1,8 +1,9 @@
 // Predict and explain first...
 
 // This program should log out the title, how many it serves and the ingredients.
-// Each ingredient should be logged on a new line
-// How can you fix it?
+// Each ingredient should be logged on a new line.
+// The original code tried to print the entire recipe object,
+// which resulted in "[object Object]" instead of the ingredients.
 
 const recipe = {
   title: "bruschetta",
@@ -10,6 +11,11 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+// Print title and serving size
+console.log(`${recipe.title} serves ${recipe.serves}`);
+console.log("ingredients:");
+
+// Loop through the ingredients array and print each one
+for (const ingredient of recipe.ingredients) {
+  console.log(ingredient);
+}
