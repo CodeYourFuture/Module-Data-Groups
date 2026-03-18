@@ -16,12 +16,37 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+test("given an empty array, it returns an empty array", () => {
+  expect(dedupe([])).toEqual([]);
+});
 
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
-
+test("The function should return a copy of the original array if the array contains no duplicates", () => {
+  expect(dedupe([2, 4, 5, 6, 8])).toEqual([2, 4, 5, 6, 8]);
+  expect(dedupe([3, 7, 5, 8, 14, 19])).toEqual([3, 7, 5, 8, 14, 19]);
+  expect(dedupe(["apple", "banana", "milk", "egg"])).toEqual([
+    "apple",
+    "banana",
+    "milk",
+    "egg",
+  ]);
+});
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
+test("The function should return a clean array when a duplicated array is passed", () => {
+  expect(dedupe([2, 2, 4, 4, 5, 5, 6, 6, 6, 6, 8, 8, 8, 8])).toEqual([
+    2, 4, 5, 6, 8,
+  ]);
+  expect(dedupe([1, 1, 1, 2, 2, 3, 3, 4, 4, 6, 6, 7, 7, 8])).toEqual([
+    1, 2, 3, 4, 6, 7, 8,
+  ]);
+  expect(
+    dedupe(["ahmed", "ahmed", "chris", "chris", "tom", "tom", "joy"])
+  ).toEqual(["ahmed", "chris", "tom", "joy"]);
+  expect(
+    dedupe([2, 2, "apple", "apple", 5, 5, "samsung", "samsung", 8, 8])
+  ).toEqual([2, "apple", 5, "samsung", 8]);
+});
