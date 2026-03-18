@@ -108,8 +108,28 @@ describe("findMax", () => {
   // Given an input that is not array could be null or undefined or just a number or string
   // When passed to the findMax function
   // Then it should thrown an error
-  [null, 930, "just a string", undefined, {}].forEach((val) =>
-    it("throw an error if the input is not an array", () =>
-      expect(() => findMax(val)).toThrow(val + " is not an array"))
-  );
+
+  test("should thrown an error  if the input is null", () => {
+    expect(() => findMax(null)).toThrow(null + " is not an array");
+  });
+
+  test("should thrown an error  if the input is a number", () => {
+    const number = 980;
+    expect(() => findMax(number)).toThrow(number + " is not an array");
+  });
+  test("should thrown an error  if the input is a string", () => {
+    const string = "just a string";
+    expect(() => findMax(string)).toThrow(string + " is not an array");
+  });
+
+  test("should thrown an error  if the input is undefined", () => {
+    expect(() => findMax(undefined)).toThrow(undefined + " is not an array");
+  });
+
+  test("should thrown an error  if the input is an object", () => {
+    const emptyObject = {};
+    expect(() => findMax(emptyObject)).toThrow(
+      emptyObject + " is not an array"
+    );
+  });
 });

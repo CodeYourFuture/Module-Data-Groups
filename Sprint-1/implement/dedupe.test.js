@@ -16,7 +16,7 @@ describe("dedupe", () => {
   // Then it should return an empty array
   it("given an empty array it should return an empty array", () => {
     const array = [];
-    dedupeArray = dedupe(array);
+    const dedupeArray = dedupe(array);
     expect(dedupeArray).toEqual([]);
   });
 
@@ -51,8 +51,25 @@ describe("dedupe", () => {
   // Given an input value that is not array could be null or undefined or just a number or string
   // When passed to the dedupe function
   // Then it should thrown an error
-  [null, 930, "just a string", undefined, {}].forEach((val) =>
-    it("throw an error if the input is not an array", () =>
-      expect(() => dedupe(val)).toThrow(val + " is not an array"))
-  );
+  test("should thrown an error  if the input is null", () => {
+    expect(() => dedupe(null)).toThrow(null + " is not an array");
+  });
+
+  test("should thrown an error  if the input is a number", () => {
+    const number = 123;
+    expect(() => dedupe(number)).toThrow(number + " is not an array");
+  });
+  test("should thrown an error  if the input is a string", () => {
+    const string = "this is a string";
+    expect(() => dedupe(string)).toThrow(string + " is not an array");
+  });
+
+  test("should thrown an error  if the input is undefined", () => {
+    expect(() => dedupe(undefined)).toThrow(undefined + " is not an array");
+  });
+
+  test("should thrown an error  if the input is an object", () => {
+    const emptyObject = {};
+    expect(() => dedupe(emptyObject)).toThrow(emptyObject + " is not an array");
+  });
 });

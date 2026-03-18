@@ -79,8 +79,25 @@ describe("sum", () => {
   // Given an input value that is not array could be null or undefined or just a number or string
   // When passed to the sum function
   // Then it should thrown an error
-  [null, 930, "just a string", undefined, {}].forEach((val) =>
-    it("throw an error if the input is not an array", () =>
-      expect(() => sum(val)).toThrow(val + " is not an array"))
-  );
+  test("should thrown an error  if the input is null", () => {
+    expect(() => sum(null)).toThrow(null + " is not an array");
+  });
+
+  test("should thrown an error  if the input is a number", () => {
+    const number = 123;
+    expect(() => sum(number)).toThrow(number + " is not an array");
+  });
+  test("should thrown an error  if the input is a string", () => {
+    const string = "this is a string";
+    expect(() => sum(string)).toThrow(string + " is not an array");
+  });
+
+  test("should thrown an error  if the input is undefined", () => {
+    expect(() => sum(undefined)).toThrow(undefined + " is not an array");
+  });
+
+  test("should thrown an error  if the input is an object", () => {
+    const emptyObject = {};
+    expect(() => sum(emptyObject)).toThrow(emptyObject + " is not an array");
+  });
 });

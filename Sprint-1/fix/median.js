@@ -23,7 +23,6 @@ function calculateMedian(list) {
     median = (sortedArray[middleIndex - 1] + sortedArray[middleIndex]) / 2;
   else median = sortedArray[middleIndex];
 
-  if (median === null) throw new Error("Median can't be null");
   return median;
 }
 
