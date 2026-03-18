@@ -17,16 +17,21 @@
 
 // You don't need to change this function
 function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];// Math.random() generates a random number between 0 (inclusive) and 1 (exclusive). Multiplying it by choices.length gives a random number between 0 and the length of the array. Math.floor() rounds it down to the nearest whole number, which is used as an index to pick an item from the array.
+  return choices[Math.floor(Math.random() * choices.length)]; // Math.random() generates a random number between 0 (inclusive) and 1 (exclusive). Multiplying it by choices.length gives a random number between 0 and the length of the array. Math.floor() rounds it down to the nearest whole number, which is used as an index to pick an item from the array.
 }
 function setup() {
-  const button = document.getElementById("new-quote");// Get the button element using its DOM ID
-  button.addEventListener("click", () => {// Add a click event listener to the button
-    const quote = pickFromArray(quotes);// Call the pickFromArray function with the quotes array to get a random quote
-    document.getElementById("quote").innerText = quote.quote;      // Display quote
-    document.getElementById("author").innerText = quote.author;    // Display author
-  
-  });
+  const button = document.getElementById("new-quote"); // Get the button element using its DOM ID
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+
+  function renderRandomQuote() {
+    const selectedQuote = pickFromArray(quotes); // Call the pickFromArray function with the quotes array to get a random quote
+    quoteElement.innerText = selectedQuote.quote; // Display quote
+    authorElement.innerText = selectedQuote.author; // Display author
+  }
+
+  renderRandomQuote();
+  button.addEventListener("click", renderRandomQuote); // Add a click event listener to the button
 }
 
 // A list of quotes you can use in your app.
