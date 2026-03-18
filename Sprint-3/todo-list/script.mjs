@@ -20,13 +20,17 @@ window.addEventListener("load", () => {
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("deadline-input");
+
   const task = taskInput.value.trim();
+  const deadline = deadlineInput.value || null;
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
     render();
   }
 
   taskInput.value = "";
+  deadlineInput.value = "";
 }
 
 // Note:
@@ -60,6 +64,16 @@ function createListItem(todo, index) {
   li.querySelector(".description").textContent = todo.task;
   if (todo.completed) {
     li.classList.add("completed");
+  }
+
+  const deadlineEl = li.querySelector(".deadline");
+
+  if (todo.deadline) {
+    const date = new Date(todo.deadline);
+    const formattedDate = date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    deadlineEl.textContent = ` (Due: ${formattedDate})`;
+  } else {
+    deadlineEl.textContent = "";
   }
 
   li.querySelector('.complete-btn').addEventListener("click", () => {
