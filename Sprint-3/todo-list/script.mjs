@@ -74,3 +74,9 @@ function createListItem(todo, index) {
 
   return li;
 }
+
+// "Delete Completed Tasks" button
+document.querySelector(".delete-completed-btn").addEventListener("click", () => {
+  Todos.deleteCompletedTasks(todos);
+  render();
+});

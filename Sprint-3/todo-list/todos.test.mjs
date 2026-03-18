@@ -130,3 +130,36 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+describe("deleteCompletedTasks()", () => {
+
+  test("Expect all completed tasks to be deleted", () => {
+    const todos = createMockTodos();
+    Todos.deleteCompletedTasks(todos);
+    expect(todos).toHaveLength(2);
+    expect(todos[0]).toEqual({ task: "Task 2 description", completed: false });
+    expect(todos[1]).toEqual({ task: "Task 4 description", completed: false });        
+  });
+
+  test("Expect no change if there are no completed tasks", () => {
+    const todos = [
+      { task: "", completed: false },
+      { task: "Task 2 description", completed: false },
+    ];
+    const todosBeforeDeletion = [
+      { task: "Task 1 description", completed: false },
+      { task: "Task 2 description", completed: false },
+    ];
+    Todos.deleteCompletedTasks(todos);
+    expect(todos).toEqual(todosBeforeDeletion);
+  });
+
+  test("Expect all tasks to be deleted if all tasks are completed", () => {
+    const todos = [
+      { task: "Task 1 description", completed: true },
+      { task: "Task 2 description", completed: true },
+    ];
+    Todos.deleteCompletedTasks(todos);
+    expect(todos).toHaveLength(0);
+  });
+});
+
