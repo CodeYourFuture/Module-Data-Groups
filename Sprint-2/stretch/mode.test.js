@@ -9,7 +9,7 @@ const calculateMode = require("./mode.js");
 // Example:
 // Given [2,4,1,2,3,2,1]
 // When calculateMode is called on [2,4,1,2,3,2,1]
-// Then it should return 2 */
+// Then it should return 2 */ 
 
 describe("calculateMode()", () => {
   test("returns the most frequent number in an array", () => {
