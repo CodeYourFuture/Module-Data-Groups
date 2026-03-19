@@ -11,6 +11,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }
+// Objects are not iterable, so for...of can’t be used on them unless you convert them to an array (e.g. with Object.values).
