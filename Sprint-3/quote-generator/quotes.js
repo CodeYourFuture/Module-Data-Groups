@@ -15,11 +15,6 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
-// You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
-}
-
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
@@ -491,3 +486,52 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+// Function to pick a random quote
+function pickFromArray() {
+  const quoteEl = document.getElementById("quote");
+  const authorEl = document.getElementById("author");
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+
+  quoteEl.textContent = `" ${quotes[randomIndex].quote} "`;
+  authorEl.textContent = `-- ${quotes[randomIndex].author} --`;
+  return randomIndex;
+}
+
+// Setup function for browser only
+function setupQuoteApp() {
+  const button = document.getElementById("new-quote");
+  const autoplayCheckbox = document.getElementById("autoplay");
+  const autoplayStatus = document.getElementById("autoplay-status");
+
+  // Don't call pickFromArray here for Jest test
+  if (typeof window !== "undefined" && window.document) {
+    pickFromArray();
+
+    button.addEventListener("click", () => pickFromArray());
+
+    let autoplayInterval = null;
+    autoplayCheckbox.addEventListener("change", () => {
+      if (autoplayCheckbox.checked) {
+        autoplayInterval = setInterval(pickFromArray, 5000);
+        autoplayStatus.textContent = "Auto-play: ON";
+        autoplayStatus.style.color = "#4CAF50";
+      } else {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+        autoplayStatus.textContent = "Auto-play: OFF";
+        autoplayStatus.style.color = "brown";
+      }
+    });
+  }
+}
+
+// Only run setup in browser environment
+if (typeof window !== "undefined") {
+  window.addEventListener("DOMContentLoaded", setupQuoteApp);
+}
+
+// Export function for Jest tests
+if (typeof module !== "undefined") {
+  module.exports = pickFromArray;
+}

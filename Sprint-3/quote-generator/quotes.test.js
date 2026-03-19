@@ -2,6 +2,9 @@
 There are some Tests in this file that will help you work out if your code is working.
 */
 
+require("@testing-library/jest-dom");
+// @jest-environment jsdom
+const pickFromArray = require("./quotes.js");
 const path = require("path");
 const { JSDOM } = require("jsdom");
 
