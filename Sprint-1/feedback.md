@@ -3,7 +3,7 @@
 ## `Sprint-1/fix/median.js`
 
 When using array methods, it is important to recognise:
-- Does the method mutate the array?
+- Will the method mutate the array?
 - If the method returns an array, is the returned array a new array or the original array?
 
 For this exercise, we should avoid modifying the original array.  
@@ -42,6 +42,14 @@ Number.isFinite(num)
 Number.isInteger(num)
 Number.isSafeInteger(num)
 ```
+
+### Testing if the function can correctly ignore non-numeric values
+When a string representing a valid numeric literal (for example, `"300"`) is compared to a number, 
+JavaScript first converts the string into its numeric equivalent before performing the comparison. 
+As a result, the expression `20 < "300"` evaluates to `true`.
+
+To test if the function can correctly ignore non-numeric values, consider including a string 
+such as `"300"` in the related test cases.
 
 ## `Sprint-1/implement/sum.test.js`
 
