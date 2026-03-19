@@ -2,7 +2,11 @@ const dedupe = require("./dedupe.js");
 /*
 Dedupe Array
 
+<<<<<<< HEAD
 📖 Dedupe means deduplicate
+=======
+ Dedupe means deduplicate
+>>>>>>> a22ed15 (Address mentor feedback for sprint 1 data groups)
 
 In this kata, you will need to deduplicate the elements of an array
 
@@ -23,8 +27,17 @@ test("given an empty array, it returns an empty array", () => {
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+<<<<<<< HEAD
 test("given an array with no duplicates, it returns the same values", () => {
   expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);
+=======
+test("given an array with no duplicates, it returns a copy of the original array", () => {
+  const input = [1, 2, 3];
+  const result = dedupe(input);
+
+  expect(result).toEqual(input);
+  expect(result).not.toBe(input);
+>>>>>>> a22ed15 (Address mentor feedback for sprint 1 data groups)
 });
 
 // Given an array with strings or numbers
