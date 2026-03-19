@@ -37,6 +37,8 @@ test("given an array with negative numbers, returns the correct sum", () => {
 // Then it should return the correct total sum
 test("given an array with decimal numbers, returns the correct sum", () => {
   expect(sum([1.5, 2.5, 3.0])).toEqual(7);
+  // toBeCloseTo is used for floating point calculations to avoid precision issues
+  expect(sum([1.2, 0.6, 0.005])).toBeCloseTo(1.805);
 });
 
 // Given an array containing non-number values
