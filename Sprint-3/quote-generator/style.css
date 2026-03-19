@@ -1,1 +1,27 @@
 /** Write your CSS in here **/
+body {
+  background-color: #f3a638; /* The orange background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: serif;
+}
+
+.container { 
+  background-color: white;
+  padding: 40px;
+  width: 60%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+#new-quote {
+  background-color: #f3a638;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  float: right;
+}
