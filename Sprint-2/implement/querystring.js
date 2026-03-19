@@ -22,7 +22,8 @@ function parseQueryString(queryString) {
     const value = eqIndex === -1 ? "" : segment.slice(eqIndex + 1);
 
     if (key) {
-      queryParams[key] = value;
+      // Decode percent-encoded characters in both key and value
+      queryParams[decodeURIComponent(key)] = decodeURIComponent(value);
     }
   }
 
