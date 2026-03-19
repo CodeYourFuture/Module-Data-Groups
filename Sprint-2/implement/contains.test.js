@@ -77,14 +77,14 @@ describe("containsProperty", () => {
   // When passed to contains
   // Then it should return false or throw an error
   [
-    { input: [1], property: "a", expected: true },
-    { input: null, property: "c", expected: false },
-    { input: undefined, property: "what", expected: false },
-    { input: [1, 2, 3], property: "what", expected: false },
-  ].forEach(({ input, property, expected }) =>
+    { input: [1], property: "a" },
+    { input: null, property: "c" },
+    { input: undefined, property: "what" },
+    { input: [1, 2, 3], property: "what" },
+  ].forEach(({ input, property }) =>
     it(`Should return false as ${input} is not an object`, () =>
       expect(() => contains(input, property)).toThrow(
-        "It is not a valid object"
+        "Input is not a valid object"
       ))
   );
 });
