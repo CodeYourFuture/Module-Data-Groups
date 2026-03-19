@@ -6,8 +6,9 @@ function tally(arr) {
     throw new Error("Input must be an array");
   }
 
-  // Create an empty obkect to store our counts
-  const counts = {};
+  // Create an empty object with no inherited properties
+  // This prevents conflicts with built in properties like "toString"
+  const counts = Object.create(null);
 
   // Loop through each item in the array one by one
   for (const item of arr) {
