@@ -12,10 +12,13 @@ function calculateMedian(list) {
   const nums = list.filter((x) => typeof x === "number" && isFinite(x));
   // Return null if no valid numbers remain
   if (nums.length === 0) return null;
-
-  const sorted = [...nums].sort((a, b) => a - b);
+  // Sort the numbers in ascending order
+  // filter already returns a new array so need to spread before spreading
+  const sorted = nums.sort((a, b) => a - b);
+  // Find the middle index of the sorted array
   const middleIndex = Math.floor(sorted.length / 2);
-
+  // If odd length, return the middle index
+  // If even length, return the average of the two middle elements
   return sorted.length % 2 !== 0
     ? sorted[middleIndex]
     : (sorted[middleIndex - 1] + sorted[middleIndex]) / 2;
