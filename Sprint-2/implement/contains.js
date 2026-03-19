@@ -5,8 +5,8 @@ function contains(object, propertyName) {
   if (typeof object !== "object") return false;
   if (Array.isArray(object)) return false;
 
-  // Use hasOwnProperty to check only own properties
-  return Object.prototype.hasOwnProperty.call(object, propertyName);
+  // Use Object.hasOwn to check only own properties
+  return Object.hasOwn(object, propertyName);
 }
 
 module.exports = contains;
