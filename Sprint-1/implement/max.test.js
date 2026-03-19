@@ -54,6 +54,8 @@ test("given an array with decimal numbers, return the largest decimal number", (
 // Then it should return the max and ignore non-numeric values
 test("given an array with non-numeric values, returns the max and ignores non-numerics", () => {
   expect(findMax(["hey", 10, "hi", 60, 10])).toEqual(60);
+  // "300" looks numeric but is a string, so it should be ignored
+  expect(findMax([10, "300", 20])).toEqual(20);
 });
 
 // Given an array with only non-number values
