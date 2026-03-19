@@ -30,6 +30,8 @@ test("given an array with no duplicates, it returns a copy of the original array
   expect(result).toEqual(input);
   // Check it's a different array, not the same reference
   expect(result).not.toBe(input);
+  // Check that a duplicate input is correctly deduped in the result
+  expect(dedupe([1, 1, 2, 3])).toEqual([1, 2, 3]);
 });
 
 // Given an array with strings or numbers
