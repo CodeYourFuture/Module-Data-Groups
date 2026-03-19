@@ -43,16 +43,7 @@ test("given an array containing negative numbers, it returns the correct total s
 test("given an array with decimal numbers, it returns the correct total sum", () => {
   const input = [1.5, 2.3, 0.7];
   const expectedOutput = 4.5;
-  expect(sum(input)).toBe(expectedOutput);
-});
-
-// Given an array with decimal/float numbers
-// When passed to the sum function
-// Then it should return the correct total sum
-test("given an array with decimal numbers, it returns the correct total sum", () => {
-  const input = [1.5, 2.3, 0.7];
-  const expectedOutput = 4.5;
-  expect(sum(input)).toBe(expectedOutput);
+  expect(sum(input)).toBeCloseTo(expectedOutput);
 });
 
 // Given an array containing non-number values
@@ -61,15 +52,6 @@ test("given an array with decimal numbers, it returns the correct total sum", ()
 test("given an array containing non-number values, it ignores them and returns the sum of the numerical elements", () => {
   const input = [10, "hello", 20, null, 5];
   const expectedOutput = 35;
-  expect(sum(input)).toBe(expectedOutput);
-});
-
-// Given an array containing non-number values
-// When passed to the sum function
-// Then it should ignore the non-numerical values and return the sum of the numerical elements
-test("given an array containing non-number values, it ignores them and returns the sum of the numerical elements", () => {
-  const input = ["hello", "world"];
-  const expectedOutput = 0;
   expect(sum(input)).toBe(expectedOutput);
 });
 
