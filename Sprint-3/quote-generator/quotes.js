@@ -10,6 +10,7 @@ function displayQuote() {
 
 window.addEventListener("load", () => {
   displayQuote();
+  newQuoteBtn.addEventListener("click", displayQuote);
 });
 // DO NOT EDIT BELOW HERE
 
