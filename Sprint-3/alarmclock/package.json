@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
   },
-  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme"
+  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
+  "dependencies": {
+    "jest": "^30.3.0"
+  }
 }
