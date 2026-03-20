@@ -51,3 +51,18 @@ test("should return the sum of the numerical elements and ignore non-numerical v
 test("Should return 0 for an array with only non-numbers", () => {
     expect(sum(['hey', 'hi', 'hello'])).toEqual(0);
 })
+
+// Given an array with NaN and numbers
+// When passed to the sum function
+// Then it should ignore NaN and return the sum of the numbers
+test("should ignore NaN and return the correct sum", () => {
+  expect(sum([NaN, 1, 5])).toEqual(6);
+});
+
+
+// Given an array with Infinity and -Infinity
+// When passed to the sum function
+// Then it should return NaN (standard JS behavior for infinite subtraction)
+test("should return NaN when summing Infinity and -Infinity", () => {
+  expect(sum([Infinity, -Infinity])).toBeNaN();
+});
