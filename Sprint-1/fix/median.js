@@ -31,7 +31,7 @@ function calculateMedian(list) {
   }
 
   // now we change to use the numsOnly otherwise will take string as numbers
-  const sortArr = [...numsOnly].sort((a, b) => a - b);
+  const sortArr = numsOnly.sort((a, b) => a - b);
 
   // divide the array to find the middle position.
   const middleIndex = Math.floor(sortArr.length / 2);
