@@ -20,8 +20,6 @@ const findMax = require("./max.js");
 test("should return -Infinity when given an empty array", () => {
   expect(findMax([])).toEqual(-Infinity);
 });
-
-
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
@@ -57,6 +55,12 @@ test("should ignore non-numeric values (strings, etc.) and return the max", () =
   expect(findMax(["hey", 10, "hi", 60, 10])).toEqual(60);
 });
 
+// Given an array with numbers and NaN
+// When passed to the findMax function
+// Then it should ignore NaN and return the largest number
+test("should ignore NaN and return the max of the remaining numbers", () => {
+  expect(findMax([0, NaN, 1])).toEqual(1);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
@@ -65,3 +69,9 @@ test("given an array with only non-number values, it returns -Infinity", () => {
   expect(findMax(["abc", "def"])).toEqual(-Infinity);
 });
 
+// Given an array with only NaN values
+// When passed to the findMax function
+// Then it should return -Infinity
+test("should return -Infinity when the array contains only NaN", () => {
+  expect(findMax([NaN])).toEqual(-Infinity);
+});
