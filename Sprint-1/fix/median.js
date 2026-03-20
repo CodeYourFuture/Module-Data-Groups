@@ -12,20 +12,16 @@
 //using [...list] is a safe immutable sorting
 // const sortArr = [...list].sort((a, b) => a - b);
 
-
-
-function calculateMedian(list) { 
-  // if is not an array 
-  if(!Array.isArray(list)){
+function calculateMedian(list) {
+  // if is not an array
+  if (!Array.isArray(list)) {
     return null;
   }
 
-  //checking only numbers and not null and empty
-  const numsOnly = list.filter(
-    (n) => typeof n === "number" && n !== null && !isNaN(n)
-  );
+  // Filter for valid numbers only typeof n === "number"' already excludes null, strings, and objects
+  const numsOnly = list.filter((n) => typeof n === "number" && !isNaN(n));
 
-  //if return numbers check if after cleaning the length is same as expected or empty
+  // if return numbers check if after cleaning the length is same as expected or empty
   if (numsOnly.length === 0) {
     return null;
   }
@@ -43,7 +39,6 @@ function calculateMedian(list) {
     return (leftHalf + rightHalf) / 2;
   }
   return sortArr[middleIndex];
-  
 }
 
 module.exports = calculateMedian;
