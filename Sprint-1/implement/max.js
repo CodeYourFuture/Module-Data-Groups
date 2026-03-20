@@ -3,8 +3,9 @@
 // 3. Math.max find the largest number and return -infinity if empty.
 
 function findMax(elements) {
-    const onlyNumbers = elements.filter((element) => typeof element === "number")
+    const onlyNumbers = elements.filter((element) => typeof element === "number" && !Number.isNaN(element))
     return Math.max(...onlyNumbers);
 }
 
 module.exports = findMax;
+
