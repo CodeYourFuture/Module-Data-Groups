@@ -35,11 +35,7 @@ test("given an array with negative numbers, returns the correct sum", () => {
 // When passed to the sum function
 // Then it should return the correct total sum
 test("given an array with decimal numbers, returns the correct sum", () => {
-<<<<<<< HEAD
-  expect(sum([1.5, 2.5, 3])).toBe(7);
-=======
   expect(sum([1.2, 0.6, 0.005])).toBeCloseTo(1.805, 10);
->>>>>>> a22ed15 (Address mentor feedback for sprint 1 data groups)
 });
 
 // Given an array containing non-number values
