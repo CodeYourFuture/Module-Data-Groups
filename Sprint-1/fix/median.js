@@ -10,7 +10,7 @@ function calculateMedian(list) {
     return null;
   }
   const numbersOnly = list.filter(item => typeof item === 'number');
-  const sorted = [...numbersOnly].sort((a, b) => a - b);
+  const sorted = numbersOnly.sort((a, b) => a - b);
 
   if (sorted.length === 0) {
     return null;

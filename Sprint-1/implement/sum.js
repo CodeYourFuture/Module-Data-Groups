@@ -1,14 +1,11 @@
-function sum(elements)
-{    let sum = 0;
-    for (let i = 0; i < elements.length; i++) {
-        if (typeof elements[i] === "number"){
-            sum += elements[i];
-        }
+function sum(elements) {
+  let sum = 0;
+  for (let i = 0; i < elements.length; i++) {
+    if (Number.isFinite(elements[i])) {
+      sum += elements[i];
     }
-    
-    return sum;
+  }
+  return sum;
 }
-
-
 
 module.exports = sum;
