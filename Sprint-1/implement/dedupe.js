@@ -6,6 +6,7 @@ function dedupe(array) {
       result.push(item);
     }
   }
+  return result;
 }
 
 module.exports = dedupe;
