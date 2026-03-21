@@ -1,42 +1,65 @@
-// Store everything imported from './todos.mjs' module as properties of an object named Todos 
+// Import all exported functions from todos.mjs
 import * as Todos from "./todos.mjs";
 
-// To store the todo tasks
+// Store todo tasks here
 const todos = [];
 
-// Set up tasks to be performed once on page load
+// Cache DOM elements so we do not query the DOM repeatedly
+const todoListEl = document.getElementById("todo-list");
+const newTaskInputEl = document.getElementById("new-task-input");
+const deadlineInputEl = document.getElementById("deadline-input");
+const addTaskButtonEl = document.getElementById("add-task-btn");
+const deleteCompletedButtonEl = document.getElementById("delete-completed-btn");
+
+// Template for each todo list item
+const todoListItemTemplate =
+  document.getElementById("todo-item-template").content.firstElementChild;
+
+// Set up the app when the page loads
 window.addEventListener("load", () => {
-  document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
+  addTaskButtonEl.addEventListener("click", addNewTodo);
+  deleteCompletedButtonEl.addEventListener("click", deleteCompletedTodos);
 
-  // Populate sample data
-  Todos.addTask(todos, "Wash the dishes", false); 
-  Todos.addTask(todos, "Do the shopping", true);
+  // Hardcoded sample tasks shown on page load
+  Todos.addTask(todos, "Wash the dishes", false, "");
+  Todos.addTask(todos, "Do the shopping", true, "2026-03-24");
+  Todos.addTask(todos, "Prepare for Saturday class", false, "2026-03-26");
 
-  render();
+  populateTodoList();
 });
 
-
-// A callback that reads the task description from an input field and 
-// append a new task to the todo list.
+/**
+ * Reads input values and adds a new todo to the list.
+ */
 function addNewTodo() {
-  const taskInput = document.getElementById("new-task-input");
-  const task = taskInput.value.trim();
-  if (task) {
-    Todos.addTask(todos, task, false);
-    render();
+  const task = newTaskInputEl.value.trim();
+  const deadline = deadlineInputEl.value;
+
+  // Do not add empty tasks
+  if (!task) {
+    return;
   }
 
-  taskInput.value = "";
+  Todos.addTask(todos, task, false, deadline);
+  populateTodoList();
+
+  // Clear inputs after adding
+  newTaskInputEl.value = "";
+  deadlineInputEl.value = "";
 }
 
-// Note:
-// - Store the reference to the <ul> element with id "todo-list" here
-//   to avoid querying the DOM repeatedly inside render().
-// - This variable is declared here to be close to the only function that uses it.
-const todoListEl = document.getElementById("todo-list");
+/**
+ * Deletes all completed todos.
+ */
+function deleteCompletedTodos() {
+  Todos.deleteCompletedTasks(todos);
+  populateTodoList();
+}
 
-// Render the whole todo list
-function render() {
+/**
+ * Clears and rebuilds the todo list from the hardcoded/current todos array.
+ */
+function populateTodoList() {
   todoListEl.innerHTML = "";
 
   todos.forEach((todo, index) => {
@@ -45,31 +68,44 @@ function render() {
   });
 }
 
-
-// Note:
-// - First child of #todo-item-template is a <li> element.
-//   We will create each ToDo list item as a clone of this node.
-// - This variable is declared here to be close to the only function that uses it.
-const todoListItemTemplate = 
-  document.getElementById("todo-item-template").content.firstElementChild;
-
-// Create a <li> element for the given todo task
+/**
+ * Creates one <li> element for a given todo.
+ */
 function createListItem(todo, index) {
-  const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
+  const li = todoListItemTemplate.cloneNode(true);
 
-  li.querySelector(".description").textContent = todo.task;
-  if (todo.completed) {
-    li.classList.add("completed");
+  const descriptionEl = li.querySelector(".description");
+  const deadlineEl = li.querySelector(".deadline");
+  const completeButtonEl = li.querySelector(".complete-btn");
+  const deleteButtonEl = li.querySelector(".delete-btn");
+
+  descriptionEl.textContent = todo.task;
+
+  // Show deadline if one exists
+  if (todo.deadline) {
+    deadlineEl.textContent = `Deadline: ${todo.deadline}`;
+  } else {
+    deadlineEl.textContent = "";
   }
 
-  li.querySelector('.complete-btn').addEventListener("click", () => {
+  // Show completed state
+  if (todo.completed) {
+    li.classList.add("completed");
+    completeButtonEl.textContent = "✅";
+  } else {
+    completeButtonEl.textContent = "☑";
+  }
+
+  // Toggle task completion
+  completeButtonEl.addEventListener("click", () => {
     Todos.toggleCompletedOnTask(todos, index);
-    render();
+    populateTodoList();
   });
-    
-  li.querySelector('.delete-btn').addEventListener("click", () => {
+
+  // Delete individual task
+  deleteButtonEl.addEventListener("click", () => {
     Todos.deleteTask(todos, index);
-    render();
+    populateTodoList();
   });
 
   return li;
