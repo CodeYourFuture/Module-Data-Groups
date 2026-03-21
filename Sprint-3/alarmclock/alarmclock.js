@@ -10,7 +10,7 @@ function setAlarm() {
     return;
   }
   // Store the input as the remaining seconds to count down
-  remainingSeconds = minutes;
+  remainingSeconds = minutes * 60;
   // Clear any existing timer before starting a new one
   if (timerInterval !== null) {
     clearInterval(timerInterval);
