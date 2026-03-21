@@ -5,7 +5,7 @@
 //   npm test todos.test.mjs
 
 // Import all the exported members through an object
-import * as Todos from "./todos.mjs";
+import * as Todos from "./todos.js";
 
 // Return a mock ToDo List data with exactly 4 elements.
 function createMockTodos() {
@@ -130,3 +130,40 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+describe("deleteCompleted()", () => {
+  test("removes all completed tasks from the list", () => {
+    const todos = createMockTodos();
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([
+      { task: "Task 2 description", completed: false },
+      { task: "Task 4 description", completed: false },
+    ]);
+  });
+
+  test("does nothing if no tasks are completed", () => {
+    const todos = [
+      { task: "Task A", completed: false },
+      { task: "Task B", completed: false },
+    ];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([
+      { task: "Task A", completed: false },
+      { task: "Task B", completed: false },
+    ]);
+  });
+
+  test("removes all tasks if all are completed", () => {
+    const todos = [
+      { task: "Task A", completed: true },
+      { task: "Task B", completed: true },
+    ];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([]);
+  });
+});
