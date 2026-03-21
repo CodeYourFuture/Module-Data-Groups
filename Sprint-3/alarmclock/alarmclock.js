@@ -1,4 +1,44 @@
-function setAlarm() {}
+let countdownTimerId = null;
+
+function setAlarm() {
+  const heading = document.getElementById("timeRemaining");
+  const input = document.getElementById("alarmSet");
+
+  let remainingSeconds = Number(input.value);
+
+  if (!Number.isFinite(remainingSeconds) || remainingSeconds < 0) {
+    remainingSeconds = 0;
+  }
+
+  remainingSeconds = Math.floor(remainingSeconds);
+
+  if (countdownTimerId !== null) {
+    clearInterval(countdownTimerId);
+  }
+
+  const updateHeading = () => {
+    const minutes = Math.floor(remainingSeconds / 60)
+      .toString()
+      .padStart(2, "0");
+    const seconds = (remainingSeconds % 60).toString().padStart(2, "0");
+    heading.innerText = `Time Remaining: ${minutes}:${seconds}`;
+  };
+
+  updateHeading();
+
+  countdownTimerId = setInterval(() => {
+    if (remainingSeconds > 0) {
+      remainingSeconds -= 1;
+      updateHeading();
+    }
+
+    if (remainingSeconds === 0) {
+      clearInterval(countdownTimerId);
+      countdownTimerId = null;
+      playAlarm();
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
