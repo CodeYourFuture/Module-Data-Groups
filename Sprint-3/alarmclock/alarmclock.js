@@ -9,10 +9,10 @@ function setAlarm() {
   let timeRemaining = parseInt(input);
   const display = document.getElementById("timeRemaining");
 
-  // Show initial time
-  display.textContent = `Time Remaining: 00:${timeRemaining
-    .toString()
-    .padStart(2, "0")}`;
+ const minutes = Math.floor(timeRemaining / 60);
+const seconds = timeRemaining % 60;
+
+display.textContent = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 
   // Clear any previous timer
   clearInterval(countdown);
