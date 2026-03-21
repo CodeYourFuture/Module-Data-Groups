@@ -1,1 +1,72 @@
-/** Write your CSS in here **/
+/* Apply box-sizing to all elements so padding and borders
+   do not affect the final width and height unexpectedly */
+* {
+  box-sizing: border-box;
+}
+
+/* Basic page styling */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  color: #222222;
+}
+
+/* Main layout container */
+.container {
+  max-width: 750px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Page heading */
+h1 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* Card that holds the quote and author */
+.quote-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* Quote text styling */
+.quote-text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Author text styling */
+.quote-author {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #555555;
+}
+
+/* Button styling */
+#new-quote {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #0b5ed7;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Button hover state */
+#new-quote:hover {
+  background-color: #094db1;
+}
+
+/* Button keyboard focus state */
+#new-quote:focus {
+  outline: 3px solid #99c2ff;
+  outline-offset: 3px;
+}/** Write your CSS in here **/
