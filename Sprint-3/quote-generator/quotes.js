@@ -499,25 +499,40 @@ const autoplayToggle = document.querySelector("#autoplay-toggle");
 const autoplayStatus = document.querySelector("#autoplay-status");
 
 let autoplayId = null;
+let currentQuote = null;
 
+// Picks and displays a random quote, avoiding the same quote twice in a row.
 function showRandomQuote() {
-  const randomQuote = pickFromArray(quotes);
+  let randomQuote = pickFromArray(quotes);
+
+  if (quotes.length > 1) {
+    while (randomQuote === currentQuote) {
+      randomQuote = pickFromArray(quotes);
+    }
+  }
+
+  currentQuote = randomQuote;
   quoteP.innerText = randomQuote.quote;
   authorP.innerText = randomQuote.author;
 }
 
+// Updates the status text to reflect whether auto-play is on or off.
 function setAutoplayStatus(isEnabled) {
   autoplayStatus.innerText = isEnabled ? "auto-play:ON" : "auto-play:OFF";
 }
 
+// Starts auto-play and immediately shows a new quote as user feedback.
 function startAutoplay() {
   if (autoplayId !== null) {
     clearInterval(autoplayId);
   }
+
+  showRandomQuote();
   autoplayId = setInterval(showRandomQuote, 60000);
   setAutoplayStatus(true);
 }
 
+// Stops auto-play if it is running and updates the status text.
 function stopAutoplay() {
   if (autoplayId !== null) {
     clearInterval(autoplayId);
@@ -526,6 +541,7 @@ function stopAutoplay() {
   setAutoplayStatus(false);
 }
 
+// Handles checkbox changes to start or stop auto-play.
 function handleAutoplayToggle() {
   if (autoplayToggle.checked) {
     startAutoplay();
