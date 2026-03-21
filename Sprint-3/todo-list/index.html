@@ -1,40 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ToDo List</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="script.mjs"></script>
+  </head>
+  <body>
+    <div class="todo-container">
+      <h1>My Todo List</h1>
 
-  <script type="module" src="script.mjs"></script>
-</head>
-<body>
-  <div class="todo-container">
-    <h1>My ToDo List</h1>
+      <div class="todo-input">
+        <input
+          type="text"
+          id="new-task-input"
+          placeholder="Enter a new task..."
+          aria-label="Enter a new task"
+        />
 
-    <div class="todo-input">
-      <input type="text" id="new-task-input" placeholder="Enter a new task..." />
-      <button id="add-task-btn">Add</button>
+        <input
+          type="date"
+          id="deadline-input"
+          aria-label="Set a deadline"
+        />
+
+        <button id="add-task-btn" type="button">Add</button>
+      </div>
+
+      <div class="todo-actions">
+        <button id="delete-completed-btn" type="button">
+          Delete Completed
+        </button>
+      </div>
+
+      <ul id="todo-list" class="todo-list"></ul>
+
+      <!--
+        Template used to create each todo list item in JavaScript.
+        Add class "completed" to <li> when the task is complete.
+      -->
+      <template id="todo-item-template">
+        <li class="todo-item">
+          <div class="todo-content">
+            <button class="complete-btn" type="button" aria-label="Complete task">
+              ☑
+            </button>
+
+            <div class="todo-text-group">
+              <span class="description">Task description</span>
+              <span class="deadline"></span>
+            </div>
+          </div>
+
+          <button class="delete-btn" type="button" aria-label="Delete task">
+            🗑
+          </button>
+        </li>
+      </template>
     </div>
-
-    <ul id="todo-list" class="todo-list">      
-    </ul>
-
-    <!-- 
-      This is a template for the To-do list item. 
-      It can simplify the creation of list item node in JS script.
-    -->
-    <template id="todo-item-template">
-      <li class="todo-item"> <!-- include class "completed" if the task completed state is true -->
-        <span class="description">Task description</span>
-        <div class="actions">
-          <button class="complete-btn"><span class="fa-solid fa-check" aria-hidden="true"></span></button>
-          <button class="delete-btn"><span class="fa-solid fa-trash" aria-hidden="true"></span></button>
-        </div>
-      </li>
-    </template>
-
-  </div>
-</body>
+  </body>
 </html>
