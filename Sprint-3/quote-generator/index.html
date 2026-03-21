@@ -3,13 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="style.css" />
     <script defer src="quotes.js"></script>
+    <script defer src="script.js"></script>
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <main class="container">
+      <h1>Quote Generator</h1>
+
+      <section class="quote-card" aria-live="polite">
+        <p id="quote" class="quote-text">Loading quote...</p>
+        <p id="author" class="quote-author"></p>
+      </section>
+
+      <button type="button" id="new-quote">New Quote</button>
+    </main>
   </body>
 </html>
