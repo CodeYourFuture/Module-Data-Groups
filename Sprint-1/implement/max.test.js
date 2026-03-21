@@ -40,6 +40,11 @@ test("returns the largest decimal number", () => {
 // Then it should return the max and ignore non-numeric values
 test("ignores non-numeric values and returns the max number", () => {
   expect(findMax(["hey", 10, "hi", 60, 10])).toBe(60);
+
+  // CJ's feedback: Ensure numeric strings like "300" are ignored.
+  // The function should not coerce strings into numbers during comparison.
+  // In this case, 10 is the maximum because "300" is a string and should be skipped.
+  expect(findMax(["300", 10, 2])).toBe(10);
 });
 
 // Given an array with only non-number values

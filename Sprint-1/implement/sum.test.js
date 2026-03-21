@@ -25,7 +25,9 @@ test("correctly sums arrays containing negative numbers", () => {
 // When passed to the sum function
 // Then it should return the correct total sum
 test("correctly sums decimal numbers", () => {
-  expect(sum([1.5, 2.5, 3.0])).toBe(7);
+  // تم التعديل هنا باستخدام toBeCloseTo لضمان دقة حساب الأرقام العشرية
+  expect(sum([1.5, 2.5, 3.0])).toBeCloseTo(7);
+  expect(sum([0.1, 0.2])).toBeCloseTo(0.3);
 });
 
 // Given an array containing non-number values
