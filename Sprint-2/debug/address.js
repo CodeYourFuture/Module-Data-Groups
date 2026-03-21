@@ -1,5 +1,8 @@
 // Predict and explain first...
-// My house number is 42
+//  address is an object, not an array
+// address[0] looks for a property named "0",
+// which doesn't exist → returns undefined
+// So the log will say: My house number is undefined
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
