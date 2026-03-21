@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quote Generator App</title>
     <script defer src="quotes.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <div class="quote-card">
+      <p id="quote"></p>
+      <p id="author"></p>
+      <button type="button" id="new-quote">New quote</button>
+
+      <label class="auto-play-label">
+        <input type="checkbox" id="auto-play" />
+        Auto-play
+      </label>
+
+      <p id="status">auto-play: OFF</p>
+    </div>
   </body>
 </html>
