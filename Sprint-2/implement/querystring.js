@@ -13,5 +13,5 @@ function parseQueryString(queryString) {
 
   return queryParams;
 }
-h;
+
 module.exports = parseQueryString;
