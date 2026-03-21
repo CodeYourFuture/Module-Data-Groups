@@ -1,15 +1,65 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  transition: background-color 0.3s ease;
+}
+
+/* Background changes when the alarm finishes */
+body.alarm-finished {
+  background-color: #ffdddd;
+}
+
 .centre {
   position: fixed;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
-
-#alarmSet {
-  margin: 20px;
+  width: min(90%, 420px);
+  text-align: center;
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+#alarmSet {
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+button {
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0b5ed7;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #094db1;
 }
