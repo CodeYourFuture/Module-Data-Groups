@@ -1,9 +1,9 @@
 function dedupe(list) {
-	if (!Array.isArray(list)) {
-		return [];
-	}
+  if (!Array.isArray(list)) {
+    return [];
+  }
 
-	return [...new Set(list)];
+  return [...new Set(list)];
 }
 
 module.exports = dedupe;

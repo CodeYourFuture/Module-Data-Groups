@@ -9,13 +9,15 @@ function calculateMedian(list) {
   if (!Array.isArray(list)) {
     return null;
   }
-const numbers = list.filter(val => typeof val === 'number' && !isNaN(val));
-if (numbers.length === 0) {
+
+  const numbers = list.filter((val) => typeof val === "number" && !isNaN(val));
+  if (numbers.length === 0) {
     return null;
   }
-    numbers.sort((a, b) => a - b);
 
- const length = numbers.length;
+  numbers.sort((a, b) => a - b);
+
+  const length = numbers.length;
   const middle = Math.floor(length / 2);
 
   if (length % 2 === 1) {
