@@ -48,11 +48,21 @@ test("given an array with decimal numbers, returns the largest decimal number", 
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 test("given an array with non-number values, returns the max and ignores non-numeric values", () => {
-  expect(findMax(["apple", "banana", 10, "cherry", 20])).toEqual(20);
+  expect(findMax(["apple", "banana", 10, "300", 20])).toEqual(20);
 });
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given an array with only non-number values, returns -Infinity", () => {
   expect(findMax(["apple", "banana", "cherry"])).toEqual(-Infinity);
+});
+
+//test NaN
+test("NaN", () => {
+  expect(findMax([NaN])).toEqual(NaN);
+});
+
+//test with variables
+test("variables", () => {
+  expect(findMax([0, NaN, 1])).toEqual(NaN);
 });

@@ -1,5 +1,5 @@
 function sum(elements) {
-    if (!Array.isArray(elements)) {
+  if (!Array.isArray(elements)) {
     return null;
   }
 

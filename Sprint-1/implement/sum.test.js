@@ -47,3 +47,13 @@ test("given an array containing non-number values, returns the sum of the numeri
 test("given an array with only non-number values, returns 0", () => {
   expect(sum(["apple", "banana", "cherry"])).toEqual(0);
 });
+
+//Test NaN
+test("NaN", () => {
+  expect(sum([NaN, 1])).toEqual(NaN);
+});
+
+//Test Infinity
+test("Infinity", () => {
+  expect(sum([Infinity, -Infinity])).toEqual(NaN);
+});
