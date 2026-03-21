@@ -1,107 +1,152 @@
+/* Make box sizing more predictable */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
 }
 
+/* Base page styling */
 body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #f4f4f4;
-  padding: 40px;
+  color: #222222;
+  padding: 40px 20px;
 }
 
+/* Main app container */
 .todo-container {
-  max-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+/* Heading */
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
+/* Input area */
 .todo-input {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 180px 120px;
   gap: 10px;
+  margin-bottom: 16px;
+}
+
+/* Action area */
+.todo-actions {
+  display: flex;
+  justify-content: flex-end;
   margin-bottom: 20px;
 }
 
-.todo-input input {
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+/* Inputs and buttons */
+input,
+button {
+  font: inherit;
+  padding: 12px;
+  border-radius: 8px;
 }
 
-.todo-input button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #4CAF50;
-  color: white;
+input {
+  border: 1px solid #cccccc;
+}
+
+button {
   border: none;
-  border-radius: 6px;
+  background-color: #0b5ed7;
+  color: #ffffff;
   cursor: pointer;
 }
 
-.todo-input button:hover {
-  background-color: #45a049;
+button:hover {
+  background-color: #094db1;
 }
 
+button:focus,
+input:focus {
+  outline: 3px solid #99c2ff;
+  outline-offset: 2px;
+}
+
+/* Todo list */
 .todo-list {
-  list-style-type: none;
-  padding-left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
+/* Todo item */
 .todo-item {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 12px 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: #fff;
+  align-items: center;
+  gap: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  border: 1px solid #dddddd;
 }
 
-.description {
-  flex: 1;
-  margin-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.actions {
-  display: flex;
-  gap: 10px;
-}
-
-.actions button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
+/* Left side of todo */
+.todo-content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
+  gap: 12px;
+  flex: 1;
 }
 
-.complete-btn i {
-  color: green;
+/* Text group */
+.todo-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.delete-btn i {
-  color: red;
+/* Description text */
+.description {
+  font-size: 1rem;
+  word-break: break-word;
 }
 
+/* Deadline text */
+.deadline {
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+/* Completed task */
 .todo-item.completed .description {
   text-decoration: line-through;
-  color: gray;
+  color: #777777;
+}
+
+/* Icon-style buttons */
+.complete-btn,
+.delete-btn {
+  background: transparent;
+  color: #222222;
+  padding: 6px 8px;
+  font-size: 1.2rem;
+}
+
+.complete-btn:hover,
+.delete-btn:hover {
+  background-color: #eeeeee;
+  color: #222222;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+  .todo-input {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-item {
+    align-items: flex-start;
+  }
 }
