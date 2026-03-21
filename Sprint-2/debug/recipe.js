@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+// Prediction: The code is trying to print the whole 'recipe' object directly in the template literal, which will just output "[object Object]". We need to access its properties.
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
 // How can you fix it?
@@ -11,5 +11,5 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+ingredients:
+${recipe.ingredients.join("\n")}`);
