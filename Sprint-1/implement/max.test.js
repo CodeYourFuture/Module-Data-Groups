@@ -39,8 +39,8 @@ describe("findMax", () => {
   // Given an array with non-number values
   // When passed to the max function
   // Then it should return the max and ignore non-numeric values
-  test("ignores non-number values", () => {
-    expect(findMax(["hey", 10, "hi", 60, 10])).toBe(60);
+  test("ignores non-number values (including numeric strings)", () => {
+    expect(findMax(["hey", 10, "300", 60, 10])).toBe(60);
   });
 
   // Given an array with only non-number values
@@ -48,5 +48,21 @@ describe("findMax", () => {
   // Then it should return the least surprising value given how it behaves for all other inputs
   test("returns -Infinity when array has only non-number values", () => {
     expect(findMax(["a", "b", "c"])).toBe(-Infinity);
+  });
+
+  test("does not treat numeric strings as numbers", () => {
+    expect(findMax([20, "300"])).toBe(20);
+  });
+
+  test("returns -Infinity when only numeric strings are present", () => {
+    expect(findMax(["100", "200", "300"])).toBe(-Infinity);
+  });
+
+  test("ignores NaN and Infinity values", () => {
+    expect(findMax([10, NaN, 50, Infinity, -Infinity])).toBe(50);
+  });
+
+  test("returns -Infinity when only NaN and Infinity are present", () => {
+    expect(findMax([NaN, Infinity, -Infinity])).toBe(-Infinity);
   });
 });
