@@ -12,5 +12,5 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-${recipe.ingredients.join('\n')}`);
+${recipe.ingredients.join("\n")}`);
 // make the ingredients into a string and use next line for each ingredient.

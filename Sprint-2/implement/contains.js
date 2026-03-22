@@ -10,11 +10,11 @@ function contains(object, property) {
 
 module.exports = contains;
 
-console.log(contains({ a: 1, b: 2 }, 'a')); // true
-console.log(contains({ a: 1, b: 2 }, 'c')); // false
-console.log(contains({}, 'a')); // false
-console.log(contains([], 'a')); // false
-console.log(contains(1, 'a')); // false
-console.log(contains("NotANumber", 'a')); // false
-console.log(contains(null, 'a')); // false
+// console.log(contains({ a: 1, b: 2 }, 'a')); // true
+// console.log(contains({ a: 1, b: 2 }, 'c')); // false
+// console.log(contains({}, 'a')); // false
+// console.log(contains([], 'a')); // false
+// console.log(contains(1, 'a')); // false
+// console.log(contains("NotANumber", 'a')); // false
+// console.log(contains(null, 'a')); // false
 
