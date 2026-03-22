@@ -1,9 +1,9 @@
 function tally(array) {
-    if (!Array.isArray(array)) {
-      throw new Error("Invalid input: expected an array");
+  if (!Array.isArray(array)) {
+    throw new Error("Invalid input: expected an array");
   }
 
-    const count = Object.create(null);
+  const count = Object.create(null);
 
   for (const item of array) {
     if (count[item]) {
