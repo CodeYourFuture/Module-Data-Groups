@@ -1,9 +1,9 @@
 // start your function;
 function createLookup(input) {
-  let output = {};
+  const output = {};
   for (let pair of input) {
-    let key = pair[0];
-    let value = pair[1];
+    const key = pair[0];
+    const value = pair[1];
     output[key] = value;
   }
   return output;
