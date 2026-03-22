@@ -47,7 +47,7 @@ test("given an array with decimal/float numbers [1.5, -2.4, 4.5], returns the co
   const list = [1.5, -2.4, 4.5];
   const currentOutput = sum(list);
   const targetOutput = 3.6;
-  expect(currentOutput).toEqual(targetOutput);
+  expect(currentOutput).toBeCloseTo(targetOutput);
 });
 
 // Given an array containing non-number values

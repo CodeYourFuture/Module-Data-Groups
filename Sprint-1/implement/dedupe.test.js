@@ -31,6 +31,7 @@ test("given an array with no duplication, it copy of the original array ", () =>
   const currentOutput = dedupe(array);
   const targetOutput = [1, 2, 3];
   expect(currentOutput).toEqual(targetOutput);
+  expect(currentOutput).not.toBe(array);
 });
 // Given an array with strings or numbers
 // When passed to the dedupe function

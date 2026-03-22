@@ -69,6 +69,15 @@ test("given an array with one non-number return the max and ignore non-numeric v
   const targetOutput = 10;
   expect(currentOutput).toEqual(targetOutput);
 });
+// Given an array with numeric string values
+// When passed to the max function
+// Then it should ignore numeric strings and only consider real numbers
+test("ignores numeric strings like '300'", () => {
+  const maxElement = ["300", 10, 20];
+  const currentOutput = findMax(maxElement);
+  const targetOutput = 20;
+  expect(currentOutput).toEqual(targetOutput);
+});
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
