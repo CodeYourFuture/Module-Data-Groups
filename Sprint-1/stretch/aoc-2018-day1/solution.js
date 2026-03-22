@@ -952,17 +952,11 @@ function finalFrequency(elements) {
 +14
 +75784`;
 
-  let newArr = strList.split("\n");
+  const newArr = strList.split("\n");
   let finalFreq = 0;
   for (let n of newArr) {
     finalFreq += Number(n);
   }
-  /*
-  let totalFreq = newArr.map(Number);
-  let finalFreq = totalFreq.reduce((total, n) => total + n, 0);
-  return finalFreq;
-  */
-
   return finalFreq;
 }
 console.log(finalFrequency()); // ==> 529
