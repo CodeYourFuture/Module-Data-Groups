@@ -10,3 +10,32 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("decodes URL-encoded characters like spaces", () => {
+  expect(parseQueryString("month=March%202026&user=John%20Doe")).toEqual({
+    "month": "March 2026",
+    "user": "John Doe"
+  });
+});
+
+// The "Key Only" Case (No equals sign)
+test("handles keys with no equals sign", () => {
+  // If input is "flag", index is -1.
+  // key = "flag".slice(0, -1) => "fla"
+  // value = "flag".slice(0) => "flag"
+  expect(parseQueryString("flag")).toEqual({
+    "fla": "flag"
+  });
+});
+
+// Empty Values
+test("handles keys with an equals sign but no value", () => {
+  expect(parseQueryString("user=")).toEqual({
+    "user": ""
+  });
+});
+
+// Empty String Case
+test("returns an empty object for an empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
