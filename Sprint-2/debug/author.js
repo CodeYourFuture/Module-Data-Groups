@@ -1,4 +1,4 @@
-// Predict and explain first...
+// Predict and explain first...It should report 40 as the value
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
@@ -11,6 +11,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+//for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }

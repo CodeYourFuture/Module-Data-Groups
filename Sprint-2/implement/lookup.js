@@ -1,5 +1,7 @@
-function createLookup() {
-  // implementation here
-}
+
+const createLookup = (countryCurrencyPairs) => {
+  return Object.fromEntries(countryCurrencyPairs);
+};
+
 
 module.exports = createLookup;
