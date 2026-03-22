@@ -39,7 +39,7 @@ test("negative number should return total with no effect", () => {
 // Then it should return the correct total sum
 test("decimal number should return the correct total", () => {
   let elements = [1, 2.3, 4.5, 6];
-  expect(sum(elements)).toEqual(13);
+  expect(sum(elements)).toEqual(13.8);
 });
 
 // Given an array containing non-number values
@@ -55,5 +55,5 @@ test("non-number values be ignored, function still should return total", () => {
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("non-number values should return Infinity", () => {
   let elements = ["a", "d", "hi"];
-  expect(sum(elements)).toEqual(Infinity);
+  expect(sum(elements)).toEqual(0);
 });
