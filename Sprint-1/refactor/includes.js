@@ -1,19 +1,8 @@
 // Refactor the implementation of includes to use a for...of loop
+// this new version looks great.
 
 function includes(list, target) {
-  /*
-  for (let index = 0; index < list.length; index++) {
-    const element = list[index];
-    if (element === target) {
-      return true;
-    }
-  } */
-  for (let index of list) {
-    if (index === target) {
-      return true;
-    }
-  }
-  return false;
+  return list.includes(target) ? true : false;
 }
 
 module.exports = includes;
