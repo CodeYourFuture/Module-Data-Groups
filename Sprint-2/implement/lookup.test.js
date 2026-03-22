@@ -33,3 +33,33 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+// create single country currency in countryCurrencyPairs
+
+
+//given an empty country currency pair/array
+
+describe("createLookup", () => {
+
+  test("creates a country currency code lookup for multiple codes", () => {
+    const input = [['US', 'USD'], ['CA', 'CAD']];
+    const expected = { US: 'USD', CA: 'CAD' };
+
+    expect(createLookup(input)).toEqual(expected);
+  });
+
+  test("creates a single country code currency", () => {
+    const input = [['GB', 'GBP']];
+    const expected = { GB: 'GBP' };
+
+    expect(createLookup(input)).toEqual(expected);
+  });
+
+  test("returns an empty object when given an empty pair", () => {
+    const input = [[]];
+    const expected = {};
+
+    expect(createLookup(input)).toEqual(expected);
+  });
+
+});
