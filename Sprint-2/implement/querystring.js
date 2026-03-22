@@ -1,16 +1,22 @@
 function parseQueryString(queryString) {
   const queryParams = {};
+
   if (typeof queryString!=="string"||queryString.length === 0) {
     return queryParams;
   }
+
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-     const equalIndex = pair.indexOf("=");
+     if (!pair.includes("=")) continue; 
 
-     const key = pair.slice(0, equalIndex);
-     const value = pair.slice(equalIndex + 1);
+    const equalIndex = pair.indexOf("=");
 
+    const key = pair.slice(0, equalIndex);
+    const value = pair.slice(equalIndex + 1);
+
+    if (key === "") continue;
+    
     queryParams[key] = value;
   }
 
