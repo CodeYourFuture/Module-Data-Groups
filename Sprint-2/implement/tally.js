@@ -1,13 +1,13 @@
 function tally(arr) {
-  let output = {};
-  if (!Array.isArray(arr)) {
-    throw new Error("Invalid input");
-  } else if (arr.length === 0) {
-    return output;
-  }
-  for (let item of arr) {
-    let count = arr.filter((x) => x === item).length;
-    output[item] = count;
+  if (!Array.isArray(arr)) throw new Error("Invalid input");
+
+  const output = {};
+  for (const item of arr) {
+    if (output[item]) {
+      output[item] += 1; // increment count if already exists
+    } else {
+      output[item] = 1; // first occurrence
+    }
   }
   return output;
 }

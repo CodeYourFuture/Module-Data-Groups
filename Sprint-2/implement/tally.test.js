@@ -46,3 +46,33 @@ test("it throw an error if given a string", () => {
   const str = "a";
   expect(() => tally(str)).toThrowError();
 });
+// ===> new tests after feedback;
+// Invalid input: number
+test("it throw an error if given a number", () => {
+  let num = 123;
+  expect(() => tally(num)).toThrowError();
+});
+
+// Invalid input: null
+test("it throw an error if given null", () => {
+  let value = null;
+  expect(() => tally(value)).toThrowError();
+});
+
+// Invalid input: undefined
+test("it throw an error if given undefined", () => {
+  let value = undefined;
+  expect(() => tally(value)).toThrowError();
+});
+
+// Invalid input: boolean
+test("it throw an error if given a boolean", () => {
+  let value = true;
+  expect(() => tally(value)).toThrowError();
+});
+
+// Invalid input: object
+test("it throw an error if given an object instead of array", () => {
+  let obj = { a: 1 };
+  expect(() => tally(obj)).toThrowError();
+});
