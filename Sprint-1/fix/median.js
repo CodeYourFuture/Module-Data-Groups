@@ -14,25 +14,26 @@
 // module.exports = calculateMedian;
 
 function calculateMedian(list) {
-  if (!Array.isArray(list)) {
+  if (!Array.isArray(list) || list.length === 0) {
     return null;
   }
 
-  const numbers = list.filter((item) => typeof item === "number");
+  const numbers = list.filter((item) => Number.isFinite(item));
 
   if (numbers.length === 0) {
     return null;
   }
 
-  numbers.sort((a, b) => a - b);
+  // Copy before sort (extra safety, though filter already creates new array)
+  const sorted = [...numbers].sort((a, b) => a - b);
 
-  const middle = Math.floor(numbers.length / 2);
+  const middle = Math.floor(sorted.length / 2);
 
-  if (numbers.length % 2 === 0) {
-    return (numbers[middle - 1] + numbers[middle]) / 2;
+  if (sorted.length % 2 === 0) {
+    return (sorted[middle - 1] + sorted[middle]) / 2;
   }
 
-  return numbers[middle];
+  return sorted[middle];
 }
 
 module.exports = calculateMedian;
