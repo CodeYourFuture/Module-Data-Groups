@@ -10,8 +10,11 @@ function includes(list, target) {
   // return false;
 
   for (let element of list) {
-    return element === target ? true : false;
+    if (element === target) {
+      return true;
+    }
   }
+  return false;
 }
 
 module.exports = includes;
