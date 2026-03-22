@@ -13,7 +13,5 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-ingredients:`);
-for (let fruits of recipe.ingredients) {
-  console.log(fruits);
-}
+ingredients: ${recipe.ingredients.join("\n")}`);
+// this approach looks clean and advanced
