@@ -1,7 +1,7 @@
 // start with the function;
 function dedupe(arr) {
   if (arr.length === 0) return [];
-  let cleanArr = [];
+  const cleanArr = [];
   for (let item of arr) {
     if (!cleanArr.includes(item)) {
       cleanArr.push(item);
