@@ -1,11 +1,13 @@
 // start your function
 
 function contains(object, key) {
-  if (Array.isArray(object) && Object.keys(object).length === 0) {
+  // Reject arrays, null, or non-object types
+  if (object === null || typeof object !== "object" || Array.isArray(object)) {
     return false;
-  } else if (object.hasOwnProperty(key)) {
-    return true;
-  } else return false;
+  }
+
+  // Safely check if the object has the property
+  return Object.prototype.hasOwnProperty.call(object, key);
 }
 
 let key = "name";

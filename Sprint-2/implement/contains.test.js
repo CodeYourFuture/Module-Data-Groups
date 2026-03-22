@@ -63,3 +63,35 @@ test("It return false when an array is passed instead of object", () => {
   let key = "name";
   expect(contains(object, key)).toEqual(false);
 });
+
+// New testes after receiving feedback ==>
+
+test("It return false when null is passed instead of object", () => {
+  let object = null;
+  let key = "name";
+  expect(contains(object, key)).toEqual(false);
+});
+
+test("It return false when undefined is passed instead of object", () => {
+  let object = undefined;
+  let key = "name";
+  expect(contains(object, key)).toEqual(false);
+});
+
+test("It return false when a number is passed instead of object", () => {
+  let object = 123;
+  let key = "name";
+  expect(contains(object, key)).toEqual(false);
+});
+
+test("It return false when a string is passed instead of object", () => {
+  let object = "hello";
+  let key = "name";
+  expect(contains(object, key)).toEqual(false);
+});
+
+test("It return false when a boolean is passed instead of object", () => {
+  let object = true;
+  let key = "name";
+  expect(contains(object, key)).toEqual(false);
+});
