@@ -130,3 +130,39 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+describe("deleteCompleted()", () => {
+  test("Delete all completed tasks and keep incomplete tasks", () => {
+    const todos = createMockTodos();
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([
+      { task: "Task 2 description", completed: false },
+      { task: "Task 4 description", completed: false },
+    ]);
+  });
+
+  test("Keep the list unchanged when no task is completed", () => {
+    const todos = [
+      { task: "Task A", completed: false },
+      { task: "Task B", completed: false },
+    ];
+    const todosBeforeDeletion = [
+      { task: "Task A", completed: false },
+      { task: "Task B", completed: false },
+    ];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual(todosBeforeDeletion);
+  });
+
+  test("Handle an empty list", () => {
+    const todos = [];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([]);
+  });
+});
+
