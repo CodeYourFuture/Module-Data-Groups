@@ -105,3 +105,19 @@ h1 {
   text-decoration: line-through;
   color: gray;
 }
+
+#delete-completed-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#delete-completed-btn:hover {
+  background-color: #c82333;
+}
