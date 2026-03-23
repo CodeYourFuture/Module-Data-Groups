@@ -35,8 +35,22 @@ test("Should return the correct sum even when the array contains negative number
 // When passed to the sum function
 // Then it should return the correct total sum
 test("Should return the correct sum even when the array contains decimal numbers", () => {
-    expect(sum([0.1, 0.2, 0.005])).toBeCloseTo(0.305);
+  expect(sum([1.4, 1.6, 5.8])).toEqual(8.8);
 });
+
+describe("sum() edge cases and floating point precision", () => {
+  [
+    { input: [0.1, 0.2], expected: 0.3 },
+    { input: [0.7, 0.2], expected: 0.9 },
+    { input: [1.2, 0.6, 0.005], expected: 1.805 },
+    { input: [0.005, 0.6, 1.2], expected: 1.805 },
+  ].forEach(({ input, expected }) => {
+    it(`should return ${expected} for input [${input.join(", ")}]`, () => {
+      expect(sum(input)).toBeCloseTo(expected);
+    });
+  });
+});
+
 
 // Given an array containing non-number values
 // When passed to the sum function
