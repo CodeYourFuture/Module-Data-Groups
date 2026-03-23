@@ -56,6 +56,10 @@ test("ignores non-number values and returns the max", () => {
 });
 
 // Given an array with only non-number values
+test("ignores numeric strings like '300'", () => {
+  expect(findMax(["300", 100])).toBe(100);
+});
+
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given only non-number values, returns null", () => {

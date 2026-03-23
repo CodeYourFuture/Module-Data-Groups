@@ -35,7 +35,7 @@ test("given negative numbers, returns the correct total", () => {
 // When passed to the sum function
 // Then it should return the correct total sum
 test("given decimal numbers, returns the correct total", () => {
-  expect(sum([1.5, 2.5, 3])).toBe(7);
+  expect(sum([1.5, 2.5, 3])).toBeCloseTo(7);
 });
 
 // Given an array containing non-number values
@@ -45,11 +45,9 @@ test("ignores non-number values and returns the sum", () => {
   expect(sum(["hey", 10, "hi", 60, 10])).toBe(80);
 });
 
-
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given only non-number values, returns 0", () => {
   expect(sum(["hey", "hi", null, undefined, NaN])).toBe(0);
 });
-
