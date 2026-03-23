@@ -6,6 +6,11 @@
   "scripts": {
     "test": "jest --config=../jest.config.js alarmclock"
   },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeYourFuture/CYF-Coursework-Template.git"
@@ -13,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
   },
-  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme"
+  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
+  "dependencies": {
+    "jsdom": "^20.0.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1"
+  }
 }
