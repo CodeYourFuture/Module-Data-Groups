@@ -2,6 +2,20 @@ const createLookup = require("./lookup.js");
 
 test.todo("creates a country currency code lookup for multiple codes");
 
+test("An array of arrays representing country code and currency code should return an object where the keys are country code values are currency code", () => {
+  const countryCurrencyPairs = [
+    ["IND", "INR"],
+    ["US", "USD"],
+    ["UK", "GBR"],
+    ["CA", "CAD"],
+  ];
+  expect(createLookup(countryCurrencyPairs)).toEqual({
+    IND: "INR",
+    US: "USD",
+    UK: "GBR",
+    CA: "CAD",
+  });
+});
 /*
 
 Create a lookup object of key value pairs from an array of code pairs

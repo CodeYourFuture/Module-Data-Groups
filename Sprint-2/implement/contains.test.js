@@ -11,6 +11,37 @@ E.g. contains({a: 1, b: 2}, 'c') // returns false
 as the object doesn't contains a key of 'c'
 */
 
+test("An empty object should return false", () => {
+  const object = {};
+  const propertyName = "a";
+  expect(contains(object, propertyName)).toEqual(false);
+});
+
+test("returns true when the object contains an existing property name", () => {
+  const object = { a: 1, b: 2, c: 3 };
+  const propertyName = "a";
+  expect(contains(object, propertyName)).toEqual(true);
+});
+test("returns false when the object not contains an existing property name", () => {
+  const object = { a: 1, b: 2, c: 3 };
+  const propertyName = "d";
+  expect(contains(object, propertyName)).toEqual(false);
+});
+test("Should throw an error for an invalid parameters", () => {
+  const object = [1, 2, 3, 4, 5, 6, 7];
+  const propertyName = "a";
+  expect(() => contains(object, propertyName)).toThrow();
+});
+test("Should throw an error for an invalid parameters", () => {
+  const object = null;
+  const propertyName = "a";
+  expect(() => contains(object, propertyName)).toThrow();
+});
+test("Should throw an error for an invalid parameters", () => {
+  const object = "hi";
+  const propertyName = "a";
+  expect(() => contains(object, propertyName)).toThrow();
+});
 // Acceptance criteria:
 
 // Given a contains function
