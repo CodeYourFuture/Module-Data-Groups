@@ -9,6 +9,7 @@ function parseQueryString(queryString) {
     const pair = item.split("=");
     const key = pair.shift();
     const value = pair.join("=");
+    if (!key) continue;
     queryParams[key] = value;
   }
 

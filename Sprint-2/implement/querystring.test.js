@@ -28,3 +28,27 @@ test("handles multiple querystring parameters when one value contains =", () => 
     equation: "x=y+1",
   });
 });
+test("ignores pairs with missing key (=b)", () => {
+  expect(parseQueryString("=b")).toEqual({});
+});
+
+test("ignores empty pairs (double &&)", () => {
+  expect(parseQueryString("a=b&&c=d")).toEqual({
+    a: "b",
+    c: "d",
+  });
+});
+test("ignores empty key and value (=)", () => {
+  expect(parseQueryString("=")).toEqual({});
+});
+test("ignores invalid pairs but keeps valid ones", () => {
+  expect(parseQueryString("a=b&=&c=d")).toEqual({
+    a: "b",
+    c: "d",
+  });
+});
+test("keeps key with empty value", () => {
+  expect(parseQueryString("a=")).toEqual({
+    a: "",
+  });
+});
