@@ -1,42 +1,44 @@
 const timeRemaining = document.querySelector("#timeRemaining");
 
-let intervalId;
-
-
+let intervalId; //declared here so that I can use it in line-17, before asigning on line 21. 
 
 function setAlarm() {
   // I will use the function showTime twice, one for showing the time just after the user clicks the set button and another one for updating the time every second in countdown function
-  function showTime() {
-  // getting te mins and seconds from the inputValue in appropriate format
+  function showTime(inputValue) {
+    if (inputValue >= 0) {
+  // getting the mins & sec from the inputValue(line19) in appropriate format
       const minutes = Math.floor(inputValue / 60)
         .toString()
         .padStart(2, "0");
       const seconds = (inputValue % 60).toString().padStart(2, "0");
       //Gathering everything together and outputing remaining time
       timeRemaining.innerText = `Time Remaining: ${minutes}:${seconds}`;
-};
-  // I added the next line in case if we want to reset the time for alarm
+}}
+  //the next line in case if we want to reset the time for alarm
   clearInterval(intervalId);
-  // getting the input value in number format
+  // getting user's input value in number format
   let inputValue = Number(document.querySelector("#alarmSet").value);
-  showTime();
+  if (inputValue <= 0) {
+    timeRemaining.innerText = "Enter a positive number.";
+    document.querySelector("#alarmSet").value = '';
+    return;
+  }
+  showTime(inputValue);
   intervalId = setInterval(countdown, 1000);
 
   function countdown() {
-    if (inputValue > 0) {
-      //decrease the entered number by 1
+    if (inputValue >= 0) {
       inputValue--;
-      showTime();
+      showTime(inputValue);
     }
     // When the inputValue is 0, play the alarm and clear interval so that the function stops initialising 
     else {
       playAlarm();
       clearInterval(intervalId);
+      document.querySelector("#alarmSet").value = '';
     }
   }
 }
-
-
 
 // DO NOT EDIT BELOW HERE
 
