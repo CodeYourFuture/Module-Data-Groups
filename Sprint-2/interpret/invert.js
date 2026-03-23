@@ -9,8 +9,8 @@
 function invert(obj) {
   const invertedObj = {};
 
-  for (const [value, key] of Object.entries(obj)) {
-    invertedObj[key] = value;
+  for (const [key, value ] of Object.entries(obj)) {
+    invertedObj[value] = key;
   }
 
   return invertedObj;
