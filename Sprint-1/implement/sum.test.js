@@ -53,7 +53,7 @@ test("non-number values be ignored, function still should return total", () => {
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
-test("non-number values should return Infinity", () => {
+test("non-number values should return Zero", () => {
   let elements = ["a", "d", "hi"];
   expect(sum(elements)).toEqual(0);
 });
