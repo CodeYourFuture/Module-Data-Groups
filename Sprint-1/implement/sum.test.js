@@ -13,24 +13,70 @@ const sum = require("./sum.js");
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0")
+test("Should return 0 for empty array", () => {
+  expect(sum([])).toEqual(0);
+});
 
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
+test("Should return the number itself for an array with one number", () => {
+  expect(sum([5])).toEqual(5);
+});
 
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
+test("Should return the correct sum even when the array contains negative numbers", () => {
+  expect(sum([-1, -2, -3])).toEqual(-6);
+});
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+test("Should return the correct sum even when the array contains decimal numbers", () => {
+  expect(sum([1.4, 1.6, 5.8])).toEqual(8.8);
+});
+
+describe("sum() edge cases and floating point precision", () => {
+  [
+    { input: [0.1, 0.2], expected: 0.3 },
+    { input: [0.7, 0.2], expected: 0.9 },
+    { input: [1.2, 0.6, 0.005], expected: 1.805 },
+    { input: [0.005, 0.6, 1.2], expected: 1.805 },
+  ].forEach(({ input, expected }) => {
+    it(`should return ${expected} for input [${input.join(", ")}]`, () => {
+      expect(sum(input)).toBeCloseTo(expected);
+    });
+  });
+});
+
 
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
+test("should return the sum of the numerical elements and ignore non-numerical values", () => {
+    expect(sum(['hey', 10, 'hi', 60, 10])).toEqual(80);
+})
 
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("Should return 0 for an array with only non-numbers", () => {
+    expect(sum(['hey', 'hi', 'hello'])).toEqual(0);
+})
+
+// Given an array with NaN and numbers
+// When passed to the sum function
+// Then it should ignore NaN and return the sum of the numbers
+test("should ignore NaN and return the correct sum", () => {
+  expect(sum([NaN, 1, 5])).toEqual(6);
+});
+
+
+// Given an array with Infinity and -Infinity
+// When passed to the sum function
+// Then it should return NaN (standard JS behavior for infinite subtraction)
+test("should return NaN when summing Infinity and -Infinity", () => {
+  expect(sum([Infinity, -Infinity])).toBeNaN();
+});
