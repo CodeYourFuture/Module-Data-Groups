@@ -22,6 +22,9 @@ test("returns an empty object when the input array is empty", () => {
 test("returns the count of each unique item in the array", () => {
   expect(tally(["a", "b", "a", "c", "b", "a"])).toEqual({ a: 3, b: 2, c: 1 });
 });
+test("handles special keys like toString", () => {
+  expect(tally(["toString", "toString"])).toEqual({ "toString": 2 });
+});
 
 // Acceptance criteria:
 
@@ -32,7 +35,7 @@ test("returns the count of each unique item in the array", () => {
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+
 
 // Given an array with duplicate items
 // When passed to tally
