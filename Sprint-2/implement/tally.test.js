@@ -13,14 +13,14 @@ const tally = require("./tally.js");
  * tally(['a', 'a', 'a']), target output: { a: 3 }
  * tally(['a', 'a', 'b', 'c']), target output: { a : 2, b: 1, c: 1 }
  */
-test("throws an error when the input is not an array", ()=>{
-    expect(()=>tally("hi")).toThrow();
+test("throws an error when the input is not an array", () => {
+  expect(() => tally("hi")).toThrow();
 });
-test("returns an empty object when the input array is empty",()=>{
-    expect(tally([])).toEqual({});
+test("returns an empty object when the input array is empty", () => {
+  expect(tally([])).toEqual({});
 });
-test("returns the count of each unique item in the array", ()=>{
-    expect(tally(['a','b','a','c','b','a'])).toEqual({a:3,b:2,c:1})
+test("returns the count of each unique item in the array", () => {
+  expect(tally(["a", "b", "a", "c", "b", "a"])).toEqual({ a: 3, b: 2, c: 1 });
 });
 
 // Acceptance criteria:

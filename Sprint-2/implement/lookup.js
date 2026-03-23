@@ -3,7 +3,7 @@ function createLookup(countryCurrencyPairs) {
 
   for (let item of countryCurrencyPairs) {
     const [key, value] = [item[0], item[1]];
-   countryCurrencyLookup[key] = value;
+    countryCurrencyLookup[key] = value;
   }
   return countryCurrencyLookup;
 }
