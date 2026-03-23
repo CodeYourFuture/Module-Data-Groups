@@ -27,8 +27,9 @@ test("given an array with no duplicates, it returns a copy of the original array
   const input = ["a", "b", "c"];
   const result = dedupe(input);
 
-  expect(result).toEqual(input);
-  expect(result).not.toBe(input);
+  expect(result).toEqual(["a", "b", "c"]); // Check that the result is correct
+  expect(input).toEqual(["a", "b", "c"]); // Check that the original input array is unchanged
+  expect(result).not.toBe(input); // Check that the result has created a new array (not the same reference as input)
 });
 
 // Given an array of strings or numbers
