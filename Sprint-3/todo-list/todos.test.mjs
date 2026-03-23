@@ -130,3 +130,21 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+describe("deleteCompleted()", () => {
+  test("should remove all completed tasks and keep only active ones", () => {
+    // 1. Setup a list with mixed states
+    const todos = [
+      { task: "Task A", completed: true },
+      { task: "Task B", completed: false },
+      { task: "Task C", completed: true }
+    ];
+
+    // 2. Execute the function
+    Todos.deleteCompleted(todos);
+
+    // 3. Verify: only Task B should remain
+    expect(todos).toHaveLength(1);
+    expect(todos[0].task).toBe("Task B");
+    expect(todos[0].completed).toBe(false);
+  });
+});
