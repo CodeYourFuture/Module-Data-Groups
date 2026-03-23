@@ -55,6 +55,16 @@ test("should ignore non-numeric values (strings, etc.) and return the max", () =
   expect(findMax(["hey", 10, "hi", 60, 10])).toEqual(60);
 });
 
+// given an array with non-numeric values
+// When passed to the max function
+// Then it should strictly ignore non-numeric values, including numeric strings like '300'
+test("should strictly ignore non-numeric values, including numeric strings like '300'", () => {
+  const input = ["hey", 10, "300", 60, 10];
+  const result = findMax(input);
+
+  expect(result).toEqual(60); // Check that the result is correct
+});
+
 // Given an array with numbers and NaN
 // When passed to the findMax function
 // Then it should ignore NaN and return the largest number
