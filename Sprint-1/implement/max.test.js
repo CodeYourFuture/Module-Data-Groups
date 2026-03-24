@@ -16,28 +16,45 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+describe("findMax.js", () => {
+  test.each([
+    { input: [], expected: -Infinity },
+    // Given an array with one number
+    // When passed to the max function
+    // Then it should return that number
 
-// Given an array with one number
-// When passed to the max function
-// Then it should return that number
+    { input: [1], expected: 1 },
 
-// Given an array with both positive and negative numbers
-// When passed to the max function
-// Then it should return the largest number overall
+    // Given an array with both positive and negative numbers
+    // When passed to the max function
+    // Then it should return the largest number overall
 
-// Given an array with just negative numbers
-// When passed to the max function
-// Then it should return the closest one to zero
+    { input: [1, 2, -3], expected: 2 },
 
-// Given an array with decimal numbers
-// When passed to the max function
-// Then it should return the largest decimal number
+    // Given an array with just negative numbers
+    // When passed to the max function
+    // Then it should return the closest one to zero
 
-// Given an array with non-number values
-// When passed to the max function
-// Then it should return the max and ignore non-numeric values
+    { input: [-6, -2, -3], expected: -2 },
 
-// Given an array with only non-number values
-// When passed to the max function
-// Then it should return the least surprising value given how it behaves for all other inputs
+    // Given an array with decimal numbers
+    // When passed to the max function
+    // Then it should return the largest decimal number
+
+    { input: [3.5, 2.9, 6.3], expected: 6.3 },
+
+    // Given an array with non-number values
+    // When passed to the max function
+    // Then it should return the max and ignore non-numeric values
+
+    { input: ["a", 2, 3], expected: 3 },
+
+    // Given an array with only non-number values
+    // When passed to the max function
+    // Then it should return the least surprising value given how it behaves for all other inputs
+
+    { input: ["a", "!", "x"], expected: "Invalid Input" },
+  ])("returns correct max for %o", ({ input, expected }) => {
+    expect(findMax(input)).toBe(expected);
+  });
+});
