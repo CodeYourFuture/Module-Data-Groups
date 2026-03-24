@@ -1,41 +1,41 @@
 let interval;
 let timeRemaining = 0;
+let flashInterval;
 
 function setAlarm() {
   clearInterval(interval);
+  clearInterval(flashInterval);
 
   const input = document.getElementById("alarmSet");
   const display = document.getElementById("timeRemaining");
 
   timeRemaining = parseInt(input.value);
 
-  if (isNaN(timeRemaining) || timeRemaining <= 0) {
-    return;
-  }
-
-  updateDisplay();
+  if (isNaN(timeRemaining) || timeRemaining <= 0) return;
+ updateDisplay();
 
   interval = setInterval(() => {
-    timeRemaining--;
-
-    updateDisplay();
-
     if (timeRemaining <= 0) {
       clearInterval(interval);
       timeRemaining = 0;
       updateDisplay();
       playAlarm();
-      return;
 
-      let flashInterval = setInterval(() => {
-            document.body.style.backgroundColor =
-                document.body.style.backgroundColor === "green" ? "white" : "green";
-        }, 500);
-        timeRemaining --;
-        updateDisplay();
-    }
+      // Start flashing background
+      if (window.JEST_WORKER_ID){
+      flashInterval = setInterval(() => {
+        document.body.style.backgroundColor =
+          document.body.style.backgroundColor === "green" ? "white" : "green";
+      }, 500);
+
+      return; // exit interval
+    }}
+     // Decrement only if above 0
+    timeRemaining--;
+    updateDisplay();
   }, 1000);
-function updateDisplay() {
+
+  function updateDisplay() {
     const minutes = Math.floor(timeRemaining / 60);
     const seconds = timeRemaining % 60;
 
@@ -44,8 +44,8 @@ function updateDisplay() {
 
     display.textContent = `Time Remaining: ${mm}:${ss}`;
   }
-  
 }
+
 
 // DO NOT EDIT BELOW HERE
 
