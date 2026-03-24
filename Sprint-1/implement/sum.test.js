@@ -40,7 +40,8 @@ test("return the correct total when passed negative numbers", () => {
 // When passed to the sum function
 // Then it should return the correct total sum
 test("decimal number arrays", () => {
-    expect(sum([0.2, 0.4, 0.2])).toEqual(0.8);
+    expect(sum([0.2, 0.4, 0.2])).toBeCloseTo(0.8);
+    expect(sum([1.2, 0.6, 0.005])).toBeCloseTo(1.805);
 })
 
 // Given an array containing non-number values
