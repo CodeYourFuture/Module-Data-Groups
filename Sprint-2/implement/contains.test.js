@@ -58,9 +58,9 @@ test("It returns false when the object does NOT have the specified property", ()
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("It return false when an array is passed instead of object", () => {
-  let object = [1, 2, 3];
-  let key = "name";
+test("It returns false even if array contains the key (arrays are invalid)", () => {
+  const object = [1, 2, 3];
+  const key = 0;
   expect(contains(object, key)).toEqual(false);
 });
 
