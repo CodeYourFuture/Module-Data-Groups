@@ -7,6 +7,17 @@ function setAlarm() {
 
   secondsRemaining = Number(input.value);
 
+  // Handle invalid values (0 or negative)
+  if (secondsRemaining <= 0) {
+    updateHeading(heading, 0);
+    return;
+  }
+
+  // Prevent multiple timers running
+  if (timer !== null) {
+    clearInterval(timer);
+  }
+
   updateHeading(heading, secondsRemaining);
 
   timer = setInterval(() => {
@@ -16,6 +27,7 @@ function setAlarm() {
 
     if (secondsRemaining === 0) {
       clearInterval(timer);
+      timer = null;
       playAlarm();
     }
   }, 1000);
@@ -49,8 +61,14 @@ function playAlarm() {
   audio.play();
 }
 
+// improvement: stop timer as well as sound
 function pauseAlarm() {
   audio.pause();
+
+  if (timer !== null) {
+    clearInterval(timer);
+    timer = null;
+  }
 }
 
 window.onload = setup;
