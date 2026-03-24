@@ -1,7 +1,8 @@
 // Predict and explain first...
 
 // This program attempts to log out all the property values in the object.
-// But it isn't working. Explain why first and then fix the problem
+// It was not working because plain objects are not iterable with for...of.
+// To loop through the values, we first convert them into an array using Object.values().
 
 const author = {
   firstName: "Zadie",
@@ -11,6 +12,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+// Loop through all the values in the object
+for (const value of Object.values(author)) {
   console.log(value);
 }

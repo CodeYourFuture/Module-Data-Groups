@@ -1,35 +1,45 @@
 const contains = require("./contains.js");
 
 /*
-Implement a function called contains that checks an object contains a
-particular property
+Implement a function called contains that checks whether an object contains
+a particular own property.
 
-E.g. contains({a: 1, b: 2}, 'a') // returns true
-as the object contains a key of 'a'
-
-E.g. contains({a: 1, b: 2}, 'c') // returns false
-as the object doesn't contains a key of 'c'
+E.g. contains({ a: 1, b: 2 }, "a") // returns true
+E.g. contains({ a: 1, b: 2 }, "c") // returns false
 */
 
-// Acceptance criteria:
+describe("contains()", () => {
+  test("returns false for an empty object", () => {
+    expect(contains({}, "a")).toBe(false);
+  });
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
+  test("returns true when the property exists", () => {
+    expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+  });
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
+  test("returns false when the property does not exist", () => {
+    expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+  });
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
+  test("returns false for inherited properties", () => {
+    expect(contains({ a: 1, b: 2 }, "toString")).toBe(false);
+  });
 
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
+  test("returns false when given an array with a realistic array key", () => {
+    expect(contains(["a", "b"], 0)).toBe(false);
+  });
 
-// Given invalid parameters like an array
-// When passed to contains
-// Then it should return false or throw an error
+  test("returns false when given null", () => {
+    expect(contains(null, "a")).toBe(false);
+  });
+
+  test("supports non-string property names", () => {
+    const obj = { 3: 12 };
+    expect(contains(obj, 3)).toBe(true);
+  });
+
+  test("supports empty string as a property name", () => {
+    const obj = { "": 99 };
+    expect(contains(obj, "")).toBe(true);
+  });
+});
