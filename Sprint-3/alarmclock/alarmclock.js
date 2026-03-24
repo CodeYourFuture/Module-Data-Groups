@@ -1,10 +1,16 @@
+let timeRemainingEl = null;
+
+// Keep track of active timer
+let intervalId = null;
+
 // Turns a number of seconds into "MM:SS" format
-// e.g. 75 -> "01:15"
 function formatTime(seconds) {
+  if (isNaN(seconds) || seconds < 0) {
+    return "00:00";
+  }
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
 
-  // padStart makes sure single digits get a leading zero e.g. 5 -> "05"
   const mm = String(minutes).padStart(2, "0");
   const ss = String(remainingSeconds).padStart(2, "0");
 
@@ -12,24 +18,34 @@ function formatTime(seconds) {
 }
 
 function setAlarm() {
-  // Get the number the user typed in the input field
   let seconds = Number(document.getElementById("alarmSet").value);
 
-  // Update the heading to show the starting time
-  document.getElementById("timeRemaining").innerText =
-    "Time Remaining: " + formatTime(seconds);
+  // Validation
+  if (isNaN(seconds) || seconds <= 0) {
+    alert("Please enter a valid positive number of seconds.");
+    return;
+  }
 
-  // Count down every 1000ms (1 second)
-  let intervalId = setInterval(function () {
+  seconds = Math.floor(seconds);
+
+  if (!timeRemainingEl) {
+    timeRemainingEl = document.getElementById("timeRemaining");
+  }
+
+  if (intervalId !== null) {
+    clearInterval(intervalId);
+  }
+
+  timeRemainingEl.innerText = "Time Remaining: " + formatTime(seconds);
+
+  intervalId = setInterval(function () {
     seconds = seconds - 1;
 
-    // Update the heading each second
-    document.getElementById("timeRemaining").innerText =
-      "Time Remaining: " + formatTime(seconds);
+    timeRemainingEl.innerText = "Time Remaining: " + formatTime(seconds);
 
-    // When we reach zero, stop counting and play the alarm
     if (seconds === 0) {
       clearInterval(intervalId);
+      intervalId = null;
       playAlarm();
     }
   }, 1000);
