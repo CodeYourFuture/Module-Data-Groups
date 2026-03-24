@@ -51,3 +51,7 @@ test("contains an object with non-existent property returns false", () => {
 test("contains with invalid parameters returns false", () => {
   expect(contains([], "a")).toBe(false);
 });
+
+test("contains with invalid parameters returns false", () => {
+  expect(contains([1, 2, 3], "1")).toBe(false);
+});

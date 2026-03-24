@@ -33,3 +33,22 @@ test("handles a key with no equals sign", () => {
     name: "",
   });
 });
+
+test("handles empty pairs in query string", () => {
+  expect(parseQueryString("a=b&&c=d")).toEqual({
+    a: "b",
+    c: "d",
+  });
+});
+
+test("handles empty value", () => {
+  expect(parseQueryString("a=")).toEqual({
+    a: "",
+  });
+});
+
+test("handles empty key", () => {
+  expect(parseQueryString("=b")).toEqual({
+    "": "b",
+  });
+});

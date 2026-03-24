@@ -44,3 +44,9 @@ test("tally counts duplicate items correctly", () => {
 test("tally throws an error for invalid input", () => {
   expect(() => tally("not an array")).toThrow();
 });
+
+test("handles inherited property names like toString", () => {
+  expect(tally(["toString", "toString"])).toEqual(
+    Object.assign(Object.create(null), { toString: 2 })
+  );
+});
