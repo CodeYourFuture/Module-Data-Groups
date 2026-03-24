@@ -20,9 +20,11 @@ function setAlarm() {
   const input = document.getElementById("alarmSet"); // Get the input element using its DOM ID
   let remainingSeconds = Number(input.value); // Convert the input value to a number representing the total seconds for the countdown
 
-  if (!Number.isFinite(remainingSeconds) || remainingSeconds < 0) {
-    // Check if the input is a valid number and non-negative
-    remainingSeconds = 0; // If the input is invalid, set remainingSeconds to 0
+  // Guard against edge cases: empty input, non-numeric, negative values, and 0
+  if (!Number.isFinite(remainingSeconds) || remainingSeconds <= 0) {
+    // Check if the input is a valid number and strictly greater than 0
+    alert("Please enter a positive number greater than 0");
+    return; // Exit early without starting the countdown
   }
 
   if (countdownId !== null) {
