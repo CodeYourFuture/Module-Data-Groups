@@ -24,7 +24,6 @@ function calculateMedian(list) {
     return null;
   }
 
-  // Copy before sort (extra safety, though filter already creates new array)
   const sorted = [...numbers].sort((a, b) => a - b);
 
   const middle = Math.floor(sorted.length / 2);
