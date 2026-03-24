@@ -22,20 +22,29 @@ function setAlarm() {
 
     if (timeRemaining <= 0) {
       clearInterval(interval);
-      display.textContent = "Time Remaining: 00:00";
+      timeRemaining = 0;
+      updateDisplay();
       playAlarm();
+      return;
+
+      let flashInterval = setInterval(() => {
+            document.body.style.backgroundColor =
+                document.body.style.backgroundColor === "green" ? "white" : "green";
+        }, 500);
+        timeRemaining --;
+        updateDisplay();
     }
   }, 1000);
+function updateDisplay() {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
 
-  function updateDisplay() {
-    let seconds = timeRemaining;
+    const mm = String(minutes).padStart(2, "0");
+    const ss = String(seconds).padStart(2, "0");
 
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
-
-    display.textContent = `Time Remaining: 00:${seconds}`;
+    display.textContent = `Time Remaining: ${mm}:${ss}`;
   }
+  
 }
 
 // DO NOT EDIT BELOW HERE
