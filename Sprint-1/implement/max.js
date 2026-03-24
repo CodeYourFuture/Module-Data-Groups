@@ -1,12 +1,11 @@
 function findMax(elements) {
-    const filteredArr = elements.filter(x => typeof x === 'number');
+    const numbers = elements.filter(Number.isFinite);
 
-    if (filteredArr.length == 0) {
+    if (numbers.length == 0) {
         return -Infinity;
     }
 
-    // using 'spread sytax'
-    return Math.max(...filteredArr);
+    return Math.max(...numbers);
 }
 
 module.exports = findMax;
