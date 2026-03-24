@@ -21,6 +21,7 @@ function setAlarm() {
 
     if (seconds <= 0) {
       clearInterval(countdown);
+      document.body.classList.add("alarm-finished")
       playAlarm();
     }
   }, 1000);
@@ -43,6 +44,7 @@ function playAlarm() {
 function pauseAlarm() {
   clearInterval(countdown);
   audio.pause();
+  document.body.classList.remove("alarm-finished")
 }
 
 window.onload = setup;
