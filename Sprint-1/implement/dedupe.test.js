@@ -27,6 +27,7 @@ test("returns copy of the original array if there are no duplicates", () => {
   const input = [10, 45, 85, 20];
   const result = dedupe(input);
   expect(result).toEqual(input);
+  expect(input).toEqual([10, 45, 85, 20]);
   expect(result).not.toBe(input);
 });
 

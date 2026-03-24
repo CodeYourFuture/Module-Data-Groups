@@ -49,3 +49,19 @@ test("given an array with non number values, returns sum of numbers", () => {
 test("returns 0 foe non number values", () => {
   expect(sum(["sally", "cousin", "hi", "a"])).toBe(0);
 });
+
+// Given an array with NaN and numbers
+// When passed to the sum function
+// Then it should ignore NaN and return the sum of the numbers
+test("should ignore NaN and return the correct sum", () => {
+  expect(sum([32, NaN, 25])).toEqual(57);
+  expect(sum([NaN, 1])).toEqual(1);
+  expect(sum([NaN, 0])).toEqual(0);
+});
+
+// Given an array with Infinity and -Infinity
+// When passed to the sum function
+// Then it should return NaN (standard JS behavior for infinite subtraction)
+test("should return NaN when summing Infinity and -Infinity", () => {
+  expect(sum([Infinity, -Infinity])).toBeNaN();
+});

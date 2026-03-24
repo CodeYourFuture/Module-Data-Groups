@@ -61,3 +61,14 @@ test("returns max and ignores non number values", () => {
 test("returns infinity in non number values", () => {
   expect(findMax(["hi", "sally", "a", "alpha"])).toBe(-Infinity);
 });
+// Given an array with null input
+// returns -Infinity for null input
+test("returns -Infinity where input is null", () => {
+  expect(findMax(null)).toBe(-Infinity);
+});
+
+// Given an array with undefined input
+// returns -Infinity for undefined input
+test("returns -Infinity where input is undefined", () => {
+  expect(findMax(undefined)).toBe(-Infinity);
+});
