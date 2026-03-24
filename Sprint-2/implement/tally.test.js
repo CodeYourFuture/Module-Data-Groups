@@ -24,4 +24,10 @@ describe("tally()", () => {
   test("throws an error for invalid input", () => {
     expect(() => tally("not-an-array")).toThrow();
   });
+
+  test('counts inherited-looking keys like "toString" correctly', () => {
+    expect(tally(["toString", "toString"])).toEqual({
+      toString: 2,
+    });
+  });
 });

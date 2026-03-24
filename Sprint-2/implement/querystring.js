@@ -1,42 +1,49 @@
 /**
  * parseQueryString()
  *
- * Parses a query string into an object of key-value pairs.
+ * Parses a query string into an object of decoded key-value pairs.
  *
- * Example:
- * parseQueryString("name=Richard&city=Sheffield")
- * returns { name: "Richard", city: "Sheffield" }
+ * Handles:
+ * - empty strings
+ * - multiple pairs separated by "&"
+ * - values containing "="
+ * - missing values
+ * - missing "="
+ * - trailing "&"
+ * - URL-encoded keys and values
  */
-
 function parseQueryString(queryString) {
-  const queryParams = {};
+  const queryParams = Object.create(null);
 
-  // Return an empty object if the input is an empty string
+  // Return an empty object if the input is invalid or empty
   if (typeof queryString !== "string" || queryString.length === 0) {
     return queryParams;
   }
 
-  // Split the full query string into key-value pairs
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    // Skip empty pairs, for example from a trailing "&"
+    // Skip empty pairs, e.g. from a trailing "&"
     if (pair === "") {
       continue;
     }
 
-    // Find the position of the first "="
     const separatorIndex = pair.indexOf("=");
 
-    // If there is no "=" sign, treat it as a key with an empty value
+    let rawKey;
+    let rawValue;
+
+    // If there is no "=", treat it as a key with an empty value
     if (separatorIndex === -1) {
-      queryParams[pair] = "";
-      continue;
+      rawKey = pair;
+      rawValue = "";
+    } else {
+      rawKey = pair.slice(0, separatorIndex);
+      rawValue = pair.slice(separatorIndex + 1);
     }
 
-    // Extract the key and everything after the first "=" as the value
-    const key = pair.slice(0, separatorIndex);
-    const value = pair.slice(separatorIndex + 1);
+    const key = decodeURIComponent(rawKey);
+    const value = decodeURIComponent(rawValue);
 
     queryParams[key] = value;
   }

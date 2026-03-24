@@ -41,4 +41,10 @@ describe("parseQueryString()", () => {
       name: "Richard",
     });
   });
+
+  test("decodes URL-encoded keys and values", () => {
+    expect(parseQueryString("tags%5B%5D=hello%20world")).toEqual({
+      "tags[]": "hello world",
+    });
+  });
 });

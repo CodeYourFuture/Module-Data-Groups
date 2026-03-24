@@ -15,7 +15,5 @@ const recipe = {
 console.log(`${recipe.title} serves ${recipe.serves}`);
 console.log("ingredients:");
 
-// Loop through the ingredients array and print each one
-for (const ingredient of recipe.ingredients) {
-  console.log(ingredient);
-}
+// Print each ingredient on a new line using join()
+console.log(recipe.ingredients.join("\n"));
