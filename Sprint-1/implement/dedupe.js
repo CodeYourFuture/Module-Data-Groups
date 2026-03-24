@@ -1,13 +1,15 @@
 function dedupe(array) {
-    let arr = array.filter((item, index) => {
+    // let arr = array.filter((item, index) => {
 
-        // indexOf() returns the first index where that value appears in the array.
-        if (array.indexOf(item) === index) {
-            return item;
-        }
-    })
+    //     // indexOf() returns the first index where that value appears in the array.
+    //     if (array.indexOf(item) === index) {
+    //         return item;
+    //     }
+    // })
 
-    return arr;
+    // return arr;
+    
+    return [...new Set(array)];
 }
 
 module.exports = dedupe;
