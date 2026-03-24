@@ -21,18 +21,18 @@ const tally = require("./tally.js");
 // Then it should return an object containing the count for each unique item
 
 test("tally on a single-item array returns count for one count", () => {
-  const input = ["a"]
+  const input = ["a"];
   const result = tally(input);
   const expected = { a: 1 };
-  expect(result).toEqual(expected);});
-
+  expect(result).toEqual(expected);
+});
 
 test("tally on an array with duplicate items returns count for each unique item", () => {
-const input = ["a", "a", "a"];
-const result = tally(input);
-const expected = { a: 3 };
-expect(result).toEqual(expected); });
-
+  const input = ["a", "a", "a"];
+  const result = tally(input);
+  const expected = { a: 3 };
+  expect(result).toEqual(expected);
+});
 
 test("tally on an array with multiple items returns count for each unique item", () => {
   const input = ["a", "a", "b", "c"];
@@ -41,25 +41,24 @@ test("tally on an array with multiple items returns count for each unique item",
   expect(result).toEqual(expected);
 });
 
-
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
 //test.todo("tally on an empty array returns an empty object");
 
-test ("tally on an empty array returns an empty object", () => {
+test("tally on an empty array returns an empty object", () => {
   const input = [];
   const result = tally(input);
   const expected = {};
   expect(result).toEqual(expected);
-}); 
+});
 
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
 
-test("tally on an array with duplicate items returns count for each unique item", () => {   
-  const input = ["a", "a","a", "b","b", "c"];
+test("tally on an array with duplicate items returns count for each unique item", () => {
+  const input = ["a", "a", "a", "b", "b", "c"];
   const result = tally(input);
   const expected = { a: 3, b: 2, c: 1 };
   expect(result).toEqual(expected);
@@ -72,4 +71,12 @@ test("tally on an array with duplicate items returns count for each unique item"
 test("tally on a non-array input throws an error", () => {
   const input = "not an array";
   expect(() => tally(input)).toThrow(TypeError);
+});
+
+test("tally counts keys like toString correctly", () => {
+  const input = ["toString", "toString"];
+  const result = tally(input);
+  const expected = Object.create(null);
+  expected.toString = 2;
+  expect(result).toEqual(expected);
 });

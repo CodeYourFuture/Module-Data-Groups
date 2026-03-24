@@ -4,9 +4,9 @@ function tally(items) {
   }
 
   return items.reduce((counts, item) => {
-    counts[item] = (counts[item] || 0) + 1;
+    counts[item] = (counts[item] ?? 0) + 1;
     return counts;
-  }, {});
+  }, Object.create(null));
 }
 
 module.exports = tally;
