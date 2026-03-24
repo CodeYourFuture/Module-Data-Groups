@@ -12,6 +12,8 @@
 
   countWords("you and me and you") then the target output is { you: 2, and: 2, me: 1 }
 
+  
+
   To complete this exercise you should understand
     - Strings and string manipulation
     - Loops
@@ -26,3 +28,17 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+function countWords(str) {
+  const cleanStr = str.split(" ");
+  const objWords = Object.create(null); // object with no prototype;
+  for (let word of cleanStr) {
+    if (word === "") continue;
+    const lower = word.toLowerCase(); // normalize case
+    if (objWords[lower]) {
+      objWords[lower]++;
+    } else {
+      objWords[lower] = 1;
+    }
+  }
+  return objWords;
+}
