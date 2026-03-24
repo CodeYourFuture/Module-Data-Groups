@@ -7,27 +7,26 @@
 
 function calculateMedian(list) {
 
-  // first of all, checking if 'list' is an array
-  if (Array.isArray(list)) {
+  // first of all, checking if 'list' isn't an array
+  if (!Array.isArray(list)) return null;
     
-    const filteredArr = list.filter(x => typeof x === 'number');
+    const numbers = list.filter(Number.isFinite);
   
-    if (filteredArr.length < 2) {
-      return null;
-    }
+    if (numbers.length === 0) return null;
+    if (numbers.length === 1) return numbers[0];
+
   
     // using 'spread operator' copies the array without mutating it
-    const sortedList = [...filteredArr].sort((a, b) => a - b);
+    numbers.sort((a, b) => a - b);
   
-    const middleIndex = Math.floor(sortedList.length / 2);
+    const middleIndex = Math.floor(numbers.length / 2);
   
-    if (sortedList.length % 2 === 0) {
-      return (sortedList[middleIndex - 1] + sortedList[middleIndex]) / 2;
+    if (numbers.length % 2 === 0) {
+      return (numbers[middleIndex - 1] + numbers[middleIndex]) / 2;
     } else {
-      return sortedList[middleIndex]
+      return numbers[middleIndex]
     }
-  }
-  return null;
+
 }
 
 module.exports = calculateMedian;
