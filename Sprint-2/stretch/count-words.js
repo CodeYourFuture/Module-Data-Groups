@@ -26,3 +26,29 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+function countWords(str) {
+  const result = Object.create(null);
+
+  const cleaned = str
+    .toLowerCase()
+    .replace(/[.,!?]/g, "")
+    .trim();
+
+  if (cleaned === "") {
+    return result;
+  }
+
+  const words = cleaned.split(/\s+/);
+
+  for (const word of words) {
+    if (result[word]) {
+      result[word]++;
+    } else {
+      result[word] = 1;
+    }
+  }
+
+  return result;
+}
+
+module.exports = countWords;
