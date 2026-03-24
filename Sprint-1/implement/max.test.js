@@ -16,8 +16,8 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test("given an empty array, returns null", () => {
-  expect(findMax([])).toBe(null);
+test("given an empty array, returns -Infinity", () => {
+  expect(findMax([])).toBe(-Infinity);
 });
 
 // Given an array with one number
@@ -63,5 +63,5 @@ test("ignores numeric strings like '300'", () => {
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given only non-number values, returns null", () => {
-  expect(findMax(["hey", "hi", null, undefined, NaN])).toBe(null);
+  expect(findMax(["hey", "hi", null, undefined, NaN])).toBe(-Infinity);
 });

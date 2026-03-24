@@ -13,7 +13,7 @@ function findMax(elements) {
   }
 
   if (!foundNumber) {
-    return null;
+    return -Infinity;
   }
 
   return max;
