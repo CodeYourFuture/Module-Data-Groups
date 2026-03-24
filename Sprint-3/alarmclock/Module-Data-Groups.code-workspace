@@ -1,0 +1,39 @@
+{
+    "folders": [
+        {
+            "path": "../.."
+        },
+        {
+            "name": "Sprint-1",
+            "path": "../../Sprint-1"
+        },
+        {
+            "name": "Sprint-2",
+            "path": "../../Sprint-2"
+        },
+        {
+            "name": "Sprint-3",
+            "path": ".."
+        },
+        {
+            "name": "slideshow",
+            "path": "../slideshow"
+        },
+        {
+            "name": "reading-list",
+            "path": "../reading-list"
+        },
+        {
+            "name": "alarmclock",
+            "path": "."
+        },
+        {
+            "name": "todo-list",
+            "path": "../todo-list"
+        },
+        {
+            "name": "quote-generator",
+            "path": "../quote-generator"
+        }
+    ]
+}
