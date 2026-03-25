@@ -494,3 +494,9 @@ const quotes = [
 const quoteElement = document.getElementById("quote");
 const authorElement = document.getElementById("author");
 const button = document.getElementById("new-quote");
+
+function displayQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteElement.innerText = randomQuote.quote;
+  authorElement.innerText = randomQuote.author;
+}
