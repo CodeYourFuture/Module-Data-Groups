@@ -10,3 +10,23 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+// Empty Input
+test("returns empty object for empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+// Normal single pair
+test("parses a single key/value pair", () => {
+  expect(parseQueryString("a=1")).toEqual({ a: "1" });
+});
+
+// Normal multiple pairs
+test("parses multiple key/value pairs", () => {
+  expect(parseQueryString("a=1&b=2")).toEqual({ a: "1", b: "2" });
+});
+
+// Empty value should be an empty string
+test("handles a key with an empty value", () => {
+  expect(parseQueryString("a=")).toEqual({ a: "" });
+});
