@@ -23,11 +23,11 @@ module.exports = invert;
 
 
 // a) What is the current return value when invert is called with { a : 1 }
-// Answer: { "1": "a" }
+// Answer: { key: 1 }
 
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-// Answer: { "1": "a", "2": "b" }
+// Answer: { key: 2 }
 
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
