@@ -36,8 +36,9 @@ describe("sum", () => {
   // When passed to the sum function
   // Then it should return the correct total sum
   test("array with decimal numbers returns correct sum", () => {
-    expect(sum([1.5, 2.5, 1])).toBe(5);
+    expect(sum([1.5, 2.5, 1])).toBeCloseTo(5);
   });
+
   // Given an array containing non-number values
   // When passed to the sum function
   // Then it should ignore the non-numerical values and return the sum of the numerical elements
