@@ -60,3 +60,7 @@ describe("findMax", () => {
     expect(findMax(["a", null, "b"])).toBe(-Infinity);
   });
 });
+
+test("array with numeric string ignores it and returns max of numbers", () => {
+  expect(findMax([10, "300", 5, 7])).toBe(10);
+});
