@@ -500,3 +500,5 @@ function displayQuote() {
   quoteElement.innerText = randomQuote.quote;
   authorElement.innerText = randomQuote.author;
 }
+displayQuote();
+
