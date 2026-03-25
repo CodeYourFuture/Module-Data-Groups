@@ -16,15 +16,20 @@ function invert(obj) {
   return invertedObj;
 }
 module.exports = invert;
+
 // a) What is the current return value when invert is called with { a : 1 }
 // { "1": "a" }
+
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
 // { "1": "a", "2": "b" }
+
 // c) What does Object.entries return? Why is it needed in this program?
-// { "1": "a", "2": "b" }
+// Returns an array of [key, value] pairs. It lets us loop over keys and values easily.
+
 // d) Explain why the current return value is different from the target output
 // The original function used "key" literally, so the object’s keys weren’t swapped correctly.
 // The fixed version uses `invertedObj[value] = key` to swap keys and values.
+
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
 
 const invert = require("./invert.js");
