@@ -17,13 +17,43 @@ function invert(obj) {
 }
 
 // a) What is the current return value when invert is called with { a : 1 }
-
+//key : 1
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-
+//key: 2
 // c) What is the target return value when invert is called with {a : 1, b: 2}
-
+//{"1": "a", "2": "b"}
 // c) What does Object.entries return? Why is it needed in this program?
-
+//It returns an array of [key, value] pairs from the object. It is needed so we can loop over each key/value pair.
 // d) Explain why the current return value is different from the target output
-
+//The .key is incorrect syntax for setting a key in the object. It should be in brackets.
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+function invert(obj) {
+  const invertedObj = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    invertedObj[value] = key;
+  }
+
+  return invertedObj;
+}
+
+module.exports = invert;
+
+//jest test cases
+const invert = require("./invert.js");
+
+test("inverts a single object", () => {
+  expect(invert({ a: 1 })).toEqual({ "1": "a" });
+});
+
+test("inverts an object with multiple key-value pairs", () => {
+  expect(invert({ a: 1, b: 2 })).toEqual({ "1": "a", "2": "b" });
+});
+
+test("inverts string values", () => {
+  expect(invert({ a: "hello", b: "world" })).toEqual({ "hello": "a", "world": "b" });
+});
+
+test("inverts an empty object", () => {
+  expect(invert({})).toEqual({});
+});
