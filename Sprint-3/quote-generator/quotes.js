@@ -491,3 +491,29 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+const quote = document.querySelector("#quote");
+const author = document.querySelector("#author");
+const quoteButton = document.querySelector("#new-quote");
+const autoQuoteCheckBox = document.querySelector("#auto-quote");
+const autoQuoteLabel = document.querySelector("#auto-quote-label");
+let interval;
+function generateQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quote.innerText = randomQuote.quote;
+  author.innerText = randomQuote.author;
+}
+quoteButton.addEventListener("click", () => {
+  generateQuote();
+});
+
+generateQuote();
+
+function autoQuote() {
+  if (autoQuoteCheckBox.checked === true) {
+    interval = setInterval(generateQuote, 60000);
+    autoQuoteLabel.innerText = "auto play on";
+  } else {
+    clearInterval(interval);
+    autoQuoteLabel.innerText = "auto play off";
+  }
+}
