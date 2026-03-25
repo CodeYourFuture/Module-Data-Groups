@@ -19,7 +19,7 @@ test("decodes URL-encoded characters like spaces", () => {
 });
 // no equals, treats flag as an invalid input so it needs to be fixed.
 test("throws error when no equals sign is present", () => {
-  expect(() => parseQueryString("flag")).toThrow();
+  expect(() => parseQueryString("flag")).toThrow("Invalid query string");
 });
 
 // Empty Values
