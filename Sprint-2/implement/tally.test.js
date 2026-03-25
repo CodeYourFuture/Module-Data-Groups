@@ -19,6 +19,7 @@ const tally = require("./tally.js");
 // Given a function called tally
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
+test.todo("tally returns correct counts for unique items in an array");
 
 // Given an empty array
 // When passed to tally
@@ -28,7 +29,9 @@ test.todo("tally on an empty array returns an empty object");
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+test.todo("tally returns correct counts for duplicate items in an array");
 
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+test.todo("tally with invalid input throws an error");
