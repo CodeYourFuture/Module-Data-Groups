@@ -1,6 +1,9 @@
 const createLookup = require("./lookup.js");
 
 test.todo("creates a country currency code lookup for multiple codes");
+test.todo("creates a country currency code lookup for an empty array");
+test.todo("creates a country currency code lookup for duplicate country codes");
+test.todo("creates a country currency code lookup for invalid input");
 
 /*
 
