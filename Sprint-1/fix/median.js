@@ -8,12 +8,9 @@
 function calculateMedian(list) {
   if (!Array.isArray(list)) return null;
 
-  const numbers = [];
-  for (let i = 0; i < list.length; i++) {
-    if (typeof list[i] === "number") {
-      numbers.push(list[i]);
-    }
-  }
+  const numbers = list.filter(
+    (n) => typeof n === "number" && Number.isFinite(n)
+  );
 
   if (numbers.length === 0) {
     return null;
