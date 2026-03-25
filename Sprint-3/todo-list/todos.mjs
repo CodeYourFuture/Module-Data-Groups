@@ -3,10 +3,9 @@
   the following manner:
 
   [
-    { task: "Description of task 1", completed: false},
-    { task: "Description of task 2", completed: true}
+    { task: "Description of task 1", completed: false },
+    { task: "Description of task 2", completed: true }
   ]
-
 */
 
 // Append a new task to todos[]
@@ -21,9 +20,18 @@ export function deleteTask(todos, taskIndex) {
   }
 }
 
-// Toggle the "completed" property of todos[taskIndex] if the task exists.
+// Toggle the "completed" property of todos[taskIndex] if the task exists
 export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
+  }
+}
+
+// Remove all tasks that are marked as completed§
+export function deleteCompleted(todos) {
+  for (let i = todos.length - 1; i >= 0; i--) {
+    if (todos[i].completed) {
+      todos.splice(i, 1);
+    }
   }
 }
