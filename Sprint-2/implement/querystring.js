@@ -9,7 +9,6 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
   // loop through each part
 
- 
   for (const pair of keyValuePairs) {
     // Find the first "=" sign
     const index = pair.indexOf("=");
