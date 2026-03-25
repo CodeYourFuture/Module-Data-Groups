@@ -501,4 +501,4 @@ function displayQuote() {
   authorElement.innerText = randomQuote.author;
 }
 displayQuote();
-
+button.addEventListener("click", displayQuote);
