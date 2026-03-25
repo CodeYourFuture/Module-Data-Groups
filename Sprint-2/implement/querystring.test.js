@@ -17,15 +17,9 @@ test("decodes URL-encoded characters like spaces", () => {
     "user": "John Doe"
   });
 });
-
-// The "Key Only" Case (No equals sign)
-test("handles keys with no equals sign", () => {
-  // If input is "flag", index is -1.
-  // key = "flag".slice(0, -1) => "fla"
-  // value = "flag".slice(0) => "flag"
-  expect(parseQueryString("flag")).toEqual({
-    "fla": "flag"
-  });
+// no equals, treats flag as an invalid input so it needs to be fixed.
+test("throws error when no equals sign is present", () => {
+  expect(() => parseQueryString("flag")).toThrow();
 });
 
 // Empty Values
