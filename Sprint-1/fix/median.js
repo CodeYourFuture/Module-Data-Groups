@@ -6,7 +6,10 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
-  // Filter out non-numeric values and sort the remaining numbers
+  if (!Array.isArray(list)) {
+    return null;
+  }
+
   const numbers = list
     .filter((x) => typeof x === "number" && !isNaN(x))
     .sort((a, b) => a - b);
@@ -16,6 +19,7 @@ function calculateMedian(list) {
   }
 
   const mid = Math.floor(numbers.length / 2);
+
   if (numbers.length % 2 === 0) {
     return (numbers[mid - 1] + numbers[mid]) / 2;
   } else {
