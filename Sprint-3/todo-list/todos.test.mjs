@@ -130,3 +130,16 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+
+describe("deleteCompletedTasks()", () => {
+
+  test("Delete 2 Completed task", () => {
+    const todos = createMockTodos();
+    const todosBeforeDeletion = createMockTodos();
+    const lengthBeforeDeletion = todos.length;
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(lengthBeforeDeletion - 2);
+  });
+
+});

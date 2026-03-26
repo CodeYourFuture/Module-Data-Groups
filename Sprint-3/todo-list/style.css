@@ -101,6 +101,17 @@ h1 {
   color: red;
 }
 
+.del-completed-btn {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  background-color: #ef2121;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 .todo-item.completed .description {
   text-decoration: line-through;
   color: gray;
