@@ -3,10 +3,8 @@ function contains(obj, property) {
         return false;
     }
 
-    return property in obj;
+    return Object.hasOwn(obj, property);
 }
 
 
 module.exports = contains;
-
-
