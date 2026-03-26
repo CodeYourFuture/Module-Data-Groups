@@ -16,28 +16,48 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("Given an empty array, when passed to the max function, then it should return null", () => {
+  expect(findMax([])).toBeNull();
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("Given an array with one number, when passed to the max function, then it should return that number", () => {
+  expect(findMax([42])).toBe(42);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("Given an array with both positive and negative numbers, when passed to the max function, then it should return the largest number overall", () => {
+  expect(findMax([-10, -5, 0, 5, 10])).toBe(10);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("Given an array with just negative numbers, when passed to the max function, then it should return the closest one to zero", () => {
+  expect(findMax([-10, -5, -1])).toBe(-1);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("Given an array with decimal numbers, when passed to the max function, then it should return the largest decimal number", () => {
+  expect(findMax([1.5, 2.3, 0.8, 3.1])).toBe(3.1);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("Given an array with non-number values, when passed to the max function, then it should return the max and ignore non-numeric values", () => {
+  expect(findMax(["hey", 10, "hi", 60, 10])).toBe(60);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("Given an array with only non-number values, when passed to the max function, then it should return null", () => {
+  expect(findMax(["hey", "hi", "hello"])).toBeNull();
+});

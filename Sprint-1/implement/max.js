@@ -3,14 +3,18 @@ function findMax(elements) {
     return null;
   }
 
-  let max = elements[0];
+  let max = -Infinity;
 
-  for (let i = 1; i < elements.length; i++) {
-    if (elements[i] > max) {
-      max = elements[i];
+  for (let i = 0; i < elements.length; i++) {
+    if (typeof elements[i] === "number" && !isNaN(elements[i])) {
+      if (elements[i] > max) {
+        max = elements[i];
+      }
     }
   }
-
+  if (max === -Infinity) {
+    return null;
+  }
   return max;
 }
 
