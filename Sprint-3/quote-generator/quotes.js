@@ -1,18 +1,16 @@
-const botton = document
+document
   .getElementById("new-quote")
   .addEventListener("click", pickNewQuoteToDisplay);
 
-function pickNewQuoteToDisplay(quote) {
+function pickNewQuoteToDisplay() {
   //gets the quote object and brakes it down to the key and value
-  let quoteAndAuther = pickFromArray(quotes);
-  let quoteForDisplay = quoteAndAuther.quote;
-  let authorForDisplay = quoteAndAuther.author;
+  const quoteAndAuther = pickFromArray(quotes);
+  const quoteForDisplay = quoteAndAuther.quote;
+  const authorForDisplay = quoteAndAuther.author;
   // prints the values to the page
   document.getElementById("quote").innerHTML = "'" + quoteForDisplay + "'";
   document.getElementById("author").innerHTML = ":-" + authorForDisplay;
 }
-
-//function randomQuote()
 
 // DO NOT EDIT BELOW HERE
 
@@ -505,5 +503,3 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
-
-console.log(pickFromArray(quotes));
