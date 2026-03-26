@@ -8,22 +8,26 @@
 // refactor calculateMode by splitting up the code
 // into smaller functions using the stages above
 
-function calculateMode(list) {
+function modeFrequency(list) {
   // track frequency of each value
-  let freqs = new Map();
-
+  let frequency = new Map();
   for (let num of list) {
     if (typeof num !== "number") {
       continue;
     }
 
-    freqs.set(num, (freqs.get(num) || 0) + 1);
+    frequency.set(num, (frequency.get(num) || 0) + 1);
   }
+  return frequency;
+}
 
-  // Find the value with the highest frequency
+// Find the value with the highest frequency
+function calculateMode(list) {
+  
+  let valueFrequency=modeFrequency(list);
   let maxFreq = 0;
   let mode;
-  for (let [num, freq] of freqs) {
+  for (let [num, freq] of valueFrequency) {
     if (freq > maxFreq) {
       mode = num;
       maxFreq = freq;
