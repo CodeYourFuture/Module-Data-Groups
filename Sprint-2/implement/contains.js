@@ -3,7 +3,7 @@ function contains(obj, prop) {
     return false;
   }
 
-  return prop in obj;
+  return obj.hasOwn(obj, prop);
 }
 
 module.exports = contains;

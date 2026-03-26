@@ -41,6 +41,6 @@ test("return false when the property does not exist", () =>{
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("return false when paramters invaliud ", () =>{
-    expect(contains([], "a")).toEqual(false)
+test("returns false when input is an array", () => {
+  expect(contains([1, 2, 3], "0")).toEqual(false);
 });

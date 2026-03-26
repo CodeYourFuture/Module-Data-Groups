@@ -27,22 +27,39 @@ test("tally on an empty array returns an empty object", () => {
   expect(tally([])).toEqual({});
 });
 
-
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
 test("tally counts duplicate items correctly", () => {
-  expect(tally(['a', 'a', 'b', 'c'])).toEqual({
+  expect(tally(["a", "a", "b", "c"])).toEqual({
     a: 2,
     b: 1,
-    c: 1
+    c: 1,
   });
 });
-
 
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
 test("tally throws an error for invalid input", () => {
   expect(() => tally("hello")).toThrow();
+});
+// Given an array containing keys that match built-in object properties
+// When passed to tally
+// Then it should correctly count them without conflicts from inherited properties
+test("tally works correctly with reserved words like toString", () => {
+  const input = ["toString", "toString", "hasOwnProperty"];
+  const expected = {
+    toString: 2,
+    hasOwnProperty: 1,
+  };
+  expect(tally(input)).toEqual(expected);
+});
+test("tally works correctly with reserved words like toString", () => {
+  const input = ["toString", "toString", "hasOwnProperty"];
+  const expected = {
+    toString: 2,
+    hasOwnProperty: 1,
+  };
+  expect(tally(input)).toEqual(expected);
 });
