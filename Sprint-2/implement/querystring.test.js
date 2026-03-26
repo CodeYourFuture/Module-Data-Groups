@@ -28,7 +28,7 @@ test("parses querystring values containing &", () => {
   });
 });
 
-test.only("handles malformed querystrings", () => {
+test("handles malformed querystrings", () => {
   // if value is empty, return empty string for value.
   expect(parseQueryString("key=")).toEqual({
     key: "",
