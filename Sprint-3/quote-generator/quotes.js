@@ -1,3 +1,22 @@
+function setUp() {
+  document
+    .getElementById("new-quote")
+    .addEventListener("click", pickNewQuoteToDisplay);
+  pickNewQuoteToDisplay();
+}
+
+window.addEventListener("load", setUp);
+
+function pickNewQuoteToDisplay() {
+  //gets the quote object and brakes it down to the key and value
+  const quoteAndAuther = pickFromArray(quotes);
+  const quoteForDisplay = quoteAndAuther.quote;
+  const authorForDisplay = quoteAndAuther.author;
+  // prints the values to the page
+  document.getElementById("quote").innerHTML = "'" + quoteForDisplay + "'";
+  document.getElementById("author").innerHTML = ":-" + authorForDisplay;
+}
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -489,5 +508,3 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
-
-// call pickFromArray with the quotes array to check you get a random quote
