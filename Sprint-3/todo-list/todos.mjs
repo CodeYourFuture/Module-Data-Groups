@@ -35,5 +35,5 @@ export function deleteCompleted(todoList) {
   // removing all properties from todoList(todos)
   todoList.length = 0;
   // adding filtered tasks to todoList(todos)
-  filteredList.forEach((item) => todoList.push(item));
+  todoList.push(...filteredList);
 }
