@@ -1,6 +1,29 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+describe("createLookup", () => {
+  [
+    {
+      input: [
+        ["US", "USD"],
+        ["CA", "CAD"],
+        ["NJA", "NGN"],
+        ["RSA", "RND"],
+        ["UK", "GBP"],
+      ],
+      expected: { US: "USD", CA: "CAD", NJA: "NGN", RSA: "RND", UK: "GBP" },
+    },
+  ].forEach(({ input, expected }) =>
+    it(`Should return an object lookup of currency representing country code as keys`, () => {
+      expect(createLookup(input)).toEqual(expected);
+    })
+  );
+  [{ input: ["US", "USD", "CA", "CAD"], expected: "Invalid input" }].forEach(
+    ({ input, expected }) =>
+      it(`should return "Invalid input" for any input not following the input format`, () => {
+        expect(createLookup(input)).toEqual(expected);
+      })
+  );
+});
 
 /*
 

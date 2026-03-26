@@ -13,23 +13,53 @@ as the object doesn't contains a key of 'c'
 
 // Acceptance criteria:
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
+describe("contains()", () => {
+  // Given an object with properties
+  // When passed to contains with an existing property name
+  // Then it should return true
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
+  [{ elements: { a: 1, b: 2 }, itemKey: "a", expected: true }].forEach(
+    ({ elements, itemKey, expected }) =>
+      it(` should return ${expected} for key ${itemKey} in ${elements}`, () => {
+        expect(contains(elements, itemKey)).toEqual(expected);
+      })
+  );
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
+  // Given an empty object
+  // When passed to contains
+  // Then it should return false
 
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
+  [{ elements: {}, itemKey: "c", expected: false }].forEach(
+    ({ elements, itemKey, expected }) =>
+      it(`contains on empty object returns false`, () => {
+        expect(contains(elements, itemKey)).toEqual(expected);
+      })
+  );
 
-// Given invalid parameters like an array
-// When passed to contains
-// Then it should return false or throw an error
+  // Given an object with properties
+  // When passed to contains with a non-existent property name
+  // Then it should return false
+
+  [{ elements: { a: 1, b: 2 }, itemKey: "c", expected: false }].forEach(
+    ({ elements, itemKey, expected }) =>
+      it(`When passed to contains with non-existing property name, should return false`, () => {
+        expect(contains(elements, itemKey)).toEqual(expected);
+      })
+  );
+
+  // Given invalid parameters like an array
+  // When passed to contains
+  // Then it should return false or throw an error
+
+  [
+    {
+      elements: [3, 4, 5, "kofoworola", "Evan,"],
+      itemKey: "Evan",
+      expected: false,
+    },
+  ].forEach(({ elements, itemKey, expected }) =>
+    it(`Given invalid parameters it should return false`, () => {
+      expect(contains(elements.itemKey)).toEqual(expected);
+    })
+  );
+});

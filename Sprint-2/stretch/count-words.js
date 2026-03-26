@@ -26,3 +26,17 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+function countWord(words) {
+  const wordArr = words.toLowerCase().split(" ");
+  const filteredWord = wordArr.map((ele) => ele.replace(/[.,!?']/g, ""));
+  const wordCount = {};
+  for (let word of filteredWord) {
+    if (wordCount[word] === undefined) {
+      wordCount[word] = 1;
+    } else {
+      wordCount[word]++;
+    }
+  }
+  console.log(wordCount);
+  return wordCount;
+}
