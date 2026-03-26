@@ -3,15 +3,8 @@ function tally(items) {
     throw new Error("Input must be an array");
   }
 
-  const result = {};
-
-  for (const item of items) {
-    if (result[item]) {
-      result[item]++;
-    } else {
-      result[item] = 1;
-    }
-  }
+  const result = Object.create(null);
+  for (const item of items) result[item] = (result[item] || 0) + 1;
 
   return result;
 }
