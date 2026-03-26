@@ -1,12 +1,12 @@
 
 const quote = document.querySelector('#quote');
 const author = document.querySelector('#author');
-displayQuote();
+getQuote();
 
 const newQuoteBtn = document.querySelector('#new-quote');
-function displayQuote() {
+function getQuote() {
     let randomQuote = pickFromArray(quotes);
     quote.innerText = randomQuote.quote;
     author.innerText = randomQuote.author;
 }
-newQuoteBtn.addEventListener('click', displayQuote)
+newQuoteBtn.addEventListener('click', getQuote)
