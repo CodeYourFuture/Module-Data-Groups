@@ -33,6 +33,12 @@ function setAlarm() {
     clearInterval(countdownId);
   }
 
+  // Clear the alarm timeout if it exists
+  if (alarmTimeoutId !== null) {
+    clearTimeout(alarmTimeoutId);
+    alarmTimeoutId = null;
+  }
+
   // Reset background and stop alarm sound when setting a new alarm
   document.body.style.backgroundColor = originalBackgroundColor;
   pauseAlarm();
@@ -78,11 +84,6 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
-  // Clear the alarm timeout if it exists
-  if (alarmTimeoutId !== null) {
-    clearTimeout(alarmTimeoutId);
-    alarmTimeoutId = null;
-  }
 }
 
 window.onload = setup;
