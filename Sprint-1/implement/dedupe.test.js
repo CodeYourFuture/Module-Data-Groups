@@ -6,9 +6,9 @@ Dedupe Array
 
 In this kata, you will need to deduplicate the elements of an array
 
-E.g. dedupe(['a','a','a','b','b','c']) target output: ['a','b','c']
-E.g. dedupe([5, 1, 1, 2, 3, 2, 5, 8]) target output: [5, 1, 2, 3, 8]
-E.g. dedupe([1, 2, 1]) target output: [1, 2]
+E.g. dedupe(['a','a','a','b','b','c']) returns ['a','b','c']
+E.g. dedupe([5, 1, 1, 2, 3, 2, 5, 8]) returns [5, 1, 2, 3, 8]
+E.g. dedupe([1, 2, 1]) returns [1, 2]
 */
 
 // Acceptance Criteria:
@@ -36,10 +36,11 @@ test("Given an array with no duplicates, when passed to the dedupe function, the
   expect(dedupe(["a", "b", "c"])).toEqual(["a", "b", "c"]);
 });
 
-// Given an array with strings or numbers
+// Given an array of strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurrence of each element
 test("Given an array with strings or numbers, when passed to the dedupe function, then it should remove the duplicate values, preserving the first occurrence of each element", () => {
   expect(dedupe(["a", "a", "b", "c", "c"])).toEqual(["a", "b", "c"]);
   expect(dedupe([1, 2, 2, 3, 4, 4])).toEqual([1, 2, 3, 4]);
 });
+
