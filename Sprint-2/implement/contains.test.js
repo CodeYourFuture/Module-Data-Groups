@@ -39,9 +39,9 @@ test("should return false when the object does not contain the property", () => 
 
 // Given invalid parameters like an array
 // When passed to contains
-// Then it should return false or throw an error
+// Then it should throw an error
 test("should return false when input is not an object", () => {
-  expect(contains([], "a")).toEqual(false);
+  expect(() => contains([], "a")).toThrow();
 });
 
 test("should throw an error when input is not an object", () => {

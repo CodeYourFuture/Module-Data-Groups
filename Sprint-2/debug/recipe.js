@@ -12,8 +12,9 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
+console.log(`${recipe.title} 
+  serves ${recipe.serves}
   ingredients:
-${recipe.ingredients.join(",")}`);
+${recipe.ingredients.join("\n")}`);
 
 // it printed [object Object], this is because ${recipe} tries to print the whole object, which shows as [object Object] instead of useful data. This was fixed by using ${recipe.ingredients} (and .join(", ")) to display the ingredients properly.
