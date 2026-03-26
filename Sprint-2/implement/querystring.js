@@ -1,16 +1,24 @@
 function parseQueryString(queryString) {
-  const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
-  const keyValuePairs = queryString.split("&");
+  const result = {};
+  if (!queryString) return result;
 
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
-  }
+  const pairs = queryString.split("&");
 
-  return queryParams;
+  pairs.forEach((pair) => {
+    if (!pair) return;
+
+    const index = pair.indexOf("=");
+
+    if (index === -1) {
+      result[pair] = "";
+    } else {
+      const key = pair.slice(0, index);
+      const value = pair.slice(index + 1);
+      result[key] = value;
+    }
+  });
+
+  return result;
 }
 
 module.exports = parseQueryString;
