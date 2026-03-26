@@ -48,3 +48,10 @@ test("return false when pass an array instead of an object", () => {
     expect(contains([1, 2, 3], "name")).toBe(false);
     expect(contains(null, "prop")).toBe(false);
 })
+
+// Given: A standard object created with literal notation {}.
+// When: It is passed to the 'contains' function looking for a built-in property like "toString".
+// Then: It should return false because the object is not the "owner" of that property.
+test("Should return false for inherited properties like 'toString'", () => {
+  expect(contains({}, "toString")).toBe(false);
+});
