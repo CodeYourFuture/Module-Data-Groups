@@ -43,3 +43,10 @@ test("tally handles duplicate items", () => {
 test("tally throws an error for invalid input", () => {
   expect(() => tally("invalid")).toThrow();
 });
+
+// Given an input that has the same name as a prototype method
+// When passed to tally
+// Then it should return counts for each unique item
+test("tally returns correct output for all strings ", () => {
+  expect(tally(["toString", "toString"])).toEqual({ toString: 2 });
+});

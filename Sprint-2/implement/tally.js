@@ -3,10 +3,14 @@ function tally(items) {
     throw new Error("Input must be an array");
   }
 
-  return items.reduce((acc, item) => {
+  const plainObject = Object.create(null);
+
+  const itemsObject = items.reduce((acc, item) => {
     acc[item] = (acc[item] || 0) + 1;
     return acc;
-  }, {});
+  }, plainObject);
+
+  return itemsObject;
 }
 
 module.exports = tally;
