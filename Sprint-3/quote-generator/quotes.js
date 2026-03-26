@@ -1,6 +1,11 @@
-document
-  .getElementById("new-quote")
-  .addEventListener("click", pickNewQuoteToDisplay);
+function setUp() {
+  document
+    .getElementById("new-quote")
+    .addEventListener("click", pickNewQuoteToDisplay);
+  pickNewQuoteToDisplay();
+}
+
+window.addEventListener("load", setUp);
 
 function pickNewQuoteToDisplay() {
   //gets the quote object and brakes it down to the key and value
