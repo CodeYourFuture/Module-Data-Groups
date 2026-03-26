@@ -7,15 +7,14 @@ function setAlarm() {
 
   secondsRemaining = Number(input.value);
 
-  // Handle invalid values (0 or negative)
   if (secondsRemaining <= 0) {
     updateHeading(heading, 0);
     return;
   }
 
-  // Prevent multiple timers running
   if (timer !== null) {
     clearInterval(timer);
+    timer = null;
   }
 
   updateHeading(heading, secondsRemaining);
@@ -43,6 +42,17 @@ function updateHeading(heading, totalSeconds) {
   heading.innerText = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
 }
 
+function stopTimer() {
+  if (timer !== null) {
+    clearInterval(timer);
+    timer = null;
+  }
+}
+
+window.addEventListener("load", () => {
+  document.getElementById("stop").addEventListener("click", stopTimer);
+});
+
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
@@ -61,14 +71,8 @@ function playAlarm() {
   audio.play();
 }
 
-// improvement: stop timer as well as sound
 function pauseAlarm() {
   audio.pause();
-
-  if (timer !== null) {
-    clearInterval(timer);
-    timer = null;
-  }
 }
 
 window.onload = setup;
