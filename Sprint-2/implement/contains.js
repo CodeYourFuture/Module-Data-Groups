@@ -1,5 +1,8 @@
-function contains(array, value) {
-  return array.includes(value);
+function contains(obj, key) {
+  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
+    return false;
+  }
+  return key in obj.hasOwnProperty(key);
 }
 
 module.exports = contains;
