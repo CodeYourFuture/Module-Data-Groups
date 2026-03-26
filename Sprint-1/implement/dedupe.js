@@ -4,3 +4,4 @@ function dedupe(list) {
   }
   return list.filter((value, index, self) => self.indexOf(value) === index);
 }
+module.exports = dedupe;
