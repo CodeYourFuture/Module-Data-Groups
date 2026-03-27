@@ -1,14 +1,11 @@
-function createLookup(array, keyField = "id") {
-  if (!Array.isArray(array)) return {};
+function createLookup(pairs) {
+  const result = {};
 
-  const lookup = {};
-  for (const item of array) {
-    if (item && item[keyField] !== undefined) {
-      lookup[item[keyField]] = item;
-    }
+  for (const [key, value] of pairs) {
+    result[key] = value;
   }
 
-  return lookup;
+  return result;
 }
 
 module.exports = createLookup;
