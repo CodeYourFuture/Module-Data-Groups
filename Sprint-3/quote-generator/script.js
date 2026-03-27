@@ -4,24 +4,23 @@ const buttonElement = document.querySelector("#new-quote");
 const autoPlayElement = document.querySelector("#auto-play");
 const statusElement = document.querySelector("#status");
 
+let intervalId = null;
+
 function displayRandomQuote() {
   const randomQuote = pickFromArray(quotes);
 
   quoteElement.textContent = randomQuote.quote;
-  authorElement.textContent = `- ${randomQuote.author}`;
+  authorElement.textContent = randomQuote.author;
 }
-
-displayRandomQuote();
-
-buttonElement.addEventListener("click", displayRandomQuote);
-
-let intervalId = null;
 
 function toggleAutoPlay() {
   if (autoPlayElement.checked) {
     statusElement.textContent = "auto-play: ON";
 
-    clearInterval(intervalId);
+    if (intervalId) {
+      clearInterval(intervalId);
+    }
+
     intervalId = setInterval(displayRandomQuote, 3000);
   } else {
     statusElement.textContent = "auto-play: OFF";
@@ -31,4 +30,10 @@ function toggleAutoPlay() {
   }
 }
 
-autoPlayElement.addEventListener("change", toggleAutoPlay);
+function setup() {
+  displayRandomQuote();
+  buttonElement.addEventListener("click", displayRandomQuote);
+  autoPlayElement.addEventListener("change", toggleAutoPlay);
+}
+
+window.addEventListener("load", setup);

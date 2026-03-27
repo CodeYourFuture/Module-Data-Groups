@@ -37,6 +37,10 @@ h1 {
   margin-bottom: 30px;
 }
 
+#author::before {
+  content: "- ";
+}
+
 #new-quote {
   display: block;
   margin-left: auto;
