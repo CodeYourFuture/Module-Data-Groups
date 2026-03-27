@@ -3,7 +3,7 @@ function tally(array) {
     throw new Error("Input must be an array");
   }
 
-  const counts = {};
+  const counts = Object.create(null);
 
   for (const item of array) {
     counts[item] = (counts[item] || 0) + 1;
