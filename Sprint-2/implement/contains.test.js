@@ -14,7 +14,7 @@ describe("contains", () => {
   });
 
   test("returns false when given an array instead of an object", () => {
-    expect(contains([], "a")).toBe(false);
+    expect(contains([1, 2, 3], "0")).toBe(false);
   });
 
   test("returns false when given null", () => {
