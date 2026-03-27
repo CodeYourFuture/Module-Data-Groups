@@ -16,28 +16,61 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity", () => {
+  expect(findMax([])).toBe(-Infinity);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
 
+test("given an array with one number, returns that number", () => {
+  expect(findMax([7])).toBe(7);
+});
+
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+
+test("given positive and negative numbers, returns the largest number", () => {
+  expect(findMax([-3, 7, -2, 5])).toBe(7);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
 
+test("given an array with only negative numbers, returns the closest to zero", () => {
+  expect(findMax([-10, -3, -7])).toBe(-3);
+});
+
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+
+test("given an array with decimal numbers, returns the clargest decimal number", () => {
+  expect(findMax([2.7, 6.9, 10.1])).toBe(10.1);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 
+test("given an array with non-number values, returns the max and ignore non-numeric values", () => {
+  expect(findMax([3, "dogs", 1, "cat", null])).toBe(3);
+});
+
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+test("given an array with only non-number values, returns -Infinity", () => {
+  expect(findMax(["a", null, true, undefined])).toBe(-Infinity);
+});
+
+// Given an array with Nan
+// When passed to the max function
+// Then it should return the correct total
+test("given an array including Nan return correct total", () => {
+  expect(findMax([11, NaN, 5])).toBe(11);
+});
