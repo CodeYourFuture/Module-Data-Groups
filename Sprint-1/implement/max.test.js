@@ -67,3 +67,10 @@ test("given an array with non-number values, returns the max and ignore non-nume
 test("given an array with only non-number values, returns -Infinity", () => {
   expect(findMax(["a", null, true, undefined])).toBe(-Infinity);
 });
+
+// Given an array with Nan
+// When passed to the max function
+// Then it should return the correct total
+test("given an array including Nan return correct total", () => {
+  expect(findMax([11, NaN, 5])).toBe(11);
+});
