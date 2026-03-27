@@ -4,7 +4,8 @@ function contains(obj, prop) {
     return false;
   }
   // Check if the property exists directly on the object
-  return Object.prototype.hasOwnProperty.call(obj, prop);
+ return Object.hasOwn(obj, prop);
 }
+
 
 module.exports = contains;
