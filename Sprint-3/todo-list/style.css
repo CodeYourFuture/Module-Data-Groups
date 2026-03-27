@@ -105,3 +105,17 @@ h1 {
   text-decoration: line-through;
   color: gray;
 }
+#delete-completed-btn{
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #eb4f37;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;    /* Must be block to use margin auto */
+  margin: 20px auto; /* 20px top/bottom, 'auto' left/right */
+}
+#delete-completed-btn:hover{
+  background-color: red;
+}
