@@ -7,15 +7,10 @@ test("creates a country currency code lookup for multiple codes", () => {
     ["GB", "GBP"],
   ];
 
-  const result = createLookup(
-    countryCurrencyPairs.map((pair) => ({ code: pair[0], currency: pair[1] })),
-    "code"
-  );
-
-  expect(result).toEqual({
-    US: { code: "US", currency: "USD" },
-    CA: { code: "CA", currency: "CAD" },
-    GB: { code: "GB", currency: "GBP" },
+  expect(createLookup(countryCurrencyPairs)).toEqual({
+    US: "USD",
+    CA: "CAD",
+    GB: "GBP",
   });
 });
 
