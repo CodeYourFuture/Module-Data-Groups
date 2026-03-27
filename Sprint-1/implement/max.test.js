@@ -16,8 +16,8 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test("Given an empty array, when passed to the max function, then it should return null", () => {
-  expect(findMax([])).toBeNull();
+test("Given an empty array, when passed to the max function, then it should return -Infinity", () => {
+  expect(findMax([])).toBe(-Infinity);
 });
 
 // Given an array with one number
@@ -58,6 +58,13 @@ test("Given an array with non-number values, when passed to the max function, th
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
-test("Given an array with only non-number values, when passed to the max function, then it should return null", () => {
-  expect(findMax(["hey", "hi", "hello"])).toBeNull();
+test("Given an array with only non-number values, when passed to the max function, then it should return -Infinity", () => {
+  expect(findMax(["hey", "hi", "hello"])).toBe(-Infinity);
+});
+
+// Given an array with one number
+// When passed to the max function
+// Then it should return that number
+test("Given an array with one number, when passed to the max function, then it should return that number", () => {
+  expect(findMax([42])).toBe(42);
 });
