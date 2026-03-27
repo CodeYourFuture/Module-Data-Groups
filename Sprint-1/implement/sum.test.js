@@ -56,3 +56,10 @@ test("given an array containing non-number values, ignore the non-numerical valu
 test("given an array with only non-number values, returns 0", () => {
   expect(sum(["hello", undefined, "today", true])).toBe(0);
 });
+
+// Given an array including NaN
+// When passed to the sum function
+// Then it should ignore the NaN value
+test("given an array that include NaN returns correct answer", () => {
+  expect(sum([7, 14, NaN])).toBe(21);
+});
