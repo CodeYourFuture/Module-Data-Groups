@@ -21,3 +21,10 @@ test("handles keys without values properly", () => {
     bar: "2",
   });
 });
+
+test("handles consecutive ampersands (empty pairs) correctly", () => {
+  expect(parseQueryString("key1=value1&&key2=value2")).toEqual({
+    key1: "value1",
+    key2: "value2",
+  });
+});

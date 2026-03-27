@@ -47,3 +47,10 @@ test("throws an error when input is not an array", () => {
     tally(null);
   }).toThrow();
 });
+
+test("handles built-in property names like toString correctly", () => {
+  const result = tally(["toString", "toString"]);
+  const expected = Object.create(null);
+  expected.toString = 2;
+  expect(result).toEqual(expected);
+});
