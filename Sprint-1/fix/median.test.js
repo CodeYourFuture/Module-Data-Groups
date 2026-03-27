@@ -13,7 +13,8 @@ describe("calculateMedian", () => {
     { input: [1, 2, 3, 4], expected: 2.5 },
     { input: [1, 2, 3, 4, 5, 6], expected: 3.5 },
   ].forEach(({ input, expected }) =>
-    it(`returns the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+    it(`returns the median for [${input}]`, () =>
+      expect(calculateMedian(input)).toEqual(expected))
   );
 
   [
@@ -24,7 +25,8 @@ describe("calculateMedian", () => {
     { input: [110, 20, 0], expected: 20 },
     { input: [6, -2, 2, 12, 14], expected: 6 },
   ].forEach(({ input, expected }) =>
-    it(`returns the correct median for unsorted array [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+    it(`returns the correct median for unsorted array [${input}]`, () =>
+      expect(calculateMedian(input)).toEqual(expected))
   );
 
   it("doesn't modify the input array [3, 1, 2]", () => {
@@ -33,8 +35,17 @@ describe("calculateMedian", () => {
     expect(list).toEqual([3, 1, 2]);
   });
 
-  [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ].forEach(val =>
-    it(`returns null for non-numeric array (${val})`, () => expect(calculateMedian(val)).toBe(null))
+  [
+    "not an array",
+    123,
+    null,
+    undefined,
+    {},
+    [],
+    ["apple", null, undefined],
+  ].forEach((val) =>
+    it(`returns null for non-numeric array (${val})`, () =>
+      expect(calculateMedian(val)).toBe(null))
   );
 
   [
@@ -45,6 +56,33 @@ describe("calculateMedian", () => {
     { input: [3, "apple", 1, null, 2, undefined, 4], expected: 2.5 },
     { input: ["banana", 5, 3, "apple", 1, 4, 2], expected: 3 },
   ].forEach(({ input, expected }) =>
-    it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+    it(`filters out non-numeric values and calculates the median for [${input}]`, () =>
+      expect(calculateMedian(input)).toEqual(expected))
   );
+});
+
+describe("calculateMedian - ignores non-finite numbers", () => {
+  [
+    { input: [1, 2, NaN, 3], expected: 2 },
+    { input: [1, 2, Infinity, 3], expected: 2 },
+    { input: [1, 2, -Infinity, 3], expected: 2 },
+    { input: [1, 2, NaN, Infinity, -Infinity, 3], expected: 2 },
+    { input: [NaN, Infinity, -Infinity, 5, 10], expected: 7.5 },
+  ].forEach(({ input, expected }) =>
+    it(`ignores NaN/Infinity values in [${input}]`, () => {
+      expect(calculateMedian(input)).toEqual(expected);
+    })
+  );
+
+  it("returns null when all values are non-finite", () => {
+    expect(calculateMedian([NaN, Infinity, -Infinity])).toBe(null);
+  });
+
+  it("handles mix of finite and non-finite with even count", () => {
+    expect(calculateMedian([1, 2, 3, 4, Infinity, NaN])).toBe(2.5);
+  });
+
+  it("handles mix of finite and non-finite with odd count", () => {
+    expect(calculateMedian([1, 2, 3, Infinity, NaN])).toBe(2);
+  });
 });
