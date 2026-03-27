@@ -8,7 +8,7 @@ function sum(elements) {
       total += elements[i];
     }
   }
-  return Number(total.toFixed(10));
+  return total;
 }
 
 module.exports = sum;
