@@ -28,7 +28,7 @@ function parseQueryString(queryString) {
     if (value === undefined || value === "") {
       queryParams[decodedKey] = undefined;
     } else {
-      queryParams[key] = decodeURIComponent(value);
+      queryParams[decodedKey] = decodeURIComponent(value);
     }
   }
 
