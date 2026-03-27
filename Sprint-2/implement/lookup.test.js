@@ -1,6 +1,60 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+describe("createLookup", () => {
+  test("creates a country currency code lookup for multiple codes", () => {
+    const input = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ];
+    const result = createLookup(input);
+
+    expect(result).toEqual({
+      US: "USD",
+      CA: "CAD",
+    });
+  });
+
+  test("returns empty object for empty array", () => {
+    expect(createLookup([])).toEqual({});
+  });
+
+  test("handles a single pair", () => {
+    const input = [["GB", "GBP"]];
+    expect(createLookup(input)).toEqual({
+      GB: "GBP",
+    });
+  });
+
+  test("ignores invalid pairs (not arrays)", () => {
+    const input = [["US", "USD"], "invalid", null];
+    expect(createLookup(input)).toEqual({
+      US: "USD",
+    });
+  });
+
+  test("ignores pairs that do not have exactly two elements", () => {
+    const input = [["US", "USD"], ["CA"], ["MX", "MXN", "extra"]];
+    expect(createLookup(input)).toEqual({
+      US: "USD",
+    });
+  });
+
+  test("overwrites duplicate country codes with the latest value", () => {
+    const input = [
+      ["US", "USD"],
+      ["US", "USN"],
+    ];
+    expect(createLookup(input)).toEqual({
+      US: "USN",
+    });
+  });
+
+  test("returns empty object for invalid input (not an array)", () => {
+    expect(createLookup(null)).toEqual({});
+    expect(createLookup({})).toEqual({});
+    expect(createLookup("string")).toEqual({});
+  });
+});
 
 /*
 
@@ -21,6 +75,7 @@ Then
  - The values are the corresponding currency codes
 
 Example
+
 Given: [['US', 'USD'], ['CA', 'CAD']]
 
 When
