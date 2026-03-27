@@ -11,16 +11,10 @@ function calculateMedian(list) {
     return null;
   }
 
-  // create a variable called numbers and store an empty array.
-  let numbers = [];
-
-  // loop over each item in list.
-  for (const item of list) {
-    // if item is a number, push it into the numbers array.
-    if (typeof item === "number") {
-      numbers.push(item);
-    }
-  }
+  // filter the list to include only valid numbers (excludes Infinity, -Infinity, and NaN)
+  const numbers = list.filter(
+    (item) => typeof item === "number" && Number.isFinite(item)
+  );
 
   // if numbers array is empty return null.
   if (numbers.length === 0) {
