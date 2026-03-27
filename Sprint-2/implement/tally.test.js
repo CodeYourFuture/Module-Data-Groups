@@ -32,3 +32,21 @@ test.todo("tally on an empty array returns an empty object");
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+
+describe("tally", () => {
+  test("returns an empty object when given an empty array", () => {
+    expect(tally([])).toEqual({});
+  });
+
+  test("returns counts for each unique item", () => {
+    expect(tally(["a", "a", "b", "c"])).toEqual({
+      a: 2,
+      b: 1,
+      c: 1,
+    });
+  });
+
+  test("throws an error when input is not an array", () => {
+    expect(() => tally("abc")).toThrow();
+  });
+});
