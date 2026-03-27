@@ -1,9 +1,9 @@
 const timeRemaining = document.querySelector("#timeRemaining");
 
 let intervalId; //declared here so that I can use it in line-17, before asigning on line 21.
+const alarmSetInput = document.querySelector("#alarmSet");
 
 function setAlarm() {
-  const alarmSetInput = document.querySelector("#alarmSet");
 
   // I will use the function showTime twice, one for showing the time just after the user clicks the set button and another one for updating the time every second in countdown function
   function showTime(inputValue) {
@@ -40,9 +40,11 @@ function setAlarm() {
     }
   }
 }
-// document.getElementById("stop").addEventListener("click", () => {
-//     clearInterval(intervalId);
-//   });
+document.getElementById("stop").addEventListener("click", () => {
+    clearInterval(intervalId);
+    timeRemaining.innerText = `Time Remaining: 00:00`;
+    alarmSetInput.value = "";
+  });
 
 // DO NOT EDIT BELOW HERE
 
