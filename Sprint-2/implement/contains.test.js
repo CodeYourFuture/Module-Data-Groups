@@ -12,13 +12,7 @@ describe("contains", () => {
     ];
 
     objsWithValidProps.forEach(([obj, prop]) => {
-      try {
-        expect(contains(obj, prop)).toEqual(true);
-      } catch (error) {
-        throw new Error(
-          `Failed to return true when ${prop} is present in obj: ${error.message}`
-        );
-      }
+      expect(contains(obj, prop)).toEqual(true);
     });
   });
 
@@ -33,25 +27,13 @@ describe("contains", () => {
     ];
 
     objsWithoutProps.forEach(([obj, prop]) => {
-      try {
-        expect(contains(obj, prop)).toEqual(false);
-      } catch (error) {
-        throw new Error(
-          `Failed to return false when ${prop} is not present in obj: ${error.message}`
-        );
-      }
+      expect(contains(obj, prop)).toEqual(false);
     });
   });
 
   // Case 3: Should return false if the object is empty.
   test("should return false when object is empty", () => {
-    try {
-      expect(contains({}, "anyProperty")).toEqual(false);
-    } catch (error) {
-      throw new Error(
-        `Failed to return false when object is empty: ${error.message}`
-      );
-    }
+    expect(contains({}, "anyProperty")).toEqual(false);
   });
 
   // Case 4: Should throw an error if a non-object is passed
@@ -67,13 +49,7 @@ describe("contains", () => {
     ];
 
     nonObjects.forEach((nonObj) => {
-      try {
-        expect(() => contains(nonObj, "prop")).toThrow();
-      } catch (error) {
-        throw new Error(
-          `Failed to throw error when non-object ${nonObj} is passed: ${error.message}`
-        );
-      }
+      expect(() => contains(nonObj, "prop")).toThrow();
     });
   });
 });
