@@ -19,6 +19,18 @@
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
+function quotesAndAuthor() {
+  const randomQuote = pickFromArray(quotes);
+  document.querySelector("#quote").innerText = randomQuote.quote;
+  document.querySelector("#author").innerText = randomQuote.author;
+}
+function setup() {
+  quotesAndAuthor(); // show a quote on load
+  document.getElementById("new-quote").addEventListener("click", () => {
+    quotesAndAuthor();
+  });
+}
+window.onload = setup;
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
