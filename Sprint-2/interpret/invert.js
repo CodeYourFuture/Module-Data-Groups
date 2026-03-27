@@ -1,21 +1,31 @@
-/**
- * Invert Function
- * Swaps keys and values of an object. If multiple keys share the same value,
- * it groups those keys into an array to prevent overwriting data.
- */
+// a) What is the current return value when invert is called with { a : 1 }
+// {"1": "a"}
+
+// b) What is the current return value when invert is called with { a: 1, b: 2 }
+// {"1": "a", "2": "b"}
+
+// c) What is the target return value when invert is called with {a : 1, b: 2}
+// {"1": "a", "2": "b"}
+
+// c) What does Object.entries return? Why is it needed in this program?
+// It returns an array of [key, value] pairs. It is needed to loop through both keys and values at the same time.
+
+// d) Explain why the current return value is different from the target output
+// The original code used 'invertedObj.key = value', which literally created a property named "key". 
+// It also didn't handle collisions, so values with the same key would overwrite each other.
+
+// e) Fix the implementation of invert (and write tests to prove it's fixed!)
 function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    // Check if the value already exists as a key in our new object
+    // We use [value] for dynamic keys. 
+    // We check if the key exists to handle collisions by creating an array.
     if (invertedObj[value] === undefined) {
-      // First time seeing this: Save it as a string
       invertedObj[value] = key;
     } else if (Array.isArray(invertedObj[value])) {
-      // It's already an array: Add the new key to the list
       invertedObj[value].push(key);
     } else {
-      // It's a string: Turn it into an array and add the new key
       invertedObj[value] = [invertedObj[value], key];
     }
   }
@@ -23,5 +33,10 @@ function invert(obj) {
   return invertedObj;
 }
 
-// Ensure this is at the bottom so other files can use it
+// --- CONSOLE TESTS TO PROVE IT IS FIXED ---
+console.log("Test 1 (Simple):", invert({ a: 1 })); 
+console.log("Test 2 (No duplicates):", invert({ x: 10, y: 20 })); 
+console.log("Test 3 (Collision):", invert({ a: 1, b: 1 })); 
+console.log("Test 4 (Triple collision):", invert({ a: 1, b: 1, c: 1 }));
+
 module.exports = invert;

@@ -3,7 +3,8 @@ function contains(obj, prop) {
     return false;
   }
 
-  return obj.hasOwn(obj, prop);
+  // Use the static Object.hasOwn() method
+  return Object.hasOwn(obj, prop);
 }
 
 module.exports = contains;

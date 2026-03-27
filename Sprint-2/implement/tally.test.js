@@ -18,7 +18,7 @@ const tally = require("./tally.js");
 
 // Given a function called tally
 // When passed an array of items
-// Then it should return an object containing the count for each unique ite
+// Then it should return an object containing the count for each unique item
 
 // Given an empty array
 // When passed to tally
@@ -44,6 +44,7 @@ test("tally counts duplicate items correctly", () => {
 test("tally throws an error for invalid input", () => {
   expect(() => tally("hello")).toThrow();
 });
+
 // Given an array containing keys that match built-in object properties
 // When passed to tally
 // Then it should correctly count them without conflicts from inherited properties
@@ -55,11 +56,12 @@ test("tally works correctly with reserved words like toString", () => {
   };
   expect(tally(input)).toEqual(expected);
 });
-test("tally works correctly with reserved words like toString", () => {
-  const input = ["toString", "toString", "hasOwnProperty"];
+
+// Extra verification test to confirm pure object behavior
+test("tally accurately counts prototype method names as strings", () => {
+  const input = ["toString", "toString"];
   const expected = {
     toString: 2,
-    hasOwnProperty: 1,
   };
   expect(tally(input)).toEqual(expected);
 });
