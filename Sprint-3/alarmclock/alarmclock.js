@@ -5,12 +5,14 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   const heading = document.getElementById("timeRemaining");
 
-  secondsRemaining = Number(input.value);
+  const value = Number(input.value);
 
-  if (secondsRemaining <= 0) {
+  if (!Number.isFinite(value) || value <= 0) {
     updateHeading(heading, 0);
     return;
   }
+
+  secondsRemaining = Math.floor(value);
 
   if (timer !== null) {
     clearInterval(timer);
