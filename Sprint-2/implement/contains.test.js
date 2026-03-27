@@ -51,6 +51,15 @@ test("should return false when input is null", () => {
   expect(contains(null, "a")).toEqual(false);
 });
 
+// Given Map as a parameter
+// When passed to contains
+// Then it should return true
+test("should return true when input is map", () => {
+  const obj = new Map();
+  obj.set("name", "John");
+  expect(contains(obj, "name")).toEqual(true);
+});
+
 test("should throw an error when input is an array even if propertyName is a valid key", () => {
   expect(contains(["x", "y"], "0")).toEqual(false);
 });
