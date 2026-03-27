@@ -1,3 +1,4 @@
+
 // Fix this implementation
 // Start by running the tests for this function
 // If you're in the Sprint-1 directory, you can run `npm test -- fix` to run the tests in the fix directory
@@ -6,9 +7,25 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
+  // filter only numbers from the list
+  const numbers = list.filter(item => typeof item === "number");
+  
+  // return null if no numbers found
+  if (numbers.length === 0) {
+    return null;
+  }
+  
+  // sort the numbers
+  numbers.sort((a, b) => a - b);
+  
+  const middleIndex = Math.floor(numbers.length / 2);
+  
+  // if even number of elements, average the two middle values
+  if (numbers.length % 2 === 0) {
+    return (numbers[middleIndex - 1] + numbers[middleIndex]) / 2;
+  }
+  
+  return numbers[middleIndex];
 }
 
 module.exports = calculateMedian;

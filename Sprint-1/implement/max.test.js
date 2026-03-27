@@ -12,11 +12,33 @@ We have set things up already so that this file can see your function from the o
 
 const findMax = require("./max.js");
 
-// Given an empty array
-// When passed to the max function
-// Then it should return -Infinity
-// Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity", () => {
+  expect(findMax([])).toEqual(-Infinity);
+});
+
+test("given an array with one number, returns that number", () => {
+  expect(findMax([5])).toEqual(5);
+});
+
+test("given an array with positive and negative numbers, returns the largest", () => {
+  expect(findMax([30, -10, 50, -40])).toEqual(50);
+});
+
+test("given an array with just negative numbers, returns the closest to zero", () => {
+  expect(findMax([-5, -1, -10])).toEqual(-1);
+});
+
+test("given an array with decimal numbers, returns the largest decimal", () => {
+  expect(findMax([1.5, 2.7, 0.3])).toEqual(2.7);
+});
+
+test("given an array with non-number values, returns the max and ignores non-numeric values", () => {
+  expect(findMax(['hey', 10, 'hi', 60, 10])).toEqual(60);
+});
+
+test("given an array with only non-number values, returns -Infinity", () => {
+  expect(findMax(['hey', 'hi'])).toEqual(-Infinity);
+});
 
 // Given an array with one number
 // When passed to the max function
