@@ -1,6 +1,6 @@
 function contains(object, propertyName) {
-  if (Object.prototype.toString.call(object) !== "[object Object]") {
-    // if user passes something that is not an object, then return false.
+  if (typeof object !== "object" || object === null || Array.isArray(object)) {
+    // if user passes something that is not an object, or object is null/array, then return false.
     return false;
   }
   return Object.hasOwn(object, propertyName);

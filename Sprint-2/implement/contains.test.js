@@ -44,6 +44,13 @@ test("should return false when input is not an object", () => {
   expect(contains([], "a")).toEqual(false);
 });
 
+// Given invalid parameter e.g. null
+// When passed to contains
+// Then it should return false
+test("should return false when input is null", () => {
+  expect(contains(null, "a")).toEqual(false);
+});
+
 test("should throw an error when input is an array even if propertyName is a valid key", () => {
   expect(contains(["x", "y"], "0")).toEqual(false);
 });
