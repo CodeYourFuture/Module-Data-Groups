@@ -23,8 +23,10 @@ function parseQueryString(queryString) {
       value = pair.slice(index + 1);
     }
 
+    const decodedKey = decodeURIComponent(key);
+
     if (value === undefined || value === "") {
-      queryParams[key] = undefined;
+      queryParams[decodedKey] = undefined;
     } else {
       queryParams[key] = decodeURIComponent(value);
     }
