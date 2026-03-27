@@ -36,7 +36,11 @@ function countWords(string) {
   const wordsCountObject = {};
 
   // Replace anything that is NOT a word character or a space with an empty string
-  const cleanText = string.replace(/[^\w\s]|_/g, "").toLowerCase();
+  const cleanText = string
+    .replace(/[^\w\s]|_/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, " ");
 
   cleanText.split(" ").forEach((word) => {
     if (Object.hasOwn(wordsCountObject, word)) wordsCountObject[word] += 1;
@@ -51,3 +55,4 @@ function countWords(string) {
 }
 
 console.log(countWords("you and me and you and me me me me"));
+console.log(countWords("          Hello   World      "));

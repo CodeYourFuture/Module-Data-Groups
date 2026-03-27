@@ -10,19 +10,33 @@
 
 function calculateMode(list) {
   if (!Array.isArray(list)) throw new Error("Not an array");
-  //tracking the frequency of each number using object
-  frequencyObject = {};
-  for (const number of list) {
-    if (typeof number !== "number") continue;
-    if (Object.hasOwn(frequencyObject, number)) frequencyObject[number] += 1;
-    else frequencyObject[number] = 1;
-  }
-
-  //sorting the number with the highest frequency at the lowest index
-  const sortedArray = Object.entries(frequencyObject).sort(
-    (a, b) => b[1] - a[1]
-  );
-  return Number(sortedArray[0][0]);
+  return getMode(getFrequencyMapOfElements(list));
 }
 
+function getFrequencyMapOfElements(list) {
+  if (!Array.isArray(list)) throw new Error("Not an array");
+  //saving the frequency of each element in key value pair using map object
+  const frequencyMap = new Map();
+  for (const number of list) {
+    if (typeof number !== "number") continue;
+    let currentNumberFrequency = frequencyMap.get(number);
+    if (currentNumberFrequency !== undefined)
+      frequencyMap.set(number, (currentNumberFrequency += 1));
+    else frequencyMap.set(number, 1);
+  }
+  return frequencyMap;
+}
+
+function getMode(map) {
+  let maxKey = null;
+  let maxValue = -Infinity;
+
+  for (let [key, value] of map) {
+    if (value > maxValue) {
+      maxValue = value;
+      maxKey = key;
+    }
+  }
+  return maxKey;
+}
 module.exports = calculateMode;

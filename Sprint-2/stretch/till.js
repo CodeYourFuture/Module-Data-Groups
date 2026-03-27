@@ -8,7 +8,7 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += Number(coin.slice(0, coin.length - 1)) * quantity;
+    total += Number(coin.slice(0, -1)) * quantity;
   }
 
   return `£${total / 100}`;
