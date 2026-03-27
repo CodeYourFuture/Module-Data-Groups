@@ -1,6 +1,14 @@
 let countdownId = null;
-let alarmTimeoutId = null; // Track the alarm timeout to clear it if needed
 const originalBackgroundColor = document.body.style.backgroundColor || "white"; // Store the original background color
+let timeRemainingHeading = null;
+
+function getTimeRemainingHeading() {
+  if (timeRemainingHeading === null) {
+    timeRemainingHeading = document.getElementById("timeRemaining");
+  }
+
+  return timeRemainingHeading;
+}
 
 function formatTime(totalSeconds) {
   // Convert total seconds to minutes and seconds
@@ -12,7 +20,7 @@ function formatTime(totalSeconds) {
 
 function updateHeading(totalSeconds) {
   // Update the heading with the formatted time remaining
-  const heading = document.getElementById("timeRemaining"); // Get the heading element using its DOM ID
+  const heading = getTimeRemainingHeading(); // Query once, then reuse the cached DOM node on each tick
   heading.innerText = `Time Remaining: ${formatTime(totalSeconds)}`; // Set the text of the heading to show the time remaining in the format "Time Remaining: MM:SS"
 }
 
@@ -33,15 +41,9 @@ function setAlarm() {
     clearInterval(countdownId);
   }
 
-  // Clear the alarm timeout if it exists
-  if (alarmTimeoutId !== null) {
-    clearTimeout(alarmTimeoutId);
-    alarmTimeoutId = null;
-  }
-
+ 
   // Reset background and stop alarm sound when setting a new alarm
   document.body.style.backgroundColor = originalBackgroundColor;
-  pauseAlarm();
 
   updateHeading(remainingSeconds); // Update the heading to show the initial time remaining before starting the countdown
 
