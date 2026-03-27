@@ -1,31 +1,19 @@
 // totalTill takes an object representing coins in a till
-
-// Given an object of coins
-// When this till object is passed to totalTill
-// Then it should return the total amount in pounds
+// Given an object of coins (e.g. { '1p': 10, '50p': 4 })
+// it returns the total amount as a formatted pounds string (e.g. '£4.40').
 
 function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    // Convert a label like '50p' -> 50 (pence)
+    const pence = parseInt(String(coin).replace(/p$/i, ""), 10);
+    if (Number.isFinite(pence) && typeof quantity === "number") {
+      total += pence * quantity;
+    }
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
-const till = {
-  "1p": 10,
-  "5p": 6,
-  "50p": 4,
-  "20p": 10,
-};
-const totalAmount = totalTill(till);
-
-// a) What is the target output when totalTill is called with the till object
-
-// b) Why do we need to use Object.entries inside the for...of loop in this function?
-
-// c) What does coin * quantity evaluate to inside the for...of loop?
-
-// d) Write a test for this function to check it works and then fix the implementation of totalTill
+module.exports = totalTill;
