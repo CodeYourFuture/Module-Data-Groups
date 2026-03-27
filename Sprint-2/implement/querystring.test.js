@@ -29,10 +29,14 @@ test("parses querystring containing empty or missing value in one of the params"
 });
 
 //Case 4 : extra & in the start, mid or at the end
-test("parses querystring containing empty or missing value in one of the params", () => {
+test("parses querystring containing extra & in the start, mid or at the end", () => {
   expect(parseQueryString("&equation=x=y+1&&job=&")).toEqual({
     equation: "x=y+1",
     job: "",
+  });
+  expect(parseQueryString("a=b&&c=d")).toEqual({
+    a: "b",
+    c: "d",
   });
 });
 
@@ -52,7 +56,7 @@ test("if the querystring is undefined then an error should be thrown", () => {
 });
 
 //Case 7 : querystring is a number
-test("if the querystring is undefined then an error should be thrown", () => {
+test("if the querystring is number then an error should be thrown", () => {
   expect(() => parseQueryString(123)).toThrow("Invalid Input");
 });
 

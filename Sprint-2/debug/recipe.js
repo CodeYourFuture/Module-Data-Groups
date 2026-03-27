@@ -14,6 +14,15 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves} 
-ingredients:
-${recipe.ingredients[0]}\n${recipe.ingredients[1]}\n${recipe.ingredients[2]}\n${recipe.ingredients[3]}`);
+console.log(
+  `${recipe.title} serves ${recipe.serves} 
+ingredients:\n` + getRecipeIngredients(recipe.ingredients)
+);
+
+function getRecipeIngredients(recipeIngredients) {
+  let ingredients = "";
+  for (const element of recipeIngredients) {
+    ingredients += element + "\n";
+  }
+  return ingredients;
+}

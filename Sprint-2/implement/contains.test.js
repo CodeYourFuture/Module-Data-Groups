@@ -78,6 +78,7 @@ describe("containsProperty", () => {
   // Then it should return false or throw an error
   [
     { input: [1], property: "a" },
+    { input: [1], property: "0" },
     { input: null, property: "c" },
     { input: undefined, property: "what" },
     { input: [1, 2, 3], property: "what" },

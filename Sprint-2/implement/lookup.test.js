@@ -52,7 +52,7 @@ describe("lookup", () => {
 
   // CASE 2: Should return an empty object if empty array is passed
   test(`should return an empty object if the array is empty`, () =>
-    expect(createLookup([[]])).toEqual({}));
+    expect(createLookup([])).toStrictEqual({}));
 
   // CASE 3: Input is null
   test(`should throw an error if null is passed`, () =>
