@@ -2,7 +2,7 @@ function max(numbers) {
   let max = -Infinity;
 
   for (let num of numbers) {
-    if (num > max) {
+    if (typeof num === "number" && num > max) {
       max = num;
     }
   }
