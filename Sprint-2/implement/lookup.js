@@ -1,11 +1,11 @@
 function createLookup(pairs) {
-  // implementation here
-  // Creates empty object that will store our,
+  // Implementation goes here
+  // Creates an empty object to store the lookup results
   // country → currency
   const lookup = {};
   // Loop through each pair in the input array
   for (const [country, currency] of pairs) {
-    // Use the country code as they key
+    // Use the country code as the function key
     // Assigns the correspoding currency code as the value
     lookup[country] = currency;
   }
