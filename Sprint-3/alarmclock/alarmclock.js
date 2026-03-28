@@ -4,7 +4,7 @@ let timeRemainingHeading = null;
 
 function getTimeRemainingHeading() {
   if (timeRemainingHeading === null) {
-    timeRemainingHeading = document.getElementById("timeRemaining");// Cache the DOM node for the time remaining heading to avoid querying it multiple times during the countdown
+    timeRemainingHeading = document.getElementById("timeRemaining");
   }
 
   return timeRemainingHeading;
