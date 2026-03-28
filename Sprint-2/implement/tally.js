@@ -6,7 +6,7 @@ function tally(items) {
   }
 
   // Create an empty object to store the counts
-  const counts = {};
+  const counts = Object.create(null);
 
   // Loop through each item in the array
   for (const item of items) {

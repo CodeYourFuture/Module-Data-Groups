@@ -53,12 +53,7 @@ function countWords(str) {
   const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
 
   // Convert the sorted array back into an object
-  const sortedCounts = {};
-  for (const [word, count] of sorted) {
-    sortedCounts[word] = count;
-  }
-
-  return sortedCounts;
+  return Object.fromEntries(sorted);
 }
 
 // Test the function

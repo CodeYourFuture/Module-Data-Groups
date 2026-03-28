@@ -9,9 +9,9 @@
 // Stage 1: Count how many times each number appears in the array
 function countFrequencies(list) {
   // Create a new Map to store each number and its count
-  let freqs = new Map();
+  const freqs = new Map();
 
-  for (let num of list) {
+  for (const num of list) {
     // Skip any value that is not a number
     if (typeof num !== "number") {
       continue;
@@ -31,7 +31,7 @@ function findHighestFrequency(freqs) {
   let mode;
 
   // Loop through each [number, frequency] pair in the Map
-  for (let [num, freq] of freqs) {
+  for (const [num, freq] of freqs) {
     // If this frequency is higher than the current max, update
     if (freq > maxFreq) {
       mode = num;

@@ -12,6 +12,11 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
+    // Skip empty pairs caused by double ampersands like "key1=value1&&key2=value2"
+    if (pair === "") {
+      continue;
+    }
+
     // Find the position of the FIRST "=" only
     const firstEqualIndex = pair.indexOf("=");
 
