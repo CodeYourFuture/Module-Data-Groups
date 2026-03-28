@@ -25,7 +25,7 @@ test("returns false for a non-existent property", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("returns false for an array", () => {
-  expect(contains([], "a")).toBe(false);
+  expect(contains([1, 2, 3], 0)).toBe(false);
 });
 
 // Given invalid parameters like null
