@@ -124,14 +124,16 @@ describe("parseQueryString", () => {
   // Case 8: Throws an error when given a string with missing key or value
   test("throws an error when passed a string with missing key or value", () => {
     const invalidQueryStrings = [
-      ["=valueOnly"],
-      ["keyOnly="],
-      ["=valueOnly&key2=value2"],
-      ["key1=value1&=valueOnly"],
+      "=valueOnly",
+      "keyOnly=",
+      "=valueOnly&key2=value2",
+      "key1=value1&=valueOnly",
     ];
 
     invalidQueryStrings.forEach((input) => {
-      expect(() => parseQueryString(input)).toThrow();
+      expect(() => parseQueryString(input)).toThrow(
+        "String must contain both a key and a value separated by '='"
+      );
     });
   });
 });

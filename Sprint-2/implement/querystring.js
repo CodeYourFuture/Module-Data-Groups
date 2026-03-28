@@ -11,9 +11,17 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    // Split the pair on the first "=" to separate the key and value
-    const [key, ...value] = pair.split("=");
-    queryParams[key.trim()] = value.join("=").trim();
+    const separatorIndex = pair.indexOf("=");
+
+    if (separatorIndex <= 0 || separatorIndex === pair.length - 1) {
+      throw new Error(
+        "String must contain both a key and a value separated by '='"
+      );
+    }
+
+    const key = pair.slice(0, separatorIndex).trim();
+    const value = pair.slice(separatorIndex + 1).trim();
+    queryParams[key] = value;
   }
 
   return queryParams;
