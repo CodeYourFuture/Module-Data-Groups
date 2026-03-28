@@ -13,7 +13,7 @@ function parseQueryString(queryString) {
   for (const pair of keyValuePairs) {
     // Split the pair on the first "=" to separate the key and value
     const [key, ...value] = pair.split("=");
-    queryParams[key] = value.join("=");
+    queryParams[key.trim()] = value.join("=").trim();
   }
 
   return queryParams;

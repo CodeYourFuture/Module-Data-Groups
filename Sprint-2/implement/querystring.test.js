@@ -90,10 +90,31 @@ describe("parseQueryString", () => {
       [{ name: "John Locke" }, { title: "Lost" }, {}],
       [null],
       [undefined],
+      [
+        [
+          "equation1=x=y+1&equation2=a=b+c",
+          {
+            equation1: "x=y+1",
+          },
+        ],
+      ],
     ];
 
     invalidInputs.forEach((input) => {
       expect(() => parseQueryString(input)).toThrow("Input must be a string");
+    });
+  });
+
+  // Case 7: String contains a space between the key and value
+  test("parses querystring with spaces between key and value", () => {
+    const pairsWithSpaces = [
+      ["name =John Doe", { name: "John Doe" }],
+      ["city = New York", { city: "New York" }],
+      ["country  =United States", { country: "United States" }],
+    ];
+
+    pairsWithSpaces.forEach(([input, targetOutput]) => {
+      expect(parseQueryString(input)).toEqual(targetOutput);
     });
   });
 });
