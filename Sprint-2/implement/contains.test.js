@@ -20,16 +20,38 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("given an empty object returns false", () => {
+  expect(contains({}, "a")).toEqual(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
 
+test("given an object containing the target property, return true", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+});
+
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
 
+test("given an object that does not contains the target property, return false", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});
+
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+
+test("given an invalid parameter, throw an error", () => {
+  expect(() => contains(["a", "b", "c"], "3")).toThrow();
+});
+
+test("given an invalid parameter, throw an error", () => {
+  expect(() => contains(null, "a")).toThrow();
+});
+
+test("given an invalid parameter, throw an error", () => {
+  expect(() => contains("abc", "a")).toThrow();
+});
