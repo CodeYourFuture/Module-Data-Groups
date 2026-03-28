@@ -70,14 +70,14 @@ test("given an array with only non-number values, returns -Infinity", () => {
 
 // Given an array with Nan
 // When passed to the max function
-// Then it should return the correct total
-test("given an array including Nan return correct total", () => {
+// Then it should return the correct maximum value
+test("given an array including Nan return correct maximum value", () => {
   expect(findMax([11, NaN, 5])).toBe(11);
 });
 
 // Given an array with numeric string value
 // When passed to the max function
-// Then it should ignore the numeric string and return correct total
-test("given an array with numeric string value, it should ignore the numeric string and return correct total", () => {
+// Then it should ignore the numeric string and return correct maximum value
+test("given an array with numeric string value, it should ignore the numeric string and return correct maximum value", () => {
   expect(findMax([8, "14", 2])).toBe(8);
 });
