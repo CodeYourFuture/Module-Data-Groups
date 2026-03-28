@@ -2,7 +2,7 @@ let countdownInterval = null;
 let secondsLeft = 0;
 
 function setAlarm() {
-  // Read the minutes from the input
+  // Read the number of minutes from the input field (expects minutes)
   const input = document.getElementById("alarmSet");
   const minutes = parseInt(input.value, 10);
 
@@ -11,7 +11,7 @@ function setAlarm() {
     return;
   }
 
-  // Convert to total seconds
+  // Store the remaining time; currently this value is in minutes (not seconds yet)
   secondsLeft = minutes;
 
   // Stop any existing countdown
