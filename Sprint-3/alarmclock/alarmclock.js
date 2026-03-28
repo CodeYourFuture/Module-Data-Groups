@@ -23,4 +23,3 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
-
