@@ -32,6 +32,18 @@ test("given an array with no duplicates, it should return a copy of the original
   expect(result).not.toBe(input);
 });
 
+// Given an array of strings
+// When passed to the dedupe function
+// Then it should not modify the original array
+test("given an array with strings, it should not modify the original array", () => {
+  const input = ["a", "b", "c"];
+  const original = ["a", "b", "c"];
+
+  dedupe(input);
+
+  expect(input).toEqual(original);
+});
+
 // Given an array with strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
