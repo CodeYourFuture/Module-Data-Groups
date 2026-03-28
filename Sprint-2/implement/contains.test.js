@@ -36,7 +36,20 @@ describe("contains", () => {
     expect(contains({}, "anyProperty")).toEqual(false);
   });
 
-  // Case 4: Should throw an error if a non-object is passed
+  // Case 4: Should return false for properties that only exist in the prototype chain
+  test("should return false for properties in prototype chain", () => {
+    const objsWithProtoProps = [
+      [{ a: 1 }, "toString"],
+      [{ name: "John", age: 30 }, "hasOwnProperty"],
+      [{ nested: { key: "value" } }, "isPrototypeOf"],
+    ];
+
+    objsWithProtoProps.forEach(([obj, prop]) => {
+      expect(contains(obj, prop)).toEqual(false);
+    });
+  });
+
+  // Case 5: Should throw an error if a non-object is passed
   test("should throw error when non-object is passed", () => {
     const nonObjects = [
       null,
