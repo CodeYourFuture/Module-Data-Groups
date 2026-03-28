@@ -26,3 +26,31 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(str) {
+  const wordCounts = {};
+
+  const cleanedStr = str
+    .replace(/[.,!?&@?]+/g, "")
+    .toLowerCase()
+    .trim();
+
+  const words = cleanedStr.split(/\s+/);
+
+  for (const word of words) {
+    if (word === "") {
+      continue;
+    }
+    if (wordCounts[word]) {
+      wordCounts[word] += 1;
+    } else {
+      wordCounts[word] = 1;
+    }
+  }
+
+  return wordCounts;
+}
+
+console.log(countWords("you a?nd? me ??and&@?you"));
+
+module.exports = countWords;
