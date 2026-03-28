@@ -34,4 +34,13 @@ describe("tally()", () => {
       expect(tally(inputArray)).toEqual(targetOutput);
     });
   });
+
+  // Case 4: Throws an error when given an invalid input like a string
+  test("tally throws an error when passed a non-array input", () => {
+    const invalidInputs = ["invalid", 123, {}, null, undefined];
+
+    invalidInputs.forEach((input) => {
+      expect(() => tally(input)).toThrow("Input must be an array");
+    });
+  });
 });
