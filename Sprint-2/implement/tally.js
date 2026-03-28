@@ -16,6 +16,4 @@ function tally(array) {
   return counts;
 }
 
-console.log(tally(["a", "a", "b", "c"]));
-
 module.exports = tally;
