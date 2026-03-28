@@ -11,6 +11,14 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }
+
+/**
+ * Explanation:
+ *
+Why the original didn't work: 
+Objects in JavaScript are not iterable by default, so for...of cannot directly iterate over them.
+Object.values(): This method returns an array of enumerable property values of an object, which is iterable giving the object's own values.
+*/
