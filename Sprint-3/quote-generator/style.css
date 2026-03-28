@@ -1,1 +1,137 @@
 /** Write your CSS in here **/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=WindSong:wght@400;500&display=swap");
+
+/*variables */
+:root {
+  --primary: #2ab06f; /* green hoover*/
+  --accent: #0e818e; /* background*/
+  --text-main: #060606; /* black text */
+  --heading: #060606; /* black heading */
+  --white: #ffffff;
+  --transition: 0.3s ease;
+  --small-text: 0.85rem;
+  --cursive: "Playfair Display", Georgia, serif;
+}
+
+/*body*/
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--accent);
+}
+
+/* heading */
+h1 {
+  color: var(--heading);
+  font-family: var(--cursive);
+  font-size: 3rem;
+  font-weight: 1000;
+}
+
+/*quote card container */
+#quote-display {
+  background: var(--white);
+  padding: 3cqh 3rem;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: var(--text-main);
+  border-radius: 1rem;
+}
+
+/*quote text */
+#quote {
+  position: relative;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: justify;
+  text-align-last: left;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+#quote::before {
+  content: "\201c";
+  position: absolute;
+  left: -2.5rem;
+  top: -0.9rem;
+  font-size: 5.5rem;
+  font-family: "Times New Roman", Times, serif;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* author text */
+#author {
+  font-family: var(--cursive);
+  text-align: right;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 2.5rem;
+}
+
+#author::before {
+  content: "\2014";
+  margin-right: 2px;
+}
+
+/* button for new quotes */
+button {
+  background-color: #d46f2a;
+  color: var(--white);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+button:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/*auto-play*/
+.auto-play-toggle {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--small-text);
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+
+#auto-play-status {
+  font-size: var(--small-text);
+  font-weight: bold;
+  margin-left: 0.5rem;
+  color: var(--text-dark);
+}
+
+button:focus-visible,
+#auto-play-toggle:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+}
+
+/* input label */
+.auto-play-toggle label {
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.auto-play-toggle label:hover {
+  color: var(--accent);
+}
