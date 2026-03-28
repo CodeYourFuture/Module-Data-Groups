@@ -6,9 +6,9 @@ Dedupe Array
 
 In this kata, you will need to deduplicate the elements of an array
 
-E.g. dedupe(['a','a','a','b','b','c']) target output: ['a','b','c']
-E.g. dedupe([5, 1, 1, 2, 3, 2, 5, 8]) target output: [5, 1, 2, 3, 8]
-E.g. dedupe([1, 2, 1]) target output: [1, 2]
+E.g. dedupe(['a','a','a','b','b','c']) returns ['a','b','c']
+E.g. dedupe([5, 1, 1, 2, 3, 2, 5, 8]) returns [5, 1, 2, 3, 8]
+E.g. dedupe([1, 2, 1]) returns [1, 2]
 */
 
 // Acceptance Criteria:
@@ -28,7 +28,7 @@ test("given an array has no duplicates, it returns a copy of the original array"
   expect(dedupe([5, 1, 4])).toEqual([5, 1, 4]);
 });
 
-// Given an array with strings or numbers
+// Given an array of strings or numbers
 // When passed to the dedupe function
 // Then it should remove the duplicate values, preserving the first occurence of each element
 test("given an array with strings or numbers, it removes the duplicates preserving the first occurrence of each element", () => {
@@ -37,3 +37,5 @@ test("given an array with strings or numbers, it removes the duplicates preservi
   expect(dedupe(["a", "a", "a", "b", "b", "c"])).toEqual(["a", "b", "c"]);
   expect(dedupe(["z", "y", "w", "w", "u", "u"])).toEqual(["z", "y", "w", "u"]);
 });
+// Then it should return a new array with duplicates removed while preserving the 
+// first occurrence of each element from the original array.
