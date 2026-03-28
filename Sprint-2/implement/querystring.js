@@ -21,6 +21,11 @@ function parseQueryString(queryString) {
 
     const key = pair.slice(0, separatorIndex).trim();
     const value = pair.slice(separatorIndex + 1).trim();
+
+    if (key.length === 0 || value.length === 0) {
+      throw new Error("Neither the key nor value can be purely whitespace");
+    }
+
     queryParams[key] = value;
   }
 

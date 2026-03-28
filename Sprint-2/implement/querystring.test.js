@@ -136,4 +136,20 @@ describe("parseQueryString", () => {
       );
     });
   });
+
+  // Case 9: Throws an error when given a string with missing key or value and spaces in '=' separator
+  test("throws an error when passed a string with missing key or value and spaces in '=' separator", () => {
+    const invalidQueryStringsWithSpaces = [
+      " =valueOnly",
+      "keyOnly= ",
+      " =valueOnly&key2=value2",
+      "key1=value1& =valueOnly",
+    ];
+
+    invalidQueryStringsWithSpaces.forEach((input) => {
+      expect(() => parseQueryString(input)).toThrow(
+        "Neither the key nor value can be purely whitespace"
+      );
+    });
+  });
 });
