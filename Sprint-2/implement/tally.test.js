@@ -20,4 +20,18 @@ describe("tally()", () => {
       expect(tally(inputArray)).toEqual(targetOutput);
     });
   });
+
+  // Case 3: Return counts for each unique item when given an array with duplicate items
+  test("tally on an array with duplicate items returns counts for each unique item", () => {
+    const tallyWithDuplicateItems = [
+      [["a", "a", "b", "c"], { a: 2, b: 1, c: 1 }],
+      [[1, 2, 2, 3], { 1: 1, 2: 2, 3: 1 }],
+      [[true, true, false], { true: 2, false: 1 }],
+      [[null, null, undefined], { null: 2, undefined: 1 }],
+    ];
+
+    tallyWithDuplicateItems.forEach(([inputArray, targetOutput]) => {
+      expect(tally(inputArray)).toEqual(targetOutput);
+    });
+  });
 });
