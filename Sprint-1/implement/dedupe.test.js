@@ -47,3 +47,10 @@ test("Given an array with strings or numbers, when passed to the dedupe function
   expect(dedupe(["a", "a", "b", "c", "c"])).toEqual(["a", "b", "c"]);
   expect(dedupe([1, 2, 2, 3, 4, 4])).toEqual([1, 2, 3, 4]);
 });
+
+test("preserves the original order of first occurrences", () => {
+  const input = ["b", "a", "b", "c"];
+  const result = dedupe(input);
+
+  expect(result).toEqual(["b", "a", "c"]);
+});
