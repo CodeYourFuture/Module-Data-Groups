@@ -5,7 +5,7 @@ function parseQueryString(queryString) {
   const pairs = queryString.split("&");
 
   pairs.forEach((pair) => {
-    if (!pair) return;
+    if (pair === "") return;
 
     const index = pair.indexOf("=");
 
