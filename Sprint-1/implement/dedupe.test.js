@@ -27,6 +27,7 @@ test("given an array with no duplicates, it should return a copy of the original
   const input = ["a", "b", "c"];
   const result = dedupe(input);
 
+  expect(result).toHaveLength(input.length);
   expect(result).toEqual(input);
   expect(result).not.toBe(input);
 });
