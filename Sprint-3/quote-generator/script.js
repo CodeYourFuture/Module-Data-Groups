@@ -1,3 +1,4 @@
+cat > script.js << "EOF";
 // Get references to the HTML elements that will display
 // the quote, the author, and the button
 const quoteElement = document.getElementById("quote");
@@ -5,7 +6,7 @@ const authorElement = document.getElementById("author");
 const newQuoteButton = document.getElementById("new-quote");
 
 // Store the currently displayed quote so that
-// we do not show the exact same quote twice in a row
+// the same quote is not shown twice in a row
 let currentQuote = null;
 
 /**
@@ -30,13 +31,20 @@ function displayRandomQuote() {
   const selectedQuote = getNewRandomQuote();
 
   quoteElement.textContent = `"${selectedQuote.quote}"`;
-  authorElement.textContent = `— ${selectedQuote.author}`;
+  authorElement.textContent = selectedQuote.author;
 
   currentQuote = selectedQuote;
 }
 
-// Show a random quote as soon as the page loads
-displayRandomQuote();
+/**
+ * Runs when the page loads.
+ * It shows the first quote and sets up the button click event.
+ */
+function setup() {
+  displayRandomQuote();
+  newQuoteButton.addEventListener("click", displayRandomQuote);
+}
 
-// Show a different random quote whenever the button is clicked
-newQuoteButton.addEventListener("click", displayRandomQuote);
+// Run setup when the page has finished loading
+window.addEventListener("load", setup);
+EOF;
