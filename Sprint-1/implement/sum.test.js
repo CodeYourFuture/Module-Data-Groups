@@ -56,7 +56,10 @@ describe("sum()", () => {
   // Then it should ignore the non-numerical values and return the sum of the numerical elements
 
   [
-    { input: ["evan", 3, "mike", 20, 6, "", "/", , , 20], expected: 49 },
+    {
+      input: ["evan", 3, "mike", 20, 6, "", "/", undefined, null, 20],
+      expected: 49,
+    },
   ].forEach(({ input, expected }) =>
     it(`should return ${expected} for [${input}]`, () => {
       expect(sum(input)).toEqual(expected);
@@ -67,7 +70,10 @@ describe("sum()", () => {
   // When passed to the sum function
   // Then it should return the least surprising value given how it behaves for all other inputs
   [
-    { input: ["evan", "mike", "", "/", , ,], expected: "invalid elements" },
+    {
+      input: ["evan", "mike", "", "/", undefined],
+      expected: "invalid elements",
+    },
   ].forEach(({ input, expected }) =>
     it(`should return ${expected} for [${input}]`, () => {
       expect(sum(input)).toEqual(expected);
