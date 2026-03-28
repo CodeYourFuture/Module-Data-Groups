@@ -6,6 +6,8 @@ function dedupe(arr) {
       dedupeArray.push(arr[i]);
     }
   }
+  
   return dedupeArray;
 }
+console.log(dedupe([1, 1, 2]));
 module.exports = dedupe;

@@ -33,7 +33,7 @@ describe("dedupe()", () => {
     { input: [-1, 7, 1], expected: [-1, 7, 1] },
   ].forEach(({ input, expected }) =>
     it(`should return same input values [${input}] without duplicate`, () => {
-      expect(dedupe(input)).toEqual(expected);
+      expect(dedupe(input)).toStrictEqual(expected);
     })
   );
 
@@ -50,13 +50,13 @@ describe("dedupe()", () => {
     },
   ].forEach(({ input, expected }) =>
     it(`should return deduplicated array for [${input}]`, () => {
-      expect(dedupe(input)).toEqual(expected);
+      expect(dedupe(input)).toStrictEqual(expected);
     })
   );
 
-  [{ input: [1, 1, 2], expected: [1, 1, 2] }].forEach((input, expected) =>
+  [{ input: [1, 1, 2], expected: [1, 2] }].forEach(({ input, expected }) =>
     it("returns a copy  not the original array", () => {
-      expect(dedupe(input)).not.toBe(expected);
+      expect(dedupe(input)).toStrictEqual(expected);
     })
   );
 });
