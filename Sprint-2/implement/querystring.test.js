@@ -82,4 +82,18 @@ describe("parseQueryString", () => {
       equation2: "a=b+c",
     });
   });
+
+  // Case 6: Throws an error when given an invalid input like a non-string
+  test("throws an error when passed a non-string input", () => {
+    const invalidInputs = [
+      [123, -67, 3.14],
+      [{ name: "John Locke" }, { title: "Lost" }, {}],
+      [null],
+      [undefined],
+    ];
+
+    invalidInputs.forEach((input) => {
+      expect(() => parseQueryString(input)).toThrow("Input must be a string");
+    });
+  });
 });
