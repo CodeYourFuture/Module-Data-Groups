@@ -1,4 +1,3 @@
-cat > script.js << "EOF";
 // Get references to the HTML elements that will display
 // the quote, the author, and the button
 const quoteElement = document.getElementById("quote");
@@ -47,4 +46,3 @@ function setup() {
 
 // Run setup when the page has finished loading
 window.addEventListener("load", setup);
-EOF;
