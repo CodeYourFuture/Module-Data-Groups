@@ -24,5 +24,5 @@ test.todo("given an empty array, it returns an empty array");
 
 // Given an array of strings or numbers
 // When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the
+// Then it should return a new array with duplicates removed while preserving the 
 // first occurrence of each element from the original array.
