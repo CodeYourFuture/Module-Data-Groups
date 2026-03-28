@@ -494,3 +494,45 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+// Select the elements from the html
+const quoteDisplay = document.getElementById("quote");
+const authorDisplay = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+
+// Create a function to update the content on the screen
+function updateQuote() {
+  // Use the provided pickFromArray function
+  const randomQuoteObject = pickFromArray(quotes);
+  // Access the 'quote' property from the object and,
+  // inject it into the HTML element
+  quoteDisplay.innerText = randomQuoteObject.quote;
+  // Access the 'author' property and use a template literal,
+  // to add a dash for styling
+  authorDisplay.innerText = `- ${randomQuoteObject.author}`;
+}
+
+// Add event listener to the button
+newQuoteButton.addEventListener("click", updateQuote);
+// Show a random quote immediately when the page loads
+updateQuote();
+
+// Get the new elements from the DOM
+const autoplayToggle = document.getElementById("autoplay-toggle");
+const autoplayStatus = document.getElementById("autoplay-status");
+
+// Track timer
+let timerId = null;
+
+// Event listener to the checkbox
+autoplayToggle.addEventListener("change", () => {
+  if (autoplayToggle.checked) {
+    // Switch is ON
+    autoplayStatus.innerText = "auto-play: ON";
+    timerId = setInterval(updateQuote, 5000);
+  } else {
+    // Switch is OFF
+    autoplayStatus.innerText = "auto-play: OFF";
+    // Stop the timer
+    clearInterval(timerId);
+  }
+});
