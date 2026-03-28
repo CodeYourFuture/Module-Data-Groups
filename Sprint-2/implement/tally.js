@@ -6,7 +6,7 @@ function tally(array) {
   const counts = {};
 
   for (const prop of array) {
-    if (Object.hasOwn(tally, prop)) {
+    if (Object.hasOwn(counts, prop)) {
       counts[prop] += 1;
     } else {
       counts[prop] = 1;
@@ -15,5 +15,7 @@ function tally(array) {
 
   return counts;
 }
+
+console.log(tally(["a", "a", "b", "c"]));
 
 module.exports = tally;
