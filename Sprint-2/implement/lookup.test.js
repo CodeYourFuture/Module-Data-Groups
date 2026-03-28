@@ -1,35 +1,58 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () => {
+  const input = [['US', 'USD'], ['CA', 'CAD'], ['GB', 'GBP'], ['JP', 'JPY']];
+  const expected = {
+    'US': 'USD',
+    'CA': 'CAD',
+    'GB': 'GBP',
+    'JP': 'JPY'
+  };
+  expect(createLookup(input)).toEqual(expected);
+});
 
-/*
+test("creates a lookup for a single pair", () => {
+  const input = [['FR', 'EUR']];
+  const expected = {
+    'FR': 'EUR'
+  };
+  expect(createLookup(input)).toEqual(expected);
+});
 
-Create a lookup object of key value pairs from an array of code pairs
+test("returns empty object for empty array", () => {
+  expect(createLookup([])).toEqual({});
+});
 
-Acceptance Criteria:
+test("handles invalid input gracefully", () => {
+  expect(createLookup(null)).toEqual({});
+  expect(createLookup(undefined)).toEqual({});
+  expect(createLookup("not an array")).toEqual({});
+  expect(createLookup(123)).toEqual({});
+});
 
-Given
- - An array of arrays representing country code and currency code pairs
-   e.g. [['US', 'USD'], ['CA', 'CAD']]
+test("ignores pairs that are not arrays or have insufficient length", () => {
+  const input = [
+    ['US', 'USD'], 
+    ['CA'], // Invalid - insufficient length (only 1 element)
+    'invalid', // Invalid - not an array
+    ['GB', 'GBP'], 
+    [1] // Invalid - insufficient length (only 1 element)
+  ];
+  const expected = {
+    'US': 'USD',
+    'GB': 'GBP'
+  };
+  expect(createLookup(input)).toEqual(expected);
+});
 
-When
- - createLookup function is called with the country-currency array as an argument
-
-Then
- - It should return an object where:
- - The keys are the country codes
- - The values are the corresponding currency codes
-
-Example
-Given: [['US', 'USD'], ['CA', 'CAD']]
-
-When
-createLookup(countryCurrencyPairs) is called
-
-Then
-It should return:
- {
-   'US': 'USD',
-   'CA': 'CAD'
- }
-*/
+test("handles when country codes are not strings", () => {
+  const input = [
+    [1, 'USD'],
+    ['CA', 'CAD']
+  ];
+  const expected = {
+    '1': 'USD',
+    'CA': 'CAD'
+  };
+  expect(createLookup(input)).toEqual(expected);
+});
