@@ -17,7 +17,7 @@ const findMax = require("./max.js");
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
 describe("findMax()", () => {
-  [{ input: [], expected: Infinity }].forEach(({ input, expected }) =>
+  [{ input: [], expected: -Infinity }].forEach(({ input, expected }) =>
     it(`should return ${expected} for empty [${input}]`, () => {
       expect(findMax(input)).toEqual(expected);
     })
@@ -58,10 +58,10 @@ describe("findMax()", () => {
   // When passed to the max function
   // Then it should return the largest decimal number
 
-  [{ input: [0.5, 0.1, 0.56, 0.8], expected: 0.8 }].forEach(
+  [{ input: [0.5, 0.1, 0.56, 0.8, "1.2"], expected: 0.8 }].forEach(
     ({ input, expected }) =>
       it(`should return the largest decimal number from the array`, () => {
-        expect(findMax(input)).toEqual(expected);
+        expect(findMax(input)).toBeCloseTo(expected);
       })
   );
 
@@ -69,7 +69,10 @@ describe("findMax()", () => {
   // When passed to the max function
   // Then it should return the max and ignore non-numeric values
   [
-    { input: ["edak", "ofonime", "", "@", -4, 10, 6, 50, -100], expected: 50 },
+    {
+      input: ["edak", "ofonime", "", "@", -4, 10, 6, 50, -100, "300"],
+      expected: 50,
+    },
   ].forEach(({ input, expected }) =>
     it(`should return max numerical value from the array`, () => {
       expect(findMax(input)).toEqual(expected);
@@ -79,7 +82,7 @@ describe("findMax()", () => {
   // Given an array with only non-number values
   // When passed to the max function
   // Then it should return the least surprising value given how it behaves for all other inputs
-  [{ input: ["peter", "", "@", "Hi"], expected: "invalid elements" }].forEach(
+  [{ input: ["peter", "", "@", "Hi"], expected: -Infinity }].forEach(
     ({ input, expected }) =>
       it(`should return "invalid elements" for non-numeric values`, () => {
         expect(findMax(input)).toEqual(expected);

@@ -7,13 +7,8 @@
 
 function calculateMedian(list) {
   if (!Array.isArray(list)) return null;
+  const numbers = list.filter((e) => typeof e === "number" && !isNaN(e));
 
-  const numbers = [];
-  for (const x of list) {
-    if (typeof x === "number" && !isNaN(x)) {
-      numbers.push(Number(x));
-    }
-  }
   if (numbers.length === 0) return null;
   numbers.sort((a, b) => a - b);
   const length = numbers.length;
