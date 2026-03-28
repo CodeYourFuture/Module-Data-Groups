@@ -39,3 +39,4 @@ test("given an array with strings or numbers, it removes the duplicates preservi
 });
 // Then it should return a new array with duplicates removed while preserving the 
 // first occurrence of each element from the original array.
+// updated version
