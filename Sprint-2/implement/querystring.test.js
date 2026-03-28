@@ -4,6 +4,7 @@ describe("parseQueryString", () => {
   // Case 1: Returns an empty object when given an empty query string
   test("parses an empty querystring", () => {
     expect(parseQueryString("")).toEqual({});
+    expect(parseQueryString("  ")).toEqual({});
   });
 
   // Case 2: String contains one key-value pair and 1 '=' character
