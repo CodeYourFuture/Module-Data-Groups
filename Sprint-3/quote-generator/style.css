@@ -3,15 +3,14 @@
 
 /*variables */
 :root {
-  --primary: #087622; /* green */
-  --accent: #2fe08d; /* slightly lighter hover */
-  --accent2: #119269;
-  --text-main: #060606; /* black
-  --heading: #3a1d03;
+  --primary: #2ab06f; /* green hoover*/
+  --accent: #0e818e; /* background*/
+  --text-main: #060606; /* black text */
+  --heading: #060606; /* black heading */
   --white: #ffffff;
   --transition: 0.3s ease;
   --small-text: 0.85rem;
-  --cursive: "WindSong", "Times New Roman", Times, serif;
+  --cursive: "Playfair Display", Georgia, serif;
 }
 
 /*body*/
@@ -32,7 +31,7 @@ h1 {
   color: var(--heading);
   font-family: var(--cursive);
   font-size: 3rem;
-  font-weight: 300;
+  font-weight: 1000;
 }
 
 /*quote card container */
@@ -51,10 +50,11 @@ h1 {
 #quote {
   position: relative;
   font-size: 1.5rem;
+  font-style: italic;
   text-align: justify;
   text-align-last: left;
   line-height: 1.2;
-  font-weight: 200;
+  font-weight: 500;
 }
 
 #quote::before {
