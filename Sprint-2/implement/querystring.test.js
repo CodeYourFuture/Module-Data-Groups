@@ -58,6 +58,7 @@ describe("parseQueryString", () => {
         "equation1=x=y+1&equation2=a=b+c",
         {
           equation1: "x=y+1",
+          equation2: "a=b+c",
         },
       ],
       [
@@ -77,9 +78,8 @@ describe("parseQueryString", () => {
       ],
     ];
 
-    expect(parseQueryString("equation1=x=y+1&equation2=a=b+c")).toEqual({
-      equation1: "x=y+1",
-      equation2: "a=b+c",
+    multiplePairsWithEquals.forEach(([input, targetOutput]) => {
+      expect(parseQueryString(input)).toEqual(targetOutput);
     });
   });
 
@@ -87,9 +87,11 @@ describe("parseQueryString", () => {
   test("throws an error when passed a non-string input", () => {
     const invalidInputs = [
       [123, -67, 3.14],
-      [{ name: "John Locke" }, { title: "Lost" }, {}],
-      [null],
-      [undefined],
+      { name: "John Locke" },
+      { title: "Lost" },
+      {},
+      null,
+      undefined,
       [
         [
           "equation1=x=y+1&equation2=a=b+c",
@@ -115,6 +117,20 @@ describe("parseQueryString", () => {
 
     pairsWithSpaces.forEach(([input, targetOutput]) => {
       expect(parseQueryString(input)).toEqual(targetOutput);
+    });
+  });
+
+  // Case 8: Throws an error when given a string with missing key or value
+  test("throws an error when passed a string with missing key or value", () => {
+    const invalidQueryStrings = [
+      ["=valueOnly"],
+      ["keyOnly="],
+      ["=valueOnly&key2=value2"],
+      ["key1=value1&=valueOnly"],
+    ];
+
+    invalidQueryStrings.forEach((input) => {
+      expect(() => parseQueryString(input)).toThrow();
     });
   });
 });
