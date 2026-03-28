@@ -18,7 +18,7 @@ function calculateMedian(list) {
   if (numericValues.length === 0) return null;
 
   // Step 4: sort safely
-  const sortedList = numericValues.slice().sort((a, b) => a - b);
+  const sortedList = numericValues.sort((a, b) => a - b);
 
   const middleIndex = Math.floor(sortedList.length / 2);
 
