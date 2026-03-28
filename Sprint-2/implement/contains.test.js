@@ -62,7 +62,9 @@ describe("contains", () => {
     ];
 
     nonObjects.forEach((nonObj) => {
-      expect(() => contains(nonObj, "prop")).toThrow();
+      expect(() => contains(nonObj, "prop")).toThrow(
+        "First argument must be an object in the form { key: value }"
+      );
     });
   });
 });
