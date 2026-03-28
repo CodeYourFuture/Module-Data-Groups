@@ -42,5 +42,5 @@ test("contains returns false for a non-existent property", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("contains returns false when passed an array instead of an object", () => {
-  expect(contains(["a", "b"], "a")).toBe(false);
+  expect(contains(["a", "b"], "0")).toBe(false);
 });
