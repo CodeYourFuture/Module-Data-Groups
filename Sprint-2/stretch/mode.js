@@ -19,24 +19,21 @@ function getFrequencyMapOfElements(list) {
   const frequencyMap = new Map();
   for (const number of list) {
     if (typeof number !== "number") continue;
-    let currentNumberFrequency = frequencyMap.get(number);
-    if (currentNumberFrequency !== undefined)
-      frequencyMap.set(number, (currentNumberFrequency += 1));
-    else frequencyMap.set(number, 1);
+    frequencyMap.set(number, (frequencyMap.get(number) || 0) + 1);
   }
   return frequencyMap;
 }
 
 function getMode(map) {
-  let maxKey = null;
-  let maxValue = -Infinity;
+  let mode = null;
+  let maxFrequency = 0;
 
-  for (let [key, value] of map) {
-    if (value > maxValue) {
-      maxValue = value;
-      maxKey = key;
+  for (let [number, frequency] of map) {
+    if (frequency > maxFrequency) {
+      maxFrequency = frequency;
+      mode = number;
     }
   }
-  return maxKey;
+  return maxFrequency === 0 ? NaN : mode;
 }
 module.exports = calculateMode;

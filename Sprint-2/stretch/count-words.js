@@ -40,12 +40,12 @@ function countWords(string) {
     .replace(/[^\w\s]|_/g, "")
     .toLowerCase()
     .trim()
-    .replace(/\s+/g, " ");
-
-  cleanText.split(" ").forEach((word) => {
-    if (Object.hasOwn(wordsCountObject, word)) wordsCountObject[word] += 1;
-    else wordsCountObject[word] = 1;
-  });
+    .replace(/\s+/g, " ")
+    .split(" ")
+    .forEach((word) => {
+      if (Object.hasOwn(wordsCountObject, word)) wordsCountObject[word] += 1;
+      else wordsCountObject[word] = 1;
+    });
 
   const sortedArray = Object.entries(wordsCountObject).sort(
     (a, b) => b[1] - a[1]

@@ -30,9 +30,9 @@ describe("calculateMode()", () => {
     expect(calculateMode(nums)).toEqual(3);
   });
 
-  test("empty array should return null", () => {
+  test("empty array should return Nan", () => {
     const nums = [];
 
-    expect(calculateMode(nums)).toStrictEqual(null);
+    expect(calculateMode(nums)).toStrictEqual(NaN);
   });
 });
