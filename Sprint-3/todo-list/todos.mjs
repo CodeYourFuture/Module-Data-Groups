@@ -10,8 +10,8 @@
 */
 
 // Append a new task to todos[]
-export function addTask(todos, task, completed = false) {
-  todos.push({ task, completed });
+export function addTask(todos, task, completed = false, deadline = null) {
+  todos.push({ task, completed, deadline });
 }
 
 // Delete todos[taskIndex] if it exists
@@ -25,5 +25,15 @@ export function deleteTask(todos, taskIndex) {
 export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
+  }
+}
+
+// Remove all completed tasks from the todos array
+export function deleteCompleted(todos) {
+  // Iterate backwards to safely remove items while mutating array
+  for (let i = todos.length - 1; i >= 0; i--) {
+    if (todos[i].completed) {
+      todos.splice(i, 1);
+    }
   }
 }

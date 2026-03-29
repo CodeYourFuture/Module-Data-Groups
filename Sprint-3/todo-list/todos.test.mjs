@@ -10,15 +10,15 @@ import * as Todos from "./todos.mjs";
 // Return a mock ToDo List data with exactly 4 elements.
 function createMockTodos() {
   return [
-    { task: "Task 1 description", completed: true },
-    { task: "Task 2 description", completed: false },
-    { task: "Task 3 description", completed: true },
-    { task: "Task 4 description", completed: false },        
+    { task: "Task 1 description", completed: true, deadline: "2026-04-01" },
+    { task: "Task 2 description", completed: false, deadline: null },
+    { task: "Task 3 description", completed: true, deadline: "2026-04-05" },
+    { task: "Task 4 description", completed: false, deadline: null },
   ];
 }
 
 // A mock task to simulate user input
-const theTask = { task: "The Task", completed: false };
+const theTask = { task: "The Task", completed: false, deadline: null };
 
 describe("addTask()", () => {
   test("Add a task to an empty ToDo list", () => {
@@ -130,3 +130,44 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+describe("deleteCompleted()", () => {
+
+  test("Remove all completed tasks", () => {
+    const todos = createMockTodos();
+
+    Todos.deleteCompleted(todos);
+
+    // Only incomplete tasks should remain
+    expect(todos).toHaveLength(2);
+    expect(todos[0].completed).toBe(false);
+    expect(todos[1].completed).toBe(false);
+
+    expect(todos[0].task).toBe("Task 2 description");
+    expect(todos[1].task).toBe("Task 4 description");
+  });
+
+  test("No change if no tasks are completed", () => {
+    const todos = [
+      { task: "Task A", completed: false },
+      { task: "Task B", completed: false }
+    ];
+
+    const before = JSON.parse(JSON.stringify(todos));
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual(before);
+  });
+
+  test("All tasks removed if all are completed", () => {
+    const todos = [
+      { task: "Task A", completed: true },
+      { task: "Task B", completed: true }
+    ];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(0);
+  });
+
+});
