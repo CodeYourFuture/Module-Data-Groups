@@ -6,8 +6,8 @@
 }
 
 body {
-  background: linear-gradient(#d49562, #9e897c); 
-  color: #797d8131; 
+  background: #c5b7a9;
+  color: #797d8131;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -16,7 +16,7 @@ body {
 
 /* Centered card*/
 .centre {
-  background-color: #a16093;
+  background-color: #000000;
   padding: 40px 60px;
   border-radius: 10px;
   text-align: center;
@@ -62,18 +62,18 @@ button {
 
 /* Set Alarm */
 #set {
-  background-color: #2b2c2d;
+  background-color: #1f6718;
   color: #fff;
 }
 
 #set:hover {
-  background-color: #2b2c2d7b;
-  transform: translateY(-2px);
+  background-color:  #447f3d;
+  transform: translateY(-1px);
 }
 
 /* Stop Alarm */
 #stop {
-  background-color: #2b2c2d;
+  background-color: #825047;
   color: #fff;
 }
 

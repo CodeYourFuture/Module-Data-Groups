@@ -1,9 +1,11 @@
 let alarmInterval;
+let colorInterval;
 
 function setAlarm() {
   clearInterval(alarmInterval);
-  let timeRemaining = document.getElementById("alarmSet");
-  const display = document.getElementById("timeRemaining");
+  const timeRemaining = document.querySelector("#alarmSet");
+  const display = document.querySelector("#timeRemaining");
+  if (!timeRemaining || !display) return;
   //what ever we input is turned into seconds
   let totalSeconds = parseInt(timeRemaining.value);
 
@@ -30,6 +32,49 @@ function setAlarm() {
     }
   }, 1000);
 }
+//add color changing background when alarm reaches 0 until stopped.
+//function from color changing assignment 10 year ago! 
+function makeRandomColor() {
+  var colorOptions = '0123456789ABCDEF';
+  var newColor = '#';
+//repeat 6 times to generate 6 random hex digits from the 16 characters in colorOptions
+  for (var i = 0; i < 6; i++) {
+    //picks random numbers from colorOptions and appends it to the # to make a new color.
+    newColor += colorOptions[Math.floor(Math.random() * 16)];
+  }
+  return newColor;
+}
+//end color changing
+
+//keep the existing code below and call the setup
+//set the background color transition
+document.body.style.transition = "background-color 0.7s ease";
+// call the entire page
+window.addEventListener("load", function () {
+   // attach the alarm sound to the make Random color so it starts changing when the alarm starts.
+  audio.addEventListener("play", () => {
+     // stops any previous color changing intervals
+    clearInterval(colorInterval);
+//starts a new repeating timer and saves it's ID in colorInterval. setInterval runs every 2seconds
+    colorInterval = setInterval(() => {
+      //style the background and make it important! so it over-rides the style.css
+      document.body.style.setProperty(
+        "background-color",
+        makeRandomColor(),
+        "important"
+      );
+      //closes setInterval after 2 seconds
+    }, 1000);
+  });
+
+  audio.addEventListener("pause", () => {
+    clearInterval(colorInterval);
+    document.body.style.backgroundColor = "";
+  });
+});
+//not sure that this is helping. The function works without it.
+window.setAlarm = setAlarm;
+  //end linking
 
 // DO NOT EDIT BELOW HERE
 
