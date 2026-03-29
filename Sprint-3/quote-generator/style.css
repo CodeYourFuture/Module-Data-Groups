@@ -40,6 +40,10 @@ body {
   line-height: 1.6;
 }
 
+#author::before {
+  content: "- ";
+}
+
 #author {
   font-size: 1.1rem;
   color: #f5a800;

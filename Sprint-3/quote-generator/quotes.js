@@ -491,32 +491,36 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
-const quoteEl = document.getElementById("quote");
-const authorEl = document.getElementById("author");
-const btn = document.getElementById("new-quote");
-const toggle = document.getElementById("autoplay-toggle");
-const statusEl = document.getElementById("autoplay-status");
+function setup() {
+  const quoteEl = document.getElementById("quote");
+  const authorEl = document.getElementById("author");
+  const btn = document.getElementById("new-quote");
+  const toggle = document.getElementById("autoplay-toggle");
+  const statusEl = document.getElementById("autoplay-status");
 
-let interval = null;
+  let interval = null;
 
-function showQuote() {
-  const picked = pickFromArray(quotes);
-  console.log(picked);
-  quoteEl.textContent = picked.quote;
-  authorEl.textContent = "- " + picked.author;
+  function showQuote() {
+    const picked = pickFromArray(quotes);
+    console.log(picked);
+    quoteEl.textContent = picked.quote;
+    authorEl.textContent = picked.author;
+  }
+
+  btn.addEventListener("click", showQuote);
+
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+      statusEl.textContent = "Auto Play: ON";
+      interval = setInterval(showQuote, 3000);
+    } else {
+      statusEl.textContent = "Auto Play: OFF";
+      clearInterval(interval);
+      interval = null;
+    }
+  });
+
+  showQuote();
 }
 
-btn.addEventListener("click", showQuote);
-
-toggle.addEventListener("change", () => {
-  if (toggle.checked) {
-    statusEl.textContent = "Auto Play: ON";
-    interval = setInterval(showQuote, 3000);
-  } else {
-    statusEl.textContent = "Auto Play: OFF";
-    clearInterval(interval);
-    interval = null;
-  }
-});
-
-showQuote();
+window.addEventListener("load", setup);
