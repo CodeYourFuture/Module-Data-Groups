@@ -491,3 +491,82 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+// My code starts here
+let autoPlayInterval = null;
+let isAutoPlaying = false;
+
+// Function to update the displayed quote
+function updateQuote() {
+  const randomQuote = pickFromArray(quotes);
+  const quoteElement = document.getElementById('quote');
+  const authorElement = document.getElementById('author');
+  
+  if (quoteElement && authorElement) {
+    quoteElement.textContent = `"${randomQuote.quote}"`;
+    authorElement.textContent = `— ${randomQuote.author}`;
+  }
+}
+
+// Function to start auto-play
+function startAutoPlay(intervalSeconds = 60) {
+  if (autoPlayInterval) {
+    clearInterval(autoPlayInterval);
+  }
+  autoPlayInterval = setInterval(updateQuote, intervalSeconds * 1000);
+  isAutoPlaying = true;
+}
+
+// Function to stop auto-play
+function stopAutoPlay() {
+  if (autoPlayInterval) {
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = null;
+  }
+  isAutoPlaying = false;
+}
+
+// Function to update the auto-play status display
+function updateAutoPlayStatus() {
+  const statusSpan = document.getElementById('auto-play-status');
+  if (statusSpan) {
+    statusSpan.textContent = isAutoPlaying ? 'ON' : 'OFF';
+    statusSpan.className = `status ${isAutoPlaying ? 'status-on' : 'status-off'}`;
+  }
+}
+
+// Initialize the app when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Display initial random quote
+  updateQuote();
+  
+  // Get DOM elements
+  const newQuoteBtn = document.getElementById('new-quote');
+  const autoPlayToggle = document.getElementById('auto-play-toggle');
+  
+  // Add event listener for new quote button
+  if (newQuoteBtn) {
+    newQuoteBtn.addEventListener('click', () => {
+      updateQuote();
+    });
+  }
+  
+  // Add event listener for auto-play toggle
+  if (autoPlayToggle) {
+    autoPlayToggle.addEventListener('change', (event) => {
+      if (event.target.checked) {
+        // For testing, use 5 seconds instead of 60 seconds
+        // In production, you might want to use 60 seconds
+        // You can uncomment the appropriate line below
+        startAutoPlay(5); // Using 5 seconds for testing
+        // startAutoPlay(60); // Use this for production with 60 seconds
+      } else {
+        stopAutoPlay();
+      }
+      updateAutoPlayStatus();
+    });
+  }
+  
+  // Initialize status display
+  updateAutoPlayStatus();
+});
