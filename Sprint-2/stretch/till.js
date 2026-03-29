@@ -26,7 +26,7 @@ function totalTill(till) {
 
   for (const [coin, quantity] of Object.entries(till)) {
     // Convert a label like '50p' -> 50 (pence)
-    const pence = parseInt(String(coin).replace(/p$/i, ""), 10);
+    const pence = parseInt(coin);
     if (Number.isFinite(pence) && typeof quantity === "number") {
       total += pence * quantity;
     }
