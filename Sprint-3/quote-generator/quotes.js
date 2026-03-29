@@ -1,3 +1,54 @@
+function getRandomQuote(obj) {
+  const quoteEl = document.getElementById("quote");
+  const authorEl = document.getElementById("author");
+  if (!quoteEl || !authorEl) return;
+  quoteEl.innerText = obj.quote;
+  authorEl.innerText = obj.author;
+}
+
+function setupQuotes() {
+  getRandomQuote(pickFromArray(quotes));
+  const quoteBtn = document.getElementById("new-quote");
+  if (quoteBtn)
+    quoteBtn.addEventListener("click", () =>
+      getRandomQuote(pickFromArray(quotes))
+    );
+}
+
+// New DOM wiring using window.onload (replaces previous readiness block)
+window.onload = () => {
+  const quoteText = document.getElementById("quote");
+  const authorText = document.getElementById("author");
+  const newQuoteBtn = document.getElementById("new-quote");
+  const autoPlayCheckbox = document.getElementById("auto-play");
+  const autoPlayStatus = document.getElementById("auto-play-txt");
+
+  let autoPlayInterval;
+
+  function generateQuote() {
+    const randomQuote = pickFromArray(quotes);
+    if (!randomQuote) return;
+    if (quoteText) quoteText.innerText = randomQuote.quote;
+    if (authorText) authorText.innerText = `- ${randomQuote.author}`;
+  }
+
+  generateQuote();
+
+  if (newQuoteBtn) newQuoteBtn.addEventListener("click", generateQuote);
+
+  if (autoPlayCheckbox) {
+    autoPlayCheckbox.addEventListener("change", (event) => {
+      if (event.target.checked) {
+        if (autoPlayStatus) autoPlayStatus.innerText = "Auto-Play: ON";
+        autoPlayInterval = setInterval(generateQuote, 5000);
+      } else {
+        if (autoPlayStatus) autoPlayStatus.innerText = "Auto-Play: OFF";
+        clearInterval(autoPlayInterval);
+      }
+    });
+  }
+};
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
