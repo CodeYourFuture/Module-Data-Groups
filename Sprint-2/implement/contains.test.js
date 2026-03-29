@@ -42,5 +42,5 @@ test("contains returns false when property does not exist", function () {
 // When passed to contains
 // Then it should return false or throw an error
 test("contains returns false when passed an array", function () {
-  expect(contains([1, 2, 3], "a")).toBe(false);
+  expect(contains([1, 2, 3], "0")).toBe(false);
 });
