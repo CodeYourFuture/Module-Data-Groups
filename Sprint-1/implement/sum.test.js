@@ -45,13 +45,6 @@ test("given an array with decimal/float numbers, it should return the correct to
   const result = sum(input);
   expect(result).toBeCloseTo(26.72);
 });
-test("adding works sanely with simple decimals", () => {
-  const received = 0.2 + 0.1;
-  // expect(received).toBe(0.3); // This fails!
-
-  // This works: checks that the difference is less than 0.005
-  expect(received).toBeCloseTo(0.3);
-});
 
 
 
