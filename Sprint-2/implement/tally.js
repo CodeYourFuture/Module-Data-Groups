@@ -3,7 +3,9 @@ function tally(items) {
     throw new Error("Input must be an array");
   }
 
-  const result = {};
+  const result = Object.create(null);
+  {
+  }
 
   items.forEach((item) => {
     if (result[item]) {
