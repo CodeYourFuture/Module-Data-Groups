@@ -36,9 +36,11 @@ test("Given an array with no duplicates, when passed to the dedupe function, the
   const input = ["a", "b", "c"];
   const result = dedupe(input);
 
-  expect(result).toEqual(input);
+  const expected = ["a", "b", "c"];
+
+  expect(result).toEqual(expected);
   expect(result).not.toBe(input);
-  expect(result.length).toBe(input.length);
+  expect(input).toEqual(expected);
 });
 
 // Given an array of strings or numbers
