@@ -1,4 +1,5 @@
 function parseQueryString(queryString) {
+  if (typeof queryString !== "string") throw new Error("Invalid Input");
   const queryParams = {};
   if (queryString.length === 0) {
     return queryParams;
@@ -6,7 +7,7 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
+    const [key, value] = pair.split(/=(.*)/);
     queryParams[key] = value;
   }
 
