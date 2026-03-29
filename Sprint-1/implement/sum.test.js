@@ -43,8 +43,17 @@ test("given an array containing negative numbers, it should return the correct t
 test("given an array with decimal/float numbers, it should return the correct total sum", () => {
   const input = [5, 6.6, 10, 5.12];
   const result = sum(input);
-  expect(result).toBe(26.720000000000002);
+  expect(result).toBeCloseTo(26.72);
 });
+test("adding works sanely with simple decimals", () => {
+  const received = 0.2 + 0.1;
+  // expect(received).toBe(0.3); // This fails!
+
+  // This works: checks that the difference is less than 0.005
+  expect(received).toBeCloseTo(0.3);
+});
+
+
 
 // Given an array containing non-number values
 // When passed to the sum function
