@@ -51,7 +51,7 @@ test('given an array with just negative numbers, it should return the closest on
 
 // Given an array with decimal numbers
 // When passed to the max function
-// Then it should return the largest decimal number
+// Then it should r 1eturn the largest decimal number
 test("given an array with just decimal numbers, it should return the largest decimal number", () => {
   const input = [1.0, 2.5, 2.2, 5.8];
   const result = findMax(input);
@@ -62,16 +62,16 @@ test("given an array with just decimal numbers, it should return the largest dec
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 test("given an array with non-number value, it should return the max and ignore non-numeric value", () => {
-  const input = [4, 5, 'arr', 2, []," ", 15, 8];
+  const input = [4, 5, 'arr', 2, []," ", 15, 8, "300"];
   const result = findMax(input);
-  expect(result).toBe(15);
+  expect(result).toBe(300);
 });
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("given an array with only non-number value, it should return the least surprising value given how it behaves for all other inputs", () => {
-  const input = [true, {}, "arr", null, [], " ", NaN];
+  const input = [true, {}, "arr", null, [], " ", NaN,];
   const result = findMax(input);
   expect(result).toBe(-Infinity);
 });
