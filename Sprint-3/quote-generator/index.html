@@ -1,13 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote Generator App</title>
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 40px;
+        background-color: aqua;
+      }
+      h1 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: green;
+      }
+
+      #quote {
+        font-size: 45px;
+        margin-bottom: 10px;
+        color: purple;
+      }
+      #author {
+        font-size: 30px;
+        color: red;
+        margin-bottom: 10px;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+      #new-quote {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+    </style>
     <script defer src="quotes.js"></script>
   </head>
   <body>
-    <h1>hello there</h1>
+    <h1>Welcome to the Quote Generator</h1>
     <p id="quote"></p>
     <p id="author"></p>
     <button type="button" id="new-quote">New quote</button>
