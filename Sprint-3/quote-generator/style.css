@@ -1,1 +1,34 @@
 /** Write your CSS in here **/
+body {
+  font-family: Arial, sans-serif;
+  background-color: purple;
+  text-align: center;
+  padding: 50px;
+}
+
+.container {
+  background: blue;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+#quote {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#author {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.autoplay {
+  margin-top: 20px;
+}
