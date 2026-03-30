@@ -1,1 +1,152 @@
-/** Write your CSS in here **/
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #abd5e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.container {
+  background: rgb(206, 202, 202);
+  padding: 10px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
+}
+
+.header {
+  flex: 0 0 25%; /* 25% of container height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.quote-box {
+  flex: 1 0 50%; /* take remaining middle space */
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+
+  min-height: 100px;
+  transition: all 0.3s ease;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.quote-box p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.bottom-controls {
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0px;
+}
+
+.button button {
+  width: 100%;
+  padding: 10px;
+  font-size: large;
+  border: none;
+  border-radius: 10px;
+  background: rgb(3, 73, 195);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.button button:hover {
+  background: #4259c8;
+  transform: scale(1.03);
+  font-weight: bold;
+}
+
+.autoplay-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.autoplay-container label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.autoplay-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.autoplay-on {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.autoplay-off {
+  color: brown;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+  .container {
+    padding: 40px 35px;
+  }
+  .header h1 {
+    font-size: 2rem;
+  }
+  .quote-box p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 500px;
+  }
+  .header h1 {
+    font-size: 2.2rem;
+  }
+  .quote-box p {
+    font-size: 1.2rem;
+  }
+  .button button {
+    width: auto;
+    padding: 12px 25px;
+  }
+}

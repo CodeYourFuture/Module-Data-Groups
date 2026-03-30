@@ -15,11 +15,6 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
-// You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
-}
-
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
@@ -491,3 +486,75 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+// Picks a random quote object from the quotes array
+function pickFromArray(quotes) {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[randomIndex];
+}
+
+// Renders a quote object into the DOM
+function renderQuote(quote) {
+  const quoteEl = document.getElementById("quote");
+  const authorEl = document.getElementById("author");
+
+  if (!quoteEl || !authorEl || !quote) return;
+
+  quoteEl.textContent = quote.quote;
+  authorEl.textContent = quote.author;
+}
+
+// Sets up the application, event listeners, and initial state
+function setupQuoteApp() {
+  const button = document.getElementById("new-quote");
+  const autoplayCheckbox = document.getElementById("autoplay");
+  const autoplayStatus = document.getElementById("autoplay-status");
+
+  if (!button || !autoplayCheckbox || !autoplayStatus) return;
+
+  let autoplayInterval = null;
+
+  // Show first quote on page load
+  renderQuote(pickFromArray(quotes));
+
+  // Handles generating and rendering a new quote
+  function handleNewQuote() {
+    renderQuote(pickFromArray(quotes));
+  }
+
+  // Button click generates a new quote
+  button.addEventListener("click", handleNewQuote);
+
+  // Toggle autoplay feature
+  autoplayCheckbox.addEventListener("change", () => {
+    if (autoplayCheckbox.checked) {
+      // Start auto-changing quotes every 5 seconds
+      autoplayInterval = setInterval(handleNewQuote, 5000);
+      autoplayStatus.textContent = "ON";
+
+      // Apply ON styling via CSS class
+      autoplayStatus.classList.add("autoplay-on");
+      autoplayStatus.classList.remove("autoplay-off");
+    } else {
+      // Stop auto-changing quotes
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
+
+      autoplayStatus.textContent = "OFF";
+
+      // Apply OFF styling via CSS class
+      autoplayStatus.classList.add("autoplay-off");
+      autoplayStatus.classList.remove("autoplay-on");
+    }
+  });
+}
+
+// Initialize app only when DOM is fully loaded (browser environment)
+if (typeof window !== "undefined") {
+  window.addEventListener("DOMContentLoaded", setupQuoteApp);
+}
+
+// Export function for Jest testing environment
+if (typeof module !== "undefined") {
+  module.exports = pickFromArray;
+}
