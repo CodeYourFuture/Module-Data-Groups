@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-  background: rgba(221, 221, 221, 0.4);
+  background: rgb(206, 202, 202);
   padding: 10px;
   border-radius: 16px;
   width: 100%;
@@ -112,9 +112,14 @@ body {
   cursor: pointer;
 }
 
-#autoplay-status {
+.autoplay-on {
+  color: #4caf50;
   font-weight: bold;
+}
+
+.autoplay-off {
   color: brown;
+  font-weight: bold;
 }
 
 /* Responsive */
