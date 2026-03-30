@@ -63,7 +63,7 @@ window.addEventListener("load", function () {
         makeRandomColor(),
         "important"
       );
-      //closes setInterval after 2 seconds
+      //closes setInterval after 1 seconds
     }, 1000);
   });
 
