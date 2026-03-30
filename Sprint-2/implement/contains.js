@@ -2,7 +2,7 @@ function contains(obj, key) {
     if (typeof obj !== 'object' || obj === null || Array.isArray(obj)) {
         return false; 
     }
-    return key in obj;
+    return Object.hasOwn(obj, key);
 }
 
 module.exports = contains;
