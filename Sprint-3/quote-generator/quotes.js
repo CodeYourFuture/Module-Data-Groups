@@ -504,6 +504,9 @@ function showQuote() {
   authorElement.textContent =randomQuote.author;
 }
 
-button.addEventListener("click", showQuote);
+function setup() {
+  button.addEventListener("click", showQuote);
+  showQuote();
+}
 
-showQuote();
+window.addEventListener("load", setup);
