@@ -13,7 +13,10 @@ function parseQueryString(queryString) {
     const value = rest.join("=");
 
     if (key) {
-      queryParams[key] = value;
+
+      const decodedkey = decodeURIComponent(key.replace(/\+/g, ""));
+      const decodedValue = decodeURIComponent(value.replace(/\+/g, " "));
+      queryParams[decodedkey] = decodedValue;
     }
 
   }
