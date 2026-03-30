@@ -4,8 +4,6 @@ function tally(items) {
   }
 
   const result = Object.create(null);
-  {
-  }
 
   items.forEach((item) => {
     if (result[item]) {
