@@ -29,17 +29,12 @@ function updateHeading() {
 }
 
 /**
- * Resets the background colour to the default state.
+ * Updates the page background depending on whether the alarm has finished.
+ * If true is passed in, the alarm-finished class is added.
+ * If false is passed in, the alarm-finished class is removed.
  */
-function resetBackground() {
-  document.body.classList.remove("alarm-finished");
-}
-
-/**
- * Changes the background colour when the timer reaches zero.
- */
-function showAlarmFinishedState() {
-  document.body.classList.add("alarm-finished");
+function setAlarmFinishedState(isFinished) {
+  document.body.classList.toggle("alarm-finished", isFinished);
 }
 
 /**
@@ -53,6 +48,26 @@ function stopCountdown() {
 }
 
 /**
+ * Resets all application state before starting a new alarm.
+ * This clears any existing timer, stops any playing sound,
+ * and restores the default background state.
+ */
+function resetAll() {
+  stopCountdown();
+  pauseAlarm();
+  setAlarmFinishedState(false);
+}
+
+/**
+ * Handles what should happen when the timer reaches zero.
+ */
+function finishAlarm() {
+  stopCountdown();
+  setAlarmFinishedState(true);
+  playAlarm();
+}
+
+/**
  * Starts the countdown timer and updates the heading every second.
  */
 function startCountdown() {
@@ -63,39 +78,36 @@ function startCountdown() {
     }
 
     if (remainingSeconds === 0) {
-      stopCountdown();
-      showAlarmFinishedState();
-      playAlarm();
+      finishAlarm();
     }
   }, 1000);
 }
 
 /**
  * Reads the value from the input, updates the heading,
- * resets the background, stops any existing alarm sound,
- * and starts the countdown.
+ * resets application state, and starts the countdown.
  */
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   const inputValue = Number(input.value);
 
-  // Prevent invalid negative values
+  // Reset application state as soon as the button is clicked
+  resetAll();
+
+  // Prevent invalid negative or empty values
   if (Number.isNaN(inputValue) || inputValue < 0) {
     return;
   }
 
-  // Stop any previous countdown before starting a new one
-  stopCountdown();
-
-  // Stop any alarm sound that may already be playing
-  pauseAlarm();
-
-  // Reset the page state for a new alarm
-  resetBackground();
-
   // Store the new number of seconds and update the heading immediately
   remainingSeconds = Math.floor(inputValue);
   updateHeading();
+
+  // If the user sets the alarm to 0, finish immediately
+  if (remainingSeconds === 0) {
+    finishAlarm();
+    return;
+  }
 
   // Start counting down every second
   startCountdown();
