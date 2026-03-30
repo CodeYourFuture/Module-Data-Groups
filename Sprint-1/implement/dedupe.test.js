@@ -34,13 +34,13 @@ test("Given a non-array value, when passed to the dedupe function, then it shoul
 // Then it should return a copy of the original array
 test("Given an array with no duplicates, when passed to the dedupe function, then it should return a copy of the original array", () => {
   const input = ["a", "b", "c"];
+  const copyOfInput = ["a", "b", "c"];
+
   const result = dedupe(input);
 
-  const expected = ["a", "b", "c"];
-
-  expect(result).toEqual(expected);
+  expect(result).toEqual(copyOfInput);
   expect(result).not.toBe(input);
-  expect(input).toEqual(expected);
+  expect(input).toEqual(copyOfInput);
 });
 
 // Given an array of strings or numbers
