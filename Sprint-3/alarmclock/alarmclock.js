@@ -35,10 +35,10 @@ function setAlarm() {
 //add color changing background when alarm reaches 0 until stopped.
 //function from color changing assignment 10 year ago!
 function makeRandomColor() {
-  var colorOptions = "0123456789ABCDEF";
-  var newColor = "#";
+  let colorOptions = "0123456789ABCDEF";
+  let newColor = "#";
   //repeat 6 times to generate 6 random hex digits from the 16 characters in colorOptions
-  for (var i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     //picks random numbers from colorOptions and appends it to the # to make a new color.
     newColor += colorOptions[Math.floor(Math.random() * 16)];
   }
