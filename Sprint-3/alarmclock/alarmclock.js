@@ -7,6 +7,7 @@ const timeRemaining = document.getElementById("timeRemaining");
 function setAlarm() {
   // gets the value of the input field and stores it in a variable
   let timeInSeconds = document.getElementById("alarmSet").value;
+  botton.disabled = true;
 
   let clock = setInterval(() => {
     function pad(num) {
@@ -26,6 +27,7 @@ function setAlarm() {
     if (timeInSeconds == 0) {
       clearInterval(clock);
       playAlarm();
+      botton.disabled = false;
     }
     timeRemaining.innerHTML =
       "time remaining  " + formatTimeDisplay(timeInSeconds);
