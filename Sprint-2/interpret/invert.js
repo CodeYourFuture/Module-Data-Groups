@@ -6,6 +6,7 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
+
 function invert(obj) {
   const invertedObj = {};
 
@@ -22,12 +23,12 @@ console.log(invert({ a: 1, b: 2 })); // Expected output: { '1': 'a', '2': 'b' }
 
 /*
 a) What is the current return value when invert is called with { a : 1 }
-    *the value { key: 1 }
+    * is the following { key: 1 }
 
 b) What is the current return value when invert is called with { a: 1, b: 2 }
     *the first pair is { key: 1 }  
-    *and the second pair the value is  { key: 'b' } that means the first pair is 
-    being overwritten by the second pair, so the final return value is { key: 'b' }
+    *and the second pair the value is  { key: '2' } that means the first pair is 
+    being overwritten by the second pair, so the final return value is { key: '2' }
 
 c) What is the target return value when invert is called with {a : 1, b: 2}
     *the target return value is { "1": "a", "2": "b" }
