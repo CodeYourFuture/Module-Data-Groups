@@ -9,7 +9,7 @@ const parseQueryString = require("./querystring.js")
 // Given a querystring with a value that contains an = symbol ( + URL encoded as %2B and spaces encoded as + )
 // When passed to parseQueryString
 // Then it should treat everything after the first = as the value
-test("parses querystring values containing =", () => {
+test('parses querystring values containing (=, +, " ")', () => {
   expect(parseQueryString("equation=x=y%2B1")).toEqual({
     equation: "x=y+1",
   });
