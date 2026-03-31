@@ -1,3 +1,38 @@
+const newQuoteButton = document.getElementById("new-quote");
+
+const checkBox = document.getElementById("auto-checkbox");
+
+const quoteText = document.getElementById("quote");
+
+const authorText = document.getElementById("author");
+
+let intervalId = null;
+
+function handleCheckBox() {
+  if (checkBox.checked) {
+    clearInterval(intervalId);
+    intervalId = setInterval(displayRandomQuote, 5000);
+  } else {
+    clearInterval(intervalId);
+  }
+}
+
+function displayRandomQuote() {
+  const selectedQuote = pickFromArray(quotes);
+
+  quoteText.textContent = selectedQuote.quote;
+
+  authorText.textContent = selectedQuote.author;
+}
+
+function setup() {
+  // code to be executed on page load
+  newQuoteButton.addEventListener("click", displayRandomQuote);
+
+  checkBox.addEventListener("click", handleCheckBox);
+  displayRandomQuote();
+}
+window.addEventListener("load", setup);
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -491,35 +526,3 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
-
-function handleCheckBox() {
-  if (checkBox.checked) {
-    clearInterval(intervalId);
-    intervalId = setInterval(displayRandomQuote, 5000);
-  } else {
-    clearInterval(intervalId);
-  }
-}
-const newQuoteButton = document.getElementById("new-quote");
-
-const checkBox = document.getElementById("auto-checkbox");
-
-const quoteText = document.getElementById("quote");
-
-const authorText = document.getElementById("author");
-
-let intervalId = null;
-
-newQuoteButton.addEventListener("click", displayRandomQuote);
-
-checkBox.addEventListener("click", handleCheckBox);
-
-function displayRandomQuote() {
-  const selectedQuote = pickFromArray(quotes);
-
-  quoteText.textContent = `"${selectedQuote.quote}"`;
-
-  authorText.textContent = `${selectedQuote.author}`;
-}
-
-window.onload = displayRandomQuote;
