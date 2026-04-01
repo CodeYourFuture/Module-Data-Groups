@@ -1,6 +1,5 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
@@ -33,3 +32,20 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+test("return an object with country codes as keys and currency codes as values", () => {
+  expect( createLookup([ ["MX", "MXN"], ["JP", "JPY"] ])).toEqual({ MX: "MXN", JP: "JPY"});
+  expect( createLookup([ ["AU", "AUD"], ["CH", "CHF"] ])).toEqual({ AU: "AUD", CH: "CHF" });
+});
+
+describe("return an object with country codes as keys and currency codes as values", () => {
+  [
+    { input: [["US", "USD"],["CA", "CAD"]], expected: { US: "USD", CA: "CAD" } },
+    { input: [["GB", "GBP"],["FR", "EUR"]], expected: { GB: "GBP", FR: "EUR" } },
+    { input: [["JP", "JPY"],["AU", "AUD"]], expected: { JP: "JPY", AU: "AUD" } },
+  ].forEach(({ input, expected }) => {
+    it(`should convert ${JSON.stringify(input)} into ${JSON.stringify(expected)}`, () => {
+      expect(createLookup(input)).toEqual(expected);
+    });
+  });
+});

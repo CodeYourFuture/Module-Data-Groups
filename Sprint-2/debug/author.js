@@ -11,6 +11,10 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }
+
+
+// It did work because an object is not iterable as an array, but we can use Object.values() 
+// to get an array of the property values and then iterate over that array.
