@@ -18,3 +18,8 @@ main {
   width: 50vw;
   height: 50vh;
 }
+
+h1,
+#quote {
+  display: inline;
+}
