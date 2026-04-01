@@ -1,8 +1,7 @@
 var audio = new Audio("alarmsound.mp3");
 
-let timeRemaining = 0;
+let timeRemaining = 0; 
 let countdownInterval = null;
-let hasPlayed = false;
 
 function setAlarm() {
   const input = document.getElementById("alarmSet").value;
@@ -14,7 +13,6 @@ function setAlarm() {
     return;
   }
 
-  hasPlayed = false;
   updateDisplay();
 
   if (countdownInterval) {
@@ -24,22 +22,14 @@ function setAlarm() {
   countdownInterval = setInterval(() => {
     timeRemaining--;
 
-    // Play alarm at 10 seconds remaining (or immediately if less than 10)
-    if (!hasPlayed && (timeRemaining === 10 || timeRemaining < 10)) {
-      playAlarm();
-      hasPlayed = true;
-    }
+    updateDisplay();
 
     if (timeRemaining <= 0) {
-      timeRemaining = 0;
-      updateDisplay();
       clearInterval(countdownInterval);
-      return;
+      playAlarm();
     }
-
-    updateDisplay();
   }, 1000);
-} // ✅ properly closed function
+}
 
 function updateDisplay() {
   const display = document.getElementById("timeRemaining");
