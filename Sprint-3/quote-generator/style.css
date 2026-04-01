@@ -15,9 +15,10 @@ body {
 main {
   background-color: white;
   color: var(--primary-color);
-  width: 50vw;
-  height: 50vh;
+  width: 40vw;
+  height: 35vh;
   text-align: right;
+  padding: 4rem;
 }
 
 h1,
