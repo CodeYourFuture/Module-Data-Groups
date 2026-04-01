@@ -1,13 +1,20 @@
 /** Write your CSS in here **/
 :root {
   --primary-color: #ffa500;
+  --secondary-color: #000000;
 }
 
 body {
   background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 main {
   background-color: white;
   color: var(--primary-color);
+  width: 50vw;
+  height: 50vh;
 }
