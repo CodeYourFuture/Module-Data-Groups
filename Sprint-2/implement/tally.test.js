@@ -37,6 +37,8 @@ describe("tally", () => {
     // Given an invalid input like a string
     // When passed to tally
     // Then it should throw an error
+
+    { input: ["toString", "toString"], expected: { toString: 2 } }, // new test
   ])("counts items correctly", ({ input, expected }) => {
     expect(tally(input)).toEqual(expected);
   });
