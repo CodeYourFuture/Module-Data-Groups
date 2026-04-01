@@ -43,9 +43,12 @@ describe("contains", () => {
   ])("finds object contains properties", ({ input, expected }) => {
     expect(contains(...input)).toBe(expected);
   });
-  test("throws error when input is an array", () => {
-    expect(() => contains(["a", "b"], "a")).toThrow(
-      "Input must not be an array"
+  test("throws error when input is null or an array", () => {
+    expect(() => contains(null, "a")).toThrow(
+      "Input must be a non-null object and not an array"
     );
-  });
+    expect(() => contains(["a", "b"], "a")).toThrow(
+      "Input must be a non-null object and not an array"
+    );
+});
 });
