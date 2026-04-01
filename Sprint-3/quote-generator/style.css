@@ -1,1 +1,13 @@
 /** Write your CSS in here **/
+:root {
+  --primary-color: #ffa500;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+main {
+  background-color: white;
+  color: var(--primary-color);
+}
