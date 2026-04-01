@@ -17,6 +17,7 @@ main {
   color: var(--primary-color);
   width: 50vw;
   height: 50vh;
+  text-align: right;
 }
 
 h1,
