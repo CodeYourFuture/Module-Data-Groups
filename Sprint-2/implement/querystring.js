@@ -14,9 +14,9 @@ function parseQueryString(queryString) {
 
     if (key) {
 
-      const decodedkey = decodeURIComponent(key.replace(/\+/g, ""));
+      const decodedKey = decodeURIComponent(key.replace(/\+/g, " "));
       const decodedValue = decodeURIComponent(value.replace(/\+/g, " "));
-      queryParams[decodedkey] = decodedValue;
+      queryParams[decodedKey] = decodedValue;
     }
 
   }
