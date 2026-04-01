@@ -1,5 +1,17 @@
 let countdownTimerId = null;
 
+function resetAlarmState() {
+  if (countdownTimerId !== null) {
+    clearInterval(countdownTimerId);
+    countdownTimerId = null;
+  }
+
+  // Ensure alarm audio from previous runs is stopped before a new countdown.
+  if (audio && !audio.paused) {
+    pauseAlarm();
+  }
+}
+
 function setAlarm() {
   const heading = document.getElementById("timeRemaining");
   const input = document.getElementById("alarmSet");
@@ -12,9 +24,7 @@ function setAlarm() {
 
   remainingSeconds = Math.floor(remainingSeconds);
 
-  if (countdownTimerId !== null) {
-    clearInterval(countdownTimerId);
-  }
+  resetAlarmState();
 
   const updateHeading = () => {
     const minutes = Math.floor(remainingSeconds / 60)
@@ -25,6 +35,11 @@ function setAlarm() {
   };
 
   updateHeading();
+
+  if (remainingSeconds === 0) {
+    playAlarm();
+    return;
+  }
 
   countdownTimerId = setInterval(() => {
     if (remainingSeconds > 0) {
@@ -50,7 +65,7 @@ function setup() {
   });
 
   document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
+    resetAlarmState();
   });
 }
 
