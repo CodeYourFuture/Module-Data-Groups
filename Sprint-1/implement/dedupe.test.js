@@ -37,6 +37,8 @@ describe("dedupejs", () => {
     { input: [1, "a", 2, "a"], expected: [1, "a", 2] },
     { input: ["b", "c", "d", "e"], expected: ["b", "c", "d", "e"] },
   ])("removes duplicates from $input", ({ input, expected }) => {
-    expect(dedupe(input)).toEqual(expected);
+    const result = dedupe(input); // stores the result in a variable called result
+    expect(result).toEqual(expected); // Check that the result matches the expected output
+    expect(result).not.toBe(input); // Check that it's a new array (not the original)
   });
 });
