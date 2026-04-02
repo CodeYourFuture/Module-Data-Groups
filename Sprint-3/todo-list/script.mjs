@@ -13,6 +13,11 @@ window.addEventListener("load", () => {
   Todos.addTask(todos, "Do the shopping", true);
 
   render();
+  const deleteButton = document.getElementById("delete-completed-tasks");
+  deleteButton.addEventListener("click", () => {
+    Todos.deleteCompleted(todos);
+    render();
+  });
 });
 
 
@@ -74,3 +79,4 @@ function createListItem(todo, index) {
 
   return li;
 }
+
