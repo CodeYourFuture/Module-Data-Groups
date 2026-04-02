@@ -1,1 +1,42 @@
 /** Write your CSS in here **/
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d8b4db;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  color: #934a87;
+}
+#quote {
+  font-size: 1.5em;
+  background-color: #d12fe0;
+  color: #f6f9f5;
+  margin: 20px;
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#author {
+  font-size: 1.2em;
+  color: #934a87;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #d12fe0;
+  color: #f6f9f5;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+}
