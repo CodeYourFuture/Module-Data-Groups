@@ -47,6 +47,14 @@ test("tally on an array with duplicate items returns the counts for each uniqe i
     expect(givenInput).toEqual(targetOutput);
 })
 
+test("tally on ", () => {
+    const input = ["toString", "toString"];
+    const givenInput = tally(input);
+    const targetOutput = {toString: 2};
+
+    expect(givenInput).toEqual(targetOutput);
+})
+
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error

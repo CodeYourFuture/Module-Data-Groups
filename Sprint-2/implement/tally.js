@@ -1,21 +1,20 @@
 function tally(arr) {
-    if (Array.isArray(arr)) {
-
-        let countObj = {};
-    
-        for (const item of arr) {
-    
-            if (countObj[item]) {
-                countObj[item] = countObj[item] + 1;
-            } else {
-                countObj[item] = 1;
-            }
-        }
-        
-        return countObj;
+    if (!Array.isArray(arr)) {
+        throw new Error("The input should be an array!");
     }
+        
+    const countObj = Object.create(null);
 
-    else throw new Error("");
+    for (const item of arr) {
+
+        if (countObj[item]) {
+            countObj[item] = countObj[item] + 1;
+        } else {
+            countObj[item] = 1;
+        }
+    }
+    
+    return countObj;
 }
 
 module.exports = tally;
