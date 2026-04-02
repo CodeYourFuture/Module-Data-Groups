@@ -55,7 +55,7 @@ describe("findMax", () => {
   // When passed to the max function
   // Then it should return the max and ignore non-numeric values
   test("should return the max and ignore non-numeric values when passed an array with non-number values", () => {
-    expect(findMax(["hey", 10, "hi", 60, 10])).toEqual(60);
+    expect(findMax(["hey", 10, "hi", 60, 10, "300"])).toEqual(60);
   });
 
   // Given an array with only non-number values

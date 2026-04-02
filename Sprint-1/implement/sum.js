@@ -6,7 +6,7 @@ function sum(elements) {
   if (numbersOnly.length === 0) {
     return 0;
   }
-  return Number(numbersOnly.reduce((acc, curr) => acc + curr, 0).toFixed(1));
+  return numbersOnly.reduce((acc, curr) => acc + curr, 0);
 }
 
 module.exports = sum;
