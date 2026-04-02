@@ -5,18 +5,29 @@ function parseQueryString(queryString) {
 
   const keyValuePairs = queryString.split("&");
 
-  // 1. with RegEx
-  // for (const pair of keyValuePairs) {
-  //   const [key, value] = pair.split(/=(.*)/s);
-  //   queryParams[key] = value;
-  // }
-
-  // 2. with substring method
   for (const pair of keyValuePairs) {
+    // skip empty pairs (e.g. &&)
+    if (pair === "") continue;
+
     const index = pair.indexOf("=");
 
-    const key = pair.substring(0, index);
-    const value = pair.substring(index + 1);
+    let key, value;
+
+    if (key === -1) {
+      key = pair;
+      value = "";
+    } else {
+      key = pair.substring(0, index);
+      value = pair.substring(index + 1);
+    }
+
+    // decoding URL
+    try {
+      key = decodeURIComponent(key);
+      value = decodeURIComponent(value);
+    } catch (error) {
+      
+    }
 
     queryParams[key] = value;
   }

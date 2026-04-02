@@ -32,4 +32,22 @@ test("parses querystring values containing +", () => {
   })
 });
 
+test("new tests", () => {
+  expect(parseQueryString("a=b&=&c=d")).toEqual({
+    a: "b", "": "", c: "d" 
+  });
+  expect(parseQueryString("a=")).toEqual({
+    a: ""
+  });
+  expect(parseQueryString("=b")).toEqual({
+    "": "b"
+  });
+  expect(parseQueryString("a=b&&c=d")).toEqual({
+    a: "b", c: "d"
+  });
+  expect(parseQueryString("a%25b=c%26d")).toEqual({
+    "a%b": "c&d"
+  })
+})
+
 
