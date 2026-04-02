@@ -1,14 +1,13 @@
-botton = document.getElementById("set");
+const startButton = document.getElementById("set");
+const pause = document.getElementById("stop");
+pause.hidden = true;
 //begins the count down
-botton.addEventListener("click", setAlarm);
 
 // document.getElementById("set").addEventListener("click", setAlarm);
 const timeRemaining = document.getElementById("timeRemaining");
 function setAlarm() {
   // gets the value of the input field and stores it in a variable
   let timeInSeconds = document.getElementById("alarmSet").value;
-  botton.disabled = true;
-
   let clock = setInterval(() => {
     function pad(num) {
       return num.toString().padStart(2, "0");
@@ -22,16 +21,27 @@ function setAlarm() {
 
       return `${pad(totalHours)}:${pad(remainingMinutes)}:${pad(remainingSeconds)}`;
     }
-
-    timeInSecond = timeInSeconds--;
-    if (timeInSeconds == 0) {
+    startButton.hidden = true;
+    pause.hidden = false;
+    timeInSeconds--;
+    if (timeInSeconds <= 0) {
       clearInterval(clock);
       playAlarm();
-      botton.disabled = false;
     }
+
     timeRemaining.innerHTML =
       "time remaining  " + formatTimeDisplay(timeInSeconds);
   }, 1000);
+  startButton.addEventListener("click", setAlarm);
+  pause.addEventListener("click", pauseWhenRunning);
+
+  function pauseWhenRunning() {
+    startButton.hidden = false;
+    pause.hidden = true;
+    clearInterval(clock);
+    document.getElementById("alarmSet").value = timeInSeconds;
+    audio.pause();
+  }
 }
 
 // DO NOT EDIT BELOW HERE
