@@ -13,6 +13,7 @@ if (typeof Audio === "undefined") {
 }
 
 let countdownIntervalId; //stores timer ID so we can clear it when needed
+let alarmRunning = false; // tracks if a countdown is currently active
 
 const formatTime = (seconds) => {
   // takes a number of seconds and formats it into a string in the format "MM:SS"
@@ -26,22 +27,39 @@ function setAlarm() {
   const alarmInput = document.getElementById("alarmSet"); // gets input for seconds
   const timerDisplay = document.getElementById("timeRemaining"); // gets element showing remaining time
 
+  // Prevent starting a new alarm if one is already running
+  if (alarmRunning) {
+    alert("Please press Stop before setting a new alarm."); //  ensues user cannot set another alarm without stopping the current one first
+    return;
+  }
   const seconds = parseInt(alarmInput.value, 10); // converts input value to integer
+
   if (isNaN(seconds) || seconds < 0) return; // if ignore invalid or negative input
 
   let remainingSeconds = seconds; // initializes countdown
 
   timerDisplay.textContent = `Time Remaining: ${formatTime(remainingSeconds)}`; // shows initial time
 
-  if (countdownIntervalId) clearInterval(countdownIntervalId); // stops previous countdown to prevent multiple timers from running simultaneously
+  if (countdownIntervalId) {
+    clearInterval(countdownIntervalId); // stops previous countdown to prevent multiple timers from running simultaneously
+    countdownIntervalId = null; // resets timer ID
+  }
 
+  if (remainingSeconds === 0) {
+    // if the input is zero, play the alarm immediately without starting a countdown
+    playAlarm();
+    return;
+  }
+
+  alarmRunning = true; // mark that alarm is active
   countdownIntervalId = setInterval(() => {
-    // timer runs every second
     remainingSeconds--; // decrements remaining time by 1 second
 
     if (remainingSeconds <= 0) {
       // when time runs out, clear the timer and play the alarm sound
-      clearInterval(countdownIntervalId); // stops the countdown
+      clearInterval(countdownIntervalId); // stops the countdown timer
+      countdownIntervalId = null; // resets timer ID
+      alarmRunning = false; // mark that alarm is no longer active
       timerDisplay.textContent = "Time Remaining: 00:00"; // shows zero time
       playAlarm(); // plays alarm sound
       return; // prevents further execution
@@ -49,6 +67,26 @@ function setAlarm() {
     timerDisplay.textContent = `Time Remaining: ${formatTime(remainingSeconds)}`; // updates countdown display
   }, 1000); // repeats every second
 }
+
+window.addEventListener("load", () => {
+  // Add a listener to the Stop button that also clears the timer
+  const stopBtn = document.getElementById("stop");
+
+  stopBtn.addEventListener("click", () => {
+    // stops countdown amd stops audio
+    if (countdownIntervalId) {
+      clearInterval(countdownIntervalId);
+      countdownIntervalId = null;
+    }
+    alarmRunning = false; // mark that alarm is no longer active
+
+    document.getElementById("timeRemaining").textContent =
+      "Time Remaining: 00:00"; // resets display when stopped
+
+    document.getElementById("alarmSet").value = ""; // clears input field when stopped
+    pauseAlarm(); // stop audio if it's playing
+  });
+});
 
 // DO NOT EDIT BELOW HERE
 
