@@ -32,9 +32,8 @@ function setAlarm() {
     timeRemaining.innerHTML =
       "time remaining  " + formatTimeDisplay(timeInSeconds);
   }, 1000);
-  startButton.addEventListener("click", setAlarm);
-  pause.addEventListener("click", pauseWhenRunning);
 
+  pause.addEventListener("click", pauseWhenRunning);
   function pauseWhenRunning() {
     startButton.hidden = false;
     pause.hidden = true;
