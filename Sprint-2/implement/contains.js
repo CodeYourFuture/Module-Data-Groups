@@ -1,6 +1,6 @@
 function contains(obj, x) {
     for (const key in obj) {
-        if (Object.hasOwn(obj, key) && key == x) {
+        if (key == x) {
             return true
         }
     }
