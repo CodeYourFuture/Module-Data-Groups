@@ -52,8 +52,19 @@ describe("findMax.js", () => {
     // Given an array with only non-number values
     // When passed to the max function
     // Then it should return the least surprising value given how it behaves for all other inputs
+    // It will return -Infinity as it ignores all non-numeric values and returns -Infinity if no valid numbers found
 
-    { input: ["a", "!", "x"], expected: "Invalid Input" },
+    { input: ["a", "!", "x"], expected: -Infinity },
+
+    //  Given an array contains a number string it will ignore the string and return the max number
+    
+    { input: ["5", 2, 3], expected: 3 },
+
+
+    // Given an array contains only number strings it will rerturn -Infinity
+    
+    { input: ["5", "2", "3"], expected: -Infinity },
+
   ])("returns correct max for %o", ({ input, expected }) => {
     expect(findMax(input)).toBe(expected);
   });
