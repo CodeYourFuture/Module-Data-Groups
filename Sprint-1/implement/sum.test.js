@@ -48,7 +48,16 @@ describe("sum.js", () => {
     // Then it should return the least surprising value given how it behaves for all other inputs
 
     { input: ["a", "n", "p"], expected: "Invalid Input" },
-  ])("sums all numbers from $input", ({ input, expected }) => {
-    expect(sum(input)).toEqual(expected);
-  });
+  ])(
+    "sums all numbers from $input and expects $expected",
+    ({ input, expected }) => {
+      const result = sum(input);
+
+      if (typeof expected === "number") {
+        expect(Math.abs(result - expected)).toBeLessThan(1e-10); // for special cases of decimals to avoid precision issues
+      } else {
+        expect(result).toEqual(expected); // for non-numeric expected values, check for exact match
+      }
+    }
+  );
 });

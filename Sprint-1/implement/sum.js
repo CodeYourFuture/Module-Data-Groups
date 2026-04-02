@@ -4,7 +4,8 @@ function sum(elements) {
   if (!Array.isArray(elements)) {
     throw new Error("Input must be an array"); //checks input is an array if not throws error
   }
-  if (elements.length === 0) return 0; // if empty then returns 0
+
+  if (elements.length === 0) return 0; // <-- empty array returns 0
 
   let total = 0;
   let foundValid = false; //starts at false and will become true if valid number found
