@@ -16,13 +16,29 @@ E.g. dedupe([1, 2, 1]) returns [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+//test.todo("given an empty array, it returns an empty array");
 
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
+describe("dedupejs", () => {
+  test.each([
+    { input: [""], expected: [""] },
 
-// Given an array of strings or numbers
-// When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the 
-// first occurrence of each element from the original array.
+    // Given an array with no duplicates
+    // When passed to the dedupe function
+    // Then it should return a copy of the original array
+
+    { input: [1, 2, 3], expected: [1, 2, 3] },
+
+    // Given an array of strings or numbers
+    // When passed to the dedupe function
+    // Then it should return a new array with duplicates removed while preserving the
+    // first occurrence of each element from the original array.
+
+    { input: [1, 2, 2, 3], expected: [1, 2, 3] },
+    { input: [1, "a", 2, "a"], expected: [1, "a", 2] },
+    { input: ["b", "c", "d", "e"], expected: ["b", "c", "d", "e"] },
+  ])("removes duplicates from $input", ({ input, expected }) => {
+    const result = dedupe(input); // stores the result in a variable called result
+    expect(result).toEqual(expected); // Check that the result matches the expected output
+    expect(result).not.toBe(input); // Check that it's a new array (not the original)
+  });
+});
