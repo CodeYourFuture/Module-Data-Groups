@@ -21,12 +21,12 @@ function calculateMedian(list) {
   const middleIndex = Math.floor(numbers.length / 2);
 
   if (numbers.length % 2 !== 0) {
-    const median = numbers.splice(middleIndex, 1)[0];
-    return median;
+    return numbers[middleIndex];
   } else {
-    const middleTwo = numbers.splice(middleIndex - 1, 2);
-    const median = (middleTwo[0] + middleTwo[1]) / 2;
-    return median;
+    const leftMiddle = numbers[middleIndex - 1];
+    const rightMiddle = numbers[middleIndex];
+
+    return (leftMiddle + rightMiddle) / 2;
   }
 }
 
