@@ -491,3 +491,8 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+// getting the input and button elements from the page
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+const buttonElement = document.getElementById("new-quote");
