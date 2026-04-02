@@ -2,7 +2,7 @@ function tally(items) {
   if (!Array.isArray(items)) {
     throw new Error("Invalid input: items must be an array");
   }
-  const counts = {};
+  const counts = Object.create(null);
   for (const item of items) {
     if (counts[item]) {
       counts[item]++;

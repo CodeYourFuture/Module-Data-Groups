@@ -45,7 +45,7 @@ test("given an object that does not contain the target property, return false", 
 // Then it should return false or throw an error
 
 test("given an array instead of a valid object, throw an error", () => {
-  expect(() => contains(["a", "b", "c"], "3")).toThrow();
+  expect(() => contains(["a", "b", "c"], "2")).toThrow();
 });
 
 test("given null instead of a valid object, throw an error", () => {

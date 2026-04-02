@@ -29,6 +29,12 @@ test("handles keys with empty values", () => {
   });
 });
 
+test("handles a single key with an empty value", () => {
+  expect(parseQueryString("key=")).toEqual({
+    key: "",
+  });
+});
+
 test("treats parameters without = as empty values", () => {
   expect(parseQueryString("name&position=developer")).toEqual({
     name: "",
@@ -45,6 +51,14 @@ test("handles parameters with a missing key", () => {
 test("ignores empty parameters created by consecutive ampersands", () => {
   expect(parseQueryString("key1=value1&&key2=value2")).toEqual({
     key1: "value1",
+    key2: "value2",
+  });
+});
+
+test("handles an empty key with an empty value between valid parameters", () => {
+  expect(parseQueryString("key1=value1&=&key2=value2")).toEqual({
+    key1: "value1",
+    "": "",
     key2: "value2",
   });
 });

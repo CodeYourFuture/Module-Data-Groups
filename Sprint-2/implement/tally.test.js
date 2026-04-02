@@ -40,3 +40,7 @@ test("tally counts duplicate items", () => {
 test("tally throws an error when given a string", () => {
   expect(() => tally("aabc")).toThrow();
 });
+
+test("tally handles keys that match Object prototype properties", () => {
+  expect(tally(["toString", "toString"])).toEqual({ toString: 2 });
+});
