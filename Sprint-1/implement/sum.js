@@ -2,9 +2,9 @@ function sum(elements) {
   if (!Array.isArray(elements)) return "invalid elements";
   if (elements.length === 0) return 0;
   const number = [];
-  for (const x of elements) {
-    if (typeof x === "number" && !Number.isNaN(x)) {
-      number.push(x);
+  for (const part of elements) {
+    if (typeof part === "number" && !Number.isNaN(x)) {
+      number.push(part);
     }
   }
   if (number.length === 0) return "invalid elements";
