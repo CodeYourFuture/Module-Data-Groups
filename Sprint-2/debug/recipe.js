@@ -12,6 +12,6 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}`);
 
-for (const x of recipe.ingredients) {
-  console.log(x);
+for (const part of recipe.ingredients) {
+  console.log(part);
 }
