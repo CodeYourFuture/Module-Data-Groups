@@ -74,10 +74,3 @@ function createListItem(todo, index) {
 
   return li;
 }
-
-const completedList= document.querySelector("#completed-list");
-const deleteCompletedTasks= document.querySelector("#delete-completed-btn");
-deleteCompletedTasks.addEventListener("click", ()=> {
-  todos.deleteCompletedTasks();
-  render();
-});
