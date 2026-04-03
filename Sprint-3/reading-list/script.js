@@ -1,3 +1,5 @@
+const titleEl = document.querySelector("title");
+titleEl.textContent = "Reading list app";
 // for the tests, do not modify this array of books
 const books = [
   {
