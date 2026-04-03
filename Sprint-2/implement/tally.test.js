@@ -1,34 +1,46 @@
 const tally = require("./tally.js");
 
-/**
- * tally array
- *
- * In this task, you'll need to implement a function called tally
- * that will take a list of items and count the frequency of each item
- * in an array
- *
- * For example:
- *
- * tally(['a']), target output: { a: 1 }
- * tally(['a', 'a', 'a']), target output: { a: 3 }
- * tally(['a', 'a', 'b', 'c']), target output: { a : 2, b: 1, c: 1 }
- */
+describe("tally()", () => {
+  // Case 1: Returns an empty object when an empty array is passed to tally
+  test("tally on an empty array returns an empty object", () => {
+    expect(tally([])).toEqual({});
+  });
 
-// Acceptance criteria:
+  // Case 2: Returns counts for each unique item when given an array without duplicate items
+  test("tally on an array without duplicate items returns counts for each unique item", () => {
+    const tallyWithUniqueItems = [
+      [["a"], { a: 1 }],
+      [["a", "b", "c"], { a: 1, b: 1, c: 1 }],
+      [[1, 2, 3], { 1: 1, 2: 1, 3: 1 }],
+      [[true, false], { true: 1, false: 1 }],
+      [[null, undefined], { null: 1, undefined: 1 }],
+    ];
 
-// Given a function called tally
-// When passed an array of items
-// Then it should return an object containing the count for each unique item
+    tallyWithUniqueItems.forEach(([inputArray, targetOutput]) => {
+      expect(tally(inputArray)).toEqual(targetOutput);
+    });
+  });
 
-// Given an empty array
-// When passed to tally
-// Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+  // Case 3: Return counts for each unique item when given an array with duplicate items
+  test("tally on an array with duplicate items returns counts for each unique item", () => {
+    const tallyWithDuplicateItems = [
+      [["a", "a", "b", "c"], { a: 2, b: 1, c: 1 }],
+      [[1, 2, 2, 3], { 1: 1, 2: 2, 3: 1 }],
+      [[true, true, false], { true: 2, false: 1 }],
+      [[null, null, undefined], { null: 2, undefined: 1 }],
+    ];
 
-// Given an array with duplicate items
-// When passed to tally
-// Then it should return counts for each unique item
+    tallyWithDuplicateItems.forEach(([inputArray, targetOutput]) => {
+      expect(tally(inputArray)).toEqual(targetOutput);
+    });
+  });
 
-// Given an invalid input like a string
-// When passed to tally
-// Then it should throw an error
+  // Case 4: Throws an error when given an invalid input like a string
+  test("tally throws an error when passed a non-array input", () => {
+    const invalidInputs = ["invalid", 123, {}, null, undefined];
+
+    invalidInputs.forEach((input) => {
+      expect(() => tally(input)).toThrow("Input must be an array");
+    });
+  });
+});

@@ -1,35 +1,78 @@
 const contains = require("./contains.js");
 
-/*
-Implement a function called contains that checks an object contains a
-particular property
+describe("contains", () => {
+  // Case 1: Should return true if the property exists in object.
+  test("should return true when object contains passed property name", () => {
+    const objsWithValidProps = [
+      [{ a: 1, b: 2 }, "b"],
+      [{ name: "John", age: 30 }, "name"],
+      [{ nested: { key: "value" } }, "nested"],
+      [{ id: 123, status: "active", language: "JavaScript" }, "status"],
+      [{ data: [], items: null }, "data"],
+    ];
 
-E.g. contains({a: 1, b: 2}, 'a') // returns true
-as the object contains a key of 'a'
+    objsWithValidProps.forEach(([obj, prop]) => {
+      expect(contains(obj, prop)).toEqual(true);
+    });
+  });
 
-E.g. contains({a: 1, b: 2}, 'c') // returns false
-as the object doesn't contains a key of 'c'
-*/
+  // Case 2: Should return false if the object does not contain the given property.
+  test("should return false when object does not contain passed property name", () => {
+    const objsWithoutProps = [
+      [{ a: 1, b: 2 }, "c"],
+      [{ name: "John", age: 30 }, "email"],
+      [{ nested: { key: "value" } }, "nonexistent"],
+      [{ id: 123, status: "active", language: "JavaScript" }, "description"],
+      [{ data: [], items: null }, "nonexistent"],
+    ];
 
-// Acceptance criteria:
+    objsWithoutProps.forEach(([obj, prop]) => {
+      expect(contains(obj, prop)).toEqual(false);
+    });
+  });
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
+  // Case 3: Should return false if the object is empty.
+  test("should return false when object is empty", () => {
+    expect(contains({}, "anyProperty")).toEqual(false);
+  });
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
+  // Case 4: Should return false for properties that only exist in the prototype chain
+  test("should return false for properties in prototype chain", () => {
+    const objsWithProtoProps = [
+      [{ a: 1 }, "toString"],
+      [{ name: "John", age: 30 }, "hasOwnProperty"],
+      [{ nested: { key: "value" } }, "isPrototypeOf"],
+    ];
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
+    objsWithProtoProps.forEach(([obj, prop]) => {
+      expect(contains(obj, prop)).toEqual(false);
+    });
+  });
 
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
+  // Case 5: Should throw an error if an array is passed
+  test("should throw error when array is passed", () => {
+    expect(() => contains(["string"], 0)).toThrow(
+      "First argument must be an object in the form { key: value }"
+    );
+  });
 
-// Given invalid parameters like an array
-// When passed to contains
-// Then it should return false or throw an error
+  // Case 6: Should throw an error if a non-object is passed
+  test("should throw error when non-object is passed", () => {
+    const nonObjects = [
+      null,
+      undefined,
+      42,
+      "The Curse",
+      true,
+      Infinity,
+      Symbol("sym"),
+      function () {},
+    ];
+
+    nonObjects.forEach((nonObj) => {
+      expect(() => contains(nonObj, "prop")).toThrow(
+        "First argument must be an object in the form { key: value }"
+      );
+    });
+  });
+});
