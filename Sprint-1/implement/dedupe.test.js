@@ -27,8 +27,8 @@ describe("dedupe()", () => {
   [{ input: [1, 2, 3, 4], expected: [1, 2, 3, 4] }].forEach(
     ({ input, expected }) =>
       it(`should return same input values [${input}] without duplicate`, () => {
-        expect(input).toStrictEqual(expected);
-        expect(input).not.toBe(expected);
+        expect(dedupe(input)).toStrictEqual(expected);
+        expect(dedupe(input)).not.toBe(expected);
       })
   );
 
@@ -63,4 +63,10 @@ it("does not mutate the original array", () => {
   dedupe(input);
 
   expect(input).toStrictEqual([2, 3, 5]);
+});
+
+test("result has only distinct elements", () => {
+  const result = dedupe([1, 1, 2, 2, 3]);
+
+  expect(new Set(result).size).toBe(result.length);
 });
