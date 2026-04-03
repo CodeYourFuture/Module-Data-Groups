@@ -1,45 +1,35 @@
 const displayRemainingTime = document.querySelector("#timeRemaining");
 
 function setAlarm(alarmTime) {
-  if (!alarmTime) {
-    displayRemainingTime.textContent = "Please select a time";
+  if (!alarmTime || alarmTime <= 0) {
+    displayRemainingTime.textContent = "Please enter a valid number";
     return;
   }
-  const [h, m, s = 0] = alarmTime.split(":").map(Number);
-  const totalSeconds = h * 3600 + m * 60 + s;
+
+  let remainingTime = alarmTime;
+  let trigger = false;
 
   const interval = setInterval(() => {
-    const now = new Date();
-    let currentTimeInSec =
-      now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-
-    let remainingTime = totalSeconds - currentTimeInSec;
-
-    const minutes = Math.floor(remainingTime / 60)
+    let minutes = Math.floor(remainingTime / 60)
       .toString()
       .padStart(2, "0");
 
-    const seconds = (remainingTime % 60).toString().padStart(2, "0");
+    let seconds = (remainingTime % 60).toString().padStart(2, "0");
 
     displayRemainingTime.textContent = `Time Remaining: ${minutes}:${seconds}`;
 
-    if (remainingTime < 0) {
-      remainingTime += 24 * 3600;
+    if (remainingTime <= 10) {
+      document.getElementById("main").style.backgroundColor = "red";
     }
-    let trigger = false;
-    if (!trigger && remainingTime === 10) {
+
+    if (!trigger && remainingTime === 0) {
       trigger = true;
-      document.getElementById("main").style.backgroundColor = "red";
-      displayRemainingTime.textContent = "⏰";
       playAlarm();
-    }
-    if (remainingTime === 0) {
-      document.getElementById("main").style.backgroundColor = "red";
       displayRemainingTime.textContent = "⏰";
-      playAlarm();
       clearInterval(interval);
       return;
     }
+    remainingTime--;
   }, 1000);
 }
 
