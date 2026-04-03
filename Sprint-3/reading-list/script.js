@@ -1,3 +1,5 @@
+const titleEl = document.querySelector("title");
+titleEl.textContent = "Reading list app";
 // for the tests, do not modify this array of books
 const books = [
   {
@@ -21,3 +23,23 @@ const books = [
   },
 ];
 
+function readingList(bookArray) {
+  const contentEl = document.getElementById("content");
+  const ulListEl = document.getElementById("reading-list");
+
+  for (const book of bookArray) {
+    const li = document.createElement("li");
+    ulListEl.appendChild(li);
+    li.textContent = `${book.title} by ${book.author}`;
+    const img = document.createElement("img");
+    li.appendChild(img);
+    img.src = book.bookCoverImage;
+
+    if (book.alreadyRead) {
+      li.style.backgroundColor = "green";
+    } else {
+      li.style.backgroundColor = "red";
+    }
+  }
+}
+readingList(books);

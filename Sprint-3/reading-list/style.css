@@ -26,7 +26,10 @@ body {
   max-height: 40px;
   width: auto;
 }
-
+li, img{
+float: left;
+position: relative;
+}
 .navbar-light .navbar-nav .nav-link {
   color: #292b2c;
   font-weight: 600;
