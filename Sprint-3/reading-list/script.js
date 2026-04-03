@@ -22,16 +22,18 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
-function readingList(arrays){
+function readingList(bookArray){
 const contentEl = document.getElementById("content");
 const ulListEl = document.getElementById("reading-list");
+
+for (const book of bookArray){
 const li = document.createElement("li");
 ulListEl.appendChild(li);
-li.textContent ="placeholder text";
+li.textContent = `${book.title} by ${book.author}`;
 const img = document.createElement('img');
 li.appendChild(img)
-img.src = "https://blackwells.co.uk/jacket/l/9780135957059.jpg";
-
+img.src = book.bookCoverImage;
+}
 }
 readingList(books);
 // Render the list of books on the page. Each book should have a title, author and image and a background colour that is set dependent on whether we have read the book or not.
