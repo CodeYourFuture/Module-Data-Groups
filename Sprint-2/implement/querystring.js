@@ -10,16 +10,12 @@ function parseQueryString(queryString) {
   )
     return "invalid input";
   const keyValuePairs = queryString.split("&");
-
   for (const pair of keyValuePairs) {
-    const arr = [];
-    const indexEquality = pair.indexOf("=");
-    if (indexEquality !== -1) {
-      const sliced = pair.slice(0, indexEquality);
-      arr.push(sliced);
-      const sliced2 = pair.slice(indexEquality + 1);
-      arr.push(sliced2);
-      const [key, value] = arr;
+    const index = pair.indexOf("=");
+
+    if (index !== -1) {
+      const key = pair.slice(0, index);
+      const value = pair.slice(index + 1);
       queryParams[key] = value;
     }
   }

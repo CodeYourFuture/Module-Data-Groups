@@ -59,7 +59,7 @@ describe("contains()", () => {
     },
   ].forEach(({ elements, itemKey, expected }) =>
     it(`Given invalid parameters it should return false`, () => {
-      expect(contains(elements.itemKey)).toEqual(expected);
+      expect(contains(elements, itemKey)).toEqual(expected);
     })
   );
 });
