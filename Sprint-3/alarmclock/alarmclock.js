@@ -6,29 +6,22 @@ function time_convert(num) {
   return minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
 }
 function setAlarm() {
-  const alarmSetInput = document.getElementById("alarmSet");
-  const timer = time_convert(alarmSetInput.value)
-  const timeRemainingCounter = document.getElementById("timeRemaining");
-  timeRemainingCounter.textContent = `Time Remaining: ${timer}`;
+  const alarmSetInputEl = document.getElementById("alarmSet");
+  let timeEl = Number(alarmSetInputEl.value); 
+  const timeRemainingCounterEl = document.getElementById("timeRemaining");
+  const interval = setInterval(() => {
+    timeEl--; 
+
+    timeRemainingCounterEl.textContent = `Time Remaining: ${time_convert(timeEl)}`;
+
+    if (timeEl <= 0) {
+      clearInterval(interval);
+      timeRemainingCounterEl.textContent = "Done!";
+      playAlarm();
+    }
+  }, 1000);
 }
 
-// ## How the clock should work
-
-// When you click the `Set Alarm` button the counter at the top of the screen should change to the number you entered in the `input` field. For example, if the `input` field says `10` then the title should say `Time Remaining: 00:10`. => Done
-
-// Every one second the title should count down by one.
-
-// When the `Time Remaining` reaches `00:00` the alarm should play a sound. You can make the sound happen by using `playAlarm()`.
-
-// You can stop the alarm sound by pressing the `Stop Alarm` button.
-
-// ## Need Help?
-
-// Only read this section if you really need to! It's good to work this out for yourself.
-
-// ### Hints
-
-// - Have you tried looking at the `setInterval` function?
 
 // DO NOT EDIT BELOW HERE
 
@@ -53,3 +46,4 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
+
