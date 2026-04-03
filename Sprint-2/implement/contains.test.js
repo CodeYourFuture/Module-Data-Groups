@@ -49,7 +49,14 @@ describe("contains", () => {
     });
   });
 
-  // Case 5: Should throw an error if a non-object is passed
+  // Case 5: Should throw an error if an array is passed
+  test("should throw error when array is passed", () => {
+    expect(() => contains(["string"], 0)).toThrow(
+      "First argument must be an object in the form { key: value }"
+    );
+  });
+
+  // Case 6: Should throw an error if a non-object is passed
   test("should throw error when non-object is passed", () => {
     const nonObjects = [
       null,
@@ -58,7 +65,8 @@ describe("contains", () => {
       "The Curse",
       true,
       Infinity,
-      ["string"],
+      Symbol("sym"),
+      function () {},
     ];
 
     nonObjects.forEach((nonObj) => {
