@@ -3,10 +3,10 @@ function createLookup(elements) {
     return "Invalid input";
   }
   if (elements.length === 0) return "Invalid input";
-  let lookup = {};
+  const lookup = {};
 
-  for (x of elements) {
-    lookup[x[0]] = x[1];
+  for (const value of elements) {
+    lookup[value[0]] = value[1];
   }
   return lookup;
 }

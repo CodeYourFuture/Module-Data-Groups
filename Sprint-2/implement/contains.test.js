@@ -53,13 +53,13 @@ describe("contains()", () => {
 
   [
     {
-      elements: [3, 4, 5, "kofoworola", "Evan,"],
-      itemKey: "Evan",
+      elements: [3, 4, 5, "kofoworola", "Evan"],
+      itemKey: 4,
       expected: false,
     },
   ].forEach(({ elements, itemKey, expected }) =>
     it(`Given invalid parameters it should return false`, () => {
-      expect(contains(elements, itemKey)).toEqual(expected);
+      expect(contains(elements, itemKey)).toBe(expected);
     })
   );
 });

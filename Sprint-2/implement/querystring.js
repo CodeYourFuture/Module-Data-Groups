@@ -3,11 +3,7 @@ function parseQueryString(queryString) {
   if (queryString.length === 0) {
     return queryParams;
   }
-  if (
-    typeof queryString !== "string" ||
-    !queryString.includes("=") ||
-    queryString === undefined
-  )
+  if (typeof queryString !== "string" || !queryString.includes("="))
     return "invalid input";
   const keyValuePairs = queryString.split("&");
   for (const pair of keyValuePairs) {
