@@ -1,17 +1,17 @@
 function findMax(elements) {
   if (!Array.isArray(elements)) return "invalid elements";
-  const number = [];
+  const numberList = [];
   for (let i = 0; i < elements.length; i++) {
     if (typeof elements[i] === "number" && !Number.isNaN(elements[i])) {
-      number.push(elements[i]);
+      numberList.push(elements[i]);
     }
   }
-  if (number.length === 0) return -Infinity;
-  let max = number[0];
+  if (numberList.length === 0) return -Infinity;
+  let max = numberList[0];
 
-  for (let i = 1; i < number.length; i++) {
-    if (max < number[i]) {
-      max = number[i];
+  for (let i = 1; i < numberList.length; i++) {
+    if (max < numberList[i]) {
+      max = numberList[i];
     }
   }
   return max;
