@@ -22,4 +22,16 @@ const books = [
     bookCoverImage: "https://blackwells.co.uk/jacket/l/9780135957059.jpg",
   },
 ];
+function readingList(arrays){
+const contentEl = document.getElementById("#content");
+const listEl = document.getElementById("#reading-list");
 
+}
+// readingList(books);
+// Render the list of books on the page. Each book should have a title, author and image and a background colour that is set dependent on whether we have read the book or not.
+
+// ## 🧭 Strategy
+
+// Try and outline your strategy / approach for solving this problem before you get started. There is also a test suite provided to help you meet the acceptance criteria in the issue.
+
+// The end result should look something like this
