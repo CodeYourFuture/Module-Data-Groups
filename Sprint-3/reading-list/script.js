@@ -28,7 +28,9 @@ const ulListEl = document.getElementById("reading-list");
 const li = document.createElement("li");
 ulListEl.appendChild(li);
 li.textContent ="placeholder text";
-
+const img = document.createElement('img');
+li.appendChild(img)
+img.src = "https://blackwells.co.uk/jacket/l/9780135957059.jpg";
 
 }
 readingList(books);
