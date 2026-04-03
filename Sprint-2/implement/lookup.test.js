@@ -1,6 +1,33 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () => {
+  const input = [
+    ["US", "USD"],
+    ["CA", "CAD"],
+  ];
+
+  const result = createLookup(input);
+
+  expect(result).toEqual({
+    US: "USD",
+    CA: "CAD",
+  });
+});
+test("returns an empty object for an empty array", () => {
+  expect(createLookup([])).toEqual({});
+});
+
+test("returns an empty object for invalid input", () => {
+  expect(createLookup("not-an-array")).toEqual({});
+});
+
+test("ignores invalid pairs inside array", () => {
+  const input = [["US", "USD"], ["CA"], "invalid"];
+
+  expect(createLookup(input)).toEqual({
+    US: "USD",
+  });
+});
 
 /*
 
@@ -14,6 +41,7 @@ Given
 
 When
  - createLookup function is called with the country-currency array as an argument
+
 
 Then
  - It should return an object where:

@@ -1,12 +1,9 @@
-const object = {};
-object.name = "Tayle";
-
-function contains(object, prop) {
-  if (typeof object !== "object" || object === null || Array.isArray(object)) {
+function contains(obj, prop) {
+  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
     return false;
   }
-  return object.hasOwnProperty(prop);
+
+  return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-console.log(contains(object, "name"));
 module.exports = contains;

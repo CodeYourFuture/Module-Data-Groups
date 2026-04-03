@@ -12,6 +12,19 @@
 
   countWords("you and me and you") then the target output is { you: 2, and: 2, me: 1 }
 
+function countWords(str) {
+  const result = {};
+
+  const words = str.split(" ");
+
+  for (const word of words) {
+    result[word] = (result[word] || 0) + 1;
+  }
+
+  return result;
+}
+
+module.exports = countWords;
   To complete this exercise you should understand
     - Strings and string manipulation
     - Loops
