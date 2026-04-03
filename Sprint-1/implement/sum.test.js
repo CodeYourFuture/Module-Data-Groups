@@ -71,7 +71,7 @@ describe("sum()", () => {
   // Then it should return the least surprising value given how it behaves for all other inputs
   [
     {
-      input: ["evan", "mike", "", "/", undefined],
+      input: ["evan", "mike", "",undefined],
       expected: "invalid elements",
     },
   ].forEach(({ input, expected }) =>

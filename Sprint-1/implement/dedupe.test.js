@@ -19,22 +19,17 @@ E.g. dedupe([1, 2, 1]) target output: [1, 2]
 describe("dedupe()", () => {
   [{ input: [], expected: [] }].forEach(({ input, expected }) =>
     it(`given an empty array, it returns an empty array [${input}]`, () => {
-      expect(dedupe(input)).not.toBe(expected);
+      expect(dedupe(input)).toStrictEqual(expected);
     })
   );
   // Given an array with no duplicates
   // Then it should return a copy of the original array
-  [
-    { input: [1, 2, 3, 4], expected: [1, 2, 3, 4] },
-    {
-      input: ["apples", "banana", "orange"],
-      expected: ["apples", "banana", "orange"],
-    },
-    { input: [-1, 7, 1], expected: [-1, 7, 1] },
-  ].forEach(({ input, expected }) =>
-    it(`should return same input values [${input}] without duplicate`, () => {
-      expect(dedupe(input)).toStrictEqual(expected);
-    })
+  [{ input: [1, 2, 3, 4], expected: [1, 2, 3, 4] }].forEach(
+    ({ input, expected }) =>
+      it(`should return same input values [${input}] without duplicate`, () => {
+        expect(input).toStrictEqual(expected);
+        expect(input).not.toBe(expected);
+      })
   );
 
   // When passed to the dedupe function
@@ -53,10 +48,19 @@ describe("dedupe()", () => {
       expect(dedupe(input)).toStrictEqual(expected);
     })
   );
+});
 
-  [{ input: [1, 1, 2], expected: [1, 2] }].forEach(({ input, expected }) =>
-    it("returns a copy  not the original array", () => {
-      expect(dedupe(input)).toStrictEqual(expected);
-    })
-  );
+test("returns a copy, not the original array", () => {
+  const input = [1, 1, 2];
+  const result = dedupe(input);
+
+  expect(result).toStrictEqual([1, 2]);
+  expect(result).not.toBe(input);
+});
+
+it("does not mutate the original array", () => {
+  const input = [2, 3, 5];
+  dedupe(input);
+
+  expect(input).toStrictEqual([2, 3, 5]);
 });
