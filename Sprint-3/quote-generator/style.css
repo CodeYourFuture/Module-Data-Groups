@@ -1,1 +1,70 @@
-/** Write your CSS in here **/
+/* Reset basic margins and set font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Center content on the screen and give it a background color */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Style the main container to look like a card */
+.container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Style the heading */
+h1 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Style the quote text */
+#quote {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Style the author text */
+#author {
+  font-size: 1rem;
+  color: #777;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Make the button look clickable */
+#new-quote {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect to button */
+#new-quote:hover {
+  background-color: #0056b3;
+}
