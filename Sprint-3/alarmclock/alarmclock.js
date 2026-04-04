@@ -12,7 +12,7 @@ function setAlarm() {
   timeRemaining = parseInt(input.value);
 
   if (isNaN(timeRemaining) || timeRemaining <= 0) return;
- updateDisplay();
+  updateDisplay();
 
   interval = setInterval(() => {
     if (timeRemaining <= 0) {
@@ -20,17 +20,25 @@ function setAlarm() {
       timeRemaining = 0;
       updateDisplay();
       playAlarm();
-
       // Start flashing background
-      if (window.JEST_WORKER_ID){
       flashInterval = setInterval(() => {
         document.body.style.backgroundColor =
           document.body.style.backgroundColor === "green" ? "white" : "green";
       }, 500);
+      const stopButton = document.getElementById("stop");
+      stopButton.addEventListener(
+        "click",
+        () => {
+          clearInterval(flashInterval);
+          document.body.style.backgroundColor = "white";
+        },
+        { once: true }
+      );
 
-      return; // exit interval
-    }}
-     // Decrement only if above 0
+      return;
+    }
+
+    // Decrement only if above 0
     timeRemaining--;
     updateDisplay();
   }, 1000);
@@ -45,7 +53,6 @@ function setAlarm() {
     display.textContent = `Time Remaining: ${mm}:${ss}`;
   }
 }
-
 
 // DO NOT EDIT BELOW HERE
 
