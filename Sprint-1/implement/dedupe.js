@@ -2,9 +2,9 @@ function dedupe(arr) {
   if (arr.length === 0) {
     return [];
   }
-  if (arr.length !== new Set(arr).size) {
-    const cleanedArray = [...new Set(arr)];
-    return cleanedArray;
+  const uniqueSet = new Set(arr);
+  if (arr.length !== uniqueSet.size) {
+    return [...uniqueSet];
   } else {
     return [...arr];
   }
