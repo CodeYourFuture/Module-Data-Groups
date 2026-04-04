@@ -1,7 +1,7 @@
 /** Write your CSS in here **/
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color:burlywood;
   padding: 20px;
 }
 
@@ -12,6 +12,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: auto;
+    text-align: center;
 }
 #quote {
   font-size: 24px;
@@ -20,19 +21,24 @@ body {
 }
 #author {
   font-size: 20px;
-  text-align: right;
+  text-align: center;
   margin-bottom: 20px;
+  color: #555;
 }
 button {
+  background-color: #007BFF;
+  color: white;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
 }
-#quote-input, #author-input {
-  padding: 10px;
-  font-size: 16px;
-  margin-right: 10px;
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
 }
+
+
 
 
 

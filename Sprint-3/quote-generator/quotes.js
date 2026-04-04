@@ -1,3 +1,25 @@
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+
+function showQuote(quoteObject) {
+  quoteElement.textContent = quoteObject.quote;
+  authorElement.textContent = quoteObject.author;
+}
+
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  showQuote(randomQuote);
+}
+
+window.addEventListener("load", function () {
+  showRandomQuote();
+
+  newQuoteButton.addEventListener("click", function () {
+    showRandomQuote();
+  });
+});
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
