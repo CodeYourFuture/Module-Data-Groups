@@ -13,5 +13,5 @@ function sum(elements) {
 
   return sum;
 }
-console.log(sum([]));
+
 module.exports = sum;

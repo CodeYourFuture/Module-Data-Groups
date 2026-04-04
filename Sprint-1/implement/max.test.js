@@ -58,15 +58,17 @@ test("The function should return the closest one to zero when an negative number
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 test("The function should return the closest one to zero when an negative number array is passed", () => {
-  expect(findMax([3.5, "Leeds", "London", 3.7])).toBe(3.7);
-  expect(findMax(["italy", 0.8, 0.88, 0.89, "base"])).toBe(0.89);
-  expect(findMax([0.27, "jerry", 0.32, "apple", 0.78, "fly"])).toBe(0.78);
+  expect(findMax([3.5, "Leeds", "300", "London", 3.7])).toBe(3.7);
+  expect(findMax(["1.778", "italy", 0.8, 0.88, 0.89, "base"])).toBe(0.89);
+  expect(findMax([0.27, "jerry", "140", 0.32, "apple", 0.78, "fly"])).toBe(
+    0.78
+  );
 });
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("the function should return undefined when non-number value is passed", () => {
-  expect(findMax(["Manchester", "Leeds", "London"])).toBe(undefined);
-  expect(findMax(["orange", "apple", "banana"])).toBe(undefined);
+  expect(findMax(["Manchester", "4000", "Leeds", "London"])).toBe(undefined);
+  expect(findMax(["orange", "apple", "5", "banana"])).toBe(undefined);
 });

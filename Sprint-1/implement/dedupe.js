@@ -6,7 +6,7 @@ function dedupe(arr) {
     const cleanedArray = [...new Set(arr)];
     return cleanedArray;
   } else {
-    return arr;
+    return [...arr];
   }
 }
 

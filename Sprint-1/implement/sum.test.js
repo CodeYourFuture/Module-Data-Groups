@@ -39,11 +39,12 @@ test("The function should return the correct total value when negative number ar
 // When passed to the sum function
 // Then it should return the correct total sum
 test("The function should return the correct total value when decimal/float numbers array is passed", () => {
-  expect(sum([7.8045, 1.273, 3.19])).toEqual(12.2675);
-  expect(sum([4.6, 1.8, 3.18, 5.4])).toEqual(14.98);
-  expect(sum([11 / 12, 4 / 6, 1 / 2, 6 / 20])).toEqual(2.383333333333333);
-  expect(sum([1 / 2, 2 / 3, 3 / 4, 4 / 5, 5 / 6, 6 / 7])).toEqual(
-    4.4071428571428575
+  expect(sum([7.8045, 1.273, 3.19])).toBeCloseTo(12.2675, 4);
+  expect(sum([4.6, 1.8, 3.18, 5.4])).toBeCloseTo(14.98);
+  expect(sum([11 / 12, 4 / 6, 1 / 2, 6 / 20])).toBeCloseTo(2.383333, 6);
+  expect(sum([1 / 2, 2 / 3, 3 / 4, 4 / 5, 5 / 6, 6 / 7])).toBeCloseTo(
+    4.407142857,
+    9
   );
 });
 // Given an array containing non-number values

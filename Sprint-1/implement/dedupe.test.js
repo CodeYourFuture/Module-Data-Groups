@@ -24,14 +24,9 @@ test("given an empty array, it returns an empty array", () => {
 // When passed to the dedupe function
 // Then it should return a copy of the original array
 test("The function should return a copy of the original array if the array contains no duplicates", () => {
-  expect(dedupe([2, 4, 5, 6, 8])).toEqual([2, 4, 5, 6, 8]);
-  expect(dedupe([3, 7, 5, 8, 14, 19])).toEqual([3, 7, 5, 8, 14, 19]);
-  expect(dedupe(["apple", "banana", "milk", "egg"])).toEqual([
-    "apple",
-    "banana",
-    "milk",
-    "egg",
-  ]);
+  const original = [2, 4, 5, 6, 8];
+  expect(dedupe(original)).toEqual(original);
+  expect(dedupe(original)).not.toBe(original);
 });
 // Given an array with strings or numbers
 // When passed to the dedupe function
