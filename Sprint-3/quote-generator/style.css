@@ -20,10 +20,15 @@ h1 {
 .quote-container {
     background-color: #d9d9d9;
     width: 70%;
-    max-width: 800px;
+    max-width: 1100px;
     padding: 60px;
     box-sizing: border-box;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+
 }
 
 /* Quote text */
@@ -55,15 +60,21 @@ h1 {
 
 /* Button */
 #new-quote {
-    float: right;
     background-color: #f59e0b;
     color: white;
     border: none;
     padding: 15px 25px;
     font-size: 16px;
     cursor: pointer;
+    align-self: flex-end;
 }
 
 #new-quote:hover {
     background-color: #d97706;
+}
+/* Making the new area scrollable*/
+.quote-text {
+    flex-grow: 1;
+    overflow-y: auto;
+    min-height: 0;
 }
