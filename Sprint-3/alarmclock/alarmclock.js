@@ -39,7 +39,9 @@ function setAlarm() {
     }
 
     // Decrement only if above 0
+
     timeRemaining--;
+
     updateDisplay();
   }, 1000);
 
