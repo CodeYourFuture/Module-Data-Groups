@@ -10,6 +10,9 @@ function formatTime(seconds) {
 
 function setAlarm() {
   let seconds = parseInt(document.getElementById("alarmSet").value);
+  if (!Number.isFinite(seconds) || seconds < 1) {
+    throw new Error("Please enter a valid number greater than 0");
+  }
   clearInterval(countdown);
   document.getElementById("timeRemaining").textContent =
     "Time Remaining: " + formatTime(seconds);
@@ -21,7 +24,7 @@ function setAlarm() {
 
     if (seconds <= 0) {
       clearInterval(countdown);
-      document.body.classList.add("alarm-finished")
+      document.body.classList.add("alarm-finished");
       playAlarm();
     }
   }, 1000);
@@ -44,7 +47,7 @@ function playAlarm() {
 function pauseAlarm() {
   clearInterval(countdown);
   audio.pause();
-  document.body.classList.remove("alarm-finished")
+  document.body.classList.remove("alarm-finished");
 }
 
 window.onload = setup;
