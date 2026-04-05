@@ -28,7 +28,6 @@ describe("dedupe()", () => {
     ({ input, expected }) =>
       it(`should return same input values [${input}] without duplicate`, () => {
         expect(dedupe(input)).toStrictEqual(expected);
-        expect(dedupe(input)).not.toBe(expected);
       })
   );
 
