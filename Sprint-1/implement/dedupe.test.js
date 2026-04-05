@@ -24,8 +24,8 @@ test("Given a non-array value, when passed to the dedupe function, then it shoul
 });
 
 test("Given an array with no duplicates, when passed to the dedupe function, then it should return a copy of the original array", () => {
-  const input = ["a", "b", "c"];
-  const copyOfInput = ["a", "b", "c"];
+  const input = ["a", "b", "c", "d"];
+  const copyOfInput = ["a", "b", "c", "d"];
 
   const result = dedupe(input);
 
