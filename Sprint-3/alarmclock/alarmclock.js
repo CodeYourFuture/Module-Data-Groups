@@ -40,10 +40,12 @@ var audio = new Audio("alarmsound.mp3");
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
     const alarmTime = document.querySelector("#alarmSet").value;
+    document.getElementById("main").style.backgroundColor = "white";
     setAlarm(alarmTime);
   });
 
   document.getElementById("stop").addEventListener("click", () => {
+    document.getElementById("main").style.backgroundColor = "white";
     pauseAlarm();
   });
 }
