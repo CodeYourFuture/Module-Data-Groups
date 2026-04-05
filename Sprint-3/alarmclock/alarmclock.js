@@ -1,5 +1,4 @@
 const timeRemaining = document.getElementById("timeRemaining");
-const stopButton = document.getElementById("stop");
 
 function formatTime(time) {
   const minutes = Math.floor(time / 60);
