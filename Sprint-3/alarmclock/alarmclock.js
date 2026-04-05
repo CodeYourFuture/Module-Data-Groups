@@ -1,6 +1,20 @@
-function setAlarm() {}
+const timeRemaining = document.getElementById("timeRemaining");
+const setButton = document.getElementById("set");
+const stopButton = document.getElementById("stop");
 
-// DO NOT EDIT BELOW HERE
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+}
+
+function setAlarm() {
+  const alarmSet = document.getElementById("alarmSet");
+  const setTime = alarmSet.value;
+  timeRemaining.textContent = `Time Remaining: ${formatTime(setTime)}`;
+}
+
+setButton.addEventListener("click", setAlarm);
 
 var audio = new Audio("alarmsound.mp3");
 
