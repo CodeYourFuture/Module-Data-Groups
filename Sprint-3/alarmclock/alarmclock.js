@@ -1,8 +1,18 @@
-function setAlarm() {
-  let timer;
+let timer;
 
+function setAlarm() {
   const input = document.getElementById("alarmSet").value;
   let timeLeft = Number(input);
+
+  updateDisplay(timeLeft);
+
+  if (input === "" || isNaN(timeLeft)) {
+    return;
+  }
+
+  if (timeLeft < 0) {
+    return;
+  }
 
   updateDisplay(timeLeft);
 
@@ -23,6 +33,10 @@ function setAlarm() {
 
 function updateDisplay(secondsLeft) {
   const heading = document.getElementById("timeRemaining");
+
+  if (secondsLeft < 0) {
+    secondsLeft = 0;
+  }
 
   const minutes = Math.floor(secondsLeft / 60);
   const seconds = secondsLeft % 60;
