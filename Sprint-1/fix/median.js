@@ -8,9 +8,9 @@
 function calculateMedian(list) {
   if (!Array.isArray(list) || list.length === 0) return null;
   //If the items are not an array or if the array is empty return null
-  const numbers = list.filter((num) => typeof num === "number");
+  const numbers = list.filter((num) => Number.isFinite(num));
   if (numbers.length === 0) return null;
-  //checks the array before sorting and removing anything that is not a valid item ie not a number.
+  //checks the array before sorting and removing anything that is not a valid items and excludes NaN, Infinity and -Infinity.
   const sortedList = [...numbers].sort((a, b) => a - b);
   //creates a copy, after sorting so the original items are kept the same.
   const middleIndex = Math.floor(sortedList.length / 2);
