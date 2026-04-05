@@ -27,9 +27,9 @@ main {
   background-color: var(--secondary-color);
   color: var(--primary-color);
   width: 100%;
-  max-width: 600px;
-  min-height: 250px;
-  padding: clamp(2rem, 5vw, 4rem);
+  max-width: 850px;
+  min-height: 300px;
+  padding: clamp(3rem, 6vw, 5rem);
   text-align: right;
   padding: 4rem;
 }
@@ -37,7 +37,22 @@ main {
 h1,
 #quote {
   display: inline;
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 3rem);
+  font-family: Theseadow, serif;
+}
+
+#quote {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+#author {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
 }
 
 button {
@@ -46,4 +61,6 @@ button {
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  font-weight: bold;
+  font-size: large;
 }
