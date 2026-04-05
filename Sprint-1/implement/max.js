@@ -3,7 +3,7 @@ function findMax(elements) {
 
   if (elements.length === 0) return -Infinity;
   // must include declaration for infinity or test fails.
-  const numbers = elements.filter((num) => typeof num === "number");
+  const numbers = elements.filter((num) => Number.isFinite(num));
   if (numbers.length === 0) return NaN;
   // it returns NaN if no numbers found, there is  no need to sort the numbers
   return Math.max(...numbers);
