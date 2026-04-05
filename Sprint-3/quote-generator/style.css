@@ -1,7 +1,7 @@
 /** Write your CSS in here **/
 :root {
   --primary-color: #ffa500;
-  --secondary-color: #000000;
+  --secondary-color: #ffffff;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 }
 
 main {
-  background-color: white;
+  background-color: var(--secondary-color);
   color: var(--primary-color);
   width: 40vw;
   height: 35vh;
@@ -24,4 +24,12 @@ main {
 h1,
 #quote {
   display: inline;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
