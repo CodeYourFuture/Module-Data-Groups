@@ -2,7 +2,14 @@ let timeRemaining;
 let timerId;
 function setAlarm() {
   const input = document.getElementById("alarmSet").value;
-  timeRemaining = Number(input);
+  const value = Number(input);
+  // Should reject and prompt for blank, negative or invalid input
+  if (input === "" || value < 0 || isNaN(value)) {
+    alert("Please enter a valid non-negative number");
+    return;
+  }
+
+  timeRemaining = value;
 
   clearInterval(timerId);
 
