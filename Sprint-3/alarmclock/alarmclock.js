@@ -1,5 +1,4 @@
 const timeRemaining = document.getElementById("timeRemaining");
-const setButton = document.getElementById("set");
 const stopButton = document.getElementById("stop");
 
 function formatTime(time) {
@@ -13,8 +12,6 @@ function setAlarm() {
   const setTime = alarmSet.value;
   timeRemaining.textContent = `Time Remaining: ${formatTime(setTime)}`;
 }
-
-setButton.addEventListener("click", setAlarm);
 
 var audio = new Audio("alarmsound.mp3");
 
