@@ -1,6 +1,6 @@
 function tally(list) {
   //This object will store each item as a key and how many times it appears as a value. First declare an empty array
-  var counts = {};
+  var counts = Object.create(null);
   //validate list
   if (!Array.isArray(list)) {
     throw new Error("Input must be an array");
@@ -21,4 +21,5 @@ function tally(list) {
 }
 
 console.log(tally(["a", "a", "c", "a", "d"]));
+console.log(tally(["toString", "toString"]));
 module.exports = tally;
