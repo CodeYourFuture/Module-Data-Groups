@@ -36,3 +36,8 @@ test("parses querystring values containing multiple strings", () => {
     city: "London",
   });
 });
+
+test("parses querystring values not containing =& strings in the correct order", () => {
+  expect(parseQueryString("key1&key2&key3")).toEqual({});
+  expect(parseQueryString("key1=&key2&key3")).toEqual({});
+});
