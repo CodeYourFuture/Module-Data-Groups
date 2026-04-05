@@ -26,8 +26,10 @@ body {
 main {
   background-color: var(--secondary-color);
   color: var(--primary-color);
-  width: 40vw;
-  height: 35vh;
+  width: 100%;
+  max-width: 600px;
+  min-height: 250px;
+  padding: clamp(2rem, 5vw, 4rem);
   text-align: right;
   padding: 4rem;
 }
@@ -35,6 +37,7 @@ main {
 h1,
 #quote {
   display: inline;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 button {
