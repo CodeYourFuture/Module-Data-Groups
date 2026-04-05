@@ -1,6 +1,15 @@
 // Stores the interval ID so we can clear it later
 let interval = null;
 
+// Helper function: format seconds as mm:ss and update the display
+// This keeps the time-display logic in ONE place (CJ feedback: avoid repetition)
+function updateTimeDisplay(totalSeconds) {
+  const mins = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
+  const secs = String(totalSeconds % 60).padStart(2, "0");
+  document.getElementById("timeRemaining").innerText =
+    "Time Remaining: " + mins + ":" + secs;
+}
+
 function setAlarm() {
   // Clear any previously running countdown
   clearInterval(interval);
@@ -8,20 +17,32 @@ function setAlarm() {
   // Reset background to default
   document.body.style.backgroundColor = "";
 
+  // Stop any currently playing alarm sound before starting a new countdown
+  // (the user may not click "Stop" first before setting a new alarm)
+  pauseAlarm();
+
   // Read the input value and convert it to a plain integer (total seconds)
   let totalSeconds = parseInt(document.getElementById("alarmSet").value);
 
-  // --- Format and display the initial time ---
-  // Math.floor(119 / 60) = 1  --> minutes
-  // 119 % 60 = 59             --> leftover seconds
-  // padStart(2, "0") ensures single digits become "01", "09", etc.
-  const mins = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
-  const secs = String(totalSeconds % 60).padStart(2, "0");
-  document.getElementById("timeRemaining").innerText =
-    "Time Remaining: " + mins + ":" + secs;
+  // Validate input: reject NaN, negative numbers, or empty field
+  if (isNaN(totalSeconds) || totalSeconds < 0) {
+    document.getElementById("timeRemaining").innerText =
+      "Please enter a valid number of seconds (0 or above).";
+    return;
+  }
 
-  // --- Start the countdown ---
-  // setInterval calls the callback every 1000 ms (1 second) and returns an ID
+  // If input is 0, trigger the alarm immediately instead of waiting 1 second
+  if (totalSeconds === 0) {
+    updateTimeDisplay(0);
+    document.body.style.backgroundColor = "red";
+    playAlarm();
+    return;
+  }
+
+  // Display the initial time using the helper function
+  updateTimeDisplay(totalSeconds);
+
+  // Start the countdown: setInterval calls the callback every 1000 ms (1 second)
   interval = setInterval(function () {
     totalSeconds--; // subtract 1 second
 
@@ -29,10 +50,9 @@ function setAlarm() {
       // Stop the interval when time runs out
       clearInterval(interval);
 
-      document.getElementById("timeRemaining").innerText =
-        "Time Remaining: 00:00";
+      updateTimeDisplay(0);
 
-      // Change background color to signal the alarm
+      // Change background colour to signal the alarm
       document.body.style.backgroundColor = "red";
 
       // Trigger the alarm sound (defined below the DO NOT EDIT line)
@@ -40,13 +60,20 @@ function setAlarm() {
       return;
     }
 
-    // Recalculate mm:ss for the new totalSeconds and update the display
-    const m = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
-    const s = String(totalSeconds % 60).padStart(2, "0");
-    document.getElementById("timeRemaining").innerText =
-      "Time Remaining: " + m + ":" + s;
+    // Update the display with the new remaining time
+    updateTimeDisplay(totalSeconds);
   }, 1000);
 }
+
+// Make the Stop button also stop the countdown (not just the sound)
+// Uses DOMContentLoaded so the button element exists before we attach the listener
+// This adds a SECOND listener without modifying the original code below
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("stop").addEventListener("click", function () {
+    clearInterval(interval);
+    document.body.style.backgroundColor = "";
+  });
+});
 
 // DO NOT EDIT BELOW HERE
 
