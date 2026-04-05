@@ -1,29 +1,36 @@
-function setAlarm() {
-  let timeRemaining = document.getElementById("alarmSet").value;
-  const timeDisplay = document.getElementById("timeRemaining");
+let countdown = null; 
 
-  // Create a reusable function to update the text on the screen
-  const updateDisplay = (time) => {
-    let minutes = Math.floor(time / 60)
-      .toString()
-      .padStart(2, "0");
-    let seconds = (time % 60).toString().padStart(2, "0");
-    timeDisplay.innerText = "Time Remaining: " + minutes + ":" + seconds;
+function setAlarm() {
+  let secondsLeft = parseInt(document.getElementById("alarmSet").value, 10); 
+  const timeDisplay = document.getElementById("timeRemaining"); 
+
+  if (isNaN(secondsLeft) || secondsLeft <= 0) { 
+    timeDisplay.innerText = "Time Remaining: 00:00";
+    return;
+  }
+
+  if (countdown !== null) { 
+    clearInterval(countdown);
+  }
+
+  const updateDisplay = (time) => { 
+    let minutes = Math.floor(time / 60).toString().padStart(2, "0"); 
+    let seconds = (time % 60).toString().padStart(2, "0"); 
+    timeDisplay.innerText = "Time Remaining: " + minutes + ":" + seconds; 
   };
 
-  // STEP 1: Display the starting time IMMEDIATELY
-  updateDisplay(timeRemaining);
+  updateDisplay(secondsLeft); 
 
-  // STEP 2: Start the interval
-  const countdown = setInterval(() => {
-    timeRemaining--;
-    updateDisplay(timeRemaining);
+  countdown = setInterval(() => { 
+    secondsLeft = secondsLeft - 1; 
+    updateDisplay(secondsLeft); 
 
-    if (timeRemaining <= 0) {
-      clearInterval(countdown);
-      playAlarm();
+    if (secondsLeft <= 0) { 
+      clearInterval(countdown); 
+      countdown = null; 
+      playAlarm(); 
     }
-  }, 1000);
+  }, 1000); 
 }
 
 // DO NOT EDIT BELOW HERE
