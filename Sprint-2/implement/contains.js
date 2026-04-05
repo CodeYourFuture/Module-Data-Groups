@@ -1,7 +1,7 @@
 function contains(object, property) {
   // Check if object is a valid object (not null, array, number, string, etc.)
-  //if so return false
-  if (typeof object !== 'object' || object === null) {
+  //if so return false. updated to explicitly check that the input is a plain object, not an array.
+  if (typeof object !== "object" || object === null || Array.isArray(object)) {
     return false;
   }
   // Check if the object has the specified property as its own property
@@ -17,4 +17,3 @@ module.exports = contains;
 // console.log(contains(1, 'a')); // false
 // console.log(contains("NotANumber", 'a')); // false
 // console.log(contains(null, 'a')); // false
-

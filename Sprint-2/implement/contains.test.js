@@ -51,7 +51,7 @@ test("returns false when object does not contain the property", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("returns false for invalid inputs", () => {
-  expect(contains([], "a")).toBe(false);
+  expect(contains(["a"], 0)).toBe(false); //no arrays as objects.
   expect(contains(2, "a")).toBe(false);
   expect(contains("notANumber", "a")).toBe(false);
   expect(contains(null, "a")).toBe(false);
