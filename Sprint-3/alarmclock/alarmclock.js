@@ -1,4 +1,43 @@
-function setAlarm() {}
+let timeRemaining;
+let timerId;
+function setAlarm() {
+  const input = document.getElementById("alarmSet").value;
+  const value = Number(input);
+  // Should reject and prompt for blank, negative or invalid input
+  if (input === "" || value < 0 || isNaN(value)) {
+    alert("Please enter a valid non-negative number");
+    return;
+  }
+
+  timeRemaining = value;
+
+  clearInterval(timerId);
+
+  updateDisplay();
+
+  timerId = setInterval(() => {
+    timeRemaining--;
+    updateDisplay();
+
+    if (timeRemaining <= 0) {
+      timeRemaining = 0;
+      updateDisplay();
+      clearInterval(timerId);
+      playAlarm();
+    }
+  }, 1000);
+}
+function updateDisplay() {
+  const display = document.getElementById("timeRemaining");
+
+  const minutes = Math.floor(timeRemaining / 60);
+  const seconds = timeRemaining % 60;
+
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(seconds).padStart(2, "0");
+
+  display.textContent = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
+}
 
 // DO NOT EDIT BELOW HERE
 
