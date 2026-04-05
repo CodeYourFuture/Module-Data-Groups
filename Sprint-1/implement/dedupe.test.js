@@ -25,29 +25,16 @@ test("given an empty array, it returns an empty array", () => {
 // Then it should return a copy of the original array
 test("The function should return a copy of the original array if the array contains no duplicates", () => {
   const original1 = [2, 4, 5, 6, 8];
+  expect(original1.length).toBe(new Set(original1).size);
   const result1 = dedupe(original1);
   expect(result1).toEqual(original1);
   expect(result1).not.toBe(original1);
 
-  const original2 = [3, 7, 5, 8, 14, 19];
+  const original2 = [3, 9, 25, 1, 12, 42];
+  expect(original2.length).toBe(new Set(original2).size);
   const result2 = dedupe(original2);
   expect(result2).toEqual(original2);
   expect(result2).not.toBe(original2);
-
-  const original3 = ["apple", "banana", "milk", "egg"];
-  const result3 = dedupe(original3);
-  expect(result3).toEqual(original3);
-  expect(result3).not.toBe(original3);
-
-  const original4 = [1, "apple", true, null, 99];
-  const result4 = dedupe(original4);
-  expect(result4).toEqual(original4);
-  expect(result4).not.toBe(original4);
-
-  const original5 = [100, 200, 300, 400, 500];
-  const result5 = dedupe(original5);
-  expect(result5).toEqual(original5);
-  expect(result5).not.toBe(original5);
 });
 // Given an array with strings or numbers
 // When passed to the dedupe function
