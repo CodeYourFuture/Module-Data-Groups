@@ -19,16 +19,43 @@ const tally = require("./tally.js");
 // Given a function called tally
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
-
+test("tally counts the frequency of items in an array", () => {
+  const input = ["a", "a", "b", "c"];
+  const expectedOutput = { a: 2, b: 1, c: 1 };
+  expect(tally(input)).toEqual(expectedOutput);
+});
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+test("tally on an empty array returns an empty object", () => {
+  const input = [];
+  const expectedOutput = {};
+  expect(tally(input)).toEqual(expectedOutput);
+});
 
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+test("tally counts duplicate items correctly", () => {
+  const input = ["x", "y", "x", "z", "y", "x"];
+  const expectedOutput = { x: 3, y: 2, z: 1 };
+  expect(tally(input)).toEqual(expectedOutput);
+});
 
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+test("tally throws an error for invalid input", () => {
+  expect(() => tally("not an array")).toThrow("Input must be an array");
+});
+
+// Given an array with keywords that are also properties of Object.prototype, like "toString"
+// When passed to tally
+// Then it should count them correctly without being affected by the prototype chain
+
+test("tally handles prototype keywords correctly", () => {
+  const input = ["toString", "toString", "valueOf"];
+  const expectedOutput = { toString: 2, valueOf: 1 };
+
+  expect(tally(input)).toEqual(expectedOutput);
+});
