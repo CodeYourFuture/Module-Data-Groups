@@ -8,11 +8,26 @@
 function calculateMedian(list) {
   if (!Array.isArray(list) || list.length === 0) return null;
   //If the items are not an array or if the array is empty return null
-  const numbers = list.filter((num) => Number.isFinite(num));
+const isItANumber = list.map((value) => {
+    if (value === null || value === undefined) {
+      return NaN;
+    }
+    //checks for null and undefined and ignore them.
+
+    if (typeof value === "number") {
+      return value;
+    }
+     // check for actual numbers and keep them.
+
+    return NaN;
+  });
+  //everything else is NaN.
+
+  const numbers = isItANumber.filter((num) => Number.isFinite(num));
   if (numbers.length === 0) return null;
   //checks the array before sorting and removing anything that is not a valid items and excludes NaN, Infinity and -Infinity.
   const sortedList = [...numbers].sort((a, b) => a - b);
-  //creates a copy, after sorting so the original items are kept the same.
+  //Sorts the numbers without modifying the original array. This is useful but not always necessary.
   const middleIndex = Math.floor(sortedList.length / 2);
   //finds the median position
   if (sortedList.length % 2 === 0) {
@@ -22,7 +37,7 @@ function calculateMedian(list) {
   }
   return sortedList[middleIndex];
   //if it is odd it returns the middle number
-};
+}
 //checking
 // console.log(calculateMedian([1, 2, "3", null, undefined, 4])); // 2
 // console.log(calculateMedian([1, 2, 3, 4])); // 2.5
