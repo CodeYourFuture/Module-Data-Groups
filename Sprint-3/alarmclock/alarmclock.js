@@ -9,14 +9,19 @@ function setAlarm() {
     return;
   }
 
+  let timeInSeconds = Number(inputElement.value);
+
+  if (isNaN(timeInSeconds) || timeInSeconds < 0) {
+    alert("Please enter a valid number of seconds.");
+    return;
+  }
+
   if (timerInterval) {
     clearInterval(timerInterval);
   }
   if (flashInterval) {
     clearInterval(flashInterval);
   }
-
-  let timeInSeconds = Number(inputElement.value);
 
   function updateScreen(secondsRemaining) {
     const minutes = Math.floor(secondsRemaining / 60);
