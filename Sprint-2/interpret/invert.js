@@ -20,9 +20,10 @@ function invert(obj) {
 }
 console.log("Hello");
 console.log(invert({ a: 1, b: 2 }));
-// before update
-console.log(invert({ a: null }));// returns nothing
-console.log(invert({ a: undefined })); // returns nothing
+
+//after correct implementation
+console.log(invert({ a: null }));// returns { a: null }
+console.log(invert({ a: undefined })); // returns { a: undefined }
 
 
 module.exports = invert;
