@@ -491,59 +491,32 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
-
 const quoteDisplay = document.querySelector("#quote");
 const authorDisplay = document.querySelector("#author");
 const newQuoteButton = document.querySelector("#new-quote");
 
 //Function to update the text on the screen
-
 function displayNewQuote() {
-const randomQuote = pickFromArray(quotes); // Uses the provided function
-quoteDisplay.textContent = randomQuote.quote;
-authorDisplay.textContent = randomQuote.author;
+  const randomQuote = pickFromArray(quotes); 
+  quoteDisplay.textContent = randomQuote.quote;
+  authorDisplay.textContent = randomQuote.author;
 }
 
 //add event listener to the button
 newQuoteButton.addEventListener("click", displayNewQuote);
-
-//calls it once so a quote shows immediately on page load
 displayNewQuote();
-//console.log("checking for random quotes:", pickFromArray(quotes));
 
 const autoPlayToggle = document.querySelector("#auto-play-toggle");
 const autoPlayStatus = document.querySelector("#auto-play-status");
 let autoPlayInterval = null;
 
 //function for starting/stopping the timer
-
-autoPlayToggle.addEventListener("change", function() {
-if (this.checked) {
-
-//update text to ON
-
-autoPlayStatus.textContent = "ON";
-
-//start the timer
-
-// set to 5000 (5 seconds) for testing; change to 60000 for 1 minute later!
-
-autoPlayInterval = setInterval(displayNewQuote, 60000);
-
-//console.log("auto-play started");
-
-} else {
-
-// update text to OFF
-
-autoPlayStatus.textContent = "OFF";
-
-// stop the timer
-
-clearInterval(autoPlayInterval);
-
-// console.log("auto-play stopped.");
-
-};
-
+autoPlayToggle.addEventListener("change", function () {
+  if (this.checked) {
+    autoPlayStatus.textContent = "ON";
+    autoPlayInterval = setInterval(displayNewQuote, 60000);
+  } else {
+    autoPlayStatus.textContent = "OFF";
+    clearInterval(autoPlayInterval);
+  }
 });
