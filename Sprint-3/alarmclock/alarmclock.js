@@ -1,19 +1,17 @@
-const timeRemaining = document.getElementById("timeRemaining");
-
 function formatTime(time) {
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 }
 
-function displayTime() {
-  const alarmSet = document.getElementById("alarmSet");
-  const setTime = alarmSet.value;
-  timeRemaining.textContent = `Time Remaining: ${formatTime(setTime)}`;
+function displayAlarm(time) {
+  const alarmBox = document.getElementById("timeRemaining");
+  alarmBox.textContent = `Time Remaining: ${formatTime(time)}`;
 }
 
 function setAlarm() {
-  displayTime();
+  const setTime = document.getElementById("alarmSet").value;
+  displayAlarm(setTime);
 }
 
 var audio = new Audio("alarmsound.mp3");
