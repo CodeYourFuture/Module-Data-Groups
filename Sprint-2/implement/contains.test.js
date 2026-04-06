@@ -51,4 +51,14 @@ describe("contains", () => {
     const arr = [1, 2, 3];
     expect(contains(arr, "a")).toEqual(false);
   });
+
+  test("contains returns false for arrays, even if the index exists", () => {
+    const arr = ["a", "b", "c"];
+    expect(contains(arr, "0")).toEqual(false);
+  });
+
+  test("contains returns false for undefined", () => {
+    expect(contains(undefined, "a")).toEqual(false);
+    expect(contains(null, "a")).toEqual(false);
+  });
 });
