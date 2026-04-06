@@ -55,7 +55,7 @@ test("given an object with a non-existent property name, it should return false"
 // Then it should return false or throw an error
 test("given an invalid parameters, it should return false or throw an error", () => {
     const input = ['a', 'b', 'c'];
-    const target = 'a'
+    const target = 0;
     expect(() => contains(input, target)).toThrow();
     
 });
