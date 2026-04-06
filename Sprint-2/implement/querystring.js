@@ -6,6 +6,7 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
+    if (pair === "") continue; 
     const index = pair.indexOf("=");
 
     if (index === -1) {
@@ -21,3 +22,4 @@ function parseQueryString(queryString) {
 }
 
 module.exports = parseQueryString;
+
