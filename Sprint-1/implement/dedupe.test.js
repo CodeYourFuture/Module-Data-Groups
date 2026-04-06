@@ -42,3 +42,12 @@ test("given an array with strings or numbers, it removes the duplicates preservi
 // Then it should return a new array with duplicates removed while preserving the 
 // first occurrence of each element from the original array.
 // updated version
+test("removes duplicates for any repeated value", () => {
+  const input = [1, 1, 1, 1];
+  const copy = [...input];
+  const result = dedupe(input);
+
+  expect(result).toEqual([1]);
+  expect(result).not.toBe(input);
+  expect(input).toEqual(copy);
+});
