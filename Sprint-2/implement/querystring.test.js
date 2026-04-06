@@ -10,3 +10,26 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("decodes URL-encoded characters like spaces", () => {
+  expect(parseQueryString("month=March%202026&user=John%20Doe")).toEqual({
+    "month": "March 2026",
+    "user": "John Doe"
+  });
+});
+// no equals, treats flag as an invalid input so it needs to be fixed.
+test("throws error when no equals sign is present", () => {
+  expect(() => parseQueryString("flag")).toThrow("Invalid query string");
+});
+
+// Empty Values
+test("handles keys with an equals sign but no value", () => {
+  expect(parseQueryString("user=")).toEqual({
+    "user": ""
+  });
+});
+
+// Empty String Case
+test("returns an empty object for an empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
