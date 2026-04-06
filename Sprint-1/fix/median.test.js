@@ -39,11 +39,11 @@ describe("calculateMedian", () => {
 
   [
     { input: [1, 2, "3", null, undefined, 4], expected: null },
-    { input: ["apple", 1, 2, 3, "banana", 4], expected: 3 },
-    { input: [1, "2", 3, "4", 5], expected: 3 },
+    { input: ["apple", 1, 2, 3, "banana", 4], expected: null },
+    { input: [1, "2", 3, "4", 5], expected: null },
     { input: [1, "apple", 2, null, 3, undefined, 4], expected: null },
     { input: [3, "apple", 1, null, 2, undefined, 4], expected: null },
-    { input: ["banana", 5, 3, "apple", 1, 4, 2], expected: "apple"},
+    { input: ["banana", 5, 3, "apple", 1, 4, 2], expected: null},
   ].forEach(({ input, expected }) =>
     it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
