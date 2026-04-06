@@ -1,27 +1,35 @@
 let countdown;
 
 function setAlarm() {
-  let seconds = document.getElementById("alarmSet").value;
+  let seconds = parseInt(document.getElementById("alarmSet").value);
 
+  clearInterval(countdown);
   updateDisplay(seconds);
 
   countdown = setInterval(() => {
     seconds--;
 
-    let minutes = Math.floor(seconds / 60);
-    let remainingSeconds = seconds % 60;
-
-    let display = `Time Remaining: ${minutes
-      .toString()
-      .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
-
-    document.getElementById("timeRemaining").innerText = display;
+    updateDisplay(seconds);
 
     if (seconds <= 0) {
       clearInterval(countdown);
+      playAlarm();
     }
   }, 1000);
 }
+
+function updateDisplay(seconds) {
+  let minutes = Math.floor(seconds / 60);
+  let remainingSeconds = seconds % 60;
+
+  let display = `Time Remaining: ${minutes
+    .toString()
+    .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+
+  document.getElementById("timeRemaining").innerText = display;
+}
+
+
 
 // DO NOT EDIT BELOW HERE
 
