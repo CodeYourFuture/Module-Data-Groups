@@ -12,19 +12,21 @@ function displayAlarm(time) {
   alarmBox.textContent = `Time Remaining: ${formatTime(time)}`;
 }
 
+function decreaseAlarmTime() {
+  timeRemaining--;
+  displayAlarm(timeRemaining);
+
+  if (timeRemaining <= 0) {
+    clearInterval(timerInterval);
+  }
+}
+
 function setAlarm() {
   const setTime = document.getElementById("alarmSet").value;
   timeRemaining = parseInt(setTime, 10);
+
   displayAlarm(timeRemaining);
-
-  timerInterval = setInterval(() => {
-    timeRemaining--;
-    displayAlarm(timeRemaining);
-
-    if (timeRemaining <= 0) {
-      clearInterval(timerInterval);
-    }
-  }, 1000);
+  timerInterval = setInterval(decreaseAlarmTime, 1000);
 }
 
 var audio = new Audio("alarmsound.mp3");
