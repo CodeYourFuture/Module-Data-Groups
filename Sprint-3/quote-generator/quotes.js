@@ -489,8 +489,7 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
-const title = document.querySelector("title")
-title.textContent = "Quote generator app";
+
 // call pickFromArray with the quotes array to check you get a random quote
 const quoteEl = document.querySelector("#quote");
 const authorEl = document.querySelector("#author");
@@ -504,7 +503,10 @@ function displayQuote() {
 }
 
 // Show initial quote on page load
-displayQuote();
+function setup() {
+  displayQuote();
 
-// Change quote when button is clicked
-button.addEventListener("click", displayQuote);
+  // Change quote when button is clicked
+  button.addEventListener("click", displayQuote);
+}
+window.addEventListener("load", setup)
