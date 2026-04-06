@@ -17,15 +17,15 @@ function displayAlarm(time) {
 }
 
 function decreaseAlarmTime() {
-  timeRemaining--;
-  displayAlarm(timeRemaining);
-
   if (timeRemaining <= 0) {
     clearInterval(timerInterval);
     timerInterval = null;
     timeRemaining = 0;
     playAlarm();
   }
+
+  timeRemaining--;
+  displayAlarm(timeRemaining);
 }
 
 function setAlarm() {
@@ -36,6 +36,7 @@ function setAlarm() {
     clearInterval(timerInterval);
   }
 
+  displayAlarm(timeRemaining);
   timerInterval = setInterval(decreaseAlarmTime, 1000);
 }
 
