@@ -6,10 +6,14 @@ function formatTime(time) {
   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 }
 
-function setAlarm() {
+function displayTime() {
   const alarmSet = document.getElementById("alarmSet");
   const setTime = alarmSet.value;
   timeRemaining.textContent = `Time Remaining: ${formatTime(setTime)}`;
+}
+
+function setAlarm() {
+  displayTime();
 }
 
 var audio = new Audio("alarmsound.mp3");
