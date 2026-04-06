@@ -33,7 +33,8 @@ function updateDisplay(seconds) {
 
 // DO NOT EDIT BELOW HERE
 
-var audio = new Audio("alarmsound.mp3");
+let audio = new Audio("assets/trebolClan.mp3");
+let stopAudio = new Audio("assets/stopAlarm.mp3");
 
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
@@ -51,6 +52,10 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  stopAudio.play();
+  clearInterval(countdown);
 }
 
 window.onload = setup;
+
+
