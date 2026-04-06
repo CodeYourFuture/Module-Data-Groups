@@ -14,9 +14,9 @@ function dedupe(arr) {
   return newArray; // returns new array without duplicates/empty
 };
 
-console.log(dedupe([])); // prints: []
-console.log(dedupe([1, 2, 3])); // prints: [ 1, 2, 3 ]
-console.log(dedupe([5, 1, 1, 2, 3, 2, 5, 8])); // prints: [ 5, 1, 2, 3, 8 ]
-console.log(dedupe(["a", "a", "a", "b", "b", "c"])); // prints: [ 'a', 'b', 'c' ]
+// console.log(dedupe([])); // prints: []
+// console.log(dedupe([1, 2, 3])); // prints: [ 1, 2, 3 ]
+// console.log(dedupe([5, 1, 1, 2, 3, 2, 5, 8])); // prints: [ 5, 1, 2, 3, 8 ]
+// console.log(dedupe(["a", "a", "a", "b", "b", "c"])); // prints: [ 'a', 'b', 'c' ]
 
 module.exports = dedupe;
