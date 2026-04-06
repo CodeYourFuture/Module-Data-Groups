@@ -8,7 +8,7 @@
 function calculateMedian(list) {
   if (!Array.isArray(list) || list.length === 0) return null;
   //If the items are not an array or if the array is empty return null
-const isItANumber = list.map((value) => {
+  const isItANumber = list.map((value) => {
     if (value === null || value === undefined) {
       return NaN;
     }
@@ -17,7 +17,7 @@ const isItANumber = list.map((value) => {
     if (typeof value === "number") {
       return value;
     }
-     // check for actual numbers and keep them.
+    // check for actual numbers and keep them.
 
     return NaN;
   });
