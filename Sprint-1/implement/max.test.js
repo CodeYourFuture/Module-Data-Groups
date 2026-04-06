@@ -16,28 +16,51 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, it returns -Infinity", () => {
+  expect(findMax([])).toBe(-Infinity);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("given an array with one number, it returns that number", () => {
+  expect(findMax([1])).toEqual(1);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("given an array with positive and negative numbers, it returns the largest overall number", () => {
+  expect(findMax([-5, 35, 15, -55])).toEqual(35);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
 
+test("given an array with just negative numbers, returns the closest to zero", () => {
+  expect(findMax([-55, -35, -15, -5])).toEqual(-5);
+});
+
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+
+test("given an array with decimal numbers, it returns the largest decimal number", () => {
+  expect(findMax([5.5, 3.5, 1.5, 0.5])).toEqual(5.5);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 
+test("ignores non-number values and returns the max number", () => {
+  expect(findMax(["Not", "A", "Number", "300", 75, 85, 105])).toEqual(105);
+});
+
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("given an array with non-number values, returns Not a Number (NaN)", () => {
+  expect(findMax(["a", "b", "c"])).toBeNaN(); // note: NaN !== NaN,
+});
