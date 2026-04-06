@@ -491,3 +491,32 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+const quoteDisplay = document.querySelector("#quote");
+const authorDisplay = document.querySelector("#author");
+const newQuoteButton = document.querySelector("#new-quote");
+
+//Function to update the text on the screen
+function displayNewQuote() {
+  const randomQuote = pickFromArray(quotes); 
+  quoteDisplay.textContent = randomQuote.quote;
+  authorDisplay.textContent = randomQuote.author;
+}
+
+//add event listener to the button
+newQuoteButton.addEventListener("click", displayNewQuote);
+displayNewQuote();
+
+const autoPlayToggle = document.querySelector("#auto-play-toggle");
+const autoPlayStatus = document.querySelector("#auto-play-status");
+let autoPlayInterval = null;
+
+//function for starting/stopping the timer
+autoPlayToggle.addEventListener("change", function () {
+  if (this.checked) {
+    autoPlayStatus.textContent = "ON";
+    autoPlayInterval = setInterval(displayNewQuote, 60000);
+  } else {
+    autoPlayStatus.textContent = "OFF";
+    clearInterval(autoPlayInterval);
+  }
+});

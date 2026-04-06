@@ -1,15 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote generator app</title>
     <script defer src="quotes.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <h1>Inspirational Quotes</h1>
+    <div id="quote-display">
+      <p id="quote"></p>
+      <p id="author"></p>
+      <button type="button" id="new-quote">New quote</button>
+      <div class="auto-play-toggle">
+        <input type="checkbox" id="auto-play-toggle" />
+        <label for="auto-play-toggle">
+          Auto Play <span id="auto-play-status">OFF</span>
+        </label>
+      </div>
+    </div>
   </body>
 </html>
