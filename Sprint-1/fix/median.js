@@ -12,3 +12,4 @@ function calculateMedian(list) {
 }
 
 module.exports = calculateMedian;
+
