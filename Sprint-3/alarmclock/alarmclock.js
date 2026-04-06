@@ -1,5 +1,3 @@
-const title = document.querySelector('title')
-title.textContent = "Alarm clock app";
 function time_convert(num) {
   let minutes = Math.floor((num % 3600) / 60);
   let seconds = num % 60;
