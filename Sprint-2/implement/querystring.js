@@ -12,10 +12,11 @@ function parseQueryString(queryString) {
     }
     const key = pair.slice(0, equalityPosition);
     const value = pair.slice(equalityPosition + 1);
+    if (key === "" && value === "") {
+      continue;
+    }
     queryParams[key] = value;
   }
-
   return queryParams;
 }
-//console.log(parseQueryString(["amir = male"]));
 module.exports = parseQueryString;

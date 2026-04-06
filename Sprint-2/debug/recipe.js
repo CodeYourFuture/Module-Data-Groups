@@ -10,10 +10,8 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 console.log(`${recipe.title} serves ${recipe.serves} 
-ingredients:`);
-for (const element of recipe.ingredients) {
-  console.log(element);
-}
+ingredients: 
+${recipe.ingredients.join("\n")}`);
 
 /* In this code will log the recipe.title and recipe.serves but recipe.ingredient is not 
 represented well so it can't log the array ,to access and to get all the array index i used  

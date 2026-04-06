@@ -1,10 +1,10 @@
 function tally(myArray) {
-  if (myArray.length === 0) {
+  if (!Array.isArray(myArray)) {
+    throw new Error();
+  } else if (myArray.length === 0) {
     return {};
-  } else if (typeof myArray === "string") {
-    throw Error;
   }
-  let tallyObject = {};
+  let tallyObject = Object.create(null);
   for (const singleItems of myArray) {
     if (tallyObject[singleItems] === undefined) {
       tallyObject[singleItems] = 1;
@@ -14,5 +14,4 @@ function tally(myArray) {
   }
   return tallyObject;
 }
-
 module.exports = tally;

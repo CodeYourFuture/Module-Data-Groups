@@ -11,8 +11,8 @@ const author = {
   alive: true,
 };
 
-for (const property in author) {
-  console.log(`${property}:${author[property]}`);
+for (const prop in author) {
+  console.log(`${prop}:${author[prop]}`);
 }
 
 /*In this code the problem is that the method for...of is used for array 
