@@ -61,4 +61,11 @@ describe("contains", () => {
     expect(contains(undefined, "a")).toEqual(false);
     expect(contains(null, "a")).toEqual(false);
   });
+
+  //given a string
+  //when passed to contains
+  //then it should return false as strings are not objects
+  test("contains returns false for strings", () => {
+    expect(contains("abc", "0")).toEqual(false);
+  });
 });

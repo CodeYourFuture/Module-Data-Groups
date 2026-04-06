@@ -1,5 +1,5 @@
 function contains(obj, prop) {
-  if (Array.isArray(obj) || obj === undefined || obj === null) {
+  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
     return false;
   }
   return obj.hasOwnProperty(prop);
