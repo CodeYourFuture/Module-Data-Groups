@@ -30,10 +30,5 @@ export function toggleCompletedOnTask(todos, taskIndex) {
 
 // Removes all completed ToDos from the given list
 export function deleteCompleted(todos) {
-  // Loop backwards so removing items doesn't shift indexes and skip elements
-  for (let i = todos.length - 1; i >= 0; i--) {
-    if (todos[i].completed) {
-      todos.splice(i, 1);
-    }
-  }
+  return todos.filter((todo) => !todo.completed);
 }

@@ -7,20 +7,11 @@ const todos = [];
 
 // Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
-  //get the deleted complete button from html
   const massDeleteBtn = document.querySelector("#delete-completed-btn");
-
-  // check if the button is even found in the HTML
-  // console.log("Button found:", massDeleteBtn);
 
   if (massDeleteBtn) {
     massDeleteBtn.addEventListener("click", () => {
-      // check if the click event is firing
-      // console.log("Mass delete button clicked!");
-      // console.log("Todos before delete:", JSON.parse(JSON.stringify(todos)));
       Todos.deleteCompleted(todos);
-      // check if the array actually changed
-      // console.log("Todos after delete:", JSON.parse(JSON.stringify(todos)));
       render();
     });
   }
@@ -34,9 +25,8 @@ window.addEventListener("load", () => {
   render();
 });
 
-
-// A callback that reads the task description from an input field and
-// append a new task to the todo list.
+// A callback function that reads the task description from an input field and
+// appends a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
   const task = taskInput.value.trim();
@@ -63,7 +53,6 @@ function render() {
     todoListEl.append(todoListItem);
   });
 }
-
 
 // Note:
 // - First child of #todo-item-template is a <li> element.
