@@ -72,8 +72,8 @@ function playAlarm() {
 function pauseAlarm() {
   audio.pause();
   stopAudio.play();
+  audio.currentTime = 0;
   clearInterval(countdown);
-  // document.body.style.backgroundColor = "white";
 }
 
 window.onload = setup;
