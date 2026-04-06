@@ -26,9 +26,11 @@ describe("dedupe", () => {
   // Then it should return a copy of the original array
   test("should return a copy of the original array when there are no duplicates", () => {
     const input = [1, 2, 3];
-    expect(dedupe(input)).toEqual(input);
 
-    expect(dedupe(input)).not.toBe(input);
+    const result = dedupe(input);
+
+    expect(result).toEqual([1, 2, 3]);
+    expect(result).not.toBe(input);
   });
 
   // Given an array of strings or numbers
