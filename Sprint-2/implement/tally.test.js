@@ -48,3 +48,14 @@ test("tally counts duplicate items correctly", () => {
 test("tally throws an error for invalid input", () => {
   expect(() => tally("not an array")).toThrow("Input must be an array");
 });
+
+// Given an array with keywords that are also properties of Object.prototype, like "toString"
+// When passed to tally
+// Then it should count them correctly without being affected by the prototype chain
+
+test("tally handles prototype keywords correctly", () => {
+  const input = ["toString", "toString", "valueOf"];
+  const expectedOutput = { toString: 2, valueOf: 1 };
+
+  expect(tally(input)).toEqual(expectedOutput);
+});
