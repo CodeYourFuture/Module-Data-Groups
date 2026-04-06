@@ -11,8 +11,8 @@ function invert(obj) {
 
   for (const [key, value] of Object.entries(obj)) {
     //create new keys  and values to make them dynamic
-    let newKey = value.toString();
-    let newValue = key.toString();
+    let newKey = String(value);
+    let newValue = String(key);
     invertedObj[newKey] = newValue;
   }
 
@@ -20,6 +20,10 @@ function invert(obj) {
 }
 console.log("Hello");
 console.log(invert({ a: 1, b: 2 }));
+// before update
+console.log(invert({ a: null }));// returns nothing
+console.log(invert({ a: undefined })); // returns nothing
+
 
 module.exports = invert;
 // a) What is the current return value when invert is called with { a : 1 }
