@@ -18,6 +18,8 @@ function decreaseAlarmTime() {
 
   if (timeRemaining <= 0) {
     clearInterval(timerInterval);
+    timeRemaining = 0;
+    playAlarm();
   }
 }
 
@@ -25,7 +27,6 @@ function setAlarm() {
   const setTime = document.getElementById("alarmSet").value;
   timeRemaining = parseInt(setTime, 10);
 
-  displayAlarm(timeRemaining);
   timerInterval = setInterval(decreaseAlarmTime, 1000);
 }
 
