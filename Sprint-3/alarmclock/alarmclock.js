@@ -1,19 +1,40 @@
 let countdown;
 
 function setAlarm() {
-  let seconds = parseInt(document.getElementById("alarmSet").value);
-
   clearInterval(countdown);
-  updateDisplay(seconds);
+  document.body.style.backgroundColor = "white";
+
+  let inputTime = Number(document.getElementById("alarmSet").value);
+
+  if (isNaN(inputTime) || inputTime <= 0) {
+    alert("Please type or select your time 👇⏰");
+    return;
+  }
+
+  updateDisplay(inputTime);
 
   countdown = setInterval(() => {
-    seconds--;
+    inputTime--;
 
-    updateDisplay(seconds);
-
-    if (seconds <= 0) {
+    if (inputTime <= 0) {
       clearInterval(countdown);
+      updateDisplay(0);
       playAlarm();
+
+      let repetitions = 0;
+      countdown = setInterval(() => {
+        document.body.style.backgroundColor = `rgb(
+        ${Math.floor(Math.random() * 256)},
+        ${Math.floor(Math.random() * 256)}, 
+        ${Math.floor(Math.random() * 256)})`;
+        repetitions++;
+
+        if (repetitions > 100) {
+          clearInterval(countdown);
+        }
+      }, 200);
+    } else {
+      updateDisplay(inputTime);
     }
   }, 1000);
 }
@@ -28,8 +49,6 @@ function updateDisplay(seconds) {
 
   document.getElementById("timeRemaining").innerText = display;
 }
-
-
 
 // DO NOT EDIT BELOW HERE
 
@@ -54,8 +73,7 @@ function pauseAlarm() {
   audio.pause();
   stopAudio.play();
   clearInterval(countdown);
+  // document.body.style.backgroundColor = "white";
 }
 
 window.onload = setup;
-
-
