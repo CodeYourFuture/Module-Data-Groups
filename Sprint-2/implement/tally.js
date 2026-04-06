@@ -1,14 +1,15 @@
 function tally(list) {
-    const uniqueItems = {};
-    if(list.constructor === String){
-        throw new Error ("Invalid Input")
-    }
-    for (const frequency of list){
-    uniqueItems[frequency] = (uniqueItems[frequency] || 0) + 1;
-    }
+  if (!Array.isArray(list)) {
+    throw new Error("Invalid Parameter");
+  }
 
-    return uniqueItems;
+  const uniqueItems = Object.create(null);
+
+  for (const item of list) {
+    uniqueItems[item] = (uniqueItems[item] || 0) + 1;
+  }
+
+  return uniqueItems;
 }
-
 
 module.exports = tally;
