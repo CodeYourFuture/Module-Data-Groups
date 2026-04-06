@@ -1,3 +1,6 @@
+let timeRemaining;
+let timerInterval;
+
 function formatTime(time) {
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
@@ -11,7 +14,17 @@ function displayAlarm(time) {
 
 function setAlarm() {
   const setTime = document.getElementById("alarmSet").value;
-  displayAlarm(setTime);
+  timeRemaining = parseInt(setTime, 10);
+  displayAlarm(timeRemaining);
+
+  timerInterval = setInterval(() => {
+    timeRemaining--;
+    displayAlarm(timeRemaining);
+
+    if (timeRemaining <= 0) {
+      clearInterval(timerInterval);
+    }
+  }, 1000);
 }
 
 var audio = new Audio("alarmsound.mp3");
