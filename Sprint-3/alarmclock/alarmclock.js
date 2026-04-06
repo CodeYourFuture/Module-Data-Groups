@@ -22,6 +22,7 @@ function decreaseAlarmTime() {
 
   if (timeRemaining <= 0) {
     clearInterval(timerInterval);
+    timerInterval = null;
     timeRemaining = 0;
     playAlarm();
   }
@@ -30,6 +31,10 @@ function decreaseAlarmTime() {
 function setAlarm() {
   const setTime = document.getElementById("alarmSet").value;
   timeRemaining = parseInt(setTime, 10);
+
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
 
   timerInterval = setInterval(decreaseAlarmTime, 1000);
 }
