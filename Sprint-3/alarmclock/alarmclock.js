@@ -22,6 +22,7 @@ function decreaseAlarmTime() {
     timerInterval = null;
     timeRemaining = 0;
     playAlarm();
+    return;
   }
 
   timeRemaining--;
