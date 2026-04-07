@@ -496,26 +496,29 @@ const quoteTxt = document.querySelector("#quote");
 const quoteAuthor = document.querySelector("#author");
 const autoPlay = document.querySelector("#auto-play");
 const autoPlayTxt = document.querySelector("#auto-play-txt");
-const autoPlayTime = 60000;
+const autoPlayTime = 5000; // 5 seconds for testing
 let autoPlayInterval = null;
+
 newQuote.addEventListener("click", displayQuote);
 
-initaliseSite();
 autoPlay.addEventListener("change", () => {
   if (autoPlay.checked) {
-    autoPlayTxt.textContent = `Auto-Play: ON, changing quote every ${autoPlayTime / 1000} seconds.`;
+    autoPlayTxt.textContent = "auto-play:ON";
     autoPlayInterval = setInterval(displayQuote, autoPlayTime);
   } else {
-    autoPlayTxt.textContent = "Auto-Play: OFF";
+    autoPlayTxt.textContent = "auto-play:OFF";
     clearInterval(autoPlayInterval);
   }
 });
+
+initaliseSite();
+
 function initaliseSite() {
   displayQuote();
 }
 
 function displayQuote() {
   const quote = pickFromArray(quotes);
-  quoteTxt.innerHTML = `${quote.quote}`;
+  quoteTxt.textContent = quote.quote;
   quoteAuthor.textContent = `- ${quote.author}`;
-};
+}
