@@ -10,3 +10,28 @@ test("parses querystring values containing =", () => {
     "equation": "x=y+1",
   });
 });
+
+test("parses querystring values containing &", () => {
+  expect(parseQueryString("equation=x&y=1")).toEqual({
+    "equation": "x",
+    "y": "1",
+  });
+});
+
+test("parses querystring values containing & and =", () => {
+  expect(parseQueryString("equation=x&y=1&formula=a=b+c")).toEqual({
+    "equation": "x",
+    "y": "1",
+    "formula": "a=b+c",
+  });
+});
+
+test("parses empty querystring", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("parses querystring with no value", () => {
+  expect(parseQueryString("key")).toEqual({
+    "key": "",
+  });
+});   
