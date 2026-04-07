@@ -10,8 +10,9 @@ let seconds = 0;
 let minutes = 0;
 
 function main() {
-  // add an event listener to the "input" element that will call the counterUpdate function when clicked on
+  // add an event listener to the "input" element that will call the counterUpdate function when clicked on or when the user types in the input field.
   document.getElementById("alarmSet").addEventListener("click", counterUpdate);
+  document.getElementById("alarmSet").addEventListener("keyup", counterUpdate);
 }
 
 // define the function that will update the counter
