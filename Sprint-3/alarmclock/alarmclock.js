@@ -1,33 +1,31 @@
 let timerInterval = null;
 
+function updateDisplay(time) {
+  const heading = document.getElementById("timeRemaining");
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  heading.textContent = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}
+
 function setAlarm() {
   clearInterval(timerInterval);
 
   const time = document.getElementById("alarmSet").value;
-  const heading = document.getElementById("timeRemaining");
-
   let remainingTime = Number(time);
+
+  updateDisplay(remainingTime);
 
   timerInterval = setInterval(() => {
     if (remainingTime <= 0) {
       clearInterval(timerInterval);
-      heading.textContent = "Time Remaining: 00:00";
+      updateDisplay(0);
       playAlarm();
       return;
     }
 
     remainingTime--;
-
-    const minutes = Math.floor(remainingTime / 60);
-    const seconds = remainingTime % 60;
-
-    heading.textContent = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    updateDisplay(remainingTime);
   }, 1000);
-
-  const minutes = Math.floor(remainingTime / 60);
-  const seconds = remainingTime % 60;
-
-  heading.textContent = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
 
 // DO NOT EDIT BELOW HERE
