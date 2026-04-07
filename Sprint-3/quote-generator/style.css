@@ -1,1 +1,90 @@
-/** Write your CSS in here **/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body {
+  height: 100vh;
+  background: var(--main-bg-colour);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: var(--font-colour);
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1.25rem 3rem;
+}
+
+main {
+  width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+section {
+  max-width: 800px;
+  background: var(--card-bg-colour);
+  border-radius: 1rem;
+  border: solid 2px #e7dcfb;
+  padding: 5rem;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 14px 32px rgba(80, 40, 140, 0.14);
+}
+
+#quote {
+  font-size: 1.75rem;
+  font-weight: 600;
+  padding-bottom: 25px;
+  max-width: 60ch;
+}
+
+#author {
+  font-size: 1.35rem;
+}
+
+.quote-mark {
+  font-size: 7rem;
+  position: absolute;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.quote-mark-open {
+  left: 3rem;
+  top: 0.2rem;
+}
+
+.quote-mark-close {
+  right: 3rem;
+  bottom: -3rem;
+}
+
+button {
+  margin: 30px;
+  padding: 10px 25px;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: white;
+  background-color: var(--font-colour);
+  border-radius: 0.5rem;
+}
+
+:root {
+  --main-bg-colour: linear-gradient(
+    35deg,
+    #90a3ff 0%,
+    #b893ff 50%,
+    #f2a1ff 100%
+  );
+  --card-bg-colour: rgba(245, 246, 255, 0.6);
+  --font-colour: #3f2475;
+}
