@@ -20,16 +20,37 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("The function should return undefined when an empty object is passed to it.", () => {
+  expect(contains({})).toBe(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("The function should return true when the object contains the targeted property", () => {
+  expect(contains({ town: "leeds" }, "town")).toBe(true);
+  expect(contains({ a: 1, b: 2, c: 3 }, "a")).toBe(true);
+  expect(contains({ name: "ahmed", sex: "male", age: 29 }, "sex")).toBe(true);
+  expect(contains({ zone: 2, zone: 3, zone: 4 }, "zone")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+test("the function should return false when the targeted property don't exist", () => {
+  expect(contains({ a: 1, b: 2, c: 3 }, "d")).toBe(false);
+  expect(contains({ year: 1998, month: 10, Date: 16 }, "age")).toBe(false);
+  expect(contains({ meal: "pizza", drink: "water", table: 3 }, "starter")).toBe(
+    false
+  );
+});
 
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("the function should return false when invalid parameter like an array is passed", () => {
+  expect(contains([10, 23, 34, 45], "3")).toBe(false);
+  expect(contains("hello", "0")).toBe(false);
+  expect(contains(["green", "yellow", "rad"], "0")).toBe(false);
+  expect(contains(((30, 40, 50), 30))).toBe(false);
+});

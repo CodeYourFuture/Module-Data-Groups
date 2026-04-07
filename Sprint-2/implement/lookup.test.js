@@ -1,6 +1,32 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () => {
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toEqual({
+    US: "USD",
+    CA: "CAD",
+  });
+  expect(
+    createLookup([
+      ["BE", "EUR"],
+      ["BR", "BRL"],
+      ["FI", "FIN"],
+    ])
+  ).toEqual({ BE: "EUR", BR: "BRL", FI: "FIN" });
+  expect(
+    createLookup([
+      ["CV", "CPV"],
+      ["CN", "CHN"],
+      ["CR", "CRI"],
+      ["DE", "DEU"],
+      ["IN", "IND"],
+    ])
+  ).toEqual({ CV: "CPV", CN: "CHN", CR: "CRI", DE: "DEU", IN: "IND" });
+});
 
 /*
 
