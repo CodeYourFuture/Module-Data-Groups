@@ -1,1 +1,27 @@
-/** Write your CSS in here **/
+body {
+    background-image: url("./assets/stars.webp");
+    background-size: cover;
+    text-align: center;
+    padding: 30px;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-quote {
+    background: linear-gradient(200deg, #000593, #00000000);
+    margin: 2rem;
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgb(163, 198, 221);
+
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+}
