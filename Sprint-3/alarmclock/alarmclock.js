@@ -19,7 +19,7 @@ function setAlarm() {
   countdownInterval = setInterval(() => {
     timeRemaining--;
 
-    if (timeRemaining < 0) {
+    if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
       playAlarm();
     } else {
