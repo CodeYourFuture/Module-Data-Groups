@@ -503,11 +503,9 @@ newQuote.addEventListener("click", displayQuote);
 initaliseSite();
 autoPlay.addEventListener("change", () => {
   if (autoPlay.checked) {
-    console.log("ON");
     autoPlayTxt.textContent = `Auto-Play: ON, changing quote every ${autoPlayTime / 1000} seconds.`;
     autoPlayInterval = setInterval(displayQuote, autoPlayTime);
   } else {
-    console.log("OFF");
     autoPlayTxt.textContent = "Auto-Play: OFF";
     clearInterval(autoPlayInterval);
   }
