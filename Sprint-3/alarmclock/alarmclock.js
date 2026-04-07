@@ -13,18 +13,21 @@ function setAlarm() {
   const time = document.getElementById("alarmSet").value;
   let remainingTime = Number(time);
 
+  if (isNaN(remainingTime) || remainingTime <= 0) {
+    updateDisplay(0);
+    return;
+  }
+
   updateDisplay(remainingTime);
 
   timerInterval = setInterval(() => {
-    if (remainingTime <= 0) {
-      clearInterval(timerInterval);
-      updateDisplay(0);
-      playAlarm();
-      return;
-    }
-
     remainingTime--;
     updateDisplay(remainingTime);
+
+    if (remainingTime <= 0) {
+      clearInterval(timerInterval);
+      playAlarm();
+    }
   }, 1000);
 }
 
