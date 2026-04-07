@@ -9,9 +9,8 @@ const stop = document.querySelector("#stop");
 let totalSeconds = 0;
 
 function main() {
-  // add an event listener to the "input" element that will call the counterUpdate function when clicked on or when the user types in the input field.
+  // add an event listener to the "input" element that will call the counterUpdate function when clicked on
   document.getElementById("alarmSet").addEventListener("click", counterUpdate);
-  document.getElementById("alarmSet").addEventListener("keyup", counterUpdate);
 }
 
 // define the function that will update the counter
