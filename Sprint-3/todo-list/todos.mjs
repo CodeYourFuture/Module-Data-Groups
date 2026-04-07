@@ -27,7 +27,7 @@ export function toggleCompletedOnTask(todos, taskIndex) {
   }
 }
 
-// Remove all tasks that are marked as completed§
+// Remove all tasks that are marked as completed
 export function deleteCompleted(todos) {
   for (let i = todos.length - 1; i >= 0; i--) {
     if (todos[i].completed) {
@@ -35,3 +35,4 @@ export function deleteCompleted(todos) {
     }
   }
 }
+

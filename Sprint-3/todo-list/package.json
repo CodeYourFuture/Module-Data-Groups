@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "license": "CC-BY-SA-4.0",
-  "description": "You must update this package"
+  "description": "You must update this package",
+  "scripts": {
+    "serve": "http-server"
+  }
 }
