@@ -19,11 +19,11 @@ function setAlarm() {
   countdownInterval = setInterval(() => {
     timeRemaining--;
 
+    updateDisplay();
+
     if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
       playAlarm();
-    } else {
-      updateDisplay();
     }
   }, 1000);
 }
