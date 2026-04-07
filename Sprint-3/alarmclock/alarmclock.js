@@ -1,12 +1,16 @@
+let timerInterval = null;
+
 function setAlarm() {
+  clearInterval(timerInterval);
+
   const time = document.getElementById("alarmSet").value;
   const heading = document.getElementById("timeRemaining");
 
   let remainingTime = Number(time);
 
-  const timer = setInterval(() => {
+  timerInterval = setInterval(() => {
     if (remainingTime <= 0) {
-      clearInterval(timer);
+      clearInterval(timerInterval);
       heading.textContent = "Time Remaining: 00:00";
       playAlarm();
       return;
@@ -20,7 +24,6 @@ function setAlarm() {
     heading.textContent = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   }, 1000);
 
-  
   const minutes = Math.floor(remainingTime / 60);
   const seconds = remainingTime % 60;
 
