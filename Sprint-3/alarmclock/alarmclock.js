@@ -10,12 +10,18 @@ function updateTimeDisplay(totalSeconds) {
     "Time Remaining: " + mins + ":" + secs;
 }
 
+// Helper function: show or clear the feedback message in a separate element
+function showFeedback(message) {
+  document.getElementById("feedback").innerText = message;
+}
+
 function setAlarm() {
   // Clear any previously running countdown
   clearInterval(interval);
 
-  // Reset background to default
-  document.body.style.backgroundColor = "";
+  // Remove alarm style and clear feedback message
+  document.body.classList.toggle("alarm-activated", false);
+  showFeedback("");
 
   // Stop any currently playing alarm sound before starting a new countdown
   // (the user may not click "Stop" first before setting a new alarm)
@@ -26,15 +32,14 @@ function setAlarm() {
 
   // Validate input: reject NaN, negative numbers, or empty field
   if (isNaN(totalSeconds) || totalSeconds < 0) {
-    document.getElementById("timeRemaining").innerText =
-      "Please enter a valid number of seconds (0 or above).";
+    showFeedback("Please enter a valid number of seconds (0 or above).");
     return;
   }
 
   // If input is 0, trigger the alarm immediately instead of waiting 1 second
   if (totalSeconds === 0) {
     updateTimeDisplay(0);
-    document.body.style.backgroundColor = "red";
+    document.body.classList.toggle("alarm-activated", true);
     playAlarm();
     return;
   }
@@ -52,8 +57,8 @@ function setAlarm() {
 
       updateTimeDisplay(0);
 
-      // Change background colour to signal the alarm
-      document.body.style.backgroundColor = "red";
+      // Apply alarm style using a CSS class (separates presentation from logic)
+      document.body.classList.toggle("alarm-activated", true);
 
       // Trigger the alarm sound (defined below the DO NOT EDIT line)
       playAlarm();
@@ -71,7 +76,7 @@ function setAlarm() {
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("stop").addEventListener("click", function () {
     clearInterval(interval);
-    document.body.style.backgroundColor = "";
+    document.body.classList.toggle("alarm-activated", false);
   });
 });
 
