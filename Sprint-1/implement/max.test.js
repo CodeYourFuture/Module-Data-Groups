@@ -18,24 +18,33 @@ const findMax = require("./max.js");
 // Delete this test.todo and replace it with a test.
 test.todo("given an empty array, returns -Infinity");
 //Hello I would  like to keep this to help check the list of test need to be done.
-
+test("when an empty array push into the function it should return empty array", () => {
+  let emptyArray = [];
+  expect(findMax(emptyArray)).toEqual([]);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
 test.todo("given an array with one number, returns only the number");
-
+test("When an array have only one number value", () =>{
+    let mixArray =["Hello","Hi",null,undefined,5];
+}
+);
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
-test.todo("given an array with both positive and negative numbers, returns the largest number overall");
+test.todo(
+  "given an array with both positive and negative numbers, returns the largest number overall"
+);
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
-test.todo("given an array with negative value, returns the number closest to zero");
-
+test.todo(
+  "given an array with negative value, returns the number closest to zero"
+);
 
 // Given an array with decimal numbers
 // When passed to the max function
@@ -45,8 +54,9 @@ test.todo("given an array with decimal number, returns the largest decimal");
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
-test.todo("given an array with non number values, returns the max ignore non-numeric values" );
-
+test.todo(
+  "given an array with non number values, returns the max ignore non-numeric values"
+);
 
 // Given an array with only non-number values
 // When passed to the max function
