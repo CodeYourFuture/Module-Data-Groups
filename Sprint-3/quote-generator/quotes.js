@@ -496,7 +496,7 @@ const quoteTxt = document.querySelector("#quote");
 const quoteAuthor = document.querySelector("#author");
 const autoPlay = document.querySelector("#auto-play");
 const autoPlayTxt = document.querySelector("#auto-play-txt");
-const autoPlayTime = 5000; // 5 seconds for testing
+const autoPlayTime = 60000;
 let autoPlayInterval = null;
 
 newQuote.addEventListener("click", displayQuote);
