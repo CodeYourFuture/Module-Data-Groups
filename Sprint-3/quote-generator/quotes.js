@@ -502,3 +502,4 @@ function quoteGenerator() {
 }
 
 btn.addEventListener("click", quoteGenerator);
+window.addEventListener("load", quoteGenerator);
