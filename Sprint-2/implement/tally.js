@@ -15,5 +15,4 @@ function tally(items) {
 
   return result;
 }
-
 module.exports = tally;
