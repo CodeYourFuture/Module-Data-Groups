@@ -13,3 +13,13 @@
 h1 {
   text-align: center;
 }
+
+#feedback {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+.alarm-activated {
+  background-color: red;
+}
