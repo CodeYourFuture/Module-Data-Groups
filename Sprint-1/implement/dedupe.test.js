@@ -27,13 +27,13 @@ test("The function should return a copy of the original array if the array conta
   const original1 = [2, 4, 5, 6, 8];
   expect(original1.length).toBe(new Set(original1).size);
   const result1 = dedupe(original1);
-  expect(result1).toEqual("[2, 4, 5, 6, 8]");
+  expect(result1).toEqual([2, 4, 5, 6, 8]);
   expect(result1).not.toBe(original1);
 
   const original2 = [3, 9, 25, 1, 12, 42];
   expect(original2.length).toBe(new Set(original2).size);
   const result2 = dedupe(original2);
-  expect(result2).toEqual("[3, 9, 25, 1, 12, 42]");
+  expect(result2).toEqual([3, 9, 25, 1, 12, 42]);
   expect(result2).not.toBe(original2);
 });
 // Given an array with strings or numbers
