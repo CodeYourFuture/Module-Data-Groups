@@ -50,7 +50,7 @@ test("the function should return false when the targeted property don't exist", 
 // Then it should return false or throw an error
 test("the function should return false when invalid parameter like an array is passed", () => {
   expect(contains([10, 23, 34, 45], "3")).toBe(false);
-  expect(contains("hello", "hi")).toBe(false);
+  expect(contains("hello", "0")).toBe(false);
   expect(contains(["green", "yellow", "rad"], "0")).toBe(false);
   expect(contains(((30, 40, 50), 30))).toBe(false);
 });
