@@ -1,6 +1,18 @@
-const createLookup = require("./lookup.js");
+const Lookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () => {
+  const input = [
+    ["DZ", "DZD"],
+    ["CA", "CAD"],
+    ["GB", "GBP"],
+  ];
+  const result = {
+    DZ: "DZD",
+    CA: "CAD",
+    GB: "GBP",
+  };
+  expect(Lookup(input)).toEqual(result);
+});
 
 /*
 
@@ -24,7 +36,7 @@ Example
 Given: [['US', 'USD'], ['CA', 'CAD']]
 
 When
-createLookup(countryCurrencyPairs) is called
+Lookup(coCuPairs) is called
 
 Then
 It should return:
@@ -33,3 +45,29 @@ It should return:
    'CA': 'CAD'
  }
 */
+// Given an invalid input (not an array of arrays),
+test('return "Invalid input: expected an array of arrays" for string input', () => {
+  const input = "invalid input: expected an array of arrays";
+  expect(Lookup(input)).toEqual("Invalid input: expected an array of arrays");
+});
+
+// Given an array where its elements are not arrays,
+test('return "Invalid input: expected an array of arrays" for non-array elements', () => {
+  const input = [["US", "USD"], "CA"];
+  expect(Lookup(input)).toEqual("Invalid input: expected an array of arrays");
+});
+
+// Given an array where its elements are arrays with more than two elements,
+test('return "Invalid input: expected an array of arrays" for arrays with too many elements', () => {
+  const input = [
+    ["US", "USD", "flag"],
+    ["CA", "CAD"],
+  ];
+  expect(Lookup(input)).toEqual("Invalid input: expected an array of arrays");
+});
+
+// Given an array where its elements are arrays with less than two elements,
+test('return "Invalid input: expected an array of arrays" for arrays with too few elements', () => {
+  const input = [["US", "USD"], ["CA"]];
+  expect(Lookup(input)).toEqual("Invalid input: expected an array of arrays");
+});
