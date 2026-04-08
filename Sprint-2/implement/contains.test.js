@@ -41,5 +41,6 @@ test("return false when property does not exit", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("return false for invalid input like an array", () => {
-  expect(contains([], "a")).toBe(false);
+  expect(contains([1, 2, 3], "0")).toBe(false);
 });
+
