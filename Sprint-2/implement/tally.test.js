@@ -5,7 +5,7 @@ const tally = require("./tally.js");
  *
  * In this task, you'll need to implement a function called tally
  * that will take a list of items and count the frequency of each item
- * in an array
+ * in an arraynp
  *
  * For example:
  *
