@@ -27,12 +27,11 @@ export function toggleCompletedOnTask(todos, taskIndex) {
   }
 }
 
-// Remove all tasks that are marked as completed
+// Remove all tasks that are marked as completed using .filter()
 export function deleteCompleted(todos) {
-  for (let i = todos.length - 1; i >= 0; i--) {
-    if (todos[i].completed) {
-      todos.splice(i, 1);
-    }
-  }
+  const incompleteTasks = todos.filter(todo => todo.completed === false);
+  
+  // Clear the original array and fill it with only incomplete tasks
+  todos.length = 0;
+  todos.push(...incompleteTasks);
 }
-
