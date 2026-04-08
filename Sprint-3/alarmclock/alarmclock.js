@@ -1,4 +1,4 @@
-let timeRemaining = 0;
+
 let timerId = null;
 
 const audio = new Audio("alarmsound.mp3");
@@ -12,7 +12,7 @@ function formatTime(seconds) {
 }
 
 // UPDATE DISPLAY (MUST MATCH TEST EXACTLY)
-function updateDisplay() {
+function updateDisplay(timeRemaining) {
   const heading = document.getElementById("timeRemaining");
   heading.textContent = "Time Remaining: " + formatTime(timeRemaining);
 }
@@ -43,7 +43,7 @@ function triggerAlarm() {
 }
 
 // START TIMER
-function startTimer() {
+function startTimer(timeRemaining) {
   clearInterval(timerId);
 
   timerId = setInterval(() => {
@@ -68,7 +68,7 @@ function setAlarm() {
   const input = document.getElementById("alarmSet").value;
 
   // ensure clean number input
-  timeRemaining = parseInt(input, 10);
+let  timeRemaining = parseInt(input, 10);
 
   if (isNaN(timeRemaining) || timeRemaining < 0) {
     timeRemaining = 0;
@@ -77,11 +77,11 @@ function setAlarm() {
   updateDisplay();
 
   if (timeRemaining > 0) {
-    startTimer();
+    startTimer(timeRemaining);
   }
 }
 
-// SETUP
+// SETUP 
 function setup() {
   document.getElementById("set").addEventListener("click", setAlarm);
   document.getElementById("stop").addEventListener("click", stopAlarm);
