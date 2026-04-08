@@ -42,6 +42,6 @@ function calculateMode(list) {
 module.exports = calculateMode;
 
 // Explanation:
-getFrequencies(list) //counts how many times each number appears
-findMode(freqs) // finds the number with the highest frequency
-calculateMode(list) // combines both steps
+//getFrequencies(list) //counts how many times each number appears
+//findMode(freqs) // finds the number with the highest frequency
+//calculateMode(list) // combines both steps

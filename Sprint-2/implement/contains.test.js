@@ -35,7 +35,7 @@ test("returns true when property exists", () => {
 // When passed to contains with a non-existent property name
 // Then it should return false
 test("return false when property does not exit", () => {
-  expect(contains({ a: 1, b: 2 }, "c")).to(fasle);
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
 });
 // Given invalid parameters like an array
 // When passed to contains
