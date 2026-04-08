@@ -1,13 +1,9 @@
 {
   "name": "todo-list",
   "version": "1.0.0",
+  "type": "module",
   "license": "CC-BY-SA-4.0",
   "description": "You must update this package",
-  "type": "module",
-  "scripts": {
-    "serve": "http-server",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeYourFuture/CYF-Coursework-Template.git"
@@ -16,6 +12,10 @@
     "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
   },
   "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
+  "scripts": {
+    "serve": "http-server",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+  },
   "devDependencies": {
     "http-server": "^14.1.1",
     "jest": "^30.0.4"
