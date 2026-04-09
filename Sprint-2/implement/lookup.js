@@ -7,18 +7,18 @@
 function Lookup(countryCurrencyPairs) {
   // check if the argument is an array of arrays
   if (
-    Array.isArray(countryCurrencyPairs) &&
+    !Array.isArray(countryCurrencyPairs) ||
     // check if each inner array is an array.
-    countryCurrencyPairs.every((pair) => Array.isArray(pair)) &&
+    !countryCurrencyPairs.every((pair) => Array.isArray(pair)) ||
     // check if each inner array has two elements.
-    countryCurrencyPairs.every((pair) => pair.length === 2)
+    !countryCurrencyPairs.every((pair) => pair.length === 2)
     // we can also use index to check the pair is an array as follows:
     // for (let i = 0; i < countryCurrencyPairs.length; i++)
     //  return Array.isArray(countryCurrencyPairs[i])
   ) {
-    return Object.fromEntries(countryCurrencyPairs);
+    throw new Error("Invalid input: expected an array of arrays");
   }
-  return "Invalid input: expected an array of arrays";
+  return Object.fromEntries(countryCurrencyPairs);
 }
 
 module.exports = Lookup;
