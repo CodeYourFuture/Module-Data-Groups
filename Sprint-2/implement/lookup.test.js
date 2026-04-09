@@ -36,7 +36,7 @@ Example
 Given: [['US', 'USD'], ['CA', 'CAD']]
 
 When
-Lookup(coCuPairs) is called
+Lookup(countryCurrencyPairs) is called
 
 Then
 It should return:
