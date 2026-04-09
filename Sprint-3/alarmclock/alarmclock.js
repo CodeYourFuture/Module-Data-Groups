@@ -7,12 +7,6 @@ let totalSeconds;
 
 // reset function - returns app to clean initial state
 function resetAlarm() {
-  // Clear any running interval
-  if (alarmInterval) {
-    clearInterval(alarmInterval);
-    alarmInterval = null;
-  }
-
   function resetToInitialState() {
     totalSeconds = 0;
     timeRemaining.innerText = "Time Remaining: 00:00";
@@ -26,6 +20,12 @@ function resetAlarm() {
       pauseAlarm();
     }
   }
+  // Clear any running interval
+  if (alarmInterval) {
+    clearInterval(alarmInterval);
+    alarmInterval = null;
+  }
+
   resetToInitialState();
   stopSound();
 }
