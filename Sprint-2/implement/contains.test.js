@@ -45,8 +45,9 @@ test("given an object with properties, returns false when passed to contains wit
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+// "length" is perfect for the test because it's real property on the array itself
 test("given invalid parameters (array), returns false or throws an error", () => {
-  expect(contains(["gitName", "age", "position"], "cohort")).toEqual(false);
+  expect(contains(["gitName", "age", "position"], "length")).toBe(false);
 });
 
 test("given invalid parameters (like null or undefined), returns false or throws an error", () => {
