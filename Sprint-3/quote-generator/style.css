@@ -55,6 +55,10 @@ h1 {
   font-style: italic;
 }
 
+#author::before {
+  content: "— ";
+}
+
 button {
   background-color: var(--primary-color);
   color: var(--secondary-color);

@@ -6,7 +6,7 @@ function displayQuote() {
   const author = document.querySelector("#author");
 
   quote.textContent = randomQuote.quote;
-  author.textContent = `- ${randomQuote.author}`;
+  author.textContent = randomQuote.author;
 }
 
 newQuoteButton.addEventListener("click", displayQuote);
