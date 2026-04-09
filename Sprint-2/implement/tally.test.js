@@ -30,13 +30,6 @@ test("tally on an empty array returns an empty object", () => {
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
-test("tally on an empty array returns an empty object", () => {
-  expect(tally([])).toEqual({});
-});
-
-// Given an array with duplicate items
-// When passed to tally
-// Then it should return counts for each unique item
 test("tally on an array with duplicates returns correct counts for each unique item", () => {
   expect(
     tally([
@@ -52,14 +45,18 @@ test("tally on an array with duplicates returns correct counts for each unique i
   ).toEqual({ CYF: 2, AWS: 1, Capgemini: 2, Deloitte: 1, Google: 1, Slack: 1 });
 });
 
+test("tally on an array with duplicates returns correct counts for each unique item", () => {
+  expect(tally(["toString", "toString"])).toEqual({ toString: 2 });
+});
+
+// Given an input that you mentioned in the review.
+//test("tally on an array with duplicates returns correct counts for each unique item", () => {
+//  expect(tally(["toString", "toString"])).toEqual({ toString: 2 });
+//});
+
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
-test("given invalid input throws an error", () => {
-  expect(() => tally("invalid")).toThrow("invalid input");
-});
-
-// Given an invalid input like a number
 test("given invalid input throws an error", () => {
   expect(() => tally("invalid")).toThrow("invalid input");
 });

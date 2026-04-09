@@ -9,9 +9,9 @@ function Lookup(countryCurrencyPairs) {
   if (
     !Array.isArray(countryCurrencyPairs) ||
     // check if each inner array is an array.
-    !countryCurrencyPairs.every((pair) => Array.isArray(pair)) ||
+    countryCurrencyPairs.some((pair) => !Array.isArray(pair)) ||
     // check if each inner array has two elements.
-    !countryCurrencyPairs.every((pair) => pair.length === 2)
+    countryCurrencyPairs.some((pair) => pair.length !== 2)
     // we can also use index to check the pair is an array as follows:
     // for (let i = 0; i < countryCurrencyPairs.length; i++)
     //  return Array.isArray(countryCurrencyPairs[i])

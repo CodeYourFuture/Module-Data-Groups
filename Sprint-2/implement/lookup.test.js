@@ -46,28 +46,36 @@ It should return:
  }
 */
 // Given an invalid input (not an array of arrays),
-test('return "Invalid input: expected an array of arrays" for string input', () => {
-  const input = "invalid input: expected an array of arrays";
-  expect(Lookup(input)).toEqual("Invalid input: expected an array of arrays");
+test('given string input throw "Invalid input: expected an array of arrays"', () => {
+  let input = "invalid input: expected an array of arrays";
+  expect(() => Lookup(input)).toThrow(
+    "Invalid input: expected an array of arrays"
+  );
 });
 
 // Given an array where its elements are not arrays,
-test('return "Invalid input: expected an array of arrays" for non-array elements', () => {
-  const input = [["US", "USD"], "CA"];
-  expect(Lookup(input)).toEqual("Invalid input: expected an array of arrays");
+test('given array with non-array elements throw "Invalid input: expected an array of arrays"', () => {
+  let input = [["US", "USD"], "CA"];
+  expect(() => Lookup(input)).toThrow(
+    "Invalid input: expected an array of arrays"
+  );
 });
 
 // Given an array where its elements are arrays with more than two elements,
-test('return "Invalid input: expected an array of arrays" for arrays with too many elements', () => {
+test('given arrays with too many elements throw "Invalid input: expected an array of arrays"', () => {
   const input = [
     ["US", "USD", "flag"],
     ["CA", "CAD"],
   ];
-  expect(Lookup(input)).toEqual("Invalid input: expected an array of arrays");
+  expect(() => Lookup(input)).toThrow(
+    "Invalid input: expected an array of arrays"
+  );
 });
 
 // Given an array where its elements are arrays with less than two elements,
-test('return "Invalid input: expected an array of arrays" for arrays with too few elements', () => {
+test('given arrays with too few elements throw "Invalid input: expected an array of arrays"', () => {
   const input = [["US", "USD"], ["CA"]];
-  expect(Lookup(input)).toEqual("Invalid input: expected an array of arrays");
+  expect(() => Lookup(input)).toThrow(
+    "Invalid input: expected an array of arrays"
+  );
 });
