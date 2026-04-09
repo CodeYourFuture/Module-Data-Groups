@@ -1,5 +1,3 @@
-const newQuoteButton = document.querySelector("#new-quote");
-
 function displayQuote() {
   const randomQuote = pickFromArray(quotes);
   const quote = document.querySelector("#quote");
@@ -9,8 +7,13 @@ function displayQuote() {
   author.textContent = randomQuote.author;
 }
 
-newQuoteButton.addEventListener("click", displayQuote);
-window.addEventListener("load", displayQuote);
+function setup() {
+  const newQuoteButton = document.querySelector("#new-quote");
+  newQuoteButton.addEventListener("click", displayQuote);
+  displayQuote();
+}
+
+window.addEventListener("load", setup);
 
 // DO NOT EDIT BELOW HERE
 
