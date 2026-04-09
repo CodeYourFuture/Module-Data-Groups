@@ -1,1 +1,67 @@
 /** Write your CSS in here **/
+:root {
+  --primary-color: #ffa500;
+  --secondary-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+main {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  width: 100%;
+  max-width: 850px;
+  min-height: 300px;
+  padding: clamp(3rem, 6vw, 5rem);
+  text-align: right;
+  padding: 4rem;
+}
+
+#quote {
+  display: inline;
+  font-weight: bold;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+#quote::before {
+  content: "“ ";
+  font-size: clamp(5rem, 6vw, 3rem);
+  font-family: Theseadow, serif;
+}
+
+#author {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+#author::before {
+  content: "— ";
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+}
