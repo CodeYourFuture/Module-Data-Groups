@@ -27,11 +27,10 @@ test("when an empty array push into the function it should return empty array", 
 // When passed to the max function
 // Then it should return that number
 test.todo("given an array with one number, returns only the number");
-test("When an array have only one number value", () =>{
-    let mixArray =["Hello","Hi",null,undefined,5];
-    expect(findMax(mixArray)).toBe(5);
-}
-);
+test("When an array have only one number value", () => {
+  let mixArray = ["Hello", "Hi", null, undefined, 5];
+  expect(findMax(mixArray)).toBe(5);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
@@ -40,11 +39,10 @@ test.todo(
   "given an array with both positive and negative numbers, returns the largest number overall"
 );
 
-test("When an array have only one number value", () =>{
-    let mixArray =[-5,3,10,-11,-12,-20,50];
-    expect(findMax(mixArray)).toBe(50);
-}
-);
+test("When an array have only one number value", () => {
+  let mixArray = [-5, 3, 10, -11, -12, -20, 50];
+  expect(findMax(mixArray)).toBe(50);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
@@ -53,22 +51,19 @@ test.todo(
   "given an array with negative value, returns the number closest to zero"
 );
 
-test("When an array have only one number value", () =>{
-    let mixArray =[-1,-4,-5,-6.-2,-3,-10];
-    expect(findMax(mixArray)).toBe(-1);
-}
-);
-
+test("When an array have only one number value", () => {
+  let mixArray = [-1, -4, -5, -6 - 2, -3, -10];
+  expect(findMax(mixArray)).toBe(-1);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
 test.todo("given an array with decimal number, returns the largest decimal");
-test("When an array have decimal number value", () =>{
-    let decimalArray =[2.3,1.5,6.5,10.2,11.5];
-    expect(findMax(decimalArray)).toBe(11.5);
-}
-);
+test("When an array have decimal number value", () => {
+  let decimalArray = [2.3, 1.5, 6.5, 10.2, 11.5];
+  expect(findMax(decimalArray)).toBe(11.5);
+});
 
 // Given an array with non-number values
 // When passed to the max function
@@ -77,18 +72,16 @@ test.todo(
   "given an array with non number values, returns the max ignore non-numeric values"
 );
 
-test("When an array have decimal number value", () =>{
-    let decimalArray =["Hello","Hi",1,12312321n,undefined];
-    expect(findMax(decimalArray)).toBe(1);
-}
-);
+test("When an array have decimal number value", () => {
+  let decimalArray = ["Hello", "Hi", 1, 12312321n, undefined];
+  expect(findMax(decimalArray)).toBe(1);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test.todo("given an array with only non-number values, returns a unique value");
-test("When an array have only non-number values ", () =>{
-    let nonNumberArray =["Hello","Hi",undefined,null,"23"];
-    expect(findMax(nonNumberArray)).toBe(null);
-}
-);
+test("When an array have only non-number values ", () => {
+  let nonNumberArray = ["Hello", "Hi", undefined, null, "23"];
+  expect(findMax(nonNumberArray)).toBe(null);
+});
