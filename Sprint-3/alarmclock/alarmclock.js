@@ -1,16 +1,25 @@
 let alarmInterval;
 let colorInterval;
+let errorTimeout;
 
 function setAlarm() {
   clearInterval(alarmInterval);
   const timeRemaining = document.querySelector("#alarmSet");
   const display = document.querySelector("#timeRemaining");
-  if (!timeRemaining || !display) return;
+  const error = document.querySelector("#error");
+  if (!timeRemaining || !display|| !error) return;
   //what ever we input is turned into seconds
   let totalSeconds = parseInt(timeRemaining.value);
-
-  if (isNaN(totalSeconds) || totalSeconds <= 0) return;
-
+  // throw an error message if the user enters nothing and presses the alarm button.
+  if (isNaN(totalSeconds) || totalSeconds <= 0) {
+    error.textContent = "Please enter a valid number in seconds!";
+    //set error to disappear after 3 seconds
+    clearTimeout(errorTimeout);
+    errorTimeout = setTimeout(() => {
+    error.textContent = "";
+  }, 3000);
+  return;
+}
   const formattedTime = (seconds) => {
     const mins = Math.floor(seconds / 60)
       .toString()
@@ -72,8 +81,6 @@ window.addEventListener("load", function () {
     document.body.style.backgroundColor = "";
   });
 });
-//not sure that this is helping. The function works without it.
-window.setAlarm = setAlarm;
 //end linking
 
 // DO NOT EDIT BELOW HERE

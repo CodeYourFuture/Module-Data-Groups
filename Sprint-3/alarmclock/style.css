@@ -32,7 +32,12 @@ h1 {
   color: #f1bcaf;
   letter-spacing: 1px;
 }
-
+/*to set time*/
+label {
+  color: #f1bcaf;
+  font-size: 1rem;
+  font-weight: 600;
+}
 /* Input time*/
 #alarmSet {
   padding: 4px 15px 6px 15px;
@@ -42,10 +47,17 @@ h1 {
   outline: none;
   margin-bottom: 20px;
   margin-right: 10px;
-  width: 100px;
+  width: 120px;
   text-align: center;
   background-color: #e8dfdb;
   color: #121212;
+}
+/*placeholder text*/
+#alarmSet::placeholder {
+  color: #8f8d8c;
+  font-style: italic;
+  font-size: 0.9rem;
+  opacity: 1;
 }
 
 /* Buttons */
@@ -80,6 +92,12 @@ button {
 #stop:hover {
   background-color: brown;
   transform: translateY(-1px);
+}
+
+#error {
+  color: red;
+  height: 1em;
+  font-size: 1rem;
 }
 
 /* keep old styling in case you need to revert back */
