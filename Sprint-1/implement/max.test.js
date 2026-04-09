@@ -87,3 +87,8 @@ test("When an array have decimal number value", () =>{
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test.todo("given an array with only non-number values, returns a unique value");
+test("When an array have only non-number values ", () =>{
+    let nonNumberArray =["Hello","Hi",undefined,null,"23"];
+    expect(findMax(nonNumberArray)).toBe(null);
+}
+);
