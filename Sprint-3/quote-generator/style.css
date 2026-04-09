@@ -34,19 +34,16 @@ main {
   padding: 4rem;
 }
 
-h1,
 #quote {
   display: inline;
   font-weight: bold;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 6vw, 3rem);
-  font-family: Theseadow, serif;
-}
-
-#quote {
   font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+#quote::before {
+  content: "“ ";
+  font-size: clamp(5rem, 6vw, 3rem);
+  font-family: Theseadow, serif;
 }
 
 #author {
