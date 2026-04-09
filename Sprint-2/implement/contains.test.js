@@ -45,6 +45,10 @@ test("given an object with properties, returns false when passed to contains wit
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("given invalid parameters, returns false or throws an error", () => {
+test("given invalid parameters (array), returns false or throws an error", () => {
   expect(contains(["gitName", "position"], "gitName")).toEqual(false);
+});
+
+test("given invalid parameters (like null or undefined), returns false or throws an error", () => {
+  expect(contains(null, "gitName")).toEqual(false);
 });
