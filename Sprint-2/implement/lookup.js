@@ -4,7 +4,7 @@
 // the keys of the object should be the first element of each inner array (country code)
 // the values of the object should be the second element of each inner array (currency code)
 
-function Lookup(countryCurrencyPairs) {
+function createLookup(countryCurrencyPairs) {
   // check if the argument is an array of arrays
   if (
     !Array.isArray(countryCurrencyPairs) ||
@@ -21,4 +21,4 @@ function Lookup(countryCurrencyPairs) {
   return Object.fromEntries(countryCurrencyPairs);
 }
 
-module.exports = Lookup;
+module.exports = createLookup;
