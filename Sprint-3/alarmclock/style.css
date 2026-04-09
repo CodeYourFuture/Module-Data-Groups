@@ -13,3 +13,8 @@
 h1 {
   text-align: center;
 }
+
+/* Both buttons visible by default, but resetAlarm will hide stop initially */
+#stop {
+  display: none;
+}

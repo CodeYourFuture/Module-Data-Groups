@@ -4,7 +4,7 @@
   "license": "CC-BY-SA-4.0",
   "description": "You must update this package",
   "scripts": {
-    "test": "jest --config=../jest.config.js alarmclock"
+    "test": "jest"
   },
   "jest": {
     "setupFilesAfterEnv": [
@@ -19,10 +19,9 @@
     "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
   },
   "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
-  "dependencies": {
-    "jsdom": "^20.0.3"
-  },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.9.1"
+    "@testing-library/jest-dom": "^5.16.5",
+    "jest": "^27.5.1",
+    "jsdom": "^19.0.0"
   }
 }
