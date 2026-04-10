@@ -22,7 +22,9 @@ test("given an empty array, it returns an empty array", () => {
 });
 
 test("given an array with no duplicates, it returns a copy of the original array", () => {
-  expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);
+  const input = [1, 2, 3];
+  expect(dedupe(input)).toEqual([1, 2, 3]); // checks same content
+  expect(dedupe(input)).not.toBe(input);    // checks it's a different array
 });
 
 test("given an array of numbers with duplicates, it returns array with duplicates removed", () => {
