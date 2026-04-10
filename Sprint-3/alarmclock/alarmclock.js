@@ -3,13 +3,18 @@ const setAlarmBtn = document.getElementById("set");
 const stopAlarmBtn = document.getElementById("stop");
 const timeRemaining = document.getElementById("timeRemaining");
 let alarmInterval;
-let totalSeconds;
+
+// Update Display function;
+function updateDisplay(secondsValue) {
+  let minutes = Math.floor(secondsValue / 60);
+  let seconds = secondsValue % 60;
+  timeRemaining.innerText = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}
 
 // reset function - returns app to clean initial state
 function resetAlarm() {
   function resetToInitialState() {
-    totalSeconds = 0;
-    timeRemaining.innerText = "Time Remaining: 00:00";
+    updateDisplay(0);
     document.getElementById("alarmSet").value = "";
     stopAlarmBtn.style.display = "none";
     setAlarmBtn.style.display = "inline-block"; // ADD THIS - show set button
@@ -32,31 +37,24 @@ function resetAlarm() {
 
 // Set Alarm function
 function setAlarm() {
+  let totalSeconds;
   const input = document.getElementById("alarmSet");
   const timeValue = parseInt(input.value);
   const hasActiveTimer = alarmInterval !== null;
 
-  function updateDisplay() {
-    let minutes = Math.floor(totalSeconds / 60);
-    let seconds = totalSeconds % 60;
-    timeRemaining.innerText = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-  }
-
   function startTimer() {
     alarmInterval = setInterval(() => {
-      if (totalSeconds > 0) {
-        totalSeconds--;
-        updateDisplay();
-        if (totalSeconds === 0) {
-          clearInterval(alarmInterval);
-          alarmInterval = null;
+      totalSeconds--;
+      updateDisplay(totalSeconds);
+      if (totalSeconds === 0) {
+        clearInterval(alarmInterval);
+        alarmInterval = null;
 
-          // WHEN ALARM STARTS: hide set button, show only stop button
-          setAlarmBtn.style.display = "none";
-          stopAlarmBtn.style.display = "inline-block";
+        // WHEN ALARM STARTS: hide set button, show only stop button
+        setAlarmBtn.style.display = "none";
+        stopAlarmBtn.style.display = "inline-block";
 
-          playAlarm();
-        }
+        playAlarm();
       }
     }, 1000);
   }
@@ -71,9 +69,14 @@ function setAlarm() {
   totalSeconds = timeValue;
   stopAlarmBtn.style.display = "inline-block";
   setAlarmBtn.style.display = "inline-block"; // Ensure set button is visible
-  updateDisplay();
+  updateDisplay(totalSeconds);
   startTimer();
 }
+
+document.getElementById("stop").addEventListener("click", () => {
+  pauseAlarm();
+  resetAlarm();
+});
 
 // DO NOT EDIT BELOW HERE
 
@@ -85,11 +88,6 @@ function setup() {
 
   document.getElementById("set").addEventListener("click", () => {
     setAlarm();
-  });
-
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
-    resetAlarm();
   });
 }
 
