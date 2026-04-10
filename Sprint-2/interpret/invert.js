@@ -6,15 +6,18 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
-function invert(obj) {
-  const invertedObj = {};
+// leaving original code in for easier referral:
 
-  for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
-  }
+// function invert(obj) {
+//  const invertedObj = {};
+//
+//  for (const [key, value] of Object.entries(obj)) {
+//    invertedObj.key = value;
+//  }
+//
+//  return invertedObj;
+//}
 
-  return invertedObj;
-}
 
 // a) What is the current return value when invert is called with { a : 1 }
 // the current return value is {key : 1 }
@@ -35,3 +38,17 @@ function invert(obj) {
 // also, the current code assigns "value" to the new property instead of "key" 
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+
+function invert(obj) {
+  const invertedObj = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    invertedObj[value] = key;
+  }
+
+  return invertedObj;
+}
+
+// Tests
+console.log(invert({ a: 1 })); // Expected output: { "1": "a" }
+console.log(invert({ a: 1, b: 2 })); // Expected output: { "1": "a", "2": "b" }   
