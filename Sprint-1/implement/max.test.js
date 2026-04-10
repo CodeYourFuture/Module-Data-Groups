@@ -33,11 +33,11 @@ test("given an array with decimal numbers, returns the largest decimal", () => {
 });
 
 test("given an array with non-number values, returns the max and ignores non-numeric values", () => {
-  expect(findMax(['hey', 10, 'hi', 60, 10])).toEqual(60);
+  expect(findMax(['hey', 10, 'hi', 60, 10, "300"])).toEqual(60);
 });
 
 test("given an array with only non-number values, returns -Infinity", () => {
-  expect(findMax(['hey', 'hi'])).toEqual(-Infinity);
+  expect(findMax(['hey', 'hi', "300"])).toEqual(-Infinity);
 });
 
 // Given an array with one number
