@@ -528,7 +528,7 @@ autoplayToggle.addEventListener("change", () => {
   if (autoplayToggle.checked) {
     // Switch is ON
     autoplayStatus.innerText = "auto-play: ON";
-    timerId = setInterval(updateQuote, 5000);
+    timerId = setInterval(updateQuote, 60000);
   } else {
     // Switch is OFF
     autoplayStatus.innerText = "auto-play: OFF";
