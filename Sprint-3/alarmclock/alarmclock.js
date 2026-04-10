@@ -1,4 +1,26 @@
-function setAlarm() {}
+function setAlarm() {
+  let seconds = parseInt(document.getElementById("alarmSet").value);
+  
+   function updateDisplay() {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    document.getElementById("timeRemaining").textContent =
+      `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+  }
+
+  updateDisplay(); // update immediately on click
+
+  const countdown = setInterval(() => {
+    seconds--;
+    updateDisplay();
+    
+    if (seconds <= 0) {
+      clearInterval(countdown);
+      playAlarm();
+      document.body.style.backgroundColor = "darkorange";
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
@@ -20,6 +42,7 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  document.body.style.backgroundColor = "cornflowerblue";
 }
 
 window.onload = setup;

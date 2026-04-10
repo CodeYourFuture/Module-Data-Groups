@@ -13,3 +13,8 @@
 h1 {
   text-align: center;
 }
+
+body {
+  background-color: cornflowerblue;
+  font-family:  "Trebuchet MS", Tahoma, Verdana, Helvetica, sans-serif;
+}
