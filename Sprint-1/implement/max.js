@@ -1,5 +1,6 @@
 function findMax(arr) {
-  const numbers = arr.filter(item => typeof item === "number");
+  // filter only numbers from the array
+  const numbers = arr.filter(item => Number.isFinite(item));
   return Math.max(...numbers);
 }
 
