@@ -28,12 +28,24 @@ function decreaseAlarmTime() {
 
 function setAlarm() {
   const setTime = document.getElementById("alarmSet").value;
-  timeRemaining = parseInt(setTime, 10);
+
+  const numericTime = parseInt(setTime, 10);
+  if (isNaN(numericTime)) {
+    alert(
+      "Please enter your desired time in numbers, e.g., 120 for 2 minutes."
+    );
+    return;
+  }
+  if (numericTime < 0) {
+    alert("Please enter a non-negative number.");
+    return;
+  }
+
+  timeRemaining = numericTime;
 
   if (timerInterval) {
     clearInterval(timerInterval);
   }
-
   displayAlarm(timeRemaining);
   timerInterval = setInterval(decreaseAlarmTime, 1000);
 }
