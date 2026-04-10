@@ -4,10 +4,11 @@ let remainingSeconds = 0;
 function setAlarm() {
   // Read the minutes value from the alarm input field
   const minutesInput = document.getElementById("alarmSet");
-  const minutes = parseInt(minutesInput.value, 10);
-  // Ignore invalid or non-positive input
-  if (isNaN(minutes) || minutes <= 0) {
-    return;
+  const seconds = parseInt(minutesInput.value, 10);
+// Ignore invalid or non-positive input
+if (isNaN(seconds) || seconds <= 0) {
+  return;
+}
   }
   // Store the input as the remaining seconds to count down
   remainingSeconds = minutes * 60;
@@ -35,7 +36,7 @@ function setAlarm() {
       playAlarm();
     }
   }, 1000);
-}
+
 
 // Converts remainingSeconds into MM:SS format and updates the display
 function updateTimeDisplay() {
