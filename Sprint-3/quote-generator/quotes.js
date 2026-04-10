@@ -1,14 +1,13 @@
- window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
   const quoteElement = document.getElementById("quote");
   const authorElement = document.getElementById("author");
   const newQuoteBtn = document.getElementById("new-quote");
 
-
-function displayRandomQuote() {
-  const randomQuote = pickFromArray(quotes); 
-  quoteElement.textContent = `"${randomQuote.quote}"`;
-  authorElement.textContent = randomQuote.author;
-}
+  function displayRandomQuote() {
+    const randomQuote = pickFromArray(quotes);
+    quoteElement.textContent = `"${randomQuote.quote}"`;
+    authorElement.textContent = randomQuote.author;
+  }
 
   newQuoteBtn.addEventListener("click", displayRandomQuote);
 
