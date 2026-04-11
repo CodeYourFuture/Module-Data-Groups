@@ -15,6 +15,12 @@ function calculateMedian(list) {
   //to make sure that the argument array must only contain number.
   if (!list.every((x) => typeof x === "number" && !isNaN(x))) return null;
 
+  const sortedCopy = [...list].sort((a, b) => a - b);
+  if (sortedCopy.length % 2 === 0) {
+    const mid = sortedCopy.length / 2;
+    return (sortedCopy[mid - 1] + sortedCopy[mid]) / 2;
+  }
+
   const middleIndex = Math.floor(list.length / 2);
   const median = list.splice(middleIndex, 1)[0];
   return median;
