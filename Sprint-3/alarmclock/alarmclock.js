@@ -1,6 +1,10 @@
 function setAlarm() {
   let seconds = parseInt(document.getElementById("alarmSet").value);
   
+  if (seconds <= 0) {
+  alert("The number of seconds must be more than 0 please");
+  return;
+}
    function updateDisplay() {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
