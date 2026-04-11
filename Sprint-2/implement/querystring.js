@@ -3,9 +3,9 @@ function parseQueryString(queryString) {
 
   if (!queryString) return queryParams;
 
-  const keyValuePairs = queryString.split("&");
+  const pairs = queryString.split("&");
 
-  for (const pair of keyValuePairs) {
+  for (const pair of pairs) {
     if (!pair) continue;
 
     const index = pair.indexOf("=");
@@ -13,11 +13,11 @@ function parseQueryString(queryString) {
     let key, value;
 
     if (index === -1) {
-      key = pair;
+      key = decodeURIComponent(pair);
       value = true;
     } else {
-      key = pair.slice(0, index);
-      value = pair.slice(index + 1);
+      key = decodeURIComponent(pair.slice(0, index));
+      value = decodeURIComponent(pair.slice(index + 1));
     }
 
     queryParams[key] = value;
