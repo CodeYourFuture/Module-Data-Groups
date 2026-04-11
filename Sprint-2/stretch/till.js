@@ -22,10 +22,13 @@ const till = {
 };
 const totalAmount = totalTill(till);
 
+console.log(totalTill(till));
+
+
 module.exports = totalTill;
 
 // a) What is the target output when totalTill is called with the till object
-      // £NaN
+      // £4.40
 
 // b) Why do we need to use Object.entries inside the for...of loop in this function?
       // to convert the given object into array
