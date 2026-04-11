@@ -6,7 +6,14 @@ function resetTimer() {
     clearInterval(timerInterval);
     timerInterval = null;
   }
+
+  // Stop any playing alarm sound
+  pauseAlarm();
+
+  // Reset display to 00:00
+  updateTimeDisplay(0);
 }
+
 //Starts the alarm counbtdown
 function setAlarm() {
   // Read the minutes value from the alarm input field
