@@ -28,17 +28,16 @@
 */
 
 function countWords(str) {
-  const arr = str.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().split(" ")
+  const words = str
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9\s]/g, '')   // replace punctuation with space
+    .trim()
+    .split(/\s+/);    // split on any white space
 
-  let countObj = {};
+  const countObj = Object.create(null);
 
-  for (const item of arr) {
-    
-    if (countObj[item]) {
-      countObj[item] = countObj[item] + 1
-    } else {
-      countObj[item] = 1;
-    }
+  for (const word of words) {
+    countObj[word] = (countObj[word] || 0) + 1;
   }
 
   // `Object.entries()` converts object to array
@@ -49,3 +48,9 @@ function countWords(str) {
 }
 
 console.log(countWords("you? and! me, and you. me me me me hello Me"));
+console.log(countWords("          Hello World      "));
+console.log(countWords("constructor constructor"));
+console.log(countWords("Hello,World! Hello World!"));
+
+
+
