@@ -1,12 +1,25 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
+
+  if (!queryString) return queryParams;
+
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
+    if (!pair) continue;
+
+    const index = pair.indexOf("=");
+
+    let key, value;
+
+    if (index === -1) {
+      key = pair;
+      value = true;
+    } else {
+      key = pair.slice(0, index);
+      value = pair.slice(index + 1);
+    }
+
     queryParams[key] = value;
   }
 
