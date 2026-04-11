@@ -57,8 +57,8 @@ test("contains on invalid parameters returns false", () => {
 })
 
 test("contains() handles arrays, strings, null, and undefined safely", () => {
-    expect(contains([["a", "b", "c"], "1"])).toStrictEqual(false);
-    expect(contains(["abc", "1"])).toStrictEqual(false);
-    expect(contains(null, "1")).toStrictEqual(false);
-    expect(contains(undefined, "1")).toStrictEqual(false);
+    expect(contains([["a", "b", "c"], "1"])).toBe(false);
+    expect(contains(["abc", "1"])).toBe(false);
+    expect(contains(null, "1")).toBe(false);
+    expect(contains(undefined, "1")).toBe(false);
 })

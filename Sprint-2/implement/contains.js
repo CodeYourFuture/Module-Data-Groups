@@ -1,10 +1,22 @@
+// function contains(obj, x) {
+//     for (const key in obj) {
+//         if (key == x) {
+//             return true
+//         }
+//     }
+//     return false
+// }
+
 function contains(obj, x) {
-    for (const key in obj) {
-        if (key == x) {
-            return true
-        }
+    if (
+        typeof obj !== "object" ||
+        obj === null ||
+        Array.isArray(obj)
+    ) {
+        return false;
     }
-    return false
+
+    return Object.prototype.hasOwnProperty.call(obj, x);
 }
 
 module.exports = contains;
