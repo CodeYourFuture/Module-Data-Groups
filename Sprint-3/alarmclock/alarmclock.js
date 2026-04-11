@@ -14,21 +14,21 @@ function setAlarm() {
   // Read the minutes value from the alarm input field
   const minutesInput = document.getElementById("alarmSet");
   const seconds = parseInt(minutesInput.value, 10);
-// Ignore invalid or non-positive input
+  // Ignore invalid or non-positive input
 
-if (isNaN(seconds) || seconds <= 0) {
-  return;
-}
+  if (isNaN(seconds) || seconds <= 0) {
+    return;
+  }
   // Reset any existing timer first
   resetTimer();
-  
+
   // Store the input as the remaining seconds to count down
   remainingSeconds = seconds;
 
   // Update display immediately
   updateTimeDisplay();
 
- // Start countdown
+  // Start countdown
   timerInterval = setInterval(() => {
     remainingSeconds--;
 
@@ -53,7 +53,6 @@ function updateTimeDisplay() {
   const timeDisplay = document.getElementById("timeRemaining");
   timeDisplay.textContent = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
 }
-
 
 // DO NOT EDIT BELOW HERE
 
