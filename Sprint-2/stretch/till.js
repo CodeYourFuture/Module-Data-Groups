@@ -8,10 +8,10 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    total += Number(coin.slice(0, -1)) * Number(quantity);
   }
 
-  return `£${total / 100}`;
+  return `£${(total / 100).toFixed(2)}`;
 }
 
 const till = {
@@ -22,10 +22,18 @@ const till = {
 };
 const totalAmount = totalTill(till);
 
+console.log(totalTill(till));
+
+
+module.exports = totalTill;
+
 // a) What is the target output when totalTill is called with the till object
+      // £4.40
 
 // b) Why do we need to use Object.entries inside the for...of loop in this function?
+      // to convert the given object into array
 
 // c) What does coin * quantity evaluate to inside the for...of loop?
+      // it converts different coins with different values into single pense
 
 // d) Write a test for this function to check it works and then fix the implementation of totalTill

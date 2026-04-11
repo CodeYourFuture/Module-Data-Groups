@@ -29,4 +29,11 @@ describe("calculateMode()", () => {
 
     expect(calculateMode(nums)).toEqual(3);
   });
+
+  test("ignores non-number values", () => {
+    const nums = "CYF";
+
+    expect(calculateMode(nums)).toEqual(NaN);
+  });
+
 });
