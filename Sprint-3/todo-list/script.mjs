@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
   Todos.addTask(todos, "Do the shopping", true, "2026-03-24");
   Todos.addTask(todos, "Prepare for Saturday class", false, "2026-03-26");
 
-  populateTodoList();
+  render();
 });
 
 /**
@@ -41,7 +41,7 @@ function addNewTodo() {
   }
 
   Todos.addTask(todos, task, false, deadline);
-  populateTodoList();
+  render();
 
   // Clear inputs after adding
   newTaskInputEl.value = "";
@@ -53,13 +53,13 @@ function addNewTodo() {
  */
 function deleteCompletedTodos() {
   Todos.deleteCompletedTasks(todos);
-  populateTodoList();
+  render();
 }
 
 /**
- * Clears and rebuilds the todo list from the hardcoded/current todos array.
+ * Clears and rebuilds the todo list from the current todos array.
  */
-function populateTodoList() {
+function render() {
   todoListEl.innerHTML = "";
 
   todos.forEach((todo, index) => {
@@ -84,8 +84,6 @@ function createListItem(todo, index) {
   // Show deadline if one exists
   if (todo.deadline) {
     deadlineEl.textContent = `Deadline: ${todo.deadline}`;
-  } else {
-    deadlineEl.textContent = "";
   }
 
   // Show completed state
@@ -99,13 +97,13 @@ function createListItem(todo, index) {
   // Toggle task completion
   completeButtonEl.addEventListener("click", () => {
     Todos.toggleCompletedOnTask(todos, index);
-    populateTodoList();
+    render();
   });
 
   // Delete individual task
   deleteButtonEl.addEventListener("click", () => {
     Todos.deleteTask(todos, index);
-    populateTodoList();
+    render();
   });
 
   return li;
