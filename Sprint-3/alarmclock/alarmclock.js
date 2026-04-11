@@ -1,5 +1,4 @@
 let timerInterval = null;
-let remainingSeconds = 0;
 
 // Resets timer state
 function resetTimer() {
@@ -7,13 +6,13 @@ function resetTimer() {
     clearInterval(timerInterval);
     timerInterval = null;
   }
-  remainingSeconds = 0;
 }
 //Starts the alarm counbtdown
 function setAlarm() {
   // Read the minutes value from the alarm input field
   const minutesInput = document.getElementById("alarmSet");
   const seconds = parseInt(minutesInput.value, 10);
+
   // Ignore invalid or non-positive input
 
   if (isNaN(seconds) || seconds <= 0) {
@@ -22,28 +21,28 @@ function setAlarm() {
   // Reset any existing timer first
   resetTimer();
 
-  // Store the input as the remaining seconds to count down
-  remainingSeconds = seconds;
+  //local variable (no global sharing)
+  let remainingSeconds = seconds;
 
   // Update display immediately
-  updateTimeDisplay();
+  updateTimeDisplay(remainingSeconds);
 
   // Start countdown
   timerInterval = setInterval(() => {
     remainingSeconds--;
 
-    updateTimeDisplay();
+    updateTimeDisplay(remainingSeconds);
 
     if (remainingSeconds <= 0) {
       resetTimer();
-      updateTimeDisplay();
+      updateTimeDisplay(0);
       playAlarm();
     }
   }, 1000);
 }
 
 // Converts remainingSeconds into MM:SS format and updates the display
-function updateTimeDisplay() {
+function updateTimeDisplay(remainingSeconds) {
   const minutes = Math.floor(remainingSeconds / 60);
   const seconds = remainingSeconds % 60;
 
