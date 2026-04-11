@@ -18,7 +18,7 @@ function setAlarm(alarmTime) {
 
     displayRemainingTime.textContent = `Time Remaining: ${minutes}:${seconds}`;
 
-    if (remainingTime <= 10) {
+    if (remainingTime === 0) {
       document.getElementById("main").style.backgroundColor = "red";
     }
 
