@@ -1,5 +1,5 @@
 let timeRemaining;
-let timerInterval;
+let timerInterval = null;
 
 function formatTime(time) {
   const minutes = String(Math.floor(time / 60)).padStart(2, "0");
@@ -17,13 +17,19 @@ function decreaseAlarmTime() {
   if (timeRemaining <= 0) {
     clearInterval(timerInterval);
     timerInterval = null;
-    timeRemaining = 0;
     playAlarm();
     return;
   }
 
   timeRemaining--;
   displayAlarm(timeRemaining);
+}
+
+function resetAlarm() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  pauseAlarm();
+  audio.currentTime = 0;
 }
 
 function setAlarm() {
@@ -41,13 +47,11 @@ function setAlarm() {
     return;
   }
 
+  resetAlarm();
   timeRemaining = numericTime;
-
-  if (timerInterval) {
-    clearInterval(timerInterval);
-  }
-  displayAlarm(timeRemaining);
   timerInterval = setInterval(decreaseAlarmTime, 1000);
+
+  displayAlarm(timeRemaining);
 }
 
 var audio = new Audio("alarmsound.mp3");
