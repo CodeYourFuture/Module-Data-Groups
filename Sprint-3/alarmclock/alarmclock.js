@@ -49,9 +49,14 @@ function setAlarm() {
 
   resetAlarm();
   timeRemaining = numericTime;
-  timerInterval = setInterval(decreaseAlarmTime, 1000);
 
   displayAlarm(timeRemaining);
+
+  if (timeRemaining === 0) {
+    playAlarm();
+  } else {
+    timerInterval = setInterval(decreaseAlarmTime, 1000);
+  }
 }
 
 var audio = new Audio("alarmsound.mp3");
