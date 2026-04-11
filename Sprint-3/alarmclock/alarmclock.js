@@ -1,19 +1,19 @@
 let countdownInterval = null;
 let secondsLeft = 0;
+const heading = document.getElementById("timeRemaining");
 
 function setAlarm() {
-  // Read the number of minutes from the input field (expects minutes)
+  // Read the number of seconds from the input field
   const input = document.getElementById("alarmSet");
-  const minutes = parseInt(input.value, 10);
+  const seconds = parseInt(input.value, 10);
 
   // If nothing useful was entered, do nothing
-  if (isNaN(minutes) || minutes <= 0) {
+  if (isNaN(seconds) || seconds <= 0) {
     return;
   }
 
-  // Store the remaining time; currently this value is in minutes (not seconds yet)
-  secondsLeft = minutes;
-
+  // Use seconds directly
+  secondsLeft = seconds;
   // Stop any existing countdown
   if (countdownInterval !== null) {
     clearInterval(countdownInterval);
@@ -46,11 +46,8 @@ function setAlarm() {
 function updateTimeDisplay() {
   const minutes = Math.floor(secondsLeft / 60);
   const seconds = secondsLeft % 60;
-
   const displayMin = minutes.toString().padStart(2, "0");
   const displaySec = seconds.toString().padStart(2, "0");
-
-  const heading = document.getElementById("timeRemaining");
   heading.textContent = `Time Remaining: ${displayMin}:${displaySec}`;
 }
 
