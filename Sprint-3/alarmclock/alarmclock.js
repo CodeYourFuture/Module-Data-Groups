@@ -14,15 +14,15 @@ function displayAlarm(time) {
 }
 
 function decreaseAlarmTime() {
+  timeRemaining--;
+  displayAlarm(timeRemaining);
+
   if (timeRemaining <= 0) {
     clearInterval(timerInterval);
     timerInterval = null;
     playAlarm();
     return;
   }
-
-  timeRemaining--;
-  displayAlarm(timeRemaining);
 }
 
 function resetAlarm() {
