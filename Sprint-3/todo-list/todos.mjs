@@ -3,10 +3,9 @@
   the following manner:
 
   [
-    { task: "Description of task 1", completed: false},
-    { task: "Description of task 2", completed: true}
+    { task: "Description of task 1", completed: false, deadline: null },
+    { task: "Description of task 2", completed: true, deadline: "2026-12-31T23:59" }
   ]
-
 */
 
 // Append a new task to todos[]
@@ -25,15 +24,5 @@ export function deleteTask(todos, taskIndex) {
 export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
-  }
-}
-
-// Remove all completed tasks from the todos array
-export function deleteCompleted(todos) {
-  // Iterate backwards to safely remove items while mutating array
-  for (let i = todos.length - 1; i >= 0; i--) {
-    if (todos[i].completed) {
-      todos.splice(i, 1);
-    }
   }
 }
