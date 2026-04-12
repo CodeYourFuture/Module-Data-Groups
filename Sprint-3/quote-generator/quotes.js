@@ -7,11 +7,11 @@ const button = document.getElementById("new-quote");
 
 // Function to show a random quote
 function showRandomQuote() {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  const randomQuote = quotes[randomIndex];
+  const randomQuote = pickFromArray(quotes);
+
 
   quoteEl.textContent = randomQuote.quote;
-  authorEl.textContent = `— ${randomQuote.author}`;
+  authorEl.textContent = `${randomQuote.author}`;
 }
 
 function pickFromArray(choices) {
@@ -21,10 +21,12 @@ function pickFromArray(choices) {
 // Show a quote when the page loads
 window.addEventListener("DOMContentLoaded", () => {
   showRandomQuote();
+
+  // Change quote when button is clicked
+  button.addEventListener("click", showRandomQuote);
 });
 
-// Change quote when button is clicked
-button.addEventListener("click", showRandomQuote);
+
 
 
 
