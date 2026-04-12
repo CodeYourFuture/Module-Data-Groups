@@ -1,19 +1,3 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const quoteElement = document.getElementById("quote");
-  const authorElement = document.getElementById("author");
-  const newQuoteBtn = document.getElementById("new-quote");
-
-  function displayRandomQuote() {
-    const randomQuote = pickFromArray(quotes);
-    quoteElement.textContent = `"${randomQuote.quote}"`;
-    authorElement.textContent = randomQuote.author;
-  }
-
-  newQuoteBtn.addEventListener("click", displayRandomQuote);
-
-  displayRandomQuote();
-});
-
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -507,3 +491,19 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+window.addEventListener("DOMContentLoaded", () => {
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+  const newQuoteBtn = document.getElementById("new-quote");
+
+  function displayRandomQuote() {
+    const randomQuote = pickFromArray(quotes);
+    quoteElement.textContent = `"${randomQuote.quote}"`;
+    authorElement.textContent = randomQuote.author;
+  }
+
+  newQuoteBtn.addEventListener("click", displayRandomQuote);
+
+  displayRandomQuote();
+});
