@@ -1,3 +1,36 @@
+
+// Select elements
+const quoteEl = document.getElementById("quote");
+const authorEl = document.getElementById("author");
+const button = document.getElementById("new-quote");
+
+
+// Function to show a random quote
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+
+
+  quoteEl.textContent = randomQuote.quote;
+  authorEl.textContent = `${randomQuote.author}`;
+}
+
+function pickFromArray(choices) {
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+// Show a quote when the page loads
+window.addEventListener("DOMContentLoaded", () => {
+  showRandomQuote();
+
+  // Change quote when button is clicked
+  button.addEventListener("click", showRandomQuote);
+});
+
+
+
+
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at

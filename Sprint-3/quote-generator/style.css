@@ -1,1 +1,67 @@
 /** Write your CSS in here **/
+
+/* Reset some default spacing */
+body,
+h1,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Page styling */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Title */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Quote text */
+#quote {
+    font-size: 1.6rem;
+    font-weight: 300;
+    max-width: 700px;
+    margin-bottom: 10px;
+}
+
+/* Author text */
+#author {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+/* Button styling */
+#new-quote {
+    background-color: #ffffff;
+    color: #283e51;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#new-quote:hover {
+    background-color: #dfe6e9;
+    transform: scale(1.05);
+}
+
+#new-quote:active {
+    transform: scale(0.98);
+}
