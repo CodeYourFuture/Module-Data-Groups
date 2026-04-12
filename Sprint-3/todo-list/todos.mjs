@@ -13,14 +13,14 @@ export function addTask(todos, task, completed = false, deadline = null) {
   todos.push({ task, completed, deadline });
 }
 
-// Delete todos[taskIndex] if it exists
+// Delete todos[taskIndex] 
 export function deleteTask(todos, taskIndex) {
   if (todos[taskIndex]) {
     todos.splice(taskIndex, 1);
   }
 }
 
-// Toggle the "completed" property of todos[taskIndex] if the task exists.
+// Toggle the "completed" property of todos[taskIndex] 
 export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
