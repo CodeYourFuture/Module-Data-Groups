@@ -18,7 +18,7 @@ const findMax = require("./max.js");
 // Delete this test.todo and replace it with a test.
 test("when an empty array push into the function it should return empty array", () => {
   let emptyArray = [];
-  expect(findMax(emptyArray)).toEqual([]);
+  expect(findMax(emptyArray)).toEqual(-Infinity);
 });
 
 // Given an array with one number
@@ -56,7 +56,7 @@ test("When an array have decimal number value", () => {
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
-test("When an array have decimal number value", () => {
+test("When an array have number value mix with non-number value, the return should only be number value", () => {
   let decimalArray = ["Hello", "Hi", 1, 12312321n, undefined];
   expect(findMax(decimalArray)).toBe(1);
 });

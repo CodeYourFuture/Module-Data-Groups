@@ -33,12 +33,13 @@ test("given an array with 1 number value, returns that number value", () => {
   let negativeArray = [-1, -20, -30, -50, -60];
   expect(sum(negativeArray)).toBe(-161);
 });
+
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
 test("given an array with 1 number value, returns that number value", () => {
   let negativeArray = [1.5, 20.3, 50.43, 6.7, 10.5];
-  expect(sum(negativeArray)).toBe(89.43);
+  expect(sum(negativeArray)).toBeCloseTo(89.43,2);
 });
 
 // Given an array containing non-number values
