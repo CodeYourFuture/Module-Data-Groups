@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Helper function to escape HTML to prevent XSS
+  // This added for security concern. Helper function to escape HTML to prevent XSS
   function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
