@@ -1,4 +1,3 @@
-//function setAlarm() {}
 
 let countdownInterval;
 
@@ -27,6 +26,7 @@ function setAlarm() {
     if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
       playAlarm();
+      document.body.style.backgroundColor = "blue";
     }
   }, 1000);
 }
