@@ -26,10 +26,22 @@ test("with input of empty array should return, empty array", () => {
 // When passed to the dedupe function
 // Then it should return a copy of the original array
 test("with input of array with no duplicates should return a copy of original array", () => {
-  let normalArray = [1, 2, 3, 4, 5, 6, 10];
-  expect(dedupe(normalArray)).toEqual(normalArray);
-  expect(dedupe(normalArray)).not.toBe(normalArray);
-});
+  const normalArray = [1, 2, 3, 4, 5, 6, 10];
+  const expected = [1, 2, 3, 4, 5, 6, 10]; // separate copy
+
+  const result = dedupe(normalArray);
+
+  // 1. Correct values
+  expect(result).toEqual(expected);
+
+  // 2. Different array in memory
+  expect(result).not.toBe(normalArray);
+
+  // 3. Original array not mutated
+  expect(normalArray).toEqual(expected);
+}
+);
+
 // Given an array of strings or numbers
 // When passed to the dedupe function
 // Then it should return a new array with duplicates removed while preserving the
