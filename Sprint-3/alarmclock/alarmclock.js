@@ -1,8 +1,13 @@
+let myInterval;
 function setAlarm() {
+  clearInterval(myInterval);
   const userInput = document.querySelector("#alarmSet").value;
-  let timeRemaining = userInput;
-
-  const myInterval = setInterval(function () {
+  let timeRemaining = Number(userInput);
+  if (isNaN(timeRemaining) || timeRemaining <= 0) {
+    alert("Please enter a valid number.");
+    return;
+  }
+  myInterval = setInterval(function () {
     timeRemaining -= 1;
     const minutes = Math.floor(timeRemaining / 60);
     const seconds = timeRemaining % 60;
