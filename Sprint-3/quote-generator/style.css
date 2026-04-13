@@ -1,1 +1,23 @@
 /** Write your CSS in here **/
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: aqua;
+}
+#quote {
+  font-size: 1.5em;
+  margin: 20px 0;
+  border: #160303 3px dotted;
+}
+#author {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 20px;
+}
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: aquamarine;
+}
