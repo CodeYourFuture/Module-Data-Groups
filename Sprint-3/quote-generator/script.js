@@ -37,5 +37,16 @@ secondButton.addEventListener("click", () => {
 });
 
 
+let backgroundSound = new Audio("assets/SPACE.mp3");
+let isSoundStarted = false; 
+
+function playSound() {
+  backgroundSound.play().catch((error) => {
+    console.error("Error to play sound", error);
+  });
+}
+
+
+
 
 
