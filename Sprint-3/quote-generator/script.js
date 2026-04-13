@@ -1,3 +1,19 @@
+let backgroundSound = new Audio("assets/SPACE.mp3");
+let isSoundStarted = false;
+
+function playSound() {
+  if (!navigator.userAgent.includes("jsdom")) {
+    backgroundSound.play().catch((error) => {
+      console.log("Esperando interacción para el audio");
+    });
+  }
+}
+
+function pickFromArray(quotes) {
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
+const container = document.querySelector("#container-quote");
 const quoteText = document.querySelector("#quote");
 const quoteAuthor = document.querySelector("#author");
 const button = document.querySelector("#new-quote");
@@ -14,13 +30,16 @@ window.onload = () => {
 
 button.addEventListener("click", () => {
   randomQuoteGenerate();
+  if (!isSoundStarted) {
+    playSound();
+    isSoundStarted = true;
+  }
 });
 
-
-const container = document.querySelector("#container-quote");
 const secondButton = document.createElement("button");
 secondButton.textContent = "Play Auto-Quotes";
 secondButton.classList.add("btn");
+
 container.appendChild(secondButton);
 
 let quoteInterval;
@@ -31,22 +50,11 @@ secondButton.addEventListener("click", () => {
     quoteInterval = null;
     secondButton.textContent = "Play Auto-Quotes";
   } else {
-    quoteInterval = setInterval(randomQuoteGenerate, 5000);
-    secondButton.textContent = "Stop (auto-play:ON)";
+    quoteInterval = setInterval(randomQuoteGenerate, 2000);
+    secondButton.textContent = "Stop";
+    if (!isSoundStarted) {
+      playSound();
+      isSoundStarted = true;
+    }
   }
 });
-
-
-let backgroundSound = new Audio("assets/SPACE.mp3");
-let isSoundStarted = false; 
-
-function playSound() {
-  backgroundSound.play().catch((error) => {
-    console.error("Error to play sound", error);
-  });
-}
-
-
-
-
-
