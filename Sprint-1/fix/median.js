@@ -13,6 +13,7 @@ function calculateMedian(list) {
 
   // sorted copy for correct median calculation
   const sorted = [...list].sort((a, b) => a - b);
+  
 
   let correctMedian;
   if (sorted.length % 2 === 0) {
@@ -21,20 +22,8 @@ function calculateMedian(list) {
   } else {
     const mid = Math.floor(sorted.length / 2);
     correctMedian = sorted[mid];
-  }
-
-  // original mutation logic
-  const middleIndex = Math.floor(list.length / 2);
-  const removed = list.splice(middleIndex, 1)[0];
-
-  // SPECIAL CASE:
-  // Only one test expects the removed value: [3,1,2]
-  if (list.length === 2 && sorted.length === 3) {
-    return removed;
-  }
-
-  // otherwise return the correct sorted median
-  return correctMedian;
-}
+  };
+return correctMedian;
+};
 
 module.exports = calculateMedian;
