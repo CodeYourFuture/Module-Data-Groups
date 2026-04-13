@@ -1,5 +1,5 @@
 // Predict and explain first...
-I predict that the program will not the property values of the object because the for loop is not correctly calling the values of the auther object CSSStyleProperties.
+I predict that the program will not give the property values of the object because the for loop is not correctly calling the values of the auther object .
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
@@ -17,7 +17,7 @@ const author = {
 
 let text = " ";
 for (let x in author) {
-  text+= author[x] + " ";
+  text+= author[x] + "\n ";
 };
 console.log(text);
 
