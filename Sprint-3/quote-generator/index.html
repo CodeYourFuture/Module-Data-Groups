@@ -7,10 +7,14 @@
     <script defer src="quotes.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body onload="main()">
     <h1>Welcome to the Quote Generator</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <div class="container">
+      <p id="quote"></p>
+      <p id="author"></p>
+      <div id="new-quote">
+        <button type="button">New quote</button>
+      </div>
+    </div>
   </body>
 </html>
