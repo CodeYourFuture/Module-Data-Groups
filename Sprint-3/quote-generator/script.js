@@ -4,22 +4,25 @@ let isSoundStarted = false;
 
 //avoid auto-playing sound in test environment and jsdom which does not implement audio playback
 function playSound() {
-  if (!navigator.userAgent.includes("jsdom")) {
-    backgroundSound.play().catch((error) => {
-      console.log("waiting for user interaction to start sound");
-    });
+  // Solo intentamos reproducir si no es un entorno de test (JSDOM)
+  if (!navigator.userAgent.includes("jsdom") && !isSoundStarted) {
+    backgroundSound
+      .play()
+      .then(() => (isSoundStarted = true))
+      .catch(() =>
+        console.log("Esperando interacción del usuario para el audio...")
+      );
   }
 }
 
-//generated random quote from the array of quotes
-function pickFromArray(quotes) {
-  return quotes[Math.floor(Math.random() * quotes.length)];
+// Lógica de Quotes
+function pickFromArray(array) {
+  return array[Math.floor(Math.random() * array.length)];
 }
 
-const container = document.querySelector("#container-quote");
 const quoteText = document.querySelector("#quote");
 const quoteAuthor = document.querySelector("#author");
-const button = document.querySelector("#new-quote");
+const newQuoteBtn = document.querySelector("#new-quote");
 const autoQuoteBtn = document.querySelector("#playButton");
 
 // updates the quote and author text in the HTML
@@ -33,12 +36,9 @@ function randomQuoteGenerate() {
   randomQuoteGenerate();
 
 // listens for clicks to change quotes manually and start the background sound
-button.addEventListener("click", () => {
+newQuoteBtn.addEventListener("click", () => {
   randomQuoteGenerate();
-  if (!isSoundStarted) {
-    playSound();
-    isSoundStarted = true;
-  }
+  playSound();
 });
 
 let quoteInterval;
@@ -50,11 +50,9 @@ autoQuoteBtn.addEventListener("click", () => {
     quoteInterval = null;
     autoQuoteBtn.textContent = "Play Auto-Quotes";
   } else {
+    randomQuoteGenerate(); // Genera una nueva al empezar
     quoteInterval = setInterval(randomQuoteGenerate, 2000);
     autoQuoteBtn.textContent = "Stop";
-    if (!isSoundStarted) {
-      playSound();
-      isSoundStarted = true;
-    }
+    playSound();
   }
 });
