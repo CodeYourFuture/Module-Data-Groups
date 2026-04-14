@@ -1,1 +1,81 @@
-/** Write your CSS in here **/
+body {
+    background-image: url("./assets/stars.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+}
+
+#container-quote {
+    background: rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.2rem; 
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 300px;      
+    min-height: auto;      
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.1rem;
+    margin: 0 0 0.8rem 0;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+#quote {
+    font-size: 1.1rem; 
+    font-style: italic;
+    color: #3bffeb;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    min-height: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#author {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #cbd5e0;
+    margin-bottom: 1.2rem;
+}
+
+.buttons-wrapper {
+    display: flex;
+    gap: 8px;               
+    width: 100%;             
+}
+
+#new-quote, #playButton {
+    flex: 1;                 
+    background-color: rgba(3, 251, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(59, 255, 235, 0.3);
+    border-radius: 6px; 
+    padding: 8px 10px; 
+    font-size: 0.75rem;
+    font-family: Arial, sans-serif; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#new-quote:hover, 
+#playButton:hover {
+    background-color: #3bffeb;
+    color: #000593;
+    transform: translateY(-2px);
+}
