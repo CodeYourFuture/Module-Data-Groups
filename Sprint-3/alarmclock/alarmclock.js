@@ -29,14 +29,13 @@ function setAlarm() {
   updateDisplay(timeLeft);
 
   timer = setInterval(() => {
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      playAlarm();
-      return;
-    }
-
     timeLeft--;
     updateDisplay(timeLeft);
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      timer = null;
+      playAlarm();
+    }
   }, 1000);
 }
 
