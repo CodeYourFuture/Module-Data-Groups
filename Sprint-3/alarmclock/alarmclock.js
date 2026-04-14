@@ -1,7 +1,7 @@
-let countdown;
+let countdownInterval;
 
 function setAlarm() {
-  clearInterval(countdown);
+  clearInterval(countdownInterval);
   document.body.style.backgroundColor = "white";
 
   let inputTime = Number(document.getElementById("alarmSet").value);
@@ -13,16 +13,16 @@ function setAlarm() {
 
   updateDisplay(inputTime);
 
-  countdown = setInterval(() => {
+  countdownInterval = setInterval(() => {
     inputTime--;
 
     if (inputTime <= 0) {
-      clearInterval(countdown);
+      clearInterval(countdownInterval);
       updateDisplay(0);
       playAlarm();
 
       let repetitions = 0;
-      countdown = setInterval(() => {
+      countdownInterval = setInterval(() => {
         document.body.style.backgroundColor = `rgb(
         ${Math.floor(Math.random() * 256)},
         ${Math.floor(Math.random() * 256)}, 
@@ -30,7 +30,7 @@ function setAlarm() {
         repetitions++;
 
         if (repetitions > 100) {
-          clearInterval(countdown);
+          clearInterval(countdownInterval);
         }
       }, 200);
     } else {
@@ -73,7 +73,7 @@ function pauseAlarm() {
   audio.pause();
   stopAudio.play();
   audio.currentTime = 0;
-  clearInterval(countdown);
+  clearInterval(countdownInterval);
 }
 
 window.onload = setup;
