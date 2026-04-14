@@ -9,41 +9,45 @@ function resetApp() {
 }
 
 function setAlarm() {
-  clearInterval(countdownInterval);
-  document.body.style.backgroundColor = "white";
+  resetApp();
 
-  let inputTime = Number(document.getElementById("alarmSet").value);
+  const rawValue = document.getElementById("alarmSet").value;
+  const inputTime = Number(rawValue);
 
-  if (isNaN(inputTime) || inputTime <= 0) {
-    alert("Please type or select your time 👇⏰");
+  if (rawValue === "" || !Number.isInteger(inputTime) || inputTime <= 0) {
+    alert("Please type or select a valid positive time in seconds 👇⏰");
     return;
   }
 
-  updateDisplay(inputTime);
+  let timeLeft = inputTime; 
+
+  updateDisplay(timeLeft);
+
+  let remainingTime = inputTime;
 
   countdownInterval = setInterval(() => {
-    inputTime--;
+    timeLeft--;
 
-    if (inputTime <= 0) {
-      clearInterval(countdownInterval);
-      updateDisplay(0);
-      playAlarm();
+  if (timeLeft <= 0) {
+    clearInterval(countdownInterval);
+    updateDisplay(0);
+    playAlarm();
 
-      let repetitions = 0;
-      countdownInterval = setInterval(() => {
-        document.body.style.backgroundColor = `rgb(
+    let repetitions = 0;
+    countdownInterval = setInterval(() => {
+      document.body.style.backgroundColor = `rgb(
         ${Math.floor(Math.random() * 256)},
         ${Math.floor(Math.random() * 256)}, 
         ${Math.floor(Math.random() * 256)})`;
-        repetitions++;
+      repetitions++;
 
-        if (repetitions > 100) {
-          clearInterval(countdownInterval);
-        }
-      }, 200);
-    } else {
-      updateDisplay(inputTime);
-    }
+      if (repetitions > 100) {
+        resetApp();
+      }
+    }, 200);
+  } else {
+    updateDisplay(timeLeft);
+  }
   }, 1000);
 }
 
@@ -78,11 +82,8 @@ function playAlarm() {
 }
 
 function pauseAlarm() {
-  audio.pause();
   resetApp();
   stopAudio.play();
-  audio.currentTime = 0;
-  clearInterval(countdownInterval);
 }
 
 window.onload = setup;
