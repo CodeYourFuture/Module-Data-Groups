@@ -1,57 +1,60 @@
-// added extra functionality to play music when the user click on autoplay
-let backgroundSound = new Audio("assets/SPACE.mp3");
+// Background audio configuration
+const backgroundSound = new Audio("assets/SPACE.mp3");
 let isSoundStarted = false;
 
-//avoid auto-playing sound in test environment and jsdom which does not implement audio playback
+// Attempts to play the audio if not in a test environment (jsdom)
+// and if the sound hasn't been triggered yet.
 function playSound() {
-  // Solo intentamos reproducir si no es un entorno de test (JSDOM)
   if (!navigator.userAgent.includes("jsdom") && !isSoundStarted) {
     backgroundSound
       .play()
       .then(() => (isSoundStarted = true))
       .catch(() =>
-        console.log("Esperando interacción del usuario para el audio...")
+        console.log("Waiting for user interaction to play audio...")
       );
   }
 }
 
-// Lógica de Quotes
+// Returns a random element from any given array
 function pickFromArray(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
+// DOM Elements
 const quoteText = document.querySelector("#quote");
 const quoteAuthor = document.querySelector("#author");
 const newQuoteBtn = document.querySelector("#new-quote");
 const autoQuoteBtn = document.querySelector("#playButton");
 
-// updates the quote and author text in the HTML
-function randomQuoteGenerate() {
+
+// Selects a random quote and updates the text and author in the DOM
+function generateRandomQuote() {
   const randomArr = pickFromArray(quotes);
   quoteText.textContent = randomArr.quote;
   quoteAuthor.textContent = randomArr.author;
 }
 
-// generates an initial quote when the page loads
-  randomQuoteGenerate();
+// Initial quote generation on page load
+generateRandomQuote();
 
-// listens for clicks to change quotes manually and start the background sound
+// Manual quote change event
 newQuoteBtn.addEventListener("click", () => {
-  randomQuoteGenerate();
+  generateRandomQuote();
   playSound();
 });
 
 let quoteInterval;
 
-// toggles the automatic quote generator and manages the play/stop state
+
+//Toggles the automatic quote generator (Play/Stop states)
 autoQuoteBtn.addEventListener("click", () => {
   if (quoteInterval) {
     clearInterval(quoteInterval);
     quoteInterval = null;
     autoQuoteBtn.textContent = "Play Auto-Quotes";
   } else {
-    randomQuoteGenerate(); // Genera una nueva al empezar
-    quoteInterval = setInterval(randomQuoteGenerate, 2000);
+    generateRandomQuote();
+    quoteInterval = setInterval(generateRandomQuote, 2000);
     autoQuoteBtn.textContent = "Stop";
     playSound();
   }
