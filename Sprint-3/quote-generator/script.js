@@ -20,6 +20,7 @@ const container = document.querySelector("#container-quote");
 const quoteText = document.querySelector("#quote");
 const quoteAuthor = document.querySelector("#author");
 const button = document.querySelector("#new-quote");
+const autoQuoteBtn = document.querySelector("#playButton");
 
 // updates the quote and author text in the HTML
 function randomQuoteGenerate() {
@@ -28,10 +29,8 @@ function randomQuoteGenerate() {
   quoteAuthor.textContent = randomArr.author;
 }
 
-// triggers the first random quote display once the window is fully loaded
-window.onload = () => {
+// generates an initial quote when the page loads
   randomQuoteGenerate();
-};
 
 // listens for clicks to change quotes manually and start the background sound
 button.addEventListener("click", () => {
@@ -45,14 +44,14 @@ button.addEventListener("click", () => {
 let quoteInterval;
 
 // toggles the automatic quote generator and manages the play/stop state
-secondButton.addEventListener("click", () => {
+autoQuoteBtn.addEventListener("click", () => {
   if (quoteInterval) {
     clearInterval(quoteInterval);
     quoteInterval = null;
-    secondButton.textContent = "Play Auto-Quotes";
+    autoQuoteBtn.textContent = "Play Auto-Quotes";
   } else {
     quoteInterval = setInterval(randomQuoteGenerate, 2000);
-    secondButton.textContent = "Stop";
+    autoQuoteBtn.textContent = "Stop";
     if (!isSoundStarted) {
       playSound();
       isSoundStarted = true;
