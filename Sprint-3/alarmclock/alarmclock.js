@@ -1,12 +1,36 @@
 let countdownInterval;
+let flashInterval;
 
 // helper to reset the app to its initial state
 function resetApp() {
   clearInterval(countdownInterval);
+  clearInterval(flashInterval);
   document.body.style.backgroundColor = "white";
-  audio.pause();
-  audio.currentTime = 0;
+
+
+  if(audio){
+    audio.pause();
+    audio.currentTime = 0;
+  }
 }
+
+//function to changing colors animation.
+function startBackgroundAnimation() {
+  let repetitions = 0;
+  flashInterval = setInterval(() => {
+    document.body.style.backgroundColor = `rgb(
+      ${Math.floor(Math.random() * 256)},
+      ${Math.floor(Math.random() * 256)}, 
+      ${Math.floor(Math.random() * 256)})`;
+
+    repetitions++;
+    if (repetitions > 100) {
+      clearInterval(flashInterval);
+      document.body.style.backgroundColor = "white";
+    }
+  }, 200);
+}
+
 
 function setAlarm() {
   resetApp();
@@ -20,10 +44,7 @@ function setAlarm() {
   }
 
   let timeLeft = inputTime;
-
   updateDisplay(timeLeft);
-
-  let remainingTime = inputTime;
 
   countdownInterval = setInterval(() => {
     timeLeft--;
@@ -33,18 +54,8 @@ function setAlarm() {
       updateDisplay(0);
       playAlarm();
 
-      let repetitions = 0;
-      countdownInterval = setInterval(() => {
-        document.body.style.backgroundColor = `rgb(
-        ${Math.floor(Math.random() * 256)},
-        ${Math.floor(Math.random() * 256)}, 
-        ${Math.floor(Math.random() * 256)})`;
-        repetitions++;
-
-        if (repetitions > 100) {
-          resetApp();
-        }
-      }, 200);
+      startBackgroundAnimation();
+      
     } else {
       updateDisplay(timeLeft);
     }
