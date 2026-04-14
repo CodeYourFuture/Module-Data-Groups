@@ -50,5 +50,27 @@ test("contains with invalid parameters return false", () => {
   expect(contains(obj, "a")).toBe(false);
 });
 
-//  or to throw error
-// }))
+// Give an error  for null values:
+
+test("contains give an error when obj is null", ()=> {
+  expect((()=> contains(null , "a"))).toThrow();
+});
+//   throw error for undefiend values:
+test("contains give an error when obj is undefined", ()=> {
+  expect((()=> contains(undefined , "a"))).toThrow();
+});
+
+// throw error for non object typs:
+test(" give an error when obj is a number", ()=> {
+expect((()=> contains(123, "a"))).toThrow();
+});
+
+// throw error when obj is a string:
+test(" give an error when obj is a string", ()=> {
+  expect((()=> contains("hello", "a"))).toThrow();
+});
+
+// give error when obj is boolean:
+test(" give an error when obj is a boolean", ()=> {
+  expect((()=> contains(true, "a"))).toThrow();
+});
