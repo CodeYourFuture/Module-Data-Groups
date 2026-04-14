@@ -1,11 +1,21 @@
+let countdown;
+
+// reset before starting new countdown
+function resetAlarm() {
+  clearInterval(countdown);
+  audio.pause();
+  document.getElementById("timeRemaining").textContent = "Time Remaining: 00:00";
+  document.body.classList.toggle("alarm-activated", false);
+}
+
 function setAlarm() {
   let seconds = parseInt(document.getElementById("alarmSet").value);
-  
-  if (seconds <= 0) {
-  alert("The number of seconds must be more than 0 please");
-  return;
-}
-   function updateDisplay() {
+
+  if (!seconds || seconds < 1) {
+    alert("The number of seconds must be more than 0 please");
+    return;
+  }
+  function updateDisplay() {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     document.getElementById("timeRemaining").textContent =
@@ -14,14 +24,20 @@ function setAlarm() {
 
   updateDisplay(); // update immediately on click
 
-  const countdown = setInterval(() => {
+  // code to reset background
+    function pauseAlarm() {
+      audio.pause();
+      document.body.classList.toggle("alarm-activated", false);
+    }
+
+  countdown = setInterval(() => {
     seconds--;
     updateDisplay();
-    
+
     if (seconds <= 0) {
       clearInterval(countdown);
       playAlarm();
-      document.body.style.backgroundColor = "darkorange";
+      document.body.classList.toggle("alarm-activated", true);
     }
   }, 1000);
 }
@@ -42,11 +58,6 @@ function setup() {
 
 function playAlarm() {
   audio.play();
-}
-
-function pauseAlarm() {
-  audio.pause();
-  document.body.style.backgroundColor = "cornflowerblue";
 }
 
 window.onload = setup;
