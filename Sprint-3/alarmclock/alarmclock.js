@@ -7,9 +7,13 @@ function formatTime(seconds) {
   return `${mins}:${secs}`;
 }
 
+function updateDisplay(timeLeft) {
+  const display = document.getElementById("timeRemaining");
+  display.textContent = `Time Remaining: ${formatTime(timeLeft)}`;
+}
+
 function setAlarm() {
   const input = document.getElementById("alarmSet").value;
-  const display = document.getElementById("timeRemaining");
 
   timeLeft = parseInt(input, 10);
 
@@ -18,15 +22,16 @@ function setAlarm() {
     return;
   }
 
-  display.textContent = `Time Remaining: ${formatTime(timeLeft)}`;
-
   if (timer) {
     clearInterval(timer);
   }
+
+  updateDisplay(timeLeft);
+
   timer = setInterval(() => {
     if (timeLeft > 0) {
       timeLeft--;
-      display.textContent = `Time Remaining: ${formatTime(timeLeft)}`;
+      updateDisplay(timeLeft);
     } else {
       clearInterval(timer);
       playAlarm();
