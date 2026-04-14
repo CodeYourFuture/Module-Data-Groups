@@ -38,7 +38,7 @@ function setAlarm() {
   const rawValue = document.getElementById("alarmSet").value;
   const inputTime = Number(rawValue);
 
-  if (rawValue === "" || !Number.isInteger(inputTime) || inputTime <= 0) {
+  if (!Number.isInteger(inputTime) || inputTime <= 0) {
     alert("Please type or select a valid positive time in seconds 👇⏰");
     return;
   }
