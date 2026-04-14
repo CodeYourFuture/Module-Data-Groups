@@ -18,7 +18,6 @@ function setAlarm() {
   timeLeft = parseInt(input, 10);
 
   if (isNaN(timeLeft) || timeLeft <= 0) {
-    alert("Please enter a valid number of seconds.");
     return;
   }
 
@@ -29,13 +28,14 @@ function setAlarm() {
   updateDisplay(timeLeft);
 
   timer = setInterval(() => {
-    if (timeLeft > 0) {
-      timeLeft--;
-      updateDisplay(timeLeft);
-    } else {
+    if (timeLeft <= 0) {
       clearInterval(timer);
       playAlarm();
+      return;
     }
+
+    timeLeft--;
+    updateDisplay(timeLeft);
   }, 1000);
 }
 
