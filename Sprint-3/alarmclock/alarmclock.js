@@ -1,5 +1,13 @@
 let countdownInterval;
 
+// helper to reset the app to its initial state
+function resetApp() {
+  clearInterval(countdownInterval);
+  document.body.style.backgroundColor = "white";
+  audio.pause();
+  audio.currentTime = 0;
+}
+
 function setAlarm() {
   clearInterval(countdownInterval);
   document.body.style.backgroundColor = "white";
@@ -71,6 +79,7 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  resetApp();
   stopAudio.play();
   audio.currentTime = 0;
   clearInterval(countdownInterval);
