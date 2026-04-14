@@ -19,7 +19,7 @@ function setAlarm() {
     return;
   }
 
-  let timeLeft = inputTime; 
+  let timeLeft = inputTime;
 
   updateDisplay(timeLeft);
 
@@ -28,36 +28,38 @@ function setAlarm() {
   countdownInterval = setInterval(() => {
     timeLeft--;
 
-  if (timeLeft <= 0) {
-    clearInterval(countdownInterval);
-    updateDisplay(0);
-    playAlarm();
+    if (timeLeft <= 0) {
+      clearInterval(countdownInterval);
+      updateDisplay(0);
+      playAlarm();
 
-    let repetitions = 0;
-    countdownInterval = setInterval(() => {
-      document.body.style.backgroundColor = `rgb(
+      let repetitions = 0;
+      countdownInterval = setInterval(() => {
+        document.body.style.backgroundColor = `rgb(
         ${Math.floor(Math.random() * 256)},
         ${Math.floor(Math.random() * 256)}, 
         ${Math.floor(Math.random() * 256)})`;
-      repetitions++;
+        repetitions++;
 
-      if (repetitions > 100) {
-        resetApp();
-      }
-    }, 200);
-  } else {
-    updateDisplay(timeLeft);
-  }
+        if (repetitions > 100) {
+          resetApp();
+        }
+      }, 200);
+    } else {
+      updateDisplay(timeLeft);
+    }
   }, 1000);
 }
 
 function updateDisplay(seconds) {
-  let minutes = Math.floor(seconds / 60);
-  let remainingSeconds = seconds % 60;
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
 
-  let display = `Time Remaining: ${minutes
-    .toString()
-    .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+  const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  const formattedSeconds =
+    remainingSeconds < 10 ? `0${remainingSeconds}` : remainingSeconds;
+
+  const display = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
 
   document.getElementById("timeRemaining").innerText = display;
 }
