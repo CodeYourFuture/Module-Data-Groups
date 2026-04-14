@@ -1,6 +1,9 @@
 let countdownInterval;
 let flashInterval;
 
+let audio = new Audio("assets/trebolClan.mp3");
+let stopAudio = new Audio("assets/stopAlarm.mp3");
+
 // helper to reset the app to its initial state
 function resetApp() {
   clearInterval(countdownInterval);
@@ -77,8 +80,6 @@ function updateDisplay(seconds) {
 
 // DO NOT EDIT BELOW HERE
 
-let audio = new Audio("assets/trebolClan.mp3");
-let stopAudio = new Audio("assets/stopAlarm.mp3");
 
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
