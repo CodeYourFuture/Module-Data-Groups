@@ -9,7 +9,7 @@ function setAlarm() {
   timeRemaining = parseInt(input, 10);
 
   if (isNaN(timeRemaining) || timeRemaining <= 0) {
-    alert("Please enter a valid number greater than 0");
+    console.error("Please enter a valid number greater than 0");
     return;
   }
 
