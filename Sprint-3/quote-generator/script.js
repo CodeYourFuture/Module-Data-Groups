@@ -1,61 +1,89 @@
-// Background audio configuration
+// --- Configuration & Global Variables ---
 const backgroundSound = new Audio("assets/SPACE.mp3");
-let isSoundStarted = false;
+let isSoundStarted = false; // Using 'let' as the value changes to true once music plays
+let quoteInterval; // Using 'let' to store/clear the interval ID
 
-// Attempts to play the audio if not in a test environment (jsdom)
-// and if the sound hasn't been triggered yet.
+// --- DOM Elements ---
+const button = document.querySelector("#new-quote");
+const secondButton = document.querySelector("#playButton");
+const quoteText = document.querySelector("#quote");
+const quoteAuthor = document.querySelector("#author");
+
+// --- Logic Functions ---
+
+/**
+ * Picks a random quote from the array and updates the DOM elements.
+ */
+function randomQuoteGenerate() {
+  if (typeof quotes !== "undefined") {
+    const randomArr = quotes[Math.floor(Math.random() * quotes.length)];
+    if (quoteText && quoteAuthor) {
+      quoteText.textContent = randomArr.quote;
+      quoteAuthor.textContent = randomArr.author;
+    }
+  }
+}
+
+/**
+ * Attempts to play the background audio if not in a test environment.
+ */
 function playSound() {
+  // Check for 'jsdom' to prevent errors during automated testing
   if (!navigator.userAgent.includes("jsdom") && !isSoundStarted) {
     backgroundSound
       .play()
-      .then(() => (isSoundStarted = true))
+      .then(() => {
+        isSoundStarted = true;
+      })
       .catch(() =>
         console.log("Waiting for user interaction to play audio...")
       );
   }
 }
 
-// Returns a random element from any given array
-function pickFromArray(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
+// --- Callbacks (Event Handler Functions) ---
 
-// DOM Elements
-const quoteText = document.querySelector("#quote");
-const quoteAuthor = document.querySelector("#author");
-const newQuoteBtn = document.querySelector("#new-quote");
-const autoQuoteBtn = document.querySelector("#playButton");
-
-
-// Selects a random quote and updates the text and author in the DOM
-function generateRandomQuote() {
-  const randomArr = pickFromArray(quotes);
-  quoteText.textContent = randomArr.quote;
-  quoteAuthor.textContent = randomArr.author;
-}
-
-// Initial quote generation on page load
-generateRandomQuote();
-
-// Manual quote change event
-newQuoteBtn.addEventListener("click", () => {
-  generateRandomQuote();
+/**
+ * Handles manual quote changes via button click.
+ */
+function changeQuote() {
+  randomQuoteGenerate();
   playSound();
-});
+}
 
-let quoteInterval;
-
-
-//Toggles the automatic quote generator (Play/Stop states)
-autoQuoteBtn.addEventListener("click", () => {
+/**
+ * Toggles the automatic quote generator on or off.
+ */
+function toggleAutomaticQuote() {
   if (quoteInterval) {
+    // Stop the interval if it's already running
     clearInterval(quoteInterval);
     quoteInterval = null;
-    autoQuoteBtn.textContent = "Play Auto-Quotes";
+    secondButton.textContent = "Play Auto-Quotes";
   } else {
-    generateRandomQuote();
-    quoteInterval = setInterval(generateRandomQuote, 2000);
-    autoQuoteBtn.textContent = "Stop";
+    // Start the interval and update every 2 seconds
+    randomQuoteGenerate();
+    quoteInterval = setInterval(randomQuoteGenerate, 2000);
+    secondButton.textContent = "Stop";
     playSound();
+  }
+}
+
+// --- Initialization ---
+
+/**
+ * Sets up the initial state and attaches event listeners once the window has loaded.
+ */
+window.addEventListener("load", () => {
+  // Generate the first quote immediately on load
+  randomQuoteGenerate();
+
+  // Attach event listeners to the buttons
+  if (button) {
+    button.addEventListener("click", changeQuote);
+  }
+
+  if (secondButton) {
+    secondButton.addEventListener("click", toggleAutomaticQuote);
   }
 });
