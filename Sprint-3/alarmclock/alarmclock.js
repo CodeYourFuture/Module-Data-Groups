@@ -23,6 +23,7 @@ function setAlarm() {
 
   if (timer) {
     clearInterval(timer);
+    timer = null;
   }
 
   updateDisplay(timeLeft);
