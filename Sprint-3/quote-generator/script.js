@@ -42,12 +42,6 @@ button.addEventListener("click", () => {
   }
 });
 
-const secondButton = document.createElement("button");
-secondButton.textContent = "Play Auto-Quotes";
-secondButton.classList.add("btn");
-
-container.appendChild(secondButton);
-
 let quoteInterval;
 
 // toggles the automatic quote generator and manages the play/stop state
