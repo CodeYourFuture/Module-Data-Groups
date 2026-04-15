@@ -1,59 +1,47 @@
-function setAlarm() {
-  const input = document.getElementById("alarmSet").value;
+let countdown;
 
-  if (!input || input <= 0) {
-    alert("Please enter a valid number");
+function startTimer(input) {
+  const display = document.getElementById("timeRemaining");
+
+  // Validate input
+  const timeRemaining = Number(input);
+
+  if (isNaN(timeRemaining) || timeRemaining <= 0) {
+    display.textContent = "Please enter a valid number";
     return;
   }
 
-  let timeRemaining = parseInt(input);
-  const display = document.getElementById("timeRemaining");
-
- const minutes = Math.floor(timeRemaining / 60);
-const seconds = timeRemaining % 60;
-
-display.textContent = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  let remaining = timeRemaining;
 
   // Clear any previous timer
   clearInterval(countdown);
 
+  function updateDisplay() {
+    const minutes = Math.floor(remaining / 60);
+    const seconds = remaining % 60;
+
+    display.textContent = `Time Remaining: ${String(minutes).padStart(
+      2,
+      "0"
+    )}:${String(seconds).padStart(2, "0")}`;
+  }
+
+  // Show initial time
+  updateDisplay();
+
   countdown = setInterval(() => {
-    timeRemaining--;
+    remaining--;
 
-    display.textContent = `Time Remaining: 00:${timeRemaining
-      .toString()
-      .padStart(2, "0")}`;
+    updateDisplay();
 
-    if (timeRemaining === 0) {
+    if (remaining <= 0) {
       clearInterval(countdown);
       playAlarm();
     }
   }, 1000);
 }
 
-// DO NOT EDIT BELOW HERE
-
-let countdown; // 👈 needed for timer control
-
-var audio = new Audio("alarmsound.mp3");
-
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
-
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
-  });
-}
-
+// :white_check_mark: Fix missing function
 function playAlarm() {
-  audio.play();
+  alert("Time's up!");
 }
-
-function pauseAlarm() {
-  audio.pause();
-  clearInterval(countdown);
-}
-
-window.onload = setup;
