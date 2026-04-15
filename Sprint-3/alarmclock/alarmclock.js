@@ -26,6 +26,8 @@ function setAlarm() {
     timer = null;
   }
 
+  stopAlarm();
+
   updateDisplay(timeLeft);
 
   timer = setInterval(() => {
