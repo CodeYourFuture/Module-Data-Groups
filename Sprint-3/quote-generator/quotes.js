@@ -1,3 +1,10 @@
+function main() {
+  document.querySelector("#quote").innerText = pickFromArray(quotes).quote;
+  document.querySelector("#author").innerText = pickFromArray(quotes).author;
+}
+
+document.getElementById("new-quote").addEventListener("click", main);
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -20,12 +27,6 @@ function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function main() {
-  document.querySelector("#quote").innerText = pickFromArray(quotes).quote;
-  document.querySelector("#author").innerText = pickFromArray(quotes).author;
-}
-
-document.getElementById("new-quote").addEventListener("click", main);
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
