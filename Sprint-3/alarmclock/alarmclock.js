@@ -1,4 +1,3 @@
-let timeLeft = 0;
 let timer = null;
 
 function formatTime(seconds) {
@@ -13,6 +12,7 @@ function updateDisplay(timeLeft) {
 }
 
 function setAlarm() {
+  let timeLeft = 0;
   const input = document.getElementById("alarmSet").value;
 
   timeLeft = parseInt(input, 10);
@@ -31,6 +31,7 @@ function setAlarm() {
   timer = setInterval(() => {
     timeLeft--;
     updateDisplay(timeLeft);
+
     if (timeLeft <= 0) {
       clearInterval(timer);
       timer = null;
