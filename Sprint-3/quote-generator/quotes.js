@@ -498,11 +498,12 @@ function displayRandomQuote() {
   document.getElementById("quote").textContent = randomQuote.quote;
   document.getElementById("author").textContent = randomQuote.author;
 }
+function setup() {
+  displayRandomQuote();
 
-// run when page loads2
-displayRandomQuote();
-
-// button click
-document
+  document
   .getElementById("new-quote")
   .addEventListener("click", displayRandomQuote);
+}
+
+window.addEventListener("load", setup);
