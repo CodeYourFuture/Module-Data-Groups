@@ -496,24 +496,21 @@ const quotes = [
 
 function setup() {
   const quoteElement = document.getElementById("quote");
-const authorElement = document.getElementById("author");
+  const authorElement = document.getElementById("author");
 
+  function displayQuote() {
+    const randomQuote = pickFromArray(quotes);
 
-function displayQuote() {
-  const randomQuote = pickFromArray(quotes);
+    quoteElement.textContent = randomQuote.quote;
+    authorElement.textContent = randomQuote.author;
+  }
 
-  quoteElement.textContent = randomQuote.quote;
-  authorElement.textContent = randomQuote.author;
-}
+  // Show a quote when page loads
+  displayQuote();
 
-// Show a quote when page loads
-displayQuote();
-
-// Change quote when button is clicked
-document
-  .getElementById("new-quote")
-  .addEventListener("click", displayQuote);
+  // Change quote when button is clicked
+  document.getElementById("new-quote").addEventListener("click", displayQuote);
 }
 
 // run setup after page loads
-window.addEventListener("load",setup);
+window.addEventListener("load", setup);
