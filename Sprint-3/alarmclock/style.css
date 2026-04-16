@@ -4,6 +4,8 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  .alarm-activated {
+  background-color: darkorange;
 }
 
 #alarmSet {
@@ -12,4 +14,9 @@
 
 h1 {
   text-align: center;
+}
+
+body {
+  background-color: cornflowerblue;
+  font-family:  "Trebuchet MS", Tahoma, Verdana, Helvetica, sans-serif;
 }
