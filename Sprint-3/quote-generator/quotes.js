@@ -6,6 +6,7 @@ function setup() {
 function newQuote() {
   document.getElementById("new-quote").addEventListener("click", setup);
 }
+newQuote();
 window.addEventListener("load", setup);
 // DO NOT EDIT BELOW HERE
 
