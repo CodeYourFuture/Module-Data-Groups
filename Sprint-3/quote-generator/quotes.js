@@ -1,10 +1,10 @@
-function main() {
+function setup() {
   const randomQuote = pickFromArray(quotes);
   document.querySelector("#quote").innerText = randomQuote.quote;
   document.querySelector("#author").innerText = randomQuote.author;
 }
 
-document.getElementById("new-quote").addEventListener("click", main);
+document.getElementById("new-quote").addEventListener("click", setup);
 
 // DO NOT EDIT BELOW HERE
 
