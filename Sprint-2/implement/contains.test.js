@@ -43,5 +43,5 @@ test("given an object with properties, returns false for non-existent property",
 // When passed to contains
 // Then it should return false or throw an error
 test("given invalid parameters like an array, returns false", () => {
-  expect(contains([1, 2, 3], "a")).toEqual(false);
+  expect(contains([1, 2, 3], "0")).toEqual(false);
 });

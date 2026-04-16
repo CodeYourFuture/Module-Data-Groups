@@ -4,13 +4,13 @@ function tally(arr) {
   }
   const result = {};
   for (const item of arr) {
-    if (result[item]) {
-      result[item]++;
-    } else {
-      result[item] = 1;
+   if (Object.hasOwn(result, item)) {
+  result[item]++;
+} else {
+  result[item] = 1;
+}
     }
   }
   return result;
-}
 
 module.exports = tally;
