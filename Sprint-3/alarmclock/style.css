@@ -13,3 +13,18 @@
 h1 {
   text-align: center;
 }
+
+.finish-countdown {
+  animation: police 0.5s infinite;
+}
+
+@keyframes police {
+  from {
+    background-color: blue;
+  }
+  to {
+    background-color: red;
+  }
+}
+
+
