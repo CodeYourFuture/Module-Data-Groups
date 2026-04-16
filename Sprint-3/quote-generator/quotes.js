@@ -1,6 +1,7 @@
 function main() {
-  document.querySelector("#quote").innerText = pickFromArray(quotes).quote;
-  document.querySelector("#author").innerText = pickFromArray(quotes).author;
+  const randomQuote = pickFromArray(quotes);
+  document.querySelector("#quote").innerText = randomQuote.quote;
+  document.querySelector("#author").innerText = randomQuote.author;
 }
 
 document.getElementById("new-quote").addEventListener("click", main);
