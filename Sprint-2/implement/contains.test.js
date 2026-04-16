@@ -45,4 +45,5 @@ it("contains returns false or throws an error if given parameter is not a valid 
   expect(contains(5235, "key1")).toEqual(false);
   expect(contains(undefined, "key1")).toEqual(false);
   expect(contains(null, "key1")).toEqual(false);
+  expect(contains([1, 2], "1")).toEqual(false);
 });
