@@ -4,7 +4,7 @@ function setup() {
   document.querySelector("#author").innerText = randomQuote.author;
   document.getElementById("new-quote").addEventListener("click", setup);
 }
-window.onload = setup;
+window.addEventListener("load", setup);
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
