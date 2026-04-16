@@ -1,13 +1,13 @@
-function setup() {
+function randomQuote() {
   const randomQuote = pickFromArray(quotes);
   document.querySelector("#quote").innerText = randomQuote.quote;
   document.querySelector("#author").innerText = randomQuote.author;
 }
-function newQuote() {
-  document.getElementById("new-quote").addEventListener("click", setup);
+function setup() {
+  document.getElementById("new-quote").addEventListener("click", randomQuote);
 }
-newQuote();
-window.addEventListener("load", setup);
+setup();
+window.addEventListener("load", randomQuote);
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
