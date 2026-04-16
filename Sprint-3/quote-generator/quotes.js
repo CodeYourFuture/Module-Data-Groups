@@ -3,7 +3,9 @@ function setup() {
   document.querySelector("#quote").innerText = randomQuote.quote;
   document.querySelector("#author").innerText = randomQuote.author;
 }
-document.getElementById("new-quote").addEventListener("click", setup);
+function newQuote() {
+  document.getElementById("new-quote").addEventListener("click", setup);
+}
 window.addEventListener("load", setup);
 // DO NOT EDIT BELOW HERE
 
