@@ -4,7 +4,10 @@ let remainingTime = 0;
 function setAlarm() {
 const input = document.getElementById("alarmSet");
 const seconds = parseInt(input.value, 10);
-if (isNaN(seconds) || seconds <= 0) return;
+if (isNaN(seconds) || seconds <= 0) {
+  alert("Please enter a valid number of seconds.");  
+   return;
+}
 
 clearInterval(countdown);
 remainingTime = seconds;
