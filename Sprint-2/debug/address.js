@@ -11,5 +11,7 @@ const address = {
   country: "England",
   postcode: "XYZ 123",
 };
+// not an array so an index number doesn't work
+console.log(`My house number is ${address.houseNumber}`);
 
-console.log(`My house number is ${address[0]}`);
+

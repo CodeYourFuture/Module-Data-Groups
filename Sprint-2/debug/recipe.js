@@ -12,4 +12,7 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);
+
+// the ${recipe} tries to log everything into one string (and fails).
+// used join to list them separately and on new lines 
