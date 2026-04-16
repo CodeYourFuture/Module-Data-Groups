@@ -2,8 +2,8 @@ function setup() {
   const randomQuote = pickFromArray(quotes);
   document.querySelector("#quote").innerText = randomQuote.quote;
   document.querySelector("#author").innerText = randomQuote.author;
-  document.getElementById("new-quote").addEventListener("click", setup);
 }
+document.getElementById("new-quote").addEventListener("click", setup);
 window.addEventListener("load", setup);
 // DO NOT EDIT BELOW HERE
 
