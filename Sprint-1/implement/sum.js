@@ -1,11 +1,19 @@
-sum.js
+
 function sum(arr) {
+    if (!Array.isArray(arr)) return 0;
+
     return arr.reduce((accumulator, currentValue) => {
-        if (typeof currentValue === 'number' && !isNaN(currentValue)) {  // investigate  if the current element is a number and not NaN
-            return accumulator + currentValue;
+        // 1. Convert the value to a Number (handles strings like "10")
+        const numericValue = Number(currentValue);
+
+        // 2. Check if the result is a valid number and not NaN
+        // Note: Number.isNaN is stricter/safer than the global isNaN
+        if (!Number.isNaN(numericValue) && typeof currentValue !== 'boolean' && currentValue !== null) {
+            return accumulator + numericValue;
         }
-        return accumulator;  // If not a number, return current sum
-    }, 0); // This line initialize sum at 0 for  empty arrays
+
+        return accumulator;
+    }, 0);
 }
 
 module.exports = sum;
