@@ -1,1 +1,26 @@
-/** Write your CSS in here **/
+body {
+  background-color: rgb(13, 13, 50);
+  color: rgb(250, 200, 135);
+  font-family: "Trebuchet MS", "Verdana", Arial, sans-serif;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.quotebox {
+  position: relative;
+  width: 70%;
+  background: rgb(250, 200, 135);
+  color: rgb(13, 13, 50);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
