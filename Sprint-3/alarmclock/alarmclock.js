@@ -1,4 +1,4 @@
-timerInterval = null;
+let timerInterval = null;
 function setAlarm() {
   // 1. Get the input from the user
   const inputField = document.getElementById("alarmSet");
