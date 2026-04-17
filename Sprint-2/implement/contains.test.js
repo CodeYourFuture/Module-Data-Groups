@@ -34,24 +34,31 @@ as the object doesn't contains a key of 'c'
 
 const contains = require("./contains.js");
 
-test("contains on empty object returns false", () => {
-    expect(contains({}, "a")).toBe(false);
-});
+describe("contains function", () => {
+    test("contains on empty object returns false", () => {
+        expect(contains({}, "a")).toBe(false);
+    });
 
-test("returns true when object contains the property", () => {
-    const obj = { a: 1, b: 2 };
-    expect(contains(obj, "a")).toBe(true);
-});
+    test("returns true when object contains the property", () => {
+        const obj = { a: 1, b: 2 };
+        expect(contains(obj, "a")).toBe(true);
+    });
 
-test("returns false when object does not contain the property", () => {
-    const obj = { a: 1, b: 2 };
-    expect(contains(obj, "c")).toBe(false);
-});
+    test("returns false when object does not contain the property", () => {
+        const obj = { a: 1, b: 2 };
+        expect(contains(obj, "c")).toBe(false);
+    });
 
-test("returns false when passed invalid parameters like an array", () => {
-    expect(contains([], "a")).toBe(false);
-    expect(contains(null, "a")).toBe(false);
-    expect(contains(123, "a")).toBe(false);
-    expect(contains("string", "a")).toBe(false);
-});
+    test("returns false when passed an array, even if the key exists", () => {
+        // A key of "0" exists in this array, but contains should still return false
+        const arr = ["A"];
+        expect(contains(arr, "0")).toBe(false);
+    });
 
+    test("returns false when passed other invalid non-object parameters", () => {
+        expect(contains(null, "a")).toBe(false);
+        expect(contains(123, "a")).toBe(false);
+        expect(contains("string", "a")).toBe(false);
+        expect(contains(undefined, "a")).toBe(false);
+    });
+});

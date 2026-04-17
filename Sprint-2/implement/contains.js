@@ -1,11 +1,11 @@
-
-function contains(obj, propName) {
-
-    if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
+function contains(item, propertyName) {
+    // Guard clause for non-objects, null, and arrays
+    if (item === null || typeof item !== "object" || Array.isArray(item)) {
         return false;
     }
-    return propName in obj;
+
+    // Object.hasOwn is safer because it ignores inherited prototype properties
+    return Object.hasOwn(item, propertyName);
 }
 
 module.exports = contains;
-
