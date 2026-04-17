@@ -1,1 +1,63 @@
-/** Write your CSS in here **/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ff9ecf, #ffc3a0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+#quote {
+  background: #fff0f6;
+  padding: 2rem;
+  border-radius: 20px 20px 0 0;
+  width: 60%;
+  max-width: 700px;
+  color: #d63384;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+#quote::before {
+  content: "❝";
+  position: absolute;
+  left: 15px;
+  top: 5px;
+  font-size: 3rem;
+  color: #ff85c1;
+}
+
+#author {
+  background: #fff0f6;
+  width: 60%;
+  max-width: 700px;
+  padding: 1rem 2rem;
+  text-align: right;
+  color: #c2185b;
+  border-radius: 0 0 20px 20px;
+}
+
+#new-quote {
+  margin-top: 20px;
+  background: #ff85c1;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+#new-quote:hover {
+  background: #ff4fa3;
+  transform: translateY(-2px) scale(1.05);
+}
