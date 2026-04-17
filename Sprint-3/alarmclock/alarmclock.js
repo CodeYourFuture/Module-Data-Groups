@@ -1,5 +1,6 @@
 let timeRemaining = 0;
 let timerId = null;
+let isPaused = false;
 
 const audio = new Audio("alarmsound.mp3");
 
@@ -14,10 +15,10 @@ function formatTime(seconds) {
 // UPDATE DISPLAY
 function updateDisplay(time) {
   const heading = document.getElementById("timeRemaining");
-  heading.textContent = "Time Remaining: " + formatTime(time);
+  heading.textContent = formatTime(Math.max(0, time));
 }
 
-// REQUIRED BY TESTS
+// PLAY ALARM
 function playAlarm() {
   audio.loop = true;
   audio.currentTime = 0;
@@ -30,28 +31,36 @@ function triggerAlarm() {
   playAlarm();
 }
 
-// STOP / RESET ALARM STATE
+// STOP / PAUSE / RESUME
 function stopAlarm() {
-  if (typeof audio.pause === "function") {
-    try {
-      audio.pause();
-    } catch (error) {
-      // ignore jsdom audio pause errors
-    }
+  // 1. If timer is running → pause
+  if (timerId !== null) {
+    clearInterval(timerId);
+    timerId = null;
+    isPaused = true;
+    return;
   }
 
-  audio.currentTime = 0;
-  audio.loop = false;
+  // 2. If paused → resume
+  if (isPaused && timeRemaining > 0) {
+    startTimer();
+    isPaused = false;
+    return;
+  }
 
-  clearInterval(timerId);
-  timerId = null;
+  // 3. If alarm is playing → stop it
+  if (timeRemaining <= 0) {
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = false;
 
-  document.body.classList.toggle("alarm-activated", false);
+    document.body.classList.toggle("alarm-activated", false);
+  }
 }
 
 // START TIMER
 function startTimer() {
-  stopAlarm();
+  clearInterval(timerId);
 
   timerId = setInterval(() => {
     timeRemaining = timeRemaining - 1;
@@ -60,6 +69,7 @@ function startTimer() {
     if (timeRemaining <= 0) {
       clearInterval(timerId);
       timerId = null;
+      isPaused = false;
       triggerAlarm();
     }
   }, 1000);
@@ -71,13 +81,17 @@ function setAlarm() {
   timeRemaining = parseInt(input, 10);
 
   if (isNaN(timeRemaining) || timeRemaining <= 0) {
-    stopAlarm();
-    timeRemaining = 0;
-    updateDisplay(timeRemaining);
     return;
   }
 
+  // reset alarm state
+  audio.pause();
+  audio.currentTime = 0;
+  audio.loop = false;
+  document.body.classList.toggle("alarm-activated", false);
+
   updateDisplay(timeRemaining);
+  isPaused = false;
   startTimer();
 }
 
