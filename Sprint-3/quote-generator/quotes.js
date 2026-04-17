@@ -5,9 +5,9 @@ function randomQuote() {
 }
 function setup() {
   document.getElementById("new-quote").addEventListener("click", randomQuote);
+  randomQuote();
 }
-setup();
-window.addEventListener("load", randomQuote);
+window.addEventListener("load", setup);
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
