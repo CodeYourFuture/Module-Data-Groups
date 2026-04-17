@@ -24,9 +24,22 @@ function playAlarm() {
   audio.play();
 }
 
+// TRIGGER ALARM
+function triggerAlarm() {
+  document.body.classList.toggle("alarm-activated", true);
+  playAlarm();
+}
+
 // STOP / RESET ALARM STATE
 function stopAlarm() {
-  audio.pause();
+  if (typeof audio.pause === "function") {
+    try {
+      audio.pause();
+    } catch (error) {
+      // ignore jsdom audio pause errors
+    }
+  }
+
   audio.currentTime = 0;
   audio.loop = false;
 
@@ -34,12 +47,6 @@ function stopAlarm() {
   timerId = null;
 
   document.body.classList.toggle("alarm-activated", false);
-}
-
-// TRIGGER ALARM
-function triggerAlarm() {
-  document.body.classList.toggle("alarm-activated", true);
-  playAlarm();
 }
 
 // START TIMER
