@@ -47,17 +47,12 @@ function startTimer() {
   stopAlarm();
 
   timerId = setInterval(() => {
-    timeRemaining--;
-
+    timeRemaining = timeRemaining - 1;
     updateDisplay(timeRemaining);
 
     if (timeRemaining <= 0) {
       clearInterval(timerId);
       timerId = null;
-
-      timeRemaining = 0;
-      updateDisplay(timeRemaining);
-
       triggerAlarm();
     }
   }, 1000);
