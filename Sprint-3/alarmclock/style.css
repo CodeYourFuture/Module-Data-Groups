@@ -13,3 +13,17 @@
 h1 {
   text-align: center;
 }
+
+@keyframes flash {
+  0%,
+  100% {
+    background-color: white;
+  }
+  50% {
+    background-color: red;
+  }
+}
+
+body.flashing {
+  animation: flash 0.6s infinite;
+}
