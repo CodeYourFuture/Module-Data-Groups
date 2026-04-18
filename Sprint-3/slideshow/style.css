@@ -1,1 +1,25 @@
-/** Write your CSS in here **/
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#slideshow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+#slide {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
