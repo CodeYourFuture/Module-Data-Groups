@@ -2,47 +2,48 @@ let countdownInterval = null;
 let secondsLeft = 0;
 const heading = document.getElementById("timeRemaining");
 
+// Move audio to outer scope so stopAndResetAlarm can reach it
+var audio = new Audio("alarmsound.mp3");
+
+function stopAndResetAlarm() {
+  audio.pause();
+  audio.currentTime = 0;
+}
+
 function setAlarm() {
-  // Read the number of seconds from the input field
+  // Stop any currently ringing alarm before starting a new one
+  stopAndResetAlarm();
+  stopFlashing(); // reset background too
+
   const input = document.getElementById("alarmSet");
   const seconds = parseInt(input.value, 10);
-
-  // If nothing useful was entered, do nothing
   if (isNaN(seconds) || seconds <= 0) {
     return;
   }
 
-  // Use seconds directly
   secondsLeft = seconds;
-  // Stop any existing countdown
+
   if (countdownInterval !== null) {
     clearInterval(countdownInterval);
     countdownInterval = null;
   }
 
-  // Show starting time right away
   updateTimeDisplay();
 
-  // Start the countdown
   countdownInterval = setInterval(() => {
     secondsLeft = secondsLeft - 1;
-
     updateTimeDisplay();
-
     if (secondsLeft <= 0) {
-      // Time's up
       clearInterval(countdownInterval);
       countdownInterval = null;
       secondsLeft = 0;
-
-      // Makes sure to show exactly 00:00
       updateTimeDisplay();
       playAlarm();
+      startFlashing(); // flash when alarm fires
     }
   }, 1000);
 }
 
-// Helper function
 function updateTimeDisplay() {
   const minutes = Math.floor(secondsLeft / 60);
   const seconds = secondsLeft % 60;
@@ -51,15 +52,19 @@ function updateTimeDisplay() {
   heading.textContent = `Time Remaining: ${displayMin}:${displaySec}`;
 }
 
+function startFlashing() {
+  document.body.classList.add("flashing");
+}
+
+function stopFlashing() {
+  document.body.classList.remove("flashing");
+}
+
 // DO NOT EDIT BELOW HERE
-
-var audio = new Audio("alarmsound.mp3");
-
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
     setAlarm();
   });
-
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
   });
@@ -71,6 +76,13 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  stopFlashing(); // reset background
+
+  // Also pause the countdown
+  if (countdownInterval !== null) {
+    clearInterval(countdownInterval);
+    countdownInterval = null;
+  }
 }
 
 window.onload = setup;
