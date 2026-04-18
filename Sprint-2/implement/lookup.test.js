@@ -2,12 +2,12 @@ const createLookup = require("./lookup.js");
 
 test("creates a country currency code in an lookup array for multiple codes, and return in object form", () => {
   let worldCurrency = [
-    ["US","USD"],
-    ["GB","POUND"],
-    ["FRC","EURO"],
-    ["JP","YEN"],
-    ["KR","WON"],
-    ["MX","PESO"],
+    ["US", "USD"],
+    ["GB", "POUND"],
+    ["FRC", "EURO"],
+    ["JP", "YEN"],
+    ["KR", "WON"],
+    ["MX", "PESO"],
   ];
   expect(createLookup(worldCurrency)).toEqual({
     US: "USD",

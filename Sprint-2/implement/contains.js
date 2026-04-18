@@ -3,18 +3,18 @@ function contains(object, key) {
     return false;
   }
 
-  for (const checkItem in object){
-    let validation = object[checkItem]
-     if(Array.isArray(validation)){
+  for (const checkItem in object) {
+    let validation = object[checkItem];
+    if (Array.isArray(validation)) {
       return false;
-     }
+    }
   }
   for (const item in object) {
     if (item === key) {
       return true;
     }
   }
-   return false;
+  return false;
 }
 
 module.exports = contains;
