@@ -47,7 +47,7 @@ test("contains an object with propreties return false for non-existing property"
 // Then it should return false or throw an error
 test("contains with invalid parameters return false", () => {
   const obj = ["a", "b", "c", "d"];
-  expect(contains(obj, "a")).toBe(false);
+  expect(contains(obj, "1")).toBe(false);
 });
 
 // Give an error  for null values:

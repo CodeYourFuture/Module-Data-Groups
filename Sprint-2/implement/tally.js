@@ -10,7 +10,7 @@ function tally(items) {
       result[item] += 1;
     } else {
       result[item] = 1;
-    }npm TextDecoderStream
+    }
   }
 
   return result;
