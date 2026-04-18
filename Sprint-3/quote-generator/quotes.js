@@ -15,9 +15,9 @@
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 // DOM elements
-const quote = document.querySelector("#quote");
-const author = document.querySelector("#author");
-const newquote = document.querySelector("#new-quote");
+const quoteEl = document.querySelector("#quote");
+const authorEl = document.querySelector("#author");
+const newQuoteBtn = document.querySelector("#new-quote");
 
 // utility function (given)
 function pickFromArray(quotes) {
@@ -499,16 +499,16 @@ const quotes = [
 
 function showRandomQuote() {
   const randomQuote = pickFromArray(quotes);
-  quote.textContent = randomQuote.quote;
+  quoteEl.textContent = randomQuote.quote;
   author.textContent = randomQuote.author;
 }
 
 function setup() {
   showRandomQuote();
 
-  quote.addEventListener("click", showRandomQuote);
-  author.addEventListener("click", showRandomQuote);
-  newquote.addEventListener("click", showRandomQuote);
+  // quoteEl.addEventListener("click", showRandomQuote);
+  // authorEl.addEventListener("click", showRandomQuote);
+  newQuoteBtn.addEventListener("click", showRandomQuote);
 }
 
 
