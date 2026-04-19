@@ -1,8 +1,8 @@
 const images = [
-  "https://unsplash.com/photos/three-giraffes-on-brown-grass-field-during-daytime-eQdDUdi5qLk",
-  "https://unsplash.com/photos/a-group-of-giraffes-standing-on-a-dirt-road-nUwKN_3PQ7c",
-  "https://unsplash.com/photos/giraffe-drinking-water-q73Ehqc4OqY",
-  "https://unsplash.com/photos/a-giraffe-standing-next-to-a-tree-in-a-field-aWNGjRw4QpM",
+  "https://images.unsplash.com/photo-1612358405970-e1aeba9d76c2",
+  "https://plus.unsplash.com/premium_photo-1664304444016-44b5d41a01eb",
+  "https://plus.unsplash.com/premium_photo-1661809060766-f96a928a00a5",
+  "https://plus.unsplash.com/premium_photo-1664302716901-63777e888686",
 ];
 
 let currentIndex = 0;

@@ -12,8 +12,8 @@ body {
 }
 
 #slide {
-  width: 600px;
-  height: 400px;
+  width: 300px;
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -25,7 +25,7 @@ button {
 }
 
 <!-- for smartphone access -- > #slide {
-  width: 90vw; /* change from fixed 600px */
+  width: 90vw; /* change from fixed 300px */
   height: 60vw;
   object-fit: cover;
   border-radius: 10px;
