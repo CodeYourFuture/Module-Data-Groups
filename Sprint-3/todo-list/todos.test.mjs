@@ -130,3 +130,12 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+test("deleteCompleted removes all completed tasks", () => {
+  const todoList = [
+    { task: "Wash dishes", completed: true },
+    { task: "Do shopping", completed: false },
+    { task: "Read book", completed: true },
+  ];
+  Todos.deleteCompleted(todoList);
+  expect(todoList).toEqual([{ task: "Do shopping", completed: false }]);
+});

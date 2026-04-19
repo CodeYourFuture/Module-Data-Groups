@@ -1,4 +1,4 @@
-// Store everything imported from './todos.mjs' module as properties of an object named Todos 
+// Store everything imported from './todos.mjs' module as properties of an object named Todos
 import * as Todos from "./todos.mjs";
 
 // To store the todo tasks
@@ -9,14 +9,20 @@ window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
 
   // Populate sample data
-  Todos.addTask(todos, "Wash the dishes", false); 
+  Todos.addTask(todos, "Wash the dishes", false);
   Todos.addTask(todos, "Do the shopping", true);
+
+  document
+    .getElementById("delete-completed-btn")
+    .addEventListener("click", () => {
+      Todos.deleteCompleted(todos);
+      render();
+    });
 
   render();
 });
 
-
-// A callback that reads the task description from an input field and 
+// A callback that reads the task description from an input field and
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
@@ -45,12 +51,11 @@ function render() {
   });
 }
 
-
 // Note:
 // - First child of #todo-item-template is a <li> element.
 //   We will create each ToDo list item as a clone of this node.
 // - This variable is declared here to be close to the only function that uses it.
-const todoListItemTemplate = 
+const todoListItemTemplate =
   document.getElementById("todo-item-template").content.firstElementChild;
 
 // Create a <li> element for the given todo task
@@ -62,12 +67,12 @@ function createListItem(todo, index) {
     li.classList.add("completed");
   }
 
-  li.querySelector('.complete-btn').addEventListener("click", () => {
+  li.querySelector(".complete-btn").addEventListener("click", () => {
     Todos.toggleCompletedOnTask(todos, index);
     render();
   });
-    
-  li.querySelector('.delete-btn').addEventListener("click", () => {
+
+  li.querySelector(".delete-btn").addEventListener("click", () => {
     Todos.deleteTask(todos, index);
     render();
   });
