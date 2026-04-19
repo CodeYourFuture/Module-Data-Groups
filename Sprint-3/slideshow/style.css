@@ -24,15 +24,14 @@ button {
   cursor: pointer;
 }
 
-<!-- for smartphone access -- > #slide {
-  width: 90vw; /* change from fixed 300px */
-  height: 60vw;
-  object-fit: cover;
-  border-radius: 10px;
-}
+/* for smartphone access */
+@media (max-width: 600px) {
+  #slide {
+    width: 90vw;
+    height: 60vw;
+  }
 
-button {
-  padding: 12px 18px; /* slightly larger for touch targets */
-  font-size: 1rem;
-  cursor: pointer;
+  button {
+    padding: 12px 18px;
+  }
 }
