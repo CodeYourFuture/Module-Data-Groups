@@ -22,6 +22,6 @@ for (let x in author) {
 console.log(text);
 
 // or: 
-const values = Object.values(author) .join ("");
+const values = Object.values(author) .join ("\n");
 console.log(values);
 
