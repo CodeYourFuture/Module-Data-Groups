@@ -54,4 +54,10 @@ test("should return false if the input object do not have non existing key value
 test("should return false if the input object do not have non existing key value", () => {
   let mixObject = { a: 2, b: "hello", c: [] };
   expect(contains(mixObject, "c")).toBe(false);
+
+
+expect(contains(["A", "B"], "1" )).toBe(false);
+expect(contains(null, "1" )).toBe(false);
+expect(contains(undefined, "1" )).toBe(false);
+expect(contains("ABC", "1" )).toBe(false);
 });
