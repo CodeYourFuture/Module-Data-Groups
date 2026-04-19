@@ -33,3 +33,11 @@ It should return:
    'CA': 'CAD'
  }
 */
+test('Create a lookup object of key value pairs from an array of code pairs', ()=>
+{
+  const countryCurrencyPairs = [["US", "USD"], ["CA", "CAD"]];
+  expect(createLookup(countryCurrencyPairs)).toEqual({
+    US: "USD",
+    CA: "CAD"});
+
+});
