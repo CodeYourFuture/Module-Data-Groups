@@ -1,3 +1,4 @@
+
 // The tests is prepared to demonstrate we can test the functions
 // in a module independently.
 
@@ -130,3 +131,12 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+test("deleteCompleted removes all completed tasks", () => {
+  const todoList = [
+    { task: "Wash dishes", completed: true },
+    { task: "Do shopping", completed: false },
+    { task: "Read book", completed: true },
+  ];
+  Todos.deleteCompleted(todoList);
+  expect(todoList).toEqual([{ task: "Do shopping", completed: false }]);
+});
