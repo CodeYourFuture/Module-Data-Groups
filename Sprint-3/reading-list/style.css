@@ -12,6 +12,28 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+.book-card {
+  padding: 20px;
+  margin: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.book-card img {
+  height: 150px;
+  width: auto;
+}
+
+.read {
+  background-color: green;
+}
+
+.unread {
+  background-color: red;
+}
+
 .site-footer {
   margin-top: 4em;
 }
@@ -133,7 +155,7 @@ body {
   height: 37px;
 }
 
-.colorButton {
+.colorBtn {
   margin-bottom: 20px;
   margin-right: 20px;
   width: 100px;

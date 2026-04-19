@@ -21,3 +21,25 @@ const books = [
   },
 ];
 
+function readingList(books) {
+  const bookList = document.getElementById("book-list");
+
+  books.forEach((book) => {
+    const card = document.createElement("div");
+    card.classList.add("book-card");
+    card.classList.add(book.alreadyRead ? "read" : "unread");
+
+    card.innerHTML = `
+      <img src="${book.bookCoverImage}" alt="${book.title}" />
+      <div>
+        <h2>${book.title}</h2>
+        <p>By ${book.author}</p>
+        <p>${book.alreadyRead ? "Already read ✅" : "Not read yet 📖"}</p>
+      </div>
+    `;
+
+    bookList.appendChild(card);
+  });
+}
+
+readingList(books);
