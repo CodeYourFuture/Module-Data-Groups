@@ -23,3 +23,16 @@ button {
   font-size: 1rem;
   cursor: pointer;
 }
+
+<!-- for smartphone access -- > #slide {
+  width: 90vw; /* change from fixed 600px */
+  height: 60vw;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+button {
+  padding: 12px 18px; /* slightly larger for touch targets */
+  font-size: 1rem;
+  cursor: pointer;
+}

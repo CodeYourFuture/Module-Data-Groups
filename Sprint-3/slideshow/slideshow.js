@@ -28,3 +28,27 @@ forwardButton.addEventListener("click", () => {
 
 // show first image on load
 updateSlide();
+
+let autoId;
+
+function startAuto(direction) {
+  stopAuto(); // clear any existing interval first
+  autoId = setInterval(() => {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    updateSlide();
+  }, 5000);
+}
+
+function stopAuto() {
+  clearInterval(autoId);
+}
+
+document.getElementById("auto-forward").addEventListener("click", () => {
+  startAuto(1);
+});
+
+document.getElementById("auto-back").addEventListener("click", () => {
+  startAuto(-1);
+});
+
+document.getElementById("stop").addEventListener("click", stopAuto);
