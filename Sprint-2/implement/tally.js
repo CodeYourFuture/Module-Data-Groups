@@ -5,7 +5,7 @@ function tally(sumArray) {
   }
   let totalSum = {};
   for (const item of sumArray) {
-    if (totalSum[item] === undefined) {
+    if (!Object.hasOwn(totalSum, item)) {
       totalSum[item] = 1;
     } else {
       totalSum[item] += 1;
@@ -13,5 +13,4 @@ function tally(sumArray) {
   }
   return totalSum;
 }
-
 module.exports = tally;
