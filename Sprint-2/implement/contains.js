@@ -1,10 +1,5 @@
 function contains(object, key) {
-  if (
-    object === null ||
-    object === undefined ||
-    typeof object !== "object" ||
-    Array.isArray(object)
-  ) {
+  if (object === null || typeof object !== "object" || Array.isArray(object)) {
     return false;
   }
 
@@ -13,17 +8,10 @@ function contains(object, key) {
   }
 
   for (const item in object) {
-    if (Array.isArray(object[item])) {
-      return false;
-    }
-  }
-
-  for (const item in object) {
     if (item === key) {
       return true;
     }
   }
-
   return false;
 }
 

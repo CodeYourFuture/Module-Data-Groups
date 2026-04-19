@@ -1,8 +1,10 @@
 function tally(sumArray) {
-  if (sumArray.length === 0) return {};
   if (!Array.isArray(sumArray)) {
     throw new Error("Input musk be an array");
   }
+  
+  if (sumArray.length === 0) return {};
+
   let totalSum = {};
   for (const item of sumArray) {
     if (!Object.hasOwn(totalSum, item)) {

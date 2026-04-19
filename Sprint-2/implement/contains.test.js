@@ -51,9 +51,9 @@ test("should return false if the input object do not have non existing key value
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("should return false if the input object do not have non existing key value", () => {
+test("should return false if the input parameters is an array or not an object", () => {
   let mixObject = { a: 2, b: "hello", c: [] };
-  expect(contains(mixObject, "c")).toBe(false);
+  expect(contains(mixObject, "c")).toBe(true);
   expect(contains(["A", "B"], "1")).toBe(false);
   expect(contains(null, "1")).toBe(false);
   expect(contains(undefined, "1")).toBe(false);
