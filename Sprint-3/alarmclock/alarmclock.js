@@ -50,6 +50,7 @@ function timer() {
   if (state.remainingTime === 0) {
     clearInterval(state.timerId);
     state.timerId = null;
+    document.body.style.backgroundColor = "red";
     playAlarm();
   } else {
     state.remainingTime -= 1;
@@ -63,6 +64,7 @@ function playAlarm() {
 }
 
 function pauseAlarm() {
+  document.body.style.backgroundColor = "white";
   audio.pause();
 }
 
