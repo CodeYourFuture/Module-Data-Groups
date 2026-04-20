@@ -1,12 +1,13 @@
 function calculateMedian(list) {
-
   // must be an array
   if (!Array.isArray(list)) {
     return null;
   }
 
-  // keep only numeric values
-  const numbers = list.filter(value => typeof value === "number");
+  // keep only VALID numeric values (exclude NaN, Infinity)
+  const numbers = list.filter(
+    (value) => typeof value === "number" && Number.isFinite(value)
+  );
 
   // if no numbers exist return null
   if (numbers.length === 0) {
