@@ -1,17 +1,13 @@
-function dedupe(arr) {
-  if (!Array.isArray(arr)) {
-    return [];
-  }
-
+function dedupe(list) {
   const result = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (!result.includes(arr[i])) {
-      result.push(arr[i]);
+  for (const item of list) {
+    if (!result.includes(item)) {
+      result.push(item);
     }
   }
 
-  return result;
+  return result; // ✅ always a NEW array
 }
 
 module.exports = dedupe;
