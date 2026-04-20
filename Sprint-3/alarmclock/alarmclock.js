@@ -14,6 +14,22 @@ function setup() {
   });
 }
 
+function setAlarm() {
+  const timeInput = document.getElementById("alarmSet");
+
+  const seconds = timeInput.value;
+  const remainingSeconds = seconds % 60;
+
+  const minutes = (seconds - remainingSeconds) / 60;
+
+  const formattedSeconds = remainingSeconds.toString().padStart(2, "0");
+  const formattedMinutes = minutes.toString().padStart(2, "0");
+
+  const remainingTime = document.getElementById("timeRemaining");
+  remainingTime.textContent = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
+  console.log(remainingTime);
+}
+
 function playAlarm() {
   audio.play();
 }
