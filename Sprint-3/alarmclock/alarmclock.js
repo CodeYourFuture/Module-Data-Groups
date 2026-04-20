@@ -27,7 +27,14 @@ function setAlarm() {
 
   const remainingTime = document.getElementById("timeRemaining");
   remainingTime.textContent = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
-  console.log(remainingTime);
+
+  const milliseconds = timeInput.value * 1000;
+  console.log(milliseconds);
+  setInterval(playAlarm, milliseconds);
+}
+
+function timeCountdown(time) {
+  setInterval(playAlarm, time);
 }
 
 function playAlarm() {
