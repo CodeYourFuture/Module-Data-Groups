@@ -21,3 +21,31 @@ const books = [
   },
 ];
 
+const list = document.getElementById("reading-list");
+
+books.forEach((book) => {
+  const li = document.createElement("li");
+
+  // Add title + author (text must exist for tests)
+  li.textContent = `${book.title} by ${book.author}`;
+
+  // Create image
+  const img = document.createElement("img");
+  img.src = book.bookCoverImage;
+
+  // IMPORTANT: ensures exact HTML match for tests
+  img.setAttribute("src", book.bookCoverImage);
+
+  // Add image to list item
+  li.appendChild(img);
+
+  // Set background colour based on read status
+  if (book.alreadyRead) {
+    li.style.backgroundColor = "green";
+  } else {
+    li.style.backgroundColor = "red";
+  }
+
+  // Add to page
+  list.appendChild(li);
+});
