@@ -17,11 +17,12 @@ function setup() {
 const state = {
   initialTime: 0,
   remainingTime: 0,
+  timerId: null,
 };
 
 function setAlarm() {
   const timeInput = document.getElementById("alarmSet");
-  state.initialTime = timeInput.value;
+  state.initialTime = +timeInput.value;
   state.remainingTime = state.initialTime;
   const formattedTime = formatTime(state.initialTime);
   timeInput.value = "";
@@ -29,12 +30,10 @@ function setAlarm() {
   const displayedTime = document.getElementById("timeRemaining");
   displayedTime.textContent = `Time Remaining: ${formattedTime}`;
 
-  setInterval(timeCountdownUI, 1000);
-  setTimeout(playAlarm, state.initialTime * 1000);
+  state.timerId = setInterval(timer, 1000);
 }
 
 function formatTime(seconds) {
-  console.log(seconds);
   const remainingSeconds = seconds % 60;
   const minutes = (seconds - remainingSeconds) / 60;
 
@@ -44,11 +43,19 @@ function formatTime(seconds) {
   return `${formattedMinutes}:${formattedSeconds}`;
 }
 
-function timeCountdownUI() {
+function timer() {
   const displayedTime = document.getElementById("timeRemaining");
-  state.remainingTime -= 1;
-  const countingDownTime = formatTime(state.remainingTime);
-  displayedTime.textContent = `Time Remaining: ${countingDownTime}`;
+
+  console.log(state.remainingTime);
+  if (state.remainingTime === 0) {
+    clearInterval(state.timerId);
+    state.timerId = null;
+    playAlarm();
+  } else {
+    state.remainingTime -= 1;
+    const countingDownTime = formatTime(state.remainingTime);
+    displayedTime.textContent = `Time Remaining: ${countingDownTime}`;
+  }
 }
 
 function playAlarm() {
