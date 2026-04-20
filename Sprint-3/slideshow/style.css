@@ -1,1 +1,37 @@
-/** Write your CSS in here **/
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#slideshow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+#slide {
+  width: 450px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* for smartphone access */
+@media (max-width: 600px) {
+  #slide {
+    width: 90vw;
+    height: 60vw;
+  }
+
+  button {
+    padding: 12px 18px;
+  }
+}
