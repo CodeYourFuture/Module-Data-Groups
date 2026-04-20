@@ -1,30 +1,16 @@
-function setAlarm() {}
-
-// DO NOT EDIT BELOW HERE
-
-var audio = new Audio("alarmsound.mp3");
-
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
-
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
-  });
-}
-
 const state = {
-  initialTime: 0,
   remainingTime: 0,
   timerId: null,
 };
 
 function setAlarm() {
+  if (state.timerId !== null) {
+    clearInterval(state.timerId);
+    state.timerId = null;
+  }
   const timeInput = document.getElementById("alarmSet");
-  state.initialTime = +timeInput.value;
-  state.remainingTime = state.initialTime;
-  const formattedTime = formatTime(state.initialTime);
+  state.remainingTime = +timeInput.value;
+  const formattedTime = formatTime(state.remainingTime);
   timeInput.value = "";
 
   const displayedTime = document.getElementById("timeRemaining");
@@ -45,18 +31,29 @@ function formatTime(seconds) {
 
 function timer() {
   const displayedTime = document.getElementById("timeRemaining");
-
-  console.log(state.remainingTime);
+  state.remainingTime -= 1;
+  const countingDownTime = formatTime(state.remainingTime);
+  displayedTime.textContent = `Time Remaining: ${countingDownTime}`;
   if (state.remainingTime === 0) {
     clearInterval(state.timerId);
     state.timerId = null;
     document.body.style.backgroundColor = "red";
     playAlarm();
-  } else {
-    state.remainingTime -= 1;
-    const countingDownTime = formatTime(state.remainingTime);
-    displayedTime.textContent = `Time Remaining: ${countingDownTime}`;
   }
+}
+
+// DO NOT EDIT BELOW HERE
+
+var audio = new Audio("alarmsound.mp3");
+
+function setup() {
+  document.getElementById("set").addEventListener("click", () => {
+    setAlarm();
+  });
+
+  document.getElementById("stop").addEventListener("click", () => {
+    pauseAlarm();
+  });
 }
 
 function playAlarm() {
