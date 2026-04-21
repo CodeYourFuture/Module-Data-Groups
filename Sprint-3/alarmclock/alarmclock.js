@@ -1,5 +1,39 @@
-function setAlarm() {}
+let countdown = null;
 
+function setAlarm() {
+  const input = document.getElementById("alarmSet");
+  let time = Number(input.value);
+
+  const heading = document.getElementById("timeRemaining");
+
+  if (countdown) {
+    clearInterval(countdown);
+  }
+
+  updateHeading(time, heading);
+
+  countdown = setInterval(() => {
+    time--;
+
+    if (time <= 0) {
+      updateHeading(0, heading);
+      clearInterval(countdown);
+      playAlarm();
+    } else {
+      updateHeading(time, heading);
+    }
+  }, 1000);
+}
+
+function updateHeading(time, heading) {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+
+  const mm = String(minutes).padStart(2, "0");
+  const ss = String(seconds).padStart(2, "0");
+
+  heading.innerText = `Time Remaining: ${mm}:${ss}`;
+}
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
