@@ -14,10 +14,14 @@
 // Examples of use
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
+// DOM elements
+const quoteEl = document.querySelector("#quote");
+const authorEl = document.querySelector("#author");
+const newQuoteBtn = document.querySelector("#new-quote");
 
-// You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+// utility function (given)
+function pickFromArray(quotes) {
+  return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
 // A list of quotes you can use in your app.
@@ -490,4 +494,15 @@ const quotes = [
   },
 ];
 
-// call pickFromArray with the quotes array to check you get a random quote
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteEl.textContent = randomQuote.quote;
+  authorEl.textContent = randomQuote.author;
+}
+function setup() {
+  showRandomQuote();
+
+  newQuoteBtn.addEventListener("click", showRandomQuote);
+}
+
+window.addEventListener("load", setup);
