@@ -8,15 +8,9 @@ const todos = [];
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
 
-document
-  .getElementById("delete-completed-btn")
-  .addEventListener("click", deleteCompletedTasks);
-
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
   Todos.addTask(todos, "Do the shopping", true);
-
-  Todos.addTask(todos, "Finish assignment", false, "2026-04-01");
 
   render();
 });
@@ -79,9 +73,4 @@ function createListItem(todo, index) {
   });
 
   return li;
-}
-
-function deleteCompletedTasks() {
-  Todos.deleteCompleted(todos);
-  render();
 }
