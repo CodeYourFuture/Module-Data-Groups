@@ -497,9 +497,8 @@ const quotes = [
 function showRandomQuote() {
   const randomQuote = pickFromArray(quotes);
   quoteEl.textContent = randomQuote.quote;
-  author.textContent = randomQuote.author;
+  authorEl.textContent = randomQuote.author;
 }
-
 function setup() {
   showRandomQuote();
 
