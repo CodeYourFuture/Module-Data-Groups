@@ -1,152 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-        
-        .add-task-form {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .add-task-form input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        
-        .add-task-form input[type="text"] {
-            font-size: 16px;
-        }
-        
-        .add-task-form input[type="datetime-local"] {
-            font-size: 14px;
-        }
-        
-        .add-task-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        .add-task-form button:hover {
-            background-color: #45a049;
-        }
-        
-        .todo-list {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .todo-item {
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .todo-item span {
-            flex: 1;
-            word-break: break-word;
-        }
-        
-        .completed {
-            background-color: #e8f5e8;
-            text-decoration: line-through;
-            color: #666;
-        }
-        
-        .todo-item button {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        .todo-item button:first-of-type {
-            background-color: #2196F3;
-            color: white;
-        }
-        
-        .todo-item button:first-of-type:hover {
-            background-color: #0b7dda;
-        }
-        
-        .todo-item button:last-of-type {
-            background-color: #f44336;
-            color: white;
-        }
-        
-        .todo-item button:last-of-type:hover {
-            background-color: #da190b;
-        }
-        
-        @media (max-width: 500px) {
-            .todo-item {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .todo-item button {
-                width: 100%;
-                margin: 5px 0;
-            }
-        }
-        
-        .empty-message {
-            text-align: center;
-            color: #999;
-            padding: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <script type="module" src="script.mjs"></script>
 </head>
 <body>
-    <h1>📝 Todo List</h1>
-    
-    <div class="add-task-form">
-        <input type="text" id="taskInput" placeholder="Enter task description (e.g., Finish project report)">
-        <input type="datetime-local" id="deadlineInput">
-        <button id="addBtn">➕ Add Task</button>
+  <div class="todo-container">
+    <h1>My ToDo List</h1>
+
+    <div class="todo-input">
+      <input type="text" id="new-task-input" placeholder="Enter a new task..." />
+      <button id="add-task-btn">Add</button>
     </div>
-    
-    <div class="todo-list">
-        <h3>Your Tasks</h3>
-        <div id="todoList"></div>
-    </div>
-    
-    <script type="module" src="web-app.js"></script>
+
+    <ul id="todo-list" class="todo-list">      
+    </ul>
+
+    <!-- 
+      This is a template for the To-do list item. 
+      It can simplify the creation of list item node in JS script.
+    -->
+    <template id="todo-item-template">
+      <li class="todo-item"> <!-- include class "completed" if the task completed state is true -->
+        <span class="description">Task description</span>
+        <div class="actions">
+          <button class="complete-btn"><span class="fa-solid fa-check" aria-hidden="true"></span></button>
+          <button class="delete-btn"><span class="fa-solid fa-trash" aria-hidden="true"></span></button>
+        </div>
+      </li>
+    </template>
+
+  </div>
 </body>
 </html>
