@@ -1,31 +1,47 @@
 let countdown = null;
 
+function resetAlarm() {
+  clearInterval(countdown);
+  countdown = null;
+  pauseAlarm();
+  updateHeading(0);
+}
+
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   let time = Number(input.value);
 
-  const heading = document.getElementById("timeRemaining");
-
-  if (countdown) {
-    clearInterval(countdown);
+  if (isNaN(time) || time < 0) {
+    updateHeading(0);
+    return;
   }
 
-  updateHeading(time, heading);
+  resetAlarm();
+
+  if (time === 0) {
+    updateHeading(0);
+    playAlarm();
+    return;
+  }
+
+  updateHeading(time);
 
   countdown = setInterval(() => {
     time--;
 
     if (time <= 0) {
-      updateHeading(0, heading);
+      updateHeading(0);
       clearInterval(countdown);
       playAlarm();
     } else {
-      updateHeading(time, heading);
+      updateHeading(time);
     }
   }, 1000);
 }
 
-function updateHeading(time, heading) {
+function updateHeading(time) {
+  const heading = document.getElementById("timeRemaining");
+
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
 
