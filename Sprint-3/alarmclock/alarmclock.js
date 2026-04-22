@@ -11,7 +11,7 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   let time = Number(input.value);
 
-  if (isNaN(time) || time < 0) {
+  if (isNaN(time) || time < 0 || !Number.isInteger(time)) {
     updateHeading(0);
     return;
   }
