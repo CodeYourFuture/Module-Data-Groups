@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
 
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
-  Todos.addTask(todos, "Do the shopping", true);
+  Todos.addTask(todos, "Do the shopping", false); // if 2nd argument is true the msg 'Do the shopping' is crossed out
 
   render();
 });
