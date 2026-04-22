@@ -21,8 +21,11 @@ window.addEventListener("load", () => {
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
   const task = taskInput.value.trim();
+  const deadlineInput = document.getElementById("new-task-deadline");
+  const deadline = deadlineInput.value || null;
+
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
     render();
   }
 
