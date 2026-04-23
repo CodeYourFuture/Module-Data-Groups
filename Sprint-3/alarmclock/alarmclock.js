@@ -1,5 +1,6 @@
 let timerInterval = null;
 function setAlarm() {
+  document.body.style.backgroundColor = ""; // Resets to the CSS default
   // 1. Get the input from the user
   const inputField = document.getElementById("alarmSet");
   let timeRemaining = parseInt(inputField.value);
