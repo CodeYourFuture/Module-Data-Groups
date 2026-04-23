@@ -7,25 +7,35 @@ function resetAlarm() {
   updateHeading(0);
 }
 
+function showError(message) {
+  const heading = document.getElementById("timeRemaining");
+  heading.innerText = message;
+}
+
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   let time = Number(input.value);
 
+  // Always reset first so old countdown stops
+  resetAlarm();
+
+  // Validate input (reject decimals, negatives, NaN)
   if (isNaN(time) || time < 0 || !Number.isInteger(time)) {
-    updateHeading(0);
+    showError("Please enter a whole number of seconds.");
     return;
   }
 
-  resetAlarm();
-
+  // If time is 0, trigger alarm immediately
   if (time === 0) {
     updateHeading(0);
     playAlarm();
     return;
   }
 
+  // Show starting time
   updateHeading(time);
 
+  // Start countdown
   countdown = setInterval(() => {
     time--;
 
