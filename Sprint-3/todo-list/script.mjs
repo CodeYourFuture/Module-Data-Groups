@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
 
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
-  Todos.addTask(todos, "Do the shopping", true);
+  Todos.addTask(todos, "Do the shopping", false); // if 2nd argument is true the msg 'Do the shopping' is crossed out
 
   render();
 });
@@ -21,8 +21,11 @@ window.addEventListener("load", () => {
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
   const task = taskInput.value.trim();
+  const deadlineInput = document.getElementById("new-task-deadline");
+  const deadline = deadlineInput.value || null;
+
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
     render();
   }
 

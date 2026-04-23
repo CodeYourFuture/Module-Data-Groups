@@ -3,27 +3,35 @@
   the following manner:
 
   [
-    { task: "Description of task 1", completed: false},
-    { task: "Description of task 2", completed: true}
+    { task: "Description of task 1", completed: false, deadline: null },
+    { task: "Description of task 2", completed: true, deadline: "2026-12-31T23:59" }
   ]
-
 */
 
 // Append a new task to todos[]
-export function addTask(todos, task, completed = false) {
-  todos.push({ task, completed });
+export function addTask(todos, task, completed = false, deadline = null) {
+  todos.push({ task, completed, deadline });
 }
 
-// Delete todos[taskIndex] if it exists
+// Delete todos[taskIndex] 
 export function deleteTask(todos, taskIndex) {
   if (todos[taskIndex]) {
     todos.splice(taskIndex, 1);
   }
 }
 
-// Toggle the "completed" property of todos[taskIndex] if the task exists.
+// Toggle the "completed" property of todos[taskIndex] 
 export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
+  }
+}
+
+// Delete all completed tasks
+export function deleteCompleted(todos) {
+  for (let i = todos.length - 1; i >= 0; i--) {
+    if (todos[i].completed) {
+      todos.splice(i, 1);
+    }
   }
 }
