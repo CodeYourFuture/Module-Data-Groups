@@ -4,11 +4,10 @@ function resetAlarm() {
   clearInterval(countdown);
   countdown = null;
   pauseAlarm();
-  updateHeading(0);
 }
 
 function showError(message) {
-  const heading = document.getElementById("timeRemaining");
+  const heading = document.getElementById("errorMessage");
   heading.innerText = message;
 }
 
@@ -22,6 +21,8 @@ function setAlarm() {
     showError("Please enter a whole number of seconds.");
     return;
   }
+
+  document.getElementById("errorMessage").innerText = "";
 
   if (time === 0) {
     updateHeading(0);
