@@ -4,7 +4,7 @@ function tally(items) {
     throw new Error("Input must be an array");
   }
 
-  const counts = {};
+  const counts = Object.create(null);
 
   for (const item of items) {
     // If the item exists, increment; otherwise, initialize to 1

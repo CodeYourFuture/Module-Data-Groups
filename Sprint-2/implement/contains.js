@@ -5,7 +5,7 @@ function contains(obj, propertyName) {
   }
 
   // 2. Check if the propertyName exists as a key in the object
-  return propertyName in obj;
+  return Object.hasOwn(obj, propertyName);
 }
 
 module.exports = contains;
