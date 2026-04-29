@@ -13,7 +13,7 @@ function displayRandomQuote() {
   authorP.innerText = randomQuote.author;
 }
 
-// Once the page loaded run this
+// Once the page loaded run this.
 window.addEventListener("load", () => {
   displayRandomQuote();
 
