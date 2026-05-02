@@ -33,12 +33,12 @@ const tally = require("./tally.js");
 
 test("counts a single item correctly", () => {
     expect(tally(['a'])).toEqual({ a: 1 });
-  });
+});
 
   // Repeated items
 test("counts repeated items correctly", () => {
     expect(tally(['a', 'a', 'a'])).toEqual({ a: 3 });
-  });
+});
 
   // Mixed items
 test("counts multiple different items", () => {
@@ -47,7 +47,7 @@ test("counts multiple different items", () => {
       b: 1,
       c: 1
     });
-  });
+});
 
 
 test("tally on single, repeated or duplicate items return counts for each unique item ", () => {
