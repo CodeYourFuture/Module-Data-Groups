@@ -86,3 +86,10 @@ test("string with only delimiters returns {}", () => {
   expect(parseQueryString("&")).toEqual({});
   expect(parseQueryString("&&")).toEqual({});
 });
+
+// substring false-positive deduplication
+test("does not deduplicate a value that is a substring of an existing value", () => {
+  expect(parseQueryString("color=red&color=re")).toEqual({
+    color: ["red", "re"],
+  });
+});

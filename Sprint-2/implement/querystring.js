@@ -27,18 +27,23 @@ function parseQueryString(queryString) {
     /* use hasOwnProperty to prevent conflict with built-in/inherited properties
     like "toString", if the query string has a "toString=value".
 
-    if a key already exists on queryParams, but is not an array, then create an array
-    and store the the old value and new value in the array
+
+
+    if a kv pair already exists on queryParams, and value is the same as the incoming value, ignore. It's a duplicate
+    Otherwise, if it has a single value, change value to array containing the old value and new value.
+
+    if value at key is an array, and contains the incoming value, ignore. Else, push it to the array.
     */
     if (Object.prototype.hasOwnProperty.call(queryParams, key)) {
-      if (queryParams[key] === value || queryParams[key].includes(value))
-        continue;
       if (!Array.isArray(queryParams[key])) {
-        queryParams[key] = [queryParams[key]];
+        if (queryParams[key] === value) continue;
+        queryParams[key] = [queryParams[key], value];
+      } else {
+        if (queryParams[key].includes(value)) continue;
+        queryParams[key].push(value);
       }
-      queryParams[key].push(value);
     } else {
-      queryParams[key] = value;
+      queryParams[key] = value; // ← new key, just assign
     }
   }
 
