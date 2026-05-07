@@ -72,9 +72,9 @@ test("when input is not a  2d array throw error", () => {
   expect(() => createLookup([["a", "b"]])).not.toThrow();
 });
 
-test("when length of internal array not 1 < arr.length < 3", () => {
+test("when length of internal array must be exactly 2", () => {
   expect(() => createLookup([["a"]])).toThrow();
-  expect(() => createLookup(["a", "b", "c"])).toThrow();
+  expect(() => createLookup([["a", "b", "c"]])).toThrow();
 });
 
 test("when non-string k, v pairs throw error", () => {
@@ -84,4 +84,11 @@ test("when non-string k, v pairs throw error", () => {
       [3, 4],
     ])
   ).toThrow();
+
+  expect(() => {
+    createLookup([
+      ["a", 2],
+      [3, "4"],
+    ]);
+  }).toThrow();
 });
