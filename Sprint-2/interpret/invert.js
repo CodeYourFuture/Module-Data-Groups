@@ -19,7 +19,7 @@ function invert(obj) {
     if (typeof value !== "string" && typeof value !== "number") {
       throw new TypeError(`Value ${JSON.stringify(value)} is not a valid key`);
     }
-    invertedObj[String(value)] = String(key);
+    invertedObj[String(value)] = key;
   }
 
   return invertedObj;
