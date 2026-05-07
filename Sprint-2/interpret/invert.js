@@ -19,6 +19,11 @@ function invert(obj) {
     if (typeof value !== "string" && typeof value !== "number") {
       throw new TypeError(`Value ${JSON.stringify(value)} is not a valid key`);
     }
+
+    // if inverted object already has this key, don't overwrite, throw error
+    if (Object.prototype.hasOwnProperty.call(invertedObj, String(value))) {
+      throw new Error(`Duplicate value "${value}" found — cannot invert`);
+    }
     invertedObj[String(value)] = key;
   }
 

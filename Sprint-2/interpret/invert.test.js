@@ -23,8 +23,9 @@ test("Throws errors for non-string, non-numeric keys or values", () => {
   expect(() => invert({ a: { b: 12 } })).toThrow(TypeError);
 });
 
-test("Duplicate values become one key, where the last key in original becomes its new value", () => {
-  expect(invert({ a: "x", b: "x" })).toEqual({ x: "b" });
+// to avoid information loss
+test("Throws erorr if trying to invert obj has multiple keys with same value", () => {
+  expect(() => invert({ a: "x", b: "x" })).toThrow();
 });
 
 test("numeric keys become string converted to value", () => {
@@ -36,12 +37,5 @@ test("invert twice returns original if all values are unique", () => {
     a: "x",
     b: "y",
     x: "z",
-  });
-});
-
-test("invert twice does not returns original if all values are not unique", () => {
-  expect(invert(invert({ a: "x", b: "y", c: "y" }))).toEqual({
-    a: "x",
-    c: "y",
   });
 });
