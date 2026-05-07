@@ -44,4 +44,5 @@ test("given an object, and property that does not exist in object, should return
 test("given invalid parameter, like an array, should return false or throw error", () => {
   expect(() => contains(22, "a")).toThrow(TypeError);
   expect(() => contains([], "a")).toThrow(TypeError);
+  expect(() => contains(new Date(), "getFullYear")).toThrow(TypeError);
 });
