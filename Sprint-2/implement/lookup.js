@@ -1,5 +1,5 @@
 // check if arry is 2d, and each element is a k,v pair and k,v both strings
-function is2dKeyValStringArray(arr) {
+function isValidCountryCurrencyPair(arr) {
   return (
     Array.isArray(arr) &&
     arr.every((element) => {
@@ -16,7 +16,7 @@ function is2dKeyValStringArray(arr) {
 function createLookup(countryAndCurrency) {
   // bit lazy, should have tests for type, and content seperately,
   // to throw more specific errors
-  if (!is2dKeyValStringArray(countryAndCurrency)) {
+  if (!isValidCountryCurrencyPair(countryAndCurrency)) {
     throw new Error("Input is not valid type and/or format");
   }
   return Object.fromEntries(countryAndCurrency);
