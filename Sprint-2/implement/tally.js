@@ -4,7 +4,9 @@ function tally(list) {
   }
   return list.reduce((acc, curr) => {
     if (typeof curr !== "string" && typeof curr !== "number") {
-      throw new Error(`Invalid element: ${curr} must be a string or number`);
+      throw new TypeError(
+        `Invalid element: ${curr} must be a string or number`
+      );
     }
     acc[curr] = (acc[curr] ?? 0) + 1;
     return acc;

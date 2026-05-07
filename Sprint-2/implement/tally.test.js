@@ -34,6 +34,11 @@ test("given array with duplicate elements, returns correct count of each item", 
   expect(tally(["a", "a"])).toEqual({ a: 2 });
 });
 
+// Given an array with mix of duplicates still returns correct values
+test("given array with mix of elements, returns correct count for each", () => {
+  expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
+});
+
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
@@ -41,8 +46,11 @@ test("given invalid input like a string, throw error", () => {
   expect(() => tally("asdf")).toThrow(TypeError);
 });
 
-test("elements of the list must be string or number, or throw error", () => {
-  expect(() => tally([{ a: 12 }, { b: "c" }, { a: 12 }])).toThrow();
+// Given an array with invalid elements
+// When passed to tally
+// Then it should throw an error
+test("throws if elements of array are not string or number", () => {
+  expect(() => tally([{ a: 12 }, { b: "c" }, { a: 12 }])).toThrow(TypeError);
 });
 
 // given arr of numbers, returns correct tally
