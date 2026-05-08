@@ -502,3 +502,5 @@ newQuoteBtn.addEventListener("click", () => {
   quoteText.textContent = selectedQuote.quote;
   authorText.textContent = `-- ${selectedQuote.author}`;
 });
+
+document.onload = newQuoteBtn.click();
