@@ -497,10 +497,12 @@ const authorText = document.getElementById("author");
 
 const newQuoteBtn = document.getElementById("new-quote");
 
-newQuoteBtn.addEventListener("click", () => {
+function loadQuote() {
   const selectedQuote = pickFromArray(quotes);
   quoteText.textContent = selectedQuote.quote;
-  authorText.textContent = `-- ${selectedQuote.author}`;
-});
+  authorText.textContent = selectedQuote.author;
+}
 
-document.onload = newQuoteBtn.click();
+newQuoteBtn.addEventListener("click", loadQuote);
+
+window.addEventListener("load", loadQuote);
