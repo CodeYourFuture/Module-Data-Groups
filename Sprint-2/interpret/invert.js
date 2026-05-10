@@ -24,7 +24,7 @@ function invert(obj) {
     if (Object.prototype.hasOwnProperty.call(invertedObj, String(value))) {
       throw new Error(`Duplicate value "${value}" found — cannot invert`);
     }
-    invertedObj[String(value)] = key;
+    invertedObj[value] = key;
   }
 
   return invertedObj;
