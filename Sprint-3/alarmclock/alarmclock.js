@@ -7,6 +7,7 @@ function setAlarm() {
   const alarmClockInput = document.getElementById("alarmSet");
   const clockDisplay = document.getElementById("timeRemaining");
   let secondsRemaining = parseInt(alarmClockInput.value, 10);
+  const setBtn = document.getElementById("set");
 
   if (!isValidInput(secondsRemaining)) {
     alert("please enter a valid positive integer!");
@@ -15,31 +16,34 @@ function setAlarm() {
 
   clearInterval(intervalId);
 
+  // pause any previous alarms when new countdown is set
+  pauseAlarm();
+
   // display immediately on click;
-  const minutes = Math.floor(secondsRemaining / 60);
-  const seconds = secondsRemaining % 60;
-  displayTime(minutes, seconds, clockDisplay);
+  displayTime(secondsRemaining, clockDisplay);
 
   intervalId = setInterval(() => {
     secondsRemaining--;
 
     if (secondsRemaining <= 0) {
       clearInterval(intervalId);
-      displayTime(0, 0, clockDisplay);
+      displayTime(0, clockDisplay);
       playAlarm();
       return;
     }
 
     const minutes = Math.floor(secondsRemaining / 60);
     const seconds = secondsRemaining % 60;
-    displayTime(minutes, seconds, clockDisplay);
+    displayTime(secondsRemaining, clockDisplay);
   }, 1000);
 }
 
 // formats and displays countdown time to a supplied element
-function displayTime(mins, secs, elem) {
+function displayTime(secondsRemaining, elem) {
+  const mins = Math.floor(secondsRemaining / 60);
+  const seconds = secondsRemaining % 60;
   const minsFormatted = String(mins).padStart(2, "0");
-  const secsFormatted = String(secs).padStart(2, "0");
+  const secsFormatted = String(seconds).padStart(2, "0");
   elem.textContent = `Time Remaining: ${minsFormatted}:${secsFormatted}`;
 }
 
@@ -53,7 +57,7 @@ function isValidInput(input) {
     return false;
   }
 
-  if (input < 0) {
+  if (input <= 0) {
     return false;
   }
 
