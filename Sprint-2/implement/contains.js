@@ -10,7 +10,7 @@ function isObject(item) {
 
 function contains(object, key) {
   if (isObject(object)) {
-    return key in object;
+    return Object.hasOwn(object, key);
   }
   throw new TypeError("Exepected a plain object");
 }
