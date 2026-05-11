@@ -32,7 +32,9 @@ test("array with no duplicates returns copy of original", () => {
 // Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
 test("removes duplicates, while preserving first occurrance of each element", () => {
-  expect(dedupe([1, 3, 3, "as", "as", "df"])).toEqual([1, 3, "as", "df"]);
+  const inputArr = [1, 3, 3, "as", "as", "df"];
+  expect(dedupe(inputArr)).toEqual([1, 3, "as", "df"]);
+  expect(dedupe(inputArr)).not.toBe(inputArr);
 });
 
 // Given an array where all elements are the same
