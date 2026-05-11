@@ -7,7 +7,6 @@ function setAlarm() {
   const alarmClockInput = document.getElementById("alarmSet");
   const clockDisplay = document.getElementById("timeRemaining");
   let secondsRemaining = parseInt(alarmClockInput.value, 10);
-  const setBtn = document.getElementById("set");
 
   if (!isValidInput(secondsRemaining)) {
     alert("please enter a valid positive integer!");
