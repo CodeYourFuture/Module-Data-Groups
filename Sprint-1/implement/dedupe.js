@@ -1,5 +1,11 @@
 function dedupe(array) {
-    return [1, 2, 3]
+    const unique = [];
+    array.forEach((item) => {
+        if (!unique.includes(item)) {
+            unique.push(item);
+        }
+    });
+    return unique
 }
 
 module.exports = dedupe;
