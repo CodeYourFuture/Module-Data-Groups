@@ -50,8 +50,8 @@ describe("sum", () => {
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
 
   it("array with non-number values returns sum of numerical values only", () => {
-    const list = [1];
-    expect(sum(list)).toEqual(1);
+    const list = [1, 2, "apple", 4, "banana", 3];
+    expect(sum(list)).toEqual(10);
   });
 
 // Given an array with only non-number values
@@ -59,7 +59,7 @@ describe("sum", () => {
 // Then it should return the least surprising value given how it behaves for all other inputs
 
   it("array with non-number values only returns least surprising output", () => {
-    const list = [1];
+    const list = ["a", "b", "c"];
     expect(sum(list)).toEqual(0);
   });
 });
