@@ -1,22 +1,36 @@
+let timer;
+
 function setAlarm() {
-  timeRemaining = document.getElementById("timeRemaining")
   timeSet = document.getElementById("alarmSet").value
-  const time = convertTime(timeSet)
-  
-  
-
-
-  timeRemaining.textContent = `Time Remaining: ${remainingMinutes}:${remainingSeconds}`
+  const time = countdown(timeSet)
+  if (time > 0) {
+    countdown(time);
+  }
 }
 
 function countdown(time) {
-  setInterval(() => {
-    
+  clearInterval(timer);
+  let timeRemaining = time;
+  if (timeRemaining > 5999) {timeRemaining = 5999};
+  UpdateShownTime(timeRemaining)
+  
+  timer = setInterval(() => {
+    timeRemaining -= 1;
+    if (timeRemaining == 0 ) {clearInterval(timer); playAlarm();}
+    UpdateShownTime(timeRemaining)
   }, 1000)
 }
 
+function UpdateShownTime(timeRemaining) {
+  let timeRemainingOutput = document.getElementById("timeRemaining");
+  let title = document.getElementById("title");
+  const formattedTime = convertTime(timeRemaining);
+  const printedTime = printTime(formattedTime);
+  timeRemainingOutput.textContent = `Time Remaining: ${printedTime}`;
+  title.textContent = `Time Remaining: ${printedTime}`;
+}
+
 function convertTime(timeSeconds) {
-  if (timeSeconds > 5999) {return [99, 59]};
   const seconds = timeSeconds % 60;
   const minutes = (timeSeconds - seconds) / 60;
   console.log([minutes, seconds])
@@ -29,16 +43,7 @@ function printTime(time) {
   return paddedHours + ":" + paddedSeconds;
 }
 
-printTime([50,40])
-printTime([50,4])
-printTime([5,40])
 
-convertTime(5000000)
-convertTime(50)
-convertTime(500)
-convertTime(5000000)
-
-/*
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
@@ -62,4 +67,3 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
-*/
