@@ -20,7 +20,6 @@ function parseQueryString(queryString) {
       }
       const [key, value] = [pair.slice(0, index), pair.slice(index + 1)];
       queryParams[key] = value;
-    } else {
     }
   }
 
