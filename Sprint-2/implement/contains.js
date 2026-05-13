@@ -1,3 +1,5 @@
-function contains() {}
+function contains() {
+    return true
+}
 
 module.exports = contains;
