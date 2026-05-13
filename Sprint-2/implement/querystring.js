@@ -5,7 +5,7 @@ function parseQueryString(queryString) {
   }
 
   // Adds percentage-encoded characters
-  queryString = changePEC(queryString);
+  queryString = decodeURIComponent(queryString);
 
   // Replaces + with space
   queryString = queryString.replaceAll("+", " ");
@@ -24,23 +24,6 @@ function parseQueryString(queryString) {
   }
 
   return queryParams;
-}
-
-// this function below can have the object PEC expanded to include all percentage-encoded characters
-// currently without adding this database, an unknown PEC could cause the code to get stuck in an infinite loop
-
-function changePEC(string) {
-  const PEC = { "%24": "$", "%2F": "/" };
-  while (string.includes("%")) {
-    const index = string.indexOf("%");
-    const code = string.slice(index, index + 3);
-    if (PEC[code]) {
-      string = string.replace(code, PEC[code]);
-    } else {
-      break;
-    }
-  }
-  return string;
 }
 
 module.exports = parseQueryString;
