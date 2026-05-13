@@ -33,8 +33,8 @@ describe("tally", () => {
   // When passed to tally
   // Then it should return counts for each unique item
   it("tally returns counts for each unique item", () => {
-    const array = ["a", "a", "b", "c"];
-    expect(tally(array)).toEqual({ a: 2, b: 1, c: 1 });
+    expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
+    expect(tally(["toString", "toString"])).toEqual({ toString: 2 });
   });
 
   // Given an invalid input like a string
