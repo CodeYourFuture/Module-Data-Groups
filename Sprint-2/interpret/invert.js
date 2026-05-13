@@ -26,7 +26,7 @@ function invert(obj) {
 // { key: 2 }
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
-// {"1": "a", "2": "b"}
+// {1: a, 2: b}
 
 // c) What does Object.entries return? Why is it needed in this program?
 // It turns the object into an array of arrays
