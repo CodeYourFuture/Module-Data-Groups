@@ -6,18 +6,17 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
-invert({ a: 1, b: 2 })
+invert({ a: 1, b: 2 });
 
 function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj[value] = key
+    invertedObj[value] = key;
   }
-  console.log(invertedObj)
+  console.log(invertedObj);
   return invertedObj;
 }
-
 
 // a) What is the current return value when invert is called with { a : 1 }
 // { key: 1 }
