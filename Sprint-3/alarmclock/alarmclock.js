@@ -1,8 +1,8 @@
 let timer;
 
 function setAlarm() {
-  timeSet = document.getElementById("alarmSet").value
-  const time = countdown(timeSet)
+  timeSet = document.getElementById("alarmSet").value;
+  const time = countdown(timeSet);
   if (time > 0) {
     countdown(time);
   }
@@ -11,14 +11,19 @@ function setAlarm() {
 function countdown(time) {
   clearInterval(timer);
   let timeRemaining = time;
-  if (timeRemaining > 5999) {timeRemaining = 5999};
-  UpdateShownTime(timeRemaining)
-  
+  if (timeRemaining > 5999) {
+    timeRemaining = 5999;
+  }
+  UpdateShownTime(timeRemaining);
+
   timer = setInterval(() => {
     timeRemaining -= 1;
-    if (timeRemaining == 0 ) {clearInterval(timer); playAlarm();}
-    UpdateShownTime(timeRemaining)
-  }, 1000)
+    if (timeRemaining == 0) {
+      clearInterval(timer);
+      playAlarm();
+    }
+    UpdateShownTime(timeRemaining);
+  }, 1000);
 }
 
 function UpdateShownTime(timeRemaining) {
@@ -33,7 +38,7 @@ function UpdateShownTime(timeRemaining) {
 function convertTime(timeSeconds) {
   const seconds = timeSeconds % 60;
   const minutes = (timeSeconds - seconds) / 60;
-  console.log([minutes, seconds])
+  console.log([minutes, seconds]);
   return [minutes, seconds];
 }
 
@@ -42,7 +47,6 @@ function printTime(time) {
   const paddedSeconds = String(time[1]).padStart(2, "0");
   return paddedHours + ":" + paddedSeconds;
 }
-
 
 // DO NOT EDIT BELOW HERE
 
