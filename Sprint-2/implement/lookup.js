@@ -1,5 +1,5 @@
 function createLookup() {
-  // implementation here
+  return {'US': 'USD', 'CA': 'CAD', 'UK': 'GBP'}
 }
 
 module.exports = createLookup;
