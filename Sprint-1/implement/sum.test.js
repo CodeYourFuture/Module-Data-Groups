@@ -11,52 +11,52 @@ const sum = require("./sum.js");
 // Acceptance Criteria:
 
 describe("sum", () => {
-// Given an empty array
-// When passed to the sum function
-// Then it should return 0
+  // Given an empty array
+  // When passed to the sum function
+  // Then it should return 0
   it("empty array returns 0", () => {
     const list = [];
     expect(sum(list)).toEqual(0);
   });
 
-// Given an array with just one number
-// When passed to the sum function
-// Then it should return that number
+  // Given an array with just one number
+  // When passed to the sum function
+  // Then it should return that number
   it("array with one number returns number", () => {
     const list = [1];
     expect(sum(list)).toEqual(1);
   });
 
-// Given an array containing negative numbers
-// When passed to the sum function
-// Then it should still return the correct total sum
+  // Given an array containing negative numbers
+  // When passed to the sum function
+  // Then it should still return the correct total sum
 
   it("array with negative numbers returns correct sum", () => {
     const list = [-1, -2, -3];
     expect(sum(list)).toEqual(-6);
   });
 
-// Given an array with decimal/float numbers
-// When passed to the sum function
-// Then it should return the correct total sum
+  // Given an array with decimal/float numbers
+  // When passed to the sum function
+  // Then it should return the correct total sum
 
   it("array with decimal numbers returns correct sum", () => {
     const list = [1.1, 2.2, 3.3];
     expect(sum(list)).toEqual(6.6);
   });
 
-// Given an array containing non-number values
-// When passed to the sum function
-// Then it should ignore the non-numerical values and return the sum of the numerical elements
+  // Given an array containing non-number values
+  // When passed to the sum function
+  // Then it should ignore the non-numerical values and return the sum of the numerical elements
 
   it("array with non-number values returns sum of numerical values only", () => {
     const list = [1, 2, "apple", 4, "banana", 3];
     expect(sum(list)).toEqual(10);
   });
 
-// Given an array with only non-number values
-// When passed to the sum function
-// Then it should return the least surprising value given how it behaves for all other inputs
+  // Given an array with only non-number values
+  // When passed to the sum function
+  // Then it should return the least surprising value given how it behaves for all other inputs
 
   it("array with non-number values only returns least surprising output", () => {
     const list = ["a", "b", "c"];
