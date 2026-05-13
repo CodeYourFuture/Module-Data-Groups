@@ -1,7 +1,7 @@
 function setAlarm() {
   timeRemaining = document.getElementById("timeRemaining")
-  alarmSet = document.getElementById("alarmSet").value
-
+  timeSet = document.getElementById("alarmSet").value
+  const time = convertTime(timeSet)
   
   
 
@@ -11,7 +11,7 @@ function setAlarm() {
 
 function countdown(time) {
   setInterval(() => {
-
+    
   }, 1000)
 }
 
@@ -22,6 +22,16 @@ function convertTime(timeSeconds) {
   console.log([minutes, seconds])
   return [minutes, seconds];
 }
+
+function printTime(time) {
+  const paddedHours = String(time[0]).padStart(2, "0");
+  const paddedSeconds = String(time[1]).padStart(2, "0");
+  return paddedHours + ":" + paddedSeconds;
+}
+
+printTime([50,40])
+printTime([50,4])
+printTime([5,40])
 
 convertTime(5000000)
 convertTime(50)
