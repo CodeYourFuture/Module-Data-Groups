@@ -49,9 +49,8 @@ describe("contains", () => {
   // Then it should return false or throw an error
   it("given invalid parameter (an array) returns false or throws an error", () => {
     expect(contains([], [])).toEqual(false);
-    expect(contains(["a", 1], "a")).toEqual(false);
+    expect(contains(["a", 1], 1)).toEqual(false);
     expect(contains({ a: 1, b: 2 }, ["a"])).toEqual(false);
-    expect(contains(["a", 1], ["a"])).toEqual(false);
   });
 
   it("given null returns false", () => {

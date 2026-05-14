@@ -4,12 +4,8 @@ function parseQueryString(queryString) {
     return queryParams;
   }
 
-  // Adds percentage-encoded characters
-  queryString = decodeURIComponent(queryString);
-
   // Replaces + with space
   queryString = queryString.replaceAll("+", " ");
-
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
@@ -18,7 +14,13 @@ function parseQueryString(queryString) {
       if (!pair.includes("=")) {
         index = pair.length;
       }
-      const [key, value] = [pair.slice(0, index), pair.slice(index + 1)];
+      const rawKey = pair.slice(0, index);
+      const rawValue = pair.slice(index + 1);
+
+      // Remove percentage-encoded characters
+      const key = decodeURIComponent(rawKey);
+      const value = decodeURIComponent(rawValue);
+
       queryParams[key] = value;
     }
   }
