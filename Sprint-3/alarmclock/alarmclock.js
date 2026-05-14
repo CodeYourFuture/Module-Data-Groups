@@ -2,7 +2,7 @@ let timer;
 
 function setAlarm() {
   const timeSet = document.getElementById("alarmSet").value;
-  const time = countdown(timeSet);
+  countdown(timeSet);
 }
 
 function countdown(time) {
