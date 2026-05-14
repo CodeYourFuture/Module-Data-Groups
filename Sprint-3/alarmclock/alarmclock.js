@@ -1,11 +1,8 @@
 let timer;
 
 function setAlarm() {
-  timeSet = document.getElementById("alarmSet").value;
+  const timeSet = document.getElementById("alarmSet").value;
   const time = countdown(timeSet);
-  if (time > 0) {
-    countdown(time);
-  }
 }
 
 function countdown(time) {
@@ -14,7 +11,7 @@ function countdown(time) {
   if (timeRemaining > 5999) {
     timeRemaining = 5999;
   }
-  UpdateShownTime(timeRemaining);
+  updateShownTime(timeRemaining);
 
   timer = setInterval(() => {
     timeRemaining -= 1;
@@ -22,11 +19,11 @@ function countdown(time) {
       clearInterval(timer);
       playAlarm();
     }
-    UpdateShownTime(timeRemaining);
+    updateShownTime(timeRemaining);
   }, 1000);
 }
 
-function UpdateShownTime(timeRemaining) {
+function updateShownTime(timeRemaining) {
   let timeRemainingOutput = document.getElementById("timeRemaining");
   let title = document.getElementById("title");
   const formattedTime = convertTime(timeRemaining);
