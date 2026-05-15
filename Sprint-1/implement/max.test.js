@@ -20,7 +20,7 @@ describe("calculateMedian", () => {
 
   it("empty array returns -Infinity", () => {
     const list = [];
-    expect(findMax(list)).toEqual("-Infinity");
+    expect(findMax(list)).toEqual(-Infinity);
   });
 
   // Given an array with one number
@@ -74,6 +74,6 @@ describe("calculateMedian", () => {
 
   it("array with only non-number values, return the least surprising value given how it behaves for all other inputs", () => {
     const list = ["a", "b", "c"];
-    expect(findMax(list)).toEqual("-Infinity");
+    expect(findMax(list)).toEqual(-Infinity);
   });
 });
