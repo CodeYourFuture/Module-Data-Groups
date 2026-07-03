@@ -38,7 +38,33 @@ describe("dedupe", () => {
   });
 
   test("removes duplicate numbers and strings", () => {
-    expect(dedupe([1, "a", 2, "b", 1, "a"])).toEqual([1, "a", 2, "b"]);
+    expect(dedupe([1, "a", 2, "b", 1, "a", "2"])).toEqual([
+      1,
+      "a",
+      2,
+      "b",
+      "2",
+    ]);
+  });
+
+  test("handles special characters", () => {
+    expect(dedupe(["@", "@", "#", "#", "!"])).toEqual(["@", "#", "!"]);
+  });
+
+  test("handles strings with spaces", () => {
+    expect(dedupe(["a a", "a a", "b b"])).toEqual(["a a", "b b"]);
+  });
+
+  test("handles null and undefined", () => {
+    expect(dedupe([null, null, undefined])).toEqual([null, undefined]);
+  });
+
+  test("handles boolean values", () => {
+    expect(dedupe([true, false, true])).toEqual([true, false]);
+  });
+
+  [null, undefined, 123, "abc", {}].forEach((input) => {
+    expect(dedupe(input)).toEqual([]);
   });
 
   test("does not mutate original array", () => {
