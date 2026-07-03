@@ -22,7 +22,7 @@ describe("findMax", () => {
   });
 
   test("return largest number with both positive and negative ", () => {
-    expect(findMax([3, 6, -2, 0, -5, 2])).toEqual(3);
+    expect(findMax([3, 6, -2, 0, -5, 2])).toEqual(6);
   });
 
   test("return largest number with just negative numbers ", () => {
