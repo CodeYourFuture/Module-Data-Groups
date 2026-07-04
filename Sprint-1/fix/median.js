@@ -11,20 +11,14 @@ function calculateMedian(arr) {
       }
 
       if (typeof x === "string") {
-        const trimmed = x.trim();
-        if (trimmed === "") continue;
-
-        const n = Number(trimmed);
-        if (Number.isFinite(n)) {
-          nums.push(n);
-        }
+        const n = Number(x.trim());
+        if (Number.isFinite(n)) nums.push(n);
       }
     }
 
     if (nums.length === 0) return null;
 
-    const sorted = [...nums].sort((a, b) => a - b);
-
+    const sorted = nums.slice().sort((a, b) => a - b);
     const mid = Math.floor(sorted.length / 2);
 
     return sorted.length % 2 === 1
