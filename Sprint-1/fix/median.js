@@ -1,34 +1,21 @@
-function calculateMedian(arr) {
-  try {
-    if (!Array.isArray(arr)) return null;
+function calculate_median(arr) {
+  
+  if (!Array.isArray(arr)) return null;
 
-    const nums = [];
+  if (arr.length === 0) return null;
 
-    for (let i = 0; i < arr.length; i++) {
-      const x = arr[i];
+  const cleaned = arr.filter(x => typeof x === "number" && Number.isFinite(x));
 
-      if (!(i in arr)) continue;
+  if (cleaned.length === 0) return null;
 
-      if (typeof x === "number" && Number.isFinite(x)) {
-        nums.push(x);
-      } else if (typeof x === "string") {
-        const n = Number(x);
-        if (Number.isFinite(n)) nums.push(n);
-      }
-    }
+  const sorted = [...cleaned].sort((a, b) => a - b);
 
-    if (nums.length === 0) return null;
+  const mid = Math.floor(sorted.length / 2);
 
-    const sorted = nums.slice().sort((a, b) => a - b);
-    const mid = Math.floor(sorted.length / 2);
-
-    return sorted.length % 2 === 1
-      ? sorted[mid]
-      : (sorted[mid - 1] + sorted[mid]) / 2;
-
-  } catch {
-    return null;
+  if (sorted.length % 2 === 1) {
+    return sorted[mid];
+  } else {
+    return (sorted[mid - 1] + sorted[mid]) / 2;
   }
 }
-
 module.exports = calculateMedian;
