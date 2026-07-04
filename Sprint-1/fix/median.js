@@ -1,4 +1,4 @@
-function calculate_median(arr) {
+function calculateMedian(arr) {
   
   if (!Array.isArray(arr)) return null;
 
