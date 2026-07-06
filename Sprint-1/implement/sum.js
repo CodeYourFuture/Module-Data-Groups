@@ -1,4 +1,3 @@
-function sum(elements) {
-}
+function sum(elements) {}
 
 module.exports = sum;

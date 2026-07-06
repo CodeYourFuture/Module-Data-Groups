@@ -1,4 +1,3 @@
-function findMax(elements) {
-}
+function findMax(elements) {}
 
 module.exports = findMax;
