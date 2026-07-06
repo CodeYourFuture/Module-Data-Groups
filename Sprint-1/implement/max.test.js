@@ -34,7 +34,7 @@ describe("findMax", () => {
 
   // Given an array with decimal numbers
   test("returns the largest number with decimal numbers", () => {
-    expect(findMax([-5, 2.3, 7, 3.9, 2.1])).toEqual(3.9);
+    expect(findMax([-5, 2.3, 7.5, 3.9, 2.1])).toEqual(7.5);
   });
 
   // Given an array with non-number values
