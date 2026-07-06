@@ -46,7 +46,7 @@ describe("createLookup", () => {
     };
     expect(createLookup(input)).toEqual(output);
   });
-  test("Ignores invalid inner arrays", () => {
+  test("Ignores invalid inner array values", () => {
     const input = [["US", "USD"], "Hello", ["CA", "CAD"]];
     const output = {
       US: "USD",
@@ -70,7 +70,7 @@ describe("createLookup", () => {
     expect(createLookup(input)).toEqual(output);
   });
 
-  test("Return an empty object with invalid input", () => {
+  test("Throws an error for invalid input", () => {
     expect(() => createLookup(null)).toThrow();
     expect(() => createLookup("Hello World")).toThrow();
     expect(() => createLookup({})).toThrow();
