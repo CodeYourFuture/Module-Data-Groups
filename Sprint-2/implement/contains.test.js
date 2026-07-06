@@ -16,6 +16,8 @@ describe("contains", () => {
   });
   test("Returns false if the input is invalid", () => {
     expect(contains([1, 2, 3, 4], 3)).toEqual(false);
+    expect(contains(null, 3)).toEqual(false);
+    expect(contains("Hello World", "o")).toEqual(false);
   });
 });
 
