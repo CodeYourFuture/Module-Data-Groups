@@ -17,14 +17,14 @@ E.g. dedupe([1, 2, 1]) returns [1, 2]
 // When passed to the dedupe function
 // Then it should return an empty array
 test("given an empty array, it returns an empty array", () => {
-  expect(removeDuplicates([])).toEqual([]);
+  expect(dedupe([])).toEqual([]);
 });
 
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
 test("given an array with no duplicates, it returns the original array", () => {
-  expect(removeDuplicates([4, 5, 6])).toEqual([4, 5, 6]);
+  expect(dedupe([4, 5, 6])).toEqual([4, 5, 6]);
 });
 
 // Given an array of strings or numbers
@@ -32,13 +32,13 @@ test("given an array with no duplicates, it returns the original array", () => {
 // Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
 test("given a number array with duplicates, it returns a new array without duplicates", () => {
-  expect(removeDuplicates([1, 2, 3, 2, 3])).toEqual([1, 2, 3]);
+  expect(dedupe([1, 2, 3, 2, 3])).toEqual([1, 2, 3]);
 });
 
 test("given a string array with duplicates, it returns a new array without duplicates", () => {
-  expect(removeDuplicates(["a", "a", "b", "c"])).toEqual(["a", "b", "c"]);
+  expect(dedupe(["a", "a", "b", "c"])).toEqual(["a", "b", "c"]);
 });
 
 test("given a mixed array with duplicates, it returns a new array without duplicates", () => {
-  expect(removeDuplicates([1, "a", "a", "b", "c"])).toEqual([1, "a", "b", "c"]);
+  expect(dedupe([1, "a", "a", "b", "c"])).toEqual([1, "a", "b", "c"]);
 });
