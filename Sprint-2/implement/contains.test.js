@@ -13,6 +13,48 @@ as the object doesn't contains a key of 'c'
 
 // Acceptance criteria:
 
+describe('contains function', ()=> {
+
+test('return true when there is a variable inside',()=>{
+const object={
+    a:1 , b:2} 
+const key ='c';
+expect(contains(object,key).toBe(true);)
+})
+
+test('return true when there is a variable inside',()=>{
+const object={
+    a:1 , b:2} 
+const key ='c';
+expect(contains(object,key).toBe(true);)
+})
+
+test('return true when there is a variable inside',()=>{
+const object={
+    a:1 , b:2} 
+const key ='c';
+expect(contains(object,key).toBe(true);)
+})
+
+test('return true when there is a variable inside',()=>{
+const object={
+    a:1 , b:2} 
+const key ='c';
+expect(contains(object,key).toBe(true);)
+})
+
+test('return true when there is a variable inside',()=>{
+const object={
+    a:1 , b:2} 
+const key ='c';
+expect(contains(object,key).toBe(true);)
+})
+
+});
+
+
+
+
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
