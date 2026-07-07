@@ -53,8 +53,12 @@ describe("tally", () => {
       rat: 1,
       duck: 1,
     });
+    expect(tally([1, 2, 1])).toEqual({
+      1: 2,
+      2: 1,
+    });
   });
-  test("Throw an error for invalid input", () => {
+  test("throws an error for invalid input", () => {
     expect(() => tally("Hello World")).toThrow("Invalid input");
     expect(() => tally({ cat: 3 })).toThrow("Invalid input");
     expect(() => tally(null)).toThrow("Invalid input");
