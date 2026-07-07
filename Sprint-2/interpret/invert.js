@@ -56,11 +56,14 @@ To use the value stored inside the key variable as the property name, we need br
 function invert(obj) {
   const invertedObj = {};
 
+  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
+    throw new Error("Invalid input");
+  }
+
   for (const [key, value] of Object.entries(obj)) {
     invertedObj[value] = key;
   }
 
   return invertedObj;
 }
-
-console.log(invert({ a: 1, b: 2 }));
+module.exports = invert;
