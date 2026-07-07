@@ -23,7 +23,7 @@ const tally = require("./tally.js");
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+//test.todo("tally on an empty array returns an empty object");
 
 // Given an array with duplicate items
 // When passed to tally
@@ -32,3 +32,31 @@ test.todo("tally on an empty array returns an empty object");
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+
+describe("tally", () => {
+  test("Return an empty object for empty array input", () => {
+    expect(tally([])).toEqual({});
+  });
+  test("Return an object containing the count for each unique item", () => {
+    expect(tally(["cat"])).toEqual({ cat: 1 });
+    expect(tally(["cat", "dog", "rat", "duck"])).toEqual({
+      cat: 1,
+      dog: 1,
+      rat: 1,
+      duck: 1,
+    });
+  });
+  test("Return an object containing the count for duplicate items", () => {
+    expect(tally(["cat", "dog", "rat", "cat", "duck", "dog"])).toEqual({
+      cat: 2,
+      dog: 2,
+      rat: 1,
+      duck: 1,
+    });
+  });
+  test("Throw an error for invalid input", () => {
+    expect(() => tally("Hello World")).toThrow("Invalid input");
+    expect(() => tally({ cat: 3 })).toThrow("Invalid input");
+    expect(() => tally(null)).toThrow("Invalid input");
+  });
+});
