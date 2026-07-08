@@ -4,7 +4,6 @@
 
 // Hint: Please consider scenarios when 'list' doesn't have numbers (the function is expected to return null)
 // or 'list' has mixed values (the function is expected to sort only numbers).
-
 function calculateMedian(list) {
   // Return null when input is not an array (tests expect null for invalid input)
   if (!Array.isArray(list)) {
@@ -14,7 +13,7 @@ function calculateMedian(list) {
   // Keep only actual numbers. This filters out strings, null, undefined, objects, etc.
   // We deliberately do not coerce numeric strings (e.g. "3") to numbers — tests expect
   // non-number values to be ignored rather than parsed.
-  const numericList = list.filter((item) => typeof item === "number" && !isFinite(item));
+  const numericList = list.filter((item) => typeof item === "number" && Number.isFinite(item));
 
   // If there are no numeric values, return null (the function should not attempt
   // to compute a median from non-numeric or empty input).
