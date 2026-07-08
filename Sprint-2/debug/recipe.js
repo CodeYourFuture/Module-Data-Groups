@@ -9,7 +9,14 @@ const recipe = {
   serves: 2,
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
-
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+let recipeEntries = Object.entries(recipe);
+for (const [reicpeKey, recipeValue] of recipeEntries) {
+  if (reicpeKey === "ingredients") {
+    console.log("Ingredients:");
+    for (const ingredient of recipeValue) {
+      console.log(ingredient);
+    }
+  } else {
+    console.log(`${reicpeKey}: ${recipeValue}`);
+  }
+}
