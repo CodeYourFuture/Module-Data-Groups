@@ -13,24 +13,46 @@ const sum = require("./sum.js");
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0");
+describe("sum", () => {
+  test("given an empty array, returns 0", () => {
+    expect(sum([])).toBe(0);
+  });
+
+  test("given an array with just one number, returns that number", () => {
+    expect(sum([42])).toBe(42);
+  });
+});
 
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
-
+test("should sum an array of positive numbers", () => {
+  expect(sum([1, 2, 3, 4, 5])).toBe(15);
+});
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
+test("should sum an array containing negative numbers", () => {
+  expect(sum([-1, -2, -3, -4, -5])).toBe(-15);
+});
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+test("should sum an array of decimal numbers", () => {
+  expect(sum([1.5, 2.5, 3.5])).toBe(7.5);
+});
 
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
+test("should ignore non-number values", () => {
+  expect(sum(["a", "b", "c", 40])).toBe(40);
+});
 
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("given an array with only non-number values, returns 0", () => {
+  expect(sum(["a", "b", "c"])).toBe(0);
+});
