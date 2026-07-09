@@ -7,3 +7,5 @@ function dedupe(arr) {
   }
   return array;
 }
+
+module.exports = dedupe;
