@@ -37,12 +37,62 @@ test("should replace '+' by ' '", () => {
   });
 });
 
-// Stretch exercise: Handling query strings that contain identical keys
-
-// Delete this test if you are not working on this optional case
-test("should store values of a key in an array when the key has 2 or more values", () => {
-  expect(parseQueryString("key=value1&key=value2&key=value3&foo=bar")).toEqual({
-    key: ["value1", "value2", "value3"],
-    foo: "bar",
+test("should parse basic key-value pairs", () => {
+  expect(parseQueryString("name=John&age=30")).toEqual({
+    name: "John",
+    age: "30",
   });
 });
+
+test("should replace '+' by ' '", () => {
+  expect(parseQueryString("name=John+Doe&city=New+York")).toEqual({
+    name: "John Doe",
+    city: "New York",
+  });
+
+  expect(parseQueryString("full+name=John+Doe")).toEqual({
+    "full name": "John Doe",
+  });
+});
+
+test("should decode percent-encoded characters", () => {
+  expect(parseQueryString("message=Hello%20World")).toEqual({
+    message: "Hello World",
+  });
+
+  expect(parseQueryString("%24half=1%2F2")).toEqual({
+    $half: "1/2",
+  });
+});
+
+test("should handle keys without values", () => {
+  expect(parseQueryString("debug")).toEqual({
+    debug: "",
+  });
+
+  expect(parseQueryString("key")).toEqual({
+    key: "",
+  });
+});
+
+test("should handle empty values", () => {
+  expect(parseQueryString("name=&age=25")).toEqual({
+    name: "",
+    age: "25",
+  });
+
+  expect(parseQueryString("key=")).toEqual({
+    key: "",
+  });
+});
+
+test("should return empty object for empty input", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("should use the last value when duplicate keys exist", () => {
+  expect(parseQueryString("color=red&color=blue")).toEqual({
+    color: "blue",
+  });
+});
+
