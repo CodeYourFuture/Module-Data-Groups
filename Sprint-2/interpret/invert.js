@@ -10,11 +10,14 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    // use computed property name so the value becomes the new key
+    invertedObj[String(value)] = key;
   }
 
   return invertedObj;
 }
+
+module.exports = invert;
 
 // a) What is the current return value when invert is called with { a : 1 }
 
