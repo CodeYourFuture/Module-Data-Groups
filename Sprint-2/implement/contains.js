@@ -1,4 +1,4 @@
-function contains() {
+function contains(obj, property_name) {
   return property_name in obj;
 }
 
