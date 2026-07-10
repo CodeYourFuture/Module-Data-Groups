@@ -13,47 +13,47 @@ as the object doesn't contains a key of 'c'
 
 // Acceptance criteria:
 
-describe('contains function', ()=> {
+describe("contains function", () => {
+  test("return true when there is a variable inside", () => {
+    const object = {
+      a: 1,
+      b: 2,
+    };
+    const key = "c";
+    expect(contains(object, key)).toBe(false);
+  });
 
-test('return true when there is a variable inside',()=>{
-const object={
-    a:1 , b:2} 
-const key ='c';
-expect(contains(object,key).toBe(true);)
-})
+  test("Given an empty object", () => {
+    const object = {};
+    const key = "c";
+    expect(contains(object, key)).toBe(false);
+  });
 
-test('return true when there is a variable inside',()=>{
-const object={
-    a:1 , b:2} 
-const key ='c';
-expect(contains(object,key).toBe(true);)
-})
+  test("Given an object with properties", () => {
+    const object = {
+      a: 1,
+      b: 2,
+    };
+    const key = "b";
+    expect(contains(object, key)).toBe(true);
+  });
 
-test('return true when there is a variable inside',()=>{
-const object={
-    a:1 , b:2} 
-const key ='c';
-expect(contains(object,key).toBe(true);)
-})
+  test("Given an object with non-existing properties", () => {
+    const object = {
+      a: 1,
+      b: 2,
+    };
+    const key = "c";
+    expect(contains(object.key)).toBe(false);
+  });
 
-test('return true when there is a variable inside',()=>{
-const object={
-    a:1 , b:2} 
-const key ='c';
-expect(contains(object,key).toBe(true);)
-})
-
-test('return true when there is a variable inside',()=>{
-const object={
-    a:1 , b:2} 
-const key ='c';
-expect(contains(object,key).toBe(true);)
-})
-
+  test("Given invalid parameters like an array", () => {
+    const object = ["apple", "orange"];
+    const key = "c";
+    expect(() => contains(object, key)).toThrow();
+  });
+  //if it is array !objects , you should throw errors//
 });
-
-
-
 
 // Given a contains function
 // When passed an object and a property name
@@ -62,7 +62,6 @@ expect(contains(object,key).toBe(true);)
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
 
 // Given an object with properties
 // When passed to contains with an existing property name

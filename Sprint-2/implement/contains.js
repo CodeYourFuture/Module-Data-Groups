@@ -1,10 +1,17 @@
-const objects= {
+const object = {
   a: 1,
   b: 2,
 };
 
-function contains(objects, key) {
-  //if key element is inside the objects,  show true; else, false.
+function contains(object, key) {
+  if (Array.isArray(object)) {
+    throw new Error();
+  }
+
+  if (!object) {
+    return false;
+  }
+
   if (key in object) {
     return true;
   } else {
