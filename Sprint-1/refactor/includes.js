@@ -1,4 +1,3 @@
-
 function includes(list, target) {
   for (const element of list) {
     if (element === target) {
