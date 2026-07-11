@@ -13,3 +13,18 @@ const recipe = {
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
 ${recipe}`);
+
+
+We should not call directly the variable instead we should use recipe.ingredients to call the value insides the label. 
+
+
+const recipe = {
+  title: "bruschetta",
+  serves: 2,
+  ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
+};
+
+console.log(`${recipe.title} serves ${recipe.serves}
+  ingredients:
+${recipe.ingredients}`);
+
