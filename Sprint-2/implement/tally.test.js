@@ -28,8 +28,8 @@ describe("tally", () => {
   test("returns counts for each unique item", () => {
     expect(tally(["apple"])).toEqual({ apple: 1 });
     expect(tally(["apple", "banana", "orange"])).toEqual({
-      apple: 2,
-      banana: 2,
+      apple: 1,
+      banana: 1,
       orange: 1,
     });
   });
