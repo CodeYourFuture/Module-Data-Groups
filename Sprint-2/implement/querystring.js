@@ -4,9 +4,18 @@ function parseQueryString(queryString) {
     return queryParams;
   }
   const keyValuePairs = queryString.split("&");
+  const replacePlusWithSpace = (str) => str.replace(/\+/g, " ");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
+    if (pair === "") continue;
+
+    const [rawKey, ...rawValueParts] = pair.split("=");
+    const keyWithSpaces = replacePlusWithSpace(rawKey || "");
+    const valueWithSpaces = replacePlusWithSpace(rawValueParts.join("=") || "");
+
+    const key = decodeURIComponent(keyWithSpaces);
+    const value = decodeURIComponent(valueWithSpaces);
+
     queryParams[key] = value;
   }
 
