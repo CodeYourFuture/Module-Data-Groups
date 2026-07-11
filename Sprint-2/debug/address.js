@@ -1,8 +1,10 @@
-// Predict and explain first...
+/* Predict and explain first...
 
-// This code should log out the houseNumber from the address object
-// but it isn't working...
-// Fix anything that isn't working
+My prediction is that when I run this code it will return undefined.
+This is because this is an object not an array, objects are not indexed by numbers, they are indexed by keys. 
+So when i try to access address[0], it will return undefined because there is no key '0' in the address object.
+
+*/
 
 const address = {
   houseNumber: 42,
@@ -12,4 +14,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
