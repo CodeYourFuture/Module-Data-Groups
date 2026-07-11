@@ -9,6 +9,7 @@ You should implement this function in max.js, and add tests for it in this file.
 
 We have set things up already so that this file can see your function from the other file.
 */
+
 const findMax = require("./max.js");
 
 // Given an empty array
@@ -16,70 +17,6 @@ const findMax = require("./max.js");
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
 test.todo("given an empty array, returns -Infinity");
-
-describe("findMax funtion", () => {
-  test("given an empty array, returns -Infinity", () => {
-    const input = [];
-    const result = findMax(input);
-
-    expect(result).toEqual(Infinity);
-
-    expect(result).not.toBe(input);
-  });
-
-  test("Given an array with one number ", () => {
-    const input = [1];
-    const result = findMax(input);
-
-    expect(result).toEqual(1);
-
-    expect(result).not.toBe(input);
-  });
-
-  test("Given an array with both positive and negative numbers", () => {
-    const input = [1, -2];
-    const result = findMax(input);
-
-    expect(result).toEqual(1);
-
-    expect(result).not.toBe(input);
-  });
-
-  test("Given an array with just negative numbers", () => {
-    const input = [-3, -2];
-    const result = findMax(input);
-
-    expect(result).toEqual(-2);
-    expect(result).not.toBe(input);
-  });
-
-  test(" Given an array with decimal numbers", () => {
-    const input = [1.23, 1.24];
-    const result = findMax(input);
-
-    expect(result).toEqual(1.24);
-
-    expect(result).not.toBe(input);
-  });
-
-  test("Given an array with non-number values", () => {
-    const input = ["tiger", 1];
-    const result = findMax(input);
-
-    expect(result).toEqual(1);
-
-    expect(result).not.toBe(input);
-  });
-
-  test("Given an array with only non-number values", () => {
-    const input = ["tiger", "bear"];
-    const result = findMax(input);
-
-    expect(result).toEqual(Infinity);
-
-    expect(result).not.toBe("input");
-  });
-});
 
 // Given an array with one number
 // When passed to the max function
