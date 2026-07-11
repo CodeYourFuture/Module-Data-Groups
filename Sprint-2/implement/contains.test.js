@@ -13,6 +13,48 @@ as the object doesn't contains a key of 'c'
 
 // Acceptance criteria:
 
+describe("contains function", () => {
+  test("return true when there is a variable inside", () => {
+    const object = {
+      a: 1,
+      b: 2,
+    };
+    const key = "c";
+    expect(contains(object, key)).toBe(false);
+  });
+
+  test("Given an empty object", () => {
+    const object = {};
+    const key = "c";
+    expect(contains(object, key)).toBe(false);
+  });
+
+  test("Given an object with properties", () => {
+    const object = {
+      a: 1,
+      b: 2,
+    };
+    const key = "b";
+    expect(contains(object, key)).toBe(true);
+  });
+
+  test("Given an object with non-existing properties", () => {
+    const object = {
+      a: 1,
+      b: 2,
+    };
+    const key = "c";
+    expect(contains(object.key)).toBe(false);
+  });
+
+  test("Given invalid parameters like an array", () => {
+    const object = ["apple", "orange"];
+    const key = "c";
+    expect(() => contains(object, key)).toThrow();
+  });
+  //if it is array !objects , you should throw errors//
+});
+
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
@@ -20,7 +62,6 @@ as the object doesn't contains a key of 'c'
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
 
 // Given an object with properties
 // When passed to contains with an existing property name
