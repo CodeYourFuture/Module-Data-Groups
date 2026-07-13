@@ -1,38 +1,32 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
+  if (typeof queryString !== "string") {
+    throw new Error("Invalid input");
   }
+  if (queryString.length === 0) return queryParams;
 
-  const keyValuePairs = queryString.split("&");
-
-  for (const pair of keyValuePairs) {
-    if (pair === "") {
-      continue;
-    }
-    const pairWithoutAdd = pair.replace(/\+/g, " ");
-    const indexOfEqual = pairWithoutAdd.indexOf("=");
-
-    let keyVal;
-    let val;
-
-    if (indexOfEqual === -1) {
-      keyVal = pairWithoutAdd;
-      val = "";
+  const parseQueryStringArray = queryString.replace(/\+/g, " ").split("&");
+  let key;
+  let value;
+  for (const pair of parseQueryStringArray) {
+    if (pair === "") continue;
+    let equalIndex = pair.indexOf("=");
+    if (equalIndex === -1) {
+      key = pair;
+      value = "";
     } else {
-      keyVal = pairWithoutAdd.slice(0, indexOfEqual);
-      val = pairWithoutAdd.slice(indexOfEqual + 1);
+      key = decodeURIComponent(pair.slice(0, equalIndex));
+      value = decodeURIComponent(pair.slice(equalIndex + 1));
     }
-    keyVal = decodeURIComponent(keyVal);
-    val = decodeURIComponent(val);
-
-    if (Object.hasOwn(queryParams, keyVal)) {
-      if (!Array.isArray(queryParams[keyVal])) {
-        queryParams[keyVal] = [queryParams[keyVal]];
+    if (Object.hasOwn(queryParams, key)) {
+      if (Array.isArray(queryParams[key])) {
+        queryParams[key].push(value);
+      } else {
+        queryParams[key] = [queryParams[key]];
+        queryParams[key].push(value);
       }
-      queryParams[keyVal].push(val);
     } else {
-      queryParams[keyVal] = val;
+      queryParams[key] = value;
     }
   }
 
@@ -40,8 +34,3 @@ function parseQueryString(queryString) {
 }
 
 module.exports = parseQueryString;
-
-/*
-let a = { color: "red" };
-a.color = [a.color];
-console.log(a);*/
