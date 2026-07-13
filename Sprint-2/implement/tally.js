@@ -1,21 +1,14 @@
 function tally(arr) {
-  let counts = {};
+  if (!Array.isArray(arr)) throw new TypeError("Input must be an array");
+  const counts = Object.create(null);
   if (arr.length === 0) {
-    return {};
+    return counts;
   }
-  if (arr !== /^[0-9]A-za-z$/g) {
-    throw new Error("Please Enter Valid Input!");
-  }
-
   for (const item of arr) {
-    if (!/^[A-Za-z0-9]$/.test(item)) {
+    if (typeof item !== "string" || !/^[A-Za-z0-9]+$/.test(item)) {
       throw new Error("Please Enter Valid Input!");
     }
-    if (counts.hasOwnProperty(item)) {
-      counts[item] += 1;
-    } else {
-      counts[item] = 1;
-    }
+    counts[item] = (counts[item] ?? 0) + 1;
   }
   return counts;
 }

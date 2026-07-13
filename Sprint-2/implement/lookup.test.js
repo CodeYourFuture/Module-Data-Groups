@@ -1,6 +1,30 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup object for multiple codes", () => {
+  const result = createLookup([
+    ["US", "USD"],
+    ["UAE", "AED"],
+    ["ERI", "ERN"],
+  ]);
+
+  expect(result).toEqual({
+    US: "USD",
+    UAE: "AED",
+    ERI: "ERN",
+  });
+});
+
+test("prints country and currency vertically", () => {
+  console.log = jest.fn(); //mocks the console.log which is used to print out only returned values, but since this test only checks the printed output but not returned values, we do mock the console.log to check the printed output
+
+  createLookup([
+    ["US", "USD"],
+    ["CA", "CAD"],
+  ]);
+
+  expect(console.log).toHaveBeenCalledWith("US: USD");
+  expect(console.log).toHaveBeenCalledWith("CA: CAD");
+});
 
 /*
 
