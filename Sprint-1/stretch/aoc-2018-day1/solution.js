@@ -1,11 +1,10 @@
 const fs = require("fs");
 
-let inputData;
-fs.readFile("./input.txt", "utf8", (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  inputData.push(...data.split("\n"));
-  // console.log(inputData);
-});
+let frequencies;
+try {
+  const data = fs.readFileSync("./input.txt", "utf8");
+  const inputData = data.split("\n").filter((line) => line.trim() !== "");
+  frequencies = inputData.map(Number);
+} catch (err) {
+  console.error("Error reading file:", err);
+}
