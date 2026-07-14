@@ -12,16 +12,11 @@ function displayQuote(quote) {
 }
 
 function showRandomQuote() {
-  const quote = getRandomQuote();
-  displayQuote(quote);
+  displayQuote(getRandomQuote());
 }
 
-function setup() {
-  newQuoteBtn.addEventListener("click", showRandomQuote);
-  showRandomQuote();
-}
-
-window.addEventListener("load", setup);
+newQuoteBtn.addEventListener("click", showRandomQuote);
+showRandomQuote();
 
 // DO NOT EDIT BELOW HERE
 
