@@ -45,7 +45,8 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves} ingredients:`);
-//recipe.ingredients.forEach((ingredient) => console.log(ingredient));
-for (let ingredient of recipe.ingredients) {
-  console.log(ingredient);
+recipe.ingredients.forEach(printIngredients);
+
+function printIngredients(item) {
+  console.log(item);
 }
