@@ -9,7 +9,7 @@ function calculateMedian(list) {
   if (!Array.isArray(list)) {
     return null;
   }
-  const numbersOnly = list.filter((value) => typeof value === "number");
+  const numbersOnly = list.filter(Number.isFinite);
 
   if (numbersOnly.length === 0) {
     return null;
