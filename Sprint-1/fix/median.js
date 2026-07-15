@@ -8,7 +8,7 @@ function calculateMedian(arr) {
 
   if (cleaned.length === 0) return null;
 
-  const sorted = [...cleaned].sort((a, b) => a - b);
+  const sorted = cleaned.sort((a, b) => a - b);
 
   const mid = Math.floor(sorted.length / 2);
 
