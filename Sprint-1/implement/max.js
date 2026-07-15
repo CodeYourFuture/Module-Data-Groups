@@ -1,7 +1,7 @@
 function findMax(elements) {
   const floats = elements
     .filter(x => {
-      const str = String(x).replace("-", "").replace(".", "");
+      const str = String(x);
       return !isNaN(str) && str !== "";
     })
     .map(x => Number(x));
