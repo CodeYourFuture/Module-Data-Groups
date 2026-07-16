@@ -11,7 +11,7 @@ function calculateMedian(list) {
 
   // filter only numbers from array and sort the filtered array.  If no numbers return null
   const numbers = list
-    .filter((item) => typeof item === "number" && Number.isFinite(item))
+    .filter((item) => typeof item === "number")
     .sort((a, b) => a - b);
   if (numbers.length === 0) return null;
 
