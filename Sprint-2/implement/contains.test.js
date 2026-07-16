@@ -1,35 +1,42 @@
 const contains = require("./contains.js");
 
-/*
-Implement a function called contains that checks an object contains a
-particular property
+test("contains on empty object returns false", function () {
+  const object = {};
+  const currentOutput = contains(object, "a");
+  const targetOutput = false;
 
-E.g. contains({a: 1, b: 2}, 'a') // returns true
-as the object contains a key of 'a'
+  expect(currentOutput).toBe(targetOutput);
+});
 
-E.g. contains({a: 1, b: 2}, 'c') // returns false
-as the object doesn't contains a key of 'c'
-*/
+test("contains with an existing property name should return true", function () {
+  const object = {
+    a: 1,
+    b: 2,
+    flower: "red",
+  };
+  const currentOutput = contains(object, "a");
+  const targetOutput = true;
 
-// Acceptance criteria:
+  expect(currentOutput).toBe(targetOutput);
+});
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
+test("contains with a non-existing property name should return false", function () {
+  const object = {
+    a: 1,
+    b: 2,
+    flower: "red",
+  };
+  const currentOutput = contains(object, "c");
+  const targetOutput = false;
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
+  expect(currentOutput).toBe(targetOutput);
+});
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
+test("contains with an array should return false", function () {
+  const object = ["a", "b", "c"];
 
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
+  const currentOutput = contains(object, "c");
+  const targetOutput = false;
 
-// Given invalid parameters like an array
-// When passed to contains
-// Then it should return false or throw an error
+  expect(currentOutput).toBe(targetOutput);
+});
