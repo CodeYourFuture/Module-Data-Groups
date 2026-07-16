@@ -8,8 +8,8 @@ test("inverts last key if keys are duplicated", () => {
   expect(invert({ x: 10, x: 20 })).toEqual({ 20: "x" });
 });
 
-test("returns empty object if no input is provided", () => {
-  expect(invert({ x: 10, x: 20 })).toEqual({ 20: "x" });
+test("returns empty object if input has no keys", () => {
+  expect(invert({})).toEqual({});
 });
 
 test("throws when input is not an object", () => {
