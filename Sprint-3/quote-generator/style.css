@@ -1,1 +1,60 @@
 /** Write your CSS in here **/
+
+body{
+
+background-color:orange;
+margin:0;
+display: flex;
+min-height: 100vh;
+justify-content: center;
+align-items:center;
+}
+
+
+.card{
+background-color: white;
+padding:30px;
+border-radius: 8px;
+max-width: 500px;
+
+}
+
+.quote-container{
+display: flex;
+align-items: flex-start;
+gap: 15px;
+}
+
+.quote-mark{
+font-size: 90px;
+color: orange;
+line-height: 1;
+font-family: sans-serif;
+
+}
+
+
+#quote{
+ color: orange;
+ font-size: 24px;   
+}
+
+#author{
+ color: orange;
+ font-size: 24px;
+}
+
+.button-container{ 
+display:flex;
+justify-content:flex-end;
+min-height: 50px;
+
+}   
+
+#new-quote{
+background-color: orange;
+color:white;
+border: none;
+}
+
+
