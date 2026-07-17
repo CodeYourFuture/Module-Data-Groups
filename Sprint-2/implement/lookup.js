@@ -25,7 +25,7 @@ const validateData = (data) => {
   }
   // check that input is not empty
   if (data.length === 0) {
-    throw new Error("Input must not be empty");
+    throw new Error("Input must not be an empty array");
   }
 
   // check that the values are valid
@@ -50,7 +50,7 @@ const validateData = (data) => {
 
 // Handle invalid cases
 const INVALID_CASES = [
-  [[], "Input must not be empty"],
+  [[], "Input must not be an empty array"],
   ["hello", "Input must be an array"],
   [[1, 2, 3], "Input must be valid text pairs"],
   [

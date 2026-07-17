@@ -66,7 +66,7 @@ describe("createLookup", () => {
       "Input must not be duplicated",
     ],
   ])("%s", (_title, data, expecteMessage) => {
-    expect(() => createLookup(data).toThrow(expecteMessage));
+    expect(() => createLookup(data)).toThrow(expecteMessage);
   });
 
   test("throws when country code format is incorrect", () => {
