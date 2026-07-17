@@ -44,6 +44,7 @@ test("should set heading when button is clicked", () => {
   button.click();
 
   expect(heading).toHaveTextContent("Time Remaining: 00:19");
+
 });
 
 test("should split values over 60 seconds into minutes and seconds", () => {
