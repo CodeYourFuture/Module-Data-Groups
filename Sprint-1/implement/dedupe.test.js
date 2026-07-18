@@ -1,4 +1,5 @@
 const dedupe = require("./dedupe.js");
+
 /*
 Dedupe Array
 
@@ -21,8 +22,34 @@ test.todo("given an empty array, it returns an empty array");
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+test("the functions should remove the duplicated characters and return it inside a new array ", () => {
+  const currentOutput = dedupe([1, 2]);
+  const targetOutput = [1, 2];
+
+  expect(currentOutput).toEqual(targetOutput);
+});
 
 // Given an array of strings or numbers
 // When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the 
+// Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
+test("the functions should remove the duplicated characters and return it inside a new array ", () => {
+  const currentOutput = dedupe(['a','a','a','b','b','c']);
+  const targetOutput = ['a','b','c'];
+
+  expect(currentOutput).toEqual(targetOutput);
+});
+
+test("the functions should remove the duplicated characters and return it inside a new array ", () => {
+  const currentOutput = dedupe([5, 1, 1, 2, 3, 2, 5, 8]);
+  const targetOutput = [5, 1, 2, 3, 8];
+
+  expect(currentOutput).toEqual(targetOutput);
+});
+
+test("the functions should remove the duplicated characters and return it inside a new array ", () => {
+  const currentOutput = dedupe([1, 2, 1]);
+  const targetOutput = [1, 2];
+
+  expect(currentOutput).toEqual(targetOutput);
+});
