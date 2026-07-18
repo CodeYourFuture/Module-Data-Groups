@@ -502,3 +502,15 @@ function showRandomQuote() {
 showRandomQuote();
 const button = document.querySelector("#new-quote");
 button.addEventListener("click", showRandomQuote);
+
+const autoplayQuote = document.querySelector("#autoplay-quote");
+let autoplayInterval = null;
+
+autoplayQuote.addEventListener("change", function () {
+  if (autoplayQuote.checked) {
+    autoplayInterval = setInterval(showRandomQuote, 5000);
+  } else {
+    clearInterval(autoplayInterval);
+    autoplayInterval = null;
+  }
+});
