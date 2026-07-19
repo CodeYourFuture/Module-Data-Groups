@@ -16,28 +16,48 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity", () => {
+  expect(findMax([])).toEqual(-Infinity);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("Given an array with one number should return that number", () => {
+  expect(findMax([1])).toEqual(1);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("Given an array with both positive and negative numbers should return the largest number overall", () => {
+  expect(findMax([-1, 2, -3, 4, -5])).toEqual(4);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("Given an array with just negative numbers should return the closest one to zero", () => {
+  expect(findMax([-1, -2, -3, -4, -5])).toEqual(-1);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("Given an array with decimal numbers should return the largest decimal number", () => {
+  expect(findMax([1.5, 2.5, 3.5, 4.5])).toEqual(4.5);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test(" Given an array with non-number values should return the max and ignore non-numeric values", () => {
+  expect(findMax([1, "hello", 2, undefined, null])).toEqual(2);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("Given an array with only non-number values should return the least surprising value given how it behaves for all other inputs", () => {
+  expect(findMax(["hello", undefined, null, NaN])).toEqual(-Infinity);
+});
