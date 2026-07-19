@@ -9,7 +9,7 @@ test("should parse values containing '='", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
     equation: "a=b-2",
   });
-});
+}); 
 
 test("should ignore empty key-value pairs", () => {
   expect(parseQueryString("key1=value1&&key2=value2&")).toEqual({
