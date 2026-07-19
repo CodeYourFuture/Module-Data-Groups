@@ -11,5 +11,11 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+ingredients:
+${recipe.ingredients[0]}
+${recipe.ingredients[1]}
+${recipe.ingredients[2]}
+${recipe.ingredients[3]}
+${recipe.ingredients[4]}`);
+
+//  On line 15 we can add recipe.ingredients[]
