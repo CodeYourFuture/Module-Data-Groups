@@ -1,1 +1,45 @@
-/** Write your CSS in here **/
+body {
+  background-color: lavender;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+#quote-box {
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+#quote {
+  font-size: 24px;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#author {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: lavender;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d8b4fe;
+}
