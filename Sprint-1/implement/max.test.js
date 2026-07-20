@@ -16,28 +16,74 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+
+test("given an empty array, returns -Infinity", () => {
+  const currentOutput = (findMax([]));
+  const targetOutput = -Infinity;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("should return the largest number", () => {
+  const currentOutput = (findMax([30]));
+  const targetOutput = 30;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
 
+test("should return the largest number", () => {
+  const currentOutput = (findMax([30, 50, -10, 40]));
+  const targetOutput = 50;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
+
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("should also return the largest negative number", () => {
+  const currentOutput = (findMax([-30, -50, -10, -40]));
+  const targetOutput = -10;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
 
+test("should return the largest number even if there are decimal numbers", () => {
+  const currentOutput = (findMax([30.4, 30.9, 10, -40]));
+  const targetOutput = 30.9;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
+
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 
+test("should skip the string and return the largest number", () => {
+  const currentOutput = (findMax([30, "aa", 10, 40]));
+  const targetOutput = 40;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
+
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+test("should skip all the string and return should be -Infinity", () => {
+  const currentOutput = (findMax(["bb", "aa", "cc"]));
+  const targetOutput = -Infinity;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
