@@ -1,4 +1,5 @@
-let inputSeconds;
+function setAlarm() {
+  let inputSeconds;
 let timer;
 
 function setAlarm() {
@@ -20,7 +21,7 @@ function setAlarm() {
 
         if (inputSeconds <= 0) {
             clearInterval(timer);
-            window.playAlarm();
+            playAlarm();
         }
     }, 1000);
 }
@@ -31,9 +32,11 @@ function updateDisplay() {
 
     document.getElementById("timeRemaining").textContent =
         `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}  
 }
 
 // DO NOT EDIT BELOW HERE
+
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
@@ -49,8 +52,6 @@ function setup() {
 function playAlarm() {
   audio.play();
 }
-
-window.playAlarm = playAlarm;
 
 function pauseAlarm() {
   audio.pause();
