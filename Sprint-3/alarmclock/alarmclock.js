@@ -20,7 +20,7 @@ function setAlarm() {
 
         if (inputSeconds <= 0) {
             clearInterval(timer);
-            playAlarm();
+            window.playAlarm();
         }
     }, 1000);
 }
@@ -49,6 +49,8 @@ function setup() {
 function playAlarm() {
   audio.play();
 }
+
+window.playAlarm = playAlarm;
 
 function pauseAlarm() {
   audio.pause();
