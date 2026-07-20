@@ -17,7 +17,12 @@ E.g. dedupe([1, 2, 1]) returns [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+test("if receive an empty array should return an empty ", () => {
+  const currentOutput = dedupe([]);
+  const targetOutput = [];
+
+  expect(currentOutput).toEqual(targetOutput);
+});
 
 // Given an array with no duplicates
 // When passed to the dedupe function
