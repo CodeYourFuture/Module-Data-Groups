@@ -491,9 +491,9 @@ const quotes = [
 ];
 
 // define variables to store elements
-const quoteText = document.querySelector(".quote-text");
-const author = document.querySelector(".author");
-const newQuoteBtn = document.querySelector("button");
+const quoteText = document.querySelector("#quote");
+const author = document.querySelector("#author");
+const newQuoteBtn = document.querySelector("#new-quote");
 
 // function to display quote
 function displayQuote() {
