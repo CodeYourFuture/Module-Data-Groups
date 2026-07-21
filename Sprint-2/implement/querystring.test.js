@@ -3,7 +3,7 @@
 // Below are some test cases the implementation doesn't handle well.
 // Fix the implementation for these tests, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js")
+const parseQueryString = require("./querystring.js");
 
 test("should parse values containing '='", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
@@ -23,6 +23,36 @@ test("should accept empty string as key or as value", () => {
   expect(parseQueryString("key")).toEqual({ key: "" });
   expect(parseQueryString("key=")).toEqual({ key: "" });
   expect(parseQueryString("=")).toEqual({ "": "" });
+});
+
+test("should return empty object for empty input", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("throws an error for invalid input", () => {
+  expect(() => parseQueryString(null)).toThrow("Invalid input");
+  expect(() => parseQueryString({})).toThrow("Invalid input");
+  expect(() => parseQueryString([])).toThrow("Invalid input");
+  expect(() => parseQueryString(undefined)).toThrow("Invalid input");
+  expect(() => parseQueryString(123)).toThrow("Invalid input");
+  expect(() => parseQueryString(true)).toThrow("Invalid input");
+});
+
+test("should work on duplicate empty keys", () => {
+  expect(parseQueryString("=one&=two")).toEqual({
+    "": ["one", "two"],
+  });
+});
+test("should work on duplicate empty values", () => {
+  expect(parseQueryString("key=&key=")).toEqual({
+    key: ["", ""],
+  });
+});
+
+test("should work on & inside values", () => {
+  expect(parseQueryString("text=Tom%26Jerry")).toEqual({
+    text: "Tom&Jerry",
+  });
 });
 
 test("should decode percent-encoded characters", () => {

@@ -1,6 +1,6 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+//test.todo("creates a country currency code lookup for multiple codes");
 
 /*
 
@@ -33,3 +33,49 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+describe("createLookup", () => {
+  test("Return an object with country codes and currency codes", () => {
+    const input = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ];
+    const output = {
+      US: "USD",
+      CA: "CAD",
+    };
+    expect(createLookup(input)).toEqual(output);
+  });
+  test("Ignores invalid inner array values", () => {
+    const input = [["US", "USD"], "Hello", ["CA", "CAD"]];
+    const output = {
+      US: "USD",
+      CA: "CAD",
+    };
+    expect(createLookup(input)).toEqual(output);
+  });
+  test("returns empty object for empty inner arrays", () => {
+    expect(createLookup([[]])).toEqual({});
+  });
+  test("Handle repeat keys", () => {
+    const input = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+      ["US", "US-Dollar"],
+    ];
+    const output = {
+      US: "US-Dollar",
+      CA: "CAD",
+    };
+    expect(createLookup(input)).toEqual(output);
+  });
+
+  test("Throws an error for invalid input", () => {
+    expect(() => createLookup(null)).toThrow();
+    expect(() => createLookup("Hello World")).toThrow();
+    expect(() => createLookup({})).toThrow();
+  });
+  test("Return an empty object with empty input", () => {
+    expect(createLookup([])).toEqual({});
+  });
+});
