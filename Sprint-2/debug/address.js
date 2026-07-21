@@ -1,6 +1,6 @@
 // Predict and explain first...
-// To specify house number the console.log should use. address.houseNumber. 
-// without it, It would show as undefined
+/* To specify house number the console.log should use. address.houseNumber. 
+without it, It would show as undefined */
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
