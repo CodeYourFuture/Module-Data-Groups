@@ -1,3 +1,93 @@
+const newQuoteBtn = document.querySelector("#new-quote");
+const quote = document.querySelector("#quote");
+const author = document.querySelector("#author");
+const autoPlayToggle = document.querySelector("#auto-play-toggle");
+const autoPlayStatus = document.querySelector("#auto-play-status");
+
+let seenQuotes = new Set();
+let autoPlayIntervalDuration = 10000; // 10 second interval duration
+let autoPlayIntervalId = null;
+let countdownIntervalId = null;
+
+// only show quotes that have not yet been seen
+const getUnseenQuotes = () => {
+  // clear seenQuotes if all quotes have been displayed
+  if (seenQuotes.size === quotes.length) seenQuotes.clear();
+
+  // loop until index is not in seenQuotes
+  let index;
+  do {
+    index = Math.floor(Math.random() * quotes.length);
+  } while (seenQuotes.has(index));
+
+  seenQuotes.add(index);
+  return quotes[index];
+};
+
+const displayQuote = () => {
+  const currentQuote = getUnseenQuotes();
+  quote.innerText = currentQuote.quote;
+  author.innerText = currentQuote.author;
+
+  if (autoPlayIntervalId) startCountDown();
+};
+
+const startCountDown = () => {
+  let timeLeft = autoPlayIntervalDuration / 1000;
+  autoPlayStatus.innerText = `auto-play:ON - Quote will change in ${timeLeft} seconds`;
+
+  if (countdownIntervalId) clearInterval(countdownIntervalId);
+
+  countdownIntervalId = setInterval(() => {
+    timeLeft--;
+    autoPlayStatus.innerText = `auto-play:ON - Quote will change in ${timeLeft} seconds`;
+    if (timeLeft === 0) {
+      clearInterval(countdownIntervalId);
+      countdownIntervalId = null;
+    }
+  }, 1000);
+};
+
+const runInterval = () => {
+  displayQuote();
+  startCountDown();
+  autoPlayIntervalId = setInterval(displayQuote, autoPlayIntervalDuration);
+};
+
+const startAutoPlay = () => {
+  autoPlayStatus.innerText = "auto-play:ON";
+  newQuoteBtn.classList.add("disabled");
+  newQuoteBtn.disabled = true;
+  runInterval();
+};
+
+const stopAutoPlay = () => {
+  if (countdownIntervalId) {
+    clearInterval(countdownIntervalId);
+    countdownIntervalId = null;
+  }
+
+  if (autoPlayIntervalId) {
+    clearInterval(autoPlayIntervalId);
+    autoPlayIntervalId = null;
+  }
+
+  autoPlayStatus.innerText = "";
+  newQuoteBtn.classList.remove("disabled");
+  newQuoteBtn.disabled = false;
+};
+
+// event listeners
+autoPlayToggle.addEventListener("change", () => {
+  if (autoPlayToggle.checked) {
+    startAutoPlay();
+  } else {
+    stopAutoPlay();
+  }
+});
+document.addEventListener("DOMContentLoaded", displayQuote);
+newQuoteBtn.addEventListener("click", displayQuote);
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
