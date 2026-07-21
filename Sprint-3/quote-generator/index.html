@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
-    <script defer src="quotes.js"></script>
-  </head>
-  <body>
-    <h1>hello there</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quote generator app</title>
+  <script defer src="quotes.js"></script>
+</head>
+
+<body>
+  <main>
+    <h1>Quote Generator</h1>
     <p id="quote"></p>
     <p id="author"></p>
     <button type="button" id="new-quote">New quote</button>
-  </body>
+    <div class="controls">
+      <input type="checkbox" id="auto-play-toggle" />
+      <label for="auto-play-toggle">Auto-play</label>
+    </div>
+    <p id="auto-play-status"></p>
+  </main>
+</body>
+
 </html>
