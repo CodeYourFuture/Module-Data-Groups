@@ -3,7 +3,7 @@
 // Below are some test cases the implementation doesn't handle well.
 // Fix the implementation for these tests, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js")
+const parseQueryString = require("./querystring.js");
 
 test("should parse values containing '='", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
@@ -44,5 +44,19 @@ test("should store values of a key in an array when the key has 2 or more values
   expect(parseQueryString("key=value1&key=value2&key=value3&foo=bar")).toEqual({
     key: ["value1", "value2", "value3"],
     foo: "bar",
+  });
+});
+
+test("should return empty object for empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("should ignore leading and trailing ampersands", () => {
+  expect(parseQueryString("&a=1&b=2&")).toEqual({ a: "1", b: "2" });
+});
+
+test("should parse keys and values with plus signs and percent encoding", () => {
+  expect(parseQueryString("full+name=John+Doe%21")).toEqual({
+    "full name": "John Doe!",
   });
 });
