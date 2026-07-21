@@ -8,7 +8,8 @@ body {
   place-items: center;
   min-height: 100vh;
   margin: 0;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  /* background: linear-gradient(135deg, #667eea, #764ba2); */
+  background: linear-gradient(135deg, #2749e1, #61269c);
   font-family: Arial, sans-serif;
 }
 
@@ -44,7 +45,7 @@ button {
   padding: 12px 25px;
   border: none;
   border-radius: 25px;
-  background: #667eea;
+  background: #3958e3;
   color: white;
   font-size: 1rem;
   cursor: pointer;
