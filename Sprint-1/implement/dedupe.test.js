@@ -30,6 +30,14 @@ describe("dedupe given an empty array, it returns an empty array ", () => {
 // When passed to the dedupe function
 // Then it should return a copy of the original array
 
+describe("dedupe given an array with no duplicate, it returns a copy of original array ", () => {
+  [{ input: [1, 2, 3], expected: [1, 2, 3] }].forEach(({ input, expected }) =>
+    it(`returns the original copy of the  array for [${input}]`, () =>
+      expect(dedupe(input)).toEqual(expected))
+  );
+});
+
+
 
 // Given an array of strings or numbers
 // When passed to the dedupe function
