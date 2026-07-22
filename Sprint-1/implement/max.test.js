@@ -41,3 +41,36 @@ test.todo("given an empty array, returns -Infinity");
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+
+describe("findMax function", () => {
+  test("should return the maximum number in an array of positive numbers", () => {
+    expect(findMax([1, 5, 3, 9, 2])).toBe(9);
+  });
+
+  test("should return the maximum number in an array with negative numbers", () => {
+    expect(findMax([-10, -3, -50, -1])).toBe(-1);
+  });
+
+  test("should handle arrays with mixed types and ignore non-numbers", () => {
+    expect(findMax([1, "apple", 5, null, true, 3])).toBe(5);
+  });
+
+  test("should ignore NaN values", () => {
+    expect(findMax([1, NaN, 10, 2])).toBe(10);
+  });
+
+  test("should return -Infinity if given an empty array", () => {
+    expect(findMax([])).toBe(-Infinity);
+  });
+
+  test("should return -Infinity if given an array with no valid numbers", () => {
+    expect(findMax(["a", "b", null, NaN])).toBe(-Infinity);
+  });
+
+  test("should return -Infinity for non-array inputs", () => {
+    expect(findMax(null)).toBe(-Infinity);
+    expect(findMax(undefined)).toBe(-Infinity);
+    expect(findMax("hello")).toBe(-Infinity);
+  });
+});
