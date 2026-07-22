@@ -6,6 +6,10 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
+  // validate that  the datetype is arrays
+  if(!Array.isArray(list)){
+    return null;
+  }
   const middleIndex = Math.floor(list.length / 2);
   const median = list[middleIndex];
   return median;
