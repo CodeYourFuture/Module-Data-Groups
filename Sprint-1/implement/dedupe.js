@@ -1,5 +1,6 @@
 function dedupe(list) {
     if (!Array.isArray(list)) {
+        
         return [];
     }
 
