@@ -6,6 +6,30 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) { 
+  // [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ]
+  if (typeof list === 'string') {
+    return null
+  }
+   if (typeof list === 'number') {
+    return null
+  }
+  
+   if (list === null) {
+    return null 
+   }
+  if (typeof list === 'undefined') {
+    return null 
+  }
+
+   if (list === undefined) {
+    return null 
+  }
+  if (typeof list === 'object' && !Array.isArray(list)) {
+    return null 
+  }
+  if (Array.isArray(list) && list.length === 0){
+    return null
+  }
    list = list.filter(element => typeof element === 'number');
    list.sort((a, b) => a - b);
 
@@ -23,6 +47,6 @@ function calculateMedian(list) {
   
 }
 
-
+calculateMedian(['apple'])
 
 module.exports = calculateMedian;
