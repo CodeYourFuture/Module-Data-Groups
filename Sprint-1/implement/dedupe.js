@@ -10,6 +10,5 @@ function dedupe(arr) {
   }
   return elements;
 }
-//console.log(dedupe([1, 2, 2, 3, 4, 4, 5, 6]));
 
 module.exports = dedupe;
