@@ -31,7 +31,11 @@ function calculateMedian(list) {
 
   //Add statement to handle when array length is an odd number
   if (numericValue.length % 2 !==0){
-    return numericValue[median]
+    return numericValue[median];
+  }
+  // add a logic to handle when the data length is even  number
+  if (numericValue.length % 2 === 0){
+    return (numericValue[median-1] + numericValue[median])/2
   }
 }
 
