@@ -21,6 +21,10 @@ function calculateMedian(list) {
   } )
   // Filter every arrays that  is now a number
   .filter(item =>typeof item==="number"&& !isNaN(item));
+  // Validates if the Arrays has any numerical values at all
+  if (numericValue.length===0){
+    return null;
+  }
   const middleIndex = Math.floor(list.length / 2);
   const median = list[middleIndex];
   return median;
