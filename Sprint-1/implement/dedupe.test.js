@@ -43,3 +43,16 @@ describe("dedupe given an array with no duplicate, it returns a copy of original
 // When passed to the dedupe function
 // Then it should return a new array with duplicates removed while preserving the 
 // first occurrence of each element from the original array.
+
+describe("dedupe given an array of strings or Numbers , it returns a copy with duplicates in original array removed ", () => {
+  [
+    {
+      input: ["s", "t", "r", "i", "n", "g", "s"],
+      expected: ["s", "t", "r", "i", "n", "g"],
+    },
+    { input: [1, 1, 2, 3, 3, 4], expected: [1,2,3,4] },
+  ].forEach(({ input, expected }) =>
+    it(`returns the original copy of the  array for [${input}]`, () =>
+      expect(dedupe(input)).toEqual(expected))
+  );
+});
