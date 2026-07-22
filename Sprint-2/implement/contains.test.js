@@ -33,3 +33,24 @@ test.todo("contains on empty object returns false");
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+
+
+describe("contains function", () => {
+  test("contains on empty object returns false", () => {
+    expect(contains({}, "a")).toBe(false);
+  });
+
+  test("returns true when property exists on the object", () => {
+    expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+  });
+
+  test("returns false when property does not exist on the object", () => {
+    expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+  });
+
+  test("returns false when given invalid parameters like an array", () => {
+    expect(contains(["a", "b"], "0")).toBe(false);
+    expect(contains(null, "a")).toBe(false);
+    expect(contains("not an object", "a")).toBe(false);
+  });
+});
