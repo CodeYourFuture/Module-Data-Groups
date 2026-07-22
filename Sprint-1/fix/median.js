@@ -28,10 +28,11 @@ function calculateMedian(list) {
   // sorting the numeric data in ascending order
   numericValue.sort((a,b)=>a-b);
   const median = Math.floor(numericValue.length / 2);
-  return median;
+
   //Add statement to handle when array length is an odd number
-  if (numericValue.length % 2 !==0)
+  if (numericValue.length % 2 !==0){
     return numericValue[median]
+  }
 }
 
 module.exports = calculateMedian;
