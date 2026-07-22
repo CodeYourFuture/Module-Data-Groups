@@ -50,12 +50,14 @@ test(`given an array with decimal numbers, it should return the largest decimal 
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
 test(`given an array of numeric and non-numeric values, it should return the largest numeric`, () => {
-  expect(findMax(['hey', 10, 'hi', 60, 10])).toEqual(60);
-  expect(findMax(['i', 'love', 10, 'code', 'hi', 80, 60, 'your', 'future', 10])).toEqual(80);
+  expect(findMax(["hey", 10, "hi", 60, 10])).toEqual(60);
+  expect(
+    findMax(["i", "love", 10, "code", "hi", 80, 60, "your", "future", 10])
+  ).toEqual(80);
 });
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test(`given an array of non-numeric values, it should return -Infinity`, () => {
-  expect(findMax(['i', 'love', 'code', 'your', 'future'])).toEqual(-Infinity);
+  expect(findMax(["i", "love", "code", "your", "future"])).toEqual(-Infinity);
 });

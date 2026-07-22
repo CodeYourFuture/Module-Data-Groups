@@ -40,12 +40,14 @@ test(`given an array with decimal numbers, it should return the total`, () => {
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
 test(`given an array of numeric and non-numeric values, it should return the total of the numeric values`, () => {
-  expect(sum(['hey', 10, 'hi', 60, 10])).toEqual(80);
-  expect(sum(['i', 'love', 10, 'code', 'hi', 80, 60, 'your', 'future', 10])).toEqual(160);
+  expect(sum(["hey", 10, "hi", 60, 10])).toEqual(80);
+  expect(
+    sum(["i", "love", 10, "code", "hi", 80, 60, "your", "future", 10])
+  ).toEqual(160);
 });
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test(`given an array of non-numeric values, it should return zero`, () => {
-  expect(sum(['i', 'love', 'code', 'your', 'future'])).toEqual(0);
-})
+  expect(sum(["i", "love", "code", "your", "future"])).toEqual(0);
+});
