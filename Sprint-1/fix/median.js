@@ -25,6 +25,8 @@ function calculateMedian(list) {
   if (numericValue.length===0){
     return null;
   }
+  // sorting the numeric data in ascending order
+  numericValue.sort((a,b)=>a-b);
   const middleIndex = Math.floor(list.length / 2);
   const median = list[middleIndex];
   return median;
