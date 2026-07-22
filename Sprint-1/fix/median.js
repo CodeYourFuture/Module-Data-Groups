@@ -10,7 +10,6 @@ function calculateMedian(list) {
     return null;
   }
   const numbersOnly = list.filter(element => typeof element === 'number');
-  //console.log (numbersOnly);
   if (numbersOnly.length === 0) {
     return null;
   }
@@ -27,7 +26,6 @@ function calculateMedian(list) {
   
 
 
-  //return median;
    }
 
 const salaries = [10, 40, 50, 70, 90]
