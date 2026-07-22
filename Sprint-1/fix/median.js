@@ -7,9 +7,20 @@
 
 function calculateMedian(list) {
   // validate that  the datetype is arrays
-  if(!Array.isArray(list)){
+  if (!Array.isArray(list)) {
     return null;
   }
+  // Convert numeric strings to numbers and ignore non-numeric values
+  const numericValue = list
+  .map(item=>{
+    // convert numerical string to number
+    if(typeof item ==="string" && item.trim()!==""&& !isNaN(item)){
+      return Number(item);
+  }
+  return item;
+  } )
+  // Filter every arrays that  is now a number
+  .filter(item =>typeof item==="number"&& !isNaN(item));
   const middleIndex = Math.floor(list.length / 2);
   const median = list[middleIndex];
   return median;
