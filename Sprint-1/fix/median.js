@@ -31,6 +31,9 @@ function calculateMedian(list) {
     return null
   }
    list = list.filter(element => typeof element === 'number');
+   if (list.length === 0) {
+    return null 
+   }
    list.sort((a, b) => a - b);
 
   if (list.length % 2 === 0){
