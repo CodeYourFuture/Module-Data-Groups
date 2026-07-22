@@ -37,7 +37,7 @@ test("given non duplicate array, it returns a copy of the array", function () {
 // Then it should return a new array with duplicates removed while preserving the 
 // first occurrence of each element from the original array.
 test("given an array with, it returns an empty array", function () {
-  const array = [1, c, 2, 3, d];
+  const array = [1, "c", 2, 3, "d"];
   const result = dedupe(array);
-  expect(result()).toEqual(array);
+  expect(result).toEqual(array);
 });
