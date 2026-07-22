@@ -29,7 +29,7 @@ test("given an empty array, it returns an empty array", function() {
 test("given non duplicate array, it returns a copy of the array", function () {
   const array = [1, 2, 3];
   const result = dedupe(array);
-  expect(result()).toEqual(array);
+  expect(result).toEqual(array);
 });
 
 // Given an array of strings or numbers
