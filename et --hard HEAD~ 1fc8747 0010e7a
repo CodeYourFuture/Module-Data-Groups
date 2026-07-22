@@ -1,0 +1,58 @@
+[33m1c702e3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mModule-data-Group/sprint-1[m[33m, [m[1;31morigin/Module-data-Group/sprint-1[m[33m)[m median test commit
+[33m7cfd741[m Merge branch 'Module-data-Group/sprint-1' of https://github.com/meneogbemi42-bit/Module-Data-Groups into Module-data-Group/sprint-1
+[33m93daaa0[m my change for sum -2
+[33m59d09f8[m commit from sum-1
+[33m5d5b337[m the change for the median
+[33m216f7f3[m commit max -2
+[33md687740[m change to max -1
+[33mb491654[m dedupe-2
+[33mf6083e7[m my commit for dedupe-1
+[33m1fc8747[m the change 2
+[33m0010e7a[m the change
+[33m0c29f69[m Clean up median.js by removing comments
+[33mc60f88b[m my sum solution
+[33m529da6a[m my max test
+[33mfbf6020[m my duplicate test
+[33m54e1b79[m my median testing
+[33m4222cda[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Update querystring.test.js to clarify spec (#1224)
+[33m10b3ac9[m Clarify dedupe() should return a new array
+[33m96d077b[m Merge pull request #950 from CodeYourFuture/rm-pr-template
+[33m23d646e[m Remove PR template
+[33mcfd674c[m Remove old issue templates (#943)
+[33m2c5d12f[m use synchronous .click() in unit tests (#872)
+[33mcbcdcc9[m Refactor: set before-changed todos to deep copy of todos
+[33maa7da66[m Merge pull request #790 from cjyuan/todo-new
+[33m59006e0[m Use span instead of i for icon
+[33m53c0adf[m Update files based on Daniel feedback
+[33md6f24dc[m Update Sprint-3/todo-list/02-guide_to_modularize_code.md
+[33m0ef86a4[m Update Sprint-3/todo-list/01-using_esm_with_nodejs_and_jest.md
+[33me92e4c9[m Update Sprint-3/todo-list/00-what_is_ES_modules.md
+[33m5fd6602[m Update instructions and improve code
+[33mbef4d1c[m Merge branch 'main' of https://github.com/cjyuan/Module-Data-Groups into todo-new
+[33m5aa1295[m Update PR template
+[33m39afe22[m Set up Validate PR Metadata action
+[33mce28c77[m Add initial implementation
+[33mce620b7[m Move Jest configuration to root of Sprint-3 directory (#570)
+[33mcd4c69f[m Update repo metadata
+[33m2797246[m Fix the link to Style Guide in PR template
+[33m57e405f[m Add test cases to check if array is sorted by numeric values
+[33mf36fd7f[m Update pull_request_template.md (#516)
+[33m1abb794[m Update tests for Sprint 1 'fix median' task (#452)
+[33m99f4464[m Add .idea (IntelliJ) to gitignore (#389)
+[33m5359028[m replace style guide link
+[33m30e08c8[m Misc tweaks to sprint 2 (#48)
+[33mf9d44f5[m Fixes for Sprint 1 (#47)
+[33m461add5[m Merge pull request #44 from CodeYourFuture/dependabot/npm_and_yarn/ws-8.17.1
+[33m528f635[m Merge pull request #46 from CodeYourFuture/provide-correct-tasks-from-js2-module
+[33m2c6f358[m Remove legacy tasks from the old js2 module and add correct ones
+[33mb92f9e4[m Merge pull request #45 from CodeYourFuture/add-vscode-extensions
+[33m450ec84[m Add recommended VS Code extensions
+[33me315117[m Bump ws from 8.13.0 to 8.17.1
+[33md8d406d[m Merge pull request #37 from CodeYourFuture/dependabot/npm_and_yarn/tough-cookie-4.1.4
+[33m37df02c[m Merge pull request #36 from CodeYourFuture/dependabot/npm_and_yarn/babel/traverse-7.24.5
+[33mc86d0f8[m Merge pull request #35 from CodeYourFuture/dependabot/npm_and_yarn/adobe/css-tools-4.3.3
+[33m85008dc[m Bump tough-cookie from 4.1.2 to 4.1.4
+[33m5280b34[m Bump @babel/traverse from 7.21.4 to 7.24.5
+[33m02f4261[m Bump @adobe/css-tools from 4.2.0 to 4.3.3
+[33mc8ff2fe[m populate module from js2
+[33ma02c613[m Initial commit
