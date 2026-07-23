@@ -35,7 +35,7 @@ test("Test case 3: given an array containing negative number ,when passed to the
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
-describe("Test case 3: given an array containing decimal/float numbers ,when passed to the sun function it returns the correct total sum ", () => {
+describe("Test case 4: given an array containing decimal/float numbers ,when passed to the sun function it returns the correct total sum ", () => {
     [
       { input: [1.1, 2.2, 3.3], expected: 6.6 },
       { input: [-1.1, -2.2, -3.3], expected: -6.6 },
@@ -50,6 +50,10 @@ describe("Test case 3: given an array containing decimal/float numbers ,when pas
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
+
+test("Test case 5: given an array containing both numeric and non-numeric  values ,when passed to the sun function it returns the  sum of the numeric elements and ignore the non-numerical value  ", () => {
+  expect(sum(["Toby", 6, "undefine","NaN",10, 11])).toBe(27);
+});
 
 // Given an array with only non-number values
 // When passed to the sum function
