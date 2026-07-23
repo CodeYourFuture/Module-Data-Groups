@@ -1,12 +1,20 @@
 function sum(elements) {
-    let sum = 0;
-    for (let i = 0; i < elements.length; i++) {
-        sum += elements[i];
+  let sum = 0;
+  let hasNumber = false;
+
+  for (let i = 0; i < elements.length; i++) {
+    if (typeof elements[i] === "number") {
+      sum += elements[i];
+      hasNumber = true;
     }
-    return sum
+  }
+  if (hasNumber === false && elements.length >0) {
+    return undefined;
+  }
+  return sum;
 }
 
-let numbers = ["c", 3, 4, "hi", 7];
+let numbers = ["c", "b", "hi", 1];
 console.log(sum(numbers));
 
 module.exports = sum;
