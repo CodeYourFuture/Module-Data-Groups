@@ -21,6 +21,9 @@ test("given an empty array,when passed to the sun function it returns 0",()=>
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
+test("Test case 2: given an array with just one number ,when passed to the sun function it returns that  number", () => {
+  expect(sum([5])).toBe(5);
+});
 
 // Given an array containing negative numbers
 // When passed to the sum function
