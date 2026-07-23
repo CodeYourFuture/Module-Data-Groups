@@ -23,6 +23,9 @@ test("case 1: Given an empty array when passed to a function should return -Infi
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("case 2: Given an  array with one number when passed to a function should return that number ", () => {
+  expect(findMax([6])).toBe(6);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
