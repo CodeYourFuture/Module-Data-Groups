@@ -35,6 +35,17 @@ test("Test case 3: given an array containing negative number ,when passed to the
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+describe("Test case 3: given an array containing decimal/float numbers ,when passed to the sun function it returns the correct total sum ", () => {
+    [
+      { input: [1.1, 2.2, 3.3], expected: 6.6 },
+      { input: [-1.1, -2.2, -3.3], expected: -6.6 },
+    ].forEach(({ input, expected }) => it(`returns the correct total sum for [${input}]`,()=>{
+      expect(sum(input)).toBeCloseTo(expected);
+
+    }));
+  
+});
+
 
 // Given an array containing non-number values
 // When passed to the sum function
