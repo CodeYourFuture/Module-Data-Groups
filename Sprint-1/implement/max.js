@@ -1,11 +1,12 @@
 function findMax(elements) {
-    let largestNum = [];
-    for (let i = 0; i <= elements.length; i++) {
-        if (elements[i] > largestNum) {
-            largestNum = elements[i];
-        }
+  let largestNum;
+  for (let i = 0; i < elements.length; i++) {
+    if (typeof elements[i] === "number") {
+      if (largestNum === undefined || elements[i] > largestNum) {
+        largestNum = elements[i];
+      }
     }
-    return largestNum;
+  }
+  return largestNum;
 }
-
 module.exports = findMax;
