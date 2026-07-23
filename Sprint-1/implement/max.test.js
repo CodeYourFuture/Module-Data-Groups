@@ -31,7 +31,7 @@ test("given an array, with one number returns that number", function () {
 // When passed to the max function
 // Then it should return the largest number overall
 test("given an array with positive and negative numbers, returns the largest", function () {
-  expect(findMax([(-1, -5, 1, 4)])).toBe(4);
+  expect(findMax([-1, -5, 1, 4])).toBe(4);
 });
 
 // Given an array with just negative numbers
