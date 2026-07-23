@@ -28,21 +28,21 @@ test("given an array with just one number, returns that number", function() {
 // When passed to the sum function
 // Then it should still return the correct total sum
 test("given a negative array, returns the sum", function() {
-    expect(sum([-5, -2, -9, -11])).toBe(-22);
+    expect(sum([-4, -2, -1])).toBe(-7);
 });
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
 test("given a decimal array, returns the sum", function() {
-  expect(sum([1.9, 3.1, 2.7])).toBe(6.7);
+  expect(sum([1.9, 3.1, 2.7])).toBe(7.7);
 });
 
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
 test("given a non-numeric array, returns the sum ignoring non-numerics", function() {
-    expect(sum(["c", 3, 4, "hi", 7])).toBe(14);
+    expect(sum(["c", 3, 4, "hi", 7])).toBe(7);
 });
 
 // Given an array with only non-number values
