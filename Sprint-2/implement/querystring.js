@@ -8,7 +8,7 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    // Ignore empty pairs
+ 
     if (pair === "") continue;
 
    
