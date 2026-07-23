@@ -51,6 +51,10 @@ test("case 5: Given an array with decimal numbers when passed to a function shou
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("case 6: Given an array with numeric and non-numeric values it returns the max and ignores non-numeric values", () => {
+  expect(findMax([1.1, 3, 4, "Toby", "undefine", "", 2.75])).toBe(4);
+});
+
 
 // Given an array with only non-number values
 // When passed to the max function
