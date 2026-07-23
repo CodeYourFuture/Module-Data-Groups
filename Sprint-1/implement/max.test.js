@@ -37,13 +37,16 @@ test("case 3: Given an array with both positive and negative numbers when passed
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
-test("case 3: Given an array with just negative numbers when passed to a function should return the closest number to zero", () => {
+test("case 4: Given an array with just negative numbers when passed to a function should return the closest number to zero", () => {
   expect(findMax([-1, -2, -6, -10, -8, -12])).toBe(-1);
 });
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("case 5: Given an array with decimal numbers when passed to a function should return largest decimal number", () => {
+  expect(findMax([1.1, 0.2, 0.3, 0.4, 0.5, 0.6,2.75])).toBe(2.75);
+});
 
 // Given an array with non-number values
 // When passed to the max function
