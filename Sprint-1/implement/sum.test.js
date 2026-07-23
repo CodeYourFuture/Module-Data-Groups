@@ -28,7 +28,9 @@ test("Test case 2: given an array with just one number ,when passed to the sun f
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
-
+test("Test case 3: given an array containing negative number ,when passed to the sun function it returns the correct total sum ", () => {
+  expect(sum([-5,-3,-8])).toBe(-16);
+});
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
