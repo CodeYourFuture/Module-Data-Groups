@@ -58,3 +58,6 @@ test("Test case 5: given an array containing both numeric and non-numeric  value
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("given an array with only non-number values,when passed to the sun function it returns 0 which is the least surprising value given how it behaves for all other inputs", () => {
+  expect(sum(["Toby", "undefine", "NaN"])).toBe(0);
+});
