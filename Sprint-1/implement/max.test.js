@@ -30,6 +30,9 @@ test("case 2: Given an  array with one number when passed to a function should r
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("case 3: Given an array with both positive and negative numbers when passed to a function should return the largest number overall ", () => {
+  expect(findMax([-1,-2,-6,6,8,10])).toBe(10);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
