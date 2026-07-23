@@ -41,8 +41,8 @@ test("given a decimal array, returns the sum", function() {
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
-test("given a non-numeric array, returns the sum ignoring non-numerics", function() {
-    expect(sum(["c", 3, 4, "hi", 7])).toBe(7);
+test("given a mixed array, returns only the sum of numbers ", function() {
+    expect(sum(["c", 3, 4, "hi", 7])).toBe(14);
 });
 
 // Given an array with only non-number values
