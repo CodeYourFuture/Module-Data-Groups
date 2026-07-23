@@ -139,10 +139,95 @@ body {
 /* Action button area */
 .flashcard-actions {
   display: flex;
-  justify-content: center;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
   position: relative;
   z-index: 1;
 }
+
+/* Autoplay control layout and badge  */
+.autoplay-control {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--accent-yellow);
+  border: 3px solid var(--text-dark);
+  border-radius: 16px;
+  padding: 0.5rem 1rem;
+  box-shadow: 4px 4px 0px var(--text-dark);
+  transform: rotate(-1deg);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.autoplay-control:hover {
+  transform: rotate(1deg) scale(1.03);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 30px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: oklch(0.9 0.02 240);
+  border: 3px solid var(--text-dark);
+  border-radius: 34px;
+  transition: background-color 0.2s ease;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--text-dark);
+  border-radius: 50%;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+input:checked + .slider {
+  background-color: var(--btn-pink);
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+  background-color: oklch(1 0 0);
+}
+
+input:focus-visible + .slider {
+  outline: 2px solid var(--text-dark);
+  outline-offset: 2px;
+}
+
+.autoplay-status {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
 
 /* Pop Button */
 #new-quote {
@@ -187,8 +272,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .flashcard,
   #author,
-  #new-quote {
-    transition: none;
+  #new-quote,
+  .autoplay-control,
+  .slider,
+  .slider::before {
+    transition: none !important;
     transform: none !important;
   }
   .flashcard:hover {
