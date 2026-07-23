@@ -494,6 +494,8 @@ const quotes = [
 const quoteText = document.querySelector("#quote");
 const author = document.querySelector("#author");
 const newQuoteBtn = document.querySelector("#new-quote");
+const autoplayToggle = document.querySelector("#autoplay-toggle");
+const autoplayStatus = document.querySelector("#autoplay-status");
 
 // function to display quote
 function displayQuote() {
@@ -505,5 +507,42 @@ function displayQuote() {
 // display quote when page loads
 displayQuote();
 
-// display quote when button is clicked
-newQuoteBtn.addEventListener("click", displayQuote);
+// Autoplay interval management
+let autoplayInterval = null;
+const AUTOPLAY_DELAY_MS = 5000; // 5 seconds
+
+function startAutoplay() {
+  if (!autoplayInterval) {
+    autoplayInterval = setInterval(displayQuote, AUTOPLAY_DELAY_MS);
+  }
+  autoplayStatus.textContent = "auto-play:ON";
+  autoplayStatus.classList.add("active");
+}
+
+function stopAutoplay() {
+  if (autoplayInterval) {
+    clearInterval(autoplayInterval);
+    autoplayInterval = null;
+  }
+  autoplayStatus.textContent = "auto-play:OFF";
+  autoplayStatus.classList.remove("active");
+}
+
+// Handler for new quote button click (resets autoplay timer if active)
+function handleNewQuoteClick() {
+  displayQuote();
+  if (autoplayToggle.checked) {
+    stopAutoplay();
+    startAutoplay();
+  }
+}
+
+newQuoteBtn.addEventListener("click", handleNewQuoteClick);
+
+autoplayToggle.addEventListener("change", (event) => {
+  if (event.target.checked) {
+    startAutoplay();
+  } else {
+    stopAutoplay();
+  }
+});
