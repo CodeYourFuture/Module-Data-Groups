@@ -29,6 +29,7 @@ test("Test case 2: given an array with just one number ,when passed to the sun f
 // When passed to the sum function
 // Then it should still return the correct total sum
 
+
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
