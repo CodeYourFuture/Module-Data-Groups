@@ -37,6 +37,9 @@ test("case 3: Given an array with both positive and negative numbers when passed
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("case 3: Given an array with just negative numbers when passed to a function should return the closest number to zero", () => {
+  expect(findMax([-1, -2, -6, -10, -8, -12])).toBe(-1);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
