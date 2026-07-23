@@ -541,6 +541,7 @@ newQuoteBtn.addEventListener("click", handleNewQuoteClick);
 
 autoplayToggle.addEventListener("change", (event) => {
   if (event.target.checked) {
+    displayQuote();
     startAutoplay();
   } else {
     stopAutoplay();
