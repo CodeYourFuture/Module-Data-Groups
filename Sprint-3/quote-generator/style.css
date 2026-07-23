@@ -1,1 +1,202 @@
-/** Write your CSS in here **/
+:root {
+  /* Fonts */
+  --font-sans:
+    "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Lora", Georgia, serif;
+  /* Colours */
+  --bg-yellow: oklch(0.93 0.16 90);
+  --bg-pink-dots: oklch(0.68 0.23 330);
+  --card-bg: oklch(0.96 0.06 200);
+  --text-dark: oklch(0.12 0.04 240);
+  --accent-yellow: oklch(0.88 0.21 95);
+  --btn-pink: oklch(0.65 0.25 330);
+  --btn-orange: oklch(0.75 0.22 50);
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-sans);
+
+  /* Cartoonish Polka Dot Wallpaper Background */
+  background-color: var(--bg-yellow);
+  background-image:
+    radial-gradient(var(--bg-pink-dots) 20%, transparent 20%),
+    radial-gradient(var(--bg-pink-dots) 20%, transparent 20%);
+  background-size: 40px 40px;
+  background-position:
+    0 0,
+    20px 20px;
+
+  overflow-x: hidden;
+}
+
+/* App container */
+.app-container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 2rem 1.5rem;
+}
+
+/* Funky Cartoon Flashcard */
+.flashcard {
+  position: relative;
+  background-color: var(--card-bg);
+  width: 100%;
+  max-width: 580px;
+  min-height: 340px;
+  border-radius: 28px;
+  padding: 3.5rem 3rem 3rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+
+  border: 4px solid var(--text-dark);
+  box-shadow: 12px 12px 0px var(--text-dark);
+
+  transform: rotate(-1deg);
+  transition:
+    transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.2s ease;
+}
+
+/* Wiggle on hover */
+.flashcard:hover {
+  transform: rotate(1deg) scale(1.02);
+  box-shadow: 16px 16px 0px var(--text-dark);
+}
+
+/* Double quote */
+.quote-symbol {
+  font-family: var(--font-serif);
+  font-size: 14rem;
+  line-height: 1;
+  color: var(--text-dark)
+  opacity: 0.18;
+  position: absolute;
+  top: -2.5rem;
+  left: 1rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Card Content Area */
+.flashcard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Quote Text Style */
+#quote {
+  font-family: var(--font-sans);
+  font-size: clamp(1.2rem, 1rem + 1.2vw, 2.3rem);
+  font-weight: 850;
+  line-height: 1.3;
+  color: var(--text-dark);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* Author badge */
+#author {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dark);
+  margin: 0;
+  align-self: flex-end;
+
+  /* Badge styling */
+  background-color: var(--accent-yellow);
+  padding: 0.6rem 1.2rem;
+  border: 3px solid var(--text-dark);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0px var(--text-dark);
+  transform: rotate(2deg);
+  transition: transform 0.2s ease;
+}
+
+#author:hover {
+  transform: rotate(-2deg) scale(1.05);
+}
+
+/* Action button area */
+.flashcard-actions {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Pop Button */
+#new-quote {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: oklch(1 0 0);
+  background-color: var(--btn-pink);
+  border: 3px solid var(--text-dark);
+  border-radius: 16px;
+  padding: 0.9rem 2.5rem;
+  cursor: pointer;
+  box-shadow: 5px 5px 0px var(--text-dark);
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background-color 0.2s ease;
+
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  min-block-size: 48px;
+}
+
+#new-quote:hover {
+  background-color: var(--btn-orange);
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px var(--text-dark);
+}
+
+#new-quote:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0px var(--text-dark);
+}
+
+/* Focus style */
+#new-quote:focus-visible {
+  outline: 3px solid var(--text-dark);
+  outline-offset: 4px;
+}
+
+/* Preferences for motion */
+@media (prefers-reduced-motion: reduce) {
+  .flashcard,
+  #author,
+  #new-quote {
+    transition: none;
+    transform: none !important;
+  }
+  .flashcard:hover {
+    transform: none !important;
+  }
+  #new-quote:hover,
+  #new-quote:active {
+    transform: none !important;
+    box-shadow: 5px 5px 0px var(--text-dark) !important;
+  }
+}
