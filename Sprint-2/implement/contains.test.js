@@ -33,11 +33,16 @@ test("contains on empty object returns false", () => {
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test(" Case 1: returns true when the property exists", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
-
+test("Case 2: returns false when the property does not exist", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
