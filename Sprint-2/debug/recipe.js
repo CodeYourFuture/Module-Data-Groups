@@ -11,6 +11,10 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+console.log(`${recipe.title} serves ${recipe.serves}`);
+  console.log("ingredients:");
+  // use for of to print the value of the ingredients array element
+for (const ingredients of recipe.ingredients){
+console.log(ingredients);
+};
+
