@@ -1,0 +1,1 @@
+//A mean function to created for the tests in mean.test.js file.
