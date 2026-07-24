@@ -10,8 +10,12 @@
 */
 
 // Append a new task to todos[]
-export function addTask(todos, task, completed = false) {
-  todos.push({ task, completed });
+export function addTask(todos, task, completed = false, deadline = null) {
+  const todo = { task, completed };
+  if (deadline) {
+    todo.deadline = deadline;
+  }
+  todos.push(todo);
 }
 
 // Delete todos[taskIndex] if it exists

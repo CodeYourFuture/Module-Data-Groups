@@ -38,6 +38,27 @@ describe("addTask()", () => {
     // New task should be appended to the todos
     expect(todos[todos.length - 1]).toEqual(theTask);
   });
+
+  test("Should store deadline information if provided", () => {
+    let todos = [];
+    Todos.addTask(todos, "Task with deadline", false, "2026-07-31");
+    expect(todos).toHaveLength(1);
+    expect(todos[0]).toEqual({
+      task: "Task with deadline",
+      completed: false,
+      deadline: "2026-07-31"
+    });
+  });
+
+  test("Should not store deadline if none is provided", () => {
+    let todos = [];
+    Todos.addTask(todos, "Task without deadline", false);
+    expect(todos).toHaveLength(1);
+    expect(todos[0]).toEqual({
+      task: "Task without deadline",
+      completed: false
+    });
+  });
 });
 
 describe("deleteTask()", () => {
