@@ -186,3 +186,30 @@ describe("deleteCompleted()", () => {
     expect(todos).toHaveLength(initialLength);
   });
 });
+
+describe("getDaysRemaining()", () => {
+  const fixedToday = new Date(2026, 6, 24); // July 24, 2026 (Note: month is 0-indexed, so 6 is July)
+
+  test("Should return negative days for overdue tasks", () => {
+    expect(Todos.getDaysRemaining("2026-07-20", fixedToday)).toBe(-4);
+    expect(Todos.getDaysRemaining("2026-07-23", fixedToday)).toBe(-1);
+  });
+
+  test("Should return 0 for tasks due today", () => {
+    expect(Todos.getDaysRemaining("2026-07-24", fixedToday)).toBe(0);
+  });
+
+  test("Should return 1 for tasks due tomorrow", () => {
+    expect(Todos.getDaysRemaining("2026-07-25", fixedToday)).toBe(1);
+  });
+
+  test("Should return positive days for future tasks", () => {
+    expect(Todos.getDaysRemaining("2026-07-31", fixedToday)).toBe(7);
+  });
+
+  test("Should return null for missing or empty deadline", () => {
+    expect(Todos.getDaysRemaining(null, fixedToday)).toBeNull();
+    expect(Todos.getDaysRemaining("", fixedToday)).toBeNull();
+    expect(Todos.getDaysRemaining(undefined, fixedToday)).toBeNull();
+  });
+});

@@ -41,3 +41,20 @@ export function deleteCompleted(todos) {
   }
   return todos;
 }
+
+// Calculate how many days are left until the deadline (relative to today).
+// Returns an integer: negative if overdue, 0 if due today, positive if due in the future.
+export function getDaysRemaining(deadlineDateStr, today = new Date()) {
+  if (!deadlineDateStr) return null;
+  const [year, month, day] = deadlineDateStr.split("-").map(Number);
+  const deadlineDate = new Date(year, month - 1, day);
+  const todayDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+
+  const diffTime = deadlineDate - todayDate;
+  const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
+}
