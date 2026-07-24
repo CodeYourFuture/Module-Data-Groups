@@ -27,3 +27,10 @@ export function toggleCompletedOnTask(todos, taskIndex) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
 }
+
+// filters and then splices
+export function deleteCompleted(todos) {
+  const incompleteOnly = todos.filter((item) => !item.completed);
+  todos.splice(0, todos.length, ...incompleteOnly);
+  return todos;
+}
