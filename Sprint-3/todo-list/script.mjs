@@ -72,10 +72,39 @@ function createListItem(todo, index) {
 
   const deadlineBadge = li.querySelector(".deadline-badge");
   const deadlineDate = li.querySelector(".deadline-date");
+  const icon = deadlineBadge ? deadlineBadge.querySelector("i") : null;
   if (todo.deadline) {
-    deadlineDate.textContent = `Deadline: ${todo.deadline}`;
+    const diffDays = Todos.getDaysRemaining(todo.deadline);
+    
+    // Clear existing styling classes from deadlineBadge (keep 'deadline-badge')
+    deadlineBadge.className = "deadline-badge";
+    
+    // Clear icon classes
+    if (icon) {
+      icon.className = "";
+    }
+    
+    if (diffDays < 0) {
+      deadlineBadge.classList.add("overdue");
+      deadlineDate.textContent = `Deadline: ${Math.abs(diffDays)} ${Math.abs(diffDays) === 1 ? 'day' : 'days'} overdue`;
+      if (icon) icon.className = "fa-solid fa-triangle-exclamation";
+    } else if (diffDays === 0) {
+      deadlineBadge.classList.add("due-today");
+      deadlineDate.textContent = "Deadline: Due today";
+      if (icon) icon.className = "fa-solid fa-clock";
+    } else if (diffDays === 1) {
+      deadlineBadge.classList.add("due-tomorrow");
+      deadlineDate.textContent = "Deadline: Due tomorrow";
+      if (icon) icon.className = "fa-solid fa-hourglass-half";
+    } else {
+      deadlineBadge.classList.add("due-future");
+      deadlineDate.textContent = `Deadline: ${diffDays} days left`;
+      if (icon) icon.className = "fa-regular fa-calendar-days";
+    }
   } else {
-    deadlineBadge.remove();
+    if (deadlineBadge) {
+      deadlineBadge.remove();
+    }
   }
 
   if (todo.completed) {
