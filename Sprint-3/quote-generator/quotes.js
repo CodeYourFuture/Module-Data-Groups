@@ -6,8 +6,7 @@ const autoPlayStatus = document.querySelector("#auto-play-status");
 
 let seenQuotes = new Set();
 const INTERVAL_DURATION_MS = 10000; // 10 second interval duration
-const EXTRA_SECOND = 1000; // extra second to enable countdown to reach 0 before quote changes
-const FULL_COUNTDOWN_CYCLE_MS = INTERVAL_DURATION_MS + EXTRA_SECOND;
+const FULL_COUNTDOWN_CYCLE_MS = INTERVAL_DURATION_MS + 1000; // add extra second to enable countdown to reach 0 before quote changes
 let autoPlayIntervalId = null;
 let countdownIntervalId = null;
 
