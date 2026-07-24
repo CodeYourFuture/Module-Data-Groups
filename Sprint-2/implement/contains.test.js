@@ -50,3 +50,6 @@ test("Case 2: returns false when the property does not exist", () => {
 test(" returns false when invalid parameters like arrays are passed ", () => {
   expect(contains([1,"a","NaN","b","3"], "a")).toBe(false);
 });
+test(" returns false when invalid parameters like String is passed ", () => {
+  expect(contains("Toby", "Toby")).toBe(false);
+});
