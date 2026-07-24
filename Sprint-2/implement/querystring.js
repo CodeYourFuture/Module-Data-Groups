@@ -1,16 +1,25 @@
 function parseQueryString(queryString) {
-  const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
-  const keyValuePairs = queryString.split("&");
+  if (queryString === "") {
+    return {};
+  } else {
+    queryString = decodeURIComponent(queryString)
+      .replace(/\+/g, " ")
+      .replace(/&&/g, "&")
+      .replace(/&+$/, "");
 
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
-  }
+    const splitByAnds = queryString.split("&");
 
-  return queryParams;
+    const splitByEquals = splitByAnds.map(x => {
+      const match = x.match(/^([^=]*)(?:=(.*))?$/);
+
+      const key = match[1];
+      const value = match[2] ?? "";
+
+      return [key, value];
+    });
+
+    return Object.fromEntries(splitByEquals);
+  }
 }
 
 module.exports = parseQueryString;
