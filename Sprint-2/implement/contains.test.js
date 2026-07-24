@@ -53,3 +53,7 @@ test(" returns false when invalid parameters like arrays are passed ", () => {
 test(" returns false when invalid parameters like String is passed ", () => {
   expect(contains("Toby", "Toby")).toBe(false);
 });
+
+test(" returns false when invalid parameters like number is passed ", () => {
+  expect(contains(1, 1)).toBe(false);
+});
