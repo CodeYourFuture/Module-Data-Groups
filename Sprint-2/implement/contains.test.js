@@ -16,7 +16,14 @@ as the object doesn't contains a key of 'c'
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
+//Case 1
+test(" Case 1: returns true when the property exists", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+});
 
+test("Case 2: returns false when the property does not exist", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});
 // Given an empty object
 // When passed to contains
 // Then it should return false
