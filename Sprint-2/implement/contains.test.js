@@ -27,7 +27,8 @@ test("Case 2: returns false when the property does not exist", () => {
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("contains on empty object returns false", () => {
+  expect(contains({ }, "c")).toBe(false);});
 
 // Given an object with properties
 // When passed to contains with an existing property name
