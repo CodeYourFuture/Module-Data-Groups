@@ -1,5 +1,5 @@
 function contains(obj, property_name) {
-  return property_name in obj;
+  return Object.prototype.hasOwnProperty.call(obj, property_name);
 }
 
 module.exports = contains;
