@@ -38,6 +38,13 @@ test("returns false when object does not contain the property", () => {
   expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
 });
 
+// Given an object that inherits from Object.prototype
+// When checking for an inherited property like toString
+// Then it should return false because it is not an own property
+test("returns false for inherited properties like toString", () => {
+  expect(contains({}, "toString")).toBe(false);
+});
+
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
