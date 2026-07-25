@@ -7,11 +7,11 @@ function parseQueryString(queryString) {
 
   for (const pair of keyValuePairs) {
     if (!pair) {
-      continue;
+     continue;
     }
     const everything = pair.split("=");
-    const key = everything.shift();
-    const value = everything.join("=");
+    const key = decodeURIComponent(everything.shift());
+    const value = decodeURIComponent(everything.join("="));
     queryParams[key] = value;
   }
 
