@@ -17,7 +17,7 @@ test("should ignore empty key-value pairs", () => {
     key2: "value2",
   });
 });
-/*
+
 test("should accept empty string as key or as value", () => {
   expect(parseQueryString("=value")).toEqual({ "": "value" });
   expect(parseQueryString("key")).toEqual({ key: "" });
@@ -40,6 +40,7 @@ test("should replace '+' by ' '", () => {
 // Stretch exercise: Handling query strings that contain identical keys
 
 // Delete this test if you are not working on this optional case
+/*
 test("should store values of a key in an array when the key has 2 or more values", () => {
   expect(parseQueryString("key=value1&key=value2&key=value3&foo=bar")).toEqual({
     key: ["value1", "value2", "value3"],
