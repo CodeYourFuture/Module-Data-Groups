@@ -6,24 +6,35 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
+invert({ a: 1, b: 2 });
+
 function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key;
   }
-
+  console.log(invertedObj);
   return invertedObj;
 }
 
 // a) What is the current return value when invert is called with { a : 1 }
+// { key: 1 }
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
+// { key: 2 }
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
+// {1: a, 2: b}
 
 // c) What does Object.entries return? Why is it needed in this program?
+// It turns the object into an array of arrays
+// It's needed so the for..of loop can access the key:value pairs
 
 // d) Explain why the current return value is different from the target output
+// invertedObj.key = value;
+// this line of code sets the key to "key"
+// even if that worked as intended, the key and value haven't been swapped
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+module.exports = invert;
