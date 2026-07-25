@@ -10,8 +10,8 @@ function parseQueryString(queryString) {
      continue;
     }
     const everything = pair.split("=");
-    const key = decodeURIComponent(everything.shift());
-    const value = decodeURIComponent(everything.join("="));
+    const key = decodeURIComponent(everything.shift().replace(/\+/g, " "));
+    const value = decodeURIComponent(everything.join("=").replace(/\+/g, " "));
     queryParams[key] = value;
   }
 
