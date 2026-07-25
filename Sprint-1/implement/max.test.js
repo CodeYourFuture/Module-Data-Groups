@@ -44,6 +44,9 @@ test("given an array with just negative numbers, returns closest to zero", () =>
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("given an array with decimal numbers, returns largest decimal number", () => {
+    expect(findMax([1.5, 1.6, 1.7, 1.8])).toEqual(1.8);
+})
 
 // Given an array with non-number values
 // When passed to the max function
