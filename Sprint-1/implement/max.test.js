@@ -45,12 +45,21 @@ test("given an array with just negative numbers, returns closest to zero", () =>
 // When passed to the max function
 // Then it should return the largest decimal number
 test("given an array with decimal numbers, returns largest decimal number", () => {
-    expect(findMax([1.5, 1.6, 1.7, 1.8])).toEqual(1.8);
-})
+  expect(findMax([1.5, 1.6, 1.7, 1.8])).toEqual(1.8);
+  expect(findMax([-1.5, -1.6, -1.7, -1.8])).toEqual(-1.5);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("given an array with non-number values, returns the max and ignores non-numeric values", () => {
+  expect(findMax([1, 2, "3", null, undefined, 4])).toEqual(4);
+  expect(findMax(["apple", 1, 2, 3, "banana", 4])).toEqual(4);
+  expect(findMax([1, "2", 3, "4", 5])).toEqual(5);
+  expect(findMax([1, "apple", 2, null, 3, undefined, 4])).toEqual(4);
+  expect(findMax([3, "apple", 1, null, 2, undefined, 4])).toEqual(4);
+  expect(findMax(["banana", 5, 3, "apple", 1, 4, 2])).toEqual(5);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
