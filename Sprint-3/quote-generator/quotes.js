@@ -16,6 +16,7 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
+
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -490,4 +491,27 @@ const quotes = [
   },
 ];
 
+console.log(pickFromArray(quotes));
 // call pickFromArray with the quotes array to check you get a random quote
+
+//When the page loads it should show a random quote from the `quotes` array on the screen. It should also show who said the quote.
+
+//When you click a button on the screen it should change the quote on the screen.
+
+const button = document.querySelector("#new-quote");
+const quoteText = document.querySelector("#quote");
+const quoteAuthor = document.querySelector("#author");
+
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteText.textContent = randomQuote.quote;
+  quoteAuthor.textContent = randomQuote.author;
+}
+
+showRandomQuote();
+
+button.addEventListener("click", showRandomQuote);
+
+//function pickFromArray(choices) {
+//  return choices[Math.floor(Math.random() * choices.length)];
+//}
