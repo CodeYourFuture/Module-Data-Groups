@@ -1,4 +1,6 @@
-function setAlarm() {}
+function setAlarm() {
+  playAlarm();
+}
 
 // DO NOT EDIT BELOW HERE
 

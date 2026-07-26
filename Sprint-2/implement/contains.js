@@ -1,5 +1,3 @@
-function contains(array, target) {
-  return array.includes(target);
-}
+function contains() {}
 
 module.exports = contains;

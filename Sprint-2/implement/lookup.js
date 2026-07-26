@@ -1,9 +1,5 @@
-function createLookup(arrayOfArrays) {
-  const lookup = {};
-  for (const array of arrayOfArrays) {
-    lookup[array[0]] = array[1];
-  }
-  return lookup;
+function createLookup() {
+  // implementation here
 }
 
 module.exports = createLookup;
