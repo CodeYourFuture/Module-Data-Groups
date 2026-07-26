@@ -29,10 +29,14 @@
 function countWords(str) {
   if (typeof str !== 'string') throw new Error('countWords expect a string');
 
-  const cleaned = str.toLowerCase().replace(/[^a-z0-9'\s]+/gi, " ").trim();
-  if (cleaned === '') return 0;
+  const cleaned = str.toLowerCase().replace(/[^a-z0-9'\s]+/gi, ' ').trim();
+  if (cleaned === '') return {};
 
-  return cleaned.split(/\s+/).length;
+  const counts = {};
+  for (const w of cleaned.split(/\s+/)) {
+    counts[w] = (counts[w] || 0) + 1;
+  }
+  return counts;
 
 
 }
