@@ -27,14 +27,22 @@ test("given an array with just one number returns that number", () => {
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
+test("given an array containing negative numbers, returns the correct total sum", () => {
+  expect(sum([-1, -2, -3])).toEqual(-6);
+});
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+test("given an array with decimal/float numbers, returns the correct total sum", () => {
+  expect(sum([1.5, 2.5, 3.5])).toEqual(7.5);
+  expect(sum([-1.5, -2.5, -3.5])).toEqual(-7.5);
+});
 
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
+
 
 // Given an array with only non-number values
 // When passed to the sum function
