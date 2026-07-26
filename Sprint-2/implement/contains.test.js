@@ -1,35 +1,43 @@
-const contains = require("./contains.js");
+describe("contains", () => {
+  // Given an empty object
+  // When passed to contains
+  // Then it should return false
+  it("contains on empty object returns false", () => {
+    const object = {};
+    const property = "a";
+    expect(contains(object, property)).toEqual(false);
+  });
 
-/*
-Implement a function called contains that checks an object contains a
-particular property
+  // Given an object with properties
+  // When passed to contains with an existing property name
+  // Then it should return true
+  it("object contains property returns true", () => {
+    const object = { a: 1, b: 2 };
+    const property = "a";
+    expect(contains(object, property)).toEqual(true);
+  });
 
-E.g. contains({a: 1, b: 2}, 'a') // returns true
-as the object contains a key of 'a'
+  // Given an object with properties
+  // When passed to contains with a non-existent property name
+  // Then it should return false
+  it("object does not contain property returns false", () => {
+    const object = { a: 1, b: 2 };
+    const property = "c";
+    expect(contains(object, property)).toEqual(false);
+  });
 
-E.g. contains({a: 1, b: 2}, 'c') // returns false
-as the object doesn't contains a key of 'c'
-*/
+  // Given invalid parameters like an array
+  // When passed to contains
+  // Then it should return false or throw an error
+  it("given invalid parameter (an array) returns false or throws an error", () => {
+    expect(contains([], [])).toEqual(false);
+    expect(contains(["a", 1], 1)).toEqual(false);
+    expect(contains({ a: 1, b: 2 }, ["a"])).toEqual(false);
+  });
 
-// Acceptance criteria:
-
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
-
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
-
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
-
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
-
-// Given invalid parameters like an array
-// When passed to contains
-// Then it should return false or throw an error
+  it("given null returns false", () => {
+    expect(contains(null, "a")).toEqual(false);
+    expect(contains({ a: 1, b: 2 }, null)).toEqual(false);
+    expect(contains(null, null)).toEqual(false);
+  });
+});
