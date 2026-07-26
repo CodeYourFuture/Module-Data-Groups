@@ -42,7 +42,11 @@ test("given an array with decimal/float numbers, returns the correct total sum",
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
-
+test("given an array containing non-number values, ignores the non-numerical values and returns the sum of the numerical elements", () => {
+  expect(sum([1, 2, "3", null, undefined, 4])).toEqual(7);
+  expect(sum(["apple", 1, 2, 3, "banana", 4])).toEqual(10);
+  expect(sum([1, "2", 3, "4", 5])).toEqual(9);
+});
 
 // Given an array with only non-number values
 // When passed to the sum function
