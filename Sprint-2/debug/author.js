@@ -10,7 +10,7 @@ const author = {
   age: 40,
   alive: true,
 };
-
-for (const value of author) {
-  console.log(value);
+//An object is not directly iterable, if we want to log out the values we can use a for in loop
+for (const value in author) {
+  console.log(`${author[value]}`);
 }
