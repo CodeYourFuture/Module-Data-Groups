@@ -1,9 +1,10 @@
 function sum(elements) {
     let innit = 0;
-    for (let i = 0; i < elements.length; i++) {
-        innit += elements[i];
+    const filteredList = elements.filter((value) => typeof value === "number");
+    for (let i = 0; i < filteredList.length; i++) {
+        innit += filteredList[i];
     }
-return innit;   
+return innit; 
 }
 
 module.exports = sum;
