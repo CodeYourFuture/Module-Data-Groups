@@ -31,3 +31,7 @@ test("given an array with no duplicates, it returns a copy of the original array
 // When passed to the dedupe function
 // Then it should return a new array with duplicates removed while preserving the 
 // first occurrence of each element from the original array.
+test("given an array of strings or numbers, it returns a new array with no duplicates removed", () => {
+  expect(dedupe(['a','a','a','b','b','c'])).toEqual(['a','b','c']);
+  expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
+}); 
