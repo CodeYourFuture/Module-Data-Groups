@@ -16,7 +16,14 @@ function setAlarm() {
     clearInterval(timer);
   }
 
-  let secondsRemaining = Number(document.getElementById("alarmSet").value);
+const input = document.getElementById("alarmSet").value;
+let secondsRemaining = Number(input);
+
+if (!Number.isInteger(secondsRemaining) || secondsRemaining <= 0) {
+  alert("Please enter a valid positive number of seconds.");
+  return;
+}
+
 
   updateHeading(secondsRemaining);
 
