@@ -33,7 +33,7 @@ test.todo("tally on an empty array returns an empty object");
 // When passed to tally
 // Then it should throw an error
 
-const tally = require("./tally.js");
+
 
 describe("tally()", () => {
   test("counts frequency of each unique item", () => {
