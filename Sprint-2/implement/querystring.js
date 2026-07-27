@@ -9,13 +9,13 @@ function parseQueryString(queryString) {
     if (!pair) continue;
     const equalIndex = pair.indexOf("=");
     if (equalIndex === -1) {
-      const key = pair;
+      const key = pair.replaceAll("+", " ");
       queryParams[decodeURIComponent(key) ?? ""] = "";
       continue;
     }
 
-    let key = pair.substring(0, equalIndex).replace("+", " ");
-    let value = pair.substring(equalIndex + 1).replace("+", " ");
+    let key = pair.substring(0, equalIndex).replaceAll("+", " ");
+    let value = pair.substring(equalIndex + 1).replaceAll("+", " ");
 
     key = decodeURIComponent(key);
     value = decodeURIComponent(value);
