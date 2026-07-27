@@ -1,3 +1,5 @@
-function tally() {}
+function tally() {
+    frequency ={};
+}
 
 module.exports = tally;
