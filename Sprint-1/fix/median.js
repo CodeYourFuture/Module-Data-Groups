@@ -25,7 +25,5 @@ function calculateMedian(list) {
   return sortedList[middleIndex];
 }
 
-const salaries = [10, 40, 50, 70, 90];
-const median = calculateMedian(salaries);
 
 module.exports = calculateMedian;
