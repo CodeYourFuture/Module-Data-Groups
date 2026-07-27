@@ -1,18 +1,32 @@
-const alarmTime = document.querySelector("#alarmSet");
-const timeRemaining = document.querySelector("#timeRemaining");
+const alarmTime = document.getElementById("alarmSet");
+const timeRemaining = document.getElementById("timeRemaining");
 let remainingSeconds;
+let timer;
 
 function setAlarm() {
+  pauseAlarm();
+
   remainingSeconds = Number(alarmTime.value);
+
+  if (!Number.isFinite(remainingSeconds) || remainingSeconds <= 0) {
+    alert("Please enter a valid number.");
+    return;
+  }
+
   displayTimeRemaining();
 
-  let timer = setInterval(() => {
+  timer = setInterval(() => {
     remainingSeconds--;
-    displayTimeRemaining();
-    if (remainingSeconds === 0) {
+
+    if (remainingSeconds <= 0) {
+      remainingSeconds = 0;
+      displayTimeRemaining();
       clearInterval(timer);
       window.playAlarm();
+      return;
     }
+
+    displayTimeRemaining();
   }, 1000);
 }
 
@@ -46,6 +60,7 @@ function playAlarm() {
 }
 
 function pauseAlarm() {
+  clearInterval(timer);
   audio.pause();
 }
 
