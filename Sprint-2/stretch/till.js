@@ -26,6 +26,6 @@ const totalAmount = totalTill(till);
 
 // b) Why do we need to use Object.entries inside the for...of loop in this function?// we use Object.entries to convert Object into an arrays of array to enable iteration as javaScript object is not iterable*/
 
-// c) What does coin * quantity evaluate to inside the for...of loop?
+// c) What does coin * quantity evaluate to inside the for...of loop?/* The expression coin * quantity evaluated to NaN ,as Object.entries  converted the object properties to string and after looping through ,  when the name Variable which is a string multiples a number they will concatenate to form NaN*/
 
 // d) Write a test for this function to check it works and then fix the implementation of totalTill
