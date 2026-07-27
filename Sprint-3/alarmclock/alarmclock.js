@@ -10,6 +10,10 @@ function setAlarm() {
   if (isNaN(totalSeconds) || totalSeconds < 0) {
     totalSeconds = 0;
   }
+  // Clear any existing timer if the button is clicked again
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
 }
 
 // DO NOT EDIT BELOW HERE
