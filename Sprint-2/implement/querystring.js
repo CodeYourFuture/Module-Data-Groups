@@ -4,6 +4,9 @@ function parseQueryString(queryString) {
   if (queryString === null || queryString === undefined) {
     return queryParams;
   }
+  if (typeof queryString !== "string") {
+  return queryParams;
+}
 
   if (queryString.length === 0) {
     return queryParams;
