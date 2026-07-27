@@ -3,7 +3,7 @@
 // Below are some test cases the implementation doesn't handle well.
 // Fix the implementation for these tests, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js")
+const parseQueryString = require("./querystring.js");
 
 test("should parse values containing '='", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
@@ -45,4 +45,42 @@ test("should store values of a key in an array when the key has 2 or more values
     key: ["value1", "value2", "value3"],
     foo: "bar",
   });
+});
+
+test("should return an empty object for an empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("should handle values containing multiple equals signs", () => {
+  expect(parseQueryString("url=a=b=c")).toEqual({
+    url: "a=b=c",
+  });
+});
+
+test("should ignore multiple empty pairs", () => {
+  expect(parseQueryString("&&foo=bar&&")).toEqual({
+    foo: "bar",
+  });
+});
+
+test("should decode spaces using percent encoding", () => {
+  expect(parseQueryString("name=John%20Doe")).toEqual({
+    name: "John Doe",
+  });
+});
+
+test("should handle empty values with duplicate keys", () => {
+  expect(parseQueryString("key=&key=")).toEqual({
+    key: ["", ""],
+  });
+});
+
+test("should handle duplicate empty keys", () => {
+  expect(parseQueryString("=one&=two")).toEqual({
+    "": ["one", "two"],
+  });
+});
+
+test("should return an empty object when a number is passed", () => {
+  expect(parseQueryString(123)).toEqual({});
 });
