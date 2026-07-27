@@ -15,6 +15,7 @@ function setAlarm() {
   if (countDownId) {
     clearInterval(countDownId);
   }
+  flashAlarm("off");
   secondsTillEnd = seconds;
 
   // Update heading
@@ -29,6 +30,7 @@ function setAlarm() {
       clearInterval(countDownId);
       updateHeading(0);
       playAlarm();
+      flashAlarm();
     } else {
       updateHeading(secondsTillEnd);
     }
@@ -42,7 +44,16 @@ function updateHeading(timeInSeconds) {
   document.getElementById("timeRemaining").innerText = formattedTime;
   return;
 }
-// DO NOT EDIT BELOW HERE
+
+function flashAlarm(mode = "on") {
+  const alarmDiv = document.getElementsByClassName("centre")[0];
+  if (mode === "off") {
+    alarmDiv.classList.remove("flash");
+  } else {
+    alarmDiv.classList.add("flash");
+  }
+  return;
+}
 
 var audio = new Audio("alarmsound.mp3");
 
