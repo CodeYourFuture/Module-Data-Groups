@@ -23,7 +23,7 @@ console.log(invert({ a: 1, b: 2 }));
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}// the target output is { '1': 'a', '2': 'b' }
 
-// c) What does Object.entries return? Why is it needed in this program?
+// c) What does Object.entries return? Why is it needed in this program?// Object.entries converts the object into an array of [key, value] pairs.
 
 // d) Explain why the current return value is different from the target output
 
