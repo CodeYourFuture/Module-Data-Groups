@@ -80,6 +80,8 @@ function togglePausedAlarm() {
   pausedAlarm = !pausedAlarm;
 }
 
+// DO NOT EDIT BELOW HERE
+
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
