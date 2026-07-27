@@ -11,12 +11,29 @@ offFlashButton.addEventListener("click", () => {
 
 pauseButton.addEventListener("click", togglePausedAlarm);
 
-function setAlarm() {
-  // Get input from user
-  if (pausedAlarm) {
-    togglePausedAlarm();
+function startTimer() {
+  // Clear any existing timer before starting a new one
+  if (countDownId) {
+    clearInterval(countDownId);
   }
 
+  countDownId = setInterval(() => {
+    secondsTillEnd--;
+
+    // Play alarm if end reached
+    if (secondsTillEnd <= 0) {
+      clearInterval(countDownId);
+      countDownId = null;
+      updateHeading(0);
+      playAlarm();
+      flashAlarm("on");
+    } else {
+      updateHeading(secondsTillEnd);
+    }
+  }, 1000);
+}
+
+function setAlarm() {
   const input = document.getElementById("alarmSet").value;
   const seconds = parseInt(input);
 
@@ -26,33 +43,20 @@ function setAlarm() {
     return;
   }
 
-  // Clear any existing countdown
-  if (countDownId) {
-    clearInterval(countDownId);
+  // Reset pause state if setting a new alarm
+  if (pausedAlarm) {
+    pausedAlarm = false;
+    pauseButton.innerText = "Pause Alarm";
   }
 
   flashAlarm("off");
   secondsTillEnd = seconds;
 
-  // Update heading
+  // Update heading immediately
   updateHeading(secondsTillEnd);
 
-  // Start countdown
-  countDownId = setInterval(() => {
-    if (!pausedAlarm) {
-      secondsTillEnd--;
-    }
-
-    // Play alarm if end reached
-    if (secondsTillEnd <= 0) {
-      clearInterval(countDownId);
-      updateHeading(0);
-      playAlarm();
-      flashAlarm();
-    } else {
-      updateHeading(secondsTillEnd);
-    }
-  }, 1000);
+  // Start the countdown timer
+  startTimer();
 }
 
 function updateHeading(timeInSeconds) {
@@ -60,7 +64,6 @@ function updateHeading(timeInSeconds) {
   const seconds = timeInSeconds % 60;
   const formattedTime = `Time Remaining: ${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   document.getElementById("timeRemaining").innerText = formattedTime;
-  return;
 }
 
 function flashAlarm(mode = "on") {
@@ -70,14 +73,24 @@ function flashAlarm(mode = "on") {
   } else {
     alarmDiv.classList.add("flash");
   }
-  return;
 }
 
 function togglePausedAlarm() {
-  const alarmText = pauseButton.innerText;
-  pauseButton.innerText =
-    alarmText === "Pause Alarm" ? "Resume Alarm" : "Pause Alarm";
-  pausedAlarm = !pausedAlarm;
+  // Only toggle if an alarm is actually active/running
+  if (secondsTillEnd <= 0) return;
+
+  if (pausedAlarm) {
+    // Resume alarm
+    pausedAlarm = false;
+    pauseButton.innerText = "Pause Alarm";
+    startTimer();
+  } else {
+    // Pause alarm: stop the interval completely
+    pausedAlarm = true;
+    pauseButton.innerText = "Resume Alarm";
+    clearInterval(countDownId);
+    countDownId = null;
+  }
 }
 
 // DO NOT EDIT BELOW HERE
