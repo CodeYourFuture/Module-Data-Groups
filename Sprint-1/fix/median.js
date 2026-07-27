@@ -9,12 +9,25 @@ function calculateMedian(list) {
   if (!Array.isArray(list)) {
     return null;
   }
-  const numbers = list.filter((item) => typeof item === "number");
-  const copy = Array.from(numbers);
-  const newArray = copy.sort();
+  const allNumbers = list.filter((item) => typeof item === "number");
+  if (allNumbers.length === 0) {
+    return null;
+  }
 
-  const middleIndex = Math.floor(newArray.length / 2);
-  const median = newArray.splice(middleIndex, 1)[0];
-  return median;
+  function compareNumbers(a, b) {
+    return a - b;
+  }
+  const sortedNumbers = allNumbers.sort(compareNumbers);
+  let result = 0;
+  for (i = 0; i < sortedNumbers.length; i++) result += sortedNumbers[i];
+  if (sortedNumbers.length % 2 === 0) {
+    const median = result / sortedNumbers.length;
+    return median;
+  }
+  if (sortedNumbers.length % 2 !== 0) {
+    const middleIndex = Math.floor(sortedNumbers.length / 2);
+    return sortedNumbers[middleIndex];
+  }
 }
+
 module.exports = calculateMedian;
