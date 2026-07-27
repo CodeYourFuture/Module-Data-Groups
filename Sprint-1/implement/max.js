@@ -16,7 +16,6 @@ function findMax(elements) {
     }
   }
 
-  // return Math.max(...filteredNumericValues);
   return maximum;
 }
 
