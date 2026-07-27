@@ -31,7 +31,12 @@
     throw  new Error("Input must be a string");
   }
   const cleanedStr = str.replace(/[.,!?;:]/g, "").toLowerCase();
+  const freq = {};
+  const words = cleanedStr.split(" ").filter((w) => w !== "");
 
+  for (const word of words) {
+    freq[word] = (freq[word] || 0) + 1;
+  }
  }
  
 
