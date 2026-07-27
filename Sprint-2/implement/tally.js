@@ -3,7 +3,7 @@ function tally(items) {
         throw new Error("Input must me and array"); 
         // validate  and throw error if input is not an array . 
     }
-     frequency = {};
+     const frequency = {};
      for (let item of items){
        if (item in frequency){
         frequency[item] +=1;
