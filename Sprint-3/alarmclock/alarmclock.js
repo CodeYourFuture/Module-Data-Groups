@@ -1,4 +1,16 @@
-function setAlarm() {}
+let timerInterval = null;
+
+function setAlarm() {
+  const inputEl = document.getElementById("alarmSet");
+  const timeRemainingEl = document.getElementById("timeRemaining");
+
+  let totalSeconds = parseInt(inputEl.value, 10);
+
+  // If input is invalid or empty, default to 0
+  if (isNaN(totalSeconds) || totalSeconds < 0) {
+    totalSeconds = 0;
+  }
+}
 
 // DO NOT EDIT BELOW HERE
 
