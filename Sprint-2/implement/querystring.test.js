@@ -35,6 +35,12 @@ test("should replace '+' by ' '", () => {
   expect(parseQueryString("full+name=John+Doe")).toEqual({
     "full name": "John Doe",
   });
+  expect(parseQueryString("values=a+b+c+d")).toEqual({
+    values: "a b c d",
+  });
+  expect(parseQueryString("first+name")).toEqual({
+    "first name": "",
+  });
 });
 
 // Stretch exercise: Handling query strings that contain identical keys
