@@ -26,7 +26,10 @@
 
 3. Order the results to find out which word is the most common in the input
 */
- function countWords(){
+ function countWords(str){
+  if(typeof  str !=="string"){
+    throw  new Error("Input must be a string");
+  }
 
  }
  
