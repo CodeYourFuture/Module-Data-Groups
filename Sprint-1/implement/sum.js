@@ -7,9 +7,6 @@ function sum(elements) {
     (item) => typeof item === "number" && !isNaN(item)
   );
 
-  if (numbersOnly.length === 0) {
-    return 0;
-  }
 
   return numbersOnly.reduce((acc, curr) => acc + curr, 0);
 }
