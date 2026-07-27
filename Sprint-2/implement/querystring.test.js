@@ -80,3 +80,7 @@ test("should handle duplicate empty keys", () => {
     "": ["one", "two"],
   });
 });
+
+test("should return an empty object when a number is passed", () => {
+  expect(parseQueryString(123)).toEqual({});
+});
