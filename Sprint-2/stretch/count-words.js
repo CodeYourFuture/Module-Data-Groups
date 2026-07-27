@@ -30,6 +30,7 @@
   if(typeof  str !=="string"){
     throw  new Error("Input must be a string");
   }
+  const cleanedStr = str.replace(/[.,!?;:]/g, "").toLowerCase();
 
  }
  
