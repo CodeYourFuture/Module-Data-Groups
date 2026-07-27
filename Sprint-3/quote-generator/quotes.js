@@ -491,11 +491,11 @@ const quotes = [
 ];
 
 // define variables to store elements
-const quoteText = document.querySelector("#quote");
-const author = document.querySelector("#author");
-const newQuoteBtn = document.querySelector("#new-quote");
-const autoplayToggle = document.querySelector("#autoplay-toggle");
-const autoplayStatus = document.querySelector("#autoplay-status");
+const quoteText = document.getElementById("quote");
+const author = document.getElementById("author");
+const newQuoteBtn = document.getElementById("new-quote");
+const autoplayToggle = document.getElementById("autoplay-toggle");
+const autoplayStatus = document.getElementById("autoplay-status");
 
 // function to display quote
 function displayQuote() {
