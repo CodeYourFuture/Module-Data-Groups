@@ -26,3 +26,35 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWordsAdvanced(str) {
+  if (!str.trim()) return {};
+
+  // 1 & 2: Convert to lowercase and strip punctuation using Regex
+  const cleanedStr = str
+    .toLowerCase()
+    .replace(/[^\w\s]|_/g, ""); // Removes punctuation like .,!?- etc.
+
+  // Match words, splitting on whitespace
+  const words = cleanedStr.match(/\b\w+\b/g);
+  if (!words) return {};
+
+  const wordCounts = {};
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    wordCounts[word] = (wordCounts[word] || 0) + 1;
+  }
+
+  // 3: Sort the result by frequency (most common first)
+  const sortedEntries = Object.entries(wordCounts).sort(
+    (a, b) => b[1] - a[1]
+  );
+
+  // Convert back into an object (maintains insertion order in modern JavaScript)
+  return Object.fromEntries(sortedEntries);
+}
+
+// Example usage:
+console.log(countWordsAdvanced("You and me! And you, and ME..."));
+// Output: { and: 3, you: 2, me: 2 }

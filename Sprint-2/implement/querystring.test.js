@@ -46,3 +46,30 @@ test("should store values of a key in an array when the key has 2 or more values
     foo: "bar",
   });
 });
+
+
+describe("parseQueryString additional edge cases", () => {
+  test("should strip leading '?' if present", () => {
+    expect(parseQueryString("?foo=bar&baz=qux")).toEqual({
+      foo: "bar",
+      baz: "qux",
+    });
+  });
+
+  test("should handle empty or missing query string safely", () => {
+    expect(parseQueryString("")).toEqual({});
+    expect(parseQueryString(null)).toEqual({});
+  });
+
+  test("should prevent prototype pollution from '__proto__' keys", () => {
+    const result = parseQueryString("__proto__=polluted");
+    expect(Object.prototype.polluted).toBeUndefined();
+    expect(result["__proto__"]).toBe("polluted");
+  });
+
+  test("should gracefully fallback on malformed percent encoding", () => {
+    expect(parseQueryString("key=%E0%A4")).toEqual({
+      key: "%E0%A4",
+    });
+  });
+});
