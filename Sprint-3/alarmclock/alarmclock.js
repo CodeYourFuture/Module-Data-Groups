@@ -1,3 +1,5 @@
+let countdownInterval = null;
+
 function setAlarm() {
   const timeInput = document.getElementById("alarmSet");
   let remainingTime = Number(timeInput.value);
@@ -9,8 +11,12 @@ function setAlarm() {
 
   const timeRemainingDisplay = document.getElementById("timeRemaining");
 
+  if (countdownInterval !== null) {
+    clearInterval(countdownInterval);
+  }
+
   timeRemainingDisplay.innerText = `Time Remaining: ${formatTime(remainingTime)}`;
-  const countdownInterval = setInterval(() => {
+  countdownInterval = setInterval(() => {
     remainingTime -= 1;
     if (remainingTime === 0) {
       playAlarm();
