@@ -1,12 +1,22 @@
 let countDownId = null;
 let secondsTillEnd = 0;
+let pausedAlarm = false;
+
 let offFlashButton = document.getElementById("flash");
+let pauseButton = document.getElementById("pause");
+
 offFlashButton.addEventListener("click", () => {
   flashAlarm("off");
 });
 
+pauseButton.addEventListener("click", togglePausedAlarm);
+
 function setAlarm() {
   // Get input from user
+  if (pausedAlarm) {
+    togglePausedAlarm();
+  }
+
   const input = document.getElementById("alarmSet").value;
   const seconds = parseInt(input);
 
@@ -15,10 +25,12 @@ function setAlarm() {
     alert("Please enter a valid number of seconds");
     return;
   }
+
   // Clear any existing countdown
   if (countDownId) {
     clearInterval(countDownId);
   }
+
   flashAlarm("off");
   secondsTillEnd = seconds;
 
@@ -27,7 +39,9 @@ function setAlarm() {
 
   // Start countdown
   countDownId = setInterval(() => {
-    secondsTillEnd--;
+    if (!pausedAlarm) {
+      secondsTillEnd--;
+    }
 
     // Play alarm if end reached
     if (secondsTillEnd <= 0) {
@@ -57,6 +71,13 @@ function flashAlarm(mode = "on") {
     alarmDiv.classList.add("flash");
   }
   return;
+}
+
+function togglePausedAlarm() {
+  const alarmText = pauseButton.innerText;
+  pauseButton.innerText =
+    alarmText === "Pause Alarm" ? "Resume Alarm" : "Pause Alarm";
+  pausedAlarm = !pausedAlarm;
 }
 
 var audio = new Audio("alarmsound.mp3");
