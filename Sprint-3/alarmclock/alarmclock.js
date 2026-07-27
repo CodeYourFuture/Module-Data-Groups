@@ -14,6 +14,32 @@ function setAlarm() {
   if (timerInterval) {
     clearInterval(timerInterval);
   }
+  // Function to render the formatted time (MM:SS) to the DOM
+  function updateDisplay() {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+
+    const formattedMinutes = String(minutes).padStart(2, "0");
+    const formattedSeconds = String(seconds).padStart(2, "0");
+
+    timeRemainingEl.innerText = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
+  }
+  // 1. Immediately set heading on button click
+  updateDisplay();
+
+  // 2. Start the countdown timer
+  timerInterval = setInterval(() => {
+    totalSeconds -= 1;
+
+    if (totalSeconds >= 0) {
+      updateDisplay();
+    }
+
+    if (totalSeconds === 0) {
+      playAlarm();
+      clearInterval(timerInterval);
+    }
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
