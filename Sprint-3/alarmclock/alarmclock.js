@@ -38,7 +38,7 @@ function setAlarm() {
 function updateHeading(timeInSeconds) {
   const minutes = Math.floor(timeInSeconds / 60);
   const seconds = timeInSeconds % 60;
-  const formattedTime = `Time Remaining: ${minutes}:${seconds.toString().padStart(2, "0")}`;
+  const formattedTime = `Time Remaining: ${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   document.getElementById("timeRemaining").innerText = formattedTime;
   return;
 }
