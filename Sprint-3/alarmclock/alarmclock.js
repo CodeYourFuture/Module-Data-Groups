@@ -1,32 +1,44 @@
-let countDown = null;
+let countDownId = null;
 let secondsTillEnd = 0;
+
 function setAlarm() {
-  // TODO: Get input from user
+  // Get input from user
   const input = document.getElementById("alarmSet").value;
   const seconds = parseInt(input);
 
-  // TODO: Validate input
+  // Validate input
   if (isNaN(seconds) || seconds < 0) {
     alert("Please enter a valid number of seconds");
     return;
   }
-  // TODO: Clear any existing countdown
-  if (countDown) {
-    clearInterval(countDown);
+  // Clear any existing countdown
+  if (countDownId) {
+    clearInterval(countDownId);
   }
   secondsTillEnd = seconds;
 
   // Update heading
   updateHeading(secondsTillEnd);
 
-  // TODO: Start countdown
-  // TODO: Play alarm if end reached
+  // Start countdown
+  countDownId = setInterval(() => {
+    secondsTillEnd--;
+
+    // Play alarm if end reached
+    if (secondsTillEnd <= 0) {
+      clearInterval(countDownId);
+      updateHeading(0);
+      playAlarm();
+    } else {
+      updateHeading(secondsTillEnd);
+    }
+  }, 1000);
 }
 
 function updateHeading(timeInSeconds) {
   const minutes = Math.floor(timeInSeconds / 60);
   const seconds = timeInSeconds % 60;
-  const formattedTime = `Time Remaining: ${minutes}:${timeInSeconds.toString().padStart(2, "0")}`;
+  const formattedTime = `Time Remaining: ${minutes}:${seconds.toString().padStart(2, "0")}`;
   document.getElementById("timeRemaining").innerText = formattedTime;
   return;
 }
