@@ -15,8 +15,9 @@ function invert(obj) {
 
   return invertedObj;
 }
+console.log(invert({ a: 1 }));
 
-// a) What is the current return value when invert is called with { a : 1 }
+// a) What is the current return value when invert is called with { a : 1 }// the current return value is 1
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
 
