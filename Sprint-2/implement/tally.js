@@ -1,9 +1,20 @@
 function tally(items) {
-    if(!item){
-        return {}; // validate if there Item to count first 
+    if(!Array.isArray(items)){
+        throw new Error("Input must me and array"); 
+        // validate  and throw error if input is not an array . 
     }
-    frequency ={};
-
+     frequency = {};
+     for (let item of items){
+       if (item in frequency){
+        frequency[item] +=1;
+       }else{
+         frequency[item] = 1
+       }
+      
+     }
+    
+    
+   return frequency;
 }
 
 module.exports = tally;
