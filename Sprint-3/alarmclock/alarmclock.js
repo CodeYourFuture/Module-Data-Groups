@@ -1,6 +1,12 @@
 function setAlarm() {
   const timeInput = document.getElementById("alarmSet");
   let remainingTime = Number(timeInput.value);
+
+  if (!timeInput.value || remainingTime <= 0) {
+    alert("Please set a valid time!");
+    return;
+  }
+
   const timeRemainingDisplay = document.getElementById("timeRemaining");
 
   timeRemainingDisplay.innerText = `Time Remaining: ${formatTime(remainingTime)}`;
