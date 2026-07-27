@@ -59,4 +59,10 @@ describe("calculateMedian", () => {
     it(`filters out non-numeric values and calculates the median for [${input}]`, () =>
       expect(calculateMedian(input)).toEqual(expected))
   );
+
+  it("calculates the correct median for salaries array", () => {
+    const salaries = [10, 40, 50, 70, 90];
+    const median = calculateMedian(salaries);
+    expect(median).toEqual(50);
+  });
 });
