@@ -22,9 +22,9 @@ const till = {
 };
 const totalAmount = totalTill(till);
 
-// a) What is the target output when totalTill is called with the till object/* the target output is (1p*10 + 5p*6 +50p*4 +20p*10) =440/100 = £4.40
+// a) What is the target output when totalTill is called with the till object/* the target output is (1p*10 + 5p*6 +50p*4 +20p*10) =440/100 = £4.40*/
 
-// b) Why do we need to use Object.entries inside the for...of loop in this function?
+// b) Why do we need to use Object.entries inside the for...of loop in this function?// we use Object.entries to convert Object into an arrays of array to enable iteration as javaScript object is not iterable*/
 
 // c) What does coin * quantity evaluate to inside the for...of loop?
 
