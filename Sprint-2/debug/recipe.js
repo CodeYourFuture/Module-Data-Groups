@@ -11,5 +11,7 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+  ingredients:`);
+for (const value of Object.values(recipe.ingredients)) {
+  console.log(value);
+}
