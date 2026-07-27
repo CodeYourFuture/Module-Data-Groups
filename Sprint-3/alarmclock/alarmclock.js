@@ -1,5 +1,9 @@
 let countDownId = null;
 let secondsTillEnd = 0;
+let offFlashButton = document.getElementById("flash");
+offFlashButton.addEventListener("click", () => {
+  flashAlarm("off");
+});
 
 function setAlarm() {
   // Get input from user
