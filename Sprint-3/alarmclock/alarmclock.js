@@ -1,5 +1,7 @@
 let timeRemaining = 0;
 let intervalId = null;
+let isPaused = false;
+
 
 function setAlarm() {
   const input = document.getElementById("alarmSet");
