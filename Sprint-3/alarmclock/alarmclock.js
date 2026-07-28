@@ -45,6 +45,9 @@ function stopAlarm() {
   pauseAlarm(); // or stopAlarmSound() depending on your starter code
 }
 
+const setAlarmButton = document.getElementById("set-alarm");
+setAlarmButton.addEventListener("click", setAlarm);
+
 
 // DO NOT EDIT BELOW HERE
 
