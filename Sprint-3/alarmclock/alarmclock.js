@@ -48,6 +48,10 @@ function stopAlarm() {
 const setAlarmButton = document.getElementById("set-alarm");
 setAlarmButton.addEventListener("click", setAlarm);
 
+const stopAlarmButton = document.getElementById("stop-alarm");
+stopAlarmButton.addEventListener("click", stopAlarm);
+
+
 
 // DO NOT EDIT BELOW HERE
 
