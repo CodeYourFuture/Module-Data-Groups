@@ -508,4 +508,4 @@ function displayNewQuote() {
 }
 
 buttonElement.addEventListener("click", displayNewQuote);// add event listener 
-
+displayNewQuote();// call the displayNewQuote
