@@ -30,6 +30,16 @@ function setAlarm() {
   }, 1000);
 }
 
+function updateDisplay(seconds) {
+  const title = document.getElementById("time-remaining");
+
+  const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+
+  title.textContent = `Time Remaining: ${mins}:${secs}`;
+}
+
+
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
