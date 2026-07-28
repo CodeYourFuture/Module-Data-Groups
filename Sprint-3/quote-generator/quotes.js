@@ -490,4 +490,24 @@ const quotes = [
   },
 ];
 
+// getting access from the html
+const showquote = document.querySelector("displayArea");
+const areaOfQuote = document.querySelector("h1");
+const shufflebutton = document.querySelector("#new-quote");
+const AreaOfQuoteBy = document.querySelector("h3");
+
 // call pickFromArray with the quotes array to check you get a random quote
+
+function quoteGenerator() {
+  const entireQuote = pickFromArray(quotes);
+  const quot = entireQuote.quote;
+  const Author = entireQuote.author;
+  areaOfQuote.textContent = `" ${quot} "`;
+  AreaOfQuoteBy.textContent = `- ${Author}`;
+}
+//console.log(quoteGenerator);
+//console.log(quot);
+//console.log(Author);
+quoteGenerator();
+//event handler
+shufflebutton.addEventListener("click", quoteGenerator);
