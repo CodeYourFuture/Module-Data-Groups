@@ -498,3 +498,11 @@ pickFromArray(quotes);
 const quoteElement = document.getElementById("quote");
 const authorElement = document.getElementById("author");
 const buttonElement = document.getElementById("new-quote");
+
+//Define a function to render a new quote to the page
+
+function displayNewQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteElement.innerText = `"${randomQuote.quote}"`;
+  authorElement.innerText = `- ${randomQuote.author}`;
+}
