@@ -32,6 +32,17 @@ function addNewTodo() {
   taskInput.value = "";
 }
 
+function deleteCompletedTodos() {
+  const newTodos = Todos.deleteCompleted(todos);
+
+  // Replace the old array contents
+  todos.length = 0;
+  todos.push(...newTodos);
+
+  render();
+}
+
+
 // Note:
 // - Store the reference to the <ul> element with id "todo-list" here
 //   to avoid querying the DOM repeatedly inside render().
