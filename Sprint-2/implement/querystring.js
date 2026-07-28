@@ -1,6 +1,10 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if (queryString.length === 0) {
+  if (
+    queryString === null ||
+    queryString === undefined ||
+    queryString.length === 0
+  ) {
     return queryParams;
   }
   const keyValuePairs = queryString.split("&");
@@ -14,7 +18,7 @@ function parseQueryString(queryString) {
     let value;
 
     if (equalIndex === -1) {
-      key = pair.slice(0);
+      key = pair;
       value = "";
     } else {
       key = pair.slice(0, equalIndex);
