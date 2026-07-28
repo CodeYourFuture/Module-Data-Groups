@@ -42,6 +42,9 @@ function updateDisplay(seconds) {
   title.textContent = `Time Remaining: ${mins}:${secs}`;
 }
 
+document.getElementById("stop").addEventListener("click", () => {
+  document.body.classList.remove("flash");
+});
 
 
 // DO NOT EDIT BELOW HERE
