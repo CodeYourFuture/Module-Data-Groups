@@ -105,10 +105,11 @@ function createListItem(todo, index) {
   }
   const deadlineEl = li.querySelector(".deadline");
   if (todo.deadline) {
-    deadlineEl.textContent = `Deadline: ${todo.deadline}`;
+    deadlineEl.textContent = getDaysRemainingText(todo.deadline);
   } else {
     deadlineEl.textContent = "";
   }
+
 
   li.querySelector('.complete-btn').addEventListener("click", () => {
     Todos.toggleCompletedOnTask(todos, index);
