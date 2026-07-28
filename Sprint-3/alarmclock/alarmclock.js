@@ -27,6 +27,7 @@ function setAlarm() {
     if (timeRemaining <= 0) {
       clearInterval(intervalId);
       playAlarm();
+      document.body.classList.add("flash"); 
     }
   }, 1000);
 }
