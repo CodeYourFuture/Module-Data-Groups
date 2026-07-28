@@ -12,8 +12,9 @@ window.addEventListener("load", () => {
 
 
   // Populate sample data
-  Todos.addTask(todos, "Wash the dishes", false); 
-  Todos.addTask(todos, "Do the shopping", true);
+  Todos.addTask(todos, "Wash the dishes", false, null);
+  Todos.addTask(todos, "Do the shopping", true, "2026-07-30");
+
 
   render();
 });
