@@ -1,7 +1,34 @@
 let timeRemaining = 0;
 let intervalId = null;
 
-function setAlarm() {}
+function setAlarm() {
+  const input = document.getElementById("alarm-input");
+  const seconds = Number(input.value);
+
+  if (isNaN(seconds) || seconds <= 0) {
+    alert("Please enter a valid number of seconds.");
+    return;
+  }
+
+  timeRemaining = seconds;
+  updateDisplay(timeRemaining);
+
+  // Clear any previous countdown
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
+
+  // Start a new countdown
+  intervalId = setInterval(() => {
+    timeRemaining--;
+    updateDisplay(timeRemaining);
+
+    if (timeRemaining <= 0) {
+      clearInterval(intervalId);
+      playAlarm();
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
