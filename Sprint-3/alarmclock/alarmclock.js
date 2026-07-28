@@ -62,6 +62,8 @@ function togglePause() {
   }
 }
 
+document.getElementById("pause").addEventListener("click", togglePause);
+
 
 document.getElementById("stop").addEventListener("click", () => {
   document.body.classList.remove("flash");
