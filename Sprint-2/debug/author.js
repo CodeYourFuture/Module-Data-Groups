@@ -1,5 +1,6 @@
 // Predict and explain first...
-// I think we can not use for ... of loop for objects. Object is not iriterable.
+// We cannot use for...of directly on a plain object because objects are not iterable.
+// We can use for...of with Object.values(), Object.keys(), or Object.entries().
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
