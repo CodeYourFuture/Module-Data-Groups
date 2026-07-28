@@ -31,13 +31,13 @@ test("should decode percent-encoded characters", () => {
   });
 });
 
-test("should replace '+' by ' '", () => {
+ test("should replace '+' by ' '", () => {
   expect(parseQueryString("full+name=John+Doe")).toEqual({
     "full name": "John Doe",
   });
 });
 
-// Stretch exercise: Handling query strings that contain identical keys
+/* Stretch exercise: Handling query strings that contain identical keys
 
 // Delete this test if you are not working on this optional case
 test("should store values of a key in an array when the key has 2 or more values", () => {
@@ -46,3 +46,4 @@ test("should store values of a key in an array when the key has 2 or more values
     foo: "bar",
   });
 });
+*/
