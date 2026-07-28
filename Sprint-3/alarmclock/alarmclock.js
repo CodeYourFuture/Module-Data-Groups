@@ -1,3 +1,6 @@
+let timeRemaining = 0;
+let intervalId = null;
+
 function setAlarm() {}
 
 // DO NOT EDIT BELOW HERE
