@@ -22,5 +22,3 @@ test("Given an object, should swap the keys and values in the object", () => {
 });
 
 test("Given an empty object, should swap the keys and values in the object", () => {});
-
-test("Given an object, should swap the keys and values in the object", () => {});
