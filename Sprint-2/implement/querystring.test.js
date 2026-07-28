@@ -37,6 +37,11 @@ test("should replace '+' by ' '", () => {
   });
 });
 
+test("should return an empty object for null or undefined", () => {
+  expect(parseQueryString(null)).toEqual({});
+  expect(parseQueryString(undefined)).toEqual({});
+});
+
 // Stretch exercise: Handling query strings that contain identical keys
 
 // // Delete this test if you are not working on this optional case
