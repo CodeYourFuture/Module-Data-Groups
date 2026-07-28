@@ -502,6 +502,9 @@ const buttonElement = document.getElementById("new-quote");
 const autoPlayToggle = document.getElementById("auto-play-toggle");
 const autoPlayStatus = document.getElementById("auto-play-status");
 
+// Declare a variable to store our interval timer ID
+let autoPlayIntervalId = null;
+
 //Define a function to render a new quote to the page
 
 function displayNewQuote() {
