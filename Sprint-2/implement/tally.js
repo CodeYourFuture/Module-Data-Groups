@@ -4,6 +4,7 @@ function tally(items) {
   }
   const itemsObj = {};
   for (const item of items) {
+    if (item === undefined || item === null) continue;
     if (itemsObj[item] === undefined) {
       itemsObj[item] = 1;
     } else itemsObj[item]++;
