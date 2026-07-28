@@ -48,6 +48,9 @@ function stopAlarm() {
 }
 document.body.classList.add("flash");
 
+let isPaused = false;
+
+
 
 
 
