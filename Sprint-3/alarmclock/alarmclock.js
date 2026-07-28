@@ -41,17 +41,6 @@ function updateDisplay(seconds) {
   title.textContent = `Time Remaining: ${mins}:${secs}`;
 }
 
-function stopAlarm() {
-  clearInterval(intervalId);
-  intervalId = null;
-  pauseAlarm(); 
-}
-document.body.classList.add("flash");
-
-let isPaused = false;
-
-
-
 
 
 // DO NOT EDIT BELOW HERE
