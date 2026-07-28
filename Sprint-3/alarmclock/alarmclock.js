@@ -39,6 +39,12 @@ function updateDisplay(seconds) {
   title.textContent = `Time Remaining: ${mins}:${secs}`;
 }
 
+function stopAlarm() {
+  clearInterval(intervalId);
+  intervalId = null;
+  pauseAlarm(); // or stopAlarmSound() depending on your starter code
+}
+
 
 // DO NOT EDIT BELOW HERE
 
