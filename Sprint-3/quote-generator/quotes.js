@@ -525,4 +525,5 @@ function handleAutoPlayToggle() {
 }
 
 buttonElement.addEventListener("click", displayNewQuote);// add event listener 
+autoPlayToggle.addEventListener("change", handleAutoPlayToggle);// add event listener for the auto play
 displayNewQuote();// call the displayNewQuote
