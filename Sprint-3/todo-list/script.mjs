@@ -23,13 +23,18 @@ window.addEventListener("load", () => {
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("new-task-deadline");
+
   const task = taskInput.value.trim();
+  const deadline = deadlineInput.value || null; 
+
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
     render();
   }
 
   taskInput.value = "";
+  deadlineInput.value = "";
 }
 
 function deleteCompletedTodos() {
