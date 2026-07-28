@@ -2,7 +2,7 @@
   "name": "quote-generator",
   "version": "1.0.0",
   "license": "CC-BY-SA-4.0",
-  "description": "You must update this package",
+  "description": "Simple quote generator that picks a quote at random",
   "scripts": {
     "test": "jest --config=../jest.config.js quote-generator"
   },

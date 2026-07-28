@@ -1,5 +1,38 @@
 // DO NOT EDIT BELOW HERE
+document.addEventListener("DOMContentLoaded", () => {
+  const quoteEl = document.getElementById("quote");
+  const authorEl = document.getElementById("author");
+  const newQuoteBtn = document.getElementById("new-quote");
 
+  if (!quoteEl || !authorEl || !newQuoteBtn) {
+    console.warn("Missing #quote, #author or #new-quote element.");
+    return;
+  }
+  let lastIndex = -1;
+
+  function showRandomQuote() {
+    let index;
+
+    if (quotes.length === 1) {
+      index = 0;
+    } else {
+      do {
+        index = Math.floor(Math.random() * quotes.length);
+      } while (index === lastIndex);
+    }
+
+    lastIndex = index;
+
+    const chosen = quotes[index];
+
+    quoteEl.textContent = `"${chosen.quote}"`;
+    authorEl.textContent = `— ${chosen.author}`;
+  }
+
+  showRandomQuote();
+
+  newQuoteBtn.addEventListener("click", showRandomQuote);
+});
 // pickFromArray is a function which will return one item, at
 // random, from the given array.
 //
