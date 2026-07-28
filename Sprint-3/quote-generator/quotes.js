@@ -506,3 +506,6 @@ function displayNewQuote() {
   quoteElement.innerText = `"${randomQuote.quote}"`;
   authorElement.innerText = `- ${randomQuote.author}`;
 }
+
+buttonElement.addEventListener("click", displayNewQuote);// add event listener 
+
