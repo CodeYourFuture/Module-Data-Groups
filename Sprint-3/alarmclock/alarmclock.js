@@ -1,5 +1,4 @@
-function setAlarm() {
-  let inputSeconds;
+let inputSeconds;
 let timer;
 
 function setAlarm() {
@@ -33,7 +32,6 @@ function updateDisplay() {
     document.getElementById("timeRemaining").textContent =
         `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }  
-}
 
 // DO NOT EDIT BELOW HERE
 
