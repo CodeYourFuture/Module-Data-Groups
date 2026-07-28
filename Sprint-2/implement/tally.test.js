@@ -43,3 +43,20 @@ test("Given an array with duplicate items, should return counts for each unique 
 test("Given an invalid input like a string, it should throw an error", () => {
   expect(() => tally("hello")).toThrow();
 });
+
+// Given undefined  or null
+// When passed to tally
+// Then it should ignore these values
+test("Given undefined  or null, should ignore these values", () => {
+  expect(() => {
+    tally([
+      "apple",
+      "banana",
+      "apple",
+      "orange",
+      "banana",
+      undefined,
+      null,
+    ]).toEqual(["apple", "banana", "apple", "orange", "banana"]);
+  });
+});
