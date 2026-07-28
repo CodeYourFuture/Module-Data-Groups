@@ -43,6 +43,25 @@ function updateDisplay(seconds) {
 
   title.textContent = `Time Remaining: ${mins}:${secs}`;
 }
+function togglePause() {
+  if (!isPaused) {
+    clearInterval(intervalId);
+    isPaused = true;
+  } else {
+    isPaused = false;
+    intervalId = setInterval(() => {
+      timeRemaining--;
+      updateDisplay(timeRemaining);
+
+      if (timeRemaining <= 0) {
+        clearInterval(intervalId);
+        playAlarm();
+        document.body.classList.add("flash");
+      }
+    }, 1000);
+  }
+}
+
 
 document.getElementById("stop").addEventListener("click", () => {
   document.body.classList.remove("flash");
