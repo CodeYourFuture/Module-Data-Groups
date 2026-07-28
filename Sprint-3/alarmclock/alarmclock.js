@@ -2,7 +2,8 @@ let timeRemaining = 0;
 let intervalId = null;
 
 function setAlarm() {
-  const input = document.getElementById("alarm-input");
+  const input = document.getElementById("alarmSet");
+
   const seconds = Number(input.value);
 
   if (isNaN(seconds) || seconds <= 0) {
@@ -31,7 +32,8 @@ function setAlarm() {
 }
 
 function updateDisplay(seconds) {
-  const title = document.getElementById("time-remaining");
+  const title = document.getElementById("timeRemaining");
+
 
   const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
   const secs = String(seconds % 60).padStart(2, "0");
