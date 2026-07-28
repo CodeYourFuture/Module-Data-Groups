@@ -512,6 +512,17 @@ function displayNewQuote() {
   quoteElement.innerText = `"${randomQuote.quote}"`;
   authorElement.innerText = `- ${randomQuote.author}`;
 }
+// Declare a function to handle toggle changes
+function handleAutoPlayToggle() {
+  if (autoPlayToggle.checked) {
+    autoPlayStatus.innerText = "auto-play: ON";
+    autoPlayIntervalId = setInterval(displayNewQuote, 5000);
+  } else {
+    autoPlayStatus.innerText = "auto-play: OFF";
+    clearInterval(autoPlayIntervalId);
+    autoPlayIntervalId = null;
+  }
+}
 
 buttonElement.addEventListener("click", displayNewQuote);// add event listener 
 displayNewQuote();// call the displayNewQuote
