@@ -498,6 +498,9 @@ pickFromArray(quotes);
 const quoteElement = document.getElementById("quote");
 const authorElement = document.getElementById("author");
 const buttonElement = document.getElementById("new-quote");
+//NEW DOM ELEMENTS to interact with the toggle id and status id
+const autoPlayToggle = document.getElementById("auto-play-toggle");
+const autoPlayStatus = document.getElementById("auto-play-status");
 
 //Define a function to render a new quote to the page
 
