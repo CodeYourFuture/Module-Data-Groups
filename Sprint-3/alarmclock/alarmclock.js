@@ -44,8 +44,9 @@ function updateDisplay(seconds) {
 function stopAlarm() {
   clearInterval(intervalId);
   intervalId = null;
-  pauseAlarm(); // or stopAlarmSound() depending on your starter code
+  pauseAlarm(); 
 }
+document.body.classList.add("flash");
 
 
 
