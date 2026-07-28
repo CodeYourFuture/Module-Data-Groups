@@ -2,7 +2,7 @@
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
-
+//This isn't working because we need the key-value pairs, so we need a for..in loop
 const author = {
   firstName: "Zadie",
   lastName: "Smith",
@@ -11,6 +11,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (let value in author) {
+  console.log(author[value]);
 }

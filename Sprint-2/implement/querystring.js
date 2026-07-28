@@ -3,11 +3,12 @@ function parseQueryString(queryString) {
   if (queryString.length === 0) {
     return queryParams;
   }
-  const keyValuePairs = queryString.split("&");
+  const keyValuePairs = queryString.replaceAll("+", " ").split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    if (pair === "") continue;
+    const [key = "", value = ""] = pair.split(/=(.*)/);
+    queryParams[decodeURIComponent(key)] = decodeURIComponent(value);
   }
 
   return queryParams;
