@@ -41,13 +41,4 @@ function parseQueryString(queryString) {
   return queryParams;
 }
 
-console.log(parseQueryString("equation=a=b-2")); // "equation: a=b-2"
-console.log(parseQueryString("key1=value&&key2=value2&")); // key1:"value1" key2:"value2"
-console.log(parseQueryString("=value")); // "":value
-console.log(parseQueryString("key=")); // key:""
-console.log(parseQueryString("=")); // {"":""}
-console.log(parseQueryString("%24half=1%2F2")); //{$half: "1/2",}
-console.log(parseQueryString("full+name=John+Doe")); //{"full name": "John Doe",}
-console.log(parseQueryString());
-
 module.exports = parseQueryString;

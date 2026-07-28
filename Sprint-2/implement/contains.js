@@ -1,5 +1,5 @@
-function contains(keyInput,valueInput) {
-    if (Array.isArray(keyInput) == true) {
+function contains(keyInput, valueInput) {
+  if (Array.isArray(keyInput) == true) {
     return false;
   } else {
     for (const key in keyInput) {
@@ -9,8 +9,6 @@ function contains(keyInput,valueInput) {
     }
   }
   return false;
-}
-
 }
 
 module.exports = contains;

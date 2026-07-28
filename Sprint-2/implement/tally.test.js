@@ -38,3 +38,6 @@ test("given an array of duplicated items returns an object containing the counte
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+test("tally on an empty array returns an empty object", () => {
+  expect(() => tally("string").toThrow("Invalid input!"));
+});
