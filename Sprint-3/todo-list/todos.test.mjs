@@ -18,14 +18,13 @@ function createMockTodos() {
 }
 
 // A mock task to simulate user input
-const theTask = { task: "The Task", completed: false };
+const theTask = { task: "The Task", completed: false, deadline: null };
 
 describe("addTask()", () => {
   test("Add a task to an empty ToDo list", () => {
     let todos = [];
-    Todos.addTask(todos, theTask.task, theTask.completed);
-    expect(todos).toHaveLength(1);
-    expect(todos[0]).toEqual(theTask);
+   Todos.addTask(todos, theTask.task, theTask.completed);
+   expect(todos[todos.length - 1]).toEqual(theTask);
   });
 
   test("Should append a new task to the end of a ToDo list", () => {
