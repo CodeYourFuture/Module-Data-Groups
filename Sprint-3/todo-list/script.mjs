@@ -72,6 +72,28 @@ function render() {
 // - This variable is declared here to be close to the only function that uses it.
 const todoListItemTemplate = 
   document.getElementById("todo-item-template").content.firstElementChild;
+  function getDaysRemainingText(deadline) {
+    if (!deadline) return "";
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const deadlineDate = new Date(deadline);
+    deadlineDate.setHours(0, 0, 0, 0);
+
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const diffDays = Math.round((deadlineDate - today) / msPerDay);
+
+    if (diffDays === 0) {
+      return "Due today";
+    } else if (diffDays > 0) {
+      return `${diffDays} day${diffDays === 1 ? "" : "s"} left`;
+    } else {
+      const overdueDays = Math.abs(diffDays);
+      return `Overdue by ${overdueDays} day${overdueDays === 1 ? "" : "s"}`;
+    }
+  }
+
 
 // Create a <li> element for the given todo task
 function createListItem(todo, index) {
