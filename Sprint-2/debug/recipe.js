@@ -10,6 +10,14 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+//console.log(`${recipe.title} serves ${recipe.serves}
+//  ingredients:
+//${recipe}`);
+
+for (const ingredient of recipe.ingredients) {
+  console.log(ingredient);
+}
+
+
+// [object Object] will be shown because JavaScript converts an object to a string, it becomes "[object object].
+// Use the syntax to access the ingredients directly 
