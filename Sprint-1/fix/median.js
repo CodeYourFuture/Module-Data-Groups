@@ -6,37 +6,33 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
-  // validate that  the datetype is arrays
+  // 1. Validate that input is an array
   if (!Array.isArray(list)) {
     return null;
   }
-  // Convert numeric strings to numbers and ignore non-numeric values
-  const numericValue = list
-  .map(item=>{
-    // convert numerical string to number
-    if(typeof item ==="string" && item.trim()!==""&& !isNaN(item)){
-      return Number(item);
-  }
-  return item;
-  } )
-  // Filter every arrays that  is now a number
-  .filter(item =>typeof item==="number"&& !isNaN(item));
-  // Validates if the Arrays has any numerical values at all
-  if (numericValue.length===0){
+
+  // 2. Keep ONLY elements that are strictly numbers (excluding strings, NaN, null, undefined)
+  const numericValues = list.filter(
+    (item) => typeof item === "number" && !isNaN(item)
+  );
+
+  // 3. Return null if no valid numbers remain
+  if (numericValues.length === 0) {
     return null;
   }
-  // sorting the numeric data in ascending order
-  numericValue.sort((a,b)=>a-b);
-  const median = Math.floor(numericValue.length / 2);
 
-  //Add statement to handle when array length is an odd number
-  if (numericValue.length % 2 !==0){
-    return numericValue[median];
+  // 4. Sort ascending
+  numericValues.sort((a, b) => a - b);
+
+  const median = Math.floor(numericValues.length / 2);
+
+  // 5. Return median for odd length
+  if (numericValues.length % 2 !== 0) {
+    return numericValues[median];
   }
-  // add a logic to handle when the data length is even  number
-  if (numericValue.length % 2 === 0){
-    return (numericValue[median-1] + numericValue[median])/2
-  }
+
+  // 6. Return median for even length
+  return (numericValues[median - 1] + numericValues[median]) / 2;
 }
 
 module.exports = calculateMedian;
