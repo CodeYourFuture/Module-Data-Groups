@@ -6,12 +6,12 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
-function invert(obj) {
-  const invertedObj = {};
+function invert(obj) {                     // obj{} is the input of invert function
+  const invertedObj = {};                 // says that invertedObj is a empty object {}
 
-  for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
-  }
+  for (const [key, value] of Object.entries(obj)) {            //'for' is looping the key and value of the object 
+    invertedObj[key] = value;                                  // stored. Object.entires(obj) returns an array of array 
+  }                                                          // key in a bracket [] lets you use a variable called key
 
   return invertedObj;
 }
@@ -31,6 +31,10 @@ function invert(obj) {
 
 // d) Explain why the current return value is different from the target output
 // The current return value only shows {key: 2}. It doesn't show the first key and value only the second, 
-// and it doesn't specify the second key. Its just defined as 'key' 
+// and it doesn't specify the second key. Its just defined as 'key'. 
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
+
+module.exports = invert;
+
+
