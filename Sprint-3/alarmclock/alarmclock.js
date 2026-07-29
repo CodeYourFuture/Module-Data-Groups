@@ -1,4 +1,21 @@
-function setAlarm() {}
+function setAlarm() {
+  // Get the input element
+  const alarmSetInput = document.getElementById("alarmSet");
+
+  // Get the number of seconds
+  const seconds = Number(alarmSetInput.value);
+
+  // Validate input
+  if (seconds <= 0 || isNaN(seconds)) {
+    alert("Please enter a valid number.");
+    return;
+  }
+
+  // Wait the specified number of seconds
+  setTimeout(() => {
+    playAlarm()
+  }, seconds * 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
