@@ -12,10 +12,11 @@ const author = {
   alive: true,
 };
 
-  console.log(author.firstName);
+  /*console.log(author.firstName);
   console.log(author.lastName);
   console.log(author.occupation);
   console.log(author.age);
-  console.log(author.alive);
+  console.log(author.alive); */
+  console.log(Object.values(author));
 
 
