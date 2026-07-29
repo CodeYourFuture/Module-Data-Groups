@@ -1,20 +1,35 @@
+const timeRemaining = document.getElementById("timeRemaining");
+let timer;
+
 function setAlarm() {
-  // Get the input element
-  const alarmSetInput = document.getElementById("alarmSet");
+    const alarmSetInput = document.getElementById("alarmSet");
+    let seconds = Number(alarmSetInput.value);
 
-  // Get the number of seconds
-  const seconds = Number(alarmSetInput.value);
+    if (seconds <= 0 || isNaN(seconds)) {
+        alert("Please enter a valid number.");
+        return;
+    }
 
-  // Validate input
-  if (seconds <= 0 || isNaN(seconds)) {
-    alert("Please enter a valid number.");
-    return;
-  }
+    // Stop a previous countdown if there is one
+    clearInterval(timer);
 
-  // Wait the specified number of seconds
-  setTimeout(() => {
-    playAlarm()
-  }, seconds * 1000);
+    timer = setInterval(() => {
+
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+
+        timeRemaining.textContent =
+            `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+
+        if (seconds <= 0) {
+            clearInterval(timer);
+            playAlarm();
+            return;
+        }
+
+        seconds--;
+
+    }, 1000);
 }
 
 document.getElementById("set").addEventListener("click", setAlarm);
@@ -42,3 +57,4 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
+
