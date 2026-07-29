@@ -41,6 +41,6 @@ test("tally on an array with duplicate  items return a count for each item ",() 
 // When passed to tally
 // Then it should throw an error
 test("tally with a invalid string should throw an error",() => {
-  expect(tally('car'))
+  expect(() => tally('car'))
   .toThrow("Input must be an array");
 });
