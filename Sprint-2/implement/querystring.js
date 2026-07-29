@@ -3,11 +3,25 @@ function parseQueryString(queryString) {
   if (queryString.length === 0) {
     return queryParams;
   }
-  const keyValuePairs = queryString.split("&");
+  const keyValuePairs = queryString.split("&").filter(Boolean);
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    const cleanedPair = pair.replace(/\+/g, " ");
+
+    const [rawKey, ...rest] = cleanedPair.split("=");
+    const rawValue = rest.length > 0 ? rest.join("=") : "";
+
+    const key = decodeURIComponent(rawKey);
+    const value = decodeURIComponent(rawValue);
+
+    if (queryParams.hasOwnProperty(key)) {
+      if (!Array.isArray(queryParams[key])) {
+        queryParams[key] = [queryParams[key]];
+      }
+      queryParams[key].push(value);
+    } else {
+      queryParams[key] = value;
+    }
   }
 
   return queryParams;
