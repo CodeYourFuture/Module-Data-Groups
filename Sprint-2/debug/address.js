@@ -12,9 +12,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address.houseNumber}`);
-
-// "My house number is undefined"
-// The reason is that it is an object and not array
-// The correct statement is to use the dot operator to access the related field. 
-// In this case, the property/field name should be houseNumber in the object address
+console.log(`My house number is ${address[0]}`);
