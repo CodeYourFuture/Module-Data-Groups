@@ -11,6 +11,11 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const key in author) {
+  console.log(author[key]);
 }
+
+//TypeError: author is not iterable
+// The for...of loop only works on iterable objects in JavaScript—such as Arrays, Strings, Sets, and Maps.
+// Plain JavaScript objects ({}) are not iterable by default because they don't have a built-in [Symbol.iterator] method.
+// use a for...in loop to step through the keys, then access each value using bracket notation
