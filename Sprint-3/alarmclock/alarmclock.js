@@ -17,6 +17,8 @@ function setAlarm() {
   }, seconds * 1000);
 }
 
+document.getElementById("set").addEventListener("click", setAlarm);
+
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
