@@ -17,7 +17,7 @@ E.g. dedupe([1, 2, 1]) returns [1, 2]
 // When passed to the dedupe function
 // Then it should return an empty array
 //test.todo("given an empty array, it returns an empty array");
-const dedupe = require("./dedupe.js");
+
 
 describe("dedupe given an empty array, it returns an empty array ", () => {
   [{ input: [], expected: [] }].forEach(({ input, expected }) =>
