@@ -1,8 +1,8 @@
-const newQuoteBtn = document.querySelector("#new-quote");
-const quote = document.querySelector("#quote");
-const author = document.querySelector("#author");
-const autoPlayToggle = document.querySelector("#auto-play-toggle");
-const autoPlayStatus = document.querySelector("#auto-play-status");
+const newQuoteBtn = document.getElementById("new-quote");
+const quote = document.getElementById("quote");
+const author = document.getElementById("author");
+const autoPlayToggle = document.getElementById("auto-play-toggle");
+const autoPlayStatus = document.getElementById("auto-play-status");
 
 let seenQuotes = new Set();
 const INTERVAL_DURATION_MS = 10000; // 10 second interval duration
@@ -15,11 +15,13 @@ const getUnseenQuotes = () => {
   // clear seenQuotes if all quotes have been displayed
   if (seenQuotes.size === quotes.length) seenQuotes.clear();
 
-  // loop until index is not in seenQuotes
-  let index;
-  do {
-    index = Math.floor(Math.random() * quotes.length);
-  } while (seenQuotes.has(index));
+  // get random index within range of quotes array
+  let index = Math.floor(Math.random() * quotes.length);
+
+  // if index is in seenQuotes increase it by one until an unseen index is found
+  for (let i = 0; i < quotes.length && seenQuotes.has(index); i++) {
+    index = (index + 1) % quotes.length;
+  }
 
   seenQuotes.add(index);
   return quotes[index];
