@@ -1,8 +1,8 @@
 // Refactor the implementation of includes to use a for...of loop
 
 function includes(array, target) {
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === target) {
+  for (let value of array) {
+    if (value === target) {
       return true;
     }
   }
