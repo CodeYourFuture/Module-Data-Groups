@@ -28,7 +28,7 @@ export function toggleCompletedOnTask(todos, taskIndex) {
   }
 }
 
-// To remove all completed ToDos from the given list.
+// Remove all completed ToDos if they exists and are toggled.
 export function deleteCompleted(todoList) {
   if (todoList) {
     toggleCompletedOnTask(todoList);
