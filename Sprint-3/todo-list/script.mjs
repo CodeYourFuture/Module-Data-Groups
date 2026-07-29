@@ -75,18 +75,19 @@ function createListItem(todo, index) {
   const icon = deadlineBadge ? deadlineBadge.querySelector("i") : null;
   if (todo.deadline) {
     const diffDays = Todos.getDaysRemaining(todo.deadline);
-    
+
     // Clear existing styling classes from deadlineBadge (keep 'deadline-badge')
     deadlineBadge.className = "deadline-badge";
-    
+
     // Clear icon classes
     if (icon) {
       icon.className = "";
     }
-    
+    diff;
     if (diffDays < 0) {
       deadlineBadge.classList.add("overdue");
-      deadlineDate.textContent = `Deadline: ${Math.abs(diffDays)} ${Math.abs(diffDays) === 1 ? 'day' : 'days'} overdue`;
+      const overdueDays = Math.abs(diffDays);
+      deadlineDate.textContent = `Deadline: ${overdueDays} ${overdueDays === 1 ? "day" : "days"} overdue`;
       if (icon) icon.className = "fa-solid fa-triangle-exclamation";
     } else if (diffDays === 0) {
       deadlineBadge.classList.add("due-today");
