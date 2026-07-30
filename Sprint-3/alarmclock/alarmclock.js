@@ -1,29 +1,27 @@
 let remainingSeconds = 0;
 let intervalId;
+
+function formatTime(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60).toString().padStart(2, "0");
+  const seconds = Math.floor(totalSeconds % 60).toString().padStart(2, "0");
+  return `${minutes}:${seconds}`;
+}
 function setAlarm() {
   clearInterval(intervalId);
 
   const initialSeconds = Number(document.getElementById("alarmSet").value);
+  const timeRemainingHeading = document.getElementById("timeRemaining");
+  if (!initialSeconds || initialSeconds <= 0) {
+  timeRemainingHeading.innerText = "Please enter a positive number of seconds";
+  return;
+}
   remainingSeconds = initialSeconds;
 
-  let minutesDisplay = Math.floor(initialSeconds / 60)
-    .toString()
-    .padStart(2, "0");
-  let secondsDisplay = Math.floor(initialSeconds % 60)
-    .toString()
-    .padStart(2, "0");
-  let timeRemainingHeading = document.getElementById("timeRemaining");
-  timeRemainingHeading.innerText = `Time Remaining: ${minutesDisplay}:${secondsDisplay}`;
+  timeRemainingHeading.innerText = `Time Remaining: ${formatTime(remainingSeconds)}`;
 
   intervalId = setInterval(() => {
     remainingSeconds--;
-    let currentMinutes = Math.floor(remainingSeconds / 60)
-      .toString()
-      .padStart(2, "0");
-    let currentSeconds = Math.floor(remainingSeconds % 60)
-      .toString()
-      .padStart(2, "0");
-    timeRemainingHeading.innerText = `Time Remaining: ${currentMinutes}:${currentSeconds}`;
+    timeRemainingHeading.innerText = `Time Remaining: ${formatTime(remainingSeconds)}`;
     if (remainingSeconds === 0) {
       clearInterval(intervalId);
       playAlarm();
