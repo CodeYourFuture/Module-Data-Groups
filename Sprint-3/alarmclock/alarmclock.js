@@ -4,6 +4,11 @@ function setAlarm() {
 
   let secondsRemaining = Number(input.value);
 
+if (!secondsRemaining || secondsRemaining <= 0) {
+  heading.innerText = "Please enter a number of seconds greater than 0";
+  return;
+}
+
   function updateDisplay() {
     const minutes = Math.floor(secondsRemaining / 60);
     const seconds = secondsRemaining % 60;
