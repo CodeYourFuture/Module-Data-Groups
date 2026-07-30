@@ -4,12 +4,3 @@ node_modules
 **/.DS_Store
 .idea
 package-lock.json
-prep/query-string-test.js
-prep/newarray.js
-prep/median1.js
-prep/mean1.test.js
-prep/mean1.js
-prep/meadian2.js
-prep/meadian1.test.js
-prep/example2.js
-prep/example.js
