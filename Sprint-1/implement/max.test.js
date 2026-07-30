@@ -15,29 +15,48 @@ const findMax = require("./max.js");
 // Given an empty array
 // When passed to the max function
 // Then it should return -Infinity
-// Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("should return -Infinity for an empty array", () => {
+  expect(findMax([])).toEqual(-Infinity);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("should return the number when array contains one number ", () => {
+  expect(findMax([5])).toEqual(5);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("should return the largest number when passed negative and positive numbers", () => {
+  expect(findMax([-5, 5, -2, 2])).toEqual(5);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("should return the number closest to 0, when the numbers are all negative in the array", () => {
+  expect(findMax([-5, -3, -1, -9])).toEqual(-1);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("should return the largest number among decimals", () => {
+  expect(findMax([2.3, 1.6, 9.4, 11.25])).toEqual(11.25);
+});
 
 // Given an array with non-number values
 // When passed to the max function
 // Then it should return the max and ignore non-numeric values
+test("should ignore non-numeric values, and calculate the max of the numbers", () => {
+  expect(findMax(["all", null, true, [2, 3], 3, 7])).toEqual(7);
+});
 
 // Given an array with only non-number values
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("should return undefined if all the elements are non-numbers", () => {
+  expect(findMax(["nope", null, []])).toEqual(-Infinity);
+});
