@@ -1,14 +1,21 @@
-// Fix this implementation
-// Start by running the tests for this function
-// If you're in the Sprint-1 directory, you can run `npm test -- fix` to run the tests in the fix directory
+function calculateMedian(arr) {
+  
+  if (!Array.isArray(arr)) return null;
 
-// Hint: Please consider scenarios when 'list' doesn't have numbers (the function is expected to return null)
-// or 'list' has mixed values (the function is expected to sort only numbers).
+  if (arr.length === 0) return null;
 
-function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
+  const cleaned = arr.filter(x => typeof x === "number" && Number.isFinite(x));
+
+  if (cleaned.length === 0) return null;
+
+  const sorted = cleaned.sort((a, b) => a - b);
+
+  const mid = Math.floor(sorted.length / 2);
+
+  if (sorted.length % 2 === 1) {
+    return sorted[mid];
+  } else {
+    return (sorted[mid - 1] + sorted[mid]) / 2;
+  }
 }
-
 module.exports = calculateMedian;
