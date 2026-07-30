@@ -9,7 +9,7 @@ test("should parse values containing '='", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
     equation: "a=b-2",
   });
-});
+}); 
 
 test("should ignore empty key-value pairs", () => {
   expect(parseQueryString("key1=value1&&key2=value2&")).toEqual({
@@ -37,6 +37,7 @@ test("should replace '+' by ' '", () => {
   });
 });
 
+
 // Stretch exercise: Handling query strings that contain identical keys
 
 // Delete this test if you are not working on this optional case
@@ -44,5 +45,10 @@ test("should store values of a key in an array when the key has 2 or more values
   expect(parseQueryString("key=value1&key=value2&key=value3&foo=bar")).toEqual({
     key: ["value1", "value2", "value3"],
     foo: "bar",
+  });
+});
+test("should replace all '+' by ' '", () => {
+  expect(parseQueryString("full+name=John+Doe+Wright")).toEqual({
+    "full name": "John Doe Wright",
   });
 });
