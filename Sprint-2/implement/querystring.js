@@ -1,8 +1,8 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
+   if (queryString.length === 0) {
+     return queryParams;
+   } 
   const keyValuePairs = queryString.split("&");
   const emptyElement = "";
 
@@ -16,7 +16,7 @@ function parseQueryString(queryString) {
         const decodeKey = decodeURIComponent(key);
         const decodeValue = decodeURIComponent(value);
         const replacedKey = decodeKey.replace("+", " ");
-        const replacedValue = decodeValue.replace("+", " ");
+        const replacedValue = decodeValue.replaceAll("+", " ");
         if (queryParams.hasOwnProperty(replacedKey)) {
           if (Array.isArray(queryParams[replacedKey])) {
             queryParams[replacedKey].push(replacedValue);
