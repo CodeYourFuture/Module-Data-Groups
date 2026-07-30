@@ -1,7 +1,8 @@
-// Predict and explain first...
-
-// This program attempts to log out all the property values in the object.
-// But it isn't working. Explain why first and then fix the problem
+/* Predict and explain first...
+I think this will return an error because of the for...of loop.
+The for...of loop is used to iterate over iterable objects like arrays, strings, maps, sets, etc.
+So this will return an error because the author object is not iterable.
+*/
 
 const author = {
   firstName: "Zadie",
@@ -11,6 +12,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }

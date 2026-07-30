@@ -1,6 +1,43 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+describe("createLookup", () => {
+  test("creates a country currency code lookup for a single code", () => {
+    const countryCurrencyPairs = [["US", "USD"]];
+    const expectedLookup = { US: "USD" };
+    expect(createLookup(countryCurrencyPairs)).toEqual(expectedLookup);
+  });
+
+  test("creates a country currency code lookup for multiple codes", () => {
+    const countryCurrencyPairs = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ];
+    const expectedLookup = { US: "USD", CA: "CAD" };
+    expect(createLookup(countryCurrencyPairs)).toEqual(expectedLookup);
+  });
+
+  test("returns an empty object when passed an empty array", () => {
+    const countryCurrencyPairs = [];
+    const expectedLookup = {};
+    expect(createLookup(countryCurrencyPairs)).toEqual(expectedLookup);
+  });
+
+  test("throws error for invalid input", () => {
+    expect(() => createLookup(null)).toThrow();
+    expect(() => createLookup(undefined)).toThrow();
+    expect(() => createLookup({})).toThrow();
+  });
+
+  test("returns repeated keys with the last value", () => {
+    const countryCurrencyPairs = [
+      ["US", "USN"],
+      ["CA", "CAD"],
+      ["US", "USD"],
+    ];
+    const expectedLookup = { US: "USD", CA: "CAD" };
+    expect(createLookup(countryCurrencyPairs)).toEqual(expectedLookup);
+  });
+});
 
 /*
 

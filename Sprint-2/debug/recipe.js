@@ -1,8 +1,10 @@
-// Predict and explain first...
+/* Predict and explain first...
 
-// This program should log out the title, how many it serves and the ingredients.
-// Each ingredient should be logged on a new line
-// How can you fix it?
+This code will log the title and serves correctly, but the ingredients will not be logged on separate lines as intended.
+This happens because the ingredients array is being logged as a whole object, which will not format it correctly.
+The output will for the ingredients will be [object Object] instead of each ingredient on a new line.
+
+ */
 
 const recipe = {
   title: "bruschetta",
@@ -11,5 +13,7 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+  ingredients:`);
+recipe.ingredients.forEach((ingredient) => {
+  console.log(`- ${ingredient}`);
+});
