@@ -14,15 +14,48 @@ E.g. dedupe([1, 2, 1]) returns [1, 2]
 // Acceptance Criteria:
 
 // Given an empty array
-// When passed to the dedupe function
-// Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+describe("dedupe", () => {
+  test("returns an empty array when passed an empty array", () => {
+    expect(dedupe([])).toEqual([]);
+  });
 
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
+  // Given an array with no duplicates
+  test("returns a copy of the original array when there are no duplicates", () => {
+    expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);
+    expect(dedupe(["a", "b", "c"])).toEqual(["a", "b", "c"]);
+    expect(dedupe(["apple", "banana", "cherry"])).toEqual([
+      "apple",
+      "banana",
+      "cherry",
+    ]);
+  });
 
-// Given an array of strings or numbers
-// When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the 
-// first occurrence of each element from the original array.
+  // Given an array of strings or numbers
+  test("removes duplicates from an array of numbers", () => {
+    expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
+    expect(dedupe([1, 2, 1])).toEqual([1, 2]);
+    expect(dedupe([1, 1, 2, 2, 3, 3, 4, 4])).toEqual([1, 2, 3, 4]);
+  });
+  test("removes duplicates from an array of strings", () => {
+    expect(dedupe(["a", "a", "a", "b", "b", "c"])).toEqual(["a", "b", "c"]);
+    expect(
+      dedupe(["apple", "banana", "apple", "banana", "cherry", "cherry"])
+    ).toEqual(["apple", "banana", "cherry"]);
+    expect(dedupe(["cat", "dog", "cat", "bird"])).toEqual([
+      "cat",
+      "dog",
+      "bird",
+    ]);
+  });
+  // Given an array with mixed types
+  test("removes duplicates from an array with mixed types", () => {
+    expect(dedupe([1, "1", 2, "2", 1, "1"])).toEqual([1, "1", 2, "2"]);
+    expect(dedupe(["apple", 1, "banana", 2, "apple", 1])).toEqual([
+      "apple",
+      1,
+      "banana",
+      2,
+    ]);
+    expect(dedupe([true, false, true, false])).toEqual([true, false]);
+  });
+});
