@@ -20,7 +20,7 @@ In this section, you'll have a function and some tests. The function isn't worki
 
 - Run the tests - to run the tests for the `fix` directory you can `cd` into `Sprint-1` and run `npm test -- fix`.
 - Interpret the test feedback
-- Fix the function to make it pass the tests
+- Fix the tests
 
 ## 🔨 Implement
 
