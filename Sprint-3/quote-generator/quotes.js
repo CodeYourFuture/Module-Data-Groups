@@ -29,9 +29,10 @@ function updateWebpageWithQuote() {
   const authorDisplay = document.querySelector("#author");
 
   // store into the variable
-  const randomPick = pickFromArray(quotes);
-  quoteDisplay.innerText = randomPick.quote;
-  authorDisplay.innerText = randomPick.author;
+
+  const { quote, author } = pickFromArray(quotes);
+  quoteDisplay.innerText = quote;
+  authorDisplay.innerText = author;
 }
 
 // Second condition:  when a person enter the website, it should have a quote appear;
