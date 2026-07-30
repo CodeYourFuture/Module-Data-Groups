@@ -25,13 +25,13 @@ function pickFromArray(quotes) {
 // First condition: When a person click the button, it should generate back a quote;
 
 function updateWebpageWithQuote() {
-  const elem = document.querySelector("#quote");
-  const elem2 = document.querySelector("#author");
+  const quoteDisplay = document.querySelector("#quote");
+  const authorDisplay = document.querySelector("#author");
 
   // store into the variable
-  const elem3 = pickFromArray(quotes);
-  elem.innerText = elem3.quote;
-  elem2.innerText = elem3.author;
+  const randomPick = pickFromArray(quotes);
+  quoteDisplay.innerText = randomPick.quote;
+  authorDisplay.innerText = randomPick.author;
 }
 
 // Second condition:  when a person enter the website, it should have a quote appear;
