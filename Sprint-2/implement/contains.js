@@ -12,13 +12,9 @@ function contains(object, key) {
     return false;
   }
 
-  if (key in object) {
-    return true;
-  } else {
-    return false;
-  }
+  return key in object;
 }
-
+console.log(contains(object, "b"));
 module.exports = contains;
 
 /*
