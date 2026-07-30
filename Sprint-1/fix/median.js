@@ -1,7 +1,7 @@
 function calculateMedian(list) {
   const numbers = [];
   for (const x of list) {
-    if (typeof x === "number") {
+    if (Number.isFinite(x)) {
       numbers.push(x);
     }
   }
