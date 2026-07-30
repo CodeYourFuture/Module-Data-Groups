@@ -40,7 +40,13 @@ function triggerAlarm() {
 function setAlarm() {
   clearInterval(intervalID);
   const alarmTime = alarmSetElement.value;
+  if (alarmTime === "") {
+    return;
+  }
   remainingTime = Number(alarmTime);
+  if (remainingTime < 0) {
+    return;
+  }
   const showTimeMinutes = Math.floor(remainingTime / 60)
     .toString()
     .padStart(2, "0");
