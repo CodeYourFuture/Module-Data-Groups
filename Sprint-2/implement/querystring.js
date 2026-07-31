@@ -6,10 +6,19 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    const indexOfFirst = pair.indexOf("=");
+    if (indexOfFirst === -1) {
+      queryParams[pair] = "";
+    } else {
+      let key = decodeURIComponent(
+        pair.slice(0, indexOfFirst).replaceAll("+", " ")
+      );
+      let value = decodeURIComponent(
+        pair.slice(indexOfFirst + 1).replaceAll("+", " ")
+      );
+      queryParams[key] = value;
+    }
   }
-
   return queryParams;
 }
 
