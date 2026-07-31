@@ -10,20 +10,28 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key;
   }
 
   return invertedObj;
 }
 
+module.exports = invert;
+
+
 // a) What is the current return value when invert is called with { a : 1 }
+// - Ony 1 is printed 
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
+// - 1 and 2
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
+// - {1: "a", 2: b}
 
 // c) What does Object.entries return? Why is it needed in this program?
+// - object.entries() returns an array of a given object's own enumerable string keyed property key-value pair
 
 // d) Explain why the current return value is different from the target output
+// - invertedObj only referenced the swapped value to key. We should have another variable to swap and reference key to value
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
