@@ -7,6 +7,12 @@ const todos = [];
 // Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
+  document
+  .getElementById("delete-completed-btn")
+  .addEventListener("click", () => {
+    Todos.deleteCompleted(todos);
+    render();
+  });
 
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
