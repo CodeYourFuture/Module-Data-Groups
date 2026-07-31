@@ -16,7 +16,7 @@ function setAlarm() {
     const seconds = secondsRemaining % 60;
     const paddedMinutes = String(minutes).padStart(2, "0");
     const paddedSeconds = String(seconds).padStart(2, "0");
-    heading.innerText = Time Remaining: ${paddedMinutes}:${paddedSeconds};
+    heading.innerText = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
   }
 
   updateDisplay();
