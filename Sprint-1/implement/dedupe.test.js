@@ -20,15 +20,35 @@ test("given an empty array, it returns an empty array", () => {
   expect(dedupe([])).toEqual([]);
 });
 
-test("given an array with no duplicates, it returns a copy of the original array", () => {
-  expect(dedupe([1, 2, 3])).toEqual([1, 2, 3]);
-});
-
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+
+test("given an array with no duplicates, it returns a copy of the original array", () => {
+  const input = [1, 2, 3];
+  const result = dedupe(input);
+
+  expect(result).toEqual(input);
+  expect(result).not.toBe(input);
+});
 
 // Given an array of strings or numbers
 // When passed to the dedupe function
 // Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
+
+test("given an array of numbers with duplicates, it returns a new array with duplicates removed preserving first occurrences", () => {
+  const input = [5, 1, 1, 2, 3, 2, 5, 8];
+  const result = dedupe(input);
+
+  expect(result).toEqual([5, 1, 2, 3, 8]);
+  expect(result).not.toBe(input);
+});
+
+test("given an array of strings with duplicates, it returns a new array with duplicates removed preserving first occurrences", () => {
+  const input = ["a", "a", "a", "b", "b", "c"];
+  const result = dedupe(input);
+
+  expect(result).toEqual(["a", "b", "c"]);
+  expect(result).not.toBe(input);
+});
