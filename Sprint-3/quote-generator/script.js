@@ -15,3 +15,17 @@ window.addEventListener("load", () => {
 newQuoteBtn.addEventListener("click", () => {
   displayRandomQuote();
 });
+
+let intervalId = null;
+const autoToggle = document.querySelector("#auto-toggle");
+const autoStatus = document.querySelector("#auto-status");
+
+autoToggle.addEventListener("change", () => {
+  if (autoToggle.checked) {
+    autoStatus.innerText = "auto-play:ON";
+    intervalId = setInterval(displayRandomQuote, 5000); // 5 seconds for testing
+  } else {
+    autoStatus.innerText = "auto-play:OFF";
+    clearInterval(intervalId);
+  }
+});
