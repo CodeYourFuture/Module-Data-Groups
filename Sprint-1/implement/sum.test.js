@@ -49,3 +49,16 @@ test("given an array containing non-number values, return correct sum total and 
 test("given an array with only non-number values, return the least surprising value", () => {
   expect(sum(["the", "world"])).toBe(0);
 });
+// Given an array containing NaN and valid numbers
+// When passed to the sum function
+// Then it should ignore NaN and sum the valid numbers
+test("given an array containing NaN, ignores NaN and returns the sum of valid numbers", () => {
+  expect(sum([NaN, 1])).toBe(1);
+});
+
+// Given an array with positive and negative Infinity
+// When passed to the sum function
+// Then it should return NaN (undefined mathematical operation)
+test("given an array with Infinity and -Infinity, returns NaN", () => {
+  expect(sum([Infinity, -Infinity])).toBeNaN();
+});
