@@ -14,7 +14,4 @@ function sum(elements) {
   return sum;
 }
 
-let numbers = ["c", "b", "hi", 1];
-console.log(sum(numbers));
-
 module.exports = sum;
