@@ -13,24 +13,42 @@ const sum = require("./sum.js");
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0")
+test("given an empty array, returns 0", function() {
+    expect(sum([])).toBe(0);
+});
 
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
+test("given an array with just one number, returns that number", function() {
+   expect(sum([1])).toBe(1);
+});
 
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
+test("given a negative array, returns the sum", function() {
+    expect(sum([-4, -2, -1])).toBe(-7);
+});
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+test("given a decimal array, returns the sum", function() {
+  expect(sum([1.9, 3.1, 2.7])).toBe(7.7);
+});
 
 // Given an array containing non-number values
 // When passed to the sum function
 // Then it should ignore the non-numerical values and return the sum of the numerical elements
+test("given a mixed array, returns only the sum of numbers ", function() {
+    expect(sum(["c", 3, 4, "hi", 7])).toBe(14);
+});
 
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+
+test("given an array of non-numeric value, returns undefined", function() {
+    expect(sum(["b", "hello", "y"])).toBe(undefined);
+});
