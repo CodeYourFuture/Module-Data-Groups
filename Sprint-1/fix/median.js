@@ -22,7 +22,7 @@ function calculateMedian(list) {
     return null;
   }
   const filteredList = list.filter((value) => typeof value === "number");
-  if (filteredList.length < 2) {
+  if (filteredList.length < 1) {
     return null;
   }
   const sortedList = filteredList.sort((a, b) => a - b);
