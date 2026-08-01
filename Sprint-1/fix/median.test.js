@@ -33,7 +33,7 @@ describe("calculateMedian", () => {
     expect(list).toEqual([3, 1, 2]);
   });
 
-  [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ].forEach(val =>
+ [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ].forEach(val =>
     it(`returns null for non-numeric array (${val})`, () => expect(calculateMedian(val)).toBe(null))
   );
 
