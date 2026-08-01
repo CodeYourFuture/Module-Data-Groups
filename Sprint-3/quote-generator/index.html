@@ -3,13 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote generator app</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+
     <script defer src="quotes.js"></script>
+    <script defer src="quote_generator.js"></script>
+
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
+  <div>
+    <blockquote>
+      <p id="quote"></p>
+      <p id="author"></p>
+    </blockquote>
     <button type="button" id="new-quote">New quote</button>
+  </div>
   </body>
 </html>
