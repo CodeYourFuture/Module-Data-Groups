@@ -1,9 +1,11 @@
 const timeRemaining = document.getElementById("timeRemaining");
 let timer;
+let seconds;
 
 function setAlarm() {
     const alarmSetInput = document.getElementById("alarmSet");
-    let seconds = Number(alarmSetInput.value);
+    seconds = Number(alarmSetInput.value);
+
 
     if (seconds <= 0 || isNaN(seconds)) {
         alert("Please enter a valid number.");
@@ -13,26 +15,28 @@ function setAlarm() {
     // Stop a previous countdown if there is one
     clearInterval(timer);
 
-    timer = setInterval(() => {
+    // Run immediately
+    decrementTimer();
 
-        const minutes = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-
-        timeRemaining.textContent =
-            `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-
-        if (seconds <= 0) {
-            clearInterval(timer);
-            playAlarm();
-            return;
-        }
-
-        seconds--;
-
-    }, 1000);
+    // decrement each second
+    timer = setInterval(() => decrementTimer(), 1000);
 }
 
-document.getElementById("set").addEventListener("click", setAlarm);
+function decrementTimer()
+{
+  const minutes = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+
+  timeRemaining.textContent = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+
+  if (seconds <= 0) {
+    clearInterval(timer);
+    playAlarm();
+    return;
+  }
+
+  seconds--;
+}
 
 // DO NOT EDIT BELOW HERE
 
