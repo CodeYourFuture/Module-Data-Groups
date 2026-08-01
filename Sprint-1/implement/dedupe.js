@@ -5,9 +5,6 @@ function dedupe(arr) {
       elements.push(item);
     }
   }
-  if (elements.length === arr.length) {
-    return arr.slice();
-  }
   return elements;
 }
 
