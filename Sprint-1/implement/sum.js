@@ -4,7 +4,7 @@ function sum(elements) {
     for (let i = 0; i < filteredList.length; i++) {
         counter += filteredList[i];
     }
-return counter; 
+    return counter; 
 }
 
 module.exports = sum;
