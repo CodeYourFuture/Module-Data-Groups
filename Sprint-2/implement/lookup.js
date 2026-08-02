@@ -1,6 +1,4 @@
 function createLookup(countryCurrencyPairs) {
-  // implementation here
-
   pairs = {};
   for (const [country, currency] of countryCurrencyPairs) {
     pairs[country] = currency;
