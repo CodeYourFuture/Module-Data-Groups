@@ -1,4 +1,8 @@
 function createLookup() {
+
+    return Object.fromEntries(countryCurrencyPairs);  
+  
+  
   // implementation here
 }
 
