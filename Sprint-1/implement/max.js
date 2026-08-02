@@ -1,10 +1,14 @@
 function findMax(elements) {
-    if (elements.length < 1) {
-        return -Infinity;
-    } else {
-        const filteredList = elements.filter((value) => (typeof value === "number") && (!Number.isNaN(value)))
-        return Math.max( ...filteredList)}
-    
+  if (elements.length < 1) {
+    return -Infinity;
+  } else {
+    const filteredList = elements.filter(
+      (value) =>
+        typeof value === "number" &&
+        !Number.isNaN(value)
+    );
+    return Math.max(...filteredList);
+  }
 }
 
 module.exports = findMax;
