@@ -24,12 +24,12 @@ function pauseAlarm() {
 
 window.onload = setup;
 
-const timeRemainingElement = document.querySelector("#timeRemaining");
-const alarmSetElement = document.querySelector("#alarmSet");
-const setButtonElement = document.querySelector("#set");
-const stopButtonElement = document.querySelector("#stop");
+const timeRemainingElement = document.getElementById("timeRemaining");
+const alarmSetElement = document.getElementById("alarmSet");
+const setButtonElement = document.getElementById("set");
+const stopButtonElement = document.getElementById("stop");
 const bodyElement = document.querySelector("body");
-const alarmSoundElement = document.querySelector("#alarmSound");
+const alarmSoundElement = document.getElementById("alarmSound");
 
 let remainingTime;
 let intervalID;
