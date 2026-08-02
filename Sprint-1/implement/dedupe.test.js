@@ -35,3 +35,9 @@ test("given an array of strings or numbers, it returns a new array with no dupli
   expect(dedupe(['a','a','a','b','b','c'])).toEqual(['a','b','c']);
   expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
 }); 
+
+const original = [1, 2, 3];
+const result = dedupe(original);
+
+expect(result).toEqual([1, 2, 3]);
+expect(result).not.toBe(original);
