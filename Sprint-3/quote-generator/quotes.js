@@ -494,8 +494,8 @@ const quotes = [
 
 // Function to select a random quote and update the HTML elements
 function displayNewQuote() {
-  const quoteP = document.querySelector("#quote");
-  const authorP = document.querySelector("#author");
+  const quoteP = document.getElementById("quote");
+  const authorP = document.getElementById("author");
 
   // Get a random quote object from the quotes array
   const randomQuote = pickFromArray(quotes);
