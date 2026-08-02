@@ -1,8 +1,8 @@
 // Refactor the implementation of includes to use a for...of loop
 
 function includes(list, target) {
-  for (let i of list) {
-    if (i === target) {
+  for (let element of list) {
+    if (element === target) {
       return true;
     }
   }
@@ -10,3 +10,5 @@ function includes(list, target) {
 }
 
 module.exports = includes;
+
+
