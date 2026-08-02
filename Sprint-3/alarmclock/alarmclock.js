@@ -8,6 +8,8 @@ function setAlarm() {
 
   // If input is invalid or empty, default to 0
   if (isNaN(totalSeconds) || totalSeconds <= 0) {
+    if (timerInterval) clearInterval(timerInterval); // Stop any running timer
+    timeRemainingEl.innerText = "Please enter a valid time (greater than 0)"; // Inform the user
     return;
   }
   // Clear any existing timer if the button is clicked again
