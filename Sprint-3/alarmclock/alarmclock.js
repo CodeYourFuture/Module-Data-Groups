@@ -1,8 +1,11 @@
 let timer;
 function setAlarm() {
+  document.body.style.backgroundColor = "white";
   const input = document.getElementById("alarmSet");
   let seconds = Number(input.value);
-
+  if (seconds <= 0) {
+    return;
+  }
   const timeRemaining = document.getElementById("timeRemaining");
 
   clearInterval(timer);
