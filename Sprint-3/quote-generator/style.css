@@ -27,12 +27,22 @@ body {
   border-bottom-width: 10px;
 }
 
-h1 {
+#quote {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  font-weight: bold;
   text-align: center;
   margin-right: 20px;
   color: rgb(226, 203, 163);
 }
-h3 {
+#author {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  display: block;
   text-align: right;
   margin-right: 20px;
   color: rgb(226, 203, 163);
