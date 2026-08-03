@@ -1,4 +1,30 @@
-function setAlarm() {}
+function displayTime(time) {
+  const remainingElement = document.getElementById("timeRemaining");
+
+  const minutes = String(Math.floor(time / 60)).padStart(2, "0");
+  const seconds = String(time % 60).padStart(2, "0");
+
+  remainingElement.innerText = `Time Remaining: ${minutes}:${seconds}`;
+}
+
+function setAlarm() {
+  let time = parseInt(document.getElementById("alarmSet").value);
+  displayTime(time);
+
+  const interval = setInterval(() => {
+    time--;
+    displayTime(time);
+    if (time === 0) {
+      clearInterval(interval);
+      playAlarm();
+    }
+  }, 1000);
+}
+
+
+
+
+
 
 // DO NOT EDIT BELOW HERE
 
