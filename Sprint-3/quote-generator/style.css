@@ -1,1 +1,46 @@
-/** Write your CSS in here **/
+body {
+  background-color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+.outer-container {
+  background-color: orange;
+  padding: 30px;
+  text-align: center;
+}
+
+
+.quote-box {
+  background-color: white;
+  color: orange;
+  padding: 40px;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+
+#quote {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+#author {
+  font-size: 18px;
+  font-style: italic;
+}
+
+
+#new-quote {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
