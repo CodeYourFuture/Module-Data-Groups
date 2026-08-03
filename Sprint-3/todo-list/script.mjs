@@ -42,8 +42,7 @@ function deleteCompletedTodos() {
   const newTodos = Todos.deleteCompleted(todos);
 
   // Replace the old array contents
-  todos.length = 0;
-  todos.push(...newTodos);
+  Todos.deleteCompleted(todos);
 
   render();
 }
