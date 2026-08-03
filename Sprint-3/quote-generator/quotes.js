@@ -1,3 +1,30 @@
+// Function to pick and display a new random quote
+function displayRandomQuote() {
+  // 1. Get a random quote object from the quotes array
+  const randomQuote = pickFromArray(quotes);
+
+  // 2. Select the HTML elements where the quote and author should be displayed
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+
+  // 3. Update the text content of the DOM elements
+  if (quoteElement && authorElement) {
+    quoteElement.textContent = `"${randomQuote.quote}"`;
+    authorElement.textContent = `- ${randomQuote.author}`;
+  }
+}
+
+// Show a random quote as soon as the page loads
+window.addEventListener("DOMContentLoaded", () => {
+  displayRandomQuote();
+
+  // Attach click listener to the button (assuming button has id "new-quote-btn")
+  const newQuoteButton = document.getElementById("new-quote-btn");
+  if (newQuoteButton) {
+    newQuoteButton.addEventListener("click", displayRandomQuote);
+  }
+});
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -491,3 +518,21 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+
+function renderQuote() {
+  // Use the provided pickFromArray helper function
+  const randomQuote = pickFromArray(quotes);
+
+  // Update the HTML element contents
+  quoteElement.textContent = `"${randomQuote.quote}"`;
+  authorElement.textContent = `- ${randomQuote.author}`;
+}
+
+renderQuote();
+
+newQuoteButton.addEventListener("click", renderQuote);
