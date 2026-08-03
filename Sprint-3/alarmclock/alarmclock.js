@@ -6,9 +6,6 @@ let intervalID;
 let timeoutID;
 let display;
 
-// document.getElementById("set").addEventListener("click", setAlarm);
-// document.getElementById("stop").addEventListener("click", stopAlarm);
-
 function setAlarm() {
   stopAlarm();
 
@@ -24,10 +21,6 @@ function setAlarm() {
 
   display.textContent = formatTime(timeLeft);
 
-  if (!timeoutID) {
-    timeoutID = setTimeout(alarmFinished, timeLeft * oneSecondInMilliseconds);
-  }
-
   if (!intervalID) {
     intervalID = setInterval(updateTimer, 1000);
   }
@@ -41,6 +34,7 @@ function updateTimer() {
   display.textContent = formatTime(timeLeft);
 
   if (timeLeft <= 0) {
+    alarmFinished();
     cleanUp();
   }
 }
