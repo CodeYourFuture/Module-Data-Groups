@@ -1,12 +1,19 @@
 let countdownInterval = null;
+
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   let totalSeconds = parseInt(input.value, 10);
 
+  // Return early if input is invalid
   if (isNaN(totalSeconds) || totalSeconds <= 0) {
     return;
   }
 
+  // 1. Reset Audio: Stop audio if it's currently playing from a previous alarm
+  pauseAlarm();
+  audio.currentTime = 0; // Rewind audio track back to the start
+
+  // 2. Reset Interval: Clear existing active countdown
   if (countdownInterval) {
     clearInterval(countdownInterval);
   }
@@ -23,17 +30,17 @@ function setAlarm() {
     heading.textContent = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
   }
 
-  // Set initial display immediately when button is pressed
   updateDisplay(totalSeconds);
 
-  // Start 1000ms interval countdown
+  input.value = "";
+
   countdownInterval = setInterval(() => {
     totalSeconds--;
     updateDisplay(totalSeconds);
 
     if (totalSeconds <= 0) {
       clearInterval(countdownInterval);
-      playAlarm(); 
+      playAlarm();
     }
   }, 1000);
 }
