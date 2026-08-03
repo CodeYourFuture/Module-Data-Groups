@@ -16,20 +16,44 @@ as the object doesn't contains a key of 'c'
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
+//Case 1
+test(" Case 1: returns true when the property exists", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+});
 
+test("Case 2: returns false when the property does not exist", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("contains on empty object returns false", () => {
+  expect(contains({ }, "c")).toBe(false);});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test(" Case 1: returns true when the property exists", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
-
+test("Case 2: returns false when the property does not exist", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+
+test(" returns false when invalid parameters like arrays are passed ", () => {
+  expect(contains([1,"a","NaN","b","3"], "a")).toBe(false);
+});
+test(" returns false when invalid parameters like String is passed ", () => {
+  expect(contains("Toby", "Toby")).toBe(false);
+});
+
+test(" returns false when invalid parameters like number is passed ", () => {
+  expect(contains(1, 1)).toBe(false);
+});
