@@ -1,4 +1,8 @@
-function setAlarm() {}
+function setAlarm() {
+  let time = document.getElementById("alarmSet");
+  let heading = document.getElementById("timeRemaining");
+
+}
 
 // DO NOT EDIT BELOW HERE
 
