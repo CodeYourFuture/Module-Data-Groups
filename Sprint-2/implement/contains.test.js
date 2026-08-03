@@ -29,6 +29,8 @@ as the object doesn't contains a key of 'c'
     // Then it should return true
     test("returns true when passed an existing property name", () => {
         const inputObj = { a: 1, b: 2 };
+        expect(contains(inputObj, "a")).toBe(true);
+        expect(contains(inputObj, "b")).toBe(true);      
     });
 
     // Given an object with properties
