@@ -1,4 +1,6 @@
 // Predict and explain first...
+// I think that it will not run because we're trying to access an object on line 15
+// Instead it should be ${adddress[houseNumber]}
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
@@ -12,4 +14,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address["houseNumber"]}`);

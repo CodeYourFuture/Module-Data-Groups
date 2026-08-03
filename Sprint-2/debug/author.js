@@ -1,4 +1,6 @@
 // Predict and explain first...
+// Because it's trying to iterate through an object
+// It should just print author without a loop
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
@@ -11,6 +13,4 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
-}
+console.log(author);
