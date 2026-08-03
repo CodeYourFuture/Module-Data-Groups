@@ -1,4 +1,4 @@
-function tally() {
+function tally(items) {
   if (!Array.isArray(items)) {
     throw new TypeError("Input must be an array");
   }

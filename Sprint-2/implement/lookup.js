@@ -1,4 +1,4 @@
-function createLookup() {
+function createLookup(countryCurrencyPairs) {
   if (!Array.isArray(countryCurrencyPairs)) {
     return {};
   }
