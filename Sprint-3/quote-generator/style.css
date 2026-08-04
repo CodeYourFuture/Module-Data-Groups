@@ -1,46 +1,82 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: white;
-  font-family: Arial, sans-serif;
+  background-color: #f3a83c;
+  font-family: Georgia, "Times New Roman", Times, serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
-
+/* Container for heading + card */
 .outer-container {
-  background-color: orange;
-  padding: 30px;
+  width: 90%;
+  max-width: 650px;
   text-align: center;
 }
 
-
-.quote-box {
-  background-color: white;
-  color: orange;
-  padding: 40px;
-  width: 400px;
-  margin-bottom: 20px;
-}
-
-
-#quote {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-
-#author {
-  font-size: 18px;
-  font-style: italic;
-}
-
-
-#new-quote {
-  background-color: orange;
+/* Heading styling */
+h1 {
   color: white;
-  border: none;
-  padding: 15px 30px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* The white quote card */
+.quote-box {
+  background-color: #ffffff;
+  padding: 45px;
+  text-align: left;
+  position: relative;
+}
+
+/* Quote text styling with orange quote mark added automatically */
+#quote {
+  color: #f3a83c;
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+#quote::before {
+  content: "“ ";
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 0;
+  vertical-align: -8px;
+}
+
+/* Author text styling right-aligned */
+#author {
+  color: #f3a83c;
   font-size: 18px;
+  text-align: right;
+  margin-bottom: 25px;
+}
+
+#author::before {
+  content: "- ";
+}
+
+/* Button styled and pushed to bottom right */
+#new-quote {
+  display: block;
+  margin-left: auto;
+  background-color: #f3a83c;
+  color: #ffffff;
+  border: none;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
   cursor: pointer;
+}
+
+#new-quote:hover {
+  opacity: 0.9;
 }
