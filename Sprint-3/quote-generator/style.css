@@ -1,1 +1,46 @@
+h1 {
+    font-size: 24px;
+    text-align: center;
+    color: rgb(225, 71, 36);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(24, 25, 24);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100vh;
+}
+#quote {
+    max-width: 700px;
+    min-height: 160px;
+
+    text-align: center;
+    font-size: 24px;
+    color: rgb(225, 71, 36);
+}
+
+#author {
+    width: 700px;
+    text-align: right;
+    font-style: italic;
+    color: rgb(225, 71, 36);
+}
+
+#new-quote {
+    padding: 12px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(225, 71, 36);
+
+    cursor: pointer;
+}
+
+ 
+
+
+
 /** Write your CSS in here **/
