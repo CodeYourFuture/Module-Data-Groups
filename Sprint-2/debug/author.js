@@ -11,9 +11,6 @@ const author = {
   alive: true,
 };
 
-for (const value in author) {
-  console.log(author[value]);
+for (const value of author) {
+  console.log(value);
 }
-
-// The for of loop is trying to iterate through the object like an array.
-// For in loop would work better.

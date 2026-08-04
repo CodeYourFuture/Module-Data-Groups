@@ -1,10 +1,3 @@
-function contains(object, property) {
-  for (let key in object) {
-    if (key === property) {
-      return true;
-    }
-  }
-  return false;
-}
+function contains() {}
 
 module.exports = contains;
