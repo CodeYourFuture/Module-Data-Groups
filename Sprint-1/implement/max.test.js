@@ -11,6 +11,7 @@ We have set things up already so that this file can see your function from the o
 */
 
 const findMax = require("./max.js");
+findMax();
 
 // Given an empty array
 // When passed to the max function
