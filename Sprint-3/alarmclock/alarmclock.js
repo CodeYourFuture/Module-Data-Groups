@@ -3,7 +3,7 @@ const display = document.querySelector("#timeRemaining");
 const totalSeconds = document.querySelector("#alarmSet");
 const setButton = document.querySelector("#set");
 const stopButton = document.querySelector("#stop");
-let conuntdownInterval;
+let countDownInterval;
 
 function formatTime(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
@@ -15,40 +15,39 @@ function formatTime(totalSeconds) {
 }
 
 function reset() {
-  clearInterval(conuntdownInterval);
+  clearInterval(countDownInterval);
   display.textContent = "Time Remaining: 00:00";
   display.style.color = "black";
   setButton.disabled = false;
   document.body.style.background = "";
 }
-let countdownInterval;
-setButton.addEventListener("click", () => {
-  let timeleft = Number(totalSeconds.value);
 
-  if (timeleft <= 0 || isNaN(timeleft)) {
+setButton.addEventListener("click", () => {
+  let timeLeft = Number(totalSeconds.value);
+
+  if (timeLeft <= 0 || isNaN(timeLeft)) {
     alert("please enter a number greater than zero (0)!");
     return;
   }
   setButton.disabled = true;
 
-  display.textContent = formatTime(timeleft);
-
   const warningTime = 10; // seconds
-  clearInterval(conuntdownInterval);
 
-  conuntdownInterval = setInterval(() => {
-    timeleft--;
+  display.textContent = formatTime(timeLeft);
+  countDownInterval = setInterval(() => {
+    display.textContent = formatTime(timeLeft);
+    timeLeft--;
 
-    if (timeleft >= 0) {
-      display.textContent = formatTime(timeleft);
+    if (timeLeft >= 0) {
+      display.textContent = formatTime(timeLeft);
     }
 
-    if (timeleft <= warningTime) {
+    if (timeLeft <= warningTime) {
       display.style.color = "red";
     }
 
-    if (timeleft <= 0) {
-      clearInterval(conuntdownInterval);
+    if (timeLeft <= 0) {
+      clearInterval(countDownInterval);
       document.body.style.backgroundColor = "grey";
       playAlarm();
     }
@@ -56,7 +55,7 @@ setButton.addEventListener("click", () => {
 });
 
 stopButton.addEventListener("click", () => {
-  clearInterval(conuntdownInterval);
+  clearInterval(countDownInterval);
   reset();
   pauseAlarm();
 });
@@ -68,10 +67,6 @@ var audio = new Audio("alarmsound.mp3");
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
     setAlarm();
-  });
-
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
   });
 }
 
