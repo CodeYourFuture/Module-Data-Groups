@@ -491,3 +491,19 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+console.log(pickFromArray(quotes));
+
+// 1. get a button variable.
+// 2. listen to the event.
+// 3, when event happens produce a quote in one place <p>
+//4. when an event happens produce author of that quote in the other <p>
+const button = document.querySelector("#new-quote");
+function newQuoteEveryTime() {
+  const quote = pickFromArray(quotes);
+  const quotePlace = document.querySelector("#quote");
+  const authorPlace = document.querySelector("#author");
+  quotePlace.innerText = `The quote of the day is: ${quote.quote}`;
+  authorPlace.innerText = `By the author - ${quote.author}`;
+}
+
+button.addEventListener("mousedown", newQuoteEveryTime);
