@@ -501,8 +501,8 @@ const newQuoteButton = document.getElementById("new-quote");
 function displayQuote() {
   const randomQuote = pickFromArray(quotes);
 
-  quoteElement.textContent = `"${randomQuote.quote}"`;
-  authorElement.textContent = `- ${randomQuote.author}`;
+  quoteElement.textContent = randomQuote.quote;
+  authorElement.textContent = randomQuote.author;
 }
 
 
