@@ -12,7 +12,7 @@
 body {
   background-color: rgb(223, 208, 182);
 }
-#new-quote {
+#newQuote {
   border-style: outset;
   font-size: larger;
   color: whitesmoke;
@@ -21,7 +21,7 @@ body {
   background-color: rgb(226, 203, 163);
   block-size: 50px;
 }
-#new-quote:hover {
+#newQuote:hover {
   color: black;
   border-right-width: 10px;
   border-bottom-width: 10px;

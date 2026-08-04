@@ -471,7 +471,7 @@ const quotes = [
 ];
 
 const areaOfQuote = document.querySelector("#quote");
-const shufflebutton = document.querySelector("#new-quote");
+const shuffleButton = document.querySelector("#newQuote");
 const AreaOfQuoteBy = document.querySelector("#author");
 
 function quoteGenerator() {
@@ -484,4 +484,4 @@ function quoteGenerator() {
 
 quoteGenerator();
 
-shufflebutton.addEventListener("click", quoteGenerator);
+shuffleButton.addEventListener("click", quoteGenerator);
