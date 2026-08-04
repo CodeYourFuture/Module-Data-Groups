@@ -10,6 +10,18 @@ function setAlarm() {
   heading.innerText = "Time Remaining: " + 
   String(minutes).padStart(2, "0") + ":" + 
   String(seconds.padStart(2, "0"));
+
+  let timer = setIntervals(function () {
+    time = time -1;
+    
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    heading.innerText = "Time Remaining: " + 
+    String(minutes).padStart(2, "0") + ":" + 
+    String(seconds.padStart(2, "0"));
+    
+  }
 }
 
 // DO NOT EDIT BELOW HERE
