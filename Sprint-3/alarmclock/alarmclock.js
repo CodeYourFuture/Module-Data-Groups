@@ -1,5 +1,5 @@
 function setAlarm() {
-  let time = (Number.document.getElementById("alarmSet").value);
+  let time = Number(document.getElementById("alarmSet").value);
 
   let heading = document.getElementById("timeRemaining");
 
@@ -12,7 +12,7 @@ function setAlarm() {
     ":" +
     String(seconds).padStart(2, "0");
 
-  let timer = setIntervals(function () {
+  let timer = setInterval(function () {
     time = time - 1;
 
     let minutes = Math.floor(time / 60);
@@ -22,7 +22,7 @@ function setAlarm() {
       "Time Remaining: " +
       String(minutes).padStart(2, "0") +
       ":" +
-      String(seconds.padStart(2, "0"));
+      String(seconds).padStart(2, "0");
 
     if (time === 0) {
       playAlarm();
