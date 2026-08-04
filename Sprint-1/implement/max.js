@@ -3,7 +3,15 @@ function findMax(elements) {
   if (numbers.length === 0) {
     return -Infinity;
   }
-  return Math.max(...numbers);
+  let max = -Infinity;
+
+  for (const num of numbers) {
+    if (num > max) {
+      max = num;
+    }
+  }
+
+  return max;
 }
 
 module.exports = findMax;
