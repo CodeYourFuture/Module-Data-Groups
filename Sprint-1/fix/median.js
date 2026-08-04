@@ -26,7 +26,7 @@ function calculateMedian(list) {
     const right = numbers[middleIndex];
     return (left + right) / 2;
   }
-  //console.log(`middleIndex: ${middleIndex}`);
+
   const median = numbers[middleIndex];
   return median;
 }

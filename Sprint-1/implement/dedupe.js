@@ -1,6 +1,5 @@
 function dedupe(value) {
-  const newDedupe = [...new Set(value)];
-  return newDedupe;
+  return (newDedupe = [...new Set(value)]);
 }
 
 module.exports = dedupe;
