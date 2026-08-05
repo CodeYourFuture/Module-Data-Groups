@@ -7,6 +7,10 @@ function reset() {}
 function setAlarm() {
   const input = document.getElementById("alarmSet");
   const value = input.value.trim();//trim empty string 
+  //Check if the input is empty 
+  if(value ===""){
+    alert("Please enter a number of seconds .");
+  }
 
   const seconds = Number(input.value);
 
