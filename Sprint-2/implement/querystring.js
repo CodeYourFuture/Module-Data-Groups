@@ -15,10 +15,10 @@ function parseQueryString(queryString) {
         queryParams[pair] = "";
       } else {
         const key = decodeURIComponent(pair.slice(0, equalityPosition));
-        const replacedKey = key.replace("+", " ");
+        const replacedKey = key.replace(/\+/g, " ");
 
         const value = decodeURIComponent(pair.slice(equalityPosition + 1));
-        const replacedValue = value.replace("+", " ");
+        const replacedValue = value.replace(/\+/g, " ");
 
         if (queryParams[replacedKey]) {
           if (!Array.isArray(queryParams[replacedKey])) {
@@ -35,5 +35,5 @@ function parseQueryString(queryString) {
 
   return queryParams;
 }
-
+console.log(parseQueryString("key=value1&key=value2&key=value3&foo=bar"));
 module.exports = parseQueryString;

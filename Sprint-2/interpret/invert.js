@@ -6,7 +6,7 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
-function invert(obj) {
+/*function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
@@ -14,7 +14,7 @@ function invert(obj) {
   }
 
   return invertedObj;
-}
+}*/
 
 // a) What is the current return value when invert is called with { a : 1 }
 // the current return value when invert is called with { a:1 } is  { key: 1 }
@@ -34,12 +34,32 @@ but when we declare a new object the function where looking the word key in the 
 word key and pairing it withe the last loop value. */
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
-/*  function invert(obj) {
-     const invertedObj = {};
+function invert(obj) {
+  const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-          invertedObj[value] = key;
-    }
+    invertedObj[value] = key;
+  }
 
   return invertedObj;
-} */
+}
+
+function test(description, actual, expected) {
+  if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+    throw new Error(`${description} failed`);
+  }
+}
+test("swapping key and value of the object", invert({ x: 10, y: 20 }), {
+  10: "x",
+  20: "y",
+});
+test("swapping key and value of the object", invert({ x: 10, y: 20, z: 30 }), {
+  10: "x",
+  20: "y",
+  30: "z",
+});
+test("swapping key and value of the object", invert({ x: 10, y: 20, z: 30 }), {
+  x: 10,
+  20: "y",
+  z: 30,
+});
