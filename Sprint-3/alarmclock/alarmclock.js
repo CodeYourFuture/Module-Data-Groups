@@ -13,9 +13,14 @@ function setAlarm() {
   }
 
   const seconds = Number(input.value);
-
-  if (isNaN(seconds) || seconds <= 0) {
-    alert("Please enter a valid number of seconds.");
+//validate that input is a positive integer and doestn't exceed 1 hour
+  if (
+    isNaN(seconds) ||
+    !Number.isInteger(seconds) ||
+    seconds <= 0 ||
+    seconds > 3600
+  ) {
+    alert("Please enter a valid whole number between 1 and 3600.");
     return;
   }
 
