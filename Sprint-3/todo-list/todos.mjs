@@ -27,3 +27,14 @@ export function toggleCompletedOnTask(todos, taskIndex) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
 }
+
+// Delete completed tasks from the todos array
+export function deleteCompleted(todos) {
+  for (let taskIndex = todos.length - 1; taskIndex >= 0; taskIndex--) {
+    // taskIndex starts from last index,
+    // loop continue up to 0, taskIndex--, moves backward one index each time.
+    if (todos[taskIndex].completed === true) {
+      todos.splice(taskIndex, 1); //removes completed items
+    }
+  }
+}
