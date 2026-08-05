@@ -32,6 +32,7 @@ function startCountdown(){
 
     if (timeRemaining <= 0) {
       clearInterval(intervalId);
+      intervalId = null;
       playAlarm();
       document.body.classList.add("flash");
     }
