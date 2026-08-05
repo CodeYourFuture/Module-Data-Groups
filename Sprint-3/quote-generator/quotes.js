@@ -472,14 +472,14 @@ const quotes = [
 
 const areaOfQuote = document.querySelector("#quote");
 const shuffleButton = document.querySelector("#newQuote");
-const AreaOfQuoteBy = document.querySelector("#author");
+const areaOfQuoteBy = document.querySelector("#author");
 
 function quoteGenerator() {
   const entireQuote = pickFromArray(quotes);
   const quot = entireQuote.quote;
-  const Author = entireQuote.author;
+  const author = entireQuote.author;
   areaOfQuote.textContent = quot;
-  AreaOfQuoteBy.textContent = Author;
+  areaOfQuoteBy.textContent = author;
 }
 
 quoteGenerator();
