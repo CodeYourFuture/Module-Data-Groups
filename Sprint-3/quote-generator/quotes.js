@@ -507,3 +507,5 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+getQuote();
