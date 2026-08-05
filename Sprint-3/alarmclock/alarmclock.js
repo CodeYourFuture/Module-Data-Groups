@@ -50,6 +50,9 @@ function updateDisplay(seconds) {
   title.textContent = `Time Remaining: ${mins}:${secs}`;
 }
 function togglePause() {
+  if (intervalId === null) {
+    return;
+  }
   if (!isPaused) {
     clearInterval(intervalId);
     isPaused = true;
