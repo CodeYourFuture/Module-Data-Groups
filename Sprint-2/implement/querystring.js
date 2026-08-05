@@ -35,5 +35,5 @@ function parseQueryString(queryString) {
 
   return queryParams;
 }
-console.log(parseQueryString("key=value1&key=value2&key=value3&foo=bar"));
+
 module.exports = parseQueryString;
