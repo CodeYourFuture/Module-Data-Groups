@@ -86,3 +86,8 @@ test("should return only number value, when the array contains non-numerical val
   const result = findMax(elements);
   expect(result).toEqual(undefined);
 });
+test("should return only number value, when the array contains non-numerical value", () => {
+  const elements = ["apple"];
+  const result = findMax(elements);
+  expect(result).toEqual(undefined);
+});

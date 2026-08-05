@@ -3,11 +3,7 @@ function dedupe(arr) {
     return [];
   }
   const uniqueSet = new Set(arr);
-  if (arr.length !== uniqueSet.size) {
-    return [...uniqueSet];
-  } else {
-    return [...arr];
-  }
+  return [...uniqueSet];
 }
-
+console.log(dedupe([3, 3, 3, 7, 8, 9, 9, 6, 6]));
 module.exports = dedupe;

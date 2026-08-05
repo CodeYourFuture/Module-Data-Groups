@@ -9,18 +9,19 @@ function calculateMedian(list) {
   if (!Array.isArray(list)) {
     return null;
   }
-  list = list.filter((item) => typeof item === "number");
-  if (list.length === 0) {
+  filteredList = list.filter((item) => typeof item === "number");
+  if (filteredList.length === 0) {
     return null;
   }
 
-  list.sort((a, b) => a - b);
-  const middleIndex = Math.floor(list.length / 2);
-  const sumOfIndex = list[middleIndex] + list[middleIndex - 1];
-  const middleValue = sumOfIndex / 2;
-  if (list.length % 2 > 0) {
-    return list[middleIndex];
+  filteredList.sort((a, b) => a - b);
+  const middleIndex = Math.floor(filteredList.length / 2);
+  if (filteredList.length % 2 > 0) {
+    return filteredList[middleIndex];
   } else {
+    const sumOfIndex =
+      filteredList[middleIndex] + filteredList[middleIndex - 1];
+    const middleValue = sumOfIndex / 2;
     return middleValue;
   }
 }
