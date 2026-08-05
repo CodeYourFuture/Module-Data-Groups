@@ -22,6 +22,10 @@ function setAlarm() {
   }
 
   // Start a new countdown
+  startCountdown();
+}
+
+function startCountdown(){
   intervalId = setInterval(() => {
     timeRemaining--;
     updateDisplay(timeRemaining);
@@ -29,9 +33,10 @@ function setAlarm() {
     if (timeRemaining <= 0) {
       clearInterval(intervalId);
       playAlarm();
-      document.body.classList.add("flash"); 
+      document.body.classList.add("flash");
     }
   }, 1000);
+
 }
 
 function updateDisplay(seconds) {
@@ -49,16 +54,7 @@ function togglePause() {
     isPaused = true;
   } else {
     isPaused = false;
-    intervalId = setInterval(() => {
-      timeRemaining--;
-      updateDisplay(timeRemaining);
-
-      if (timeRemaining <= 0) {
-        clearInterval(intervalId);
-        playAlarm();
-        document.body.classList.add("flash");
-      }
-    }, 1000);
+    startCountdown();
   }
 }
 
