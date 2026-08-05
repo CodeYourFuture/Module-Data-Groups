@@ -14,6 +14,7 @@ function setAlarm() {
   }
 
   timeRemaining = seconds;
+  isPaused = false;
   updateDisplay(timeRemaining);
 
   // Clear any previous countdown
@@ -33,6 +34,7 @@ function startCountdown(){
     if (timeRemaining <= 0) {
       clearInterval(intervalId);
       intervalId = null;
+      isPaused =true;
       playAlarm();
       document.body.classList.add("flash");
     }
@@ -50,7 +52,7 @@ function updateDisplay(seconds) {
   title.textContent = `Time Remaining: ${mins}:${secs}`;
 }
 function togglePause() {
-  if (intervalId === null) {
+  if (intervalId === null && !isPaused) {
     return;
   }
   if (!isPaused) {
