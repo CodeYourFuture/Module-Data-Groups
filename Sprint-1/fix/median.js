@@ -11,19 +11,18 @@ function calculateMedian(list) {
     return null;
   }
   // keep only the real number by filtering the array( excluding string, null, undefined )
-  const numbersOnly = list.filter(item => typeof item === 'number')
+  const numbersOnly = list.filter((item) => typeof item === 'number')
   // after filtering return null if nothing is valid 
   if (numbersOnly.length === 0){
     return null ;
   }
   const sorted =[...numbersOnly].sort((a,b) => a-b)
-  const middleIndex = Math.floor(list.length / 2)
+  const middleIndex = Math.floor(sorted.length / 2)
 
   
   if (sorted.length %2 == 0){
     return (sorted[middleIndex-1] + sorted[middleIndex])/2;
-  }
-  else{
+  }else{
     return sorted[middleIndex]
   }
   
