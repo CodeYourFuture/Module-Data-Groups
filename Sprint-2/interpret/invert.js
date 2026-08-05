@@ -58,8 +58,8 @@ test("swapping key and value of the object", invert({ x: 10, y: 20, z: 30 }), {
   20: "y",
   30: "z",
 });
-test("swapping key and value of the object", invert({ x: 10, y: 20, z: 30 }), {
-  x: 10,
-  20: "y",
-  z: 30,
+test("swapping key and value of the object", invert({ A: 50, B: 40, D: 30 }), {
+  50: "A",
+  40: "B",
+  30: "D",
 });
