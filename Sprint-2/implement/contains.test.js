@@ -53,7 +53,7 @@ test("returns false as the object doesn't contains the property", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("invalid parameters like an array, when passed to contains should return false", () => {
-  const currentOutput = contains(["a", "b", "c", "e"], "e");
+  const currentOutput = contains(["a", "b", "c", "e"], "1");
   const targetOutput = false;
 
   expect(currentOutput).toEqual(targetOutput);
