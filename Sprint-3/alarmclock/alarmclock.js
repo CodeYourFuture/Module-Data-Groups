@@ -2,9 +2,11 @@ let timeRemaining = 0;
 let intervalId = null;
 let isPaused = false;
 
+function reset() {}
 
 function setAlarm() {
   const input = document.getElementById("alarmSet");
+  const value = input.value.trim();//trim empty string 
 
   const seconds = Number(input.value);
 
