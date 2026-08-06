@@ -1,5 +1,5 @@
 /*
-  A ToDo List (todos) is expected to be represented as an array of objects in 
+  A ToDo List (todos) is expected to be represented as an array of objects in
   the following manner:
 
   [
@@ -26,4 +26,9 @@ export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
+} // Delete completed todos
+export function deleteCompleted(todoList) {
+  const incompleteTodos = todoList.filter((todo) => !todo.completed);
+  todoList.length = 0; //empty the original array
+  todoList.push(...incompleteTodos); //push incompleted task
 }
