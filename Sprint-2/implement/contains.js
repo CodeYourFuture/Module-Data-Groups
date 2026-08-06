@@ -1,6 +1,6 @@
 function contains(object, property) {
   for (const key in object) {
-    if (key === property) {
+    if (object[key] === property) {
       return true;
     }
   }
