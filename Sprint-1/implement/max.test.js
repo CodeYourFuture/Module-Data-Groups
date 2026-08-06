@@ -58,5 +58,5 @@ test("Given an array with non-number values, returns the max and ignore non-nume
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 test("Given an array with only non-number values, returns infinity ", ()=>{
-    expect(findMax(['Holla!',NaN,true,])).toBe(-Infinity)
+    expect(findMax(['Holla!', NaN,  true])).toBe(-Infinity)
 })
