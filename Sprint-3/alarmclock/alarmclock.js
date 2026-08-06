@@ -32,20 +32,46 @@
 // when "Set alarm" button is clicked.
 // 5. decrement the time by 1 second every second
 // 6. trigger the alarm sound when the time reaches 00:00
+let remainingSeconds = 0;
+let minutes = 0;
+let seconds = 0;
+let paddedMinutes = 0;
+let paddedSeconds = 0;
+let timer = null;
+const alarmDisplay = document.getElementById("timeRemaining");
 
 function setAlarm() {
-  const numArea = document.getElementById("alarmSet").value;
-  let minutes = Math.floor(numArea / 60);
-  let paddedMinutes;
+  remainingSeconds = Number(document.getElementById("alarmSet").value);
+
+  // Read the input
+  minutes = Math.floor(remainingSeconds / 60);
   paddedMinutes = minutes.toString().padStart(2, "0");
-
-  const seconds = numArea % 60;
-  let paddedSeconds;
+  seconds = remainingSeconds % 60;
   paddedSeconds = seconds.toString().padStart(2, "0");
+  // Store remainingSeconds
+  // Display the first time
 
-  const alarmDisplay = document.getElementById("timeRemaining");
+  alarmDisplay.textContent = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`; //return console.log(String(alarmDisplay));
 
-  alarmDisplay.innerHTML = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`; //return console.log(String(alarmDisplay));
+  // Start the timer
+  timer = setInterval(updateDisplay, 1000);
+}
+
+function updateDisplay() {
+  remainingSeconds = remainingSeconds - 1;
+  minutes = Math.floor(remainingSeconds / 60);
+  paddedMinutes = minutes.toString().padStart(2, "0");
+  seconds = remainingSeconds % 60;
+  paddedSeconds = seconds.toString().padStart(2, "0");
+  if (remainingSeconds < 0) {
+    clearInterval(timer);
+    return audio;
+  }
+  // Read the input
+  // Calculate minutes
+  // Calculate seconds
+  // Update the heading
+  alarmDisplay.textContent = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`; //return console.log(String(alarmDisplay));
 }
 
 // DO NOT EDIT BELOW HERE
