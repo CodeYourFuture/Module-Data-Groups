@@ -40,6 +40,10 @@ test("tally on duplicate items returns count of items", function() {
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
-test("tally on invalid input throws an error", function() {
-    expect(() => tally("string")).toThrow("Invalid input")
+test("tally on invalid input throws an error", function () {
+  expect(() => tally("string")).toThrow("Invalid input");
+})
+
+test("tally on toString returns count of items", function () {
+  expect(tally(["toStrings", "toStrings"])).toEqual({ "toStrings": 2 });
 })
