@@ -37,10 +37,11 @@ let minutes = 0;
 let seconds = 0;
 let paddedMinutes = 0;
 let paddedSeconds = 0;
-let timer = null;
+let timer;
 const alarmDisplay = document.getElementById("timeRemaining");
 
 function setAlarm() {
+  clearInterval(timer);
   remainingSeconds = Number(document.getElementById("alarmSet").value);
 
   // Read the input
@@ -58,19 +59,15 @@ function setAlarm() {
 }
 
 function updateDisplay() {
+  if (remainingSeconds === 0) {
+    clearInterval(timer);
+    return playAlarm();
+  }
   remainingSeconds = remainingSeconds - 1;
   minutes = Math.floor(remainingSeconds / 60);
   paddedMinutes = minutes.toString().padStart(2, "0");
   seconds = remainingSeconds % 60;
   paddedSeconds = seconds.toString().padStart(2, "0");
-  if (remainingSeconds < 0) {
-    clearInterval(timer);
-    return audio;
-  }
-  // Read the input
-  // Calculate minutes
-  // Calculate seconds
-  // Update the heading
   alarmDisplay.textContent = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`; //return console.log(String(alarmDisplay));
 }
 
