@@ -4,7 +4,11 @@ function tally(arr) {
   }
   const count = {};
   for (const item of arr) {
-    count[item] = (count[item] || 0) + 1;
+    if (Object.hasOwn(count, item)) {
+      count[item] = count[item] + 1;
+    } else {
+      count[item] = 1;
+    }
   }
   return count;
 }
