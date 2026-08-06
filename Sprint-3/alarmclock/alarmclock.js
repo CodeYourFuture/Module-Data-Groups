@@ -39,36 +39,44 @@ let paddedMinutes = 0;
 let paddedSeconds = 0;
 let timer;
 const alarmDisplay = document.getElementById("timeRemaining");
-
-function setAlarm() {
-  clearInterval(timer);
-  remainingSeconds = Number(document.getElementById("alarmSet").value);
-
-  // Read the input
+function formatTime() {
+  //this function will separate minutes and seconds and add zeros
+  // if minutes or seconds are in single digits.
   minutes = Math.floor(remainingSeconds / 60);
   paddedMinutes = minutes.toString().padStart(2, "0");
   seconds = remainingSeconds % 60;
   paddedSeconds = seconds.toString().padStart(2, "0");
-  // Store remainingSeconds
-  // Display the first time
-
-  alarmDisplay.textContent = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`; //return console.log(String(alarmDisplay));
-
-  // Start the timer
+}
+function setAlarm() {
+  //1.this function clears the timer for the first use
+  //2. gets the entered number and stores in in the variable
+  //3. checks for invalid input
+  //4. displays the initial timer in minutes and seconds
+  //5. starts timer
+  clearInterval(timer);
+  remainingSeconds = Number(document.getElementById("alarmSet").value);
+  if (remainingSeconds === 0) {
+    return pauseAlarm();
+  } else if (remainingSeconds < 0) {
+    return clearInterval(timer);
+  }
+  formatTime();
+  alarmDisplay.textContent = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
   timer = setInterval(updateDisplay, 1000);
 }
 
 function updateDisplay() {
+  //this function:
+  //1. when timer reaches zero it stops the timer.
+  //2. it then sounds alarm
+  //3. otherwise it decrements the timer and displays the result.
   if (remainingSeconds === 0) {
     clearInterval(timer);
     return playAlarm();
   }
   remainingSeconds = remainingSeconds - 1;
-  minutes = Math.floor(remainingSeconds / 60);
-  paddedMinutes = minutes.toString().padStart(2, "0");
-  seconds = remainingSeconds % 60;
-  paddedSeconds = seconds.toString().padStart(2, "0");
-  alarmDisplay.textContent = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`; //return console.log(String(alarmDisplay));
+  formatTime();
+  alarmDisplay.textContent = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
 }
 
 // DO NOT EDIT BELOW HERE
