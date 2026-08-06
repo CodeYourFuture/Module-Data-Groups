@@ -7,7 +7,6 @@ E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical
 */
 
 const sum = require("./sum.js");
-
 // Acceptance Criteria:
 // Given an empty array
 // When passed to the sum function
@@ -27,10 +26,10 @@ test("returns 0 for empty array", () => {
 
 test("sum of 1 number", () => {
   const list = [1];
-  const curretOutput = sum(list);
+  const currentOutput = sum(list);
 
   const targetOutput = 1;
-  expect(currenOutput).toEqual(targetOutput);
+  expect(currentOutput).toEqual(targetOutput);
 });
 // Given an array containing negative numbers
 // When passed to the sum function
@@ -38,9 +37,9 @@ test("sum of 1 number", () => {
 
 test("sum of negative number in arrays", () => {
   const list = [-5];
-  const curretOutput = sum(list);
+  const currentOutput = sum(list);
   const targetOutput = -5;
-  expect(currenOutput).toEqual(targetOutput);
+  expect(currentOutput).toEqual(targetOutput);
 });
 
 // Given an array with decimal/float numbers
@@ -49,9 +48,9 @@ test("sum of negative number in arrays", () => {
 
 test("sum of decimal/float number in arrays", () => {
   const list = [4.5, 2.5];
-  const curretOutput = sum(list);
+  const currentOutput = sum(list);
   const targetOutput = 7;
-  expect(currenOutput).toEqual(targetOutput);
+  expect(currentOutput).toEqual(targetOutput);
 });
 
 // Given an array containing non-number values
