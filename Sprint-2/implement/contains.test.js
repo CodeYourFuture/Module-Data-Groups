@@ -50,3 +50,10 @@ test("contains on object with non-existent property name returns false", functio
 test("contain on invalid parameters returns false", function () {
   expect(contains([], "0")).toBe(false);
 });
+
+// Given an object with properties
+// When passed to contains with a non-existent property name "0"
+// Then it should return false
+test("contain on with non-existent property returns false", function () {
+  expect(contains(["a", "b", "c"], "0")).toBe(false);
+});
