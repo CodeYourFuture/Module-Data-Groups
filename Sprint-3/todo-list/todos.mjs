@@ -27,3 +27,12 @@ export function toggleCompletedOnTask(todos, taskIndex) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
 }
+
+// Delete all completed tasks if they exist
+export function deleteCompleted(todos) {
+  todos.forEach((todo, index) => {
+    if (todo.completed) {
+      deleteTask(todos, index);
+    }
+  });
+}
