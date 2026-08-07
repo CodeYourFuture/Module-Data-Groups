@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ToDo List</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <script type="module" src="script.mjs"></script>
 </head>
+
 <body>
   <div class="todo-container">
     <h1>My ToDo List</h1>
@@ -16,9 +18,10 @@
     <div class="todo-input">
       <input type="text" id="new-task-input" placeholder="Enter a new task..." />
       <button id="add-task-btn">Add</button>
+      <button id="delete-completed-tasks-btn">Delete completed tasks</button>
     </div>
 
-    <ul id="todo-list" class="todo-list">      
+    <ul id="todo-list" class="todo-list">
     </ul>
 
     <!-- 
@@ -37,4 +40,5 @@
 
   </div>
 </body>
+
 </html>
