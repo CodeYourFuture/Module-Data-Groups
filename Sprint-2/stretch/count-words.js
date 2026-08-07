@@ -26,3 +26,46 @@
 
 3. Order the results to find out which word is the most common in the input
 */
+
+function countWords(str) {
+  // Remove punctuation, convert to lowercase, then split into words
+  const words = str
+    .replace(/[.,!?]/g, "")
+    .toLowerCase()
+    .split(" ");
+
+  const counts = {};
+
+  for (const word of words) {
+    if (word) {
+      counts[word] = (counts[word] || 0) + 1;
+    }
+  }
+
+  // Advanced challenge 3: order by most common
+  const ordered = {};
+  for (const key of Object.keys(counts).sort((a, b) => counts[b] - counts[a])) {
+    ordered[key] = counts[key];
+  }
+
+  return ordered;
+}
+
+// Tests
+console.assert(
+  JSON.stringify(countWords("you and me and you")) === JSON.stringify({ you: 2, and: 2, me: 1 }),
+  "Test 1 failed"
+);
+console.assert(
+  JSON.stringify(countWords("Hello hello HELLO")) === JSON.stringify({ hello: 3 }),
+  "Test 2 failed - case insensitive"
+);
+console.assert(
+  JSON.stringify(countWords("hi, there! how are you?")) === JSON.stringify({ hi: 1, there: 1, how: 1, are: 1, you: 1 }),
+  "Test 3 failed - punctuation removed"
+);
+console.assert(
+  JSON.stringify(countWords("the the the cat cat dog")) === JSON.stringify({ the: 3, cat: 2, dog: 1 }),
+  "Test 4 failed - ordered by most common"
+);
+console.log("All tests passed!");
