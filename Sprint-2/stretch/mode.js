@@ -7,9 +7,8 @@
 
 // refactor calculateMode by splitting up the code
 // into smaller functions using the stages above
-
-function calculateMode(list) {
-  // track frequency of each value
+// Stage 1: track frequency of each value
+function getFrequencies(list) {
   let freqs = new Map();
 
   for (let num of list) {
@@ -20,9 +19,14 @@ function calculateMode(list) {
     freqs.set(num, (freqs.get(num) || 0) + 1);
   }
 
-  // Find the value with the highest frequency
+  return freqs;
+}
+
+// Stage 2: find the value with the highest frequency
+function findMostFrequent(freqs) {
   let maxFreq = 0;
   let mode;
+
   for (let [num, freq] of freqs) {
     if (freq > maxFreq) {
       mode = num;
@@ -31,6 +35,12 @@ function calculateMode(list) {
   }
 
   return maxFreq === 0 ? NaN : mode;
+}
+
+// Orchestrator: just wires the two stages together
+function calculateMode(list) {
+  const freqs = getFrequencies(list);
+  return findMostFrequent(freqs);
 }
 
 module.exports = calculateMode;
