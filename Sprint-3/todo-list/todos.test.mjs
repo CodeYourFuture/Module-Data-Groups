@@ -127,18 +127,20 @@ describe("toggleCompletedOnTask()", () => {
 });
 
 describe("deleteCompleted()", () => {
-  const todos = createMockTodos();
-  const todosBeforeDeletion = createMockTodos();
-  const lengthBeforeDeletion = todos.length;
-  Todos.deleteCompleted(todos);
+  test("should delete all completed todos from todos array", () => {
+    const todos = createMockTodos();
+    const todosBeforeDeletion = createMockTodos();
+    const lengthBeforeDeletion = todos.length;
+    Todos.deleteCompleted(todos);
 
-  expect(todos).toHaveLength(3);
+    expect(todos).toHaveLength(2);
 
-  // expect the 2nd todo to be the 3rd todo from the original task list
-  expect(todos[1]).toEqual(todosBeforeDeletion[2]);
+    // expect the 1st todo to be the 2nd todo from the original task list
+    expect(todos[0]).toEqual(todosBeforeDeletion[1]);
 
-  // expect the 3rd todo to be the 4th todo from the original task list
-  expect(todos[2]).toEqual(todosBeforeDeletion[3]);
+    // expect the 2nd todo to be the 4th todo from the original task list
+    expect(todos[1]).toEqual(todosBeforeDeletion[3]);
+  });
 
   test("should delete all todos if all todos are completed", () => {
     const todos = createMockTodos().map((task) => ({
@@ -147,7 +149,7 @@ describe("deleteCompleted()", () => {
     }));
 
     const todosBeforeDeletion = createMockTodos();
-    todos.deleteCompleted(todos);
+    Todos.deleteCompleted(todos);
 
     expect(todos).toHaveLength(0);
   });
@@ -159,7 +161,7 @@ describe("deleteCompleted()", () => {
     }));
 
     const todosBeforeDeletion = createMockTodos();
-    todos.deleteCompleted(todos);
+    Todos.deleteCompleted(todos);
 
     expect(todos).toHaveLength(todosBeforeDeletion.length);
   });

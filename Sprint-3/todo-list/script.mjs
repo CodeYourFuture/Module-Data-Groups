@@ -69,6 +69,23 @@ function createListItem(todo, index) {
     Todos.deleteTask(todos, index);
     render();
   });
-
   return li;
 }
+
+// handling deletion of all completed todos
+const deleteCompletedButton = document.getElementById(
+  "delete-completed-tasks-btn"
+);
+
+deleteCompletedButton.addEventListener("click", (e) => {
+  Todos.deleteCompleted(todos);
+  // if (completedTodos.length === 0) return;
+  // completedTodos = Array.from(completedTodos);
+  // todos.forEach((todo, index) => {
+  //   console.log(completedTodos.includes(todo.task));
+  //   if (todo.completed === true) {
+  //     todos.splice(index, 1);
+  //   }
+  // });
+  render();
+});
