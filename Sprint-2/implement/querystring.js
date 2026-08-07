@@ -1,16 +1,29 @@
+function decodeComponent(str) {
+  return decodeURIComponent(str.replace(/\+/g, " "));
+}
+
 function parseQueryString(queryString) {
-  const queryParams = {};
   if (queryString.length === 0) {
-    return queryParams;
-  }
-  const keyValuePairs = queryString.split("&");
-
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    return {};
   }
 
-  return queryParams;
+  const params = {};
+  const pairs = queryString.split("&").filter((pair) => pair !== "");
+
+  for (const pair of pairs) {
+    const [rawKey, ...rest] = pair.split("=");
+    const key = decodeComponent(rawKey);
+    const value = decodeComponent(rest.join("="));
+
+    if (key in params) {
+      params[key] = [].concat(params[key], value);
+    } else {
+      params[key] = value;
+    }
+  }
+
+  return params;
+
 }
 
 module.exports = parseQueryString;
