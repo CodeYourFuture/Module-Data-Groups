@@ -1,4 +1,24 @@
-function setAlarm() {}
+function setAlarm() {
+  let seconds = parseInt(document.getElementById("alarmSet").value, 10);
+  const heading = document.getElementById("timeRemaining");
+
+  function formatTime(s) {
+    const mins = String(Math.floor(s / 60)).padStart(2, "0");
+    const secs = String(s % 60).padStart(2, "0");
+    return `Time Remaining: ${mins}:${secs}`;
+  }
+
+  heading.innerText = formatTime(seconds);
+
+  const timer = setInterval(() => {
+    seconds--;
+    heading.innerText = formatTime(seconds);
+    if (seconds <= 0) {
+      clearInterval(timer);
+      playAlarm();
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
