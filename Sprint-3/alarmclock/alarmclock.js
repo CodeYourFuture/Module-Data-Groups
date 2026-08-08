@@ -50,8 +50,26 @@ function stopAlarm() {
   pauseAlarm();
 }
 
-document.getElementById("set").addEventListener("click", setAlarm);
-document.getElementById("stop").addEventListener("click", stopAlarm);
+const setButton = document.getElementById("set");
+const stopButton = document.getElementById("stop");
+
+setButton.addEventListener(
+  "click",
+  function (event) {
+    event.stopImmediatePropagation();
+    setAlarm();
+  },
+  true
+);
+
+stopButton.addEventListener(
+  "click",
+  function (event) {
+    event.stopImmediatePropagation();
+    stopAlarm();
+  },
+  true
+);
 
 // DO NOT EDIT BELOW HERE
 
