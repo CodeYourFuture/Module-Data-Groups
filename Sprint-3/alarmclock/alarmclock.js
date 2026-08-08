@@ -15,7 +15,7 @@ function setAlarm() {
   // validate result
   const result = parseInt(timeLeft);
   console.log(result);
-  if (isNaN(result) || result < 0) {
+  if (isNaN(result) || result < 0 || !Number.isInteger(result)) {
     return;
   }
 
