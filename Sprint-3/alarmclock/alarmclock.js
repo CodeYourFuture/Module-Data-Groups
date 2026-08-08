@@ -11,10 +11,10 @@ function formatTime(totalSeconds) {
   return `${formattedMinutes}:${formattedSeconds}`;
 }
 
-function updateTimeRemaining() {
+function updateTimeRemaining(seconds) {
   const heading = document.getElementById("timeRemaining");
 
-  heading.textContent = `Time Remaining: ${formatTime(secondsRemaining)}`;
+  heading.textContent = `Time Remaining: ${formatTime(seconds)}`;
 }
 
 function setAlarm() {
@@ -25,16 +25,16 @@ function setAlarm() {
 
   if (Number.isNaN(enteredSeconds) || enteredSeconds <= 0) {
     secondsRemaining = 0;
-    updateTimeRemaining();
+    updateTimeRemaining(secondsRemaining);
     return;
   }
 
   secondsRemaining = enteredSeconds;
-  updateTimeRemaining();
+  updateTimeRemaining(secondsRemaining);
 
   countdownId = window.setInterval(() => {
     secondsRemaining -= 1;
-    updateTimeRemaining();
+    updateTimeRemaining(secondsRemaining);
 
     if (secondsRemaining === 0) {
       window.clearInterval(countdownId);
