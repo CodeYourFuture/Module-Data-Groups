@@ -1,4 +1,3 @@
-const oneSecondInMilliseconds = 1000;
 const lengthOfAlarmSound = 20000;
 
 let timeLeft;
@@ -15,7 +14,8 @@ function setAlarm() {
 
   // validate result
   const result = parseInt(timeLeft);
-  if (isNaN(result)) {
+  console.log(result);
+  if (isNaN(result) || result < 0) {
     return;
   }
 
@@ -41,14 +41,14 @@ function updateTimer() {
 
 // give a time in seconds
 function formatTime(seconds) {
-  minutes = Math.floor(seconds / 60);
+  const minutes = Math.floor(seconds / 60);
   seconds = seconds % 60;
 
-  const seconds_padded = String(seconds).padStart(2, "0");
-  const minutes_paddded = String(minutes).padStart(2, "0");
+  const secondsPadded = String(seconds).padStart(2, "0");
+  const minutesPaddded = String(minutes).padStart(2, "0");
 
-  const formatted_seconds = `Time Remaining: ${minutes_paddded}:${seconds_padded}`;
-  return formatted_seconds;
+  const formattedPeconds = `Time Remaining: ${minutesPaddded}:${secondsPadded}`;
+  return formattedPeconds;
 }
 
 function stopAlarm() {
