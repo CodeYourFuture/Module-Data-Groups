@@ -1,29 +1,44 @@
+let interval;
+
 function displayTime(time) {
-  const remainingElement = document.getElementById("timeRemaining");
-
-  const minutes = String(Math.floor(time / 60)).padStart(2, "0");
-  const seconds = String(time % 60).padStart(2, "0");
-
-  remainingElement.innerText = `Time Remaining: ${minutes}:${seconds}`;
+    const remainingElement = document.getElementById("timeRemaining");
+    const minutes = String(Math.floor(time / 60)).padStart(2, "0");
+    const seconds = String(time % 60).padStart(2, "0");
+    remainingElement.innerText = `Time Remaining: ${minutes}:${seconds}`;
 }
 
 function setAlarm() {
-  let time = parseInt(document.getElementById("alarmSet").value);
-  displayTime(time);
-
-  const interval = setInterval(() => {
-    time--;
-    displayTime(time);
-    if (time === 0) {
-      clearInterval(interval);
-      playAlarm();
+    let time = Number(document.getElementById("alarmSet").value);
+    
+    if (isNaN(time) || time <= 0) {
+        return;
     }
-  }, 1000);
+    
+    clearInterval(interval);
+    pauseAlarm();
+
+    if (!Number.isInteger(time) || time <= 0) {
+        return;
+    }
+
+    displayTime(time);
+
+    interval = setInterval(() => {
+        time--;
+        displayTime(time);
+
+        if (time === 0) {
+            clearInterval(interval);
+            playAlarm();
+        }
+    }, 1000);
 }
 
-
-
-
+window.addEventListener("load", () => {
+    document.getElementById("stop").addEventListener("click", () => {
+        clearInterval(interval);
+    });
+});
 
 
 // DO NOT EDIT BELOW HERE
