@@ -8,14 +8,16 @@ function tally(input) {
   }
 
   for (const i of input) {
-    if (out[i] === undefined) {
+    if (!Object.hasOwn(out, i)) {
       out[i] = 1;
-    } else if (out[i].hasOwnProperty(i)) {
+    } else {
       out[i] = out[i] + 1;
     }
   }
 
   return out;
 }
+
+console.log(tally(["a", "a", "b"]));
 
 module.exports = tally;
