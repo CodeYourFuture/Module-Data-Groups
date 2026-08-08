@@ -15,7 +15,8 @@ function setAlarm() {
     }
     
     clearInterval(interval);
-
+    pauseAlarm();
+    
     displayTime(time);
 
     interval = setInterval(() => {
