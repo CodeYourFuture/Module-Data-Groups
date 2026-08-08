@@ -10,6 +10,10 @@ let interval;
 function setAlarm() {
     let time = parseInt(document.getElementById("alarmSet").value);
 
+    if (!Number.isInteger(time) || time <= 0) {
+        return;
+    }
+    
     clearInterval(interval);
 
     displayTime(time);
