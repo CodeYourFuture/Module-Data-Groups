@@ -1,5 +1,3 @@
-let interval;
-
 function displayTime(time) {
     const remainingElement = document.getElementById("timeRemaining");
     const minutes = String(Math.floor(time / 60)).padStart(2, "0");
@@ -7,19 +5,12 @@ function displayTime(time) {
     remainingElement.innerText = `Time Remaining: ${minutes}:${seconds}`;
 }
 
-function setAlarm() {
-    let time = Number(document.getElementById("alarmSet").value);
-    
-    if (isNaN(time) || time <= 0) {
-        return;
-    }
-    
-    clearInterval(interval);
-    pauseAlarm();
+let interval;
 
-    if (!Number.isInteger(time) || time <= 0) {
-        return;
-    }
+function setAlarm() {
+    let time = parseInt(document.getElementById("alarmSet").value);
+
+    clearInterval(interval);
 
     displayTime(time);
 
