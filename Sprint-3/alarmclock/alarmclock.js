@@ -19,6 +19,8 @@ function updateTimeRemaining(seconds) {
 
 function setAlarm() {
   window.clearInterval(countdownId);
+  pauseAlarm();
+  audio.currentTime = 0;
 
   const input = document.getElementById("alarmSet");
   const enteredSeconds = Number.parseInt(input.value, 10);
