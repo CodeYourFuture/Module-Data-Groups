@@ -17,6 +17,11 @@ function setAlarm() {
 
   let timeRemaining = parseInt(input.value);
 
+  if (isNaN(timeRemaining) || timeRemaining <= 0) {
+    alert("Please enter a positive number of seconds.");
+    return;
+  }
+
   clearInterval(timer);
   pauseAlarm();
 
