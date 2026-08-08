@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "serve": "http-server",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "set NODE_OPTIONS=--experimental-vm-modules && jest"
   },
   "repository": {
     "type": "git",
