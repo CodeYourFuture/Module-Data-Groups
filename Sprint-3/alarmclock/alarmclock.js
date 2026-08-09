@@ -138,6 +138,10 @@ pauseAlarm = function () {
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
+  let timeRemainingElement;
+
+  timeRemainingElement = document.getElementById("timeRemaining");
+  
   document.getElementById("set").addEventListener("click", () => {
     setAlarm();
   });
