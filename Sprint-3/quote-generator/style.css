@@ -1,1 +1,13 @@
-/** Write your CSS in here **/
+
+h1, p, button{
+  margin: 30px;
+  text-align: center;
+}
+
+#new-quote {
+  margin: 20px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
