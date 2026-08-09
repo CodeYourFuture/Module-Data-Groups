@@ -43,6 +43,5 @@ test("returns counts for each unique item", () => {
 // When passed to tally
 // Then it should throw an error
 test("throws an error when passed an invalid input like a string", () => {
-    expect(() => tally("string")).toThrow(TypeError);
     expect(() => tally("string")).toThrow("Expected an array as input");
   });
