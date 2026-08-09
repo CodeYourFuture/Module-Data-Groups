@@ -1,3 +1,5 @@
+const playInterval = 5000;
+
 // Function to pick and display a new random quote
 function displayRandomQuote() {
   // 1. Get a random quote object from the quotes array
@@ -9,8 +11,8 @@ function displayRandomQuote() {
 
   // 3. Update the text content of the DOM elements
   if (quoteElement && authorElement) {
-    quoteElement.textContent = `"${randomQuote.quote}"`;
-    authorElement.textContent = `- ${randomQuote.author}`;
+    quoteElement.textContent = `${randomQuote.quote}`;
+    authorElement.textContent = `${randomQuote.author}`;
   }
 }
 
@@ -37,23 +39,12 @@ const newQuoteButton = document.getElementById("new-quote");
 // Variable to store the timer interval ID
 let autoPlayInterval = null;
 
-
-// 2. Define the function to get and display a new random quote
-function renderQuote() {
-  // Use the provided pickFromArray helper function
-  const randomQuote = pickFromArray(quotes);
-
-  // Update the HTML element contents
-  quoteElement.textContent = `${randomQuote.quote}`;
-  authorElement.textContent = `${randomQuote.author}`;
-}
-
 // 3. Functions to manage auto-play state
 function startAutoPlay() {
   autoPlayStatus.textContent = "auto-play:ON";
   
   // Set interval to change quote every 60 seconds (60000ms)
-  autoPlayInterval = setInterval(renderQuote, 5000);
+  autoPlayInterval = setInterval(displayRandomQuote, playInterval);
 }
 
 function stopAutoPlay() {
@@ -72,9 +63,6 @@ autoPlayToggle.addEventListener("change", (event) => {
   }
 });
 
-renderQuote();
-
-newQuoteButton.addEventListener("click", renderQuote);
 
 // DO NOT EDIT BELOW HERE
 
