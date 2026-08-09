@@ -43,5 +43,5 @@ test("contains an object returns true, or false otherwise", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("contains an object returns true, or false otherwise", () => {
-  expect(contains([1, 2, 3, 'a'], "a")).toBe(false);
+  expect(contains([1, 2, 3, 'a'], "0")).toBe(false);
 });
