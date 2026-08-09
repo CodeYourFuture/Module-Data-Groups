@@ -32,20 +32,17 @@
 // when "Set alarm" button is clicked.
 // 5. decrement the time by 1 second every second
 // 6. trigger the alarm sound when the time reaches 00:00
-let remainingSeconds = 0;
-let minutes = 0;
-let seconds = 0;
-let paddedMinutes = 0;
-let paddedSeconds = 0;
+let remainingSeconds;
 let timer;
 const alarmDisplay = document.getElementById("timeRemaining");
-function formatTime() {
-  //this function will separate minutes and seconds and add zeros
-  // if minutes or seconds are in single digits.
-  minutes = Math.floor(remainingSeconds / 60);
-  paddedMinutes = minutes.toString().padStart(2, "0");
-  seconds = remainingSeconds % 60;
-  paddedSeconds = seconds.toString().padStart(2, "0");
+function formatTime(remainingSeconds) {
+  const minutes = Math.floor(remainingSeconds / 60);
+  const paddedMinutes = minutes.toString().padStart(2, "0");
+
+  const seconds = remainingSeconds % 60;
+  const paddedSeconds = seconds.toString().padStart(2, "0");
+
+  return `${paddedMinutes}:${paddedSeconds}`;
 }
 function setAlarm() {
   //1.this function clears the timer for the first use
@@ -61,7 +58,7 @@ function setAlarm() {
     return clearInterval(timer);
   }
   formatTime();
-  alarmDisplay.textContent = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
+  alarmDisplay.textContent = `Time Remaining: ${formatTime(remainingSeconds)}`;
   timer = setInterval(updateDisplay, 1000);
 }
 
@@ -75,8 +72,10 @@ function updateDisplay() {
     return playAlarm();
   }
   remainingSeconds = remainingSeconds - 1;
-  formatTime();
-  alarmDisplay.textContent = `Time Remaining: ${paddedMinutes}:${paddedSeconds}`;
+  alarmDisplay.textContent = `Time Remaining: ${formatTime(remainingSeconds)}`;
+}
+function stopTimer() {
+  clearInterval(timer);
 }
 
 // DO NOT EDIT BELOW HERE
