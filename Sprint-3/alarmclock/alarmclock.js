@@ -44,10 +44,9 @@ function formatTime(totalSeconds) {
   return `${padMinutes}:${padSeconds}`;
 }
 
-function updateDisplay() {
-  const timeRemainingElement = document.getElementById("timeRemaining");
+function updateDisplay(ptimeRemaining) {
   if (timeRemainingElement) {
-    timeRemainingElement.innerText = `Time Remaining: ${formatTime(timeRemaining)}`;
+    timeRemainingElement.innerText = `Time Remaining: ${formatTime(ptimeRemaining)}`;
   }
 }
 
@@ -94,7 +93,7 @@ function setAlarm() {
 
   timeRemaining = inputSeconds;
   stopFlashingBackground();
-  updateDisplay();
+  updateDisplay(timeRemaining);
   startCountdown();
 }
 
@@ -106,7 +105,7 @@ function startCountdown() {
 
   countdownInterval = setInterval(() => {
     timeRemaining -= 1;
-    updateDisplay();
+    updateDisplay(timeRemaining);
 
     if (timeRemaining <= 0) {
       clearInterval(countdownInterval);
