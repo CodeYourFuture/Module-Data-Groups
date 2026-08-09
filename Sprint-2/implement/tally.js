@@ -4,7 +4,11 @@ function tally(items) {
     }
 
     return items.reduce((acc, item) => {
-        acc[item] = (acc[item] || 0) + 1;
+        if (Object.hasOwn(acc, item)) {
+            acc[item] += 1;
+        } else {
+            acc[item] = 1;
+        }
         return acc;
     }, {});
 }
