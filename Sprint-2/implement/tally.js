@@ -5,16 +5,15 @@ function tally(arr) {
   } else if (arr.length < 1) {
     return countOfItemsObj;
   } else {
-    for (let element = 0; element < arr.length; element++) {
-      const exist = Object.hasOwn(countOfItemsObj, arr[element]);
+    for (let index = 0; index < arr.length; index++) {
+      const exist = Object.hasOwn(countOfItemsObj, arr [index]);
       if (!exist) {
-        countOfItemsObj[arr[element]] = 1;
+        countOfItemsObj[arr[index]] = 1;
       } else {
-        countOfItemsObj[arr[element]] = countOfItemsObj[arr[element]] + 1;
+        countOfItemsObj[arr[index]] = countOfItemsObj[arr[index]] + 1;
       }
     }
   }
   return countOfItemsObj;
 }
-
 module.exports = tally;
