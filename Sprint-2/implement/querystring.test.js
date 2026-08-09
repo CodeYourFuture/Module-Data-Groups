@@ -38,6 +38,12 @@ test("should replace '+' by ' '", () => {
 });
 
 // Stretch exercise: Handling query strings that contain identical keys
+test("should handle multiple duplicate keys alongside single keys", () => {
+    expect(parseQueryString("tag=js&tag=node&author=CYF")).toEqual({
+        tag: ["js", "node"],
+        author: "CYF",
+    });
+});
 
 // Delete this test if you are not working on this optional case
 test("should store values of a key in an array when the key has 2 or more values", () => {

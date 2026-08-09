@@ -11,6 +11,14 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+// for (const value of author) {
+//  console.log(value);
+// }
+
+for (const key in author) {
+  console.log(author[key]);
 }
+
+// the iteration method does not work for the object.
+// TypeError TypeError: author is not iterable will be shown
+// Change the correct method with the object
