@@ -1,5 +1,6 @@
 function contains(obj, prop) {
-  return obj.hasOwnProperty(prop); // checks if the property exists in the object and returns true or false
+    if (Array.isArray(obj)) {
+        return false; // returns false if an object contains an array
+    }
+  return obj.hasOwnProperty(prop);
 }
-
-module.exports = contains;
