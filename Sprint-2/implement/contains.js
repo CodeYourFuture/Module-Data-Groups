@@ -1,6 +1,7 @@
 function contains(obj, prop) {
-    if (Array.isArray(obj)) {
-        return false; // returns false if an object contains an array
-    }
+    const notArray = !Array.isArray(obj);
+    if (obj === null || Array.isArray(obj) || obj === Number || obj === undefined) {
+        return false; 
+    }  
   return obj.hasOwnProperty(prop);
 }
