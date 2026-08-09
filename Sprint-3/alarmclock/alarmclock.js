@@ -29,6 +29,8 @@ window.onload = setup;
 
 let countdownInterval = null;
 let flashInterval = null;
+let timeRemainingElement = null;
+
 let timeRemaining = 0;
 let isPaused = false;
 
@@ -138,7 +140,6 @@ pauseAlarm = function () {
 var audio = new Audio("alarmsound.mp3");
 
 function setup() {
-  let timeRemainingElement;
 
   timeRemainingElement = document.getElementById("timeRemaining");
   
