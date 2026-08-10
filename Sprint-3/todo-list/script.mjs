@@ -79,13 +79,5 @@ const deleteCompletedButton = document.getElementById(
 
 deleteCompletedButton.addEventListener("click", (e) => {
   Todos.deleteCompleted(todos);
-  // if (completedTodos.length === 0) return;
-  // completedTodos = Array.from(completedTodos);
-  // todos.forEach((todo, index) => {
-  //   console.log(completedTodos.includes(todo.task));
-  //   if (todo.completed === true) {
-  //     todos.splice(index, 1);
-  //   }
-  // });
   render();
 });
