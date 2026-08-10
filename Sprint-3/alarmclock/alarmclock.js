@@ -1,5 +1,5 @@
 function setAlarm() {
-  let seconds = Number(document.getElementById("input").value);
+  let seconds = Number(document.getElementById("alarmSet").value);
 
   function countdown() {
     let minutes = Math.floor(seconds / 60);
@@ -8,7 +8,7 @@ function setAlarm() {
     let formattedMinutes = String(minutes).padStart(2, "0");
     let formattedSeconds = String(remainingSeconds).padStart(2, "0");
 
-    document.getElementById("title").textContent =
+    document.getElementById("timeRemaining").textContent =
       `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
 
     if (seconds === 0) {
