@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #f3a83c;
+  background-color: #8a4b00;
   font-family: Georgia, "Times New Roman", Times, serif;
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@ h1 {
 
 /* Quote text styling with orange quote mark added automatically */
 #quote {
-  color: #f3a83c;
+  color: #8a4b00;
   font-size: 22px;
   line-height: 1.4;
   margin-bottom: 15px;
@@ -54,7 +54,7 @@ h1 {
 
 /* Author text styling right-aligned */
 #author {
-  color: #f3a83c;
+  color: #8a4b00;
   font-size: 18px;
   text-align: right;
   margin-bottom: 25px;
@@ -68,7 +68,7 @@ h1 {
 #new-quote {
   display: block;
   margin-left: auto;
-  background-color: #f3a83c;
+  background-color: #8a4b00;
   color: #ffffff;
   border: none;
   padding: 12px 22px;
