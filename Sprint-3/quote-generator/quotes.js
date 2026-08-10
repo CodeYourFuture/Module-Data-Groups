@@ -498,17 +498,17 @@ const quotes = [
 //4. when an event happens produce author of that quote in the other <p>
 const button = document.querySelector("#new-quote");
 const initialQuote = pickFromArray(quotes);
-const placeInitialQuote = document.querySelector("#quote");
-const placeInitialAuthor = document.querySelector("#author");
-placeInitialQuote.innerText = `${initialQuote.quote}`;
-placeInitialAuthor.innerText = `${initialQuote.author}`;
+const quotePlacement = document.querySelector("#quote");
+const authorPlacement = document.querySelector("#author");
+quotePlacement.innerText = `${initialQuote.quote}`;
+authorPlacement.innerText = `${initialQuote.author}`;
 
 function newQuoteEveryTime() {
   const quote = pickFromArray(quotes);
-  const quotePlace = document.querySelector("#quote");
-  const authorPlace = document.querySelector("#author");
-  quotePlace.innerText = `${quote.quote}`;
-  authorPlace.innerText = `${quote.author}`;
+  //const quotePlace = document.querySelector("#quote");
+  //const authorPlace = document.querySelector("#author");
+  quotePlacement.innerText = `${quote.quote}`;
+  authorPlacement.innerText = `${quote.author}`;
 }
 
 button.addEventListener("click", newQuoteEveryTime);

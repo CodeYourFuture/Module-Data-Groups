@@ -5,6 +5,7 @@ h1 {
 }
 
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
     background: rgb(24, 25, 24);
 
@@ -12,7 +13,8 @@ body {
     flex-direction: column;
     align-items: center;
 
-    min-height: 100vh;
+    min-height: 100dvh;
+
 }
 #quote {
     max-width: 700px;
@@ -35,7 +37,6 @@ body {
     font-size: 18px;
     color: white;
     background-color: rgb(225, 71, 36);
-
     cursor: pointer;
 }
 
