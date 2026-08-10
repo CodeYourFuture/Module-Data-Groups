@@ -34,6 +34,7 @@ function resetAlarm() {
   intervalId = null;
   updateDisplay(0);
   setFlashingBackground(false);
+  pauseAlarm();
 }
 
 function updateDisplay(seconds) {
@@ -77,6 +78,7 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  setFlashingBackground(false);
 }
 
 window.onload = setup;
