@@ -2,7 +2,9 @@ function sum(elements) {
   if (elements.length === 0) {
     return 0;
   }
-  const number = elements.filter((value) => typeof value === "number");
+  const number = elements.filter(
+    (value) => typeof value === "number" && !Number.isNaN(value)
+  );
   if (number.length === 0) {
     return undefined;
   }

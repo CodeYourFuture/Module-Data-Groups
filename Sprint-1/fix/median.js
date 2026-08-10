@@ -9,7 +9,9 @@ function calculateMedian(list) {
   if (!Array.isArray(list)) {
     return null;
   }
-  filteredList = list.filter((item) => typeof item === "number");
+  const filteredList = list.filter(
+    (item) => typeof item === "number" && !Number.isNaN(item)
+  );
   if (filteredList.length === 0) {
     return null;
   }
