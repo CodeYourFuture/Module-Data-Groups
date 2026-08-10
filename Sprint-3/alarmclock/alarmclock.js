@@ -60,6 +60,9 @@ function setAlarm() {
   alarmDisplay.textContent = `Time Remaining: ${formatTime(remainingSeconds)}`;
   timer = setInterval(updateDisplay, 1000);
 }
+function changeBackground() {
+  document.body.classList.add("alarm-finished");
+}
 
 function updateDisplay() {
   //this function:
@@ -68,6 +71,7 @@ function updateDisplay() {
   //3. otherwise it decrements the timer and displays the result.
   if (remainingSeconds < 1) {
     clearInterval(timer);
+    changeBackground();
     return playAlarm();
   }
   remainingSeconds = remainingSeconds - 1;
@@ -76,6 +80,7 @@ function updateDisplay() {
 function stopTimer() {
   clearInterval(timer);
 }
+
 
 // DO NOT EDIT BELOW HERE
 
