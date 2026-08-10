@@ -1,9 +1,7 @@
-function setAlarm() {
-  let time = Number(document.getElementById("alarmSet").value);
-  if (isNan(time) || time <= 0) return;
+let timer;
 
+function updateDisplay(time) {
   let heading = document.getElementById("timeRemaining");
-
   let minutes = Math.floor(time / 60);
   let seconds = time % 60;
 
@@ -12,18 +10,20 @@ function setAlarm() {
     String(minutes).padStart(2, "0") +
     ":" +
     String(seconds).padStart(2, "0");
+}
 
-  let timer = setInterval(function () {
+function setAlarm() {
+ // if (timer) clearInterval(timer);
+  //audio.pause();
+  //audio.currentTime = 0;
+
+  let time = Number(document.getElementById("alarmSet").value);
+  if (isNaN(time) || time <= 0) return;
+  updateDisplay(time);
+
+  timer = setInterval(function () {
     time = time - 1;
-
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-
-    heading.innerText =
-      "Time Remaining: " +
-      String(minutes).padStart(2, "0") +
-      ":" +
-      String(seconds).padStart(2, "0");
+    updateDisplay(time);
 
     if (time === 0) {
       playAlarm();
