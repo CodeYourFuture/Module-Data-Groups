@@ -12,4 +12,5 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`); //the DOT expression was missing in the original code.
+// also adding a join method to the ingredients array to log each ingredient on a new line.

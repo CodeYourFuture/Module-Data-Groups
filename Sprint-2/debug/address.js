@@ -12,4 +12,7 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address["houseNumber"]}`);
+// to access the houseNumber of the object using bracket notation,
+//  we need to use the key as a string. In this case, "houseNumber"
+//  is the correct key, so the code should work as expected.
