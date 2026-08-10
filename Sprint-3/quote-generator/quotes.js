@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
   displayRandomQuote();
 
   // Attach click listener to the button (assuming button has id "new-quote-btn")
-  const newQuoteButton = document.getElementById("new-quote-btn");
+  const newQuoteButton = document.getElementById("new-quote");
   if (newQuoteButton) {
     newQuoteButton.addEventListener("click", displayRandomQuote);
   }
@@ -32,9 +32,6 @@ window.addEventListener("DOMContentLoaded", () => {
 const autoPlayToggle = document.getElementById("auto-play-toggle");
 const autoPlayStatus = document.getElementById("auto-play-status");
 
-const quoteElement = document.getElementById("quote");
-const authorElement = document.getElementById("author");
-const newQuoteButton = document.getElementById("new-quote");
 
 // Variable to store the timer interval ID
 let autoPlayInterval = null;
