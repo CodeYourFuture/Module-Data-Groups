@@ -1,5 +1,6 @@
 function setAlarm() {
   let time = Number(document.getElementById("alarmSet").value);
+  if (isNan(time) || time <= 0) return;
 
   let heading = document.getElementById("timeRemaining");
 
