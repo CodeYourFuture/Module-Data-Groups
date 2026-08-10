@@ -52,12 +52,11 @@ function setAlarm() {
   //5. starts timer
   clearInterval(timer);
   remainingSeconds = Number(document.getElementById("alarmSet").value);
-  if (remainingSeconds === 0) {
-    return pauseAlarm();
-  } else if (remainingSeconds < 0) {
-    return clearInterval(timer);
+  if (remainingSeconds < 1) {
+    alarmDisplay.textContent = `Enter a valid number of seconds greater than 0`;
+      return pauseAlarm();
   }
-  formatTime();
+
   alarmDisplay.textContent = `Time Remaining: ${formatTime(remainingSeconds)}`;
   timer = setInterval(updateDisplay, 1000);
 }
@@ -67,7 +66,7 @@ function updateDisplay() {
   //1. when timer reaches zero it stops the timer.
   //2. it then sounds alarm
   //3. otherwise it decrements the timer and displays the result.
-  if (remainingSeconds === 0) {
+  if (remainingSeconds < 1) {
     clearInterval(timer);
     return playAlarm();
   }
@@ -101,3 +100,5 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
+
+
