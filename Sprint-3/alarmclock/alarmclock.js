@@ -1,6 +1,7 @@
 let timer;
 
 function updateDisplay(time) {
+  
   let heading = document.getElementById("timeRemaining");
   let minutes = Math.floor(time / 60);
   let seconds = time % 60;
@@ -13,16 +14,19 @@ function updateDisplay(time) {
 }
 
 function setAlarm() {
- // if (timer) clearInterval(timer);
-  //audio.pause();
-  //audio.currentTime = 0;
+  
+  if (timer) clearInterval(timer);
+  audio.pause();
+  audio.currentTime = 0;
 
   let time = Number(document.getElementById("alarmSet").value);
   if (isNaN(time) || time <= 0) return;
+  
   updateDisplay(time);
 
   timer = setInterval(function () {
     time = time - 1;
+    
     updateDisplay(time);
 
     if (time === 0) {
