@@ -10,37 +10,20 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj[value] = key;
+    invertedObj.key = value;
   }
 
   return invertedObj;
 }
 
-module.exports = invert;
+// a) What is the current return value when invert is called with { a : 1 }
 
-// a) What is the current return value when invert is called with { a : 1 } returns { key: 1 }
+// b) What is the current return value when invert is called with { a: 1, b: 2 }
 
-// b) What is the current return value when invert is called with { a: 1, b: 2 } = { key: 2 }
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 
-// c) What does Object.entries return? Why is it needed in this program? Object.entries({ a: 1, b: 2 }); returns [
-//["a", 1],
-//["b", 2] It is needed because it allows us to loop through each key and value:
+// c) What does Object.entries return? Why is it needed in this program?
 
 // d) Explain why the current return value is different from the target output
-// //This creates a property literally called "key".
-//For { a: 1, b: 2 }, it becomes: { key: 2 }
 
-// e) Fix the implementation of invertand write tests to prove it's fixed!)
-//const invert = require("./invert.js");
-
-// test("should invert an object", () => {
-// expect(invert({ a: 1, b: 2 })).toEqual({
-// 1: "a",
-// 2: "b",
-// });
-// });
-
-// test("should invert an empty object", () => {
-// expect(invert({})).toEqual({});
-// });
+// e) Fix the implementation of invert (and write tests to prove it's fixed!)
