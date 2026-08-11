@@ -13,11 +13,11 @@ function setAlarm() {
   display = document.getElementById("timeRemaining");
 
   // validate result
-  const result = parseInt(timeLeft);
-  console.log(result);
-  if (isNaN(result) || result < 0 || !Number.isInteger(result)) {
+  const result = Number(timeLeft);
+  if (!Number.isInteger(result) || result < 0) {
     return;
   }
+  timeLeft = result;
 
   display.textContent = formatTime(timeLeft);
 
