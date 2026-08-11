@@ -40,11 +40,11 @@ test("contains on empty object returns false", () => {
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("returns false for invalid parameters like an array", () => {
+test("returns false for invalid parameters", () => {
   const arr = ["apple", "banana"];
   
   expect(contains(arr, "0")).toBe(false);
   expect(contains(null, "a")).toBe(false);
   expect(contains(123, "a")).toBe(false);
-  expect(contains("hello", "a")).toBe(false);
+  expect(contains("hello", "0")).toBe(false);
 });
