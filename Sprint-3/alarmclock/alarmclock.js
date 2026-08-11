@@ -51,10 +51,11 @@ function setAlarm() {
   //4. displays the initial timer in minutes and seconds
   //5. starts timer
   clearInterval(timer);
+  resetBackground();
   remainingSeconds = Number(document.getElementById("alarmSet").value);
   if (remainingSeconds < 1) {
     alarmDisplay.textContent = `Enter a valid number of seconds greater than 0`;
-      return pauseAlarm();
+    return pauseAlarm();
   }
 
   alarmDisplay.textContent = `Time Remaining: ${formatTime(remainingSeconds)}`;
@@ -62,6 +63,9 @@ function setAlarm() {
 }
 function changeBackground() {
   document.body.classList.add("alarm-finished");
+}
+function resetBackground() {
+  document.body.classList.remove("alarm-finished");
 }
 
 function updateDisplay() {
@@ -80,7 +84,6 @@ function updateDisplay() {
 function stopTimer() {
   clearInterval(timer);
 }
-
 
 // DO NOT EDIT BELOW HERE
 
@@ -105,5 +108,3 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
-
-
