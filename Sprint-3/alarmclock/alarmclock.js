@@ -20,7 +20,7 @@ function setAlarm() {
   audio.currentTime = 0;
 
   let time = Number(document.getElementById("alarmSet").value);
-  if (isNaN(time) || time <= 0) return;
+  if (isNaN(time) || !Number.isInteger(time) || time <= 0) return;
   
   updateDisplay(time);
 
@@ -29,7 +29,7 @@ function setAlarm() {
     
     updateDisplay(time);
 
-    if (time === 0) {
+    if (time <= 0) {
       playAlarm();
       clearInterval(timer);
     }
