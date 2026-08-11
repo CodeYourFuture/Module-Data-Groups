@@ -4,10 +4,9 @@ function tally(items) {
   }
   const result = {};
   for (const item of items) {
-    result[item] = (result[item] || 0) + 1;
+    const count = Object.hasOwn(result, item) ? result[item] : 0;
+    result[item] = count + 1;
   }
-
   return result;
 }
-
 module.exports = tally;

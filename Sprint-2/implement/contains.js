@@ -1,5 +1,9 @@
 function contains(keyInput, valueInput) {
-  if (Array.isArray(keyInput) == true) {
+  if (
+    keyInput == null ||
+    typeof keyInput !== "object" ||
+    Array.isArray(keyInput)
+  ) {
     return false;
   } else {
     for (const key in keyInput) {
@@ -10,5 +14,5 @@ function contains(keyInput, valueInput) {
   }
   return false;
 }
-
+// make values like null, undefined ,1234, true,"Abc" to be consider invalid and return false same as array
 module.exports = contains;

@@ -15,3 +15,14 @@ test("Give a contains with object and property and if the property is non-existe
 test("Give invalid parameter in this case array when passed to contains it returns false", () => {
   expect(contains(["a", 2, "b", 3, 2], 2)).toEqual(false);
 });
+
+test("Give invalid parameter in this case empty  when passed to contains it returns false", () => {
+  expect(contains(null)).toEqual(false);
+});
+test("returns false for undefined", () => {
+  expect(contains(undefined, "key")).toEqual(false);
+});
+
+test("returns false for numbers", () => {
+  expect(contains(1234, "key")).toEqual(false);
+});
