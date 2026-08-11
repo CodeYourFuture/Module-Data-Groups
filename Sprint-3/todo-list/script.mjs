@@ -5,26 +5,23 @@ import * as Todos from "./todos.mjs";
 const todos = [];
 
 // Set up tasks to be performed once on page load
-window.addEventListener("load", () => {
+function setup() {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
   document
     .getElementById("delete-completed-btn")
-    .addEventListener("click", () => {
-      const updated = Todos.deleteCompleted(todos);
-      todos.length = 0;
-      todos.push(...updated);
-      render();
-    });
+    .addEventListener("click", deleteCompletedTodos);
 
-  // Populate sample data
+ // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false);
   Todos.addTask(todos, "Do the shopping", true);
 
   render();
-});
+}
+
+window.addEventListener("load", setup);
 
 // A callback that reads the task description from an input field and
-// append a new task to the todo list.
+// appends a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
   const task = taskInput.value.trim();
@@ -34,6 +31,15 @@ function addNewTodo() {
   }
 
   taskInput.value = "";
+}
+
+// Delete all completed todo tasks
+function deleteCompletedTodos() {
+  const updated = Todos.deleteCompleted(todos);
+  todos.length = 0;
+  todos.push(...updated);
+  render();
+
 }
 
 // Note:
