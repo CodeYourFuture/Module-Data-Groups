@@ -2,9 +2,9 @@ let timer;
 
 function updateDisplay(time) {
   
-  let heading = document.getElementById("timeRemaining");
-  let minutes = Math.floor(time / 60);
-  let seconds = time % 60;
+  const heading = document.getElementById("timeRemaining");
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
 
   heading.innerText =
     "Time Remaining: " +
