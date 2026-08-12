@@ -13,7 +13,7 @@ function setAlarm() {
 
   // validate result
   const result = Number(timeLeft);
-  if (!Number.isInteger(result) || result < 0) {
+  if (!Number.isInteger(result) || result <= 0) {
     return;
   }
   timeLeft = result;
