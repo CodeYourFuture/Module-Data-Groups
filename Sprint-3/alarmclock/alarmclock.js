@@ -14,16 +14,15 @@ function updateDisplay(time) {
 }
 
 function setAlarm() {
-  
-  if (timer) clearInterval(timer);
-  audio.pause();
-  audio.currentTime = 0;
-
   let time = Number(document.getElementById("alarmSet").value);
   if (isNaN(time) || !Number.isInteger(time) || time <= 0) return;
   
   updateDisplay(time);
 
+  if (timer) clearInterval(timer);
+    audio.pause();
+    audio.currentTime = 0;
+    
   timer = setInterval(function () {
     time = time - 1;
     
