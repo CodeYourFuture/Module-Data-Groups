@@ -28,6 +28,10 @@ function displayQuote(quoteObj) {
   authorPar.textContent = quoteObj.author;
 }
 
+newQuoteBtn.addEventListener("click", function () {
+  displayQuote(pickFromArray(quotes));
+});
+
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
 const quotes = [
