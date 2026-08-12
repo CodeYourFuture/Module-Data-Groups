@@ -37,5 +37,5 @@ test('tally with duplicate items returns the count for each unique item', ()=>{
 // When passed to tally
 // Then it should throw an error
 test('tally with invalid input like a string, throw an error', ()=>{
-    expect(()=>tally("")).toThrow(Error)
+    expect(()=>tally("")).toThrow(typeError)
 })
