@@ -1,5 +1,7 @@
 const lengthOfAlarmSound = 20000;
 
+document.getElementById("stop").addEventListener("click", stopAlarm);
+
 let timeLeft;
 let intervalID;
 let display;
