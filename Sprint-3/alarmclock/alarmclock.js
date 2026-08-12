@@ -15,7 +15,7 @@ function updateDisplay(time) {
 
 function setAlarm() {
   let time = Number(document.getElementById("alarmSet").value);
-  if (isNaN(time) || !Number.isInteger(time) || time <= 0) return;
+  if (!Number.isInteger(time) || time <= 0) return;
   
   updateDisplay(time);
 
