@@ -19,9 +19,9 @@
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
-const quote = document.getElementById("quote");
-const author = document.getElementById("author");
-const quoteButton = document.getElementById("new-quote");
+const quotePar = document.getElementById("quote");
+const authorPar = document.getElementById("author");
+const newQuoteBtn = document.getElementById("new-quote");
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
