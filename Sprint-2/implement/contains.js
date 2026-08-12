@@ -6,10 +6,6 @@ function contains(object, property) {
   )) {
     throw new Error("Invalid data type");
   }
-  const obj = Object.keys(object);
-  if (obj.length === 0) {
-    return false;
-  }
-  return obj.includes(property);
+  return Object.hasOwn(object, property);
 }
 module.exports = contains;
