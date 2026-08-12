@@ -2,7 +2,6 @@ const lengthOfAlarmSound = 20000;
 
 let timeLeft;
 let intervalID;
-let timeoutID;
 let display;
 
 function setAlarm() {
@@ -58,8 +57,6 @@ function stopAlarm() {
 
 function cleanUp() {
   clearInterval(intervalID);
-  clearTimeout(timeoutID);
-  timeoutID = null;
   intervalID = null;
 }
 
