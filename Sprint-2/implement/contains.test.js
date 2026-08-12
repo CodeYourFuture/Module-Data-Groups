@@ -72,10 +72,12 @@ test(
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("when passed a data type other than an object, throw an error", () => {
-  const arr = [];
-  const propertyNameCheck4 = "name";
-  expect(() => {
-    contains(arr, propertyNameCheck4);
-  }).toThrow("Expected an object, received an array");
-});
+
+test.each([["hello"], [123], [true], [[]], [null]])(
+  "throws an error when input is %p",
+  (type) => {
+    expect(() => {
+      contains(type, "A");
+    }).toThrow("Invalid data type");
+  }
+);

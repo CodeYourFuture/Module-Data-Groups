@@ -1,6 +1,10 @@
 function contains(object, property) {
-  if (Array.isArray(object)) {
-    throw new Error("Expected an object, received an array");
+  if (!(
+    typeof object === "object" &&
+    !Array.isArray(object) &&
+    object !== null
+  )) {
+    throw new Error("Invalid data type");
   }
   const obj = Object.keys(object);
   if (obj.length === 0) {
@@ -8,5 +12,4 @@ function contains(object, property) {
   }
   return obj.includes(property);
 }
-console.log(contains({ 1: "o", 2: "k" }, 1));
 module.exports = contains;
