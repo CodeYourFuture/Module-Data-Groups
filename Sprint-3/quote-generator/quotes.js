@@ -499,3 +499,5 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+console.log(pickFromArray(quotes)); //object gets logged into the console initially
+displayQuote(pickFromArray(quotes));
