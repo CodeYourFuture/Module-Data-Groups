@@ -3,7 +3,7 @@ function tally(array) {
     throw new Error("Input should be an array");
   }
 
-  let tallySet = {};
+  const tallySet = {};
 
   for (let item of array) {
     if (!tallySet[item]) {
