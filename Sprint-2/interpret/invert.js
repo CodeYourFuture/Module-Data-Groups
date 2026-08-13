@@ -17,10 +17,10 @@ function invert(obj) {
 module.exports = invert;
 
 // a) What is the current return value when invert is called with { a : 1 }
-// {"1":"a"}
+// { 1 : a }
 
-// b) What is the current return value when invert is called with { a: 1, b: 2 }
-// {"1":"a", "2":"b"}
+// b) What is the current return value when invert is called with { a : 1, b : 2 }
+// { 1 : a, 2 : b }
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 // the intended result is -> {"1":"a","2":"b"} (same as the as the current output)
