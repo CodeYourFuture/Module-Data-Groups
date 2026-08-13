@@ -1,5 +1,5 @@
 function tally(array) {
-  if (typeof array === "string") {
+  if (!Array.isArray(array)) {
     throw new Error("Input should be an array");
   }
 
