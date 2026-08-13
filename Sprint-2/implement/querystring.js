@@ -4,24 +4,23 @@ function parseQueryString(queryString) {
     return queryParams;
   }
   const keyValuePairs = queryString.split("&");
-  for (const pair of keyValuePairs) {
+
+  for (let pair of keyValuePairs) {
     if (pair === "") {
       continue;
+    }
+    if (pair.includes("+")) {
+      pair = pair.replaceAll("+", " ");
     }
     const indexOfFirst = pair.indexOf("=");
     if (indexOfFirst === -1) {
       queryParams[pair] = "";
     } else {
-      let key = decodeURIComponent(
-        pair.slice(0, indexOfFirst).replaceAll("+", " ")
-      );
-      let value = decodeURIComponent(
-        pair.slice(indexOfFirst + 1).replaceAll("+", " ")
-      );
+      let key = decodeURIComponent(pair.slice(0, indexOfFirst));
+      let value = decodeURIComponent(pair.slice(indexOfFirst + 1));
       queryParams[key] = value;
     }
   }
   return queryParams;
 }
-console.log(parseQueryString("key1=value1&&key2=value2&"));
 module.exports = parseQueryString;
