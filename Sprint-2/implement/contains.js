@@ -3,11 +3,7 @@ function contains(object, propertyName) {
     throw new Error("Input should be an object");
   }
   const keysInObject = Object.keys(object);
-  if (keysInObject.includes(propertyName)) {
-    return true;
-  } else {
-    return false;
-  }
+  return keysInObject.includes(propertyName);
 }
 
 module.exports = contains;
