@@ -23,10 +23,18 @@ describe("tally()", () => {
   // Given an array with duplicate items
   // When passed to tally
   // Then it should return counts for each unique item
+  describe("when given an array with a single item", () => {
+    test("should return an object with counts for that item (1)", () => {
+      expect(tally(["a"])).toEqual({ a: 1 });
+    });
+  });
+  describe("when given an array with duplicate items", () => {
+    test("should return an object with counts that item", () => {
+      expect(tally(["a", "a", "a"])).toEqual({ a: 3 });
+    });
+  });
   describe("when given an array with duplicate items", () => {
     test("should return an object with counts for each unique item", () => {
-      expect(tally(["a"])).toEqual({ a: 1 });
-      expect(tally(["a", "a", "a"])).toEqual({ a: 3 });
       expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
     });
   });
