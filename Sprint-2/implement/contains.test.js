@@ -58,4 +58,9 @@ test("contains with invalid parameters returns false", () => {
   expect(contains('string', 'a')).toBe(false);
   expect(contains(42, 'a')).toBe(false);
 });
+
+test("contains with array and missing key returns false", () => {
+  expect(contains([], 'a')).toBe(false);
+  expect(contains(['x', 'y'], 'z')).toBe(false);
 });
+
