@@ -1,6 +1,6 @@
 function parseQueryString(queryString) {
   const params = {};
-if (!queryString) {
+  if (!queryString) {
     return params;
   }
 
