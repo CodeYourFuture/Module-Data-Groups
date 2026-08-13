@@ -13,3 +13,27 @@
 h1 {
   text-align: center;
 }
+
+/* flashing effect for the alarm app */
+@keyframes colorRipple {
+  0% {
+    background-color: #ffffff;
+  } /* White */
+  25% {
+    background-color: #ff6b6b;
+  } /* Light Coral / Soft Red */
+  50% {
+    background-color: #feca57;
+  } /* Mango / Warm Yellow-Orange */
+  75% {
+    background-color: #48dbfb;
+  } /* Sky Blue / Light Aqua */
+  100% {
+    background-color: #ffffff;
+  } /* White */
+}
+
+/* apply the flashing effect to the body when the alarm is triggered */
+.flash-background {
+  animation: colorRipple 0.8s infinite;
+}
