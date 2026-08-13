@@ -11,14 +11,17 @@ const alarmInput = document.querySelector("#alarmSet");
 const timeRemaining = document.querySelector("#timeRemaining");
 
 let timer;
-
 function setAlarm() {
   clearInterval(timer);
   pauseAlarm();
   let totalSeconds = Number(alarmInput.value);
   alarmInput.value = "";
-  if (totalSeconds <= 0 || !Number.isFinite(totalSeconds)) {
-    timeRemaining.innerText = "Time Remaining: 00:00";
+  if (totalSeconds > 36000) {
+    alert("Please enter a time less than 10 hours.");
+    return;
+  }
+  if (totalSeconds <= 0 || !Number.isInteger(totalSeconds)) {
+    alert("Please enter a valid positive time.");
     return;
   }
   function updateTime() {
@@ -28,6 +31,7 @@ function setAlarm() {
     timeRemaining.innerText = `Time Remaining: ${minutes}:${seconds}`;
   }
   updateTime();
+
   timer = setInterval(() => {
     totalSeconds--;
     updateTime();
