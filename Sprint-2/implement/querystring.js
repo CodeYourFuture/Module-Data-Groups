@@ -6,8 +6,31 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    if (pair === "") {
+      continue;
+    }
+
+    if (!pair.includes("=")) {
+      queryParams[pair] = "";
+      continue;
+    }
+
+    const equalsIndex = pair.indexOf("=");
+    const key = decodeURIComponent(
+      pair.slice(0, equalsIndex).replace(/\+/g, " ")
+    );
+
+    const value = decodeURIComponent(
+      pair.slice(equalsIndex + 1).replace(/\+/g, " ")
+    );
+
+    if (queryParams[key] === undefined) {
+      queryParams[key] = value;
+    } else if (Array.isArray(queryParams[key])) {
+      queryParams[key].push(value);
+    } else {
+      queryParams[key] = [queryParams[key], value];
+    }
   }
 
   return queryParams;
