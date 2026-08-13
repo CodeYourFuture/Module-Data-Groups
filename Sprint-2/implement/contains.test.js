@@ -21,34 +21,33 @@ test(
   "when passed an object and a property name, should return true if the object " +
     "contains the property",
   () => {
-    const obj1 = {
+    const obj = {
       name: "dami",
       age: 34,
       height: 5.3,
       location: "London",
     };
-    const propertyNameCheck1 = "name";
-    const expected1 = true;
-    const result1 = contains(obj1, propertyNameCheck1);
-    expect(result1).toBe(expected1);
+    const propertyNameCheck = "name";
+    const expected = true;
+    const result = contains(obj, propertyNameCheck);
+    expect(result).toBe(expected);
   }
 );
-
 // Given an empty object
 // When passed to contains
 // Then it should return false
 
 test("given an empty object, should return false", () => {
-  const obj2 = {};
-  const propertyNameCheck2 = "a";
-  const expected2 = false;
-  const result2 = contains(obj2, propertyNameCheck2);
-  expect(result2).toBe(expected2);
+  const obj = {};
+  const propertyNameCheck = "a";
+  const expected = false;
+  const result = contains(obj, propertyNameCheck);
+  expect(result).toBe(expected);
 });
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
-//this test requirement is covered on line 21
+//this test requirement is cvered on line 21
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
@@ -57,15 +56,15 @@ test(
   "when passed an object and a property name, should return false if the object " +
     "does not contain the property.",
   () => {
-    const obj3 = {
+    const obj = {
       title: "Things fall apart",
       year: 1958,
       publisher: "pan-macmillan",
     };
-    const propertyNameCheck3 = "location";
-    const expected3 = false;
-    const result3 = contains(obj3, propertyNameCheck3);
-    expect(result3).toBe(expected3);
+    const propertyNameCheck = "location";
+    const expected = false;
+    const result = contains(obj, propertyNameCheck);
+    expect(result).toBe(expected);
   }
 );
 test("should throw an error when the input is an array, even if the specified key exists", () => {
