@@ -77,7 +77,7 @@ test("should throw an error when the input is an array, even if the specified ke
 // When passed to contains
 // Then it should return false or throw an error
 
-test.each([["hello"], [123], [true], [[]], [null]])(
+test.each([["hello"], [123], [true], [undefined], [null]])(
   "throws an error when input is %p",
   (type) => {
     expect(() => {
