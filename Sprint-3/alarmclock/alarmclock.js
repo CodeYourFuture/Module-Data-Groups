@@ -1,29 +1,50 @@
 const input = document.getElementById("alarmSet");
-const timeDisplay = document.getElementById("timeDisplay");
+const timeRemaining = document.getElementById("timeRemaining");
+const message = document.getElementById("message");
 
-function setAlarm() {
-  let timeInput = Number(input.value);
-  let minutes = Math.floor(timeInput / 60);
-  let seconds = timeInput % 60;
+let intervalId = null;
 
+function getTime() {
+  const time = Number(input.value);
+  if (!(Number.isFinite(time) && Number.isInteger(time) && time >= 1)) {
+    message.textContent = "Enter a valid number";
+    return null;
+  }
+  return time;
+}
+
+function updateTime(updatedTime) {
+  const time = updatedTime;
+  let minutes = Math.floor(time / 60);
+  let seconds = time % 60;
   minutes = minutes.toString().padStart(2, "0");
   seconds = seconds.toString().padStart(2, "0");
-  timeDisplay.textContent = `${minutes}:${seconds}`;
+  timeRemaining.textContent = `Time Remaining: ${minutes}:${seconds}`;
+}
 
-  const alarm = setInterval(() => {
+function setAlarm() {
+  let timeInput = getTime();
+  if (timeInput === null) {
+    return;
+  }
+  resetAlarm();
+  updateTime(timeInput);
+  intervalId = setInterval(() => {
     timeInput--;
-    let remainingMinutes = Math.floor(timeInput / 60);
-    let remainingSeconds = timeInput % 60;
-    remainingMinutes = remainingMinutes.toString().padStart(2, "0");
-    remainingSeconds = remainingSeconds.toString().padStart(2, "0");
-    timeDisplay.textContent = `${remainingMinutes}:${remainingSeconds}`;
+    updateTime(timeInput);
     if (timeInput === 0) {
       playAlarm();
-      clearInterval(alarm);
+      clearInterval(intervalId);
+      intervalId = null;
     }
   }, 1000);
 }
 
+function resetAlarm() {
+  clearInterval(intervalId);
+  intervalId = null;
+  timeRemaining.textContent = `Time Remaining: 00:00`;
+}
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
