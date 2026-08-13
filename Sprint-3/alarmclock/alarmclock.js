@@ -1,5 +1,5 @@
 const input = document.getElementById("alarmSet");
-const timeDisplay = document.querySelector("span");
+const timeDisplay = document.getElementById("timeDisplay");
 
 function setAlarm() {
   let timeInput = Number(input.value);
