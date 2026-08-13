@@ -37,6 +37,12 @@ test("should replace '+' by ' '", () => {
   });
 });
 
+test("should decode a percent-encoded key without a value", () => {
+  expect(parseQueryString("%6B%65%79")).toEqual({
+    key: "",
+  });
+});
+
 // Stretch exercise: Handling query strings that contain identical keys
 
 // Delete this test if you are not working on this optional case
