@@ -29,7 +29,7 @@ describe("tally", () => {
   // When passed to tally
   // Then it should return an empty object
   test("tally on an empty array returns an empty object", () => {
-    expect([]).toEqual({});
+    expect(tally([])).toEqual({});
   });
 
   // Given an array with duplicate items
