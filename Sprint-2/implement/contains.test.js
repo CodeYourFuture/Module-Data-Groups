@@ -31,7 +31,7 @@ describe("when checking property existence", () => {
 // Then it should return false
 describe("given an empty object", () => {
   test("should return false when passed to contains", () => {
-    expect(contains({}, "a").toBe(false));
+    expect(contains({}, "a")).toBe(false);
   });
 });
 
