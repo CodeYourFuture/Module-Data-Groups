@@ -132,6 +132,7 @@ describe("deleteCompleted()", () => {
     let myTodos = [
       { task: "Description of task 1", completed: false },
       { task: "Description of task 2", completed: true },
+      { task: "Description of task 2", completed: true },
     ];
 
     Todos.deleteCompleted(myTodos);
