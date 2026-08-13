@@ -73,7 +73,7 @@ function createListItem(todo, index) {
   return li;
 }
 
-// 4. In `script.js`, call `deleteCompleted()` whenever the new button is clicked.
+// 4 -In `script.js`, call `deleteCompleted()` whenever the new button is clicked.
 //     - ⚠️ You should not need to modify the `render()` function.
 document
   .getElementById("delete-completed-btn")
