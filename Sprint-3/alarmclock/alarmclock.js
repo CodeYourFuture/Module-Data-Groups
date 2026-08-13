@@ -6,15 +6,14 @@ let intervalId = null;
 
 function getTime() {
   const time = Number(input.value);
-  if (!(Number.isFinite(time) && Number.isInteger(time) && time >= 1)) {
+  if (!(Number.isInteger(time) && time >= 1)) {
     message.textContent = "Enter a valid number";
     return null;
   }
   return time;
 }
 
-function updateTime(updatedTime) {
-  const time = updatedTime;
+function updateTime(time) {
   let minutes = Math.floor(time / 60);
   let seconds = time % 60;
   minutes = minutes.toString().padStart(2, "0");
@@ -43,7 +42,7 @@ function setAlarm() {
 function resetAlarm() {
   clearInterval(intervalId);
   intervalId = null;
-  timeRemaining.textContent = `Time Remaining: 00:00`;
+  updateTime(0);
 }
 // DO NOT EDIT BELOW HERE
 
