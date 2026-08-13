@@ -134,10 +134,10 @@ describe("deleteCompleted()", () => {
       { task: "Description of task 2", completed: true },
     ];
 
-    deleteCompleted(myTodos);
+    Todos.deleteCompleted(myTodos);
 
-    expect(
-      myTodos.toEqual([{ task: "Description of task 1", completed: false }])
-    );
+    expect(myTodos).toEqual([
+      { task: "Description of task 1", completed: false },
+    ]);
   });
 });
