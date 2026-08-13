@@ -25,6 +25,11 @@ describe("when given invalid inputs", () => {
 
 describe("when given valid inputs", () => {
   test("should return an object where (Input ==> Output): keys:values ==> country code: corresponding currency", () => {
+    expect(createLookup([["US", "USD"]])).toEqual({
+      US: "USD",
+    });
+  });
+  test("should return an object where (Input ==> Output): keys:values ==> country code: corresponding currency", () => {
     expect(
       createLookup([
         ["US", "USD"],
