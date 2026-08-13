@@ -3,27 +3,26 @@ let timer;
 let seconds;
 
 function setAlarm() {
-    const alarmSetInput = document.getElementById("alarmSet");
-    seconds = Number(alarmSetInput.value);
+  const alarmSetInput = document.getElementById("alarmSet");
+  seconds = Number(alarmSetInput.value);
 
+  if (seconds <= 0 || isNaN(seconds)) {
+    alert("Please enter a valid number.");
+    return;
+  }
 
-    if (seconds <= 0 || isNaN(seconds)) {
-        alert("Please enter a valid number.");
-        return;
-    }
+  // Stop a previous countdown if there is one
+  clearInterval(timer);
+  pauseAlarm();
 
-    // Stop a previous countdown if there is one
-    clearInterval(timer);
+  // Run immediately
+  decrementTimer();
 
-    // Run immediately
-    decrementTimer();
-
-    // decrement each second
-    timer = setInterval(() => decrementTimer(), 1000);
+  // decrement each second
+  timer = setInterval(() => decrementTimer(), 1000);
 }
 
-function decrementTimer()
-{
+function decrementTimer() {
   const minutes = Math.floor(seconds / 60);
   const secs = seconds % 60;
 
@@ -61,4 +60,3 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
-
