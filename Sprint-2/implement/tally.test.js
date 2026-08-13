@@ -50,9 +50,15 @@ describe("tally()", () => {
   // Given an invalid input like a string
   // When passed to tally
   // Then it should throw an error
-  describe("when given invalid input such as a string", () => {
-    test("should throw an error", () => {
+  describe("when given invalid input", () => {
+    test("should throw an error for a string input", () => {
       expect(() => tally("apple")).toThrow("Input should be an array");
+    });
+    test("should throw an error for a boolean input", () => {
+      expect(() => tally(true)).toThrow("Input should be an array");
+    });
+    test("should throw an error for a number input", () => {
+      expect(() => tally(3)).toThrow("Input should be an array");
     });
   });
 });
