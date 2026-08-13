@@ -11,6 +11,6 @@ const author = {
   alive: true,
 };
 //An object is not directly iterable, if we want to log out the values we can use a for in loop
-for (const value in author) {
-  console.log(author[value]);
+for (const key in author) {
+  console.log(author[key]);
 }
