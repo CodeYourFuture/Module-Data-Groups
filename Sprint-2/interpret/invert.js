@@ -7,24 +7,13 @@
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 function invert(obj) {
   const inverted = {};
-
   for (const [key, value] of Object.entries(obj)) {
     const v = String(value);
-
-    if (v in inverted) {
-      // If value already exists
-      if (Array.isArray(inverted[v])) {
-        inverted[v].push(key);
-      } else {
-        inverted[v] = [inverted[v], key];
-      }
-    } else {
-      inverted[v] = key;
-    }
+    (inverted[v] = inverted[v] || []).push(key);
   }
-
   return inverted;
 }
+    
 
 module.exports = invert;
 
