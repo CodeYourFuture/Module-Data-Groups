@@ -9,11 +9,15 @@ function setAlarm() {
 
   timeRemaining.textContent = `Time Remaining: ${minutes}:${seconds}`;
 
-  setInterval(() => {
+  const timer = setInterval(() => {
     remainingSeconds--;
     const minutes = String(Math.floor(remainingSeconds / 60)).padStart(2, "0");
     const seconds = String(remainingSeconds - minutes * 60).padStart(2, "0");
     timeRemaining.textContent = `Time Remaining: ${minutes}:${seconds}`;
+    if (remainingSeconds === 0) {
+      playAlarm();
+      clearInterval(timer);
+    }
   }, 1000);
 }
 
