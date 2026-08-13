@@ -7,27 +7,37 @@
 // When the `Time Remaining` reaches `00:00` the alarm should play a sound. You can make the sound happen by using `playAlarm()`.
 
 // You can stop the alarm sound by pressing the `Stop Alarm` button.
-
-//
 const alarmInput = document.querySelector("#alarmSet");
-const setButton = document.querySelector("#set");
 const timeRemaining = document.querySelector("#timeRemaining");
+
+let timer;
+
 function setAlarm() {
+  clearInterval(timer);
+  pauseAlarm();
   let totalSeconds = Number(alarmInput.value);
-  const timer = setInterval(() => {
-    totalSeconds--;
+  alarmInput.value = "";
+  if (totalSeconds <= 0 || !Number.isFinite(totalSeconds)) {
+    timeRemaining.innerText = "Time Remaining: 00:00";
+    return;
+  }
+  function updateTime() {
     const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
-    const seconds = String(Math.floor(totalSeconds % 60)).padStart(2, "0");
-    const remainingTime = minutes + ":" + seconds;
-    timeRemaining.innerText = `Time Remaining:${remainingTime}`;
+    const seconds = String(totalSeconds % 60).padStart(2, "0");
+
+    timeRemaining.innerText = `Time Remaining: ${minutes}:${seconds}`;
+  }
+  updateTime();
+  timer = setInterval(() => {
+    totalSeconds--;
+    updateTime();
+
     if (totalSeconds === 0) {
       clearInterval(timer);
       playAlarm();
     }
   }, 1000);
 }
-
-setButton.addEventListener("click", setAlarm);
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
