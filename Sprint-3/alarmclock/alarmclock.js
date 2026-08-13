@@ -1,4 +1,4 @@
-const timeRemaining = document.getElementById("timeRemaining");
+const theTime = document.getElementById("theTime");
 let timer;
 let seconds;
 
@@ -26,8 +26,7 @@ function decrementTimer() {
   const minutes = Math.floor(seconds / 60);
   const secs = seconds % 60;
 
-  timeRemaining.textContent = `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-
+  theTime.textContent = `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
   if (seconds <= 0) {
     clearInterval(timer);
     playAlarm();
