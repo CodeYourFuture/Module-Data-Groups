@@ -44,3 +44,9 @@ test("tally throws an error for invalid input", () => {
   expect(() => tally("hello")).toThrow();
 });
 
+
+test("tally counts items named toString", () => {
+  expect(tally(["toString", "toString"])).toEqual({
+    toString: 2,
+  });
+});

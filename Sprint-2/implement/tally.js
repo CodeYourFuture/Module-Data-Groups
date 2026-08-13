@@ -6,7 +6,7 @@ function tally(items) {
   const counts = {};
 
   for (const item of items) {
-    if (counts[item] === undefined) {
+    if (!Object.hasOwn(counts, item)) {
       counts[item] = 1;
     } else {
       counts[item] = counts[item] + 1;
