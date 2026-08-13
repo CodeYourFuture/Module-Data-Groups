@@ -4,8 +4,10 @@ function parseQueryString(queryString) {
     return queryParams;
   }
   const keyValuePairs = queryString.split("&");
-
   for (const pair of keyValuePairs) {
+    if (pair === "") {
+      continue;
+    }
     const indexOfFirst = pair.indexOf("=");
     if (indexOfFirst === -1) {
       queryParams[pair] = "";
@@ -21,5 +23,5 @@ function parseQueryString(queryString) {
   }
   return queryParams;
 }
-
+console.log(parseQueryString("key1=value1&&key2=value2&"));
 module.exports = parseQueryString;
