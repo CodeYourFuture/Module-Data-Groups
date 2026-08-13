@@ -8,6 +8,6 @@ function tally(arr) {
   return arr.reduce((acc, cur) => {
     acc[cur] = (acc[cur] || 0) + 1;
     return acc;
-  }, {});
+  }, Object.create(null));
 }
 module.exports = tally;
