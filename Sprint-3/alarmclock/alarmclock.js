@@ -6,7 +6,7 @@ function setAlarm() {
   const alarmSetInput = document.getElementById("alarmSet");
   seconds = Number(alarmSetInput.value);
 
-  if (seconds <= 0 || isNaN(seconds)) {
+  if (seconds <= 0 || !Number.isInteger(seconds)) {
     alert("Please enter a valid number.");
     return;
   }
