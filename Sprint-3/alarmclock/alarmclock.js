@@ -7,7 +7,7 @@ function setAlarm() {
   seconds = Number(alarmSetInput.value);
 
   if (seconds <= 0 || !Number.isInteger(seconds)) {
-    alert("Please enter a valid number.");
+    alert("Please enter a valid whole number.");
     return;
   }
 
