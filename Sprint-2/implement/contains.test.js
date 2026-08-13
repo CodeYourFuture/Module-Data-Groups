@@ -68,7 +68,11 @@ test(
     expect(result3).toBe(expected3);
   }
 );
-
+test("should throw an error when the input is an array, even if the specified key exists", () => {
+  const arr = ["apple", "banana"];
+  const arrIndex = 0;
+  expect(() => contains(arr, arrIndex)).toThrow("Invalid data type");
+});
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
