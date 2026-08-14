@@ -4,11 +4,12 @@ function tally(items) {
 	}
 	const counts = Object.create(null);
 	for (const item of items) {
-		// Use the item as the key; this will stringify non-string keys
-		const key = String(item);
-		counts[key] = (counts[key] || 0) + 1;
-	}
-	return counts;
-}
+		for (const item of items) {
+    // JS runtime implicitly converts 'item' to a string key safely
+    counts[item] = (counts[item] || 0) + 1;
+  }
 
+  return counts;
+}
+	
 module.exports = tally;
