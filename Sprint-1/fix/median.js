@@ -22,8 +22,7 @@ function calculateMedian(list) {
   } else { 
     return numbersOnly[middleIndex];
   }
-  const median = numbersOnly.splice(middleIndex, 1)[0]; //
-  return median;
+  return numbersOnly.splice(middleIndex, 1)[0];
 }
 
 module.exports = calculateMedian;
