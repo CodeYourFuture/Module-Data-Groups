@@ -4,7 +4,11 @@ function timeConvert(sec) {
   return `${minutes}:${seconds}`;
 }
 
+let timer;
 function setAlarm() {
+  clearInterval(timer);
+  pauseAlarm();
+
   const timeInput = document.getElementById("alarmSet");
   let remainingSeconds = parseInt(timeInput.value);
   if (isNaN(remainingSeconds) || remainingSeconds <= 0) {
@@ -16,10 +20,8 @@ function setAlarm() {
 
   timeRemaining.textContent = `Time Remaining: ${timeConvert(remainingSeconds)}`;
 
-  const timer = setInterval(() => {
+  timer = setInterval(() => {
     remainingSeconds--;
-    const minutes = String(Math.floor(remainingSeconds / 60)).padStart(2, "0");
-    const seconds = String(remainingSeconds - minutes * 60).padStart(2, "0");
     timeRemaining.textContent = `Time Remaining: ${timeConvert(remainingSeconds)}`;
     if (remainingSeconds === 0) {
       playAlarm();
