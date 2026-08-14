@@ -37,11 +37,17 @@ test("should replace '+' by ' '", () => {
   });
 });
 
+test("should return {} for an empty string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
 // Stretch exercise: Handling query strings that contain identical keys
 
 // Delete this test if you are not working on this optional case
 test("should store values of a key in an array when the key has 2 or more values", () => {
-  expect(parseQueryString("key=value1&key=value2&key=value3&foo=bar")).toEqual({
+  expect(
+    parseQueryString("key=value1&key=value2&key=value3&foo=bar")
+  ).toEqual({
     key: ["value1", "value2", "value3"],
     foo: "bar",
   });

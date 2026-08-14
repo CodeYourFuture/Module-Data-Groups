@@ -1,6 +1,6 @@
 // Refactored version of includes should still pass the tests below:
 
-const includes = require("./includes");
+const includes = require("./includes.js");
 
 test("returns true when target is in array", () => {
   const currentOutput = includes(["a", "b", "c", "d"], "c");
