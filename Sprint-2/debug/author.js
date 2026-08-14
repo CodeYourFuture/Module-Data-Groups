@@ -11,6 +11,11 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
-  console.log(value);
+for (const key in author) {
+  console.log(author[key]);
 }
+
+// for...of does not work with a plain object because the object is not iterable.
+// It throws: TypeError: author is not iterable.
+// for...in iterates over the object's property keys.
+// We can use each key to access the corresponding property value.
