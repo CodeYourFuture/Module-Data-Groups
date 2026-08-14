@@ -1,6 +1,5 @@
 function setAlarm() {
   const timeInput = document.getElementById("alarmSet");
-  // console.log(timeInput.value);
   let remainingSeconds = timeInput.value;
 
   const timeRemaining = document.getElementById("timeRemaining");
