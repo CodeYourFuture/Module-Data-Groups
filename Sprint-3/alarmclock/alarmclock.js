@@ -1,6 +1,10 @@
 function setAlarm() {
   const timeInput = document.getElementById("alarmSet");
-  let remainingSeconds = timeInput.value;
+  let remainingSeconds = parseInt(timeInput.value);
+  if (isNaN(remainingSeconds) || remainingSeconds <= 0) {
+    alert("Please provide a valid number of seconds");
+    return;
+  }
 
   const timeRemaining = document.getElementById("timeRemaining");
   const minutes = String(Math.floor(remainingSeconds / 60)).padStart(2, "0");
