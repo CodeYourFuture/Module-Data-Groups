@@ -1,6 +1,19 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () =>{
+  expect(createLookup([['US', 'USD'], ['CA', 'CAD'], ['PAK', 'PKR'], ['SAUDI', 'RIYAL']])).toEqual({
+   'US': 'USD',
+   'CA': 'CAD',
+   'PAK' : 'PKR',
+   'SAUDI' : 'RIYAL'
+ });
+});
+test("the array is empty", () =>{
+  expect(createLookup([])).toEqual({});
+});
+test("creates a country currency code lookup for single code", () =>{
+  expect(createLookup([['Uk','POUND']])).toEqual({'Uk': 'POUND'});
+});
 
 /*
 

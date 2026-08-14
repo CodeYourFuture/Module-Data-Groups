@@ -46,3 +46,33 @@ test("should store values of a key in an array when the key has 2 or more values
     foo: "bar",
   });
 });
+// Multiple normal key-value pairs
+test("should parse multiple key-value pairs", () => {
+  expect(parseQueryString("name=Maryam&age=25")).toEqual({
+    name: "Maryam",
+    age: "25",
+  });
+});
+
+test("should return empty object for empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("should replace multiple '+' characters with spaces", () => {
+  expect(parseQueryString("name=John+Michael+Doe")).toEqual({
+    name: "John Michael Doe",
+  });
+});
+
+test("should decode encoded keys and values", () => {
+  expect(parseQueryString("hello%20world=good%20morning")).toEqual({
+    "hello world": "good morning",
+  });
+});
+
+test("should ignore multiple empty key-value pairs", () => {
+  expect(parseQueryString("name=Maryam&&&age=25&&&")).toEqual({
+    name: "Maryam",
+    age: "25",
+  });
+});
