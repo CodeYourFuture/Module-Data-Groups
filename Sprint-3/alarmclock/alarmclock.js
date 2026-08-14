@@ -16,6 +16,8 @@ function setAlarm() {
     return;
   }
 
+  timeInput.value = "";
+
   const timeRemaining = document.getElementById("timeRemaining");
 
   timeRemaining.textContent = `Time Remaining: ${timeConvert(remainingSeconds)}`;
