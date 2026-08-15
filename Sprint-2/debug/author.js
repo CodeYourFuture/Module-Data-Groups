@@ -13,4 +13,4 @@ const author = {
   alive: true,
 };
 
-console.log(author);
+console.log(Object.values(author));
