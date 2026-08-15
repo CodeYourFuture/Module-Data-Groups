@@ -1,5 +1,13 @@
 let timer; // let because timer will be assigned a new timeout ID each time.
 
+const input = document.getElementById("alarmSet");
+
+input.addEventListener("keydown", function (event) {
+  if (event.key === "-" || event.key === "e") {
+    event.preventDefault();
+  }
+});
+
 function setAlarm() {
   clearTimeout(timer); // Stop the previous countdown if there is one
 
