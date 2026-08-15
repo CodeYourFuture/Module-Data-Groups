@@ -1,7 +1,17 @@
 let timer; //let here because timer will be assigned a new timeout ID each time.
 
 function setAlarm() {
-  let seconds = Number(document.getElementById("alarmSet").value);
+  clearTimeout(timer); // Stop the previous countdown if there is one
+
+  const input = document.getElementById("alarmSet");
+
+  // Convert the input value from a string to a number
+  let seconds = Number(input.value);
+
+  // Don't start the alarm if the input is empty or negative/zero
+  if (input.value === "" || seconds <= 0) {
+    return;
+  }
 
   function countdown() {
     const minutes = Math.floor(seconds / 60);
