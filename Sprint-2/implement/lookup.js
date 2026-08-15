@@ -10,9 +10,9 @@ function createLookup(array) {
   }
 
   let output = {};
-  for (const i of array) {
-    const key = i[0];
-    const value = i[1];
+  for (const pair of array) {
+    const key = pair[0];
+    const value = pair[1];
 
     output[key] = value;
   }

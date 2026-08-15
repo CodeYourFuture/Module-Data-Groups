@@ -7,8 +7,8 @@ function contains(toCheck, input) {
     return false;
   }
 
-  for (const i in toCheck) {
-    if (i === input) {
+  for (const key in toCheck) {
+    if (key === input) {
       return true;
     }
   }

@@ -21,9 +21,8 @@ function parseQueryString(queryString) {
       const value = decodeURIComponent(parts.slice(1).join("="));
 
       // if no key then assign new value
-      if (!(key in queryParams)) {
+      if (!Object.hasOwn(queryParams, key)) {
         queryParams[key] = value;
-        // if array then push a new value to it
       } else if (Array.isArray(queryParams[key])) {
         queryParams[key].push(value);
         // if not array then turn into array with old and new values
