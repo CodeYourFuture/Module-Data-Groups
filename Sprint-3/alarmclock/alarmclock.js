@@ -1,4 +1,4 @@
-let timer; //let here because timer will be assigned a new timeout ID each time.
+let timer; // let because timer will be assigned a new timeout ID each time.
 
 function setAlarm() {
   clearTimeout(timer); // Stop the previous countdown if there is one
