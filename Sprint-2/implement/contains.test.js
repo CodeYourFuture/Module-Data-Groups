@@ -1,4 +1,23 @@
 const contains = require("./contains.js");
+test("contains on empty object returns false", () => {
+	expect(contains({}, "a")).toBe(false);
+});
+
+test("returns true for existing property", () => {
+	const obj = { a: 1, b: 2 };
+	expect(contains(obj, "a")).toBe(true);
+});
+
+test("returns false for non-existent property", () => {
+	const obj = { a: 1, b: 2 };
+	expect(contains(obj, "c")).toBe(false);
+});
+
+test("invalid inputs (arrays, null, non-objects) return false", () => {
+	expect(contains([], "0")).toBe(false);
+	expect(contains(null, "a")).toBe(false);
+	expect(contains(42, "a")).toBe(false);
+});
 
 /*
 Implement a function called contains that checks an object contains a
