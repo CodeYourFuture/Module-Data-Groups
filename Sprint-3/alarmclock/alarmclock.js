@@ -25,6 +25,7 @@ function setAlarm() {
 
     if (seconds === 0) {
       playAlarm();
+      input.value = "";
       return;
     }
 
