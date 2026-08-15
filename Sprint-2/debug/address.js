@@ -1,5 +1,5 @@
 // Predict and explain first...
-
+// it will log out the houseNumber from the address object, but it isn't working because the property name is incorrect. The correct property name is "houseNumber", not "houseNum".
 // This code should log out the houseNumber from the address object
 // but it isn't working...
 // Fix anything that isn't working
