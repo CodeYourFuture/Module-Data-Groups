@@ -40,6 +40,8 @@ function setAlarm() {
     if (seconds === 0) {
       playAlarm();
       input.value = "";
+      timerRunning = false;
+      document.getElementById("set").disabled = false;
       return;
     }
 
