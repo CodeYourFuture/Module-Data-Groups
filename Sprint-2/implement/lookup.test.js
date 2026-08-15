@@ -1,6 +1,49 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+describe("createLookup", () => {
+  test("creates a country currency code lookup for multiple codes", () => {
+    const countryCurrencyPairs = [['US', 'USD'], ['CA', 'CAD']];
+    const expectedLookup = {
+      'US': 'USD',
+      'CA': 'CAD'
+    };
+    expect(createLookup(countryCurrencyPairs)).toEqual(expectedLookup);
+  });
+});
+
+test("creates a country currency code lookup for a single code", () => {
+  const countryCurrencyPairs = [['GB', 'GBP']];
+  const expectedLookup = {
+    'GB': 'GBP'
+  };
+  expect(createLookup(countryCurrencyPairs)).toEqual(expectedLookup);
+});
+
+test("creates an empty lookup for an empty array", () => {
+  const countryCurrencyPairs = [];
+  const expectedLookup = {};
+  expect(createLookup(countryCurrencyPairs)).toEqual(expectedLookup);
+});
+
+test("creates a country currency code lookup for multiple codes with different currencies", () => {
+  const countryCurrencyPairs = [['JP', 'JPY'], ['AU', 'AUD'], ['IN', 'INR']];
+  const expectedLookup = {
+    'JP': 'JPY',
+    'AU': 'AUD',
+    'IN': 'INR'
+  };
+  expect(createLookup(countryCurrencyPairs)).toEqual(expectedLookup);
+});
+
+test("creates an array of array representing country code and currency code pairs", () => {
+  const countryCurrencyPairs = [['FR', 'EUR'], ['DE', 'EUR'], ['IT', 'EUR']];
+  const expectedLookup = {
+    'FR': 'EUR',
+    'DE': 'EUR',
+    'IT': 'EUR'
+  };
+  expect(createLookup(countryCurrencyPairs)).toEqual(expectedLookup);
+});
 
 /*
 
@@ -11,6 +54,8 @@ Acceptance Criteria:
 Given
  - An array of arrays representing country code and currency code pairs
    e.g. [['US', 'USD'], ['CA', 'CAD']]
+   tes
+   
 
 When
  - createLookup function is called with the country-currency array as an argument
