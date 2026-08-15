@@ -29,7 +29,7 @@ function setAlarm() {
     }
 
     seconds--;
-    setTimeout(countdown, 1000);
+    timer = setTimeout(countdown, 1000);
   }
 
   countdown();
