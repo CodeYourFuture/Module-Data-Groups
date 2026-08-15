@@ -4,11 +4,11 @@ function setAlarm() {
   let seconds = Number(document.getElementById("alarmSet").value);
 
   function countdown() {
-    let minutes = Math.floor(seconds / 60);
-    let remainingSeconds = seconds % 60;
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
 
-    let formattedMinutes = String(minutes).padStart(2, "0");
-    let formattedSeconds = String(remainingSeconds).padStart(2, "0");
+    const formattedMinutes = String(minutes).padStart(2, "0");
+    const formattedSeconds = String(remainingSeconds).padStart(2, "0");
 
     document.getElementById("timeRemaining").textContent =
       `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
