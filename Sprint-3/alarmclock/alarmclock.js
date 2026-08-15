@@ -14,33 +14,35 @@ let timer;
 function setAlarm() {
   clearInterval(timer);
   pauseAlarm();
-  let totalSeconds = Number(alarmInput.value);
-  alarmInput.value = "";
+  let totalSeconds = Math.round(Number(alarmInput.value));
+
   if (totalSeconds > 36000) {
     alert("Please enter a time less than 10 hours.");
+    updateTime(0);
     return;
   }
-  if (totalSeconds <= 0 || !Number.isInteger(totalSeconds)) {
+  if (alarmInput.value === "" || totalSeconds < 0 || !Number.isInteger(0)) {
     alert("Please enter a valid positive time.");
+    updateTime(0);
     return;
   }
-  function updateTime() {
-    const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
-    const seconds = String(totalSeconds % 60).padStart(2, "0");
-
-    timeRemaining.innerText = `Time Remaining: ${minutes}:${seconds}`;
-  }
-  updateTime();
+  alarmInput.value = "";
+  updateTime(totalSeconds);
 
   timer = setInterval(() => {
-    totalSeconds--;
-    updateTime();
-
-    if (totalSeconds === 0) {
+    if (totalSeconds <= 0) {
       clearInterval(timer);
       playAlarm();
     }
+    updateTime(totalSeconds--);
   }, 1000);
+}
+
+function updateTime(secs) {
+  const minutes = String(Math.floor(secs / 60)).padStart(2, "0");
+  const seconds = String(secs % 60).padStart(2, "0");
+
+  timeRemaining.innerText = `Time Remaining: ${minutes}:${seconds}`;
 }
 // DO NOT EDIT BELOW HERE
 
