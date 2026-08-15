@@ -17,10 +17,17 @@ as the object doesn't contains a key of 'c'
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
 
+test(`Should return true if object contains the property`, () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toEqual(true);
+  expect(contains({ b: 2 }, "a")).toEqual(false);
+});
+
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test(`Should return false if object is empty`, () => {
+  expect(contains({}, "a")).toEqual(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
@@ -33,3 +40,7 @@ test.todo("contains on empty object returns false");
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+
+test(`Should return false if given wron type`, () => {
+  expect(contains(["a", "b"], "0")).toEqual(false);
+});
