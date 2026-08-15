@@ -24,6 +24,9 @@ function setAlarm() {
     return;
   }
 
+  timerRunning = true;
+  document.getElementById("set").disabled = true;
+
   function countdown() {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
