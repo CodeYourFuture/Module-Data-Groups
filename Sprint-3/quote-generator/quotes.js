@@ -490,11 +490,6 @@ const quotes = [
   },
 ];
 
-// call pickFromArray with the quotes array to check you get a random quote
-function pickFromArray(array) {
-  const randomIndex = Math.floor(Math.random() * array.length);
-  return array[randomIndex];
-}
 
 // Grab the elements we need to update once, so we're not
 // searching the page every time.
@@ -519,9 +514,8 @@ function showRandomQuote() {
   // If you prefer the Math.random() approach directly, you could
   // instead write:
   // const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-
-  quoteEl.textContent = `"${randomQuote.quote}"`;
-  authorEl.textContent = `— ${randomQuote.author}`;
+quoteEl.textContent = randomQuote.quote;
+authorEl.textContent = randomQuote.author;
 }
 
 // Updates the on-screen text that says whether auto-play is on or off.

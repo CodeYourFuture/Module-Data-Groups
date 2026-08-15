@@ -1,4 +1,5 @@
 /** Write your CSS in here **/
+
 :root {
   --accent: #ff9f0a;
   --accent-dark: #e08600;
@@ -39,20 +40,7 @@ body {
 }
 
 .quote-container {
-  position: relative;
-  padding-left: 3rem;
   margin-bottom: 1.5rem;
-}
-
-.quote-container::before {
-  content: "\201C";
-  position: absolute;
-  left: 0;
-  top: -0.6rem;
-  font-size: 4rem;
-  line-height: 1;
-  font-weight: bold;
-  color: var(--accent);
 }
 
 #quote {
@@ -60,6 +48,15 @@ body {
   color: var(--accent);
   margin: 0;
   line-height: 1.4;
+  quotes: '"' '"';
+}
+
+#quote::before {
+  content: open-quote;
+}
+
+#quote::after {
+  content: close-quote;
 }
 
 .author-container {
@@ -74,7 +71,7 @@ body {
 }
 
 #author::before {
-  content: "- ";
+  content: "— ";
 }
 
 .controls {
