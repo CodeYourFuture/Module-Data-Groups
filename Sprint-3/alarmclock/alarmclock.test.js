@@ -2,6 +2,7 @@
 There are some Tests in this file that will help you work out if your code is working.
 */
 
+
 const path = require("path");
 const { JSDOM } = require("jsdom");
 
@@ -14,6 +15,8 @@ beforeEach(async () => {
   });
 
   jest.useFakeTimers();
+
+  
 
   // do this so students can use element.innerText which jsdom does not implement
   Object.defineProperty(page.window.HTMLElement.prototype, "innerText", {

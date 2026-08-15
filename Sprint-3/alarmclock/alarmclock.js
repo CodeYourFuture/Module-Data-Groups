@@ -1,4 +1,5 @@
 let timer = null;
+let secondsRemaining = 0;
 
 function formatTime(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
@@ -14,21 +15,48 @@ function updateDisplay(seconds) {
 function setAlarm() {
   if (timer) {
     clearInterval(timer);
+    timer = null;
   }
 
-  let seconds = Number(document.getElementById("alarmSet").value);
-  updateDisplay(seconds);
+  const inputValue = document.getElementById("alarmSet").value;
+  const seconds = Number(inputValue);
+
+  if (
+    inputValue === "" ||
+    Number.isNaN(seconds) ||
+    !Number.isInteger(seconds) ||
+    seconds <= 0
+  ) {
+    document.getElementById("timeRemaining").textContent =
+      "Please enter a whole number greater than 0.";
+    return;
+  }
+
+  secondsRemaining = seconds;
+  updateDisplay(secondsRemaining);
 
   timer = setInterval(() => {
-    seconds--;
-    updateDisplay(seconds);
+    secondsRemaining--;
+    updateDisplay(secondsRemaining);
 
-    if (seconds <= 0) {
+    if (secondsRemaining <= 0) {
       clearInterval(timer);
+      timer = null;
       playAlarm();
     }
   }, 1000);
 }
+
+function stopTimer() {
+  if (timer) {
+    clearInterval(timer);
+    timer = null;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("stop").addEventListener("click", stopTimer);
+});
 
 // DO NOT EDIT BELOW HERE
 var audio = new Audio("alarmsound.mp3");
