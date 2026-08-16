@@ -157,3 +157,11 @@ body {
     max-height: 80px;
   }
 }
+
+.book-read {
+  background-color: green;
+}
+
+.book-unread {
+  background-color: red;
+}

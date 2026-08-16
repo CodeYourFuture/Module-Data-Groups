@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById("reading-list");
   books.forEach((book) => {
     const li = document.createElement("li");
-    li.style.backgroundColor = book.alreadyRead ? "green" : "red";
+    li.classList.add(book.alreadyRead ? "book-read" : "book-unread");
     li.innerHTML = `<img src="${book.bookCoverImage}" /><p>${book.title}</p><p>${book.author}</p>`;
     list.appendChild(li);
   });
