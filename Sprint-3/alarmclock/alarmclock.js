@@ -18,23 +18,32 @@ function setAlarm() {
 
   if (totalSeconds > 36000) {
     alert("Please enter a time less than 10 hours.");
+    alarmInput.value = "";
     updateTime(0);
     return;
   }
-  if (alarmInput.value === "" || totalSeconds < 0 || !Number.isInteger(0)) {
-    alert("Please enter a valid positive time.");
+  if (
+    alarmInput.value === "" ||
+    totalSeconds <= 0 ||
+    !Number.isInteger(totalSeconds)
+  ) {
+    alert("Please enter a valid number of seconds");
     updateTime(0);
+    alarmInput.value = "";
     return;
   }
   alarmInput.value = "";
+
   updateTime(totalSeconds);
 
   timer = setInterval(() => {
-    if (totalSeconds <= 0) {
-      clearInterval(timer);
+    totalSeconds--;
+    updateTime(totalSeconds);
+
+    if (totalSeconds === 0) {
       playAlarm();
+      clearInterval(timer);
     }
-    updateTime(totalSeconds--);
   }, 1000);
 }
 
