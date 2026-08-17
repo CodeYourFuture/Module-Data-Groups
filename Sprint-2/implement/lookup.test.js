@@ -1,6 +1,46 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+describe("when given invalid inputs", () => {
+  test("should return invalid input error, if the input is an empty array", () => {
+    expect(() => createLookup([])).toThrow(
+      "Input should not be an empty array"
+    );
+  });
+  test("should return invalid input error, if the input isn't an array of arrays", () => {
+    expect(() => createLookup(["hi", "hello"])).toThrow(
+      "Invalid input. All elements should be arrays"
+    );
+  });
+  test("should return invalid input error, if the input isn't an array of arrays", () => {
+    expect(() => createLookup("hi")).toThrow(
+      "Invalid input. It should be an array"
+    );
+  });
+  test("should return invalid input error, if the input isn't an array of arrays", () => {
+    expect(() => createLookup(2)).toThrow(
+      "Invalid input. It should be an array"
+    );
+  });
+});
+
+describe("when given valid inputs", () => {
+  test("should return an object where (Input ==> Output): keys:values ==> country code: corresponding currency", () => {
+    expect(createLookup([["US", "USD"]])).toEqual({
+      US: "USD",
+    });
+  });
+  test("should return an object where (Input ==> Output): keys:values ==> country code: corresponding currency", () => {
+    expect(
+      createLookup([
+        ["US", "USD"],
+        ["CA", "CAD"],
+      ])
+    ).toEqual({
+      US: "USD",
+      CA: "CAD",
+    });
+  });
+});
 
 /*
 
@@ -9,7 +49,7 @@ Create a lookup object of key value pairs from an array of code pairs
 Acceptance Criteria:
 
 Given
- - An array of arrays representing country code and currency code pairs
+ - An array of arrays representing when given invalid inputs code pairs
    e.g. [['US', 'USD'], ['CA', 'CAD']]
 
 When
