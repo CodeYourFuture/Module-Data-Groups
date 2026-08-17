@@ -33,7 +33,7 @@ test("contains on empty object returns false", function () {
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
-test("contain on object with properties", function () {
+test("contains on object with properties", function () {
   expect(contains({ c: 4, d: 5 }, "c")).toBe(true);
 });
 
@@ -47,13 +47,13 @@ test("contains on object with non-existent property name returns false", functio
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
-test("contain on invalid parameters returns false", function () {
+test("contains on invalid parameters returns false", function () {
   expect(contains([], "0")).toBe(false);
 });
 
 // Given an object with properties
 // When passed to contains with a non-existent property name "0"
 // Then it should return false
-test("contain on with non-existent property returns false", function () {
-  expect(contains(["a", "b", "c"], "0")).toBe(false);
+test("contains on with non-existent property returns false", function () {
+  expect(contains({a: 9, b: 7, c: 2}, "0")).toBe(false);
 });
