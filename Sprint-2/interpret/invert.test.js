@@ -36,3 +36,7 @@ test("when invert is passed duplicate values, the last key is kept", () => {
     1: "b",
   });
 });
+
+test("when invert is passed with empty objects it should return an empty object", () => {
+  expect(invert({})).toEqual({});
+});
