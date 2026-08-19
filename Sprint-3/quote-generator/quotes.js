@@ -491,12 +491,7 @@ const quotes = [
   },
 ];
 
-//console.log(pickFromArray(quotes));
 // call pickFromArray with the quotes array to check you get a random quote
-
-//When the page loads it should show a random quote from the `quotes` array on the screen. It should also show who said the quote.
-
-//When you click a button on the screen it should change the quote on the screen.
 
 const button = document.querySelector("#new-quote");
 const quoteText = document.querySelector("#quote");
