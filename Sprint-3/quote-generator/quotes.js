@@ -511,7 +511,3 @@ function showRandomQuote() {
 showRandomQuote();
 
 button.addEventListener("click", showRandomQuote);
-
-//function pickFromArray(choices) {
-//  return choices[Math.floor(Math.random() * choices.length)];
-//}
