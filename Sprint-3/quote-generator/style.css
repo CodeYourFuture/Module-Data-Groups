@@ -1,1 +1,57 @@
 /** Write your CSS in here **/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+main {
+  width: 90%;
+  max-width: 600px;
+  padding: 40px;
+  text-align: center;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: #444;
+}
+
+blockquote {
+  margin: 0 0 20px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+#author {
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #777;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: #333;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
