@@ -1,19 +1,9 @@
-function contains(toCheck, input) {
-  if (
-    typeof toCheck !== "object" ||
-    Array.isArray(toCheck) ||
-    toCheck === null
-  ) {
+function contains(object, propertyName) {
+  if (Array.isArray(object)) {
     return false;
   }
 
-  for (const key in toCheck) {
-    if (key === input) {
-      return true;
-    }
-  }
-
-  return false;
+  return Object.hasOwn(object, propertyName);
 }
 
-console.log(contains({ a: 1, b: 2 }, "a"));
+module.exports = contains;
