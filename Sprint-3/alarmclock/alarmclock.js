@@ -8,7 +8,25 @@ function formatTime(seconds){
 
 }
 function setAlarm() {
-  
+  // clearing any previous countdown
+  if (intervalId !== null){
+    clearInterval(intervalId)
+  }
+  const input = document.getElementById("alarmSet");
+  totalSeconds = Number(input.value);
+
+  document.getElementById("timeRemaining").textContent = `Time Remaining: ${formatTime(totalSeconds)}`;
+
+  intervalId = setInterval(() => {
+    totalSeconds--;
+    document.getElementById("timeRemaining").textContent = `Time Remaining: ${formatTime(totalSeconds)}`;
+
+    if (totalSeconds <= 0) {
+      clearInterval(intervalId);
+      intervalId = null;
+      playAlarm();
+    }
+  }, 1000);
 
 }
 
