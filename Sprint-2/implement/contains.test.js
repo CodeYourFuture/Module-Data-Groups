@@ -11,25 +11,37 @@ E.g. contains({a: 1, b: 2}, 'c') // returns false
 as the object doesn't contains a key of 'c'
 */
 
-// Acceptance criteria:
-
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
+test("return true if object's property exists otherwise false", () => {
+    expect(contains({name: "maryam", city: "Derby"}, "city")).toBe(true);
+});
 
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("return false if object is empty", () => {
+    expect(contains({}, "a")).toBe(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("return true if object's property contains the property", () => {
+    expect(contains({name: "maryam", city: "Derby"}, "city")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+test("return false if property is non-existent", () => {
+    expect(contains({name: "maryam", city: "Derby"}, "age")).toBe(false);
+});
 
 // Given invalid parameters like an array
 // When passed to contains
 // Then it should return false or throw an error
+test("return false if it's an array", () => {
+    expect(contains(["apple", "banana"], "0")).toBe(false);
+});
