@@ -1,5 +1,6 @@
 // Predict and explain first...
-
+//Prediction: The program will print the recipe title and number of servings, but instead of printing the ingredients, it will display [object Object].
+//recipe is the whole object, so JavaScript will convert it to: object Object
 // This program should log out the title, how many it serves and the ingredients.
 // Each ingredient should be logged on a new line
 // How can you fix it?
@@ -11,5 +12,8 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+ ingredients:`);
+
+for (const ingredient of recipe.ingredients) {
+  console.log(ingredient);
+}
