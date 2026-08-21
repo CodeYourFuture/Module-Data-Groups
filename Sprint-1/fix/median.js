@@ -5,21 +5,27 @@
 // Hint: Please consider scenarios when 'list' doesn't have numbers (the function is expected to return null)
 // or 'list' has mixed values (the function is expected to sort only numbers).
 function calculateMedian(list) {
-  list = list.filter((item) => typeof item === "number" && !isNaN(item));
-
-  if (list.length === 0) {
+  if (!Array.isArray(list)) {
     return null;
   }
 
-  list.sort((a, b) => a - b);
+  const numbers = list.filter(
+    (item) => typeof item === "number" && !Number.isNaN(item)
+  );
 
-  const middleIndex = Math.floor(list.length / 2);
-
-  if (list.length % 2 === 1) {
-    return list[middleIndex];
+  if (numbers.length === 0) {
+    return null;
   }
 
-  return (list[middleIndex - 1] + list[middleIndex]) / 2;
+  numbers.sort((a, b) => a - b);
+
+  const middleIndex = Math.floor(numbers.length / 2);
+
+  if (numbers.length % 2 === 0) {
+    return (numbers[middleIndex - 1] + numbers[middleIndex]) / 2;
+  }
+
+  return numbers[middleIndex];
 }
 
 module.exports = calculateMedian;
