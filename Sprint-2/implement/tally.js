@@ -2,7 +2,7 @@ function tally(items) {
   if (!Array.isArray(items)) {
     throw new TypeError("Expected an array");
   }
-  const counts = {};
+  const counts = Object.create(null);
 
   for (const item of items) {
     counts[item] = (counts[item] || 0) + 1;
