@@ -42,5 +42,5 @@ test("returns false when the property doesn't exist", () => {
 // When passed to contains
 // Then it should return false or throw an error
 test("returns false for invalid input types", () => {
-  expect(contains([1, 2, 3], "propertyName")).toBe(false);
+  expect(contains([1, 2, 3], "0")).toBe(false);
 });
