@@ -14,7 +14,7 @@ function displayQuote() {
   quote.textContent = randomQuote.quote;
   author.textContent = randomQuote.author;
 }
-
+window.onload = displayQuote;
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
