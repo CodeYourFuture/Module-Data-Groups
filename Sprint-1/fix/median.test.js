@@ -27,7 +27,7 @@ describe("calculateMedian", () => {
     it(`returns the correct median for unsorted array [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
 
-  it("doesn't modify the input array [3, 1, 2]", () => {
+   it("doesn't modify the input array [3, 1, 2]", () => {
     const list = [3, 1, 2];
     calculateMedian(list);
     expect(list).toEqual([3, 1, 2]);
@@ -35,7 +35,7 @@ describe("calculateMedian", () => {
 
   [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ].forEach(val =>
     it(`returns null for non-numeric array (${val})`, () => expect(calculateMedian(val)).toBe(null))
-  );
+ );
 
   [
     { input: [1, 2, "3", null, undefined, 4], expected: 2 },
@@ -47,4 +47,4 @@ describe("calculateMedian", () => {
   ].forEach(({ input, expected }) =>
     it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
   );
-});
+ });
