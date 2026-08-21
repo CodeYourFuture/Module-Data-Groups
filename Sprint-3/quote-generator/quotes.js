@@ -1,3 +1,20 @@
+// Goal: page shows a random quote from the quotes array with displaying the author
+// requirements:
+// when clicking a button on the screen it changes the quote
+const author = document.getElementById("author");
+const quote = document.getElementById("quote");
+const newQuoteButton = document.getElementById("new-quote");
+
+newQuoteButton.addEventListener("click", () => {
+  displayQuote();
+});
+
+function displayQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quote.textContent = randomQuote.quote;
+  author.textContent = randomQuote.author;
+}
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
