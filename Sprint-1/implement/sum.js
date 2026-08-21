@@ -1,9 +1,10 @@
 function sum(elements) {
-  if (elements.length === 0) {
-    return 0;
-  }
   const elementsList = elements.filter((element) => {
-    return typeof element === "number";
+    return (
+      typeof element === "number" &&
+      !Number.isNaN(element) &&
+      Number.isFinite(element)
+    );
   });
   if (elementsList.length === 1) {
     return elementsList[0];

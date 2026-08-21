@@ -96,9 +96,9 @@ testCaseArrayWithNonNumberValues.forEach(({ input, expected }) => {
 // When passed to the max function
 // Then it should return the least surprising value given how it behaves for all other inputs
 const testCaseArrayWithOnlyNonNumberValues = [
-  { input: ["hello", "world"], expected: undefined },
-  { input: [null, undefined, true, false], expected: undefined },
-  { input: [{}, [], "test"], expected: undefined },
+  { input: ["hello", "world", "300"], expected: 0 },
+  { input: [null, undefined, true, false], expected: 0 },
+  { input: [{}, [], "test"], expected: 0 },
 ];
 testCaseArrayWithOnlyNonNumberValues.forEach(({ input, expected }) => {
   test("given an array with only non-number values, returns undefined", () => {

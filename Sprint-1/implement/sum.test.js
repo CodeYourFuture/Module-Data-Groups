@@ -74,7 +74,7 @@ testCaseNonNumerical.forEach(({ input, expected }) => {
 // Then it should return the least surprising value given how it behaves for all other inputs
 const testNonNumberValues = [
   { input: ["hello", "world"], expected: 0 },
-  { input: [null, undefined], expected: 0 },
+  { input: [null, undefined, NaN, Infinity, -Infinity], expected: 0 },
   { input: [true, false, "apple"], expected: 0 },
   { input: [{}, "10", null], expected: 0 },
   { input: ["apple", null, undefined, false], expected: 0 },

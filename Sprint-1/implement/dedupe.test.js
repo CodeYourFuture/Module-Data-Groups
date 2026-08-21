@@ -33,9 +33,12 @@ const testCaseNoDuplicates = [
     expected: [2, 3, 4, 5, 6, 7],
   },
 ];
+const result = dedupe(input);
+
 testCaseNoDuplicates.forEach(({ input, expected }) => {
   test("given an array with no duplicates, return a copy of the array", () => {
     expect(dedupe(input)).toEqual(expected);
+    expect(result).not.toBe(input);
   });
 });
 
