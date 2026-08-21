@@ -6,9 +6,7 @@ function sum(elements) {
       Number.isFinite(element)
     );
   });
-  if (elementsList.length === 1) {
-    return elementsList[0];
-  }
+
   let sum = 0;
   for (let i = 0; i < elementsList.length; i++) {
     sum += elementsList[i];
