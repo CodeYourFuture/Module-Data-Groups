@@ -6,9 +6,28 @@
 // or 'list' has mixed values (the function is expected to sort only numbers).
 
 function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
+
+  if (!Array.isArray(list)) return null;
+
+  // Filter out non-numeric values and create a sorted copy
+  const numbers = list
+    .filter((item) => typeof item === "number" && !isNaN(item))
+    .sort((a, b) => a - b);
+
+  // Return null if there are no valid numbers
+  if (numbers.length === 0) {
+    return null;
+  }
+  
+  const middleIndex = Math.floor(numbers.length / 2);
+
+  // If even length, take average of the two middle numbers
+  if (numbers.length % 2 === 0) {
+    return (numbers[middleIndex - 1] + numbers[middleIndex]) / 2;
+  }
+
+  // If odd length, return middle number
+  return numbers[middleIndex];
 }
 
 module.exports = calculateMedian;
