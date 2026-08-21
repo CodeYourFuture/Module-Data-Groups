@@ -74,3 +74,12 @@ test("ignores NaN values when calculating the sum", () => {
 // Given an array with only non-number values
 // When passed to the sum function
 // Then it should return the least surprising value given how it behaves for all other inputs
+test("returns 0 for an array with only non-number values", () => {
+  const list = ["hello", "world", null, undefined, NaN];
+
+  const currentOutput = sum(list);
+
+  const targetOutput = 0;
+
+  expect(currentOutput).toEqual(targetOutput);
+});
