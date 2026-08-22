@@ -8,6 +8,10 @@ const todos = [];
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
 
+  document
+    .getElementById("delete-completed-btn")
+    .addEventListener("click", deleteCompletedTasks);
+
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false);
   Todos.addTask(todos, "Do the shopping", true);
@@ -26,6 +30,12 @@ function addNewTodo() {
   }
 
   taskInput.value = "";
+}
+
+//a callback that deletes all completed tasks and updates the view
+function deleteCompletedTasks() {
+  Todos.deleteCompleted(todos);
+  render();
 }
 
 // Note:
@@ -75,9 +85,9 @@ function createListItem(todo, index) {
 
 // 4 -In `script.js`, call `deleteCompleted()` whenever the new button is clicked.
 //     - ⚠️ You should not need to modify the `render()` function.
-document
-  .getElementById("delete-completed-btn")
-  .addEventListener("click", () => {
-    Todos.deleteCompleted(todos);
-    render();
-  });
+// document
+//   .getElementById("delete-completed-btn")
+//   .addEventListener("click", () => {
+//     Todos.deleteCompleted(todos);
+//     render();
+//   });
