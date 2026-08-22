@@ -32,8 +32,8 @@ export function toggleCompletedOnTask(todos, taskIndex) {
 //    ToDos from the given list.
 export function deleteCompleted(todoList) {
   for (let i = todoList.length - 1; i >= 0; i--) {
-    if (todoList[i].completed === true) {
-      todoList.splice(i, 1);
+    if (todoList[i].completed) {
+      deleteTask(todoList, 1);
     }
   }
 }
