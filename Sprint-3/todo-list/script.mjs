@@ -34,7 +34,11 @@ function addNewTodo() {
 
 //a callback that deletes all completed tasks and updates the view
 function deleteCompletedTasks() {
-  Todos.deleteCompleted(todos);
+  for (let i = todos.length - 1; i >= 0; i--) {
+    if (todos[i].completed) {
+      Todos.deleteTask(todos, i);
+    }
+  }
   render();
 }
 

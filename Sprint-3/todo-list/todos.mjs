@@ -30,10 +30,10 @@ export function toggleCompletedOnTask(todos, taskIndex) {
 
 // 2. In `todos.mjs`, implement a function `deleteCompleted(todoList)` that removes all completed
 //    ToDos from the given list.
-export function deleteCompleted(todoList) {
-  for (let i = todoList.length - 1; i >= 0; i--) {
-    if (todoList[i].completed) {
-      deleteTask(todoList, i);
-    }
-  }
-}
+// export function deleteCompleted(todoList) {
+//   for (let i = todoList.length - 1; i >= 0; i--) {
+//     if (todoList[i].completed) {
+//       deleteTask(todoList, i);
+//     }
+//   }
+// }
