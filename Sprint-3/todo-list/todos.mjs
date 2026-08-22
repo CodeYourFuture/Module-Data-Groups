@@ -33,7 +33,7 @@ export function toggleCompletedOnTask(todos, taskIndex) {
 export function deleteCompleted(todoList) {
   for (let i = todoList.length - 1; i >= 0; i--) {
     if (todoList[i].completed) {
-      deleteTask(todoList, 1);
+      deleteTask(todoList, i);
     }
   }
 }
