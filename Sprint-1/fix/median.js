@@ -11,7 +11,9 @@ function calculateMedian(list) {
   list = list.filter((item) => typeof item === "number");
   list.sort((a, b) => a - b);
 
-  if (list.length <= 1) {
+  if (list.length === 1) {
+    return list[0];
+  } else if (list.length <= 1) {
     return null;
   }
 
