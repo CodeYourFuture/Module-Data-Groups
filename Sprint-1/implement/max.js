@@ -1,7 +1,7 @@
 function findMax(elements) {
   let max = -Infinity;
 
-  for (i of elements) {
+  for (const i of elements) {
     if (typeof i === "number" && !isNaN(i) && i > max) {
       max = i;
     }
