@@ -1,15 +1,5 @@
 function dedupe(list) {
-  const seen = {};
-  const result = [];
-
-  for (const item of list) {
-    if (seen[item] === undefined) {
-      seen[item] = true;
-      result.push(item);
-    }
-  }
-
-  return result;
+  return Array.from(new Set(list));
 }
 
 module.exports = dedupe;
