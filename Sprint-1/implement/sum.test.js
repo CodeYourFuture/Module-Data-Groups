@@ -8,12 +8,38 @@ E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical
 
 const sum = require("./sum.js");
 
+describe("sum", () => {
+  test("Return 0 for empty array", () => {
+    expect(sum([])).toEqual(0);
+  });
+
+  test("Return same number with one value array", () => {
+    expect(sum([5])).toEqual(5);
+  });
+
+  test("Return sum for array containing negative numbers", () => {
+    expect(sum([2, -5, 0, 9, -10, 15])).toEqual(11);
+  });
+
+  test("Return sum for decimal/float numbers array", () => {
+    expect(sum([2, 5.5, 0, 9, 10.75])).toEqual(27.25);
+  });
+
+  test("Ignore non-numeric values with non-number values array", () => {
+    expect(sum([-3, 6, "a", 1, "abc", 2])).toEqual(6);
+  });
+
+  test("return 0 with all non-number values", () => {
+    expect(sum(["abc", "h", "a", "r", "b"])).toEqual(0);
+  });
+});
+
 // Acceptance Criteria:
 
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0")
+//test.todo("given an empty array, returns 0");
 
 // Given an array with just one number
 // When passed to the sum function
