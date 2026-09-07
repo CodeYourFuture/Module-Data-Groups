@@ -33,18 +33,39 @@ describe("calculateMedian", () => {
     expect(list).toEqual([3, 1, 2]);
   });
 
-  [ 'not an array', 123, null, undefined, {}, [], ["apple", null, undefined] ].forEach(val =>
-    it(`returns null for non-numeric array (${val})`, () => expect(calculateMedian(val)).toBe(null))
+  // There is no median of an empty array, so calculateMedian should throw
+  it("throws when given an empty array", () => {
+    expect(() => calculateMedian([])).toThrow(
+      new Error("calculateMedian requires a non-empty array")
+    );
+  });
+
+  // Non-array input should throw (no argument at all counts, as 'list' is then undefined)
+  [ 'banana', 123, null, undefined, {}, ["apple", null, undefined], ["ten", "twenty"] ].forEach(val =>
+    it(`throws for non-numeric input (${val})`, () =>
+      expect(() => calculateMedian(val)).toThrow(
+        new Error("calculateMedian requires an array of numbers")
+      ))
   );
 
+  it("throws when called with no argument", () => {
+    expect(() => calculateMedian()).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
+
+  // Arrays containing any non-number value should throw, rather than filtering them out
   [
-    { input: [1, 2, "3", null, undefined, 4], expected: 2 },
-    { input: ["apple", 1, 2, 3, "banana", 4], expected: 2.5 },
-    { input: [1, "2", 3, "4", 5], expected: 3 },
-    { input: [1, "apple", 2, null, 3, undefined, 4], expected: 2.5 },
-    { input: [3, "apple", 1, null, 2, undefined, 4], expected: 2.5 },
-    { input: ["banana", 5, 3, "apple", 1, 4, 2], expected: 3 },
-  ].forEach(({ input, expected }) =>
-    it(`filters out non-numeric values and calculates the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
+    [1, 2, "3", null, undefined, 4],
+    ["apple", 1, 2, 3, "banana", 4],
+    [1, "2", 3, "4", 5],
+    [1, "apple", 2, null, 3, undefined, 4],
+    [3, "apple", 1, null, 2, undefined, 4],
+    ["banana", 5, 3, "apple", 1, 4, 2],
+  ].forEach((input) =>
+    it(`throws for an array containing a non-number [${input}]`, () =>
+      expect(() => calculateMedian(input)).toThrow(
+        new Error("calculateMedian requires an array of numbers")
+      ))
   );
 });

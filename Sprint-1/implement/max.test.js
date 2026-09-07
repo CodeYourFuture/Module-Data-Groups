@@ -3,7 +3,7 @@
 In this kata, you will need to implement a function that find the largest numerical element of an array.
 
 E.g. max([30, 50, 10, 40]), target output: 50
-E.g. max(['hey', 10, 'hi', 60, 10]), target output: 60 (sum ignores any non-numerical elements)
+E.g. max(['hey', 10, 'hi', 60, 10]) throws Error("findMax requires an array of numbers") (max can't compare non-numerical elements, so it shouldn't guess)
 
 You should implement this function in max.js, and add tests for it in this file.
 
@@ -34,10 +34,10 @@ test.todo("given an empty array, returns -Infinity");
 // When passed to the max function
 // Then it should return the largest decimal number
 
-// Given an array with non-number values
+// Given an array containing a value that isn't a number
 // When passed to the max function
-// Then it should return the max and ignore non-numeric values
+// Then it should throw Error("findMax requires an array of numbers")
 
-// Given an array with only non-number values
+// Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the max function
-// Then it should return the least surprising value given how it behaves for all other inputs
+// Then it should throw Error("findMax requires an array of numbers")
