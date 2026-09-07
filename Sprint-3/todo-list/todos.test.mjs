@@ -13,7 +13,7 @@ function createMockTodos() {
     { task: "Task 1 description", completed: true },
     { task: "Task 2 description", completed: false },
     { task: "Task 3 description", completed: true },
-    { task: "Task 4 description", completed: false },        
+    { task: "Task 4 description", completed: false },
   ];
 }
 
@@ -29,7 +29,6 @@ describe("addTask()", () => {
   });
 
   test("Should append a new task to the end of a ToDo list", () => {
-
     const todos = createMockTodos();
     const lengthBeforeAddition = todos.length;
     Todos.addTask(todos, theTask.task, theTask.completed);
@@ -39,10 +38,30 @@ describe("addTask()", () => {
     // New task should be appended to the todos
     expect(todos[todos.length - 1]).toEqual(theTask);
   });
+
+  test("Should store deadline information if provided", () => {
+    let todos = [];
+    Todos.addTask(todos, "Task with deadline", false, "2026-07-31");
+    expect(todos).toHaveLength(1);
+    expect(todos[0]).toEqual({
+      task: "Task with deadline",
+      completed: false,
+      deadline: "2026-07-31"
+    });
+  });
+
+  test("Should not store deadline if none is provided", () => {
+    let todos = [];
+    Todos.addTask(todos, "Task without deadline", false);
+    expect(todos).toHaveLength(1);
+    expect(todos[0]).toEqual({
+      task: "Task without deadline",
+      completed: false
+    });
+  });
 });
 
 describe("deleteTask()", () => {
-
   test("Delete the first task", () => {
     const todos = createMockTodos();
     const todosBeforeDeletion = createMockTodos();
@@ -53,7 +72,7 @@ describe("deleteTask()", () => {
 
     expect(todos[0]).toEqual(todosBeforeDeletion[1]);
     expect(todos[1]).toEqual(todosBeforeDeletion[2]);
-    expect(todos[2]).toEqual(todosBeforeDeletion[3]);        
+    expect(todos[2]).toEqual(todosBeforeDeletion[3]);
   });
 
   test("Delete the second task (a middle task)", () => {
@@ -66,7 +85,7 @@ describe("deleteTask()", () => {
 
     expect(todos[0]).toEqual(todosBeforeDeletion[0]);
     expect(todos[1]).toEqual(todosBeforeDeletion[2]);
-    expect(todos[2]).toEqual(todosBeforeDeletion[3]);        
+    expect(todos[2]).toEqual(todosBeforeDeletion[3]);
   });
 
   test("Delete the last task", () => {
@@ -79,7 +98,7 @@ describe("deleteTask()", () => {
 
     expect(todos[0]).toEqual(todosBeforeDeletion[0]);
     expect(todos[1]).toEqual(todosBeforeDeletion[1]);
-    expect(todos[2]).toEqual(todosBeforeDeletion[2]);        
+    expect(todos[2]).toEqual(todosBeforeDeletion[2]);
   });
 
   test("Delete a non-existing task", () => {
@@ -94,7 +113,6 @@ describe("deleteTask()", () => {
 });
 
 describe("toggleCompletedOnTask()", () => {
-
   test("Expect the 'completed' property to toggle on an existing task", () => {
     const todos = createMockTodos();
     const taskIndex = 1;
@@ -111,12 +129,11 @@ describe("toggleCompletedOnTask()", () => {
     const todos = createMockTodos();
     const todosBeforeToggle = createMockTodos();
     Todos.toggleCompletedOnTask(todos, 1);
-    
-    expect(todos[0]).toEqual(todosBeforeToggle[0]);    
+
+    expect(todos[0]).toEqual(todosBeforeToggle[0]);
     expect(todos[2]).toEqual(todosBeforeToggle[2]);
     expect(todos[3]).toEqual(todosBeforeToggle[3]);
   });
-
 
   test("Expect no change when toggling on a non-existing task", () => {
     const todos = createMockTodos();
@@ -130,3 +147,69 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+// tests for deleteCompleted
+describe("deleteCompleted()", () => {
+  test("Delete all completed todos from todos[]", () => {
+    const todos = createMockTodos();
+    const todosBeforeDeletion = createMockTodos();
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(2);
+
+    // expect the first task in the new todo list to be the second task from the original list
+    expect(todos[0]).toEqual(todosBeforeDeletion[1]);
+
+    // expect the second task in the new todo list to be the third task from the original list
+    expect(todos[1]).toEqual(todosBeforeDeletion[3]);
+  });
+
+  test("Delete all completed todos from todos[] when all todos are completed", () => {
+    const todos = createMockTodos().map((task) => ({
+      ...task,
+      completed: true,
+    }));
+    const todosBeforeDeletion = createMockTodos();
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(0);
+  });
+
+  test("Delete all completed todos from todos[] when no todos are completed", () => {
+    const todos = createMockTodos().map((task) => ({
+      ...task,
+      completed: false,
+    }));
+    const initialLength = todos.length;
+    const todosBeforeDeletion = createMockTodos();
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(initialLength);
+  });
+});
+
+describe("getDaysRemaining()", () => {
+  const fixedToday = new Date(2026, 6, 24); // July 24, 2026 (Note: month is 0-indexed, so 6 is July)
+
+  test("Should return negative days for overdue tasks", () => {
+    expect(Todos.getDaysRemaining("2026-07-20", fixedToday)).toBe(-4);
+    expect(Todos.getDaysRemaining("2026-07-23", fixedToday)).toBe(-1);
+  });
+
+  test("Should return 0 for tasks due today", () => {
+    expect(Todos.getDaysRemaining("2026-07-24", fixedToday)).toBe(0);
+  });
+
+  test("Should return 1 for tasks due tomorrow", () => {
+    expect(Todos.getDaysRemaining("2026-07-25", fixedToday)).toBe(1);
+  });
+
+  test("Should return positive days for future tasks", () => {
+    expect(Todos.getDaysRemaining("2026-07-31", fixedToday)).toBe(7);
+  });
+
+  test("Should return null for missing or empty deadline", () => {
+    expect(Todos.getDaysRemaining(null, fixedToday)).toBeNull();
+    expect(Todos.getDaysRemaining("", fixedToday)).toBeNull();
+    expect(Todos.getDaysRemaining(undefined, fixedToday)).toBeNull();
+  });
+});
