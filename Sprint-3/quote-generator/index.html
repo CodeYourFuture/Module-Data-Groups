@@ -3,13 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote generator app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
     <script defer src="quotes.js"></script>
   </head>
   <body>
-    <h1>hello there</h1>
-    <p id="quote"></p>
-    <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+    <main class="app-container">
+      <div class="flashcard">
+        <div class="quote-symbol">“</div>
+        <div class="flashcard-content">
+          <h1 id="quote">quote text</h1>
+          <p id="author">author</p>
+        </div>
+        <div class="flashcard-actions">
+          <button type="button" id="new-quote">New quote</button>
+          <div class="autoplay-control">
+            <label class="toggle-switch">
+              <input type="checkbox" id="autoplay-toggle" />
+              <span class="slider"></span>
+            </label>
+            <span id="autoplay-status" class="autoplay-status">auto-play:OFF</span>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

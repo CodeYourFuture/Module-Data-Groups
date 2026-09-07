@@ -490,4 +490,60 @@ const quotes = [
   },
 ];
 
-// call pickFromArray with the quotes array to check you get a random quote
+// define variables to store elements
+const quoteText = document.getElementById("quote");
+const author = document.getElementById("author");
+const newQuoteBtn = document.getElementById("new-quote");
+const autoplayToggle = document.getElementById("autoplay-toggle");
+const autoplayStatus = document.getElementById("autoplay-status");
+
+// function to display quote
+function displayQuote() {
+  const quote = pickFromArray(quotes);
+  quoteText.textContent = quote.quote;
+  author.textContent = quote.author;
+}
+
+// display quote when page loads
+displayQuote();
+
+// Autoplay interval management
+let autoplayInterval = null;
+const AUTOPLAY_DELAY_MS = 5000; // 5 seconds
+
+function startAutoplay() {
+  if (!autoplayInterval) {
+    autoplayInterval = setInterval(displayQuote, AUTOPLAY_DELAY_MS);
+  }
+  autoplayStatus.textContent = "auto-play:ON";
+  autoplayStatus.classList.add("active");
+}
+
+function stopAutoplay() {
+  if (autoplayInterval) {
+    clearInterval(autoplayInterval);
+    autoplayInterval = null;
+  }
+  autoplayStatus.textContent = "auto-play:OFF";
+  autoplayStatus.classList.remove("active");
+}
+
+// Handler for new quote button click (resets autoplay timer if active)
+function handleNewQuoteClick() {
+  displayQuote();
+  if (autoplayToggle.checked) {
+    stopAutoplay();
+    startAutoplay();
+  }
+}
+
+newQuoteBtn.addEventListener("click", handleNewQuoteClick);
+
+autoplayToggle.addEventListener("change", (event) => {
+  if (event.target.checked) {
+    displayQuote();
+    startAutoplay();
+  } else {
+    stopAutoplay();
+  }
+});
