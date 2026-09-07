@@ -2,7 +2,7 @@
 
 In this kata, you will need to implement a function that calculates the mean of an array of numbers.
 
-E.g. calculateMean([1, 2, 3]), target output: 2
+E.g. calculateMean([1, 2, 6]), target output: 3
 E.g. calculateMean([]) throws Error("calculateMean requires a non-empty array")
 E.g. calculateMean("banana") throws Error("calculateMean requires an array of numbers")
 
@@ -23,7 +23,7 @@ const calculateMean = require("./mean.js");
 // When passed to calculateMean
 // Then it should return their mean
 // Delete this test.todo and replace it with a test.
-test.todo("given [1, 2, 3], returns 2");
+test.todo("given [1, 2, 6], returns 3");
 
 // Given an array with a single number
 // When passed to calculateMean

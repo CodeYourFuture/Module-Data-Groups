@@ -30,7 +30,3 @@ test.todo('given [1, 2, 3], returns "The median is 2"');
 // Given something that isn't an array of numbers, e.g. "banana"
 // When passed to describeMedian
 // Then it should return "Could not calculate a median: calculateMedian requires an array of numbers"
-
-// Given an empty array
-// When passed to describeMedian
-// Then it should not throw

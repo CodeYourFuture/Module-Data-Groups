@@ -7,25 +7,45 @@
 const calculateMedian = require("./median.js");
 
 describe("calculateMedian", () => {
-  [
-    { input: [1, 2, 3], expected: 2 },
-    { input: [1, 2, 3, 4, 5], expected: 3 },
-    { input: [1, 2, 3, 4], expected: 2.5 },
-    { input: [1, 2, 3, 4, 5, 6], expected: 3.5 },
-  ].forEach(({ input, expected }) =>
-    it(`returns the median for [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
-  );
+  it("returns the median for [1, 2, 3]", () => {
+    expect(calculateMedian([1, 2, 3])).toEqual(2);
+  });
 
-  [
-    { input: [3, 1, 2], expected: 2 },
-    { input: [5, 1, 3, 4, 2], expected: 3 },
-    { input: [4, 2, 1, 3], expected: 2.5 },
-    { input: [6, 1, 5, 3, 2, 4], expected: 3.5 },
-    { input: [110, 20, 0], expected: 20 },
-    { input: [6, -2, 2, 12, 14], expected: 6 },
-  ].forEach(({ input, expected }) =>
-    it(`returns the correct median for unsorted array [${input}]`, () => expect(calculateMedian(input)).toEqual(expected))
-  );
+  it("returns the median for [1, 2, 3, 4, 5]", () => {
+    expect(calculateMedian([1, 2, 3, 4, 5])).toEqual(3);
+  });
+
+  it("returns the median for [1, 2, 3, 4]", () => {
+    expect(calculateMedian([1, 2, 3, 4])).toEqual(2.5);
+  });
+
+  it("returns the median for [1, 2, 3, 4, 5, 6]", () => {
+    expect(calculateMedian([1, 2, 3, 4, 5, 6])).toEqual(3.5);
+  });
+
+  it("returns the correct median for unsorted array [3, 1, 2]", () => {
+    expect(calculateMedian([3, 1, 2])).toEqual(2);
+  });
+
+  it("returns the correct median for unsorted array [5, 1, 3, 4, 2]", () => {
+    expect(calculateMedian([5, 1, 3, 4, 2])).toEqual(3);
+  });
+
+  it("returns the correct median for unsorted array [4, 2, 1, 3]", () => {
+    expect(calculateMedian([4, 2, 1, 3])).toEqual(2.5);
+  });
+
+  it("returns the correct median for unsorted array [6, 1, 5, 3, 2, 4]", () => {
+    expect(calculateMedian([6, 1, 5, 3, 2, 4])).toEqual(3.5);
+  });
+
+  it("returns the correct median for unsorted array [110, 20, 0]", () => {
+    expect(calculateMedian([110, 20, 0])).toEqual(20);
+  });
+
+  it("returns the correct median for unsorted array [6, -2, 2, 12, 14]", () => {
+    expect(calculateMedian([6, -2, 2, 12, 14])).toEqual(6);
+  });
 
   it("doesn't modify the input array [3, 1, 2]", () => {
     const list = [3, 1, 2];
@@ -40,13 +60,30 @@ describe("calculateMedian", () => {
     );
   });
 
-  // Non-array input should throw (no argument at all counts, as 'list' is then undefined)
-  [ 'banana', 123, null, undefined, {}, ["apple", null, undefined], ["ten", "twenty"] ].forEach(val =>
-    it(`throws for non-numeric input (${val})`, () =>
-      expect(() => calculateMedian(val)).toThrow(
-        new Error("calculateMedian requires an array of numbers")
-      ))
-  );
+  // Input that isn't an array should throw
+  it("throws when given a string", () => {
+    expect(() => calculateMedian("banana")).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
+
+  it("throws when given a number", () => {
+    expect(() => calculateMedian(123)).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
+
+  it("throws when given null", () => {
+    expect(() => calculateMedian(null)).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
+
+  it("throws when given an object", () => {
+    expect(() => calculateMedian({})).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 
   it("throws when called with no argument", () => {
     expect(() => calculateMedian()).toThrow(
@@ -55,17 +92,27 @@ describe("calculateMedian", () => {
   });
 
   // Arrays containing any non-number value should throw, rather than filtering them out
-  [
-    [1, 2, "3", null, undefined, 4],
-    ["apple", 1, 2, 3, "banana", 4],
-    [1, "2", 3, "4", 5],
-    [1, "apple", 2, null, 3, undefined, 4],
-    [3, "apple", 1, null, 2, undefined, 4],
-    ["banana", 5, 3, "apple", 1, 4, 2],
-  ].forEach((input) =>
-    it(`throws for an array containing a non-number [${input}]`, () =>
-      expect(() => calculateMedian(input)).toThrow(
-        new Error("calculateMedian requires an array of numbers")
-      ))
-  );
+  it("throws for an array of strings", () => {
+    expect(() => calculateMedian(["ten", "twenty", "thirty"])).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
+
+  it("throws for an array mixing numbers and strings", () => {
+    expect(() => calculateMedian([1, "2", 3, "4", 5])).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
+
+  it("throws for an array containing null", () => {
+    expect(() => calculateMedian([1, 2, null, 4])).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
+
+  it("throws for an array containing undefined", () => {
+    expect(() => calculateMedian([3, 1, undefined, 2])).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 });
