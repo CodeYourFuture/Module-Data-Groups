@@ -29,6 +29,6 @@ test.todo("tally on an empty array returns an empty object");
 // When passed to tally
 // Then it should return counts for each unique item
 
-// Given an invalid input like a string
+// Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
-// Then it should throw an error
+// Then it should throw Error("tally requires an array")
