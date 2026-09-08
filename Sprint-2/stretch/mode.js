@@ -1,34 +1,63 @@
-// You are given an implementation of calculateMode
+// You are given a working implementation of calculateMode.
+// Run the tests in mode.test.js before you start: they all pass.
 
-// calculateMode's implementation can be broken down into two stages:
+// calculateMode's implementation can be broken down into three stages:
 
-// Stage 1. One part of the code tracks the frequency of each value
-// Stage 2. The other part finds the value with the highest frequency
+// Stage 1. Check the input is a non-empty array of numbers, and throw if not
+// Stage 2. Track the frequency of each value
+// Stage 3. Find the value with the highest frequency
 
-// refactor calculateMode by splitting up the code
-// into smaller functions using the stages above
+// Refactor calculateMode by moving each stage into its own function,
+// then calling those functions from calculateMode.
 
-function calculateMode(list) {
-  // track frequency of each value
-  let freqs = new Map();
+// The tests must still pass after your refactor. Run them again to check.
 
-  for (let num of list) {
-    if (typeof num !== "number") continue;
+// Explanation:
+// Each stage becomes a function named after what it does. calculateMode then
+// reads as the three steps in order, and each helper can be understood and
+// tested on its own.
 
+// Stage 1
+function checkIsNonEmptyArrayOfNumbers(list) {
+  if (!Array.isArray(list)) {
+    throw new Error("calculateMode requires an array of numbers");
+  }
+  if (list.length === 0) {
+    throw new Error("calculateMode requires a non-empty array");
+  }
+  for (const item of list) {
+    if (typeof item !== "number") {
+      throw new Error("calculateMode requires an array of numbers");
+    }
+  }
+}
+
+// Stage 2
+function countFrequencies(list) {
+  const freqs = new Map();
+  for (const num of list) {
     freqs.set(num, (freqs.get(num) || 0) + 1);
   }
+  return freqs;
+}
 
-  // Find the value with the highest frequency
+// Stage 3
+function findMostFrequent(freqs) {
   let maxFreq = 0;
   let mode;
-  for (let [num, freq] of freqs) {
+  for (const [num, freq] of freqs) {
     if (freq > maxFreq) {
       mode = num;
       maxFreq = freq;
     }
   }
+  return mode;
+}
 
-  return maxFreq === 0 ? NaN : mode;
+function calculateMode(list) {
+  checkIsNonEmptyArrayOfNumbers(list);
+  const freqs = countFrequencies(list);
+  return findMostFrequent(freqs);
 }
 
 module.exports = calculateMode;

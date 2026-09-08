@@ -1,3 +1,5 @@
+const tally = require("./tally.js");
+
 /**
  * tally array
  *
@@ -8,8 +10,8 @@
  * For example:
  *
  * tally(['a']), target output: { a: 1 }
- * tally(['a','a','a']), target output: { a: 3 }
- * tally(['a','a','b','c']), target output: { a : 2, b: 1, c: 1 }
+ * tally(['a', 'a', 'a']), target output: { a: 3 }
+ * tally(['a', 'a', 'b', 'c']), target output: { a : 2, b: 1, c: 1 }
  */
 
 // Acceptance criteria:
@@ -26,24 +28,30 @@
 // When passed to tally
 // Then it should return counts for each unique item
 
-// Given an invalid input like a string
+// Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
-// Then it should throw an error
+// Then it should throw Error("tally requires an array")
 
-const tally = require("./tally");
+test("tally on an empty array returns an empty object", () => {
+  expect(tally([])).toEqual({});
+});
 
-describe("tally", () => {
-  it("returns the correct tally for each item in the array", () => {
-    expect(tally(["a"])).toEqual({ a: 1 });
-    expect(tally(["a", "a", "b", "b", "b", "c"])).toEqual({ a: 2, b: 3, c: 1 });
-  });
+test("tally on an array with one item counts it once", () => {
+  expect(tally(["a"])).toEqual({ a: 1 });
+});
 
-  it("returns an empty object when the array is empty", () => {
-    expect(tally([])).toEqual({});
-  });
+test("tally on an array with duplicates counts each unique item", () => {
+  expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
+});
 
-  it("throws an error when the input is not an array", () => {
-    expect(() => tally("test")).toThrow("Invalid input: input must be an array");
-    expect(() => tally(123)).toThrow("Invalid input: input must be an array");
-  });
+test("throws when given a string", () => {
+  expect(() => tally("hello")).toThrow(new Error("tally requires an array"));
+});
+
+test("throws when given a number", () => {
+  expect(() => tally(42)).toThrow(new Error("tally requires an array"));
+});
+
+test("throws when called with no argument", () => {
+  expect(() => tally()).toThrow(new Error("tally requires an array"));
 });
