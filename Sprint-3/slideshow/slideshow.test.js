@@ -4,7 +4,6 @@ There are some Tests in this file that will help you work out if your code is wo
 
 const path = require("path");
 const { JSDOM } = require("jsdom");
-const { default: userEvent } = require("@testing-library/user-event");
 
 let page = null;
 
@@ -59,7 +58,7 @@ describe("Level 1 challenge", () => {
 
     expect(image).toHaveAttribute("src", images[0]);
 
-    userEvent.click(forwardBtn);
+    forwardBtn.click();
 
     expect(image).toHaveAttribute("src", images[1]);
   });
@@ -73,8 +72,8 @@ describe("Level 1 challenge", () => {
     const image = page.window.document.querySelector("#carousel-img");
     const forwardBtn = page.window.document.querySelector("#forward-btn");
 
-    userEvent.click(forwardBtn);
-    userEvent.click(forwardBtn);
+    forwardBtn.click();
+    forwardBtn.click();
 
     expect(image).toHaveAttribute("src", images[2]);
   });
@@ -90,7 +89,7 @@ describe("Level 1 challenge", () => {
 
     expect(image).toHaveAttribute("src", images[0]);
 
-    userEvent.click(backwardBtn);
+    backwardBtn.click();
 
     expect(image).toHaveAttribute("src", images[2]);
   });
@@ -105,8 +104,8 @@ describe("Level 1 challenge", () => {
     const backwardBtn = page.window.document.querySelector("#backward-btn");
     expect(image).toHaveAttribute("src", images[0]);
 
-    userEvent.click(backwardBtn);
-    userEvent.click(backwardBtn);
+    backwardBtn.click();
+    backwardBtn.click();
 
     expect(image).toHaveAttribute("src", images[1]);
   });
@@ -122,9 +121,9 @@ describe("Level 1 challenge", () => {
 
     expect(image).toHaveAttribute("src", images[0]);
 
-    userEvent.click(forwardBtn);
-    userEvent.click(forwardBtn);
-    userEvent.click(forwardBtn);
+    forwardBtn.click();
+    forwardBtn.click();
+    forwardBtn.click();
 
     expect(image).toHaveAttribute("src", images[0]);
   });
@@ -150,7 +149,7 @@ describe("Level 2 challenge", () => {
 
     expect(image).toHaveAttribute("src", images[0]);
 
-    userEvent.click(autoForwardBtn);
+    autoForwardBtn.click();
 
     expect(autoForwardBtn).toBeDisabled();
     expect(autoBackBtn).toBeDisabled();
@@ -177,7 +176,7 @@ describe("Level 2 challenge", () => {
 
     expect(image).toHaveAttribute("src", images[0]);
 
-    userEvent.click(autoBackBtn);
+    autoBackBtn.click();
 
     expect(autoForwardBtn).toBeDisabled();
     expect(autoBackBtn).toBeDisabled();
@@ -205,7 +204,7 @@ describe("Level 2 challenge", () => {
 
     expect(image).toHaveAttribute("src", images[0]);
 
-    userEvent.click(autoForwardBtn);
+    autoForwardBtn.click();
 
     expect(autoForwardBtn).toBeDisabled();
     expect(autoBackBtn).toBeDisabled();
@@ -216,7 +215,7 @@ describe("Level 2 challenge", () => {
     jest.advanceTimersByTime(interval);
     expect(image).toHaveAttribute("src", images[2]);
 
-    userEvent.click(stopBtn);
+    stopBtn.click();
 
     expect(autoForwardBtn).toBeEnabled();
     expect(autoBackBtn).toBeEnabled();

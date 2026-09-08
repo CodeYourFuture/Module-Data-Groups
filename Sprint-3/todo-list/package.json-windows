@@ -1,10 +1,12 @@
 {
-  "name": "quote-generator",
+  "name": "todo-list",
   "version": "1.0.0",
   "license": "CC-BY-SA-4.0",
   "description": "You must update this package",
+  "type": "module",
   "scripts": {
-    "test": "jest --config=../jest.config.js quote-generator"
+    "serve": "http-server",    
+    "test": "set NODE_OPTIONS=--experimental-vm-modules && jest"
   },
   "repository": {
     "type": "git",
@@ -13,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
   },
-  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme"
+  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1",    
+    "jest": "^30.0.4"
+  }
 }
