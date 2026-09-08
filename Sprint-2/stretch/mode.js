@@ -12,8 +12,13 @@
 
 // The tests must still pass after your refactor. Run them again to check.
 
-function calculateMode(list) {
-  // check the input is a non-empty array of numbers
+// Explanation:
+// Each stage becomes a function named after what it does. calculateMode then
+// reads as the three steps in order, and each helper can be understood and
+// tested on its own.
+
+// Stage 1
+function checkIsNonEmptyArrayOfNumbers(list) {
   if (!Array.isArray(list)) {
     throw new Error("calculateMode requires an array of numbers");
   }
@@ -25,25 +30,34 @@ function calculateMode(list) {
       throw new Error("calculateMode requires an array of numbers");
     }
   }
+}
 
-  // track frequency of each value
-  let freqs = new Map();
-
-  for (let num of list) {
+// Stage 2
+function countFrequencies(list) {
+  const freqs = new Map();
+  for (const num of list) {
     freqs.set(num, (freqs.get(num) || 0) + 1);
   }
+  return freqs;
+}
 
-  // Find the value with the highest frequency
+// Stage 3
+function findMostFrequent(freqs) {
   let maxFreq = 0;
   let mode;
-  for (let [num, freq] of freqs) {
+  for (const [num, freq] of freqs) {
     if (freq > maxFreq) {
       mode = num;
       maxFreq = freq;
     }
   }
-
   return mode;
+}
+
+function calculateMode(list) {
+  checkIsNonEmptyArrayOfNumbers(list);
+  const freqs = countFrequencies(list);
+  return findMostFrequent(freqs);
 }
 
 module.exports = calculateMode;
