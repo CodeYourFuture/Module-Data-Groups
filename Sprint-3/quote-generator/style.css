@@ -1,1 +1,43 @@
-/** Write your CSS in here **/
+body {
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  background-color: white;
+  width: 60%;
+  padding: 50px 50px;
+}
+#quote {
+  text-align: center;
+  color: orange;
+  font-size: 28px;
+}
+#quote::before {
+  content: open-quote;
+}
+#quote::after {
+  content: close-quote;
+}
+#author {
+  color: orange;
+  text-align: right;
+  font-size: 20px;
+}
+#author::before {
+  content: "- ";
+}
+#new-quote {
+  display: flex;
+  justify-content: end;
+}
+button {
+  background-color: orange;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 15px;
+  cursor: pointer;
+}
