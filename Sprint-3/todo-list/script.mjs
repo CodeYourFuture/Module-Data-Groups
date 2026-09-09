@@ -1,4 +1,4 @@
-// Store everything imported from './todos.mjs' module as properties of an object named Todos 
+// Store everything imported from './todos.mjs' module as properties of an object named Todos
 import * as Todos from "./todos.mjs";
 
 // To store the todo tasks
@@ -8,25 +8,33 @@ const todos = [];
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
 
+  // prettier-ignore
+  document.getElementById("delete-completed-btn").addEventListener("click", () => {
+    Todos.deleteCompleted(todos);
+    render();
+  });
+
   // Populate sample data
-  Todos.addTask(todos, "Wash the dishes", false); 
+  Todos.addTask(todos, "Wash the dishes", false);
   Todos.addTask(todos, "Do the shopping", true);
 
   render();
 });
 
-
-// A callback that reads the task description from an input field and 
+// A callback that reads the task description from an input field and
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("new-task-deadline");
   const task = taskInput.value.trim();
+  const deadline = deadlineInput.value || null;
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
     render();
   }
 
   taskInput.value = "";
+  deadlineInput.value = "";
 }
 
 // Note:
@@ -45,12 +53,11 @@ function render() {
   });
 }
 
-
 // Note:
 // - First child of #todo-item-template is a <li> element.
 //   We will create each ToDo list item as a clone of this node.
 // - This variable is declared here to be close to the only function that uses it.
-const todoListItemTemplate = 
+const todoListItemTemplate =
   document.getElementById("todo-item-template").content.firstElementChild;
 
 // Create a <li> element for the given todo task
@@ -58,16 +65,39 @@ function createListItem(todo, index) {
   const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
 
   li.querySelector(".description").textContent = todo.task;
+  if (todo.deadline) {
+    const today = new Date();
+    const due = new Date(todo.deadline);
+
+    const diffMs = due - today;
+    const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+    let message = "";
+
+    if (diffDays > 0) {
+      message = `${diffDays} days remaining`;
+    } else if (diffDays === 0) {
+      message = "Due today!";
+    } else {
+      message = `${Math.abs(diffDays)} days overdue`;
+    }
+
+    const deadlineSpan = document.createElement("span");
+    deadlineSpan.classList.add("deadline");
+    deadlineSpan.textContent = message;
+    li.appendChild(deadlineSpan);
+  }
+
   if (todo.completed) {
     li.classList.add("completed");
   }
 
-  li.querySelector('.complete-btn').addEventListener("click", () => {
+  li.querySelector(".complete-btn").addEventListener("click", () => {
     Todos.toggleCompletedOnTask(todos, index);
     render();
   });
-    
-  li.querySelector('.delete-btn').addEventListener("click", () => {
+
+  li.querySelector(".delete-btn").addEventListener("click", () => {
     Todos.deleteTask(todos, index);
     render();
   });
