@@ -7,10 +7,14 @@ const todos = [];
 // Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
+  document.getElementById("delete-completed-btn")
+        .addEventListener("click", deleteCompletedTodos);
+
 
   // Populate sample data
-  Todos.addTask(todos, "Wash the dishes", false); 
-  Todos.addTask(todos, "Do the shopping", true);
+  Todos.addTask(todos, "Wash the dishes", false, null);
+  Todos.addTask(todos, "Do the shopping", true, "2026-07-30");
+
 
   render();
 });
@@ -20,14 +24,29 @@ window.addEventListener("load", () => {
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("new-task-deadline");
+
   const task = taskInput.value.trim();
+  const deadline = deadlineInput.value || null; 
+
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
     render();
   }
 
   taskInput.value = "";
+  deadlineInput.value = "";
 }
+
+function deleteCompletedTodos() {
+  const newTodos = Todos.deleteCompleted(todos);
+
+  // Replace the old array contents
+  Todos.deleteCompleted(todos);
+
+  render();
+}
+
 
 // Note:
 // - Store the reference to the <ul> element with id "todo-list" here
@@ -52,6 +71,28 @@ function render() {
 // - This variable is declared here to be close to the only function that uses it.
 const todoListItemTemplate = 
   document.getElementById("todo-item-template").content.firstElementChild;
+  function getDaysRemainingText(deadline) {
+    if (!deadline) return "";
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const deadlineDate = new Date(deadline);
+    deadlineDate.setHours(0, 0, 0, 0);
+
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const diffDays = Math.round((deadlineDate - today) / msPerDay);
+
+    if (diffDays === 0) {
+      return "Due today";
+    } else if (diffDays > 0) {
+      return `${diffDays} day${diffDays === 1 ? "" : "s"} left`;
+    } else {
+      const overdueDays = Math.abs(diffDays);
+      return `Overdue by ${overdueDays} day${overdueDays === 1 ? "" : "s"}`;
+    }
+  }
+
 
 // Create a <li> element for the given todo task
 function createListItem(todo, index) {
@@ -61,6 +102,13 @@ function createListItem(todo, index) {
   if (todo.completed) {
     li.classList.add("completed");
   }
+  const deadlineEl = li.querySelector(".deadline");
+  if (todo.deadline) {
+    deadlineEl.textContent = getDaysRemainingText(todo.deadline);
+  } else {
+    deadlineEl.textContent = "";
+  }
+
 
   li.querySelector('.complete-btn').addEventListener("click", () => {
     Todos.toggleCompletedOnTask(todos, index);
