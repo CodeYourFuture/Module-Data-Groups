@@ -491,3 +491,39 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+pickFromArray(quotes);
+
+// Select the HTML elements using their IDs
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+const buttonElement = document.getElementById("new-quote");
+//NEW DOM ELEMENTS to interact with the toggle id and status id
+const autoPlayToggle = document.getElementById("auto-play-toggle");
+const autoPlayStatus = document.getElementById("auto-play-status");
+
+// Declare a variable to store our interval timer ID
+let autoPlayIntervalId = null;
+
+//Define a function to render a new quote to the page
+
+function displayNewQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteElement.innerText = `"${randomQuote.quote}"`;
+  authorElement.innerText = `- ${randomQuote.author}`;
+}
+// Declare a function to handle toggle changes
+function handleAutoPlayToggle() {
+  if (autoPlayToggle.checked) {
+    autoPlayStatus.innerText = "auto-play: ON";
+    autoPlayIntervalId = setInterval(displayNewQuote, 5000);
+  } else {
+    autoPlayStatus.innerText = "auto-play: OFF";
+    clearInterval(autoPlayIntervalId);
+    autoPlayIntervalId = null;
+  }
+}
+
+buttonElement.addEventListener("click", displayNewQuote);// add event listener 
+autoPlayToggle.addEventListener("change", handleAutoPlayToggle);// add event listener for the auto play
+displayNewQuote();// call the displayNewQuote
