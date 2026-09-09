@@ -3,7 +3,7 @@
 In this kata, you will need to implement a function that sums the numerical elements of an array
 
 E.g. sum([10, 20, 30]), target output: 60
-E.g. sum(['hey', 10, 'hi', 60, 10]), target output: 80 (ignore any non-numerical elements)
+E.g. sum(['hey', 10, 'hi', 60, 10]) throws Error("sum requires an array of numbers") (sum can't add non-numerical elements, so it shouldn't guess)
 */
 
 const sum = require("./sum.js");
@@ -27,10 +27,10 @@ test.todo("given an empty array, returns 0")
 // When passed to the sum function
 // Then it should return the correct total sum
 
-// Given an array containing non-number values
+// Given an array containing a value that isn't a number
 // When passed to the sum function
-// Then it should ignore the non-numerical values and return the sum of the numerical elements
+// Then it should throw Error("sum requires an array of numbers")
 
-// Given an array with only non-number values
+// Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
-// Then it should return the least surprising value given how it behaves for all other inputs
+// Then it should throw Error("sum requires an array of numbers")
