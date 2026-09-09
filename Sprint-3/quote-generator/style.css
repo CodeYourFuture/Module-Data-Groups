@@ -1,1 +1,49 @@
 /** Write your CSS in here **/
+.displayArea {
+  position: fixed;
+  border-style: groove;
+  border-top-left-radius: 0%;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  transform: translate(-50%, -50%);
+  background-color: whitesmoke;
+}
+body {
+  background-color: rgb(223, 208, 182);
+}
+#newQuote {
+  border-style: outset;
+  font-size: larger;
+  color: whitesmoke;
+  margin-left: 80%;
+  margin-bottom: 10px;
+  background-color: rgb(226, 203, 163);
+  block-size: 50px;
+}
+#newQuote:hover {
+  color: black;
+  border-right-width: 10px;
+  border-bottom-width: 10px;
+}
+
+#quote {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  font-weight: bold;
+  text-align: center;
+  margin-right: 20px;
+  color: rgb(226, 203, 163);
+}
+#author {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  display: block;
+  text-align: right;
+  margin-right: 20px;
+  color: rgb(226, 203, 163);
+}

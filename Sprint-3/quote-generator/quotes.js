@@ -1,27 +1,7 @@
-// DO NOT EDIT BELOW HERE
-
-// pickFromArray is a function which will return one item, at
-// random, from the given array.
-//
-// Parameters
-// ----------
-// choices: an array of items to pick from.
-//
-// Returns
-// -------
-// One item at random from the given array.
-//
-// Examples of use
-// ---------------
-// pickFromArray(['a','b','c','d'])     // maybe returns 'c'
-
-// You don't need to change this function
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-// A list of quotes you can use in your app.
-// DO NOT modify this array, otherwise the tests may break!
 const quotes = [
   {
     quote: "Life isn't about getting and having, it's about giving and being.",
@@ -490,4 +470,18 @@ const quotes = [
   },
 ];
 
-// call pickFromArray with the quotes array to check you get a random quote
+const areaOfQuote = document.querySelector("#quote");
+const shuffleButton = document.querySelector("#newQuote");
+const areaOfQuoteBy = document.querySelector("#author");
+
+function quoteGenerator() {
+  const entireQuote = pickFromArray(quotes);
+  const quot = entireQuote.quote;
+  const author = entireQuote.author;
+  areaOfQuote.textContent = quot;
+  areaOfQuoteBy.textContent = author;
+}
+
+quoteGenerator();
+
+shuffleButton.addEventListener("click", quoteGenerator);
