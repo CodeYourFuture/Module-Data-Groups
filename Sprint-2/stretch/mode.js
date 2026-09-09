@@ -1,22 +1,35 @@
-// You are given an implementation of calculateMode
+// You are given a working implementation of calculateMode.
+// Run the tests in mode.test.js before you start: they all pass.
 
-// calculateMode's implementation can be broken down into two stages:
+// calculateMode's implementation can be broken down into three stages:
 
-// Stage 1. One part of the code tracks the frequency of each value
-// Stage 2. The other part finds the value with the highest frequency
+// Stage 1. Check the input is a non-empty array of numbers, and throw if not
+// Stage 2. Track the frequency of each value
+// Stage 3. Find the value with the highest frequency
 
-// refactor calculateMode by splitting up the code
-// into smaller functions using the stages above
+// Refactor calculateMode by moving each stage into its own function,
+// then calling those functions from calculateMode.
+
+// The tests must still pass after your refactor. Run them again to check.
 
 function calculateMode(list) {
+  // check the input is a non-empty array of numbers
+  if (!Array.isArray(list)) {
+    throw new Error("calculateMode requires an array of numbers");
+  }
+  if (list.length === 0) {
+    throw new Error("calculateMode requires a non-empty array");
+  }
+  for (const item of list) {
+    if (typeof item !== "number") {
+      throw new Error("calculateMode requires an array of numbers");
+    }
+  }
+
   // track frequency of each value
   let freqs = new Map();
 
   for (let num of list) {
-    if (typeof num !== "number") {
-      continue;
-    }
-
     freqs.set(num, (freqs.get(num) || 0) + 1);
   }
 
@@ -30,7 +43,7 @@ function calculateMode(list) {
     }
   }
 
-  return maxFreq === 0 ? NaN : mode;
+  return mode;
 }
 
 module.exports = calculateMode;
