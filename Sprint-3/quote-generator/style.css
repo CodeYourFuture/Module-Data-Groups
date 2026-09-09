@@ -1,1 +1,48 @@
-/** Write your CSS in here **/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  padding: 0 1rem;
+  background-color: #F59E25;
+}
+
+.box {
+  max-width: 700px;
+  margin: auto;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+#author {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #1976d2;
+  color: white;
+}
+
+button:hover {
+  background-color: #1565c0;
+}
