@@ -1,1 +1,11 @@
 /** Write your CSS in here **/
+
+#author {
+  font-size: 25px;
+}
+
+#quote {
+  font-size: 30px;
+  font-style: italic;
+  font-weight: bold;
+}

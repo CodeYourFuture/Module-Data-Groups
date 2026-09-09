@@ -491,3 +491,12 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+function generate() {
+  const pick = pickFromArray(quotes);
+
+  document.getElementById("quote").innerHTML = `"${pick.quote}"`;
+  document.getElementById("author").innerHTML = `By ${pick.author}`;
+}
+
+generate();
