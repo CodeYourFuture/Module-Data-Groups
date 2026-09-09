@@ -2,7 +2,24 @@
 
 // pickFromArray is a function which will return one item, at
 // random, from the given array.
-//
+//Update the quote by using this function
+function displayRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+
+  const quoteP = document.getElementById("quote");
+  const authorP = document.getElementById("author");
+
+  quoteP.innerText = randomQuote.quote;
+  authorP.innerText = randomQuote.author;
+}
+
+// Once the page loaded run this.
+window.addEventListener("load", () => {
+  displayRandomQuote();
+
+  const button = document.getElementById("new-quote");
+  button.addEventListener("click", displayRandomQuote);
+});
 // Parameters
 // ----------
 // choices: an array of items to pick from.
