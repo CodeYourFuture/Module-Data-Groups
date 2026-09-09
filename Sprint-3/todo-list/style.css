@@ -41,7 +41,7 @@ h1 {
 .todo-input button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 6px;
@@ -49,6 +49,22 @@ h1 {
 }
 
 .todo-input button:hover {
+  background-color: #45a049;
+}
+
+/* Delete completed tasks button */
+#delete-completed-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#delete-completed-btn:hover {
   background-color: #45a049;
 }
 
