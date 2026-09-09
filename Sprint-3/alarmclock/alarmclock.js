@@ -1,4 +1,29 @@
-function setAlarm() {}
+let alarmTimer;
+
+function setAlarm() {
+  clearTimeout(alarmTimer);
+
+  let secondsRemaining = Number(document.getElementById("alarmSet").value);
+
+  function updateTimer() {
+    const minutes = Math.floor(secondsRemaining / 60);
+    const seconds = secondsRemaining % 60;
+
+    document.getElementById("timeRemaining").innerText =
+      `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+    if (secondsRemaining === 0) {
+      playAlarm();
+      return;
+    }
+
+    secondsRemaining--;
+
+    alarmTimer = setTimeout(updateTimer, 1000);
+  }
+
+  updateTimer();
+}
 
 // DO NOT EDIT BELOW HERE
 
