@@ -490,4 +490,19 @@ const quotes = [
   },
 ];
 
+const quoteParagraph = document.getElementById("quote");
+const authorParagraph = document.getElementById("author");
+const button = document.getElementById("new-quote");
+
 // call pickFromArray with the quotes array to check you get a random quote
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  updateUI(randomQuote);
+}
+
+function updateUI(quoteObject) {
+  quoteParagraph.innerText = quoteObject.quote;
+  authorParagraph.innerText = quoteObject.author;
+}
+button.addEventListener("click", showRandomQuote);
+showRandomQuote();
