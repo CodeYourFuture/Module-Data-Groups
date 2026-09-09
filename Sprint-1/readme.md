@@ -20,7 +20,7 @@ In this section, you'll have a function and some tests. The function isn't worki
 
 - Run the tests - to run the tests for the `fix` directory you can `cd` into `Sprint-1` and run `npm test -- fix`.
 - Interpret the test feedback
-- Fix the tests
+- Fix the function to make it pass the tests
 
 ## 🔨 Implement
 
@@ -31,6 +31,8 @@ Here is a recommended order:
 1. `max.test.js`
 2. `sum.test.js`
 3. `dedupe.test.js`
+4. `mean.test.js`
+5. `describe-median.test.js`
 
 Again, you can run just the test for the `implement` directory if you're in the `Sprint-1` directory by running `npm test -- implement`.
 
