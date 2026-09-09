@@ -10,15 +10,15 @@ import * as Todos from "./todos.mjs";
 // Return a mock ToDo List data with exactly 4 elements.
 function createMockTodos() {
   return [
-    { task: "Task 1 description", completed: true },
-    { task: "Task 2 description", completed: false },
-    { task: "Task 3 description", completed: true },
-    { task: "Task 4 description", completed: false },        
+    { task: "Task 1 description", completed: true, deadline: null },
+    { task: "Task 2 description", completed: false, deadline: null },
+    { task: "Task 3 description", completed: true, deadline: null },
+    { task: "Task 4 description", completed: false, deadline: null },        
   ];
 }
 
 // A mock task to simulate user input
-const theTask = { task: "The Task", completed: false };
+const theTask = { task: "The Task", completed: false, deadline: null };
 
 describe("addTask()", () => {
   test("Add a task to an empty ToDo list", () => {
@@ -29,15 +29,23 @@ describe("addTask()", () => {
   });
 
   test("Should append a new task to the end of a ToDo list", () => {
-
     const todos = createMockTodos();
     const lengthBeforeAddition = todos.length;
     Todos.addTask(todos, theTask.task, theTask.completed);
-    // todos should now have one more task
     expect(todos).toHaveLength(lengthBeforeAddition + 1);
-
-    // New task should be appended to the todos
     expect(todos[todos.length - 1]).toEqual(theTask);
+  });
+
+  test("Should store a deadline when provided", () => {
+    const todos = [];
+    Todos.addTask(todos, "Task with deadline", false, "2030-01-01");
+    expect(todos[0].deadline).toBe("2030-01-01");
+  });
+
+  test("Should default deadline to null when not provided", () => {
+    const todos = [];
+    Todos.addTask(todos, "Task without deadline", false);
+    expect(todos[0].deadline).toBeNull();
   });
 });
 
@@ -127,6 +135,27 @@ describe("toggleCompletedOnTask()", () => {
 
     Todos.toggleCompletedOnTask(todos, -1);
     expect(todos).toEqual(todosBeforeToggle);
+  });
+});
+
+describe("deleteCompleted()", () => {
+  test("Removes all completed tasks", () => {
+    const todos = createMockTodos(); // tasks 0 and 2 are completed
+    Todos.deleteCompleted(todos);
+    expect(todos).toHaveLength(2);
+    todos.forEach(t => expect(t.completed).toBe(false));
+  });
+
+  test("Does nothing when no tasks are completed", () => {
+    const todos = [{ task: "A", completed: false }, { task: "B", completed: false }];
+    Todos.deleteCompleted(todos);
+    expect(todos).toHaveLength(2);
+  });
+
+  test("Empties the list when all tasks are completed", () => {
+    const todos = [{ task: "A", completed: true }, { task: "B", completed: true }];
+    Todos.deleteCompleted(todos);
+    expect(todos).toHaveLength(0);
   });
 });
 

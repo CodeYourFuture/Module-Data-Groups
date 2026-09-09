@@ -93,15 +93,43 @@ h1 {
   height: 32px;
 }
 
-.complete-btn i {
+.complete-btn span {
   color: green;
 }
 
-.delete-btn i {
+.delete-btn span {
   color: red;
 }
 
 .todo-item.completed .description {
   text-decoration: line-through;
   color: gray;
+}
+
+#delete-completed-btn {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#delete-completed-btn:hover {
+  background-color: #c62828;
+}
+
+.deadline {
+  font-size: 12px;
+  color: #888;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.deadline.overdue {
+  color: #e53935;
 }

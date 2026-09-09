@@ -7,6 +7,7 @@ const todos = [];
 // Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
+  document.getElementById("delete-completed-btn").addEventListener("click", deleteCompleted);
 
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
@@ -16,17 +17,23 @@ window.addEventListener("load", () => {
 });
 
 
+function deleteCompleted() {
+  Todos.deleteCompleted(todos);
+  render();
+}
+
 // A callback that reads the task description from an input field and 
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("deadline-input");
   const task = taskInput.value.trim();
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadlineInput.value || null);
     render();
   }
-
   taskInput.value = "";
+  deadlineInput.value = "";
 }
 
 // Note:
@@ -58,6 +65,22 @@ function createListItem(todo, index) {
   const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
 
   li.querySelector(".description").textContent = todo.task;
+
+  const deadlineEl = li.querySelector(".deadline");
+  if (todo.deadline) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const due = new Date(todo.deadline + "T00:00:00");
+    const daysLeft = Math.round((due - today) / (1000 * 60 * 60 * 24));
+    if (daysLeft < 0) {
+      deadlineEl.textContent = `Overdue by ${Math.abs(daysLeft)} day(s)`;
+      deadlineEl.classList.add("overdue");
+    } else if (daysLeft === 0) {
+      deadlineEl.textContent = "Due today";
+    } else {
+      deadlineEl.textContent = `${daysLeft} day(s) left`;
+    }
+  }
   if (todo.completed) {
     li.classList.add("completed");
   }
