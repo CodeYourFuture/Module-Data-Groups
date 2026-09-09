@@ -1,24 +1,43 @@
 // DO NOT EDIT BELOW HERE
-
+//
 // pickFromArray is a function which will return one item, at
 // random, from the given array.
-//
+
 // Parameters
 // ----------
 // choices: an array of items to pick from.
 //
+
 // Returns
 // -------
 // One item at random from the given array.
 //
+
 // Examples of use
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
+
+function pickFromArray(quotes) {
+  return quotes[Math.floor(Math.random() * quotes.length)];
 }
+// First condition: When a person click the button, it should generate back a quote;
+
+function updateWebpageWithQuote() {
+  const quoteDisplay = document.querySelector("#quote");
+  const authorDisplay = document.querySelector("#author");
+
+  // store into the variable
+
+  const { quote, author } = pickFromArray(quotes);
+  quoteDisplay.innerText = quote;
+  authorDisplay.innerText = author;
+}
+
+// Second condition:  when a person enter the website, it should have a quote appear;
+
+// Third condition:   when a person clicks the button each time, it should have different quote. .
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
@@ -489,5 +508,10 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+
+const buttonElem = document.querySelector("#new-quote");
+
+buttonElem.addEventListener("click", updateWebpageWithQuote);
+updateWebpageWithQuote();
 
 // call pickFromArray with the quotes array to check you get a random quote
