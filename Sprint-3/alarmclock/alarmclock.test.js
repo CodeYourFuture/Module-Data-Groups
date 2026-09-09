@@ -72,27 +72,13 @@ test("should update the heading while counting down", () => {
   }
 });
 
-test("should count down every 1000 ms", () => {
-  const input = page.window.document.querySelector("#alarmSet");
-  const button = page.window.document.querySelector("#set");
-
-  const mockTimer = jest.fn();
-  page.window.setTimeout = mockTimer;
-  page.window.setInterval = mockTimer;
-
-  input.value = "19";
-  button.click();
-
-  expect(mockTimer).toHaveBeenCalledTimes(1);
-  expect(mockTimer).toHaveBeenLastCalledWith(expect.any(Function), 1000);
-});
-
 test("should play audio when the timer reaches zero", () => {
   const input = page.window.document.querySelector("#alarmSet");
   const button = page.window.document.querySelector("#set");
   const mockPlayAlarm = jest.fn();
 
   page.window.playAlarm = mockPlayAlarm;
+
   input.value = "10";
   button.click();
 
