@@ -1,1 +1,114 @@
 /** Write your CSS in here **/
+
+:root {
+  --accent: #ff9f0a;
+  --accent-dark: #e08600;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.card {
+  background: #fff;
+  padding: 3rem 3.5rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+.quote-container {
+  margin-bottom: 1.5rem;
+}
+
+#quote {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin: 0;
+  line-height: 1.4;
+  quotes: '"' '"';
+}
+
+#quote::before {
+  content: open-quote;
+}
+
+#quote::after {
+  content: close-quote;
+}
+
+.author-container {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+#author {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin: 0;
+}
+
+#author::before {
+  content: "— ";
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  font-family: system-ui, sans-serif;
+  padding: 0.85rem 1.75rem;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+.autoplay-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 1rem;
+}
+
+#autoplay-status {
+  font-family: system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: #999;
+  text-align: right;
+  margin: 0.25rem 0 0;
+}

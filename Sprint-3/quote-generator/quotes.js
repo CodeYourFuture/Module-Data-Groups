@@ -490,4 +490,74 @@ const quotes = [
   },
 ];
 
-// call pickFromArray with the quotes array to check you get a random quote
+
+// Grab the elements we need to update once, so we're not
+// searching the page every time.
+const quoteEl = document.getElementById("quote");
+const authorEl = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+const autoplayCheckbox = document.getElementById("autoplay-checkbox");
+const autoplayStatusEl = document.getElementById("autoplay-status");
+
+// This will hold the id returned by setInterval so we can
+// stop it again later when auto-play is switched off.
+let autoplayIntervalId = null;
+
+// How often to change the quote automatically, in milliseconds.
+// Set to 60 seconds as per the brief - turn this down to
+// something like 5000 (5 seconds) while you're testing.
+const AUTOPLAY_INTERVAL_MS = 60000;
+
+// Picks a new random quote and displays it on the screen.
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  // If you prefer the Math.random() approach directly, you could
+  // instead write:
+  // const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+quoteEl.textContent = randomQuote.quote;
+authorEl.textContent = randomQuote.author;
+}
+
+// Updates the on-screen text that says whether auto-play is on or off.
+function updateAutoplayStatus(isOn) {
+  autoplayStatusEl.textContent = isOn
+    ? "auto-play: ON — a new quote will appear every 60 seconds."
+    : "auto-play: OFF — quotes will only change when you click the button.";
+}
+
+// Turns auto-play on: shows a new quote immediately, then keeps
+// showing a new one every AUTOPLAY_INTERVAL_MS.
+function startAutoplay() {
+  updateAutoplayStatus(true);
+  autoplayIntervalId = setInterval(showRandomQuote, AUTOPLAY_INTERVAL_MS);
+}
+
+// Turns auto-play off: stops the repeating timer so the quote
+// stops changing by itself.
+function stopAutoplay() {
+  updateAutoplayStatus(false);
+  clearInterval(autoplayIntervalId);
+  autoplayIntervalId = null;
+}
+
+// Wire everything up once the page has loaded.
+document.addEventListener("DOMContentLoaded", () => {
+  // Show a random quote as soon as the page loads.
+  showRandomQuote();
+
+  // Show a new quote whenever the button is clicked.
+  newQuoteButton.addEventListener("click", showRandomQuote);
+
+  // Start in the "off" state so the status text is correct
+  // even before the user touches the checkbox.
+  updateAutoplayStatus(false);
+
+  // Toggle auto-play on/off when the checkbox is switched.
+  autoplayCheckbox.addEventListener("change", () => {
+    if (autoplayCheckbox.checked) {
+      startAutoplay();
+    } else {
+      stopAutoplay();
+    }
+  });
+});
