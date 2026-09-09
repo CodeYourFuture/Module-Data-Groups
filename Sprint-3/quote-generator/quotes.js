@@ -491,3 +491,19 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+//Show a random quotes when the page has fully loaded alongside the author
+const quoteElement = document.querySelector("#quote");
+const authorElement = document.querySelector("#author");
+const buttonElement = document.querySelector("#new-quote");
+
+document.addEventListener("DOMContentLoaded", generateQuote);
+
+// 2. Change the quote when the button is clicked
+buttonElement.addEventListener("click", generateQuote);
+
+function generateQuote() {
+  const randomQuote = pickFromArray(quotes);
+
+  quoteElement.innerText = `❝ ${randomQuote.quote}"`;
+  authorElement.innerText = `- ${randomQuote.author}`; //I could also use textcontent to access this
+}

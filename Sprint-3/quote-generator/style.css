@@ -1,1 +1,32 @@
 /** Write your CSS in here **/
+body {
+  background-color: rgb(187, 58, 80);
+}
+#quote {
+  color: rgb(136, 38, 54);
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+#author {
+  color: rgb(66, 11, 21);
+  text-align: right;
+  font-weight: bold;
+  font-size: 20px;
+}
+button {
+  background-color: rgb(121, 29, 29);
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  margin-bottom: 50px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  float: right;
+}
+#borders {
+  padding: 50px;
+  margin: 100px 40px;
+  background-color: white;
+}
