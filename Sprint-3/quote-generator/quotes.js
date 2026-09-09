@@ -14,6 +14,21 @@
 // Examples of use
 // ---------------
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
+function pickFromArray(choices) {
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+function quotesAndAuthor() {
+  const randomQuote = pickFromArray(quotes);
+  document.querySelector("#quote").innerText = randomQuote.quote;
+  document.querySelector("#author").innerText = randomQuote.author;
+}
+function setup() {
+  quotesAndAuthor(); // show a quote on load
+  document.getElementById("new-quote").addEventListener("click", () => {
+    quotesAndAuthor();
+  });
+}
+window.onload = setup;
 
 // You don't need to change this function
 function pickFromArray(choices) {
