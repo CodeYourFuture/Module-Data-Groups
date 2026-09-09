@@ -1,4 +1,40 @@
-function setAlarm() {}
+const theTime = document.getElementById("theTime");
+let timer;
+let seconds;
+
+function setAlarm() {
+  const alarmSetInput = document.getElementById("alarmSet");
+  seconds = Number(alarmSetInput.value);
+
+  if (seconds <= 0 || !Number.isInteger(seconds)) {
+    alert("Please enter a valid whole number.");
+    return;
+  }
+
+  // Stop a previous countdown if there is one
+  clearInterval(timer);
+  pauseAlarm();
+
+  // Run immediately
+  decrementTimer();
+
+  // decrement each second
+  timer = setInterval(() => decrementTimer(), 1000);
+}
+
+function decrementTimer() {
+  const minutes = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+
+  theTime.textContent = `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+  if (seconds <= 0) {
+    clearInterval(timer);
+    playAlarm();
+    return;
+  }
+
+  seconds--;
+}
 
 // DO NOT EDIT BELOW HERE
 
