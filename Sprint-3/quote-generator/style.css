@@ -1,1 +1,48 @@
-/** Write your CSS in here **/
+body {
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  background-color: #d4b4ec;
+}
+
+.quote-box {
+  margin: 50px auto;
+  width: 80%;
+  max-width: 600px;
+  padding: 30px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  margin-bottom: 25px;
+}
+#quote {
+  min-height: 60px;
+  margin-bottom: 25px;
+  font-size: 1.5em;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  font-weight: bold;
+  padding: 12px 20px;
+  font-size: 1.5em;
+  background-color: rgba(96, 55, 92, 0.2);
+  color: #232b2e;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: rgba(53, 31, 51, 0.2);
+  font-weight: bold;
+  text-shadow: 0 1px 2px white;
+}
