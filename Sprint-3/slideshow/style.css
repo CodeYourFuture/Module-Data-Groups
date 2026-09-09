@@ -1,1 +1,290 @@
-/** Write your CSS in here **/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ── Main card wrapper ── */
+.slideshow-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 560px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Title ── */
+.title {
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(233, 69, 96, 0.6);
+}
+
+/* ── Image container ── */
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+#carousel-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  border: 3px solid #e94560;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.image-counter {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* ── Manual controls ── */
+.controls {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.controls button {
+  flex: 1;
+}
+
+/* ── Auto controls ── */
+.auto-controls {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.auto-controls button {
+  flex: 1 1 auto;
+  min-width: 100px;
+}
+
+/* ── Shared button styles ── */
+button {
+  padding: 11px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#backward-btn,
+#forward-btn {
+  background-color: #e94560;
+  color: #fff;
+}
+
+#backward-btn:hover:not(:disabled),
+#forward-btn:hover:not(:disabled) {
+  background-color: #c73652;
+  box-shadow: 0 6px 16px rgba(233, 69, 96, 0.5);
+}
+
+#auto-forward,
+#auto-backward {
+  background-color: #0f3460;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#auto-forward:hover:not(:disabled),
+#auto-backward:hover:not(:disabled) {
+  background-color: #1a4a80;
+  box-shadow: 0 6px 16px rgba(15, 52, 96, 0.6);
+}
+
+#stop {
+  background-color: #533483;
+  color: #fff;
+}
+
+#stop:hover:not(:disabled) {
+  background-color: #6a42a8;
+  box-shadow: 0 6px 16px rgba(83, 52, 131, 0.6);
+}
+
+/* ── Delay control ── */
+.delay-control {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.delay-control label {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+.delay-input-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#delay-input {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #e94560, #533483);
+  outline: none;
+  cursor: pointer;
+}
+
+#delay-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+#delay-input::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+#delay-input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  border: none;
+}
+
+#delay-display {
+  color: #e94560;
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 38px;
+  text-align: right;
+}
+
+/* ── Mobile (up to 480px) ── */
+@media (max-width: 480px) {
+  .slideshow-wrapper {
+    padding: 20px 14px;
+    gap: 16px;
+    border-radius: 14px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 9px 12px;
+  }
+
+  .auto-controls button {
+    min-width: 80px;
+  }
+
+  .delay-control {
+    padding: 12px 14px;
+  }
+
+  .delay-control label {
+    font-size: 13px;
+  }
+
+  #delay-display {
+    font-size: 14px;
+  }
+}
+
+/* ── Small tablet (481px – 768px) ── */
+@media (min-width: 481px) and (max-width: 768px) {
+  .slideshow-wrapper {
+    max-width: 100%;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+
+/* ── Tablet / small desktop (769px – 1024px) ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .slideshow-wrapper {
+    max-width: 640px;
+  }
+}
+
+/* ── Large desktop (1025px and above) ── */
+@media (min-width: 1025px) {
+  .slideshow-wrapper {
+    max-width: 700px;
+    padding: 40px 36px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 13px 26px;
+  }
+}
