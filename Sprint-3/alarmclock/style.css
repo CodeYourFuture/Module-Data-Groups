@@ -4,12 +4,21 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  text-align: center;
 }
-
+#alarmSet {
+  border: 1px solid #080808;
+}
 #alarmSet {
   margin: 20px;
 }
-
 h1 {
   text-align: center;
+  width: 500px;
+  min-height: 75px;
 }
+.alarm-finished {
+  background-color: rgb(237, 59, 59);
+  transition: background-color 3s ease;
+}
+
