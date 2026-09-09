@@ -1,3 +1,66 @@
+const playInterval = 5000;
+
+// Function to pick and display a new random quote
+function displayRandomQuote() {
+  // 1. Get a random quote object from the quotes array
+  const randomQuote = pickFromArray(quotes);
+
+  // 2. Select the HTML elements where the quote and author should be displayed
+  const quoteElement = document.getElementById("quote");
+  const authorElement = document.getElementById("author");
+
+  // 3. Update the text content of the DOM elements
+  if (quoteElement && authorElement) {
+    quoteElement.textContent = `${randomQuote.quote}`;
+    authorElement.textContent = `${randomQuote.author}`;
+  }
+}
+
+// Show a random quote as soon as the page loads
+window.addEventListener("DOMContentLoaded", () => {
+  displayRandomQuote();
+
+  // Attach click listener to the button (assuming button has id "new-quote-btn")
+  const newQuoteButton = document.getElementById("new-quote");
+  if (newQuoteButton) {
+    newQuoteButton.addEventListener("click", displayRandomQuote);
+  }
+});
+
+// call pickFromArray with the quotes array to check you get a random quote
+
+const autoPlayToggle = document.getElementById("auto-play-toggle");
+const autoPlayStatus = document.getElementById("auto-play-status");
+
+
+// Variable to store the timer interval ID
+let autoPlayInterval = null;
+
+// 3. Functions to manage auto-play state
+function startAutoPlay() {
+  autoPlayStatus.textContent = "auto-play:ON";
+  
+  // Set interval to change quote every 60 seconds (60000ms)
+  autoPlayInterval = setInterval(displayRandomQuote, playInterval);
+}
+
+function stopAutoPlay() {
+  autoPlayStatus.textContent = "auto-play:OFF";
+  
+  // Clear the active timer interval
+  clearInterval(autoPlayInterval);
+  autoPlayInterval = null;
+}
+
+autoPlayToggle.addEventListener("change", (event) => {
+  if (event.target.checked) {
+    startAutoPlay();
+  } else {
+    stopAutoPlay();
+  }
+});
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -490,4 +553,4 @@ const quotes = [
   },
 ];
 
-// call pickFromArray with the quotes array to check you get a random quote
+
