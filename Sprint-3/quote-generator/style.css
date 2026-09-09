@@ -1,1 +1,38 @@
 /** Write your CSS in here **/
+h1 {
+  color: blueviolet;
+  font-style: normal;
+  font-size: 48px;
+}
+#quote {
+  font-size: 32px;
+  font-style: italic;
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
+#author {
+  font-size: 30px;
+  margin-top: 20px;
+}
+#quote::before {
+  content: '"';
+}
+
+#quote::after {
+  content: '"';
+}
+#author::before {
+  content: "---";
+}
+
+body {
+  background-color: #fff8e7;
+  display: grid;
+  place-items: center;
+}
+#new-quote {
+  font-size: 28px;
+  font-family: serif;
+  background-color: white;
+  box-shadow: 5px 5px 2px 1px black;
+}
