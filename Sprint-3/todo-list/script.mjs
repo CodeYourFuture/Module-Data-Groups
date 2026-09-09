@@ -8,6 +8,10 @@ const todos = [];
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
 
+  document
+    .getElementById("delete-completed-btn")
+    .addEventListener("click", deleteCompletedTodos);
+     
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
   Todos.addTask(todos, "Do the shopping", true);
@@ -15,6 +19,10 @@ window.addEventListener("load", () => {
   render();
 });
 
+function deleteCompletedTodos() {
+  Todos.deleteCompleted(todos)
+  render();
+}
 
 // A callback that reads the task description from an input field and 
 // append a new task to the todo list.
