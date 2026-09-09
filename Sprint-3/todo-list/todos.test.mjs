@@ -129,4 +129,3 @@ describe("toggleCompletedOnTask()", () => {
     expect(todos).toEqual(todosBeforeToggle);
   });
 });
-
