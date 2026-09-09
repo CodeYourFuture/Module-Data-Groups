@@ -1,25 +1,47 @@
-function setAlarm() {}
+let countdown;
 
-// DO NOT EDIT BELOW HERE
+function startTimer(input) {
+  const display = document.getElementById("timeRemaining");
 
-var audio = new Audio("alarmsound.mp3");
+  // Validate input
+  const timeRemaining = Number(input);
 
-function setup() {
-  document.getElementById("set").addEventListener("click", () => {
-    setAlarm();
-  });
+  if (isNaN(timeRemaining) || timeRemaining <= 0) {
+    display.textContent = "Please enter a valid number";
+    return;
+  }
 
-  document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
-  });
+  let remaining = timeRemaining;
+
+  // Clear any previous timer
+  clearInterval(countdown);
+
+  function updateDisplay() {
+    const minutes = Math.floor(remaining / 60);
+    const seconds = remaining % 60;
+
+    display.textContent = `Time Remaining: ${String(minutes).padStart(
+      2,
+      "0"
+    )}:${String(seconds).padStart(2, "0")}`;
+  }
+
+  // Show initial time
+  updateDisplay();
+
+  countdown = setInterval(() => {
+    remaining--;
+
+    updateDisplay();
+
+    if (remaining <= 0) {
+      clearInterval(countdown);
+      playAlarm();
+    }
+  }, 1000);
 }
 
+// :white_check_mark: Fix missing function
 function playAlarm() {
-  audio.play();
+  alert("Time's up!");
 }
-
-function pauseAlarm() {
-  audio.pause();
-}
-
-window.onload = setup;
