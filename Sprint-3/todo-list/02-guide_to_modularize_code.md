@@ -36,7 +36,7 @@ It focuses on:
 - ✅ What operations are needed to support data access and manipulation
 
 ### The UI Part of a Web App
-
+.
 This is the part of the app that interacts with the user interface (UI).
 
 It focuses on:

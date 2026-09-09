@@ -7,6 +7,10 @@ const todos = [];
 // Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
+  document.getElementById("delete-completed-btn").addEventListener("click", () => {
+    Todos.deleteCompleted(todos);
+    render();
+  });
 
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
@@ -15,18 +19,19 @@ window.addEventListener("load", () => {
   render();
 });
 
-
 // A callback that reads the task description from an input field and 
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("new-task-deadline");
   const task = taskInput.value.trim();
+  const deadline = deadlineInput.value || null;
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
     render();
   }
-
   taskInput.value = "";
+  deadlineInput.value = "";
 }
 
 // Note:
@@ -45,7 +50,6 @@ function render() {
   });
 }
 
-
 // Note:
 // - First child of #todo-item-template is a <li> element.
 //   We will create each ToDo list item as a clone of this node.
@@ -58,6 +62,9 @@ function createListItem(todo, index) {
   const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
 
   li.querySelector(".description").textContent = todo.task;
+  if (todo.deadline) {
+ li.querySelector(".deadline").textContent = Todos.getDeadlineStatus(todo.deadline);
+  }
   if (todo.completed) {
     li.classList.add("completed");
   }
