@@ -7,7 +7,9 @@ const todos = [];
 // Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
-
+  document
+  .getElementById("delete-completed-btn")
+  .addEventListener("click", deleteCompletedTodos);
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
   Todos.addTask(todos, "Do the shopping", true);
@@ -15,20 +17,25 @@ window.addEventListener("load", () => {
   render();
 });
 
-
+function deleteCompletedTodos() {
+  Todos.deleteCompleted(todos);
+  render();
+}
 // A callback that reads the task description from an input field and 
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("deadline-input");
   const task = taskInput.value.trim();
+  const deadline = deadlineInput.value;
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
+    console.log(todos);
     render();
   }
-
   taskInput.value = "";
+  deadlineInput.value = "";
 }
-
 // Note:
 // - Store the reference to the <ul> element with id "todo-list" here
 //   to avoid querying the DOM repeatedly inside render().
@@ -45,7 +52,6 @@ function render() {
   });
 }
 
-
 // Note:
 // - First child of #todo-item-template is a <li> element.
 //   We will create each ToDo list item as a clone of this node.
@@ -56,8 +62,13 @@ const todoListItemTemplate =
 // Create a <li> element for the given todo task
 function createListItem(todo, index) {
   const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
-
-  li.querySelector(".description").textContent = todo.task;
+  const description = li.querySelector(".description");
+  if (todo.deadline) {
+    description.textContent = `${todo.task} - Deadline: ${todo.deadline}`;
+  } 
+  else {
+    description.textContent = todo.task;
+  }
   if (todo.completed) {
     li.classList.add("completed");
   }
