@@ -3,7 +3,7 @@
 In this kata, you will need to implement a function that find the largest numerical element of an array.
 
 E.g. max([30, 50, 10, 40]), target output: 50
-E.g. max(['hey', 10, 'hi', 60, 10]), target output: 60 (sum ignores any non-numerical elements)
+E.g. max(['hey', 10, 'hi', 60, 10]) throws Error("findMax requires an array of numbers") (max can't compare non-numerical elements, so it shouldn't guess)
 
 You should implement this function in max.js, and add tests for it in this file.
 
@@ -47,16 +47,18 @@ test('Given an array with decimal numbers, returns the largest decimal number', 
     expect(findMax([3.5,4.5,6.5])).toBe(6.5)
 })
 
-// Given an array with non-number values
+// Given an array containing a value that isn't a number
 // When passed to the max function
-// Then it should return the max and ignore non-numeric values
-test("Given an array with non-number values, returns the max and ignore non-numeric values", () =>{
-    expect(findMax(["3",5,'undefined',null,6])).toBe(6)
-})
+// Then it should throw Error("findMax requires an array of numbers")
+test("throws an error when given a non number value",()=>{
+  expect(() => findMax(["3",5,'undefined',null]).toThrow(
+    new Error("findMax requires an array of numbers"));
+});
 
-// Given an array with only non-number values
+// Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the max function
-// Then it should return the least surprising value given how it behaves for all other inputs
-test("Given an array with only non-number values, returns infinity ", ()=>{
-    expect(findMax(['Holla!', NaN,  true])).toBe(-Infinity)
-})
+// Then it should throw Error("findMax requires an array of numbers")
+test("throws an error when given an array with only non-number values", () =>{
+  expect(() => findMax(['Holla!', NaN,  true])).toThrow(
+    new Error("findMax requires an array of numbers"));
+});
