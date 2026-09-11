@@ -1,15 +1,24 @@
 function sum(elements) {
-    //filter the array to be numerical values only
-    const numbersOnly = elements.filter((item)=> typeof item === 'number' && !Number.isNaN(item));
+  if (!Array.isArray(elements)) {
+    throw new Error("sum requires an array of numbers");
+  }
 
-    if(numbersOnly.length === 0){
-        return 0
-    }
-    let total = 0 ;
-    for( let i = 0 ; i < numbersOnly.length; i ++ ){
-        total += numbersOnly[i];
-    }
-    return total ;
+  if (elements.length === 0) {
+    return 0;
+  }
+  // every element must be a valid number
+  const allNumbers = elements.every(
+    (item) => typeof item === "number" && !Number.isNaN(item)
+  );
+  if (!allNumbers) {
+    throw new Error("sum requires an array of numbers");
+  }
+
+  let total = 0;
+  for (let i = 0; i < elements.length; i++) {
+    total += elements[i];
+  }
+  return total;
 }
 
 module.exports = sum;
