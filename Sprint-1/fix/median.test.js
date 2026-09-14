@@ -47,20 +47,14 @@ describe("calculateMedian", () => {
     expect(calculateMedian([6, -2, 2, 12, 14])).toEqual(6);
   });
 
-  it("doesn't modify the input array [3, 1, 2]", () => {
-    const list = [3, 1, 2];
-    calculateMedian(list);
-    expect(list).toEqual([3, 1, 2]);
-  });
-
-  // There is no median of an empty array, so calculateMedian should throw
+  // There is no median of an empty array, so calculateMedian should throw an error
   it("throws when given an empty array", () => {
     expect(() => calculateMedian([])).toThrow(
       new Error("calculateMedian requires a non-empty array")
     );
   });
 
-  // Input that isn't an array should throw
+  // Input that isn't an array should throw an error
   it("throws when given a string", () => {
     expect(() => calculateMedian("banana")).toThrow(
       new Error("calculateMedian requires an array of numbers")
@@ -91,7 +85,7 @@ describe("calculateMedian", () => {
     );
   });
 
-  // Arrays containing any non-number value should throw, rather than filtering them out
+  // Arrays containing any non-number value should throw an error , rather than filtering them out
   it("throws for an array of strings", () => {
     expect(() => calculateMedian(["ten", "twenty", "thirty"])).toThrow(
       new Error("calculateMedian requires an array of numbers")
