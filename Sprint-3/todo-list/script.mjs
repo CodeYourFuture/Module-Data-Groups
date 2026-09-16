@@ -21,14 +21,20 @@ window.addEventListener("load", () => {
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("deadline-input");
+
   const task = taskInput.value.trim();
+  const deadline = deadlineInput.value || null;
+  
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
     render();
   }
 
   taskInput.value = "";
+  deadlineInput.value = "";
 }
+
 function deleteCompletedTodos() {
   Todos.deleteCompleted(todos);
   render();
@@ -63,9 +69,13 @@ function createListItem(todo, index) {
   const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
 
   li.querySelector(".description").textContent = todo.task;
-  if (todo.completed) {
-    li.classList.add("completed");
+
+  if (todo.deadline){
+    li.querySelector(".deadline").textContent = `Deadline: ${todo.deadline}`;
   }
+    if (todo.completed) {
+      li.classList.add("completed");
+    }
 
   li.querySelector('.complete-btn').addEventListener("click", () => {
     Todos.toggleCompletedOnTask(todos, index);
