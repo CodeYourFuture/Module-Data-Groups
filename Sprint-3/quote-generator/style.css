@@ -1,1 +1,30 @@
-/** Write your CSS in here **/
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: rgb(230, 173, 173);
+}
+
+#quote {
+  font-size: 24px;
+  max-width: 600px;
+  padding: 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+#author {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+#new-quote {
+  padding: 10px 20px;
+  cursor: pointer;
+}
