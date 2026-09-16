@@ -130,3 +130,21 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+describe("deleteCompleted()", () => {
+  test("Delete all completed tasks", () => {
+    const todos = createMockTodos();
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(2);
+    expect(todos[0]).toEqual({
+      task: "Task 2 description",
+      completed: false,
+    });
+    expect(todos[1]).toEqual({
+      task: "Task 4 description",
+      completed: false,
+    });
+  });
+});
+
