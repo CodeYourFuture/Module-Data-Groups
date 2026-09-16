@@ -10,15 +10,15 @@ import * as Todos from "./todos.mjs";
 // Return a mock ToDo List data with exactly 4 elements.
 function createMockTodos() {
   return [
-    { task: "Task 1 description", completed: true },
-    { task: "Task 2 description", completed: false },
-    { task: "Task 3 description", completed: true },
-    { task: "Task 4 description", completed: false },        
+    { task: "Task 1 description", completed: true, deadline: null },
+    { task: "Task 2 description", completed: false, deadline:null},
+    { task: "Task 3 description", completed: true, deadline: null },
+    { task: "Task 4 description", completed: false, deadline: null },        
   ];
 }
 
 // A mock task to simulate user input
-const theTask = { task: "The Task", completed: false };
+const theTask = { task: "The Task", completed: false, deadline: null };
 
 describe("addTask()", () => {
   test("Add a task to an empty ToDo list", () => {
@@ -127,6 +127,26 @@ describe("toggleCompletedOnTask()", () => {
 
     Todos.toggleCompletedOnTask(todos, -1);
     expect(todos).toEqual(todosBeforeToggle);
+  });
+});
+
+describe("deleteCompleted()", () => {
+  test("Delete all completed tasks", () => {
+    const todos = createMockTodos();
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(2);
+    expect(todos[0]).toEqual({
+      task: "Task 2 description",
+      completed: false,
+      deadline: null
+    });
+    expect(todos[1]).toEqual({
+      task: "Task 4 description",
+      completed: false,
+      deadline: null
+    });
   });
 });
 
