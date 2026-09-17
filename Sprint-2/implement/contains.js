@@ -1,12 +1,16 @@
 // Explanation:
 
-// !Array.isArray(object) checks if the first parameter is an array, the exclamation mark flips the condition result
-// meaning if we pass an object like we are supposed to, the condition will be true instead of false
-// (&&) is used to join two conditions, so both need to be true for true to be returned by the function.
-// object.hasOwnProperty(key) just checks if the key exists in the object.
+// typeof reports "object" for arrays and for null as well as for real objects,
+// so we check those two cases separately and throw for anything that isn't a
+// plain object.
+// Object.hasOwn(object, key) then tells us whether the object has its own
+// property with that name.
 
 function contains(object, key) {
-  return !Array.isArray(object) && object.hasOwnProperty(key);
+  if (typeof object !== "object" || object === null || Array.isArray(object)) {
+    throw new Error("contains requires an object");
+  }
+  return Object.hasOwn(object, key);
 }
 
 module.exports = contains;

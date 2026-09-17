@@ -1,17 +1,28 @@
 // Explanation:
 
-// list.filter(value => typeof value === "number") checks the value type (number, string etc)
-// to remove anything that is not a number
-// numericValues.length === 0 ? -Infinity : Math.max(...numericValues) is a ternary operator expression
-// if the condition (whatever is before the question mark, in this case (numericValues.length === 0)) is true
-// then -Infinity will be returned, if the condition is false Math.max(...numericValues) will be returned
-// Math.Max() finds the largest number in the given parameters
+// First we check the input is an array, and that every element is a number.
+// If either check fails we throw, because findMax can't sensibly compare
+// non-numbers and shouldn't guess.
+// Then we walk the array with a for...of loop, keeping track of the largest
+// number seen so far. Starting from -Infinity means an empty array returns
+// -Infinity, and any real number will be larger than the starting value.
 
+function findMax(elements) {
+  if (!Array.isArray(elements)) {
+    throw new Error("findMax requires an array of numbers");
+  }
 
-function getLargestNumber(list) {
-  const numericValues = list.filter(value => typeof value === "number");
+  let largest = -Infinity;
+  for (const element of elements) {
+    if (typeof element !== "number") {
+      throw new Error("findMax requires an array of numbers");
+    }
+    if (element > largest) {
+      largest = element;
+    }
+  }
 
-  return numericValues.length === 0 ? -Infinity : Math.max(...numericValues);
+  return largest;
 }
 
-module.exports = getLargestNumber;
+module.exports = findMax;

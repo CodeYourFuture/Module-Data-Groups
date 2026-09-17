@@ -1,28 +1,26 @@
-# 🧭 Guide to Week 1 exercises
+# 🧭 Guide to Sprint 1 exercises
 
 This README will guide you through the different sections for this week.
 
 ## Setup
 
-Go to the **root of this repository**. Double check you're there with `pwd`. Also double check with `ls`.
-**If you're in the root you should be able to see the `week-1`, `week-2` and `week-3` directories**
+Make sure your terminal is in the `Sprint-1` directory of this repository.
 
-Run the command `npm install` in the root of this repo.
+Run the command `npm install` to install any dependencies you need.
 
-To run tests in the `week-1` directory you can:
+## Note about separate files
 
-1. Change directory into `week-1`
-2. Run the tests using `npm test`
+This may be the first time you've seen the functions being defined in one file, and the tests in another.
+
+This is common when writing JavaScript. You'll learn more about `exports` and `require` later in the course. For now, things have been set up to work - you shouldn't need to worry about how.
 
 ## Fix
 
 In this section, you'll have a function and some tests. The function isn't working for all the tests - you'll need to:
 
-- run the tests
-- interpret the test feedback
-- fix the tests
-
-To run the tests for the `fix` directory you can `cd` into `week-1` and run `npm test -- fix`.
+- Run the tests - to run the tests for the `fix` directory you can `cd` into `Sprint-1` and run `npm test -- fix`.
+- Interpret the test feedback
+- Fix the function to make it pass the tests
 
 ## 🔨 Implement
 
@@ -33,6 +31,10 @@ Here is a recommended order:
 1. `max.test.js`
 2. `sum.test.js`
 3. `dedupe.test.js`
+4. `mean.test.js`
+5. `describe-median.test.js`
+
+Again, you can run just the test for the `implement` directory if you're in the `Sprint-1` directory by running `npm test -- implement`.
 
 ## 🧹 Refactor
 
@@ -42,4 +44,6 @@ Once you've completed all these tasks, raise a PR with your work so far. Don't w
 
 ## Stretch 💪
 
-Try the more challenging problem from Advent of Code!
+[Advent of Code](https://adventofcode.com/) is an annual challenge of interesting exercises to try. Lots of programmers do these every year for fun.
+
+We've included an exercise in the stretch directory - give it a go!

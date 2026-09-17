@@ -2,37 +2,37 @@
 
 const includes = require("./includes.js");
 
-test("returns index when target is in array", () => {
+test("returns true when target is in array", () => {
   const currentOutput = includes(["a", "b", "c", "d"], "c");
-  const targetOutput = 2;
+  const targetOutput = true;
 
-  expect(currentOutput).toBe(targetOutput);
+  expect(currentOutput).toEqual(targetOutput);
 });
 
-test("returns -1 when target not in array", () => {
+test("returns false when target not in array", () => {
   const currentOutput = includes([1, 2, 3, 4], "a");
-  const targetOutput = -1;
+  const targetOutput = false;
 
-  expect(currentOutput).toBe(targetOutput);
+  expect(currentOutput).toEqual(targetOutput);
 });
 
-test("returns index of first match", () => {
+test("returns true when the target is in array multiple times", () => {
   const currentOutput = includes([1, 2, 2, 3], 2);
-  const targetOutput = 1;
+  const targetOutput = true;
 
-  expect(currentOutput).toBe(targetOutput);
+  expect(currentOutput).toEqual(targetOutput);
 });
 
-test("returns -1 for empty array", () => {
+test("returns false for empty array", () => {
   const currentOutput = includes([]);
-  const targetOutput = -1;
+  const targetOutput = false;
 
-  expect(currentOutput).toBe(targetOutput);
+  expect(currentOutput).toEqual(targetOutput);
 });
 
 test("searches for null", () => {
   const currentOutput = includes(["b", "z", null, "a"], null);
-  const targetOutput = 2;
+  const targetOutput = true;
 
-  expect(currentOutput).toBe(targetOutput);
+  expect(currentOutput).toEqual(targetOutput);
 });

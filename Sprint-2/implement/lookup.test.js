@@ -1,22 +1,5 @@
-// ======= Test suite is provided below... =======
+const createLookup = require("./lookup.js");
 
-const createLookup = require("./lookup");
-
-test("converts a single pair of currency codes", () => {
-  expect(createLookup([["GB", "GBP"]])).toEqual({
-    GB: "GBP",
-  });
-  expect(createLookup([["DE", "EUR"]])).toEqual({
-    DE: "EUR",
-  });
-});
-
-test("converts a multiple pairs of currency codes", () => {
-  expect(createLookup([["GB", "GBP"], ["DE", "EUR"]])).toEqual({
-    GB: "GBP",
-    DE: "EUR",
-  });
-});
 
 /*
 
@@ -49,3 +32,20 @@ It should return:
    'CA': 'CAD'
  }
 */
+
+test("creates a country currency code lookup for a single pair", () => {
+  expect(createLookup([["GB", "GBP"]])).toEqual({ GB: "GBP" });
+});
+
+test("creates a country currency code lookup for multiple codes", () => {
+  expect(
+    createLookup([
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ])
+  ).toEqual({ US: "USD", CA: "CAD" });
+});
+
+test("returns an empty object for an empty array", () => {
+  expect(createLookup([])).toEqual({});
+});

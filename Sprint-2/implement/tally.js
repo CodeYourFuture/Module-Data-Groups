@@ -1,12 +1,24 @@
+// Explanation:
+// Walk the list once, keeping a count for each item in an object. If the item
+// is already a key, add one, otherwise start it at one.
+// A reduce-based answer is also fine, but for...of is what trainees have met
+// in the curriculum at this point.
+
 function tally(list) {
   if (!Array.isArray(list)) {
-    throw new Error("Invalid input: input must be an array");
+    throw new Error("tally requires an array");
   }
 
-  return list.reduce((acc, item) => {
-    acc[item] = (acc[item] || 0) + 1;
-    return acc;
-  }, {});
+  const counts = {};
+  for (const item of list) {
+    if (item in counts) {
+      counts[item] += 1;
+    } else {
+      counts[item] = 1;
+    }
+  }
+
+  return counts;
 }
 
 module.exports = tally;

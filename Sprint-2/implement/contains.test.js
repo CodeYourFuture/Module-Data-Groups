@@ -1,12 +1,17 @@
+const contains = require("./contains.js");
+
 /*
 Implement a function called contains that checks an object contains a
 particular property
 
-E.g. contains({ a : 1, b: 2 },'a') // returns true
+E.g. contains({a: 1, b: 2}, 'a') // returns true
 as the object contains a key of 'a'
 
-E.g. contains({a : 1, b : 2},'c') // returns false
+E.g. contains({a: 1, b: 2}, 'c') // returns false
 as the object doesn't contains a key of 'c'
+
+E.g. contains([1, 2, 3], 'a') throws Error("contains requires an object")
+as an array isn't an object
 */
 
 // Acceptance criteria:
@@ -27,26 +32,48 @@ as the object doesn't contains a key of 'c'
 // When passed to contains with a non-existent property name
 // Then it should return false
 
-// Given invalid parameters like arrays
+// Given a value that isn't an object - an array, a string, a number,
+// null, or no argument at all
 // When passed to contains
-// Then it should return false or throw an error
+// Then it should throw Error("contains requires an object")
+// (careful: typeof [] and typeof null are both "object")
 
-const contains = require("./contains.js");
+test("contains on empty object returns false", () => {
+  expect(contains({}, "a")).toEqual(false);
+});
 
-describe("contains", () => {
-  it("returns true when the object contains the key specified", () => {
-    expect(contains({ a: 1, b: 2 }, "a")).toBeTruthy();
-  });
+test("returns true when the object has the property", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toEqual(true);
+});
 
-  it("returns false when the object does not contain the key specified", () => {
-    expect(contains({ a: 1, b: 2 }, "c")).toBeFalsy();
-  });
+test("returns false when the object does not have the property", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toEqual(false);
+});
 
-  it("returns false when the object is empty", () => {
-    expect(contains({}, "c")).toBeFalsy();
-  });
+test("throws when given an array", () => {
+  expect(() => contains([1, 2, 3], "a")).toThrow(
+    new Error("contains requires an object")
+  );
+});
 
-  it("returns false when an array is used rather than an object", () => {
-    expect(contains(["c"], "c")).toBeFalsy();
-  });
+test("throws when given a string", () => {
+  expect(() => contains("hello", "a")).toThrow(
+    new Error("contains requires an object")
+  );
+});
+
+test("throws when given a number", () => {
+  expect(() => contains(42, "a")).toThrow(
+    new Error("contains requires an object")
+  );
+});
+
+test("throws when given null", () => {
+  expect(() => contains(null, "a")).toThrow(
+    new Error("contains requires an object")
+  );
+});
+
+test("throws when called with no argument", () => {
+  expect(() => contains()).toThrow(new Error("contains requires an object"));
 });
