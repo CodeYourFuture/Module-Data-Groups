@@ -1,21 +1,5 @@
 // DO NOT EDIT BELOW HERE
-
-// pickFromArray is a function which will return one item, at
-// random, from the given array.
 //
-// Parameters
-// ----------
-// choices: an array of items to pick from.
-//
-// Returns
-// -------
-// One item at random from the given array.
-//
-// Examples of use
-// ---------------
-// pickFromArray(['a','b','c','d'])     // maybe returns 'c'
-
-// You don't need to change this function
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -491,3 +475,20 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+
+// ----------------------------------
+// YOUR CODE GOES BELOW THE ARRAY
+// ----------------------------------
+
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+
+  document.getElementById("quote").textContent = randomQuote.quote;
+  document.getElementById("author").textContent = randomQuote.author;
+}
+
+// Show a random quote when the page loads
+showRandomQuote();
+
+// Show another random quote when button is clicked
+document.getElementById("new-quote").addEventListener("click", showRandomQuote);

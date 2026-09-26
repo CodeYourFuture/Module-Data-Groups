@@ -1,1 +1,56 @@
-/** Write your CSS in here **/
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Arial, sans-serif;
+  background-color: #e6f2ff;
+}
+
+/* Quote box */
+.quote-container {
+  width: 600px;
+  padding: 40px;
+
+  text-align: center;
+
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Quote text */
+#quote {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Author */
+#author {
+  font-size: 20px;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+/* New quote button */
+#new-quote {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+
+  background-color: #007bff;
+  color: white;
+
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#new-quote:hover {
+  background-color: #0056b3;
+}
