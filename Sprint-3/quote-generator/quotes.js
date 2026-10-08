@@ -1,14 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
+const showNewQuote = () => {
   const {quote, author} = pickFromArray(quotes);
   document.getElementById("quote").innerText = quote;
   document.getElementById("author").innerText = author;
-});
+};
 
-document.querySelector("button").addEventListener("click", () => {
-  const {quote, author} = pickFromArray(quotes);
-  document.getElementById("quote").innerText = quote;
-  document.getElementById("author").innerText = author;
-});
+document.addEventListener("DOMContentLoaded", () => { showNewQuote(); });
+
+document.querySelector("button").addEventListener("click", () => { showNewQuote(); });
 
 // DO NOT EDIT BELOW HERE
 
