@@ -1,3 +1,15 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const {quote, author} = pickFromArray(quotes);
+  document.getElementById("quote").innerText = quote;
+  document.getElementById("author").innerText = author;
+});
+
+document.querySelector("button").addEventListener("click", () => {
+  const {quote, author} = pickFromArray(quotes);
+  document.getElementById("quote").innerText = quote;
+  document.getElementById("author").innerText = author;
+});
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
