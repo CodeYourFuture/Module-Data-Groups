@@ -4,9 +4,9 @@ const showNewQuote = () => {
   document.getElementById("author").innerText = author;
 };
 
-document.addEventListener("DOMContentLoaded", () => { showNewQuote(); });
+document.addEventListener("DOMContentLoaded", showNewQuote);
 
-document.querySelector("button").addEventListener("click", () => { showNewQuote(); });
+document.querySelector("button").addEventListener("click", showNewQuote);
 
 // DO NOT EDIT BELOW HERE
 
