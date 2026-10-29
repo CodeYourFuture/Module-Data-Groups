@@ -39,7 +39,7 @@ test("given an array with with value that isn't a number, throws error", () => {
 });
 
 test("given something that isn't an array, throws error", () => {
-  expect(() =>
-    findMax("Hello").toThrow(new Error("findMax requires an array of numbers"))
+  expect(() => findMax("Hello")).toThrow(
+    new Error("findMax requires an array of numbers")
   );
 });
