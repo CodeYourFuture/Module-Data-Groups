@@ -19,7 +19,7 @@ test("given an array with one number, return that number", () => {
 });
 
 test("given an array with negative numbers, correctly return sum of numbers", () => {
-  expect(sum[(-10, -45, -6, -74)]).toEqual(-135);
+  expect(sum([-10, -45, -6, -74])).toEqual(-135);
 });
 
 test("given an array with decimal numbers, correctly return total sum", () => {
@@ -28,14 +28,12 @@ test("given an array with decimal numbers, correctly return total sum", () => {
 
 test("given an array with some values that aren't numbers, throw an Error", () => {
   expect(() => {
-    sum([10, 8, 32, "hello", 2, 53, 32]).toThrow(
-      new Error("sum requires an array of numbers")
-    );
-  });
+    sum([10, 8, 32, "hello", 2, 53, 32]);
+  }).toThrow(new Error("sum requires an array of numbers"));
 });
 
 test("given something that isn't an array, throw an Error", () => {
   expect(() => {
-    sum("hello").toThrow(new Error("sum requires an array of numbers"));
-  });
+    sum("hello");
+  }).toThrow(new Error("sum requires an array of numbers"));
 });
