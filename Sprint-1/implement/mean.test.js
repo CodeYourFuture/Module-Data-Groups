@@ -19,32 +19,38 @@ const calculateMean = require("./mean.js");
 
 // Acceptance criteria:
 
-// Given an array of numbers
-// When passed to calculateMean
-// Then it should return their mean
-// Delete this test.todo and replace it with a test.
-test.todo("given [1, 2, 6], returns 3");
+test("given [1, 2, 6], returns 3", () => {
+  expect(calculateMean([1, 2, 6])).toEqual(3);
+});
 
-// Given an array with a single number
-// When passed to calculateMean
-// Then it should return that number
+test("given array with single number, return that number", () => {
+  expect(calculateMean([5])).toEqual(5);
+});
 
-// Given an array containing negative or decimal numbers
-// When passed to calculateMean
-// Then it should return the correct mean
+test("given an array with positive and negative numbers, return the correct mean", () => {
+  expect(calculateMean([5, 8, -2, 7, -9])).toBeCloseTo(1.8);
+});
 
-// Given an empty array
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires a non-empty array")
+test("given an empty array, throw an error", () => {
+  expect(() => calculateMean([])).toThrow(
+    "calculateMean requires a non-empty array"
+  );
+});
 
-// Given a value that isn't an array, e.g. "banana", 42, null or {}
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires an array of numbers")
+test("given something that isn't an array, throw an error", () => {
+  expect(() => calculateMean("banana")).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+});
 
-// Given no argument at all
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires an array of numbers")
+test("given no argument, throw an error", () => {
+  expect(() => calculateMean()).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+});
 
-// Given an array containing a non-number value, e.g. [1, "2", 3]
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires an array of numbers")
+test("given an array with non-number values, throw an error", () => {
+  expect(() => calculateMean([1, 5, 9, "hello", 4])).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+});
