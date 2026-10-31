@@ -5,7 +5,7 @@
 // Hint: Please consider scenarios when 'list' isn't an array, is empty,
 // or contains values that aren't numbers (the function is expected to throw - see the tests).
 
-function calculateMedian(list) {
+function calculateMedian(list=0) {
   if (list === null) {
     throw new Error("calculateMedian requires an array of numbers");
   }
