@@ -22,7 +22,7 @@ function calculateMedian(list) {
     }
   }
   const middleIndex = Math.floor(list.length / 2);
-  const sortedList = list.sort((a, b) => a - b);
+  const sortedList = [...list].sort((a, b) => a - b);
   if (list.length % 2 === 0) {
     const median = (sortedList[middleIndex] + sortedList[middleIndex - 1]) / 2;
     return median;
