@@ -13,6 +13,10 @@ function calculateMedian(list) {
 
   if (typeof list === "string"){
     throw new Error("calculateMedian requires an array of numbers");
+  };
+
+  if (typeof list === "number"){
+    throw new Error("calculateMedian requires an array of numbers");
   }
 
   const sortedList = list.toSorted((a,b) => a - b);
