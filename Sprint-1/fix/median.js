@@ -15,10 +15,7 @@ function calculateMedian(list) {
     return (sortedList[middleIndex -1] + sortedList[middleIndex])/2;
   }
 
-  const median = sortedList.splice(middleIndex, 1)[0];
-  return median;
+  return sortedList[middleIndex];
 }
-
-calculateMedian([110, 20, 0]);
 
 module.exports = calculateMedian;
