@@ -7,8 +7,13 @@
 
 function calculateMedian(list) {
   const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
+  if (list.length % 2 === 0) {
+    median = (list[middleIndex] + list[middleIndex - 1]) / 2;
+    return median;
+  } else {
+    const median = list.splice(middleIndex, 1)[0];
+    return median;
+  }
 }
 
 module.exports = calculateMedian;
