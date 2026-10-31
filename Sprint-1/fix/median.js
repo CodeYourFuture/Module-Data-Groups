@@ -27,7 +27,7 @@ function calculateMedian(list=0) {
   };
 
   for (item of list){
-    if (typeof item === "string" || item === null){
+    if (typeof item === "string" || item === null || item === undefined){
       throw new Error("calculateMedian requires an array of numbers");
     }
   }
