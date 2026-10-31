@@ -14,6 +14,14 @@ function calculateMedian(list) {
   if (!Array.isArray(list)) {
     throw new Error("calculateMedian requires an array of numbers");
   }
+  if (!list) {
+    throw new Error("calculateMedian requires an array of numbers");
+  }
+  for (const item of list) {
+    if (typeof item !== "number") {
+      throw new Error("calculateMedian requires an array of numbers");
+    }
+  }
   const sortedList = list.sort((a, b) => a - b);
   if (list.length % 2 === 0) {
     const median = (sortedList[middleIndex] + sortedList[middleIndex - 1]) / 2;
