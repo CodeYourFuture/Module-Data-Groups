@@ -7,6 +7,10 @@
 
 function calculateMedian(list) {
 
+  if (list.length === 0){
+    throw new Error("calculateMedian requires a non-empty array");
+  }
+
   const sortedList = list.toSorted((a,b) => a - b);
 
   const middleIndex = Math.floor(list.length / 2);
