@@ -9,6 +9,10 @@ function calculateMedian(list) {
 
   if (list.length === 0){
     throw new Error("calculateMedian requires a non-empty array");
+  };
+
+  if (typeof list === "string"){
+    throw new Error("calculateMedian requires an array of numbers");
   }
 
   const sortedList = list.toSorted((a,b) => a - b);
