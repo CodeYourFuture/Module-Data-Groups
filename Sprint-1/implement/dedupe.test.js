@@ -31,3 +31,13 @@ test("when passed an array with no duplicate", () => {
 // When passed to the dedupe function
 // Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
+test("when passed an array of  duplicate numbers", () => {
+  expect(dedupe([1, 1, 2])).toEqual([1, 2]);
+  expect(dedupe([1, 1, 2, 2, 2, 3])).toEqual([1, 2, 3]);
+  expect(dedupe([1, 1, 1, 3, 3, 4, 4])).toEqual([1, 3, 4]);
+});
+
+test("when passed an array of duplicate characters", () => {
+  expect(dedupe(["a", "a", "b", "b", "b", "c"])).toEqual(["a", "b", "c"]);
+  expect(dedupe(["c", "c", "e", "e", "z", "z"])).toEqual(["c", "e", "z"]);
+});
