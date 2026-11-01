@@ -1,10 +1,9 @@
 function findMax(elements) {
-  // let max = elements[0];
-  //for (let num of elements) {
-  //if (max < num) {
-  // max = num;
-  //}
-  //}
+  for (let num of elements) {
+    if (typeof num !== "number") {
+      throw new Error("findMax requires an array of numbers");
+    }
+  }
   return Math.max(...elements);
 }
 
