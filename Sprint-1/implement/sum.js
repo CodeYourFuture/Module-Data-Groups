@@ -1,4 +1,7 @@
 function sum(elements) {
+  if (!Array.isArray(elements)) {
+    throw new Error("sum requires an array of numbers");
+  }
   for (const num of elements) {
     if (typeof num !== "number") {
       throw new Error("sum requires an array of numbers");
