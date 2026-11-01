@@ -23,3 +23,8 @@ test("removes duplicates with mixed types", () => {
   expect(dedupe([1, "1", 2, "2", 1, "2"])).toEqual([1, "1", 2, "2"]);
 });
 
+test("removes duplicates across multiple cases", () => {
+  expect(dedupe([2, 1, 2, 3, 1])).toEqual([2, 1, 3]);
+  expect(dedupe(["a", "b", "a"])).toEqual(["a", "b"]);
+  expect(dedupe([true, true, false])).toEqual([true, false]);
+});
