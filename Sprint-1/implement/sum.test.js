@@ -28,6 +28,11 @@ test("should return the number when given one number", () => {
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
+test("should return the number when given negative numbers ", () => {
+  expect(sum([10, -4, 5, 7])).toEqual(18);
+  expect(sum([-3, -4, -6, -9])).toEqual(-22);
+  expect(sum([7, -9, 2, 1])).toEqual(1);
+});
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
