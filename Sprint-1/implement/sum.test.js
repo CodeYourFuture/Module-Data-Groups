@@ -37,10 +37,20 @@ test("should return the number when given negative numbers ", () => {
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+test("should return the number when given decimal number", () => {
+  expect(sum([2.5, 3.4, 5.7, 2])).toEqual(13.6);
+  expect(sum([1, 1.5, 2.5, 6.3])).toEqual(11.3);
+  expect(sum([2.3, 2.7, 7.4, 5.5])).toEqual(17.9);
+});
 
 // Given an array containing a value that isn't a number
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
+test("should throw an error when argument is passed that is non number", () => {
+  expect(() => sum([1, 2, "hi", 3, "hey"])).toThrow(
+    "sum requires an array of numbers"
+  );
+});
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
