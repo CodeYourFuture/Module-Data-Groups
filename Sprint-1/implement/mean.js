@@ -1,9 +1,12 @@
 function calculateMean(list) {
-  let total = 0;
-  for (let num of list) {
-    total += num;
+  if (list.length === 0) {
+    throw new Error("calculateMean requires a non-empty array");
+    let total = 0;
+    for (let num of list) {
+      total += num;
+    }
+    return (mean = total / list.length);
   }
-  return (mean = total / list.length);
 }
 
 module.exports = calculateMean;
