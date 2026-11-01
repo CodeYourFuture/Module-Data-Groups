@@ -40,13 +40,18 @@ test("return the largest number when given negative and posetive numbers", () =>
 // When passed to the max function
 // Then it should return the closest one to zero
 test("returns closest one to zero when given array of negative numbers", () => {
-  expect(findMax([-1, -5, -2, 10])).toEqual(-1);
-  expect(findMax([-5 - 10, -100, -20])).toEqual(-5);
+  expect(findMax([-1, -5, -2, -10])).toEqual(-1);
+  expect(findMax([-5, -10, -100, -20])).toEqual(-5);
 });
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("return the largest decimal number when given decimal numbers in an array", () => {
+  expect(findMax([0.01, 0.02, 2.5, 2.9])).toEqual(2.9);
+  expect(findMax([3.5, 2.5, 2.9])).toEqual(3.5);
+  expect(findMax([10.1, 9, 3, 11])).toEqual(11);
+});
 
 // Given an array containing a value that isn't a number
 // When passed to the max function
