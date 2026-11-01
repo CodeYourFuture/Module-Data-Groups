@@ -19,3 +19,7 @@ test("returns a copy when there are no duplicates", () => {
   expect(result).not.toBe(original);
 });
 
+test("removes duplicates with mixed types", () => {
+  expect(dedupe([1, "1", 2, "2", 1, "2"])).toEqual([1, "1", 2, "2"]);
+});
+
