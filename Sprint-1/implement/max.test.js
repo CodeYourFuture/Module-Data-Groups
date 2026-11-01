@@ -88,3 +88,9 @@ test("return error when given an array containg non number value", () => {
 test("return error when given non array values", () => {
   expect(() => findMax("hey")).toThrow("findMax requires an array of numbers");
 });
+test("return error when given non array values that is number", () => {
+  expect(() => findMax(42)).toThrow("findMax requires an array of numbers");
+});
+test("return error when given no argument", () => {
+  expect(() => findMax()).toThrow("findMax requires an array of numbers");
+});
