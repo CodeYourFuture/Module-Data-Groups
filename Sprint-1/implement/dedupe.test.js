@@ -16,5 +16,6 @@ test("returns a copy when there are no duplicates", () => {
   const original = [1, 2, 3, 4];
   const result = dedupe(original);
   expect(result).toEqual(original);
+  expect(result).not.toBe(original);
 });
 
