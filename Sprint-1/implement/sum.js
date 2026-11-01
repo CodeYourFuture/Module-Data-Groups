@@ -2,7 +2,7 @@ function sum(list) {
   if (!Array.isArray(list)) {
     throw new Error("sum requires an array of numbers");
   }
-  if (!list.every((item) => typeof item === "number")) {
+  if (!list.every(Number.isFinite)) {
     throw new Error("sum requires an array of numbers");
   }
   let total = 0;
