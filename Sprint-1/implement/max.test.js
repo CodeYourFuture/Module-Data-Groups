@@ -31,10 +31,18 @@ test("return the number when given one number", () => {
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("return the largest number when given negative and posetive numbers", () => {
+  expect(findMax([10, -10, -3, 4])).toEqual(10);
+  expect(findMax([-10, 2, -5, 6, 9])).toEqual(9);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("returns closest one to zero when given array of negative numbers", () => {
+  expect(findMax([-1, -5, -2, 10])).toEqual(-1);
+  expect(findMax([-5 - 10, -100, -20])).toEqual(-5);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
