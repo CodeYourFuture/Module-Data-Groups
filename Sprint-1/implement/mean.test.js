@@ -24,6 +24,9 @@ const calculateMean = require("./mean.js");
 // Then it should return their mean
 // Delete this test.todo and replace it with a test.
 test.todo("given [1, 2, 6], returns 3");
+test("returns calculated mean when given array of numbers", () => {
+  expect(calculateMean([1, 2, 6])).toEqual(3);
+});
 
 // Given an array with a single number
 // When passed to calculateMean
