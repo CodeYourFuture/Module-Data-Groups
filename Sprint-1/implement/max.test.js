@@ -56,6 +56,11 @@ test("return the largest decimal number when given decimal numbers in an array",
 // Given an array containing a value that isn't a number
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+test("return error when given an array containg non number value", () => {
+  expect(() => findMax(["a", "b", "c"])).toThrow(
+    "findMax requaires an array of numbers"
+  );
+});
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the max function
