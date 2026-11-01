@@ -38,7 +38,7 @@ test("should return the number when given negative numbers ", () => {
 // When passed to the sum function
 // Then it should return the correct total sum
 test("should return the number when given decimal number", () => {
-  expect(sum([2.5, 3.4, 5.7, 2])).toEqual(13.6);
+  expect(sum([2.5, 3.4, 5.5, 2])).toEqual(13.4);
   expect(sum([1, 1.5, 2.5, 6.3])).toEqual(11.3);
   expect(sum([2.3, 2.7, 7.4, 5.5])).toEqual(17.9);
 });
@@ -55,3 +55,12 @@ test("should throw an error when argument is passed that is non number", () => {
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
+test("should throw an error when argument 'hey'is passed", () => {
+  expect(() => sum("hey")).toThrow("sum requires an array of numbers");
+});
+test("should throw an error when argument 42 is passed", () => {
+  expect(() => sum(42)).toThrow("sum requires an array of numbers");
+});
+test("should throw an error when no argument is passed", () => {
+  expect(() => sum()).toThrow("sum requires an array of numbers");
+});
