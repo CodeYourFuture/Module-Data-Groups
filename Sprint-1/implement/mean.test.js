@@ -39,14 +39,20 @@ test("returns calculated mean when given array of numbers", () => {
 // Given an array containing negative or decimal numbers
 // When passed to calculateMean
 // Then it should return the correct mean
-test("returns calculated mean when given array of +ve and -ve numbers", () => {
+test("returns calculated mean when given array of +ve and -ve numbers and deciamls are given", () => {
   expect(calculateMean([5, -2, -3, 4])).toEqual(1);
-  expect(calculateMean([-2, -1, 5])).toEqual(0.66);
+  expect(calculateMean([-2, -1, 5])).toEqual(0.6666666666666666);
+  expect(calculateMean([1.5, 2.4, 5.6])).toEqual(3.1666666666666665);
 });
 
 // Given an empty array
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires a non-empty array")
+test("returns an error when given an empty array", () => {
+  expect(() => calculateMean([])).toThrow(
+    "calculateMean requires a non-empty array"
+  );
+});
 
 // Given a value that isn't an array, e.g. "banana", 42, null or {}
 // When passed to calculateMean
