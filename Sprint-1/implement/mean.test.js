@@ -72,6 +72,11 @@ test("throws an error when given a null", () => {
     "calculateMean requires an array of numbers"
   );
 });
+test("throws an error when given a {}", () => {
+  expect(() => calculateMean({})).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+});
 // Given no argument at all
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
