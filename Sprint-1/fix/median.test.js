@@ -60,43 +60,43 @@ describe("calculateMedian", () => {
     );
   });
 
-  //   // Input that isn't an array should throw
-  //   it("throws when given a string", () => {
-  //     expect(() => calculateMedian("banana")).toThrow(
-  //       new Error("calculateMedian requires an array of numbers")
-  //     );
-  //   });
+  // Input that isn't an array should throw
+  it("throws when given a string", () => {
+    expect(() => calculateMedian("banana")).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 
-  //   it("throws when given a number", () => {
-  //     expect(() => calculateMedian(123)).toThrow(
-  //       new Error("calculateMedian requires an array of numbers")
-  //     );
-  //   });
+  it("throws when given a number", () => {
+    expect(() => calculateMedian(123)).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 
-  //   it("throws when given null", () => {
-  //     expect(() => calculateMedian(null)).toThrow(
-  //       new Error("calculateMedian requires an array of numbers")
-  //     );
-  //   });
+  it("throws when given null", () => {
+    expect(() => calculateMedian(null)).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 
-  //   it("throws when given an object", () => {
-  //     expect(() => calculateMedian({})).toThrow(
-  //       new Error("calculateMedian requires an array of numbers")
-  //     );
-  //   });
+  it("throws when given an object", () => {
+    expect(() => calculateMedian({})).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 
-  //   it("throws when called with no argument", () => {
-  //     expect(() => calculateMedian()).toThrow(
-  //       new Error("calculateMedian requires an array of numbers")
-  //     );
-  //   });
+  it("throws when called with no argument", () => {
+    expect(() => calculateMedian()).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 
-  //   // Arrays containing any non-number value should throw, rather than filtering them out
-  //   it("throws for an array of strings", () => {
-  //     expect(() => calculateMedian(["ten", "twenty", "thirty"])).toThrow(
-  //       new Error("calculateMedian requires an array of numbers")
-  //     );
-  //   });
+  // Arrays containing any non-number value should throw, rather than filtering them out
+  it("throws for an array of strings", () => {
+    expect(() => calculateMedian(["ten", "twenty", "thirty"])).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 
   //   it("throws for an array mixing numbers and strings", () => {
   //     expect(() => calculateMedian([1, "2", 3, "4", 5])).toThrow(
