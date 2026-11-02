@@ -53,12 +53,12 @@ describe("calculateMedian", () => {
     expect(list).toEqual([3, 1, 2]);
   });
 
-  //   // There is no median of an empty array, so calculateMedian should throw
-  //   it("throws when given an empty array", () => {
-  //     expect(() => calculateMedian([])).toThrow(
-  //       new Error("calculateMedian requires a non-empty array")
-  //     );
-  //   });
+  // There is no median of an empty array, so calculateMedian should throw
+  it("throws when given an empty array", () => {
+    expect(() => calculateMedian([])).toThrow(
+      new Error("calculateMedian requires a non-empty array")
+    );
+  });
 
   //   // Input that isn't an array should throw
   //   it("throws when given a string", () => {
