@@ -14,13 +14,14 @@
 // module.exports = calculateMedian;
 
 function calculateMedian(list) {
-  if (list.length % 2 === 1) {
-    const middleIndex = Math.floor(list.length / 2);
-    return list[middleIndex];
+  let sortList = list.sort((a, b) => a - b);
+  if (sortList.length % 2 === 1) {
+    const middleIndex = Math.floor(sortList.length / 2);
+    return sortList[middleIndex];
   }
-  const rightMiddleIndex = Math.floor(list.length / 2 - 1);
-  const leftMiddleIndex = Math.floor(list.length / 2);
-  return (list[rightMiddleIndex] + list[leftMiddleIndex]) / 2;
+  const rightMiddleIndex = Math.floor(sortList.length / 2 - 1);
+  const leftMiddleIndex = Math.floor(sortList.length / 2);
+  return (sortList[rightMiddleIndex] + sortList[leftMiddleIndex]) / 2;
 }
 
 module.exports = calculateMedian;
