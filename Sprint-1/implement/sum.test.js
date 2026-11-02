@@ -10,27 +10,73 @@ const sum = require("./sum.js");
 
 // Acceptance Criteria:
 
+
+describe("sum", () => {
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0")
+
+it("given an empty array, returns 0", () => {
+    expect(sum([])).toEqual(0);
+  });
 
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
 
+it("given an array with just one number, returns that number", () => {
+    expect(sum([42])).toEqual(42);
+  });
+
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
+
+it("given an array containing negative numbers, returns the correct total sum", () => {
+    expect(sum([10, -20, 30])).toEqual(20);
+  });
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
 
-// Given an array containing a value that isn't a number
+it("given an array with decimal/float numbers, returns the correct total sum", () => {
+    expect(sum([1.5, 2.5, 3.0])).toEqual(7);
+  });
+
+  // Given an array containing a value that isn't a number
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
+
+it("given an array containing a value that isn't a number, throws an error", () => {
+    expect(() => sum(["hey", 10, "hi", 60, 10])).toThrow(
+      new Error("sum requires an array of numbers")
+    );
+  });
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
+
+it("given something that isn't an array at all, throws an error", () => {
+    expect(() => sum("hey")).toThrow(
+      new Error("sum requires an array of numbers")
+    );
+    expect(() => sum(42)).toThrow(
+      new Error("sum requires an array of numbers")
+    );
+    expect(() => sum()).toThrow(
+      new Error("sum requires an array of numbers")
+    );
+})
+})
+
+
+
+
+
+
+
+
+
+
