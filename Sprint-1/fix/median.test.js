@@ -43,15 +43,15 @@ describe("calculateMedian", () => {
     expect(calculateMedian([110, 20, 0])).toEqual(20);
   });
 
-  //   it("returns the correct median for unsorted array [6, -2, 2, 12, 14]", () => {
-  //     expect(calculateMedian([6, -2, 2, 12, 14])).toEqual(6);
-  //   });
+  it("returns the correct median for unsorted array [6, -2, 2, 12, 14]", () => {
+    expect(calculateMedian([6, -2, 2, 12, 14])).toEqual(6);
+  });
 
-  //   it("doesn't modify the input array [3, 1, 2]", () => {
-  //     const list = [3, 1, 2];
-  //     calculateMedian(list);
-  //     expect(list).toEqual([3, 1, 2]);
-  //   });
+  it("doesn't modify the input array [3, 1, 2]", () => {
+    const list = [3, 1, 2];
+    calculateMedian(list);
+    expect(list).toEqual([3, 1, 2]);
+  });
 
   //   // There is no median of an empty array, so calculateMedian should throw
   //   it("throws when given an empty array", () => {
