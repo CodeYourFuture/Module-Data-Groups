@@ -23,25 +23,25 @@ describe("calculateMedian", () => {
     expect(calculateMedian([1, 2, 3, 4, 5, 6])).toEqual(3.5);
   });
 
-  // it("returns the correct median for unsorted array [3, 1, 2]", () => {
-  //   expect(calculateMedian([3, 1, 2])).toEqual(2);
-  // });
+  it("returns the correct median for unsorted array [3, 1, 2]", () => {
+    expect(calculateMedian([3, 1, 2])).toEqual(2);
+  });
 
-  // it("returns the correct median for unsorted array [5, 1, 3, 4, 2]", () => {
-  //   expect(calculateMedian([5, 1, 3, 4, 2])).toEqual(3);
-  // });
+  it("returns the correct median for unsorted array [5, 1, 3, 4, 2]", () => {
+    expect(calculateMedian([5, 1, 3, 4, 2])).toEqual(3);
+  });
 
-  //   it("returns the correct median for unsorted array [4, 2, 1, 3]", () => {
-  //     expect(calculateMedian([4, 2, 1, 3])).toEqual(2.5);
-  //   });
+  it("returns the correct median for unsorted array [4, 2, 1, 3]", () => {
+    expect(calculateMedian([4, 2, 1, 3])).toEqual(2.5);
+  });
 
-  //   it("returns the correct median for unsorted array [6, 1, 5, 3, 2, 4]", () => {
-  //     expect(calculateMedian([6, 1, 5, 3, 2, 4])).toEqual(3.5);
-  //   });
+  it("returns the correct median for unsorted array [6, 1, 5, 3, 2, 4]", () => {
+    expect(calculateMedian([6, 1, 5, 3, 2, 4])).toEqual(3.5);
+  });
 
-  //   it("returns the correct median for unsorted array [110, 20, 0]", () => {
-  //     expect(calculateMedian([110, 20, 0])).toEqual(20);
-  //   });
+  it("returns the correct median for unsorted array [110, 20, 0]", () => {
+    expect(calculateMedian([110, 20, 0])).toEqual(20);
+  });
 
   //   it("returns the correct median for unsorted array [6, -2, 2, 12, 14]", () => {
   //     expect(calculateMedian([6, -2, 2, 12, 14])).toEqual(6);
