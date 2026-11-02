@@ -47,19 +47,44 @@ it("given an array containing negative or decimal numbers, returns the correct m
     expect(calculateMean([10, -2, 6])).toEqual(4);
     expect(calculateMean([1.5, 2.5])).toEqual(2);
   });
+
+// Given an empty array
+// When passed to calculateMean
+// Then it should throw Error("calculateMean requires a non-empty array")
+
+it("given an empty array, throws the correct error", () => {
+    expect(() => calculateMean([])).toThrow(
+      new Error("calculateMean requires a non-empty array")
+    );
+  });
+
+// Given a value that isn't an array, e.g. "banana", 42, null or {}
+// When passed to calculateMean
+// Then it should throw Error("calculateMean requires an array of numbers")
+
+it("given a value that isn't an array (string, number, null, object), throws the correct error", () => {
+    expect(() => calculateMean("banana")).toThrow(
+      new Error("calculateMean requires an array of numbers")
+    );
+    expect(() => calculateMean(42)).toThrow(
+      new Error("calculateMean requires an array of numbers")
+    );
+    expect(() => calculateMean(null)).toThrow(
+      new Error("calculateMean requires an array of numbers")
+    );
+    expect(() => calculateMean({})).toThrow(
+      new Error("calculateMean requires an array of numbers")
+    );
+  });
 })
 
 
 
 
 
-// Given an empty array
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires a non-empty array")
 
-// Given a value that isn't an array, e.g. "banana", 42, null or {}
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires an array of numbers")
+
+
 
 // Given no argument at all
 // When passed to calculateMean
