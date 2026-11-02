@@ -30,11 +30,17 @@ describe("calculateMean", () => {
   it("given [1, 2, 6], returns 3", () => {
     expect(calculateMean([1, 2, 6])).toEqual(3);
   });
-})
 
 // Given an array with a single number
 // When passed to calculateMean
 // Then it should return that number
+
+it("given an array with a single number, returns that number", () => {
+    expect(calculateMean([10])).toEqual(10);
+  });
+})
+
+
 
 // Given an array containing negative or decimal numbers
 // When passed to calculateMean
