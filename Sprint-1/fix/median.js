@@ -14,7 +14,11 @@
 // module.exports = calculateMedian;
 
 function calculateMedian(list) {
-  if (list.length === 0) {
+  if (!Array.isArray(list)) {
+    throw new Error("calculateMedian requires an array of numbers");
+  } else if (list.some((item) => typeof item !== "number")) {
+    throw new Error("calculateMedian requires an array of numbers");
+  } else if (list.length === 0) {
     throw new Error("calculateMedian requires a non-empty array");
   }
   const copyList = Array.from(list);
