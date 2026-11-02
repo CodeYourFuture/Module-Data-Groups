@@ -42,7 +42,7 @@ describe("calculateMean", () => {
   // Then it should return the correct mean
 
   it("given an array containing negative or decimal numbers, returns the correct mean", () => {
-    expect(calculateMean([10, -2, 6])).toEqual(4);
+    expect(calculateMean([6, -2, 8])).toEqual(4); // 6 + (-2) + 8 = 12 / 3 = 4
     expect(calculateMean([1.5, 2.5])).toEqual(2);
   });
 
