@@ -98,21 +98,21 @@ describe("calculateMedian", () => {
     );
   });
 
-  //   it("throws for an array mixing numbers and strings", () => {
-  //     expect(() => calculateMedian([1, "2", 3, "4", 5])).toThrow(
-  //       new Error("calculateMedian requires an array of numbers")
-  //     );
-  //   });
+  it("throws for an array mixing numbers and strings", () => {
+    expect(() => calculateMedian([1, "2", 3, "4", 5])).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 
-  //   it("throws for an array containing null", () => {
-  //     expect(() => calculateMedian([1, 2, null, 4])).toThrow(
-  //       new Error("calculateMedian requires an array of numbers")
-  //     );
-  //   });
+  it("throws for an array containing null", () => {
+    expect(() => calculateMedian([1, 2, null, 4])).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 
-  //   it("throws for an array containing undefined", () => {
-  //     expect(() => calculateMedian([3, 1, undefined, 2])).toThrow(
-  //       new Error("calculateMedian requires an array of numbers")
-  //     );
-  //   });
+  it("throws for an array containing undefined", () => {
+    expect(() => calculateMedian([3, 1, undefined, 2])).toThrow(
+      new Error("calculateMedian requires an array of numbers")
+    );
+  });
 });
