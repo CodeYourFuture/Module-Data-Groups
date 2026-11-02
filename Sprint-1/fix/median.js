@@ -14,7 +14,8 @@
 // module.exports = calculateMedian;
 
 function calculateMedian(list) {
-  let sortList = list.sort((a, b) => a - b);
+  const copyList = Array.from(list);
+  let sortList = copyList.sort((a, b) => a - b);
   if (sortList.length % 2 === 1) {
     const middleIndex = Math.floor(sortList.length / 2);
     return sortList[middleIndex];
