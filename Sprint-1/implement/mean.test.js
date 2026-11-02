@@ -38,13 +38,20 @@ describe("calculateMean", () => {
 it("given an array with a single number, returns that number", () => {
     expect(calculateMean([10])).toEqual(10);
   });
-})
-
-
 
 // Given an array containing negative or decimal numbers
 // When passed to calculateMean
 // Then it should return the correct mean
+
+it("given an array containing negative or decimal numbers, returns the correct mean", () => {
+    expect(calculateMean([10, -2, 6])).toEqual(4);
+    expect(calculateMean([1.5, 2.5])).toEqual(2);
+  });
+})
+
+
+
+
 
 // Given an empty array
 // When passed to calculateMean
