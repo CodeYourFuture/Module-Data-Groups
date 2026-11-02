@@ -27,6 +27,11 @@ describe("deduplicate", () => {
     ]);
   });
 
+  it("doesn't modify the input array [3, 1, 1, 2]", () => {
+    const array = [3, 1, 1, 2];
+    dedupe(array);
+    expect(array).toEqual([3, 1, 1, 2]);
+  });
   it(`returns the empty array when given an empty array`, () => {
     expect(dedupe([])).toEqual([]);
   });
