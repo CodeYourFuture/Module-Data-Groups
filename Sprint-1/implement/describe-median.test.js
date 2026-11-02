@@ -15,18 +15,17 @@ message, so the caller can see what went wrong.
 
 const describeMedian = require("./describe-median.js");
 
-// Acceptance criteria:
+test('given [1, 2, 3], returns "The median is 2"', () => {
+  expect(describeMedian([1, 2, 3])).toEqual("The median is 2");
+});
 
-// Given an array of numbers
-// When passed to describeMedian
-// Then it should return "The median is " followed by the median
-// Delete this test.todo and replace it with a test.
-test.todo('given [1, 2, 3], returns "The median is 2"');
-
-// Given an empty array
-// When passed to describeMedian
-// Then it should return "Could not calculate a median: calculateMedian requires a non-empty array"
-
-// Given something that isn't an array of numbers, e.g. "banana"
-// When passed to describeMedian
-// Then it should return "Could not calculate a median: calculateMedian requires an array of numbers"
+test('given empty array, returns "Could not calculate a median: calculateMedian requires a non-empty array"', () => {
+  expect(describeMedian([])).toEqual(
+    "Could not calculate a median: calculateMedian requires a non-empty array"
+  );
+});
+test('given something that isnt an array of numbers, returns "Could not calculate a median: calculateMedian requires an array of numbers"', () => {
+  expect(describeMedian("Non-array")).toEqual(
+    "Could not calculate a median: calculateMedian requires an array of numbers"
+  );
+});
