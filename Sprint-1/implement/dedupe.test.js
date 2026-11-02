@@ -1,9 +1,14 @@
 const dedupe = require("./dedupe.js");
 /*
 Dedupe Array
-
 📖 Dedupe means **deduplicate**
-
+*/
+describe("deduplicate", () => {
+  it(`returns the deduplicate for ["a", "b", "c"]`, () => {
+    expect(dedupe(["a", "a", "a", "b", "b", "c"])).toEqual(["a", "b", "c"]);
+  });
+});
+/*
 In this kata, you will need to deduplicate the elements of an array
 
 E.g. dedupe(['a','a','a','b','b','c']) returns ['a','b','c']
@@ -24,5 +29,5 @@ test.todo("given an empty array, it returns an empty array");
 
 // Given an array of strings or numbers
 // When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the 
+// Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.

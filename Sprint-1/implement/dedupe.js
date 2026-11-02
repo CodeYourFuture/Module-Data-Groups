@@ -1,3 +1,5 @@
 function dedupe(array) {
-  return [...Set(array)];
+  return [...new Set(array)];
 }
+
+module.exports = dedupe;
