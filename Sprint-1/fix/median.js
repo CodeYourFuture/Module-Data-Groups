@@ -14,6 +14,9 @@
 // module.exports = calculateMedian;
 
 function calculateMedian(list) {
+  if (list.length === 0) {
+    throw new Error("calculateMedian requires a non-empty array");
+  }
   const copyList = Array.from(list);
   let sortList = copyList.sort((a, b) => a - b);
   if (sortList.length % 2 === 1) {
