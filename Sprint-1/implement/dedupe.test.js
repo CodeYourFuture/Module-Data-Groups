@@ -4,8 +4,31 @@ Dedupe Array
 📖 Dedupe means **deduplicate**
 */
 describe("deduplicate", () => {
-  it(`returns the deduplicate for ["a", "b", "c"]`, () => {
+  it(`returns the deduplicate for string letters`, () => {
     expect(dedupe(["a", "a", "a", "b", "b", "c"])).toEqual(["a", "b", "c"]);
+  });
+
+  it(`returns the deduplicate for numbers`, () => {
+    expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
+  });
+
+  it(`returns the deduplicate while not numerical in order`, () => {
+    expect(dedupe([1, 2, 1])).toEqual([1, 2]);
+  });
+
+  it(`returns the deduplicate for string and numbers `, () => {
+    expect(dedupe([5, 1, 1, 2, 3, "a", "a", "a", "c"])).toEqual([
+      5,
+      1,
+      2,
+      3,
+      "a",
+      "c",
+    ]);
+  });
+
+  it(`returns the empty array when given an empty array`, () => {
+    expect(dedupe([])).toEqual([]);
   });
 });
 /*
