@@ -10,14 +10,14 @@ test("returns true when target is in array", () => {
 });
 
 test("returns false when target not in array", () => {
-  const currentOutput = includes([1, 2, 3, 4], "a");
+  const currentOutput = includes([1, 2, 3, 4], "b");
   const targetOutput = false;
 
   expect(currentOutput).toEqual(targetOutput);
 });
 
 test("returns true when the target is in array multiple times", () => {
-  const currentOutput = includes([1, 2, 2, 3], 2);
+  const currentOutput = includes([1, 2, 3, 3], 3);
   const targetOutput = true;
 
   expect(currentOutput).toEqual(targetOutput);
