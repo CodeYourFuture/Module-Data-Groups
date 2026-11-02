@@ -17,7 +17,7 @@ const findMax = require("./max.js");
 // Then it should return -Infinity
 
 test("should return -Infinity if given an empty array", () => {
-  expect(findMax([]).toEqual(-Infinity));
+  expect(findMax([])).toEqual(-Infinity);
 });
 
 // Given an array with one number
@@ -25,7 +25,7 @@ test("should return -Infinity if given an empty array", () => {
 // Then it should return that number
 
 test("should return that number if given an array with one number", () => {
-  expect(findMax([2]).toEqual(2));
+  expect(findMax([2])).toEqual(2);
 });
 
 // Given an array with both positive and negative numbers
@@ -33,7 +33,7 @@ test("should return that number if given an array with one number", () => {
 // Then it should return the largest number overall
 
 test("should return the largest number overall if given positive & negative numbers", () => {
-  expect(findMax([-2, 4, -7, 9]).toEqual(9));
+  expect(findMax([-2, 4, -7, 9])).toEqual(9);
 });
 
 // Given an array with just negative numbers
@@ -41,7 +41,7 @@ test("should return the largest number overall if given positive & negative numb
 // Then it should return the closest one to zero
 
 test("should return the one closest to zero if given only negative numbers", () => {
-  expect(findMax([-2, -4, -7, -9]).toEqual(-2));
+  expect(findMax([-2, -4, -7, -9])).toEqual(-2);
 });
 
 // Given an array with decimal numbers
@@ -49,7 +49,7 @@ test("should return the one closest to zero if given only negative numbers", () 
 // Then it should return the largest decimal number
 
 test("should return the largest decimal number when only decimals were given", () => {
-  expect(findMax([-2.5, 4.1, 3.2, 9.3]).toEqual(9.3));
+  expect(findMax([-2.5, 4.1, 3.2, 9.3])).toEqual(9.3);
 });
 
 // Given an array containing a value that isn't a number
@@ -68,6 +68,6 @@ test("should throw an error when at least one value is not a number", () => {
 
 test("should throw an error when the data type isn't an array", () => {
   expect(() => findMax(["ten", 1, "thirty"])).toThrow(
-    new Error("findMax requires for input to be a list of items")
+    new Error("findMax requires for all items to be numbers")
   );
 });
