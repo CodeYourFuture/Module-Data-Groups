@@ -69,6 +69,11 @@ it("Given value that isn't array, it should throw", () => {
 // Given no argument at all
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
+it("Given no value at all, it should throw", () => {
+  expect(() => {
+    calculateMean();
+  }).toThrow("calculateMean requires an array of numbers");
+});
 
 // Given an array containing a non-number value, e.g. [1, "2", 3]
 // When passed to calculateMean
