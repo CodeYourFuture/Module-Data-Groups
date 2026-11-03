@@ -5,7 +5,7 @@
 // Hint: Please consider scenarios when 'list' isn't an array, is empty,
 // or contains values that aren't numbers (the function is expected to throw - see the tests).
 
-function calculateMedian(list=0) {
+function calculateMedian(list = 0) {
   if (list === null) {
     throw new Error("calculateMedian requires an array of numbers");
   }
@@ -22,12 +22,12 @@ function calculateMedian(list=0) {
     throw new Error("calculateMedian requires an array of numbers");
   }
 
-  if (typeof list === "object" && !Array.isArray(list)){
+  if (typeof list === "object" && !Array.isArray(list)) {
     throw new Error("calculateMedian requires an array of numbers");
-  };
+  }
 
-  for (item of list){
-    if (typeof item === "string" || item === null || item === undefined){
+  for (item of list) {
+    if (typeof item === "string" || item === null || item === undefined) {
       throw new Error("calculateMedian requires an array of numbers");
     }
   }

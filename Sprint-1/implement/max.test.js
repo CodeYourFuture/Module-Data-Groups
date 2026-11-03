@@ -17,21 +17,21 @@ const findMax = require("./max.js");
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
 it("given an empty array, returns -Infinity", () => {
-    expect(findMax([])).toEqual(-Infinity);
+  expect(findMax([])).toEqual(-Infinity);
 });
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
 it("Given array with one number should return that number", () => {
-    expect(findMax([3])).toEqual(3);
+  expect(findMax([3])).toEqual(3);
 });
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
 it("Given array of positive and negative values returns the biggest", () => {
-    expect(findMax([4,-7,47,-90])).toEqual(47);
+  expect(findMax([4, -7, 47, -90])).toEqual(47);
 });
 
 // Given an array with just negative numbers
@@ -52,9 +52,9 @@ it("Given array of positive and negative values returns the biggest", () => {
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
 it("Given array with value that isn't a number, should throw", () => {
-    expect(() => {
-      findMax([5, "ooo", 203]);
-    }).toThrow("findMax requires an array of numbers");
+  expect(() => {
+    findMax([5, "ooo", 203]);
+  }).toThrow("findMax requires an array of numbers");
 });
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument

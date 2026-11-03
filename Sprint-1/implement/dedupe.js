@@ -1,14 +1,13 @@
 function dedupe(elements) {
+  const dedupedArr = [];
 
-    const dedupedArr = [];
+  for (element of elements) {
+    if (!dedupedArr.includes(element)) {
+      dedupedArr.push(element);
+    }
+  }
 
-    for (element of elements){
-        if (!dedupedArr.includes(element)){
-            dedupedArr.push(element);
-        }
-    };
-
-    return dedupedArr;
+  return dedupedArr;
 }
 
 module.exports = dedupe;

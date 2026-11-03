@@ -29,7 +29,7 @@ it("given array without duplicates, returns that array", () => {
 
 // Given an array of strings or numbers
 // When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the 
+// Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
 it("given array with duplicates, returns array without duplicates", () => {
   expect(dedupe([4, 6, 9, 23, 9, 23, 23])).toEqual([4, 6, 9, 23]);
