@@ -37,11 +37,18 @@ it("returns mean of single number in array", () => {
 // Given an array containing negative or decimal numbers
 // When passed to calculateMean
 // Then it should return the correct mean
+it("returns mean containing negative or decimal numbers in array", () => {
+  expect(calculateMean([-6, 8.5, 23])).toEqual(8.5);
+});
 
 // Given an empty array
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires a non-empty array")
-
+it("Throws error 'calculateMean requires a non-empty array' Given empty", () => {
+  expect(() => calculateMean([])).toThrow(
+    new Error("calculateMean requires a non-empty array")
+  );
+});
 // Given a value that isn't an array, e.g. "banana", 42, null or {}
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
