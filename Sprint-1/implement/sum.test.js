@@ -27,10 +27,16 @@ it("given array with one number, returns that number", () => {
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
+it("given array with negative numbers, returns the correct sum", () => {
+  expect(sum([6, -10, 3, 5])).toEqual(4);
+});
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+it("given array with decimal numbers, returns the correct sum", () => {
+  expect(sum([6, 3.68, 3, 5])).toEqual(17.68);
+});
 
 // Given an array containing a value that isn't a number
 // When passed to the sum function
