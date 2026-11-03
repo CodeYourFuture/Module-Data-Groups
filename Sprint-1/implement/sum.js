@@ -15,7 +15,11 @@ function sum(elements) {
     for (let i = 0; i < copyElements.length; i++) {
       total += copyElements[i];
     }
-    return total;
+    if (Number.isInteger(total)) {
+      return total;
+    } else {
+      return Number(total.toFixed(2));
+    }
   }
 }
 
