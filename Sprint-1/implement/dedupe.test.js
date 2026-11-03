@@ -35,3 +35,8 @@ E.g. dedupe([1, 2, 1]) returns [1, 2]
 // When passed to the dedupe function
 // Then it should return a new array with duplicates removed while preserving the 
 // first occurrence of each element from the original array.
+ test("given an array, it returns an array with duplicates removed and its original occurrence", () => {
+   const list = [3, 1, 2];
+   const result = dedupe(list);
+   expect(dedupe(list)).toEqual(result);
+ });
