@@ -23,7 +23,38 @@ const calculateMean = require("./mean.js");
 // When passed to calculateMean
 // Then it should return their mean
 // Delete this test.todo and replace it with a test.
-test.todo("given [1, 2, 6], returns 3");
+test("given [1, 2, 6], returns 3", () => {
+  expect(calculateMean([1, 2, 6])).toBe(3);
+});
+
+test("given a single number, returns it", () => {
+  expect(calculateMean([4])).toBe(4);
+});
+
+test("handles negative and decimal numbers", () => {
+  expect(calculateMean([-2, 2, -4, 4])).toBe(0);
+  expect(calculateMean([1.5, 2.5])).toBe(2);
+});
+
+test("throws for an empty array", () => {
+  expect(() => calculateMean([])).toThrow(
+    new Error("calculateMean requires a non-empty array")
+  );
+});
+
+test("throws for non-arrays and no argument", () => {
+  for (const bad of ["banana", 42, null, {}, undefined]) {
+    expect(() => calculateMean(bad)).toThrow(
+      new Error("calculateMean requires an array of numbers")
+    );
+  }
+});
+
+test("throws for arrays with non-numbers", () => {
+  expect(() => calculateMean([1, "2", 3])).toThrow(
+    new Error("calculateMean requires an array of numbers")
+  );
+});
 
 // Given an array with a single number
 // When passed to calculateMean
