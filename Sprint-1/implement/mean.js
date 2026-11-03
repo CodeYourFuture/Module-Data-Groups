@@ -10,6 +10,9 @@ function calculateMean(list) {
     let sum = 0;
 
     for (item of list){
+        if (typeof item != "number"){
+            throw new Error("calculateMean requires an array of numbers");
+        };
         sum += item;
     };
 
