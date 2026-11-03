@@ -60,3 +60,14 @@ it("Given array with value that isn't a number, should throw", () => {
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+it("Given argument that isn't an array, should throw", () => {
+  expect(() => {
+    findMax("hey");
+  }).toThrow("findMax requires an array of numbers");
+  expect(() => {
+    findMax(42);
+  }).toThrow("findMax requires an array of numbers");
+  expect(() => {
+    findMax();
+  }).toThrow("findMax requires an array of numbers");
+});
