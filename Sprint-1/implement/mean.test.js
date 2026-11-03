@@ -49,6 +49,7 @@ it("Throws error 'calculateMean requires a non-empty array' Given empty", () => 
     new Error("calculateMean requires a non-empty array")
   );
 });
+
 // Given a value that isn't an array, e.g. "banana", 42, null or {}
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
@@ -63,7 +64,21 @@ it("Throws error 'calculateMean requires an array of numbers' Given value that i
 // Given no argument at all
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
+it("Throws error 'calculateMean requires an array of numbers' Given Given no argument at all", () => {
+  expect(() =>
+    calculateMean().toThrow(
+      new Error("calculateMean requires an array of numbers")
+    )
+  );
+});
 
 // Given an array containing a non-number value, e.g. [1, "2", 3]
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
+it("Throws error 'calculateMean requires an array of numbers' an array containing a non-number value, e.g. [1, '2', 3]", () => {
+  expect(() =>
+    calculateMean([1, "2", 3]).toThrow(
+      new Error("calculateMean requires an array of numbers")
+    )
+  );
+});
