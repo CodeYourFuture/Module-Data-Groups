@@ -37,3 +37,14 @@ it("Given an empty array, it tells you it couldn't calculate the median and why"
 // Given something that isn't an array of numbers, e.g. "banana"
 // When passed to describeMedian
 // Then it should return "Could not calculate a median: calculateMedian requires an array of numbers"
+it("Given something that isn't array of numbers, it tells you it couldn't calculate the median and why", () => {
+  expect(describeMedian("banana")).toEqual(
+    "Could not calculate a median: calculateMedian requires an array of numbers"
+  );
+  expect(describeMedian([3, "5", 8])).toEqual(
+    "Could not calculate a median: calculateMedian requires an array of numbers"
+  );
+  expect(describeMedian(42)).toEqual(
+    "Could not calculate a median: calculateMedian requires an array of numbers"
+  );
+});
