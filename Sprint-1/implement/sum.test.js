@@ -20,6 +20,9 @@ it("given an empty array, returns 0", () => {
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
+it("given array with one number, returns that number", () => {
+  expect(sum([6])).toEqual(6);
+});
 
 // Given an array containing negative numbers
 // When passed to the sum function
