@@ -41,6 +41,11 @@ it("returns total when given an array with decimal/float numbers", () => {
 // Given an array containing a value that isn't a number
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
+it("throws an error 'sum requires an array of numbers' when value isn't a number", () => {
+  expect(() => sum(["hello", "bob"])).toThrow(
+    new Error("sum requires an array of numbers")
+  );
+});
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
