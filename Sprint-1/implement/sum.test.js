@@ -50,3 +50,14 @@ it("given array with values that aren't numbers, should throw", () => {
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
+it("Given argument that isn't an array, should throw", () => {
+  expect(() => {
+    sum("hey");
+  }).toThrow("sum requires an array of numbers");
+  expect(() => {
+    sum(42);
+  }).toThrow("sum requires an array of numbers");
+  expect(() => {
+    sum();
+  }).toThrow("sum requires an array of numbers");
+});
