@@ -1,1 +1,5 @@
-function dedupe() {}
+function dedupe(elements) {
+    return [];
+}
+
+module.exports = dedupe;
