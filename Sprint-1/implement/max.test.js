@@ -36,7 +36,9 @@ test("returns largest number given an array with both positive and negative numb
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
-
+test("returns largest number when given an array with negative numbers", () => {
+  expect(findMax([-4, -7, -9, -14])).toEqual(-4);
+});
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
