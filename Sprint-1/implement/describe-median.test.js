@@ -29,6 +29,13 @@ it("returns 'The median is 2'", () => {
 // Given an empty array
 // When passed to describeMedian
 // Then it should return "Could not calculate a median: calculateMedian requires a non-empty array"
+it("Throws error 'Could not calculate a median: calculateMedian requires a non-empty array' when array empty", () => {
+  expect(() => describeMedian([])).toThrow(
+    new Error(
+      "Could not calculate a median: calculateMedian requires a non-empty array"
+    )
+  );
+});
 
 // Given something that isn't an array of numbers, e.g. "banana"
 // When passed to describeMedian

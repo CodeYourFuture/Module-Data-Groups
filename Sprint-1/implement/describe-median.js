@@ -21,6 +21,11 @@ function calculateMedian(list) {
 
 // Implement this function. See describe-median.test.js for the acceptance criteria.
 function describeMedian(list) {
+  if (list.length === 0) {
+    throw new Error(
+      "Could not calculate a median: calculateMedian requires a non-empty array"
+    );
+  }
   return `The median is ${calculateMedian(list)}`;
 }
 
