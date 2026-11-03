@@ -32,7 +32,7 @@ test("should return a copy of the original when the given array has no duplicate
 // Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
 test("should return a new array with duplicates removed and 1st occurence of each element preserved", () => {
-  expect(dedupe(["Mon", "wed", "wed", "Sun", "Tue", "Sun"])).toEqual([
+  expect(dedupe(["Mon", "Wed", "Wed", "Sun", "Tue", "Sun"])).toEqual([
     "Mon",
     "Wed",
     "Sun",
