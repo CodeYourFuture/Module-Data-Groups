@@ -22,6 +22,9 @@ const describeMedian = require("./describe-median.js");
 // Then it should return "The median is " followed by the median
 // Delete this test.todo and replace it with a test.
 test.todo('given [1, 2, 3], returns "The median is 2"');
+it("returns 'The median is 2'", () => {
+  expect(describeMedian([1, 2, 3])).toEqual("The median is 2");
+});
 
 // Given an empty array
 // When passed to describeMedian
