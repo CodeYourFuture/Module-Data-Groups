@@ -22,29 +22,56 @@ const calculateMean = require("./mean.js");
 // Given an array of numbers
 // When passed to calculateMean
 // Then it should return their mean
-// Delete this test.todo and replace it with a test.
-test.todo("given [1, 2, 6], returns 3");
+it("returns the mean in a positive-number array", () => {
+  expect(calculateMean([1, 2, 6])).toBe(3);
+});
 
 // Given an array with a single number
 // When passed to calculateMean
 // Then it should return that number
+it("returns 10 for a single positive number", () => {
+  expect(calculateMean([10])).toBe(10);
+});
 
 // Given an array containing negative or decimal numbers
 // When passed to calculateMean
 // Then it should return the correct mean
+it("returns -3 for an array of negative numbers", () => {
+  expect(calculateMean([-1, -2, -6])).toEqual(-3);
+});
 
 // Given an empty array
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires a non-empty array")
+it("throws for an empty array", () => {
+  expect(() => calculateMean([])).toThrow(
+    "calculateMean requires a non-empty array"
+  );
+});
 
 // Given a value that isn't an array, e.g. "banana", 42, null or {}
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
+it("throws when the input is not an array", () => {
+  expect(() => calculateMean("Hello")).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+});
 
 // Given no argument at all
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
+it("throws when the input has no argument", () => {
+  expect(() => calculateMean("")).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+});
 
 // Given an array containing a non-number value, e.g. [1, "2", 3]
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
+it("throws for an array containing a non-number value", () => {
+  expect(() => calculateMean(["2", 10, 20])).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+});
