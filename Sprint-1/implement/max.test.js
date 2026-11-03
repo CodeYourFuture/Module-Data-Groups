@@ -21,10 +21,16 @@ test.todo("given an empty array, returns -Infinity");
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+it("returns the median for [40]", () => {
+  expect(findMax([40])).toEqual(40);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+it("returns the median for [40]", () => {
+  expect(findMax([-40, 20, 30, -10, 40])).toEqual(40);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
