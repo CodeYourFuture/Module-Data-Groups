@@ -11,7 +11,7 @@ function calculateMedian(list) {
   }
 
   if (list.length === 0) {
-    throw new Error("calculateMedian requires an non-empty array");
+    throw new Error("calculateMedian requires a non-empty array");
   }
 
   for (const item of list) {
