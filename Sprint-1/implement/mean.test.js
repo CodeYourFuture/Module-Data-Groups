@@ -51,6 +51,20 @@ it("Given an empty array, it should throw", () => {
 // Given a value that isn't an array, e.g. "banana", 42, null or {}
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
+it("Given value that isn't array, it should throw", () => {
+  expect(() => {
+    calculateMean("banana");
+  }).toThrow("calculateMean requires an array of numbers");
+  expect(() => {
+    calculateMean(42);
+  }).toThrow("calculateMean requires an array of numbers");
+  expect(() => {
+    calculateMean(null);
+  }).toThrow("calculateMean requires an array of numbers");
+  expect(() => {
+    calculateMean({});
+  }).toThrow("calculateMean requires an array of numbers");
+});
 
 // Given no argument at all
 // When passed to calculateMean
