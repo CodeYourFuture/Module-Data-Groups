@@ -23,6 +23,9 @@ it("given an empty array, returns -Infinity", () => {
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+it("Given array with one number should return that number", () => {
+    expect(findMax([3])).toEqual(3);
+})
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
