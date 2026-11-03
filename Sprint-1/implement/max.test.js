@@ -56,3 +56,16 @@ test("given an array containing a value that isn't a number", () => {
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+test("given something that isn't an array at all", () => {
+  expect(() => findMax("hey")).toThrow(
+    "findMax requires an array of numbers"
+  );
+
+  expect(() => findMax(42)).toThrow(
+    "findMax requires an array of numbers"
+  );
+
+  expect(() => findMax()).toThrow(
+    "findMax requires an array of numbers"
+  );
+});
