@@ -52,7 +52,17 @@ it("returns the median for [-40.4, -20.7, -30.3, -70.6]", () => {
 // Given an array containing a value that isn't a number
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+it("Throws error 'findMax requires an array of numbers' when containing a value that isn't a number", () => {
+  expect(() => findMax([10, 40, "hello", 30])).toThrow(
+    new Error("findMax requires an array of numbers")
+  );
+});
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+it("Throws error 'findMax requires an array of numbers' Given something that isn't an array at all", () => {
+  expect(() => findMax(42)).toThrow(
+    new Error("findMax requires an array of numbers")
+  );
+});
