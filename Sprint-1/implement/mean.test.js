@@ -44,6 +44,9 @@ it("Given array of negative or decimal number, it returns their mean", () => {
 // Given an empty array
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires a non-empty array")
+it("Given an empty array, it should throw", () => {
+    expect(() => {calculateMean([])}).toThrow("calculateMean requires a non-empty array");
+})
 
 // Given a value that isn't an array, e.g. "banana", 42, null or {}
 // When passed to calculateMean
