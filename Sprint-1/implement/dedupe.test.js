@@ -23,6 +23,9 @@ it("given an empty array, returns empty array", () => {
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+it("given an empty array, returns empty array", () => {
+  expect(dedupe([4, 6, 9, 23])).toEqual([4, 6, 9, 23]);
+});
 
 // Given an array of strings or numbers
 // When passed to the dedupe function

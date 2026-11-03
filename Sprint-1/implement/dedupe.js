@@ -1,5 +1,5 @@
 function dedupe(elements) {
-    return [];
+    return elements;
 }
 
 module.exports = dedupe;
