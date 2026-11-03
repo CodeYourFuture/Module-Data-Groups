@@ -30,7 +30,9 @@ test("expects findMax with an array containing 7 to return 7", () => {
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
-
+test("returns largest number given an array with both positive and negative numbers", () => {
+  expect(findMax([-5, -6, 10, 4])).toEqual(10);
+});
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
