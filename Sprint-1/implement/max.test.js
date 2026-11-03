@@ -42,7 +42,9 @@ test("returns largest number when given an array with negative numbers", () => {
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
-
+test("returns largest number when given an array of decimal numbers", () => {
+  expect(findMax([2.2, 4.3, 6.8, 9.4])).toEqual(9.4);
+});
 // Given an array containing a value that isn't a number
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
