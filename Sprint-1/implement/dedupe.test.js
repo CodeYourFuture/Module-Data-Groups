@@ -23,7 +23,7 @@ it("given an empty array, returns empty array", () => {
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
-it("given an empty array, returns empty array", () => {
+it("given array without duplicates, returns that array", () => {
   expect(dedupe([4, 6, 9, 23])).toEqual([4, 6, 9, 23]);
 });
 
@@ -31,3 +31,6 @@ it("given an empty array, returns empty array", () => {
 // When passed to the dedupe function
 // Then it should return a new array with duplicates removed while preserving the 
 // first occurrence of each element from the original array.
+it("given array with duplicates, returns array without duplicates", () => {
+  expect(dedupe([4, 6, 9, 23, 9, 23, 23])).toEqual([4, 6, 9, 23]);
+});
