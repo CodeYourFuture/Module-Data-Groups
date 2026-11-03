@@ -6,6 +6,9 @@ function findMax(elements) {
     let max = elements[0];
 
     for (element of elements){
+        if (typeof element != "number"){
+            throw new Error("findMax requires an array of numbers");
+        }
         if (element > max){
             max = element;
         }
