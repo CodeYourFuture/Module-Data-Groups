@@ -21,13 +21,18 @@ const describeMedian = require("./describe-median.js");
 // When passed to describeMedian
 // Then it should return "The median is " followed by the median
 // Delete this test.todo and replace it with a test.
-it("Given array of positive numbers, it returns their mean", () => {
+it("Given array of positive numbers, it returns the correct message", () => {
   expect(describeMedian([1, 2, 6])).toEqual("The median is 2");
 });
 
 // Given an empty array
 // When passed to describeMedian
 // Then it should return "Could not calculate a median: calculateMedian requires a non-empty array"
+it("Given an empty array, it tells you it couldn't calculate the median and why", () => {
+  expect(describeMedian([])).toEqual(
+    "Could not calculate a median: calculateMedian requires a non-empty array"
+  );
+});
 
 // Given something that isn't an array of numbers, e.g. "banana"
 // When passed to describeMedian
