@@ -23,13 +23,16 @@ const calculateMean = require("./mean.js");
 // When passed to calculateMean
 // Then it should return their mean
 // Delete this test.todo and replace it with a test.
-it("returns the Infinity for []", () => {
+it("Returns correct value of 3 for mean of numbers in array of [1, 2, 6]", () => {
   expect(calculateMean([1, 2, 6])).toEqual(3);
 });
 
 // Given an array with a single number
 // When passed to calculateMean
 // Then it should return that number
+it("returns mean of single number in array", () => {
+  expect(calculateMean([6])).toEqual(6);
+});
 
 // Given an array containing negative or decimal numbers
 // When passed to calculateMean
