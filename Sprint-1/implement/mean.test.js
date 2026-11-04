@@ -54,8 +54,24 @@ test("given an empty array, should throw an error", () => {
 // Given a value that isn't an array, e.g. "banana", 42, null or {}
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
-test("given a string instead of an array, should throw an error", () => {
+test("given a value that isn't an array, should throw an error", () => {
   expect(() => calculateMean("banana")).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+
+  expect(() => calculateMean(42)).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+
+  expect(() => calculateMean(null)).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+
+  expect(() => calculateMean({})).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+
+  expect(() => calculateMean()).toThrow(
     "calculateMean requires an array of numbers"
   );
 });
