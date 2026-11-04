@@ -5,6 +5,9 @@ function calculateMean(list) {
   if (list.length === 0) {
     throw new Error("calculateMean requires a non-empty array");
   }
+  if (!list.every((number) => typeof number === "number")) {
+    throw new Error("calculateMean requires an array of numbers");
+  }
   const sum = list.reduce((sum, number) => {
     return sum + number;
   }, 0);
