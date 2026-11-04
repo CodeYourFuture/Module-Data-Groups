@@ -56,3 +56,6 @@ test("given a non-array input, throws an error", () => {
 test("given no argument, throws an error", () => {
   expect(() => sum()).toThrow("sum requires an array of numbers");
 });
+test("given a number instead of an array, throws an error", () => {
+  expect(() => sum(42)).toThrow("sum requires an array of numbers");
+});
