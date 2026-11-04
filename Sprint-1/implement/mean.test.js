@@ -37,7 +37,9 @@ test("given an array with a single number, should return 7", () => {
 // Given an array containing negative or decimal numbers
 // When passed to calculateMean
 // Then it should return the correct mean
-
+test("given an array of negative numbers, should return -4", () => {
+  expect(calculateMean([-2, -4, -6])).toEqual(-4);
+});
 // Given an empty array
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires a non-empty array")
