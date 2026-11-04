@@ -78,3 +78,8 @@ test("given a value that isn't an array, should throw an error", () => {
 // Given an array containing a non-number value, e.g. [1, "2", 3]
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
+test("given an array containing a non-number value, should throw an error", () => {
+  expect(() => calculateMean([1, "2", 3])).toThrow(
+    "calculateMean requires an array of numbers"
+  );
+});
