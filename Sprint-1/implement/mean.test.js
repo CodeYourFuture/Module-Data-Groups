@@ -30,6 +30,9 @@ test("given the array [1,2,6], should return the number 3", () => {
 // Given an array with a single number
 // When passed to calculateMean
 // Then it should return that number
+test("given an array with a single number, should return 7", () => {
+  expect(calculateMean([7])).toEqual(7);
+});
 
 // Given an array containing negative or decimal numbers
 // When passed to calculateMean
