@@ -75,10 +75,6 @@ test("given a value that isn't an array, should throw an error", () => {
     "calculateMean requires an array of numbers"
   );
 });
-// Given no argument at all
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires an array of numbers")
-
 // Given an array containing a non-number value, e.g. [1, "2", 3]
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
