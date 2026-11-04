@@ -40,7 +40,11 @@ test("given an array with decimal numbers, returns the correct sum", () => {
 // Given an array containing a value that isn't a number
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
-
+test("given an array containing a non-number, throws an error", () => {
+  expect(() => sum([10, "hello", 2])).toThrow(
+    "sum requires an array of numbers"
+  );
+});
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
