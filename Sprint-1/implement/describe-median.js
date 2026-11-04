@@ -20,6 +20,18 @@ function calculateMedian(list) {
 }
 
 // Implement this function. See describe-median.test.js for the acceptance criteria.
-function describeMedian(list) {}
+function describeMedian(list) {
+  try {
+    const median = calculateMedian(list);
+    return `The median is ${median}`;
+  } catch (error) {
+    if (error.message === "calculateMedian requires a non-empty array") {
+      return `Could not calculate a median: ${error.message}`;
+    }
+    if (error.message === "calculateMedian requires an array of numbers") {
+      return `Could not calculate a median: ${error.message}`;
+    }
+  }
+}
 
 module.exports = describeMedian;
