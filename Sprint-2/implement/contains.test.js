@@ -1,19 +1,5 @@
 const contains = require("./contains.js");
 
-/*
-Implement a function called contains that checks an object contains a
-particular property
-
-E.g. contains({a: 1, b: 2}, 'a') // returns true
-as the object contains a key of 'a'
-
-E.g. contains({a: 1, b: 2}, 'c') // returns false
-as the object doesn't contains a key of 'c'
-
-E.g. contains([1, 2, 3], 'a') throws Error("contains requires an object")
-as an array isn't an object
-*/
-
 // Acceptance criteria:
 
 // Given a contains function
