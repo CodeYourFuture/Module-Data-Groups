@@ -1,7 +1,9 @@
 function findMax(elements) {
   if (
     !Array.isArray(elements) ||
-    !elements.every((element) => typeof element === "number")
+    !elements.every(
+      (element) => typeof element === "number" && !Number.isNaN(element)
+    )
   ) {
     throw new Error("findMax requires an array of numbers");
   }
