@@ -1,5 +1,10 @@
 function decode(text) {
-  return decodeURIComponent(text.replace(/\+/g, " "));
+  const withSpaces = text.replace(/\+/g, " ");
+  try {
+    return decodeURIComponent(withSpaces);
+  } catch {
+    return withSpaces;
+  }
 }
 
 function parseQueryString(queryString) {
