@@ -40,7 +40,7 @@ describe("dedupe", () => {
   // When passed to the dedupe function
   // Then it should return a new array with duplicates removed while preserving the
   // first occurrence of each element from the original array.
-  it("Given an array without duplicates, it returns a copy of the original array", () => {
+  it("Given an array with duplicates, it removes duplicates while preserving the first occurrence", () => {
     expect(dedupe(["d", "s", "s", "t", "c", "d", "s", "t", "c", "d"])).toEqual([
       "d",
       "s",
