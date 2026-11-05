@@ -34,3 +34,18 @@ test("given an array with no duplicates, it returns a copy of the original array
 // When passed to the dedupe function
 // Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
+test("given an array of numbers it should return a new array with duplicates removed in the order they appeared in the original array", () => {
+  const numbers = [5, 1, 1, 2, 3, 2, 5, 8];
+  const result = dedupe(numbers);
+
+  expect(result).toEqual([5, 1, 2, 3, 8]);
+  expect(result).not.toBe(numbers);
+});
+
+test("given an array of strings it should return a new array with duplicates removed in the order they appeared in the original array", () => {
+  const numbers = ["apple", "banana", "apple", "orange", "banana"];
+  const result = dedupe(numbers);
+
+  expect(result).toEqual(["apple", "banana", "orange"]);
+  expect(result).not.toBe(numbers);
+});
