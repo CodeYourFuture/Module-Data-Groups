@@ -46,3 +46,14 @@ test("when passed an array of duplicate characters", () => {
   expect(dedupe(["a", "a", "b", "b", "b", "c"])).toEqual(["a", "b", "c"]);
   expect(dedupe(["c", "c", "e", "e", "z", "z"])).toEqual(["c", "e", "z"]);
 });
+test("when passed an array of duplicate unordered  numbers  ", () => {
+  expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
+});
+test("when passed an array of duplicate unordered characters ", () => {
+  expect(dedupe(["f", "a", "a", "k", "k", "c", "c"])).toEqual([
+    "f",
+    "a",
+    "k",
+    "c",
+  ]);
+});
