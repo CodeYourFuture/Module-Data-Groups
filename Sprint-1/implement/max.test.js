@@ -75,3 +75,9 @@ test("Throws an error when called with no argument", () => {
     new Error("findMax requires an array of numbers")
   );
 });
+
+test("Throws an error when array contains NaN", () => {
+  expect(() => findMax([1, NaN, 3])).toThrow(
+    new Error("findMax requires an array of numbers")
+  );
+});

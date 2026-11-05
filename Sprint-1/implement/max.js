@@ -5,7 +5,7 @@ function findMax(elements) {
   }
 
   for (const item of elements) {
-    if (typeof item !== "number") {
+    if (typeof item !== "number" || Number.isNaN(item)) { 
       throw new Error("findMax requires an array of numbers");
     }
   }

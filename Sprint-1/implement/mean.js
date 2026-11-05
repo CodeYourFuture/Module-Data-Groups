@@ -8,7 +8,7 @@ function calculateMean(list) {
   }
 
   for (const item of list) {
-    if (typeof item !== "number") {
+    if (typeof item !== "number" || !Number.isFinite(item)) {
       throw new Error("calculateMean requires an array of numbers");
     }
   }
