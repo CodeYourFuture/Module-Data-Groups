@@ -9,8 +9,9 @@ function parseQueryString(queryString) {
     if (pair === "") continue;
 
     const index = pair.indexOf("=");
-    const key = pair.slice(0, index);
-    const value = pair.slice(index + 1);
+    const separator = index !== -1;
+    const key = separator ? pair.slice(0, index) : pair;
+    const value = separator ? pair.slice(index + 1) : "";
     queryParams[key] = value;
   }
 
