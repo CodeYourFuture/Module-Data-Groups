@@ -23,7 +23,7 @@ test("given an empty array, returns -Infinity", () => {
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
-test("given a one element array, returns the same element", () => {
+test("given an array with one number, returns that number", () => {
   const list = [1];
   const result = findMax(list);
   expect(result).toEqual(1);
