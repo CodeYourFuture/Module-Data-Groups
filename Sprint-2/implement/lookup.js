@@ -1,5 +1,5 @@
 function createLookup(pairs) {
-  const lookup = [];
+  const lookup = {};
 
   for (const pair of pairs) {
     const countryCode = pair[0];
