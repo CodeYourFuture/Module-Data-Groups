@@ -9,7 +9,7 @@ E.g. sum(['hey', 10, 'hi', 60, 10]) throws Error("sum requires an array of numbe
 const sum = require("./sum.js");
 
 // Acceptance Criteria:
-describe("findMax", () => {
+describe("sum", () => {
   // Given an empty array
   // When passed to the sum function
   // Then it should return 0
