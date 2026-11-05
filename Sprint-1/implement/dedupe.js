@@ -12,5 +12,5 @@ function dedupe(list) {
   }
   return newList;
 }
-console.log(dedupe(["a", "a", "a", "b", "b", "c"]));
+//console.log(dedupe([5, 1, 1, 2, 3, 2, 5, 8]));
 module.exports = dedupe;

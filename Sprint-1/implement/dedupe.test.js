@@ -23,6 +23,17 @@ describe("dedupe", () => {
 
   it("given an array, it returns an deduplicate array", () => {
     expect(dedupe(["a", "a", "a", "b", "b", "c"])).toEqual(["a", "b", "c"]);
+    expect(dedupe([5, 1, 1, 2, 3, 2, 5, 8])).toEqual([5, 1, 2, 3, 8]);
+    expect(dedupe([1, 2, 1])).toEqual([1, 2]);
+  });
+
+  // Given an array with no duplicates
+  // When passed to the dedupe function
+  // Then it should return a copy of the original array
+  it("Given an array with no duplicates, it returns a copy of the original array", () => {
+    expect(dedupe(["d", "s", "t", "c"])).toEqual(["d", "s", "t", "c"]);
+    expect(dedupe([5, 4, 3, 2, 1])).toEqual([5, 4, 3, 2, 1]);
+    expect(dedupe([7, 8, 9])).toEqual([7, 8, 9]);
   });
 });
 // Given an array with no duplicates
