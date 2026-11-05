@@ -16,11 +16,18 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity", () => {
+  expect(findMax([])).toEqual(-Infinity);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("given a one element array, returns the same element", () => {
+  const list = [1];
+  const result = findMax(list);
+  expect(result).toEqual(1);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
