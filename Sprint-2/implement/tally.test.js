@@ -30,6 +30,9 @@ test("tally on an empty array returns an empty object", () => {
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+test("tally counts duplicate items", () => {
+  expect(tally(["a", "a", "a"])).toEqual({ a: 3 });
+});
 
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
