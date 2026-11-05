@@ -1,9 +1,9 @@
 function dedupe(array) {
   const withOutDup = [];
   for (let i = 0; i < array.length; i++) {
-    const itemArray = array[i];
-    if (!withOutDup.includes(itemArray)) {
-      withOutDup.push(itemArray);
+    const item = array[i];
+    if (!withOutDup.includes(item)) {
+      withOutDup.push(item);
     }
   }
 
