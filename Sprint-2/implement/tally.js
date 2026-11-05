@@ -1,4 +1,8 @@
 function tally(items) {
+  if (!Array.isArray(items)) {
+    throw new Error("tally requires an array");
+  }
+
   const counts = {};
 
   for (const item of items) {
