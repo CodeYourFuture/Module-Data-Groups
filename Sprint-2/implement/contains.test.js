@@ -51,3 +51,9 @@ test("contains throws an error for an array", () => {
     "contains requires an object"
   );
 });
+
+test("contains throws an error for a string", () => {
+  expect(() => contains("Manchester", "name")).toThrow(
+    "contains requires an object"
+  );
+});
