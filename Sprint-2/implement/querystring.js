@@ -19,7 +19,16 @@ function parseQueryString(queryString) {
 
     const key = decode(rawKey);
     const value = decode(rawValue);
-    queryParams[key] = value;
+
+    if (key in queryParams) {
+      if (Array.isArray(queryParams[key])) {
+        queryParams[key].push(value);
+      } else {
+        queryParams[key] = [queryParams[key], value];
+      }
+    } else {
+      queryParams[key] = value;
+    }
   }
 
   return queryParams;
