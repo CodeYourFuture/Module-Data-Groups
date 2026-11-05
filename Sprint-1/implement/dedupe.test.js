@@ -35,12 +35,19 @@ describe("dedupe", () => {
     expect(dedupe([5, 4, 3, 2, 1])).toEqual([5, 4, 3, 2, 1]);
     expect(dedupe([7, 8, 9])).toEqual([7, 8, 9]);
   });
-});
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
 
-// Given an array of strings or numbers
-// When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the
-// first occurrence of each element from the original array.
+  // Given an array of strings or numbers
+  // When passed to the dedupe function
+  // Then it should return a new array with duplicates removed while preserving the
+  // first occurrence of each element from the original array.
+  it("Given an array without duplicates, it returns a copy of the original array", () => {
+    expect(dedupe(["d", "s", "s", "t", "c", "d", "s", "t", "c", "d"])).toEqual([
+      "d",
+      "s",
+      "t",
+      "c",
+    ]);
+    expect(dedupe([5, 4, 5, 4, 2, 1, 5, 3, 4])).toEqual([5, 4, 2, 1, 3]);
+    expect(dedupe([7, 2, 7, 8, 9])).toEqual([7, 2, 8, 9]);
+  });
+});
