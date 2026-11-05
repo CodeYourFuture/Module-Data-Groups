@@ -23,18 +23,40 @@ as an array isn't an object
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("contains on empty object returns false", () => {
+    const input = {};
+    const key = 'a'
+    const result = contains(input, key);
+    expect(result).toEqual(false)
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("given: object with keys and values & key within object returns true", () => {
+    const input = {a: 1, b: 2, c: 3};
+    const key = 'a'
+    const result = contains(input, key);
+    expect(result).toEqual(true)
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+test("given: object with keys and values & key not within object returns true", () => {
+    const input = {a: 1, b: 2, c: 3};
+    const key = 'k'
+    const result = contains(input, key);
+    expect(result).toEqual(false)
+});
 
 // Given a value that isn't an object - an array, a string, a number,
 // null, or no argument at all
 // When passed to contains
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
+test("given: value that is not an object throws error: 'contains requires an object'", () => {
+    const input = "tooth";
+    const key = 'k'
+    expect(() => contains(input, key)).toThrow("contains requires an object")
+});
