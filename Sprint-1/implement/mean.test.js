@@ -42,11 +42,11 @@ test("Given an array containing negative numbers, should return the correct mean
 });
 
 test("Given an array containing decimal numbers, should return the correct mean", () => {
-  expect(calculateMean([2.2, 1.9, 3.5, 4.1])).toEqual(2.925);
+  expect(calculateMean([2.2, 1.9, 3.5, 4.1])).toBeCloseTo(2.925);
 });
 
 test("Given an array containing both negative and decimal numbers, should return the correct mean", () => {
-  expect(calculateMean([2.2, -1.9, 3.5, -4.1])).toEqual(-0.07499999999999984);
+  expect(calculateMean([2.2, -1.9, 3.5, -4.1])).toBeCloseTo(-0.075);
 });
 
 // Given an empty array
@@ -81,6 +81,18 @@ test("Throws an error when given no argument at all", () => {
 // Then it should throw Error("calculateMean requires an array of numbers")
 test("Throws an error when given an array containing a non-number value", () => {
   expect(() => calculateMean([1, "2", 3])).toThrow(
+    new Error("calculateMean requires an array of numbers")
+  );
+});
+
+test("Throws an error when array contains Infinity or -Infinity", () => {
+  expect(() => calculateMean([Infinity, 0, -Infinity])).toThrow(
+    new Error("calculateMean requires an array of numbers")
+  );
+});
+
+test("Throws an error when array contains NaN", () => {
+  expect(() => calculateMean([0, NaN])).toThrow(
     new Error("calculateMean requires an array of numbers")
   );
 });
