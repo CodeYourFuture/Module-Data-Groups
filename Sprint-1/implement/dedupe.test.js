@@ -23,8 +23,14 @@ test("given an empty array, it returns an empty array", () => {
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+test("given an array with no duplicates, it returns a copy of the original array", () => {
+  const numbers = [1, 2, 3];
+  const result = dedupe(numbers);
 
+  expect(result).toEqual(numbers);
+  expect(result).not.toBe(numbers);
+});
 // Given an array of strings or numbers
 // When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the 
+// Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
