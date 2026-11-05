@@ -40,3 +40,8 @@ test("tally returns count for each unique item", () => {
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
 // Then it should throw Error("tally requires an array")
+test("tally throws an error when given an invalid input", () => {
+  expect(() => tally("hello")).toThrow(new Error("tally requires an array"));
+  expect(() => tally(30)).toThrow(new Error("tally requires an array"));
+  expect(() => tally()).toThrow(new Error("tally requires an array"));
+});
