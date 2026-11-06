@@ -1,7 +1,7 @@
 const invert = require("./invert.js");
 
 test("swaps key with values", () => {
-  expect(invert({ x: 1 })).toEqual({ 10: "x", 20: "y" });
+  expect(invert({ x: 10, y: 20 })).toEqual({ 10: "x", 20: "y" });
 });
 
 test("handles single entry", () => {
