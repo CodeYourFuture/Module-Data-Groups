@@ -7,23 +7,20 @@ function parseQueryString(queryString) {
     const eq = pair.indexOf("=");
     const key = eq === -1 ? pair : pair.slice(0, eq);
     const value = eq === -1 ? "" : pair.slice(eq + 1);
-   
-    const k = decodeURIComponent(key.replace(/+/g, ""));
-    const v = decodeURIComponent(value.replace(/+/g, ""));
 
-    
+    const k = decodeURIComponent(key.split("+").join(" "));
+    const v = decodeURIComponent(value.split("+").join(" "));
+
+    if (k in queryParams) {
+      if (Array.isArray(queryParams[k])) {
+        queryParams[k].push(v);
+      } else {
+        queryParams[k] = [queryParams[k], v];
+      }
+    } else {
+      queryParams[k] = v;
+    }
   }
-
-  //   if (queryString.length === 0) {
-  //     return queryParams;
-  //   }
-  //   const keyValuePairs = queryString.split("&");
-
-  //   for (const pair of keyValuePairs) {
-  //     const [key, value] = pair.split("=");
-  //     queryParams[key] = value;
-  //   }
-
   return queryParams;
 }
 
