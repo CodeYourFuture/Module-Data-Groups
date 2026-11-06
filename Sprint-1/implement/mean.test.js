@@ -42,20 +42,39 @@ describe("mean", () => {
     expect(calculateMean([10, 0, -11])).toEqual(-0.33);
     expect(calculateMean([6.87, 3.12, -11.25])).toEqual(-0.42);
   });
+
+  // Given an empty array
+  // When passed to calculateMean
+  // Then it should throw Error("calculateMean requires a non-empty array")
+  it("throws when given an empty array", () => {
+    expect(() => calculateMean([])).toThrow(
+      new Error("calculateMean requires a non-empty array")
+    );
+  });
+
+  // Given a value that isn't an array, e.g. "banana", 42, null or {}
+  // When passed to calculateMean
+  // Then it should throw Error("calculateMean requires an array of numbers")
+  it("throws a value that isn't an array", () => {
+    expect(() => calculateMean(["banana"])).toThrow(
+      new Error("calculateMean requires an array of numbers")
+    );
+  });
+
+  // Given no argument at all
+  // When passed to calculateMean
+  // Then it should throw Error("calculateMean requires an array of numbers")
+  it("throws when given no argument at all", () => {
+    expect(() => calculateMean()).toThrow(
+      new Error("calculateMean requires an array of numbers")
+    );
+  });
+  // Given an array containing a non-number value, e.g. [1, "2", 3]
+  // When passed to calculateMean
+  // Then it should throw Error("calculateMean requires an array of numbers")
+  it("throws when given an array containing a non-number value", () => {
+    expect(() => calculateMean([1, "2", 3])).toThrow(
+      new Error("calculateMean requires an array of numbers")
+    );
+  });
 });
-
-// Given an empty array
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires a non-empty array")
-
-// Given a value that isn't an array, e.g. "banana", 42, null or {}
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires an array of numbers")
-
-// Given no argument at all
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires an array of numbers")
-
-// Given an array containing a non-number value, e.g. [1, "2", 3]
-// When passed to calculateMean
-// Then it should throw Error("calculateMean requires an array of numbers")
