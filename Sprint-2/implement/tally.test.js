@@ -32,6 +32,12 @@ test("tally counts duplicate items", () => {
   expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
 });
 
+test("tally throws for invalid input", () => {
+  expect(() => tally("banana")).toThrow("tally requires an array");
+  expect(() => tally(42)).toThrow("tally requires an array");
+  expect(() => tally()).toThrow("tally requires an array");
+});
+
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
