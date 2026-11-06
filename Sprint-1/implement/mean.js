@@ -1,5 +1,5 @@
 function calculateMean(list) {
-  if (!Array.isArray(list) || list === "") {
+  if (!Array.isArray(list)) {
     throw new Error("calculateMean requires an array of numbers");
   }
 
