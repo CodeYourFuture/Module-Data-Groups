@@ -1,8 +1,7 @@
 // Predict and explain first...
 
-// This program should log out the title, how many it serves and the ingredients.
-// Each ingredient should be logged on a new line
-// How can you fix it?
+// The program won't print the ingredients because it wasn't called on line 14
+
 
 const recipe = {
   title: "bruschetta",
