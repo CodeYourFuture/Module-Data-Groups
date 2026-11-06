@@ -47,3 +47,7 @@ test("should store values of a key in an array when the key has 2 or more values
 test("returns an empty query string", () => {
   expect(parseQueryString("")).toEqual({});
 });
+
+test("handles a value with both + and percent-encoding", () => {
+  expect(parseQueryString("q=a+b%26c")).toEqual({q: "a b&c"});
+});
