@@ -10,11 +10,11 @@ function calculateMean(list) {
   ) {
     throw new Error("calculateMean requires an array of numbers");
   }
-  const sum = list.reduce((sum, number) => {
-    return sum + number;
+  const total = list.reduce((runningTotal, number) => {
+    return runningTotal + number;
   }, 0);
 
-  return sum / list.length;
+  return total / list.length;
 }
 
 module.exports = calculateMean;
