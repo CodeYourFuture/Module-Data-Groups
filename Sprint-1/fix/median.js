@@ -15,8 +15,8 @@ function calculateMedian(list) {
 
   if (
     !list.every(
-      (currentValue) =>
-        typeof currentValue === "number" && !Number.isNaN(currentValue)
+      (value) =>
+        typeof value === "number" && !Number.isNaN(value) && Number.isFinite(value)
     )
   ) {
     throw new Error("calculateMedian requires an array of numbers");
