@@ -8,15 +8,7 @@ function parseQueryString(queryString) {
     const key = eq === -1 ? pair : pair.slice(0, eq);
     const value = eq === -1 ? "" : pair.slice(eq + 1);
     queryParams[key] = value;
-
-    const key = decodeURIComponent(eq === -1 ? : pair.slice(0, eq));
-    const value = eq === -1 ? "" : decodeURIComponent(pair.slice(eq + 1));
   }
-
-
-
-
-
 
   //   if (queryString.length === 0) {
   //     return queryParams;
