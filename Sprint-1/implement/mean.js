@@ -1,12 +1,11 @@
 function calculateMean(list) {
     let total = 0;
     for (const item of list) {
-        total = total + item;
+         total = total + item;    
     }
-    return total / list.length
+    return Number(total.toFixed(2)) / list.length;
 }
-//const n = [1, 2, 6];
-//console.log(calculateMean(n));
+console.log(n));
 module.exports = calculateMean;
 
 //E.g. calculateMean([1, 2, 6]), target output: 3
