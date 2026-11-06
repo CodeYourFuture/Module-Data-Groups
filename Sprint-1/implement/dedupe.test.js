@@ -37,7 +37,9 @@ describe("dedupe", () => {
   // Then it should return a copy of the original array
 
   it("returns for [1, 2, 3, 4]", () => {
-    expect(dedupe([1, 2, 3, 4])).toEqual([1, 2, 3, 4]);
+    const original = [1, 2, 3, 4];
+    const result = dedupe(original);
+    expect(result)not.toBe(original);
   });
 
   // Given an array of strings or numbers
