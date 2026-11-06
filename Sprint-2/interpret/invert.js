@@ -26,6 +26,8 @@ function invert(obj) {
 // The target value is { "1": "a", "2": "b"}
 
 // c) What does Object.entries return? Why is it needed in this program?
+// Object.entries returns an array of object [key, value] pairs.
+// It converts an object into an array, so the loop works, since plain objects can't be used with loops.
 
 // d) Explain why the current return value is different from the target output
 
