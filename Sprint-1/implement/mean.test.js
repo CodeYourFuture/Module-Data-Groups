@@ -81,3 +81,8 @@ test("given no argument, returns, calculateMean requires a non-empty array", () 
 // Given an array containing a non-number value, e.g. [1, "2", 3]
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires an array of numbers")
+test("given non-number array, returns, calculateMean requires an array of numbers", () => {
+  expect(() => calculateMean([1, "2", 3])).toThrow(
+    new Error("calculateMean requires an array of numbers")
+  );
+});
