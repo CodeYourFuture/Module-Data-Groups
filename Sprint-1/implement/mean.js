@@ -8,9 +8,11 @@ function calculateMean(list) {
 
   let total = 0;
   for (const item of list) {
+    if (typeof item !== "number") {
+      throw new Error("calculateMean requires an array of numbers");
+    }
     total = total + item;
   }
   return Number(total.toFixed(2)) / list.length;
 }
-//console.log(n));
 module.exports = calculateMean;
