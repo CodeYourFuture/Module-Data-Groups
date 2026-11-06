@@ -23,14 +23,8 @@ function calculateMedian(list) {
 function describeMedian(list) {
   try {
     return "The median is " + calculateMedian(list);
-  } catch {
-    if (list.length === 0) {
-      return "Could not calculate a median: calculateMedian requires a non-empty array";
-    }
-
-    if (!Array.isArray(list)) {
-      return "Could not calculate a median: calculateMedian requires an array of numbers";
-    }
+  } catch ({ name, message }) {
+    return "Could not calculate a median: " + message;
   }
 }
 
