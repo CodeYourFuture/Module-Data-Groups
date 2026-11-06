@@ -49,6 +49,10 @@ test("given an array containing a non-number, throws an error", () => {
 test("given an array containing NaN, throws an error", () => {
   expect(() => sum([10, NaN, 2])).toThrow("sum requires an array of numbers");
 });
+
+test("given an array containing Infinity and -Infinity, returns NaN", () => {
+  expect(sum([Infinity, 0, -Infinity])).toBeNaN();
+});
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
