@@ -23,7 +23,7 @@ test("given an array with negative numbers, correctly return sum of numbers", ()
 });
 
 test("given an array with decimal numbers, correctly return total sum", () => {
-  expect(sum([12.7, 3.6, 32.48, 8, 32.53])).toEqual(89.31);
+  expect(sum([12.7, 3.6, 32.48, 8, 32.53])).toBeCloseTo(89.31);
 });
 
 test("given an array with some values that aren't numbers, throw an Error", () => {
