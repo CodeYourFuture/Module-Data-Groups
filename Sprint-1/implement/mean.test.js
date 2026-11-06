@@ -23,15 +23,26 @@ const calculateMean = require("./mean.js");
 // When passed to calculateMean
 // Then it should return their mean
 // Delete this test.todo and replace it with a test.
-test.todo("given [1, 2, 6], returns 3");
+describe("mean", () => {
+  it("given [1, 2, 6], returns 3", () => {
+    expect(calculateMean([1, 2, 6])).toEqual(3);
+  });
 
-// Given an array with a single number
-// When passed to calculateMean
-// Then it should return that number
-
-// Given an array containing negative or decimal numbers
-// When passed to calculateMean
-// Then it should return the correct mean
+  // Given an array with a single number
+  // When passed to calculateMean
+  // Then it should return that number
+  it("given an array with a single number, returns that number", () => {
+    expect(calculateMean([5])).toEqual(5);
+  });
+  // Given an array containing negative or decimal numbers
+  // When passed to calculateMean
+  // Then it should return the correct mean
+  it("given an array with negative or decimal numbers, returns the correct mean", () => {
+    expect(calculateMean([-2, -6, -76])).toEqual(-28);
+    expect(calculateMean([10, 0, -11])).toEqual(-0.33);
+    expect(calculateMean([6.87, 3.12, -11.25])).toEqual(-0.42);
+  });
+});
 
 // Given an empty array
 // When passed to calculateMean
