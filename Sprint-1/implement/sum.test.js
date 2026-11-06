@@ -13,24 +13,57 @@ const sum = require("./sum.js");
 // Given an empty array
 // When passed to the sum function
 // Then it should return 0
-test.todo("given an empty array, returns 0")
-
+test("given an empty array, returns 0", () => {
+  expect(sum([])).toEqual(0);
+});
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
+test("given an array with one number, returns that number", () => {
+  expect(sum([7])).toEqual(7);
+});
 
 // Given an array containing negative numbers
 // When passed to the sum function
 // Then it should still return the correct total sum
+test("given an array with negative numbers, returns the correct sum", () => {
+  expect(sum([-4, -6, -2])).toEqual(-12);
+});
 
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
+test("given an array with decimal numbers, returns the correct sum", () => {
+  expect(sum([2.5, 3.5, 5.5])).toEqual(11.5);
+});
 
 // Given an array containing a value that isn't a number
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
+test("given an array containing a non-number, throws an error", () => {
+  expect(() => sum([10, "hello", 2])).toThrow(
+    "sum requires an array of numbers"
+  );
+});
 
+test("given an array containing NaN, throws an error", () => {
+  expect(() => sum([10, NaN, 2])).toThrow("sum requires an array of numbers");
+});
+
+test("given an array containing Infinity and -Infinity, returns NaN", () => {
+  expect(sum([Infinity, 0, -Infinity])).toBeNaN();
+});
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
+
+test("given a non-array input, throws an error", () => {
+  expect(() => sum("hello")).toThrow("sum requires an array of numbers");
+});
+
+test("given no argument, throws an error", () => {
+  expect(() => sum()).toThrow("sum requires an array of numbers");
+});
+test("given a number instead of an array, throws an error", () => {
+  expect(() => sum(42)).toThrow("sum requires an array of numbers");
+});

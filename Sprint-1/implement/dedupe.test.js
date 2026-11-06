@@ -16,13 +16,36 @@ E.g. dedupe([1, 2, 1]) returns [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+test("given an empty array, it returns an empty array", () => {
+  expect(dedupe([])).toEqual([]);
+});
 
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+test("given an array with no duplicates, it returns a copy of the original array", () => {
+  const numbers = [1, 2, 3];
+  const result = dedupe(numbers);
 
+  expect(result).toEqual(numbers);
+  expect(result).not.toBe(numbers);
+});
 // Given an array of strings or numbers
 // When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the 
+// Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
+test("given an array of numbers it should return a new array with duplicates removed in the order they appeared in the original array", () => {
+  const numbers = [5, 1, 1, 2, 3, 2, 5, 8];
+  const result = dedupe(numbers);
+
+  expect(result).toEqual([5, 1, 2, 3, 8]);
+  expect(result).not.toBe(numbers);
+});
+
+test("given an array of strings it should return a new array with duplicates removed in the order they appeared in the original array", () => {
+  const numbers = ["apple", "banana", "apple", "orange", "banana"];
+  const result = dedupe(numbers);
+
+  expect(result).toEqual(["apple", "banana", "orange"]);
+  expect(result).not.toBe(numbers);
+});
