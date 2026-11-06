@@ -32,7 +32,15 @@ test("tally on an empty array returns an empty object", () => {
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+test("given array with duplicate items, return object with counts for each unique item", () => {
+    const input = ['a', 'a', 'b', 'c', 'c', 'c'];
+    const result = tally(input);
+    expect(result).toEqual({a: 2, b: 1, c: 3})
+})
 
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
 // Then it should throw Error("tally requires an array")
+test("given invalid input (str, num, no arg), throw error: 'tally requires an array'", () => {
+    expect(() => tally('meaf')).toThrow('tally requires an array')
+})
