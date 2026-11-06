@@ -16,9 +16,7 @@ function findMax(elements) {
     throw new Error("findMax requires an array of numbers");
   }
 
-  sortedElements = elements.toSorted((a, b) => a - b);
-
-  return sortedElements[sortedElements.length - 1];
+  return Math.max(...elements);
 }
 
 module.exports = findMax;
