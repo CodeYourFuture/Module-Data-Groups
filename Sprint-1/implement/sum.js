@@ -2,7 +2,11 @@ function sum(elements) {
   if (!Array.isArray(elements)) {
     throw new Error("sum requires an array of numbers");
   }
-  if (!elements.every((element) => typeof element === "number")) {
+  if (
+    !elements.every(
+      (element) => typeof element === "number" && !Number.isNaN(element)
+    )
+  ) {
     throw new Error("sum requires an array of numbers");
   }
   const sum = elements.reduce((sum, number) => {
