@@ -1,8 +1,8 @@
 // Predict and explain first...
 
-// This code should log out the houseNumber from the address object
-// but it isn't working...
-// Fix anything that isn't working
+// Answer: 
+// The address in the code is an object not an array, 
+// it wont log out because we try to use the array syntax instead of the object syntax
 
 const address = {
   houseNumber: 42,
@@ -12,4 +12,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
