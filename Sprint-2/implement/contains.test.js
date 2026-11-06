@@ -23,18 +23,50 @@ as an array isn't an object
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("contains on empty object returns false", () => {
+  expect(contains({}, "a")).toBe(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("returns true when property exists", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+test("returns false when property does not exist", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});
 
 // Given a value that isn't an object - an array, a string, a number,
 // null, or no argument at all
 // When passed to contains
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
+
+test("throws an error when given an array", () => {
+  expect(() => contains([3, 4, 5], "a")).toThrow(
+    new Error("contains requires an object")
+  );
+});
+
+test("throws an error when given a null", () => {
+  expect(() => contains(null, "a")).toThrow(
+    new Error("contains requires an object")
+  );
+});
+
+test("throws an error when given a string", () => {
+  expect(() => contains("hellow", "a")).toThrow(
+    new Error("contains requires an object")
+  );
+});
+
+test("throws an error when given no argument", () => {
+  expect(() => contains()).toThrow(
+    new Error("contains requires an object")
+  );
+});
