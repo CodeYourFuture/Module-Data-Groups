@@ -21,14 +21,13 @@ function calculateMedian(list) {
   const sortedList = [...list].sort((a, b) => a - b);
 
   if (sortedList.length % 2 === 0) {
-    const evenMiddleIndex = Math.floor(sortedList.length / 2);
+    const evenMiddleIndex = sortedList.length / 2;
     const sumOfEvenMiddleIndex =
-      sortedList.splice(evenMiddleIndex, 1)[0] +
-      sortedList.splice(evenMiddleIndex - 1, 1)[0];
+    sortedList[evenMiddleIndex - 1] + sortedList[evenMiddleIndex]
     return sumOfEvenMiddleIndex / 2;
   } else {
-    const oddMiddleIndex = Math.ceil(sortedList.length / 2);
-    return sortedList.splice(oddMiddleIndex - 1, 1)[0];
+    const oddMiddleIndex = Math.floor(sortedList.length / 2);
+    return sortedList[oddMiddleIndex];
   }
 }
 
