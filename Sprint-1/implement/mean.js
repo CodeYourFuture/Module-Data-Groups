@@ -1,3 +1,5 @@
+const sum = require("./sum.js");
+
 function calculateMean(list) {
   if (!Array.isArray(list)) {
     throw new Error("calculateMean requires an array of numbers");
@@ -9,18 +11,16 @@ function calculateMean(list) {
 
   if (
     !list.every(
-      (currentValue) =>
-        typeof currentValue === "number" && !Number.isNaN(currentValue)
+      (value) =>
+        typeof value === "number" &&
+        !Number.isNaN(value) &&
+        Number.isFinite(value)
     )
   ) {
     throw new Error("calculateMean requires an array of numbers");
   }
-  
-  let total = 0;
 
-  for (number of list) {
-    total += number;
-  }
+  const total = sum(list);
   const mean = total / list.length;
 
   return mean;
