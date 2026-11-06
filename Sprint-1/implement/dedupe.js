@@ -1,7 +1,7 @@
 function dedupe(elements) {
   const dedupedArray = [];
 
-  for (value of elements) {
+  for (const value of elements) {
     if (!dedupedArray.includes(value)) {
       dedupedArray.push(value);
     }
