@@ -33,7 +33,7 @@ expect(result).toBe('The median is 2.5')
 // Then it should return "Could not calculate a median: calculateMedian requires a non-empty array"
 it ("returns for []", () => {
     expect(() => describeMedian([])).toThrow(
-        new Error("calculateMedian requires a non-empty array"))
+        new Error("Could not calculate a median: calculateMedian requires a non-empty array"))
 })
 
 // Given something that isn't an array of numbers, e.g. "banana"
@@ -41,6 +41,6 @@ it ("returns for []", () => {
 // Then it should return "Could not calculate a median: calculateMedian requires an array of numbers"
 it ("returns for ['banana', 'apple', 'orange']", () => {
     expect(() => describeMedian(['banana', 'apple', 'orange'])).toThrow(
-        new Error("calculateMedian requires an array of numbers"))
+        new Error("Could not calculate a median: calculateMedian requires an array of numbers"))
 })
 })
