@@ -84,8 +84,11 @@ test("given an array containing a non-number value, should throw an error", () =
   );
 });
 
-test("given an array with a NaN value, throw an error", () => {
+test("given an array with a NaN value, throws an error", () => {
   expect(() => calculateMean([2, NaN, 6, 8])).toThrow(
     "calculateMean requires an array of numbers"
   );
+});
+test("given an array containing Infinity and -Infinity, returns NaN", () => {
+  expect(calculateMean([Infinity, 0, -Infinity])).toBeNaN();
 });
