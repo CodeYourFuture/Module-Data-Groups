@@ -1,5 +1,5 @@
 function tally(list) {
-  if (Array.isArray(list)) {
+  if (!Array.isArray(list)) {
     throw new Error("tally requires an array");
   }
 
