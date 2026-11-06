@@ -33,4 +33,17 @@ it("given array without duplicates, returns that array", () => {
 // first occurrence of each element from the original array.
 it("given array with duplicates, returns array without duplicates", () => {
   expect(dedupe([4, 6, 9, 23, 9, 23, 23])).toEqual([4, 6, 9, 23]);
+  expect(dedupe([4, "Hi", 9, "Hi", 9, 23, 23, "hi"])).toEqual([
+    4,
+    "Hi",
+    9,
+    23,
+    "hi",
+  ]);
+  expect(dedupe(["Hi", "Hi", "hi", "bye", "Hi", "bye", "yes"])).toEqual([
+    "Hi",
+    "hi",
+    "bye",
+    "yes",
+  ]);
 });
