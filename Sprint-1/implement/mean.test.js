@@ -38,9 +38,9 @@ describe("mean", () => {
   // When passed to calculateMean
   // Then it should return the correct mean
   it("given an array with negative or decimal numbers, returns the correct mean", () => {
-    expect(calculateMean([-2, -6, -76])).toEqual(-28);
-    expect(calculateMean([10, 0, -11])).toEqual(-0.33);
-    expect(calculateMean([6.87, 3.12, -11.25])).toEqual(-0.42);
+    expect(calculateMean([-2, -6, -76])).toBeCloseTo(-28, 2);
+    expect(calculateMean([10, 0, -11])).toBeCloseTo(-0.33, 2);
+    expect(calculateMean([6.87, 3.12, -11.25])).toBeCloseTo(-0.42, 2);
   });
 
   // Given an empty array

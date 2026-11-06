@@ -3,19 +3,17 @@ function findMax(elements) {
     throw new Error("findMax requires an array of numbers");
   }
   for (const value of elements) {
-    if (typeof value !== "number") {
+    if (!Number.isFinite(value)) {
       throw new Error("findMax requires an array of numbers");
     }
   }
 
   const arrLength = elements.length;
-  let maxNum = elements[0];
+  let maxNum = -Infinity;
   if (arrLength === 0) {
     return [-Infinity];
   }
-  if (arrLength === 1) {
-    return elements[0];
-  }
+
   for (const item of elements) {
     if (maxNum < item) {
       maxNum = item;

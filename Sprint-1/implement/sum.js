@@ -2,19 +2,23 @@ function sum(elements) {
   if (!Array.isArray(elements)) {
     throw new Error("sum requires an array of numbers");
   }
+
   for (const item of elements) {
-    if (typeof item !== "number") {
+    if (!Number.isFinite(item)) {
       throw new Error("sum requires an array of numbers");
     }
   }
-  const listLength = elements.length;
-  let total = 0;
-  if (listLength === 0) {
+
+  if (elements.length === 0) {
     return 0;
   }
+
+  let total = 0;
+
   elements.forEach((item) => {
-    total = total + item;
+    total += item;
   });
+
   return Number(total.toFixed(2));
 }
 

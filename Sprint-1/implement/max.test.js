@@ -18,7 +18,7 @@ const findMax = require("./max.js");
 // Delete this test.todo and replace it with a test.
 describe("findMax", () => {
   it("given an empty array,returns -Infinity", () => {
-    expect(findMax([])).toEqual([-Infinity]);
+    expect(findMax([])).toEqual(-Infinity);
   });
 
   // Given an array with one number
@@ -60,6 +60,18 @@ describe("findMax", () => {
   // Then it should throw Error("findMax requires an array of numbers")
   it("throws when given an array containing a value that isn't a number", () => {
     expect(() => findMax(["banana"])).toThrow(
+      new Error("findMax requires an array of numbers")
+    );
+
+    expect(() => findMax([10, "hello", 20])).toThrow(
+      new Error("findMax requires an array of numbers")
+    );
+
+    expect(() => findMax([10, null, 20])).toThrow(
+      new Error("findMax requires an array of numbers")
+    );
+
+    expect(() => findMax([10, NaN, 20])).toThrow(
       new Error("findMax requires an array of numbers")
     );
   });

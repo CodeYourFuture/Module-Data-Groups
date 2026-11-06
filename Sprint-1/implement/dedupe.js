@@ -6,9 +6,8 @@ function dedupe(list) {
   for (const item of list) {
     if (newList.includes(item)) {
       continue;
-    } else {
-      newList.push(item);
     }
+    newList.push(item);
   }
   return newList;
 }

@@ -31,7 +31,12 @@ describe("dedupe", () => {
   // When passed to the dedupe function
   // Then it should return a copy of the original array
   it("Given an array with no duplicates, it returns a copy of the original array", () => {
-    expect(dedupe(["d", "s", "t", "c"])).toEqual(["d", "s", "t", "c"]);
+    const originalArray = ["d", "s", "t", "c"];
+    const result = dedupe(originalArray);
+
+    expect(result).toEqual(originalArray);
+    expect(result).not.toBe(originalArray);
+
     expect(dedupe([5, 4, 3, 2, 1])).toEqual([5, 4, 3, 2, 1]);
     expect(dedupe([7, 8, 9])).toEqual([7, 8, 9]);
   });
