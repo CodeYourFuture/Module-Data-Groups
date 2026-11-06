@@ -20,6 +20,7 @@ function invert(obj) {
 // Current return value is 1.
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
+// The current return value is 2.
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 
