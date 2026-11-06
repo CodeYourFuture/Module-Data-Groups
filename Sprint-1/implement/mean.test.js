@@ -41,7 +41,7 @@ test("given an array of negative numbers, should return -4", () => {
   expect(calculateMean([-2, -4, -6])).toEqual(-4);
 });
 test("given an array of decimal numbers, should return 2.5", () => {
-  expect(calculateMean([1.5, 2.5, 3.5])).toEqual(2.5);
+  expect(calculateMean([1.5, 2.5, 3.5])).toBeCloseTo(2.5);
 });
 // Given an empty array
 // When passed to calculateMean
