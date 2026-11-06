@@ -24,9 +24,12 @@ as an array isn't an object
 // When passed to contains
 // Then it should return false
 test("contains on empty object returns false", () => {
-    expect(contains({}, "a")).toBe(false)
+  expect(contains({}, "a")).toBe(false);
 });
 
+test("contains an object with existing property, return true", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
