@@ -7,7 +7,11 @@ function parseQueryString(queryString) {
     const eq = pair.indexOf("=");
     const key = eq === -1 ? pair : pair.slice(0, eq);
     const value = eq === -1 ? "" : pair.slice(eq + 1);
-    queryParams[key] = value;
+   
+    const k = decodeURIComponent(key.replace(/+/g, ""));
+    const v = decodeURIComponent(value.replace(/+/g, ""));
+
+    
   }
 
   //   if (queryString.length === 0) {
