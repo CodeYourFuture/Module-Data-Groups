@@ -31,6 +31,10 @@ test("contains an object with existing property, return true", () => {
   expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
 });
 
+test("contains an object with missing property, return false", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});
+
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
