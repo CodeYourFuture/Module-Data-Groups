@@ -6,6 +6,9 @@
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
+// As I said earlier it is not using index, we can not iterate it with
+// for ..of loop. The output also gonna be the key so we have to change that as well.
+
 const author = {
   firstName: "Zadie",
   lastName: "Smith",
@@ -14,6 +17,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value in author) {
   console.log(value);
 }
