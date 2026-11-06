@@ -29,6 +29,7 @@ test("tally on an empty array returns an empty object", () => {
 
 test("tally counts duplicate items", () => {
   expect(tally(["a", "a", "a"])).toEqual({ a: 3 });
+  expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
 });
 
 // Given an array with duplicate items
