@@ -8,3 +8,6 @@ test("handles single entry", () => {
   expect(invert({ a: 1 })).toEqual({ 1: "a" });
 });
 
+test("handles an empty object", () => {
+  expect(invert({})).toEqual({});
+});
