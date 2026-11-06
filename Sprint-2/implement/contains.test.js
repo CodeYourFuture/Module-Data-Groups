@@ -35,6 +35,9 @@ test("contains an object with missing property, return false", () => {
   expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
 });
 
+test("contains throws for an array", () => {
+  expect(() => contains([1, 2, 3], "a")).toThrow("contains requires an object");
+});
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
