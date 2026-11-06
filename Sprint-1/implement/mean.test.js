@@ -41,7 +41,15 @@ test("given [6], returns 6", () => {
 // Given an array containing negative or decimal numbers
 // When passed to calculateMean
 // Then it should return the correct mean
-
+test("given negative or decimal numbers, return mean", () => {
+    const list = [-7, -3, -5];
+    const result = calculateMean(list)
+    expect(result).toEqual(-5)
+    
+    const list1 = [7.2, 2.4, 6.8];
+    const result1 = calculateMean(list1);
+    expect(result1).toBeCloseTo(5.47);
+})
 // Given an empty array
 // When passed to calculateMean
 // Then it should throw Error("calculateMean requires a non-empty array")
