@@ -5,5 +5,5 @@ test("swaps the key and value of a single pair", () => {
 });
 
 test("swaps every pair when there are multiple pairs", () => {
-  expect(invert({ a: 1, b: 2 })).toEqual({ 1: "a", 2: "b" });
+  expect(invert({ x: 10, y: 20 })).toEqual({ 10: "a", 20: "b" });
 });
