@@ -16,28 +16,81 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("return -Infinity when given an Empty array", () => {
+  expect(findMax([])).toEqual(-Infinity);
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("return the number when given one number", () => {
+  expect(findMax([10])).toEqual(10);
+  expect(findMax([1])).toEqual(1);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test("return the largest number when given negative and posetive numbers", () => {
+  expect(findMax([10, -10, -3, 4])).toEqual(10);
+  expect(findMax([-10, 2, -5, 6, 9])).toEqual(9);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+test("returns closest one to zero when given array of negative numbers", () => {
+  expect(findMax([-1, -5, -2, -10])).toEqual(-1);
+  expect(findMax([-5, -10, -100, -20])).toEqual(-5);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test("return the largest decimal number when given decimal numbers in an array", () => {
+  expect(findMax([0.01, 0.02, 2.5, 2.9])).toEqual(2.9);
+  expect(findMax([3.5, 2.5, 2.9])).toEqual(3.5);
+  expect(findMax([10.1, 9, 3, 11])).toEqual(11);
+});
 
 // Given an array containing a value that isn't a number
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+test("return error when given an array containg non number value", () => {
+  expect(() => findMax(["a", 2, "c"])).toThrow(
+    "findMax requires an array of numbers"
+  );
+});
+test("return error when given an array containg non number value", () => {
+  expect(() => findMax(["a", "b", "c"])).toThrow(
+    "findMax requires an array of numbers"
+  );
+});
+test("return error when given an array containg non number value", () => {
+  expect(() => findMax([1, "hallo", 2])).toThrow(
+    "findMax requires an array of numbers"
+  );
+});
+test("return error when given an array containg non number value", () => {
+  expect(() => findMax(["a", , "c"])).toThrow(
+    "findMax requires an array of numbers"
+  );
+});
+test("return error when given an array containg non number value", () => {
+  expect(() => findMax([1, , 2])).toThrow(
+    "findMax requires an array of numbers"
+  );
+});
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+test("return error when given non array values", () => {
+  expect(() => findMax("hey")).toThrow("findMax requires an array of numbers");
+});
+test("return error when given non array values that is number", () => {
+  expect(() => findMax(42)).toThrow("findMax requires an array of numbers");
+});
+test("return error when given no argument", () => {
+  expect(() => findMax()).toThrow("findMax requires an array of numbers");
+});
