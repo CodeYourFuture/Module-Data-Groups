@@ -24,9 +24,12 @@ const tally = require("./tally.js");
 // When passed to tally
 // Then it should return an empty object
 test("tally on an empty array returns an empty object", () => {
-    expect(tally([])).toEqual({});
+  expect(tally([])).toEqual({});
 });
 
+test("tally counts duplicate items", () => {
+  expect(tally(["a", "a", "a"])).toEqual({ a: 3 });
+});
 
 // Given an array with duplicate items
 // When passed to tally
