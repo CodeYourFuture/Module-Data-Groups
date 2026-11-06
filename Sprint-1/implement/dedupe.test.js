@@ -18,7 +18,10 @@ test("given an empty array, it returns an empty array", () => {
 });
 
 test("given an array with no duplicates, should return a copy of the same array", () => {
-  expect(dedupe([1, 5, 9, 23])).toEqual([1, 5, 9, 23]);
+  const testArray = [1, 5, 9, 23];
+  const testResult = dedupe(testArray);
+  expect(testResult).not.toBe(testArray);
+  expect(testResult).toEqual(testArray);
 });
 
 test("given an array with strings or numbers, should return an array with duplicates removed and first occurrence preserved", () => {
