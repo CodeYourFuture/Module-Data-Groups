@@ -1,7 +1,7 @@
 // Predict and explain first...
 
-// Answer: 
-// The address in the code is an object not an array, 
+// Answer:
+// The address in the code is an object not an array,
 // it wont log out because we try to use the array syntax instead of the object syntax
 
 const address = {
