@@ -10,20 +10,8 @@ function calculateMedian(list) {
     throw new Error("calculateMedian requires an array of numbers");
   }
 
-  if (list === null || list === undefined) {
-    throw new Error("calculateMedian requires an array of numbers");
-  }
-
-  if (typeof list === "string" || typeof list === "number") {
-    throw new Error("calculateMedian requires an array of numbers");
-  }
-
   if (list.length === 0) {
     throw new Error("calculateMedian requires a non-empty array");
-  }
-
-  if (list.every((item) => typeof item === "string")) {
-    throw new Error("calculateMedian requires an array of numbers");
   }
 
    if (list.some((item) => typeof item === "string" || item === null || item === undefined)) {
