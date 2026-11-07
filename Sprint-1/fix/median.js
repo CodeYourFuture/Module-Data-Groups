@@ -13,14 +13,8 @@ function calculateMedian(list) {
     throw new Error("calculateMedian requires a non-empty array");
   }
 
-  for (item of list) {
-    if (typeof item === "string") {
-      throw new Error("calculateMedian requires an array of numbers");
-    }
-    if (item === null) {
-      throw new Error("calculateMedian requires an array of numbers");
-    }
-    if (list.includes(undefined)) {
+  for (const item of list) {
+    if (typeof item === "string" || item === null || list.includes(undefined)) {
       throw new Error("calculateMedian requires an array of numbers");
     }
   }

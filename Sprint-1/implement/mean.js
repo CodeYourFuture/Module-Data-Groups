@@ -14,13 +14,11 @@ function calculateMean(list) {
     return list[0];
   }
 
-  let result = 0;
   let totalItem = 0;
   for (const item of list) {
     totalItem += item;
-    result = totalItem / list.length;
   }
-  return result;
+  return totalItem / list.length;
 }
 
 module.exports = calculateMean;
