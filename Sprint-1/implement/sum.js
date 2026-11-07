@@ -1,10 +1,11 @@
 function sum(elements) {
-  if (elements.length === 0) {
-    return 0;
-  }
   if (!Array.isArray(elements)) {
     throw new Error("sum requires an array of numbers");
   }
+  if (elements.length === 0) {
+    return 0;
+  }
+
   for (const item of elements) {
     if (typeof item !== "number") {
       throw new Error("sum requires an array of numbers");
