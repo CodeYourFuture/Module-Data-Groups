@@ -9,7 +9,7 @@ function sum(elements) {
   for (const value of elements) {
     total += value;
   }
-  return Total;
+  return total;
 }
 
 module.exports = sum;
