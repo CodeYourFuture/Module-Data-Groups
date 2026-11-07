@@ -5,8 +5,10 @@ function sum(elements) {
 
   if (
     !elements.every(
-      (currentValue) =>
-        typeof currentValue === "number" && !Number.isNaN(currentValue)
+      (value) =>
+        typeof currentValue === "number" &&
+        !Number.isNaN(value) &&
+        Number.isFinite(value)
     )
   ) {
     throw new Error("sum requires an array of numbers");
