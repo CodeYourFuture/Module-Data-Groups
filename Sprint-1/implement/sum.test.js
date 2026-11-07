@@ -20,6 +20,9 @@ test("given an empty array, returns 0", () => {
 // Given an array with just one number
 // When passed to the sum function
 // Then it should return that number
+test("given a one number array, returns the same number", () => {
+  expect(sum([9])).toEqual(9);
+});
 
 // Given an array containing negative numbers
 // When passed to the sum function
