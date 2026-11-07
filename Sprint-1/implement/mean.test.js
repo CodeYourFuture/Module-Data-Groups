@@ -110,4 +110,19 @@ describe("calculateMean", () => {
         new Error("calculateMean requires an array of numbers")
       );
   });
+
+  it("returns for [Infinity, 0, -Infinity]", () => {
+    () =>
+      expect(calculateMean([Infinity, 0, -Infinity])).toThrow(
+        new Error("calculateMean requires an array of numbers")
+      );
+  });
+
+    it("returns for [0, NaN]", () => {
+    () =>
+      expect(calculateMean([0, NaN])).toThrow(
+        new Error("calculateMean requires an array of numbers")
+      );
+  });
+
 });
