@@ -21,11 +21,34 @@ const describeMedian = require("./describe-median.js");
 // When passed to describeMedian
 // Then it should return "The median is " followed by the median
 // Delete this test.todo and replace it with a test.
-test.todo('given [1, 2, 3], returns "The median is 2"');
+describe("describeMedian", () => {
+  it("Given array of positive numbers, it returns the correct message", () => {
+    expect(describeMedian([1, 2, 6])).toEqual("The median is 2");
+  });
 
-// Given an empty array
-// When passed to describeMedian
-// Then it should return "Could not calculate a median: calculateMedian requires a non-empty array"
+  // Given an empty array
+  // When passed to describeMedian
+  // Then it should return "Could not calculate a median: calculateMedian requires a non-empty array"
+  it("returns an error message when given an empty array", () => {
+    expect(describeMedian([])).toEqual(
+      "Could not calculate a median: calculateMedian requires a non-empty array"
+    );
+  });
+  // Given something that isn't an array of numbers, e.g. "banana"
+  // When passed to describeMedian
+  // Then it should return "Could not calculate a median: calculateMedian requires an array of numbers"
+  it("returns an error message when given an empty array", () => {
+    expect(describeMedian("banana")).toEqual(
+      "Could not calculate a median: calculateMedian requires an array of numbers"
+    );
+    expect(describeMedian([3, "5", 8])).toEqual(
+      "Could not calculate a median: calculateMedian requires an array of numbers"
+    );
+    expect(describeMedian(42)).toEqual(
+      "Could not calculate a median: calculateMedian requires an array of numbers"
+    );
+  });
+});
 
 // Given something that isn't an array of numbers, e.g. "banana"
 // When passed to describeMedian
