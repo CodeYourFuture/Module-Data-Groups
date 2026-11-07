@@ -16,28 +16,52 @@ const findMax = require("./max.js");
 // When passed to the max function
 // Then it should return -Infinity
 // Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+it("returns the -Infinity for []", () => {
+  expect(findMax([])).toEqual("-Infinity");
+});
 
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+it("returns the median for [40]", () => {
+  expect(findMax([40])).toEqual(40);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+it("returns the median for [20, 30, 10, 40]", () => {
+  expect(findMax([20, 30, 10, 40])).toEqual(40);
+});
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
+it("returns the median for [-40, -20, -30, -70]", () => {
+  expect(findMax([-40, -20, -30, -70])).toEqual(-20);
+});
 
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+it("returns the median for [-40.4, -20.7, -30.3, -70.6]", () => {
+  expect(findMax([-40.4, -20.7, -30.3, -70.6])).toEqual(-20.7);
+});
 
 // Given an array containing a value that isn't a number
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+it("Throws error 'findMax requires an array of numbers' when containing a value that isn't a number", () => {
+  expect(() => findMax([10, 40, "hello", 30])).toThrow(
+    new Error("findMax requires an array of numbers")
+  );
+});
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+it("Throws error 'findMax requires an array of numbers' Given something that isn't an array at all", () => {
+  expect(() => findMax(42)).toThrow(
+    new Error("findMax requires an array of numbers")
+  );
+});

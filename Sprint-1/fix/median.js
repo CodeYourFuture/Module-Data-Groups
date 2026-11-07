@@ -5,10 +5,31 @@
 // Hint: Please consider scenarios when 'list' isn't an array, is empty,
 // or contains values that aren't numbers (the function is expected to throw - see the tests).
 
+// function calculateMedian(list) {
+//   const middleIndex = Math.floor(list.length / 2);
+//   const median = list.splice(middleIndex, 1)[0];
+//   return median;
+// }
+
+// module.exports = calculateMedian;
+
 function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
-  return median;
+  if (!Array.isArray(list)) {
+    throw new Error("calculateMedian requires an array of numbers");
+  } else if (list.some((item) => typeof item !== "number")) {
+    throw new Error("calculateMedian requires an array of numbers");
+  } else if (list.length === 0) {
+    throw new Error("calculateMedian requires a non-empty array");
+  }
+  const copyList = Array.from(list);
+  let sortList = copyList.sort((a, b) => a - b);
+  if (sortList.length % 2 === 1) {
+    const middleIndex = Math.floor(sortList.length / 2);
+    return sortList[middleIndex];
+  }
+  const rightMiddleIndex = Math.floor(sortList.length / 2 - 1);
+  const leftMiddleIndex = Math.floor(sortList.length / 2);
+  return (sortList[rightMiddleIndex] + sortList[leftMiddleIndex]) / 2;
 }
 
 module.exports = calculateMedian;
