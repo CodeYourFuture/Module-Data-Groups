@@ -4,10 +4,9 @@ function dedupe(list) {
   }
   const newList = [];
   for (const item of list) {
-    if (newList.includes(item)) {
-      continue;
+    if (!newList.includes(item)) {
+      newList.push(item);
     }
-    newList.push(item);
   }
   return newList;
 }

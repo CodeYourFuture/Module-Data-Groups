@@ -11,7 +11,7 @@ function findMax(elements) {
   const arrLength = elements.length;
   let maxNum = -Infinity;
   if (arrLength === 0) {
-    return [-Infinity];
+    return -Infinity;
   }
 
   for (const item of elements) {
