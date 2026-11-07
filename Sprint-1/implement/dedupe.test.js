@@ -24,11 +24,10 @@ describe("dedupe", () => {
   // When passed to the dedupe function
   // Then it should return a copy of the original array
   it("returns a copy of the array when there are no duplicates", () => {
-    // const list = [1, 2, 3];
-    // const result = dedupe(list);
-    // expect(result).toEqual([1, 2, 3]);
-    // expect(result).not.toBe(list);
-    expect(dedupe([1, "1", 2])).toEqual([1, "1", 2]);
+    const list = [1, 2, 3];
+    const result = dedupe(list);
+    expect(result).toEqual([1, 2, 3]);
+    expect(result).not.toBe(list);
   });
   // Given an array of strings or numbers
   // When passed to the dedupe function
