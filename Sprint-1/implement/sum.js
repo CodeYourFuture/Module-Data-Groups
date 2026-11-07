@@ -5,9 +5,9 @@ function sum(elements) {
   if (!elements.every((a) => typeof a === "number" && !Number.isNaN(a))) {
     throw new Error("sum requires an array of numbers");
   }
-  let Total = 0;
+  let total = 0;
   for (const value of elements) {
-    Total += value;
+    total += value;
   }
   return Total;
 }
