@@ -21,5 +21,4 @@ function calculateMean(list) {
   return mean;
 }
 
-
 module.exports = calculateMean;

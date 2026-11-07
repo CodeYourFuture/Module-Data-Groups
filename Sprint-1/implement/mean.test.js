@@ -42,9 +42,8 @@ describe("calculateMean", () => {
     expect(calculateMean([10, 20.5, -10, 30.5])).toEqual(12.75);
   });
 
-  it ("returns for [1.2, 0.6, 0.005]", () => {
+  it("returns for [1.2, 0.6, 0.005]", () => {
     expect(calculateMean([1.2, 0.6, 0.005])).toBeCloseTo(0.6017);
-
   });
 
   // Given an empty array
@@ -118,11 +117,10 @@ describe("calculateMean", () => {
       );
   });
 
-    it("returns for [0, NaN]", () => {
+  it("returns for [0, NaN]", () => {
     () =>
       expect(calculateMean([0, NaN])).toThrow(
         new Error("calculateMean requires an array of numbers")
       );
   });
-
 });
