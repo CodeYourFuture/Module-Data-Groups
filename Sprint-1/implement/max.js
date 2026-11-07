@@ -1,6 +1,6 @@
 function findMax(elements) {
   if (elements.length === 0) {
-    return "Infinity";
+    return "-Infinity";
   }
   if (!Array.isArray(elements)) {
     throw new Error("findMax requires an array of numbers");
