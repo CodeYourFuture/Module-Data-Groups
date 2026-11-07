@@ -14,7 +14,7 @@ function calculateMedian(list) {
     throw new Error("calculateMedian requires a non-empty array");
   }
 
-   if (list.some((item) => typeof item === "string" || item === null || item === undefined)) {
+   if (list.some((item) => typeof item !== "number" || !Number.isFinite(item))) {
     throw new Error("calculateMedian requires an array of numbers");
   }
 
