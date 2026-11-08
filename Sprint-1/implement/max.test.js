@@ -67,7 +67,7 @@ test("should throw an error when at least one value is not a number", () => {
 // Then it should throw Error("findMax requires an array of numbers")
 
 test("should throw an error when the data type isn't an array", () => {
-  expect(() => findMax(["ten", 1, "thirty"])).toThrow(
+  expect(() => findMax("ten", 1, "thirty")).toThrow(
     new Error("findMax requires for all items to be numbers")
   );
 });

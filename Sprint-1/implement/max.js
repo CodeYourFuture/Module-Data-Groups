@@ -1,6 +1,6 @@
 function findMax(elements) {
   if (!Array.isArray(elements)) {
-    throw new Error("findMax requires an array of numbers");
+    throw new Error("findMax requires for all items to be numbers");
   }
 
   if (elements.length === 0) {
