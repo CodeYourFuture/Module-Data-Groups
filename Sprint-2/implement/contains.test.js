@@ -33,13 +33,11 @@ test("contains on object with non-existent property returns false", () => {
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
 test("contains throws an error for an array", () => {
-  expect(() => contains([1, 2, 3], "name")).toThrow(
-    "contains requires an object"
-  );
+  expect(() => contains([1, 2, 3], "0")).toThrow("contains requires an object");
 });
 
 test("contains throws an error for a string", () => {
-  expect(() => contains("Manchester", "name")).toThrow(
+  expect(() => contains("Manchester", "0")).toThrow(
     "contains requires an object"
   );
 });
