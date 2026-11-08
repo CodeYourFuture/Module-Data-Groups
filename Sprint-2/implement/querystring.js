@@ -6,10 +6,33 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
-  }
+    if (pair === "") {
+      continue;
+    }
 
+    if (!pair.includes("=")) {
+      const key = decodeURIComponent(pair).replace("+", " ");
+      queryParams[key] = "";
+    } else {
+      const key = decodeURIComponent(pair.slice(0, pair.indexOf("="))).replace(
+        "+",
+        " "
+      );
+      const value = decodeURIComponent(
+        pair.slice(pair.indexOf("=") + 1)
+      ).replace("+", " ");
+
+      if (Object.keys(queryParams).includes(key)) {
+        if (Array.isArray(queryParams[key])) {
+          queryParams[key].push(value);
+        } else {
+          queryParams[key] = [queryParams[key], value];
+        }
+      } else {
+        queryParams[key] = value;
+      }
+    }
+  }
   return queryParams;
 }
 
