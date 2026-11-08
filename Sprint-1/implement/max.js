@@ -11,11 +11,14 @@ function findMax(elements) {
     return -Infinity;
   }
 
-  if (elements.length === 1) {
-    return elements[0];
+  let max = -Infinity;
+
+  for (const item of elements) {
+    if (item > max) {
+      max = item;
+    }
   }
-  const sortedList = elements.toSorted((a, b) => a - b);
-  return sortedList.at(-1);
+  return max;
 }
 
 module.exports = findMax;

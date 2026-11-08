@@ -14,7 +14,7 @@ function calculateMedian(list) {
   }
 
   for (const item of list) {
-    if (typeof item === "string" || item === null || list.includes(undefined)) {
+    if (!Number.isFinite(item)) {
       throw new Error("calculateMedian requires an array of numbers");
     }
   }
