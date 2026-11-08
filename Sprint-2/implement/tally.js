@@ -6,10 +6,10 @@ function tally(items) {
   const counts = {};
 
   for (const item of items) {
-    if (counts[item] === undefined) {
-      counts[item] = 1;
-    } else {
+    if (Object.hasOwn(counts, item)) {
       counts[item] += 1;
+    } else {
+      counts[item] = 1;
     }
   }
   return counts;
