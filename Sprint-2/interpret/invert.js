@@ -11,10 +11,10 @@ function invert(obj) {
 module.exports = invert;
 
 // a) What is the current return value when invert is called with { a : 1 }
-// Current return value is 1.
+// Current return value is an object, { key: 1 }
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-// The current return value is 2.
+// The current return value is an object also, { key: 2 }
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 // The target value is { "1": "a", "2": "b"}
