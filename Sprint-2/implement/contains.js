@@ -1,5 +1,5 @@
 function contains(objIn, property) {
-  if (Array.isArray(objIn)) {
+  if (Array.isArray(objIn) || objIn === null || typeof objIn !== "object") {
     throw new Error("contains requires an object");
   }
 
@@ -10,9 +10,5 @@ function contains(objIn, property) {
   }
   return false;
 }
-// if (Object.keys(objIn).length === 0 && property !== "") {
-//   return false;
-// }
-// return true;
 
 module.exports = contains;
