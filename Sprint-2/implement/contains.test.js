@@ -40,7 +40,7 @@ test("should return false when empty object is passed", () => {
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
-test("should return true when object is passed and property name matches the", () => {
+test("should return true when object is passed and property name matches", () => {
   const object1 = { a: 1, b: 2, c: 3, d: 4 };
   const property = "b";
   const result = contains(object1, property);
@@ -51,7 +51,7 @@ test("should return true when object is passed and property name matches the", (
 // When passed to contains with a non-existent property name
 // Then it should return false
 
-test("should return true when object is passed and property name matches the", () => {
+test("should return false when object is passed and property name doesnt matches ", () => {
   const object1 = { a: 1, b: 2, c: 3, d: 4 };
   const property = "e";
   const result = contains(object1, property);
@@ -62,3 +62,6 @@ test("should return true when object is passed and property name matches the", (
 // When passed to contains
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
+test("should throw an error when the valu passed isn't an object", () => {
+  expect(() => contains([])).toThrow("contains requires an object");
+});
