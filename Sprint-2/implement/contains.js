@@ -1,4 +1,8 @@
 function contains(objIn, property) {
+  if (Array.isArray(objIn)) {
+    throw new Error("contains requires an object");
+  }
+
   for (const key in objIn) {
     if (key === property) {
       return true;
