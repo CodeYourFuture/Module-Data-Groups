@@ -1,8 +1,14 @@
 function contains(objIn, property) {
-  if (Object.keys(objIn).length === 0) {
-    return false;
+  for (const key in objIn) {
+    if (key === property) {
+      return true;
+    }
   }
-  return true;
+  return false;
 }
+// if (Object.keys(objIn).length === 0 && property !== "") {
+//   return false;
+// }
+// return true;
 
 module.exports = contains;
