@@ -16,13 +16,27 @@ E.g. dedupe([1, 2, 1]) returns [1, 2]
 // Given an empty array
 // When passed to the dedupe function
 // Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+test("given an empty array, it returns an empty array", () => {
+  const list = [];
+  const result = dedupe(list);
+  expect(dedupe(list)).toEqual(result);
+});
 
 // Given an array with no duplicates
 // When passed to the dedupe function
 // Then it should return a copy of the original array
+test("given an array with no duplicates, it returns a copy of the original array", () => {
+  const list = ["a", "b", "c"];
+  const result = dedupe(list);
+  expect(dedupe(list)).toEqual(result);
+});
 
 // Given an array of strings or numbers
 // When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the 
+// Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
+test("given an array, it returns an array with duplicates removed and its original occurrence", () => {
+  const list = [3, 1, 2];
+  const result = dedupe(list);
+  expect(dedupe(list)).toEqual(result);
+});
