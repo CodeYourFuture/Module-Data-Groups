@@ -40,11 +40,23 @@ test("should return false when empty object is passed", () => {
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("should return true when object is passed and property name matches the", () => {
+  const object1 = { a: 1, b: 2, c: 3, d: 4 };
+  const property = "b";
+  const result = contains(object1, property);
+  expect(result).toEqual(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
 
+test("should return true when object is passed and property name matches the", () => {
+  const object1 = { a: 1, b: 2, c: 3, d: 4 };
+  const property = "e";
+  const result = contains(object1, property);
+  expect(result).toEqual(false);
+});
 // Given a value that isn't an object - an array, a string, a number,
 // null, or no argument at all
 // When passed to contains
