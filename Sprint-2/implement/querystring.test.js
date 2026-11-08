@@ -3,7 +3,7 @@
 // Below are some test cases the implementation doesn't handle well.
 // Fix the implementation for these tests, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js")
+const parseQueryString = require("./querystring.js");
 
 test("should parse values containing '='", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
@@ -45,4 +45,9 @@ test("should store values of a key in an array when the key has 2 or more values
     key: ["value1", "value2", "value3"],
     foo: "bar",
   });
+});
+
+// Edge cases
+test("should not crash on malformed percent-encoding", () => {
+  expect(parseQueryString("a=%E0%A4%A")).toEqual({ a: "%E0%A4%A" });
 });

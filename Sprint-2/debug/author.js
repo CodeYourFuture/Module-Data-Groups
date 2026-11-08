@@ -1,7 +1,6 @@
-// Predict and explain first...
-
-// This program attempts to log out all the property values in the object.
-// But it isn't working. Explain why first and then fix the problem
+// explanation:
+// The code could not be executed because the for...of loop could not access object "author".
+// for...loops are used in arrays, strings or with certain array methods.
 
 const author = {
   firstName: "Zadie",
@@ -11,6 +10,6 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }
