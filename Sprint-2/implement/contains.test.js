@@ -29,7 +29,6 @@ test("should return true when an object contains the  property", () => {
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
 test("should return false when empty object is passed", () => {
   const object1 = {};
   const property = "a";
@@ -43,6 +42,12 @@ test("should return false when empty object is passed", () => {
 test("should return true when object is passed and property name matches", () => {
   const object1 = { a: 1, b: 2, c: 3, d: 4 };
   const property = "b";
+  const result = contains(object1, property);
+  expect(result).toEqual(true);
+});
+test("should return true when object is passed and property name matches", () => {
+  const object1 = { name: "sharon", age: 30, hobby: "photography" };
+  const property = "hobby";
   const result = contains(object1, property);
   expect(result).toEqual(true);
 });
@@ -62,6 +67,18 @@ test("should return false when object is passed and property name doesnt matches
 // When passed to contains
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
-test("should throw an error when the valu passed isn't an object", () => {
-  expect(() => contains([])).toThrow("contains requires an object");
+test("should throw an error when the value passed is Array", () => {
+  expect(() => contains([1, 2, 3])).toThrow("contains requires an object");
+});
+test("should throw an error when the value passed is null", () => {
+  expect(() => contains(null)).toThrow("contains requires an object");
+});
+test("should throw an error when the valu passed is a string", () => {
+  expect(() => contains("null")).toThrow("contains requires an object");
+});
+test("should throw an error when the value passed is number", () => {
+  expect(() => contains(7)).toThrow("contains requires an object");
+});
+test("should throw an error when there is no argument", () => {
+  expect(() => contains()).toThrow("contains requires an object");
 });
