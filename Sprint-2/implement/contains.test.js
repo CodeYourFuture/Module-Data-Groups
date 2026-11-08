@@ -30,6 +30,12 @@ test("should return true when an object contains the  property", () => {
 // When passed to contains
 // Then it should return false
 test.todo("contains on empty object returns false");
+test("should return false when empty object is passed", () => {
+  const object1 = {};
+  const property = "a";
+  const result = contains(object1, property);
+  expect(result).toEqual(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
