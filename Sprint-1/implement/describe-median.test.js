@@ -23,19 +23,15 @@ const describeMedian = require("./describe-median.js");
 // Delete this test.todo and replace it with a test.
 describe("describeMedian", () => {
   it("returns for [1, 2, 3, 4]", () => {
-    const array = [1, 2, 3, 4];
-    const result = describeMedian(array);
-    expect(result).toBe("The median is 2.5");
-  });
+    expect(describeMedian([1, 2, 3, 4])).toEqual("The median is 2.5");
+})
 
   // Given an empty array
   // When passed to describeMedian
   // Then it should return "Could not calculate a median: calculateMedian requires a non-empty array"
   it("returns for []", () => {
-    expect(() => describeMedian([])).toThrow(
-      new Error(
-        "Could not calculate a median: calculateMedian requires a non-empty array"
-      )
+    expect(describeMedian([])).toEqual(
+      "Could not calculate a median: calculateMedian requires a non-empty array"
     );
   });
 
@@ -43,10 +39,8 @@ describe("describeMedian", () => {
   // When passed to describeMedian
   // Then it should return "Could not calculate a median: calculateMedian requires an array of numbers"
   it("returns for ['banana', 'apple', 'orange']", () => {
-    expect(() => describeMedian(["banana", "apple", "orange"])).toThrow(
-      new Error(
-        "Could not calculate a median: calculateMedian requires an array of numbers"
-      )
+    expect(describeMedian(["banana", "apple", "orange"])).toEqual(
+      "Could not calculate a median: calculateMedian requires an array of numbers"
     );
   });
 });
