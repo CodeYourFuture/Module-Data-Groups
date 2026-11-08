@@ -19,6 +19,12 @@ as an array isn't an object
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
+test("should return true when an object contains the  property", () => {
+  const object1 = { a: 1, b: 2, c: 3 };
+  const property = "a";
+  const result = contains(object1, property);
+  expect(result).toEqual(true);
+});
 
 // Given an empty object
 // When passed to contains
