@@ -20,6 +20,13 @@ function calculateMedian(list) {
 }
 
 // Implement this function. See describe-median.test.js for the acceptance criteria.
-function describeMedian(list) {}
+function describeMedian(list) {
+  try {
+    const median = calculateMedian(list);
+    return `The median is ${median}`;
+  } catch (err) {
+    return `Could not calculate a median: ${err.message}`;
+  }
+}
 
 module.exports = describeMedian;
