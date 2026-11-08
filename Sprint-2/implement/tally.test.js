@@ -31,3 +31,8 @@ test("tally throws an error when given an invalid input", () => {
   expect(() => tally(30)).toThrow(new Error("tally requires an array"));
   expect(() => tally()).toThrow(new Error("tally requires an array"));
 });
+
+// Tally handles items named like built-in object properties
+test("tally handles items named like built-in object properties", () => {
+  expect(tally(["toString", "toString"])).toEqual({ toString: 2 });
+});
