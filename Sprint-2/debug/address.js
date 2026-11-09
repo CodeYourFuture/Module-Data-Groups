@@ -1,4 +1,5 @@
 // Predict and explain first...
+//It will print undefined as it tries to access object through index like an array. We have to use dot notation to access house number.
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
@@ -12,4 +13,4 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+console.log(`My house number is ${address.houseNumber}`);
