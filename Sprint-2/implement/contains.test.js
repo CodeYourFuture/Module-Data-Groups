@@ -27,14 +27,20 @@ describe("contains()", () => {
   test("contains on empty object returns false", () => {
     expect(contains({}, "a")).toBe(false);
   });
-})
-
-
-test.todo("contains on empty object returns false");
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("returns true when object contains an existing property name", () => {
+    const obj = { a: 1, b: 2 };
+    expect(contains(obj, "a")).toBe(true);
+  });
+})
+
+
+
+
+
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
