@@ -1,16 +1,19 @@
 function parseQueryString(queryString) {
-  const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
-  const keyValuePairs = queryString.split("&");
+  const queryParams = new Map();
 
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+  for (const [key, value] of new URLSearchParams(queryString)) {
+    if (!queryParams.has(key)) {
+      queryParams.set(key, value);
+    } else {
+      const previous = queryParams.get(key);
+      queryParams.set(
+        key,
+        Array.isArray(previous) ? [...previous, value] : [previous, value]
+      );
+    }
   }
 
-  return queryParams;
+  return Object.fromEntries(queryParams);
 }
 
 module.exports = parseQueryString;

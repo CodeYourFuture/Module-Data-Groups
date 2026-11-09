@@ -8,7 +8,7 @@ function totalTill(till) {
   let total = 0;
 
   for (const [coin, quantity] of Object.entries(till)) {
-    total += coin * quantity;
+    total += parseInt(coin, 10) * quantity;
   }
 
   return `£${total / 100}`;
@@ -22,10 +22,11 @@ const till = {
 };
 const totalAmount = totalTill(till);
 
-// a) What is the target output when totalTill is called with the till object
+// a) The target output is "£4.4" (440 pence).
 
-// b) Why do we need to use Object.entries inside the for...of loop in this function?
+// b) Object.entries provides iterable [coin, quantity] pairs from the object.
 
-// c) What does coin * quantity evaluate to inside the for...of loop?
+// c) The original coin * quantity evaluates to NaN because, for example,
+// "1p" cannot be converted directly to a number.
 
-// d) Write a test for this function to check it works and then fix the implementation of totalTill
+module.exports = totalTill;

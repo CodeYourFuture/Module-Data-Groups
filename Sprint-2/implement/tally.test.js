@@ -23,7 +23,9 @@ const tally = require("./tally.js");
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+test("tally on an empty array returns an empty object", () => {
+  expect(tally([])).toEqual({});
+});
 
 // Given an array with duplicate items
 // When passed to tally
@@ -32,3 +34,20 @@ test.todo("tally on an empty array returns an empty object");
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
 // Then it should throw Error("tally requires an array")
+
+test("counts each unique item", () => {
+  expect(tally(["a", "a", "b", "c"])).toEqual({ a: 2, b: 1, c: 1 });
+});
+
+test("counts property names inherited from Object.prototype", () => {
+  expect(tally(["__proto__", "toString", "__proto__"])).toEqual(
+    JSON.parse('{"__proto__":2,"toString":1}')
+  );
+});
+
+test.each(["text", 42, null, undefined, {}])(
+  "rejects non-array input: %p",
+  (input) => {
+    expect(() => tally(input)).toThrow("tally requires an array");
+  }
+);

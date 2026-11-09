@@ -10,6 +10,7 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
+// Interpolating the object prints "[object Object]", not its ingredients.
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);
