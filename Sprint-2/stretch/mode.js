@@ -13,7 +13,12 @@
 // The tests must still pass after your refactor. Run them again to check.
 
 function calculateMode(list) {
-  // check the input is a non-empty array of numbers
+  validateNumbers(list);
+  const frequencies = countFrequencies(list);
+  return findMode(frequencies);
+}
+
+function validateNumbers(list) {
   if (!Array.isArray(list)) {
     throw new Error("calculateMode requires an array of numbers");
   }
@@ -26,17 +31,20 @@ function calculateMode(list) {
     }
   }
 
-  // track frequency of each value
-  let freqs = new Map();
+}
 
-  for (let num of list) {
+function countFrequencies(list) {
+  const freqs = new Map();
+  for (const num of list) {
     freqs.set(num, (freqs.get(num) || 0) + 1);
   }
+  return freqs;
+}
 
-  // Find the value with the highest frequency
+function findMode(freqs) {
   let maxFreq = 0;
   let mode;
-  for (let [num, freq] of freqs) {
+  for (const [num, freq] of freqs) {
     if (freq > maxFreq) {
       mode = num;
       maxFreq = freq;
