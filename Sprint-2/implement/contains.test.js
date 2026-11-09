@@ -23,7 +23,9 @@ as an array isn't an object
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("contains on empty object returns false", () => {
+  expect(contains({}, "a")).toBe(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
@@ -38,3 +40,19 @@ test.todo("contains on empty object returns false");
 // When passed to contains
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
+
+test("finds an existing own property even when its value is undefined", () => {
+  expect(contains({ a: undefined }, "a")).toBe(true);
+});
+
+test("returns false for missing and inherited properties", () => {
+  expect(contains({ a: 1 }, "b")).toBe(false);
+  expect(contains({}, "toString")).toBe(false);
+});
+
+test.each([[], "text", 42, null, undefined])(
+  "rejects a non-object input: %p",
+  (input) => {
+    expect(() => contains(input, "a")).toThrow("contains requires an object");
+  }
+);
