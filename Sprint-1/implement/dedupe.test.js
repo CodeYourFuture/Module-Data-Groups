@@ -41,8 +41,20 @@ test("array with dupe numbers returns a copy with no dupes", () => {
     expect(actual).toEqual([1, 2, 3]);
 })
 
+test("array with dupe numbers (non-consecutive) returns a copy with no dupes", () => {
+  const arr = [5, 1, 1, 2, 3, 2, 5, 8];
+  const actual = dedupe(arr);
+  expect(actual).toEqual([5, 1, 2, 3, 8]);
+})
+
 test("array with dupe words returns a copy with no dupes", () => {
     const arr = ['hi', 'bye', 'bye', 'sigh'];
     const actual = dedupe(arr);
     expect(actual).toEqual(['hi', 'bye', 'sigh']);
+})
+
+test("array with dupe words (non-consecutive) returns a copy with no dupes", () => {
+  const arr = ["hi", "bye", "mom", "sigh", "your", "dad", "hi", "mom", "wonderwall"];
+  const actual = dedupe(arr);
+  expect(actual).toEqual(["hi", "bye", "mom", "sigh", "your", "dad", "wonderwall"]);
 })
