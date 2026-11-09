@@ -40,7 +40,7 @@ test("given [-1, -2, -3], returns -6", () => {
 // Given an array with decimal/float numbers
 // When passed to the sum function
 // Then it should return the correct total sum
-test("given [0.1, 0.2, 0.34], returns 0.6000000000000001", () => {
+test("given [0.1, 0.2, 0.3], returns 0.6000000000000001", () => {
     const input = [0.1, 0.2, 0.3];
     result = sum(input);
     expect(result).toEqual(0.6000000000000001);
