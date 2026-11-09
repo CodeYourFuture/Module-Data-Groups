@@ -11,6 +11,7 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+// Plain objects are not iterable; Object.values returns an iterable array.
+for (const value of Object.values(author)) {
   console.log(value);
 }
