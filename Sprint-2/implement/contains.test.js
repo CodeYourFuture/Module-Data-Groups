@@ -20,9 +20,16 @@ as an array isn't an object
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
 
+describe("contains()", () => {
 // Given an empty object
 // When passed to contains
 // Then it should return false
+  test("contains on empty object returns false", () => {
+    expect(contains({}, "a")).toBe(false);
+  });
+})
+
+
 test.todo("contains on empty object returns false");
 
 // Given an object with properties
