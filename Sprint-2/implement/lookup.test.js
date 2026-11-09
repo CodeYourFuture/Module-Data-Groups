@@ -36,3 +36,6 @@ It should return:
 test("should return an empty object key from an empty array ", () => {
   expect(createLookup([])).toEqual({});
 });
+test("should return an object key value pairs from an array of one country currency code ", () => {
+  expect(createLookup(["USD"])).toEqual({ US: "USD" });
+});
