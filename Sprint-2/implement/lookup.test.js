@@ -39,3 +39,13 @@ test("should return an empty object key from an empty array ", () => {
 test("should return an object key value pairs from an array of one country currency code ", () => {
   expect(createLookup(["USD"])).toEqual({ US: "USD" });
 });
+test("should return an object key value pairs from an array of  multiple code pairs", () => {
+  expect(createLookup(["USD", "CAD"])).toEqual({ US: "USD", CA: "CAD" });
+});
+test("should return an object key value pairs from an array of  three code pairs", () => {
+  expect(createLookup(["NAK", "CAD", "EUR"])).toEqual({
+    ERI: "NAK",
+    CA: "CAD",
+    EU: "EUR",
+  });
+});
