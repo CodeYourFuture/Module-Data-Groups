@@ -33,3 +33,6 @@ It should return:
    'CA': 'CAD'
  }
 */
+test("should return an empty object key from an empty array ", () => {
+  expect(createLookup([])).toEqual({});
+});
