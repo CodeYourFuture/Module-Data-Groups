@@ -39,7 +39,7 @@ describe("dedupe", () => {
   it("returns for [1, 2, 3, 4]", () => {
     const original = [1, 2, 3, 4];
     const result = dedupe(original);
-    expect(result).not.toBe(original)
+    expect(result).not.toBe(original);
     expect(result).toEqual(original);
   });
 

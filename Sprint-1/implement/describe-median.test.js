@@ -24,7 +24,7 @@ const describeMedian = require("./describe-median.js");
 describe("describeMedian", () => {
   it("returns for [1, 2, 3, 4]", () => {
     expect(describeMedian([1, 2, 3, 4])).toEqual("The median is 2.5");
-})
+  });
 
   // Given an empty array
   // When passed to describeMedian
