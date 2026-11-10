@@ -24,6 +24,9 @@ const tally = require("./tally.js");
 // When passed to tally
 // Then it should return an empty object
 test.todo("tally on an empty array returns an empty object");
+test(" should return an empty object when empty array is given", () => {
+  expect(tally([])).toEqual({});
+});
 
 // Given an array with duplicate items
 // When passed to tally
