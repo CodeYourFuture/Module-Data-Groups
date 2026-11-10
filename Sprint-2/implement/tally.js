@@ -1,5 +1,8 @@
 function tally(arrayItems) {
   const countItem = {};
+  if (!Array.isArray(arrayItems)) {
+    throw new Error("tally rquires an input");
+  }
 
   if (arrayItems.length === 0) {
     return countItem;

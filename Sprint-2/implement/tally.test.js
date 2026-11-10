@@ -51,11 +51,11 @@ test("should return an object containing the count for each unique item", () => 
 // When passed to tally
 // Then it should throw Error("tally requires an array")
 test("should throw an error when given invalid input:string", () => {
-  (expect(() => tally("a")), toThrow("tally rquires an input"));
+  expect(() => tally("a")).toThrow("tally rquires an input");
 });
 test("should throw an error when given invalid input:number", () => {
-  (expect(() => tally(5)), toThrow("tally rquires an input"));
+  expect(() => tally(5)).toThrow("tally rquires an input");
 });
 test("should throw an error when given invalid input: no argument", () => {
-  (expect(() => tally()), toThrow("tally rquires an input"));
+  expect(() => tally()).toThrow("tally rquires an input");
 });
