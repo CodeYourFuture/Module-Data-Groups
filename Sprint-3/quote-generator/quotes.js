@@ -495,10 +495,10 @@ function displayRandomQuote(){
   const randomQuote = pickFromArray(quotes); // this is an object
   // display text
   let quoteDisplay = document.getElementById("quote")
-  quoteDisplay.textContent = randomQuote.quote
+  quoteDisplay.textContent = `"${randomQuote.quote}"`
 
   let authorDisplay = document.getElementById("author")
-  authorDisplay.textContent = randomQuote.author
+  authorDisplay.textContent = `- ${randomQuote.author}`
 }
 
 // display quote on load
