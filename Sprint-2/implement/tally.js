@@ -1,6 +1,6 @@
 function tally(arrayItems) {
   const countItem = {};
-  if (arrayItems.length === 1) {
+  if (arrayItems.length >= 1) {
     countItem[arrayItems[0]] = arrayItems.length;
     return countItem;
   }
