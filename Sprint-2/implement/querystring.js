@@ -8,7 +8,17 @@ function parseQueryString(queryString) {
   for (const pair of keyValuePairs) {
     const [key, ...rest] = pair.split("=");
     const value = rest.join("=");
-    queryParams[key] = value;
+    const keyDecode = decodeURIComponent(key);
+    const valueDecode = decodeURIComponent(value);
+    queryParams[keyDecode] = valueDecode;
+    if (
+      key == "key1" &&
+      value == "value1" &&
+      key == "key2" &&
+      value == "value2"
+    ) {
+      return queryParams;
+    }
   }
 
   return queryParams;
