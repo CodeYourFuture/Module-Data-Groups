@@ -3,14 +3,7 @@ function sum(elements) {
     throw new Error("sum requires an array of numbers");
   }
 
-  if (
-    !elements.every(
-      (value) =>
-        typeof currentValue === "number" &&
-        !Number.isNaN(value) &&
-        Number.isFinite(value)
-    )
-  ) {
+  if (!elements.every((value) => Number.isFinite(value))) {
     throw new Error("sum requires an array of numbers");
   }
 

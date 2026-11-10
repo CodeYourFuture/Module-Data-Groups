@@ -9,14 +9,7 @@ function calculateMean(list) {
     throw new Error("calculateMean requires a non-empty array");
   }
 
-  if (
-    !list.every(
-      (value) =>
-        typeof value === "number" &&
-        !Number.isNaN(value) &&
-        Number.isFinite(value)
-    )
-  ) {
+  if (!list.every((value) => Number.isFinite(value))) {
     throw new Error("calculateMean requires an array of numbers");
   }
 
