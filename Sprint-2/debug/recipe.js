@@ -1,6 +1,6 @@
 // Predict and explain first...
 
-// The program won't print the ingredients because it wasn't called on line 14
+// The program won't print the ingredients because it wasn't referenced on line 14
 
 
 const recipe = {
