@@ -48,7 +48,7 @@ test("returns false when property does not exist", () => {
 // (careful: typeof [] and typeof null are both "object")
 
 test("throws an error when given an array", () => {
-  expect(() => contains([3, 4, 5], "a")).toThrow(
+  expect(() => contains([3, 4, 5], "0")).toThrow(
     new Error("contains requires an object")
   );
 });
@@ -60,7 +60,7 @@ test("throws an error when given a null", () => {
 });
 
 test("throws an error when given a string", () => {
-  expect(() => contains("hellow", "a")).toThrow(
+  expect(() => contains("hellow", "0")).toThrow(
     new Error("contains requires an object")
   );
 });
