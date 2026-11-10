@@ -1,4 +1,5 @@
 const contains = require("./contains.js");
+/// <reference types="jest" />
 
 /*
 Implement a function called contains that checks an object contains a
@@ -23,18 +24,52 @@ as an array isn't an object
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+test("contains on empty object returns false", () => {
+  expect(contains({}, "a")).toBe(false);
+});
 
 // Given an object with properties
 // When passed to contains with an existing property name
 // Then it should return true
+test("contains name on object returns true", () => {
+  expect(contains({ a: 1, b: 2, c: 3 }, "a")).toBe(true);
+});
 
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
+test("contains name not on object returns false", () => {
+  expect(contains({ a: 1, b: 2, c: 3 }, "e")).toBe(false);
+});
 
 // Given a value that isn't an object - an array, a string, a number,
 // null, or no argument at all
 // When passed to contains
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
+
+describe("when the argument is not an object", () => {
+  test("throws an error when receiving a string", () => {
+    expect(() => {
+      contains("Hello World", "e");
+    }).toThrow("contains requires an object");
+  });
+
+  test("throws an error when receiving a number", () => {
+    expect(() => {
+      contains(1234, "a");
+    }).toThrow("contains requires an object");
+  });
+
+  test("throws an error when receiving an array", () => {
+    expect(() => {
+      contains(["a", "b", "c"], "a");
+    }).toThrow("contains requires an object");
+  });
+
+  test("throws an error when receiving null", () => {
+    expect(() => {
+      contains(null, "a");
+    }).toThrow("contains requires an object");
+  });
+});
