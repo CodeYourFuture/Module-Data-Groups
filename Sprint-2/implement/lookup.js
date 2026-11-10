@@ -1,6 +1,7 @@
-function createLookup() {
-  // implementation here
+
+  
   function createLookup(pairs) {
+    // implementation here
     const lookup = {};
 
     for (const [countryCode, currencyCode] of pairs) {
@@ -9,6 +10,6 @@ function createLookup() {
 
     return lookup;
   }
-}
+
 
 module.exports = createLookup;
