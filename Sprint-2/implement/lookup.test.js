@@ -8,3 +8,7 @@ test("creates a country currency code lookup for multiple codes", () => {
     ])
   ).toEqual({ US: "USD", CA: "CAD" });
 });
+
+test("creates a lookup for single pair", () => {
+  expect(createLookup([["US", "USD"]])).toEqual({US: "USA"});
+});
