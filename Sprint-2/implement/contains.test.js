@@ -12,6 +12,10 @@ test("contains throws for null", () => {
   expect(() => contains(null, "a")).toThrow("contains requires an object");
 });
 
+test("contains throws when no argument is passed", () => {
+  expect(() => contains()).toThrow("contains requires an object");
+});
+
 // test("contains throws for an array", () => {
 //   expect(() => contains([1, 2, 3], "a")).toThrow("contains requires an object");
 // });
