@@ -10,7 +10,7 @@ test("creates a country currency code lookup for multiple codes", () => {
 });
 
 test("creates a lookup for single pair", () => {
-  expect(createLookup([["US", "USD"]])).toEqual({ US: "USA" });
+  expect(createLookup([["US", "USD"]])).toEqual({ US: "USD" });
 });
 
 test("return an empty object for an empty array", () => {
