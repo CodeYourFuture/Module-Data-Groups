@@ -8,9 +8,9 @@ test("count occurrences of different letters", () => {
   expect(tally(["a", "a", "b", "c"])).toEqual({a: 2, b: 1, c: 1});
 });
 
-// test("tally on an empty array returns an empty object", () => {
-//   expect(tally([])).toEqual({});
-// });
+test("tally on an empty array returns an empty object", () => {
+  expect(tally([])).toEqual({});
+});
 
 // test("tally counts duplicate items", () => {
 //   expect(tally(["a", "a", "a"])).toEqual({ a: 3 });
