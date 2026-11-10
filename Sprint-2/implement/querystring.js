@@ -8,6 +8,9 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
+    if (!pair) {
+      continue;
+    }
     const [key, ...rest] = pair.split("=");
     const value = rest.join("=");
     const keyDecode = decodeURIComponent(key);
@@ -21,8 +24,8 @@ function parseQueryString(queryString) {
       valueDecodeWithout = valueDecode.replace("+", " ");
     }
     queryParams[keyDecodeWithout] = valueDecodeWithout;
-
-    return queryParams;
   }
+  return queryParams;
 }
+
 module.exports = parseQueryString;
