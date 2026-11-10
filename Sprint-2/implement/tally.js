@@ -1,3 +1,5 @@
-function tally() {}
+function tally() {
+  return {};
+}
 
 module.exports = tally;
