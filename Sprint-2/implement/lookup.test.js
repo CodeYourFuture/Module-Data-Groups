@@ -2,12 +2,17 @@ const createLookup = require("./lookup.js");
 
 describe("createLookup", () => {
   test("return a object for ([['US', 'USD'], ['CA', 'CAD']])", () => {
-  expect(createLookup([["US", "USD"], ["CA", "CAD"]])).toEqual({
-    US: "USD",
-    CA: "CAD",
-  })})
+    expect(
+      createLookup([
+        ["US", "USD"],
+        ["CA", "CAD"],
+      ])
+    ).toEqual({
+      US: "USD",
+      CA: "CAD",
+    });
+  });
 });
-
 
 /*
 
