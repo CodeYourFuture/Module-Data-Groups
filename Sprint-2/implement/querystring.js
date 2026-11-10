@@ -1,15 +1,26 @@
 function parseQueryString(queryString) {
   const queryParams = {};
-  if (queryString.length === 0) {
-    return queryParams;
-  }
-  const keyValuePairs = queryString.split("&");
 
-  for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
-  }
+  for (const pair of queryString.split("&")) {
+    if (pair === "") continue;
 
+    const eq = pair.indexOf("=");
+    const key = eq === -1 ? pair : pair.slice(0, eq);
+    const value = eq === -1 ? "" : pair.slice(eq + 1);
+
+    const decodedKey = decodeURIComponent(key.split("+").join(" "));
+    const decodedValue = decodeURIComponent(value.split("+").join(" "));
+
+    if (decodedKey in queryParams) {
+      if (Array.isArray(queryParams[decodedKey])) {
+        queryParams[decodedKey].push(decodedValue);
+      } else {
+        queryParams[decodedKey] = [queryParams[decodedKey], decodedValue];
+      }
+    } else {
+      queryParams[decodedKey] = decodedValue;
+    }
+  }
   return queryParams;
 }
 

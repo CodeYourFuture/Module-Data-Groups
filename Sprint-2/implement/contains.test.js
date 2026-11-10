@@ -1,40 +1,33 @@
 const contains = require("./contains.js");
 
-/*
-Implement a function called contains that checks an object contains a
-particular property
+test("contains throws for a string", () => {
+  expect(() => contains("hello", "a")).toThrow("contains requires an object");
+});
 
-E.g. contains({a: 1, b: 2}, 'a') // returns true
-as the object contains a key of 'a'
+test("contains throws for a number", () => {
+  expect(() => contains(42, "a")).toThrow("contains requires an object");
+});
 
-E.g. contains({a: 1, b: 2}, 'c') // returns false
-as the object doesn't contains a key of 'c'
+test("contains throws for null", () => {
+  expect(() => contains(null, "a")).toThrow("contains requires an object");
+});
 
-E.g. contains([1, 2, 3], 'a') throws Error("contains requires an object")
-as an array isn't an object
-*/
+test("contains throws when no argument is passed", () => {
+  expect(() => contains()).toThrow("contains requires an object");
+});
 
-// Acceptance criteria:
+test("contains throws for an array", () => {
+  expect(() => contains([1, 2, 3], "a")).toThrow("contains requires an object");
+});
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
+test("contains on empty object returns false", () => {
+  expect(contains({}, "a")).toBe(false);
+});
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
+test("contains an object with existing property, return true", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+});
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
-
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
-
-// Given a value that isn't an object - an array, a string, a number,
-// null, or no argument at all
-// When passed to contains
-// Then it should throw Error("contains requires an object")
-// (careful: typeof [] and typeof null are both "object")
+test("contains an object with missing property, return false", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});

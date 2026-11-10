@@ -46,4 +46,6 @@ function calculateMode(list) {
   return mode;
 }
 
+calculateMode([2,4,5,5,6])
+
 module.exports = calculateMode;

@@ -1,34 +1,19 @@
 const tally = require("./tally.js");
 
-/**
- * tally array
- *
- * In this task, you'll need to implement a function called tally
- * that will take a list of items and count the frequency of each item
- * in an array
- *
- * For example:
- *
- * tally(['a']), target output: { a: 1 }
- * tally(['a', 'a', 'a']), target output: { a: 3 }
- * tally(['a', 'a', 'b', 'c']), target output: { a : 2, b: 1, c: 1 }
- */
+test("counts multiple occurrences of the same letter", () => {
+  expect(tally(["a", "a", "a"])).toEqual({a: 3});
+});
 
-// Acceptance criteria:
+test("count occurrences of different letters", () => {
+  expect(tally(["a", "a", "b", "c"])).toEqual({a: 2, b: 1, c: 1});
+});
 
-// Given a function called tally
-// When passed an array of items
-// Then it should return an object containing the count for each unique item
+test("tally on an empty array returns an empty object", () => {
+  expect(tally([])).toEqual({});
+});
 
-// Given an empty array
-// When passed to tally
-// Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
-
-// Given an array with duplicate items
-// When passed to tally
-// Then it should return counts for each unique item
-
-// Given an invalid input like a string, a number, or no argument at all
-// When passed to tally
-// Then it should throw Error("tally requires an array")
+test("tally throws for invalid input", () => {
+  expect(() => tally("banana")).toThrow("tally requires an array");
+  expect(() => tally(42)).toThrow("tally requires an array");
+  expect(() => tally()).toThrow("tally requires an array");
+});
