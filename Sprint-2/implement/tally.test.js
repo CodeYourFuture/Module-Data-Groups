@@ -36,7 +36,11 @@ test(" should return an empty object when empty array is given", () => {
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
-
+test("should return an object containing the count for each unique item", () => {
+  const array = ["a", "a", "a"];
+  const countArray = tally(array);
+  expect(countArray).toEqual({ a: 3 });
+});
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
 // Then it should throw Error("tally requires an array")
