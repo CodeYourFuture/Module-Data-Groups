@@ -31,4 +31,3 @@ test("contains throws when no argument is passed", () => {
 // test("contains an object with missing property, return false", () => {
 //   expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
 // });
-
