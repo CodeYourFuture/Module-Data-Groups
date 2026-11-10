@@ -12,4 +12,10 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:
-${recipe}`);
+${recipe.ingredients.join("\n")}`);
+
+
+
+// BUG: ${recipe} logs out the whole object as "[object Object]".
+// FIX: print title/serves from their properties, and ingredients with join("\n")
+// so each item is on its own line.

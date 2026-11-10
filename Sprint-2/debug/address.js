@@ -12,4 +12,6 @@ const address = {
   postcode: "XYZ 123",
 };
 
-console.log(`My house number is ${address[0]}`);
+// BUG: address[0] is undefined because plain objects aren't indexed by number.
+// FIX: use the property name address.houseNumber
+console.log('My house number is ' + address.houseNumber);

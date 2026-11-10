@@ -11,6 +11,14 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }
+
+
+/* BUG: Objects are not iterable, so `for...of author` throws TypeError.
+ FIX: Used Object.values(author) to loop over the property values.
+for (const value of Object.values(author)) {
+  console.log(value);
+}
+*/

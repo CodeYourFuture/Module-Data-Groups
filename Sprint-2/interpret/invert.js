@@ -6,24 +6,46 @@
 
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
-function invert(obj) {
+export function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key;
   }
 
   return invertedObj;
 }
 
-// a) What is the current return value when invert is called with { a : 1 }
+/*
+a) Current return value for invert({ a: 1 }) with the OLD bug:
+   { key: 1 }
 
-// b) What is the current return value when invert is called with { a: 1, b: 2 }
+b) Current return value for invert({ a: 1, b: 2 }) with the OLD bug:
+   { key: 2 }
+   (each loop overwrites the same property named "key"; last value wins)
 
-// c) What is the target return value when invert is called with {a : 1, b: 2}
+c) Target return value for invert({ a: 1, b: 2 }):
+   { "1": "a", "2": "b" }
 
-// c) What does Object.entries return? Why is it needed in this program?
+Object.entries returns an array of [key, value] pairs for the object.
+It is needed so the loop can read both the key and the value of each property.
 
-// d) Explain why the current return value is different from the target output
+d) invertedObj.key always writes to a property literally named "key".
+   It ignores the loop variable `key`, so keys and values are never swapped,
+   and earlier entries are overwritten. The result is a new object with only
+   that one "key" property — not the original object, and not an inverted map.
 
-// e) Fix the implementation of invert (and write tests to prove it's fixed!)
+e) Fixed by using invertedObj[value] = key (bracket notation with the value
+   as the new key). Tests in invert.test.js prove the fix.
+*/
+
+
+
+
+
+
+
+
+
+
+
