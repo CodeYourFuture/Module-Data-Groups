@@ -1,5 +1,4 @@
 const contains = require("./contains.js");
-/// <reference types="jest" />
 
 /*
 Implement a function called contains that checks an object contains a
