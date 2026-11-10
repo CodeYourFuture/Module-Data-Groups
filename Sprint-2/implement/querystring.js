@@ -8,17 +8,17 @@ function parseQueryString(queryString) {
     const key = eq === -1 ? pair : pair.slice(0, eq);
     const value = eq === -1 ? "" : pair.slice(eq + 1);
 
-    const k = decodeURIComponent(key.split("+").join(" "));
-    const v = decodeURIComponent(value.split("+").join(" "));
+    const decodedKey = decodeURIComponent(key.split("+").join(" "));
+    const decodedValue = decodeURIComponent(value.split("+").join(" "));
 
-    if (k in queryParams) {
-      if (Array.isArray(queryParams[k])) {
-        queryParams[k].push(v);
+    if (decodedKey in queryParams) {
+      if (Array.isArray(queryParams[decodedKey])) {
+        queryParams[decodedKey].push(decodedValue);
       } else {
-        queryParams[k] = [queryParams[k], v];
+        queryParams[decodedKey] = [queryParams[decodedKey], decodedValue];
       }
     } else {
-      queryParams[k] = v;
+      queryParams[decodedKey] = decodedValue;
     }
   }
   return queryParams;
