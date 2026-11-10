@@ -13,16 +13,23 @@ E.g. dedupe([1, 2, 1]) returns [1, 2]
 
 // Acceptance Criteria:
 
-// Given an empty array
-// When passed to the dedupe function
-// Then it should return an empty array
-test.todo("given an empty array, it returns an empty array");
+test("given an empty array, it returns an empty array", () => {
+  expect(dedupe([])).toEqual([]);
+});
 
-// Given an array with no duplicates
-// When passed to the dedupe function
-// Then it should return a copy of the original array
+test("given an array with no duplicates, should return a copy of the same array", () => {
+  const testArray = [1, 5, 9, 23];
+  const testResult = dedupe(testArray);
+  expect(testResult).not.toBe(testArray);
+  expect(testResult).toEqual(testArray);
+});
 
-// Given an array of strings or numbers
-// When passed to the dedupe function
-// Then it should return a new array with duplicates removed while preserving the 
-// first occurrence of each element from the original array.
+test("given an array with strings or numbers, should return an array with duplicates removed and first occurrence preserved", () => {
+  expect(dedupe([1, 6, 1, "a", 5, 6, "a", "b", "b"])).toEqual([
+    1,
+    6,
+    "a",
+    5,
+    "b",
+  ]);
+});

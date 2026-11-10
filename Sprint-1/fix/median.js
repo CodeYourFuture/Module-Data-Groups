@@ -6,8 +6,25 @@
 // or contains values that aren't numbers (the function is expected to throw - see the tests).
 
 function calculateMedian(list) {
-  const middleIndex = Math.floor(list.length / 2);
-  const median = list.splice(middleIndex, 1)[0];
+  if (!Array.isArray(list)) {
+    throw new Error("calculateMedian requires an array of numbers");
+  }
+  if (list.length === 0) {
+    throw new Error("calculateMedian requires a non-empty array");
+  }
+
+  if (!list.every((value) => Number.isFinite(value))) {
+    throw new Error("calculateMedian requires an array of numbers");
+  }
+
+  const sortedList = list.toSorted((a, b) => a - b);
+  const middleIndex = Math.floor(sortedList.length / 2);
+  let median;
+  if (sortedList.length % 2 === 0) {
+    median = (sortedList[middleIndex - 1] + sortedList[middleIndex]) / 2;
+  } else {
+    median = sortedList[middleIndex];
+  }
   return median;
 }
 

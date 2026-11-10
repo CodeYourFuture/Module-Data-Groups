@@ -10,27 +10,30 @@ const sum = require("./sum.js");
 
 // Acceptance Criteria:
 
-// Given an empty array
-// When passed to the sum function
-// Then it should return 0
-test.todo("given an empty array, returns 0")
+test("given an empty array, returns 0", () => {
+  expect(sum([])).toEqual(0);
+});
 
-// Given an array with just one number
-// When passed to the sum function
-// Then it should return that number
+test("given an array with one number, return that number", () => {
+  expect(sum([5])).toEqual(5);
+});
 
-// Given an array containing negative numbers
-// When passed to the sum function
-// Then it should still return the correct total sum
+test("given an array with negative numbers, correctly return sum of numbers", () => {
+  expect(sum([-10, -45, -6, -74])).toEqual(-135);
+});
 
-// Given an array with decimal/float numbers
-// When passed to the sum function
-// Then it should return the correct total sum
+test("given an array with decimal numbers, correctly return total sum", () => {
+  expect(sum([12.7, 3.6, 32.48, 8, 32.53])).toBeCloseTo(89.31);
+});
 
-// Given an array containing a value that isn't a number
-// When passed to the sum function
-// Then it should throw Error("sum requires an array of numbers")
+test("given an array with some values that aren't numbers, throw an Error", () => {
+  expect(() => {
+    sum([10, 8, 32, "hello", 2, 53, 32]);
+  }).toThrow(new Error("sum requires an array of numbers"));
+});
 
-// Given something that isn't an array at all, such as "hey", 42 or no argument
-// When passed to the sum function
-// Then it should throw Error("sum requires an array of numbers")
+test("given something that isn't an array, throw an Error", () => {
+  expect(() => {
+    sum("hello");
+  }).toThrow(new Error("sum requires an array of numbers"));
+});

@@ -12,32 +12,34 @@ We have set things up already so that this file can see your function from the o
 
 const findMax = require("./max.js");
 
-// Given an empty array
-// When passed to the max function
-// Then it should return -Infinity
-// Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
+test("given an empty array, returns -Infinity", () => {
+  expect(findMax([])).toEqual(-Infinity);
+});
 
-// Given an array with one number
-// When passed to the max function
-// Then it should return that number
+test("given an array with one number, returns that number", () => {
+  expect(findMax([10])).toEqual(10);
+});
 
-// Given an array with both positive and negative numbers
-// When passed to the max function
-// Then it should return the largest number overall
+test("given an array with positive and negative numbers, returns largest number overall", () => {
+  expect(findMax([10, 58, -74, 984, -87, -995, 47])).toEqual(984);
+});
 
-// Given an array with just negative numbers
-// When passed to the max function
-// Then it should return the closest one to zero
+test("given an array with only negative numbers, returns number closest to zero", () => {
+  expect(findMax([-58, -65, -7, -2, -96, -753])).toEqual(-2);
+});
 
-// Given an array with decimal numbers
-// When passed to the max function
-// Then it should return the largest decimal number
+test("given an array with decimal numbers, returns largest decimal number", () => {
+  expect(findMax([10, 9.5, 65.6, 41, 36.8])).toEqual(65.6);
+});
 
-// Given an array containing a value that isn't a number
-// When passed to the max function
-// Then it should throw Error("findMax requires an array of numbers")
+test("given an array with with value that isn't a number, throws error", () => {
+  expect(() => findMax([10, 23, 18, "hello", 89, 2])).toThrow(
+    new Error("findMax requires an array of numbers")
+  );
+});
 
-// Given something that isn't an array at all, such as "hey", 42 or no argument
-// When passed to the max function
-// Then it should throw Error("findMax requires an array of numbers")
+test("given something that isn't an array, throws error", () => {
+  expect(() => findMax("Hello")).toThrow(
+    new Error("findMax requires an array of numbers")
+  );
+});
