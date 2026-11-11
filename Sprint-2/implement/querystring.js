@@ -11,16 +11,15 @@ function parseQueryString(queryString) {
     }
 
     if (!pair.includes("=")) {
-      const key = decodeURIComponent(pair).replace("+", " ");
+      const key = decodeURIComponent(pair.replace("+", " "));
       queryParams[key] = "";
     } else {
-      const key = decodeURIComponent(pair.slice(0, pair.indexOf("="))).replace(
-        "+",
-        " "
+      const key = decodeURIComponent(
+        pair.slice(0, pair.indexOf("=")).replace("+", " ")
       );
       const value = decodeURIComponent(
-        pair.slice(pair.indexOf("=") + 1)
-      ).replace("+", " ");
+        pair.slice(pair.indexOf("=") + 1).replace("+", " ")
+      );
 
       if (Object.keys(queryParams).includes(key)) {
         if (Array.isArray(queryParams[key])) {
