@@ -27,6 +27,9 @@ test("When passed an array of items should return object containing count for ea
 // When passed to tally
 // Then it should return an empty object
 test.todo("tally on an empty array returns an empty object");
+test("When passed an empty array should return empty object", () => {
+  expect(tally([])).toEqual({});
+});
 
 // Given an array with duplicate items
 // When passed to tally
