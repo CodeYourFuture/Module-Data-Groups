@@ -19,6 +19,9 @@ const tally = require("./tally.js");
 // Given a function called tally
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
+test("When passed an array of items should return object containing count for each", () => {
+  expect(tally(["a"])).toEqual({ a: 1 });
+});
 
 // Given an empty array
 // When passed to tally
