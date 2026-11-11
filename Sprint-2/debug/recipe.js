@@ -13,6 +13,6 @@ const recipe = {
 
 console.log(`${recipe.title} serves ${recipe.serves}
   ingredients:`);
-for (const i of recipe.ingredients) {
-  console.log(`* ${i}`);
+for (const ingredient of recipe.ingredients) {
+  console.log(`* ${ingredient}`);
 }

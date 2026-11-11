@@ -1,5 +1,7 @@
 // Predict and explain first...
-//It will print undefined as it tries to access object through index like an array. We have to use dot notation to access house number.
+
+// It will print undefined because address[0] looks for a property named "0", which doesn't exist in the object.
+// We can use dot notation (address.houseNumber) to access the correct property.
 
 // This code should log out the houseNumber from the address object
 // but it isn't working...
