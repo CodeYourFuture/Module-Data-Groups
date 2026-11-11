@@ -1,7 +1,17 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+describe("lookup", () => {
+  test("creates a country currency code lookup for multiple codes", function () {
+    const input = [
+      ["US", "USD"],
+      ["CA", "CAD"],
+    ];
+    const currentOutput = createLookup(input);
+    const targetOutput = { US: "USD", CA: "CAD" };
 
+    expect(currentOutput).toEqual(targetOutput);
+  });
+});
 /*
 
 Create a lookup object of key value pairs from an array of code pairs
