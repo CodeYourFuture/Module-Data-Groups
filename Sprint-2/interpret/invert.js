@@ -25,7 +25,7 @@ console.log(invert({ a: 1, b: 2 }));
   key: 2;
 }
 // c) What is the target return value when invert is called with {a : 1, b: 2}
-
+{'1' :'a','2':'b' }
 // c) What does Object.entries return? Why is it needed in this program?
 
 // d) Explain why the current return value is different from the target output
