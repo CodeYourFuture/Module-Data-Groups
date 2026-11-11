@@ -27,12 +27,17 @@ function setAlarm() {
       
       // img change
       document.body.style.backgroundImage = "url('alarmplaysoundhamster.jfif')";
-      document.body.style.backgroundPosition = "centre";
+      document.body.style.backgroundPosition = "center";
 
       // box turns red
+      let flashCount = 0;
       const box = document.querySelector(".centre");
       flashTimer = setInterval(() => {
         box.classList.toggle("red-bg");
+        flashCount++
+        if (flashCount >= 20){
+          clearInterval(flashTimer);
+        }
       }, 500);
     }
   }, 1000);
@@ -71,11 +76,9 @@ function pauseAlarm() {
 
 window.onload = setup;
 
-window.onload = setup;
-
 document.getElementById("stop").addEventListener("click", () => {
   document.body.style.backgroundImage = "url('alarmsethamster.jfif')";
-  document.body.style.backgroundPosition = "centre";
+  document.body.style.backgroundPosition = "center";
   clearInterval(countdownTimer);
   clearInterval(flashTimer);
 });
