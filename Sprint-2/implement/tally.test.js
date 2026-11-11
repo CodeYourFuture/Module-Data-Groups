@@ -41,3 +41,6 @@ test("When passed an array of duplicate items should return object containing co
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
 // Then it should throw Error("tally requires an array")
+test("WGiven an invalid input  should throw error 'tally requires an array'", () => {
+  expect(() => tally("im a string")).toThrow("tally requires an array");
+});
