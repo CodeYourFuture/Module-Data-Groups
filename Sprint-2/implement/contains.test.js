@@ -29,7 +29,7 @@ test("contains on empty object returns false", () => {
 
 // Given an object with properties
 // When passed to contains with an existing property name
-// Then it should return true#
+// Then it should return true
 test("given object with properties, and wanted property exists, returns true", () => {
   expect(contains({ a: 1, b: 2 }, "a")).toEqual(true);
 });
@@ -39,6 +39,20 @@ test("given object with properties, and wanted property exists, returns true", (
 // Then it should return false
 test("given object with properties, and wanted property doesn't exist, returns false", () => {
   expect(contains({ a: 1, b: 2 }, "c")).toEqual(false);
+});
+
+// Given an object with  numeric properties
+// When passed to contains with an existing numeric property name given as a string
+// Then it should return true
+test("given object with numeric properties, and wanted property exists given as a string, returns true", () => {
+  expect(contains({ 0: 123, 5: 29 }, "0")).toEqual(true);
+});
+
+// Given an object with  numeric properties
+// When passed to contains with an existing numeric property name
+// Then it should return true
+test("given object with numeric properties, and wanted property exists given as number, returns true", () => {
+  expect(contains({ 0: 123, 5: 29 }, 0)).toEqual(true);
 });
 
 // Given a value that isn't an object - an array, a string, a number,
