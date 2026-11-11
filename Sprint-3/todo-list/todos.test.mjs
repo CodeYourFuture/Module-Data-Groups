@@ -131,11 +131,39 @@ describe("toggleCompletedOnTask()", () => {
 });
 
 describe("deleteCompleted()", () => {
-  test.todo("Check if completed tasks are removed")
+  test("Check if completed tasks are removed", () => {
+    const todos = createMockTodos();
+    const result = Todos.deleteCompleted(todos);
+    expect(result).toHaveLength(2);
+    expect(result[0].task).toEqual("Task 2 description");
+    expect(result[1].task).toEqual("Task 4 description");
+  });
 
-  test.todo("Empty list")
+  test("Empty list", () => {
+    const todos = [];
+    const result = Todos.deleteCompleted(todos);
+    expect(result).toEqual([]);
+  });
 
-  test.todo("No completed tasks")
+  test("No completed tasks", () => {
+    const todos = [
+      {task: "1 Fake task", completed: false},
+      {task: "2 Fake task", completed: false},
+      {task: "3 Fake task", completed: false}
+    ];
+    const result = Todos.deleteCompleted(todos);
+    expect(result).toHaveLength(3);
+    expect(result).toEqual(todos);
+  });
 
-  test.todo("All tasks are completed")
-})
+  test("All tasks are completed", () => {
+    const todos = [
+      {task: "1 Fake task", completed: true},
+      {task: "2 Fake task", completed: true},
+      {task: "3 Fake task", completed: true}
+    ];
+    const result = Todos.deleteCompleted(todos);
+    expect(result).toHaveLength(0);
+    expect(result).toEqual([]);
+  });
+});

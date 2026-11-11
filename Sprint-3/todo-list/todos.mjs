@@ -30,6 +30,6 @@ export function toggleCompletedOnTask(todos, taskIndex) {
 
 export function deleteCompleted(todos){
   return todos.filter((task) => 
-    task.completed !== false
+    task.completed === false
   )
 }
