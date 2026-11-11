@@ -10,7 +10,7 @@ function checkIfObj(objToCheck) {
 
 function contains(objToCheck, keyToSearch) {
   checkIfObj(objToCheck);
-  return Object.keys(objToCheck).includes(keyToSearch);
+  return Object.hasOwn(objToCheck, keyToSearch);
 }
 
 module.exports = contains;
