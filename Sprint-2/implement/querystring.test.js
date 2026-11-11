@@ -3,7 +3,7 @@
 // Below are some test cases the implementation doesn't handle well.
 // Fix the implementation for these tests, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js")
+const parseQueryString = require("./querystring.js");
 
 test("should parse values containing '='", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
@@ -30,6 +30,14 @@ test("should decode percent-encoded characters", () => {
     $half: "1/2",
   });
 });
+
+test("should decode percent-encoded + character correctly", () => {
+  expect(parseQueryString("a=x%2By")).toEqual({
+    a: "x+y",
+  });
+});
+
+
 
 test("should replace '+' by ' '", () => {
   expect(parseQueryString("full+name=John+Doe")).toEqual({
