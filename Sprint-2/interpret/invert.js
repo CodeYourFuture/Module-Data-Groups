@@ -10,7 +10,7 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key;
   }
 
   return invertedObj;
@@ -41,3 +41,5 @@ console.log(invert({ a: 1, b: 2 }));
 //and also the value and key dont change position.
 
 // f) Fix the implementation of invert (and write tests to prove it's fixed!)
+
+// fixed the implementation and now it is printing the target value
