@@ -1,1 +1,79 @@
-/** Write your CSS in here **/
+/** Write your CSS in here 
+quote p ==== id='quote'
+author p === id='author'
+button === id='new-quote'
+**/
+
+body {
+    background-image: url('tumblrbgimg.jpeg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #023647;
+    color: #030303;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+
+}
+
+#quote-card {
+    backdrop-filter:blur(10px);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px 20px;
+    max-width: 350px;
+}
+
+#card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#profile-pic {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+#quote {
+    font-family: sans-serif;
+    line-height: 1.4;
+    font-style: italic;
+    word-spacing: -1.5px
+}
+
+#author {
+    color: #555;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#new-quote {
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px, 16px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+#username {
+    font-weight: bold;
+    font-size: 13px;
+    margin: 0;
+}
+
+
+
+
