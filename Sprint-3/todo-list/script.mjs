@@ -8,6 +8,13 @@ const todos = [];
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
 
+  document.getElementById("delete-completed").addEventListener("click", () => {
+    const remainingTodos = Todos.deleteCompleted(todos);
+    todos.length = 0;
+    todos.push(...remainingTodos);
+    render()
+  });
+
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
   Todos.addTask(todos, "Do the shopping", true);
