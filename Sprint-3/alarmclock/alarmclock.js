@@ -1,4 +1,28 @@
-function setAlarm() {}
+let countdownTimer;
+let currentSeconds;
+
+function setAlarm() {
+  // fetch seconds input
+  currentSeconds = Number(document.getElementById("alarmSet").value)
+
+  // set time remaining to seconds input
+  document.getElementById("timeRemaining").textContent = `Time Remaining: ${formatTime(currentSeconds)}`
+
+  // handling the interval and alarm end
+  countdownTimer = setInterval(() => {
+    currentSeconds = currentSeconds - 1
+
+    document.getElementById("timeRemaining").textContent =
+    `Time Remaining: ${formatTime(currentSeconds)}`
+    
+    if (currentSeconds <= 0){
+      clearInterval(countdownTimer)
+      playAlarm()
+      document.getElementById("timeRemaining").textContent =
+        `Time Remaining: 00:00`
+    }
+  }, 1000)
+}
 
 function formatTime(totalSeconds){
   // converts the seconds to minutes and seconds and returns "mm:ss"
@@ -8,19 +32,6 @@ function formatTime(totalSeconds){
   const paddedSeconds = String(remainderSeconds).padStart(2, "0")
   return `${paddedMinutes}:${paddedSeconds}`
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // DO NOT EDIT BELOW HERE
 
