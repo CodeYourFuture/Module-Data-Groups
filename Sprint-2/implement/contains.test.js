@@ -49,3 +49,6 @@ test("Given an object with a non-existent property name, returns false", () => {
 // When passed to contains
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
+test("Given an array, throws an error 'contains requires an object'", () => {
+  expect(() => contains([])).toThrow("contains requires an object");
+});
