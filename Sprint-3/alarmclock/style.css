@@ -1,9 +1,25 @@
+body {
+  background-image: url('alarmsethamster.jfif');
+  background-size: 700px 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+}
+
 .centre {
   position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.red-bg {
+  background-color: rgba(201, 36, 36, 0.9) !important
 }
 
 #alarmSet {
@@ -12,4 +28,13 @@
 
 h1 {
   text-align: center;
+}
+
+
+#set {
+  font: serif;
+}
+
+#stop {
+  font: serif;
 }
