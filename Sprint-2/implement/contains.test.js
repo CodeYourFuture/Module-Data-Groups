@@ -47,7 +47,7 @@ test("given object with properties, and wanted property doesn't exist, returns f
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
 test("given something that isn't an object, throw error", () => {
-  expect(() => contains([1,2,5])).toThrow(
+  expect(() => contains([1, 2, 5])).toThrow(
     Error("contains requires an object")
   );
 });
