@@ -2,8 +2,7 @@ function checkIfObj(objToCheck) {
   if (
     typeof objToCheck !== "object" ||
     objToCheck === null ||
-    (Object.getPrototypeOf(objToCheck) !== Object.prototype &&
-      Object.getPrototypeOf(objToCheck) !== null)
+    Array.isArray(objToCheck)
   ) {
     throw new Error("contains requires an object");
   }
