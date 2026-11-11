@@ -130,3 +130,12 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+describe("deleteCompleted()", () => {
+  test.todo("Check if completed tasks are removed")
+
+  test.todo("Empty list")
+
+  test.todo("No completed tasks")
+
+  test.todo("All tasks are completed")
+})
