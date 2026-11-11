@@ -17,9 +17,10 @@ function parseQueryString(queryString) {
     const valueDecode = decodeURIComponent(value);
     let keyDecodeWithout = keyDecode;
     let valueDecodeWithout = valueDecode;
-    if (keyDecode.includes("+")) {
-      keyDecodeWithout = keyDecode.replace("+", " ");
-    }
+    if (keydecode)
+      if (keyDecode.includes("+")) {
+        keyDecodeWithout = keyDecode.replace("+", " ");
+      }
     if (valueDecode.includes("+")) {
       valueDecodeWithout = valueDecode.replace("+", " ");
     }
