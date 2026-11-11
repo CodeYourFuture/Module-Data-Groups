@@ -19,16 +19,29 @@ const tally = require("./tally.js");
 // Given a function called tally
 // When passed an array of items
 // Then it should return an object containing the count for each unique item
+test("returns count for each unique item in the array", () => {
+  expect(tally(["a", "b", "b", "a", "c"])).toEqual({ a: 2, b: 2, c: 1 });
+});
 
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+test("returns empty object for given empty array", () => {
+  expect(tally([])).toEqual({});
+});
 
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+test("returns count for each unique item in the array", () => {
+  expect(tally(["a", "b", 3, "a", "c"])).toEqual({ a: 2, b: 1, 3: 1, c: 1 });
+});
 
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
 // Then it should throw Error("tally requires an array")
+test("throws an error when not given an array", () => {
+  expect(() => {
+    tally("apple");
+  }).toThrow("tally requires an array");
+});
