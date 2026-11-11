@@ -19,6 +19,10 @@ as an array isn't an object
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
+test("When passed an object and a property name returns true", () => {
+  expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+  // Check the expected result
+});
 
 // Given an empty object
 // When passed to contains
