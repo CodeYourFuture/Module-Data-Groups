@@ -1,13 +1,15 @@
 function createLookup(countryCurrencyPairs) {
-  if (
-    !Array.isArray(countryCurrencyPairs) ||
-    !countryCurrencyPairs.every(
-      (item) =>
-        Array.isArray(item) &&
-        item.every((element) => typeof element === "string")
-    )
-  ) {
-    throw new Error("createLookup requires array of an array");
+  if (!Array.isArray(countryCurrencyPairs)) {
+    throw new Error("createLookup requires an array");
+  }
+  for (const keyVlauePairs of countryCurrencyPairs) {
+    if (!Array.isArray(keyVlauePairs)) {
+      throw new Error("createLookup requires an array of key value pair");
+    } else if (keyVlauePairs.length !== 2) {
+      throw new Error("createLookup requires key value pair");
+    } else if (keyVlauePairs.some((element) => typeof element !== "string")) {
+      throw new Error("createLookup requires a string of key value pair");
+    }
   }
 
   let currencyObject = {};
@@ -16,10 +18,5 @@ function createLookup(countryCurrencyPairs) {
   }
   return currencyObject;
 }
-/*console.log(
-  createLookup([
-    ["US", "USD"],
-    ["CA", "CAD"],
-  ])
-);*/
+
 module.exports = createLookup;
