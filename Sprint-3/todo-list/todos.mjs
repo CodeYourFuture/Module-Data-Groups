@@ -40,3 +40,16 @@ export function deleteCompleted(todos) {
     }
   }
 }
+
+export function daysLeft(deadline, today = new Date()) {
+  const [year, month, day] = deadline.split("-").map(Number);
+  const deadlineDate = new Date(year, month - 1, day);
+  const todaysDate = new Date(
+    today.getFullYear(),
+    today.getMonth,
+    today.getDate()
+  );
+  const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+  return Math.round((deadlineDate - todaysDate) / MS_PER_DAY);
+}
