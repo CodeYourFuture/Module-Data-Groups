@@ -490,6 +490,7 @@ const quotes = [
   },
 ];
 
-console.log(pickFromArray(quotes));
+const selectedQuote = pickFromArray(quotes);
+document.getElementById("quote").textContent = selectedQuote.quote;
 
 // call pickFromArray with the quotes array to check you get a random quote
