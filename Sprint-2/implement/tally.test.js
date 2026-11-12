@@ -58,4 +58,8 @@ describe("contains", () => {
     expect(() => tally("hello")).toThrow(new Error("tally requires an array"));
     expect(() => tally()).toThrow(new Error("tally requires an array"));
   });
+  test("tally handles object prototype property names", function () {
+    expect(tally(["toString"])).toEqual({ toString: 1 });
+    expect(tally(["constructor"])).toEqual({ constructor: 1 });
+  });
 });

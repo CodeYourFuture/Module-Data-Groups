@@ -9,7 +9,7 @@ function tally(arr) {
   let key;
   let value;
   for (const item of arr) {
-    if (tallyObj[item]) {
+    if (Object.hasOwn(tallyObj, item)) {
       tallyObj[item] = tallyObj[item] + 1;
     } else {
       tallyObj[item] = 1;
