@@ -64,6 +64,7 @@ const todoListItemTemplate =
 // Create a <li> element for the given todo task
 function createListItem(todo, index) {
   const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
+  const deadlineElement = li.querySelector(".deadline");
 
   li.querySelector(".description").textContent = todo.task;
   if (todo.completed) {
@@ -79,6 +80,12 @@ function createListItem(todo, index) {
     Todos.deleteTask(todos, index);
     render();
   });
+
+  if (todo.deadline) {
+    deadlineElement.textContent = todo.deadline;
+  } else {
+    deadlineElement.remove();
+  }
 
   return li;
 }
