@@ -33,7 +33,7 @@ test("returns empty object for given empty array", () => {
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
-test("returns count for each unique item in the array", () => {
+test("returns count for each unique item with different type in the array", () => {
   expect(tally(["a", "b", 3, "a", "c"])).toEqual({ a: 2, b: 1, 3: 1, c: 1 });
 });
 
@@ -43,5 +43,13 @@ test("returns count for each unique item in the array", () => {
 test("throws an error when not given an array", () => {
   expect(() => {
     tally("apple");
+  }).toThrow("tally requires an array");
+
+  expect(() => {
+    tally(234);
+  }).toThrow("tally requires an array");
+
+  expect(() => {
+    tally();
   }).toThrow("tally requires an array");
 });
