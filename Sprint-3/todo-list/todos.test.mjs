@@ -131,7 +131,7 @@ describe("deleteCompleted()", () => {
     const todos = createMockTodos();
     Todos.deleteCompleted(todos);
     expect(todos).toHaveLength(2);
-    expect(todos[0].task).toBe("Tasks 2 description");
+    expect(todos[0].task).toBe("Task 2 description");
     expect(todos[1].task).toBe("Task 4 description");
   });
 });
