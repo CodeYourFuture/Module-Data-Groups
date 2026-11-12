@@ -134,4 +134,13 @@ describe("deleteCompleted()", () => {
     expect(todos).toHaveLength(2);
     expect(todos.every((t) => !t.completed)).toBe(true);
   });
+
+  test("Keeps the remaining tasks in their original order", () => {
+    const todos = createMockTodos();
+    const before = createMockTodos();
+    Todos.deleteCompleted(todos);
+
+    expect(todos[0]).toEqual(before[1]);
+    expect(todos[1]).toEqual(before[3]);
+  });
 });
