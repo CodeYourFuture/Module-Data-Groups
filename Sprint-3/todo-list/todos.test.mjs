@@ -130,3 +130,23 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+
+describe("deleteCompleted()", () => {
+  test("removes only completed tasks", () => {
+    const todos = createMockTodos();
+    Todos.deleteCompleted(todos);
+    expect(todos).toHaveLength(2);
+    expect(todos.every((t) => t.completed === false)).toBe(true);
+    expect(todos[0].task).toBe("Task 2 description");
+    expect(todos[1].task).toBe("Task 4 description");
+  });
+
+  test("does nothing when no tasks are completed", () => {
+    const todos = [
+      { task: "A", completed: false },
+      { task: "B", completed: false },
+    ];
+    Todos.deleteCompleted(todos);
+    expect(todos).toHaveLength(2);
+  });
+});
