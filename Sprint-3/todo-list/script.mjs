@@ -27,13 +27,15 @@ window.addEventListener("load", () => {
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("new-task-deadline");
   const task = taskInput.value.trim();
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadlineInput.value);
     render();
   }
 
   taskInput.value = "";
+  deadlineInput.value = "";
 }
 
 // Note:
