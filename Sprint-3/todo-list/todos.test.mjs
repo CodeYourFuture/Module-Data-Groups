@@ -153,4 +153,11 @@ describe("deleteCompleted()", () => {
 
     expect(todos).toEqual([]);
   });
+
+  test("Changes nothing when no task is completed", () => {
+    const todos = [{ task: "A", completed: false }];
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([{ task: "A", completed: false }]);
+  });
 });
