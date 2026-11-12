@@ -9,3 +9,8 @@ test("Inverting original input correctly", () => {
 test("Inverting original input correctly", () => {
   expect(invert({ a: 1, b: 2 })).toEqual({ 1: "a", 2: "b" });
 });
+
+// inverting an empty object
+test("Inverting original input correctly", () => {
+  expect(invert({})).toEqual({});
+});
