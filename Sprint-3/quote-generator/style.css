@@ -38,3 +38,16 @@ h1 {
   color: #222;
   margin: 1.5rem 0 1rem;
 }
+
+button {
+  background: #764ba2;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+}
