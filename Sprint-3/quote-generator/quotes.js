@@ -496,6 +496,6 @@ function showQuote() {
   document.getElementById("quote").textContent = selectedQuote.quote;
   document.getElementById("author").textContent = selectedQuote.author;
 }
-
+showQuote();
 
 // call pickFromArray with the quotes array to check you get a random quote
