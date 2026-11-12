@@ -6,6 +6,9 @@
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
 
+// when we run it, it logs out the property key instead of its value because for...in iterates over the property keys (names), not the property values.
+// we need to use square brackets [] to access the value associated with that property name
+
 const author = {
   firstName: "Zadie",
   lastName: "Smith",
@@ -15,5 +18,5 @@ const author = {
 };
 
 for (const value in author) {
-  console.log(value);
+  console.log(author[value]);
 }
