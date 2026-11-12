@@ -22,6 +22,7 @@
           id="new-task-input"
           placeholder="Enter a new task..."
         />
+        <input type="date" id="new-task-deadline" />
         <button id="add-task-btn">Add</button>
       </div>
 
@@ -36,6 +37,7 @@
         <li class="todo-item">
           <!-- include class "completed" if the task completed state is true -->
           <span class="description">Task description</span>
+          <span class="deadline"></span>
           <div class="actions">
             <button class="complete-btn">
               <span class="fa-solid fa-check" aria-hidden="true"></span>
