@@ -14,3 +14,13 @@ test("Inverting original input correctly", () => {
 test("Inverting original input correctly", () => {
   expect(invert({})).toEqual({});
 });
+
+// inverting an object with an empty string as a key
+test("Inverting original input correctly", () => {
+  expect(invert({ a: "" })).toEqual({ "": "a" });
+});
+
+// inverting an empty object with an string as a key
+test("Inverting original input correctly", () => {
+  expect(invert({ "": 1 })).toEqual({ 1: "" });
+});
