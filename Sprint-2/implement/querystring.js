@@ -11,8 +11,8 @@ function parseQueryString(queryString) {
     }
     const parts = pair.split("=");
 
-    const key = parts[0];
-    const value = parts.slice(1).join("=");
+    const key = decodeURIComponent(parts[0]);
+    const value = decodeURIComponent(parts.slice(1).join("="));
     queryParams[key] = value;
   }
 
