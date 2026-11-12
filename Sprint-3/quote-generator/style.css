@@ -51,3 +51,11 @@ button {
     background 0.2s,
     transform 0.1s;
 }
+
+button:hover {
+  background: #5d3a85;
+}
+
+button:active {
+  transform: scale(0.96);
+}
