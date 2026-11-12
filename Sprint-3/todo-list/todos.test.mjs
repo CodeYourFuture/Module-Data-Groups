@@ -143,4 +143,14 @@ describe("deleteCompleted()", () => {
     expect(todos[0]).toEqual(before[1]);
     expect(todos[1]).toEqual(before[3]);
   });
+
+  test("Keeps the remaining tasks in their original order", () => {
+    const todos = [
+      { task: "A", completed: true },
+      { task: "B", completed: true },
+    ];
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([]);
+  });
 });
