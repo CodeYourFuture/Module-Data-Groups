@@ -18,7 +18,7 @@ function createMockTodos() {
 }
 
 // A mock task to simulate user input
-const theTask = { task: "The Task", completed: false };
+const theTask = { task: "The Task", completed: false, deadline: "" };
 
 describe("addTask()", () => {
   test("Add a task to an empty ToDo list", () => {
