@@ -12,6 +12,12 @@ it("creates a country currency code lookup for multiple codes", () => {
   });
 });
 
+it("Throws when createLookup is sent a non-array-of-arrays", () => {
+  expect(() => createLookup(["US", "USD"])).toThrow(
+    "createLookup needs an array of arrays"
+  );
+});
+
 /*
 
 Create a lookup object of key value pairs from an array of code pairs
