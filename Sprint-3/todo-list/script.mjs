@@ -82,7 +82,7 @@ function createListItem(todo, index) {
   });
 
   if (todo.deadline) {
-    deadlineElement.textContent = todo.deadline;
+    deadlineElement.textContent = Todos.describeDeadline(todo.deadline);
   } else {
     deadlineElement.remove();
   }
