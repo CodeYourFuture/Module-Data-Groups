@@ -27,6 +27,9 @@ function showTime(totalSeconds) {
     `Time Remaining: ${mm}:${ss}`;
 }
 
+document.getElementById("stop").addEventListener("click", () => {
+  document.body.classList.remove("finished");
+});
 
 // DO NOT EDIT BELOW HERE
 
