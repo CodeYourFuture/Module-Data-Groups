@@ -161,3 +161,11 @@ describe("deleteCompleted()", () => {
     expect(todos).toEqual([{ task: "A", completed: false }]);
   });
 });
+
+describe("daysLeft()", () => {
+  const today = new Date(2026, 10, 12);
+
+  test("Future date", () => {
+    expect(Todos.daysLeft("2026-11-15", today)).toBe(3);
+  });
+});
