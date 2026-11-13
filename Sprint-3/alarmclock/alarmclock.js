@@ -1,7 +1,7 @@
 function setAlarm() {
   let seconds = document.getElementById("alarmSet").value;
   let minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
+  let remainingSeconds = seconds % 60;
   document.getElementById("timeRemaining").textContent =
     "Time Remaining: " +
     String(minutes).padStart(2, "0") +
