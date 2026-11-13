@@ -1,6 +1,5 @@
 let flashTimer;
 function setAlarm() {
-  
   let seconds = document.getElementById("alarmSet").value;
   let minutes = Math.floor(seconds / 60);
   let remainingSeconds = seconds % 60;
