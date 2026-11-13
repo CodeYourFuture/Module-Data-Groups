@@ -1,8 +1,10 @@
+let timerId;
+
 function setAlarm() {
   let remaining = Number(document.getElementById("alarmSet").value);
   showTime(remaining);
 
-  const timerId = setInterval(() => {
+  timerId = setInterval(() => {
     remaining = remaining - 1;
     showTime(remaining);
 
