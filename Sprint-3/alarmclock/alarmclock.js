@@ -1,4 +1,7 @@
-function setAlarm() {}
+function setAlarm() {
+  const seconds = Number(document.getElementById("alarmSet").value);
+  showTime(seconds);
+}
 
 function showTime(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
