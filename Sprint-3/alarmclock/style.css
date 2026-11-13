@@ -18,3 +18,15 @@ body.finished {
   background-color: tomato;
   animation: flash 1s infinite;
 }
+
+@keyframes flash {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: tomato;
+  }
+  100% {
+    background-color: white;
+  }
+}
