@@ -491,3 +491,41 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteElement.textContent = randomQuote.quote;
+  authorElement.textContent = "- " + randomQuote.author;
+}
+
+showRandomQuote();
+
+newQuoteButton.addEventListener("click", showRandomQuote);
+
+const AUTO_PLAY_DELAY = 5000;
+const autoPlayToggle = document.getElementById("auto-play-toggle");
+const autoPlayStatus = document.getElementById("auto-play-status");
+
+let autoPlayTimer = null;
+
+function startAutoPlay() {
+  autoPlayTimer = setInterval(showRandomQuote, AUTO_PLAY_DELAY);
+  autoPlayStatus.textContent = "auto-play:ON";
+}
+
+function stopAutoPlay() {
+  clearInterval(autoPlayTimer);
+  autoPlayTimer = null;
+  autoPlayStatus.textContent = "auto-play:OFF";
+}
+
+autoPlayToggle.addEventListener("change", function () {
+  if (autoPlayToggle.checked) {
+    startAutoPlay();
+  } else {
+    stopAutoPlay();
+  }
+});
