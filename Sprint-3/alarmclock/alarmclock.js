@@ -2,9 +2,14 @@ function setAlarm() {
   let remaining = Number(document.getElementById("alarmSet").value);
   showTime(remaining);
 
-  setInterval(() => {
+  const timerId = setInterval(() => {
     remaining = remaining - 1;
     showTime(remaining);
+
+    if(remaining <= 0){
+      clearInterval(timerId);
+      playAlarm();
+    }
   }, 1000);
 }
 
