@@ -504,3 +504,28 @@ function showRandomQuote() {
 showRandomQuote();
 
 newQuoteButton.addEventListener("click", showRandomQuote);
+
+const AUTO_PLAY_DELAY = 5000;
+const autoPlayToggle = document.getElementById("auto-play-toggle");
+const autoPlayStatus = document.getElementById("auto-play-status");
+
+let autoPlayTimer = null;
+
+function startAutoPlay() {
+  autoPlayTimer = setInterval(showRandomQuote, AUTO_PLAY_DELAY);
+  autoPlayStatus.textContent = "auto-play:ON";
+}
+
+function stopAutoPlay() {
+  clearInterval(autoPlayTimer);
+  autoPlayTimer = null;
+  autoPlayStatus.textContent = "auto-play:OFF";
+}
+
+autoPlayToggle.addEventListener("change", function () {
+  if (autoPlayToggle.checked) {
+    startAutoPlay();
+  } else {
+    stopAutoPlay();
+  }
+});
