@@ -168,6 +168,9 @@ describe("daysLeft()", () => {
   test("Future date", () => {
     expect(Todos.daysLeft("2026-11-15", today)).toBe(3);
   });
+  test("Today", () => {
+    expect(Todos.daysLeft("2026-11-12", today)).toBe(0);
+  });
 });
 
 describe("addTask() with deadline", () => {
