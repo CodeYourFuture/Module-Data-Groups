@@ -8,9 +8,10 @@ function setAlarm() {
     remaining = remaining - 1;
     showTime(remaining);
 
-    if(remaining <= 0){
+    if (remaining <= 0) {
       clearInterval(timerId);
       playAlarm();
+      document.body.classList.add("finished");
     }
   }, 1000);
 }
@@ -25,6 +26,7 @@ function showTime(totalSeconds) {
   document.getElementById("timeRemaining").innerText =
     `Time Remaining: ${mm}:${ss}`;
 }
+
 
 // DO NOT EDIT BELOW HERE
 
