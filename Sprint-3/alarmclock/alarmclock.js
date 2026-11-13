@@ -1,4 +1,8 @@
-function setAlarm() {}
+function setAlarm() {
+  const seconds = document.getElementById("alarmSet").value;
+  document.getElementById("timeRemaining").textContent =
+    "Time Remaining: 00:" + seconds;
+}
 
 // DO NOT EDIT BELOW HERE
 
