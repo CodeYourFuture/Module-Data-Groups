@@ -16,4 +16,5 @@ h1 {
 
 body.finished {
   background-color: tomato;
+  animation: flash 1s infinite;
 }
