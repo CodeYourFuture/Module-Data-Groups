@@ -34,6 +34,21 @@ function showTime(totalSeconds) {
     `Time Remaining: ${mm}:${ss}`;
 }
 
+function togglePause() {
+  const pauseButton = document.getElementById("pause");
+
+  if (timerId !== null) {
+    clearInterval(timerId);
+    timerId = null;
+    pauseButton.innerText = "Resume";
+  } else if (remaining > 0) {
+    startCountdown();
+    pauseButton.innerText = "pause";
+  }
+}
+
+document.getElementById("pause").addEventListener("click", togglePause);
+
 document.getElementById("stop").addEventListener("click", () => {
   document.body.classList.remove("finished");
 });
