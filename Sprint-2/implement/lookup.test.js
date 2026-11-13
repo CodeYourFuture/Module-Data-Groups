@@ -16,6 +16,9 @@ it("Throws when createLookup is sent a non-array-of-arrays", () => {
   expect(() => createLookup(["US", "USD"])).toThrow(
     "createLookup needs an array of arrays"
   );
+  expect(() => createLookup()).toThrow(
+    "createLookup needs an array of arrays"
+  );
 });
 
 /*

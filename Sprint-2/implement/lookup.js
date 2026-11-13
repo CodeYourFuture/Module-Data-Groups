@@ -1,6 +1,6 @@
 function createLookup(codes) {
 
-  if (!Array.isArray(codes[0])){
+  if (!codes || !Array.isArray(codes[0])){
     throw new Error("createLookup needs an array of arrays");
   }
 
