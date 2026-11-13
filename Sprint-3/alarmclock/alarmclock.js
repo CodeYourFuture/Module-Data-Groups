@@ -1,6 +1,7 @@
 let timerId;
 
 function setAlarm() {
+  document.body.classList.remove("finished");
   let remaining = Number(document.getElementById("alarmSet").value);
   showTime(remaining);
 
