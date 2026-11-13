@@ -16,20 +16,11 @@ function startCountdown() {
 }
 
 function setAlarm() {
+  clearInterval(timerId);
   document.body.classList.remove("finished");
   remaining = Number(document.getElementById("alarmSet").value);
   showTime(remaining);
-
-  timerId = setInterval(() => {
-    remaining = remaining - 1;
-    showTime(remaining);
-
-    if (remaining <= 0) {
-      clearInterval(timerId);
-      playAlarm();
-      document.body.classList.add("finished");
-    }
-  }, 1000);
+  startCountdown();
 }
 
 function showTime(totalSeconds) {
