@@ -19,6 +19,7 @@ function setAlarm() {
     if (seconds === 0) {
       clearInterval(timer);
       playAlarm();
+      document.body.style.backgroundColor = "red";
     }
   }, 1000);
 }
