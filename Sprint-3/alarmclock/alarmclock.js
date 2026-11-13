@@ -7,6 +7,16 @@ function setAlarm() {
     String(minutes).padStart(2, "0") +
     ":" +
     String(remainingSeconds).padStart(2, "0");
+  const timer = setInterval(() => {
+    seconds--;
+    minutes = Math.floor(seconds / 60);
+    remainingSeconds = seconds % 60;
+    document.getElementById("timeRemaining").textContent =
+      "Time Remaining: " +
+      String(minutes).padStart(2, "0") +
+      ":" +
+      String(remainingSeconds).padStart(2, "0");
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
