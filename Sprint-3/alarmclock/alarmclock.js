@@ -16,10 +16,11 @@ function setAlarm() {
       String(minutes).padStart(2, "0") +
       ":" +
       String(remainingSeconds).padStart(2, "0");
-  if (seconds === 0){
-    clearInterval(timer);
-    playAlarm()
-  }}, 1000);
+    if (seconds === 0) {
+      clearInterval(timer);
+      playAlarm();
+    }
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
