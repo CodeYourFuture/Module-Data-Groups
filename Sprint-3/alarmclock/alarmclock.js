@@ -1,8 +1,23 @@
-let timerId;
+let timerId = null;
+let remaining = 0;
+
+function startCountdown() {
+  timerId = setInterval(() => {
+    remaining = remaining - 1;
+    showTime(remaining);
+
+    if (remaining <= 0) {
+      clearInterval(timerId);
+      timerId = null;
+      playAlarm();
+      document.body.classList.add("finished");
+    }
+  }, 1000);
+}
 
 function setAlarm() {
   document.body.classList.remove("finished");
-  let remaining = Number(document.getElementById("alarmSet").value);
+  remaining = Number(document.getElementById("alarmSet").value);
   showTime(remaining);
 
   timerId = setInterval(() => {
