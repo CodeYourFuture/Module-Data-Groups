@@ -4,9 +4,10 @@ window.addEventListener("load", () => {
   document.getElementById("stop").addEventListener("click", () => {
     clearInterval(flashTimer);
   });
-document.getElementById("pause").addEventListener("click", () => {
-  clearInterval(timer);
-})});
+  document.getElementById("pause").addEventListener("click", () => {
+    clearInterval(timer);
+  });
+});
 function setAlarm() {
   let seconds = document.getElementById("alarmSet").value;
   let minutes = Math.floor(seconds / 60);
