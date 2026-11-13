@@ -28,7 +28,9 @@ it("When contains is passed object and property name, should return true or fals
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+it("When contains is passed an empty object, should return false", () => {
+    expect(contains({})).toEqual(false);
+})
 
 // Given an object with properties
 // When passed to contains with an existing property name
