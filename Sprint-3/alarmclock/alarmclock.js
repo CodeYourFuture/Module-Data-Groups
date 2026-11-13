@@ -43,7 +43,7 @@ function togglePause() {
     pauseButton.innerText = "Resume";
   } else if (remaining > 0) {
     startCountdown();
-    pauseButton.innerText = "pause";
+    pauseButton.innerText = "Pause";
   }
 }
 
