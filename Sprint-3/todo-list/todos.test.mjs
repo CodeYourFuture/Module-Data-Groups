@@ -171,6 +171,9 @@ describe("daysLeft()", () => {
   test("Today", () => {
     expect(Todos.daysLeft("2026-11-12", today)).toBe(0);
   });
+  test("Past date is negative", () => {
+    expect(Todos.daysLeft("2026-11-10", today)).toBe(-2);
+  });
 });
 
 describe("addTask() with deadline", () => {
