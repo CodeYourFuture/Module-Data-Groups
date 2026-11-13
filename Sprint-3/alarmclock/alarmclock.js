@@ -1,4 +1,9 @@
 let flashTimer;
+window.addEventListener("load", () => {
+  document.getElementById("stop").addEventListener("click", () => {
+    clearInterval(flashTimer);
+  });
+});
 function setAlarm() {
   let seconds = document.getElementById("alarmSet").value;
   let minutes = Math.floor(seconds / 60);
