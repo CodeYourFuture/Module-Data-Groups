@@ -1,6 +1,11 @@
 function setAlarm() {
-  const seconds = Number(document.getElementById("alarmSet").value);
-  showTime(seconds);
+  let remaining = Number(document.getElementById("alarmSet").value);
+  showTime(remaining);
+
+  setInterval(() => {
+    remaining = remaining - 1;
+    showTime(remaining);
+  }, 1000);
 }
 
 function showTime(totalSeconds) {
@@ -8,7 +13,7 @@ function showTime(totalSeconds) {
   const seconds = totalSeconds % 60;
 
   const mm = String(minutes).padStart(2, "0");
-  const ss = StaticRange(seconds).padStart(2, "0");
+  const ss = String(seconds).padStart(2, "0");
 
   document.getElementById("timeRemaining").innerText =
     `Time Remaining: ${mm}:${ss}`;
