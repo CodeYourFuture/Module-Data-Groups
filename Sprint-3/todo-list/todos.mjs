@@ -53,3 +53,13 @@ export function daysLeft(deadline, today = new Date()) {
 
   return Math.round((deadlineDate - todaysDate) / MS_PER_DAY);
 }
+
+export function describeDeadline(deadline, today = new Date()) {
+  const days = daysLeft(deadline, today);
+
+  if (days < 0) return `Overdue by ${-days} days{days === -1 ? "" : "s"}`;
+  if (days === 0) return "Due today";
+  if (days === 1) return "Due tomorrow";
+
+  return `${days} days left`;
+}
