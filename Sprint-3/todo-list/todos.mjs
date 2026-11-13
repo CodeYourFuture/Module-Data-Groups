@@ -10,8 +10,12 @@
 */
 
 // Append a new task to todos[]
-export function addTask(todos, task, completed = false) {
-  todos.push({ task, completed });
+export function addTask(todos, task, completed = false, deadline) {
+  const todo = { task, completed };
+  if (deadline) {
+    todo.deadline = deadline;
+  }
+  todos.push(todo);
 }
 
 // Delete todos[taskIndex] if it exists
@@ -26,4 +30,37 @@ export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
+}
+
+// Remove every task whose "completed" property is true
+export function deleteCompleted(todos) {
+  for (let i = todos.length - 1; i >= 0; i--) {
+    if (todos[i].completed) {
+      todos.splice(i, 1);
+    }
+  }
+}
+
+export function daysLeft(deadline, today = new Date()) {
+  const [year, month, day] = deadline.split("-").map(Number);
+  const deadlineDate = new Date(year, month - 1, day);
+  const todaysDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+  const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+  return Math.round((deadlineDate - todaysDate) / MS_PER_DAY);
+}
+
+export function describeDeadline(deadline, today = new Date()) {
+  const days = daysLeft(deadline, today);
+
+  if (Number.isNaN(days)) return "Invalid date";
+  if (days < 0) return `Overdue by ${-days} days${days === -1 ? "" : "s"}`;
+  if (days === 0) return "Due today";
+  if (days === 1) return "Due tomorrow";
+
+  return `${days} days left`;
 }

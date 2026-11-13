@@ -13,7 +13,7 @@ function createMockTodos() {
     { task: "Task 1 description", completed: true },
     { task: "Task 2 description", completed: false },
     { task: "Task 3 description", completed: true },
-    { task: "Task 4 description", completed: false },        
+    { task: "Task 4 description", completed: false },
   ];
 }
 
@@ -29,7 +29,6 @@ describe("addTask()", () => {
   });
 
   test("Should append a new task to the end of a ToDo list", () => {
-
     const todos = createMockTodos();
     const lengthBeforeAddition = todos.length;
     Todos.addTask(todos, theTask.task, theTask.completed);
@@ -42,7 +41,6 @@ describe("addTask()", () => {
 });
 
 describe("deleteTask()", () => {
-
   test("Delete the first task", () => {
     const todos = createMockTodos();
     const todosBeforeDeletion = createMockTodos();
@@ -53,7 +51,7 @@ describe("deleteTask()", () => {
 
     expect(todos[0]).toEqual(todosBeforeDeletion[1]);
     expect(todos[1]).toEqual(todosBeforeDeletion[2]);
-    expect(todos[2]).toEqual(todosBeforeDeletion[3]);        
+    expect(todos[2]).toEqual(todosBeforeDeletion[3]);
   });
 
   test("Delete the second task (a middle task)", () => {
@@ -66,7 +64,7 @@ describe("deleteTask()", () => {
 
     expect(todos[0]).toEqual(todosBeforeDeletion[0]);
     expect(todos[1]).toEqual(todosBeforeDeletion[2]);
-    expect(todos[2]).toEqual(todosBeforeDeletion[3]);        
+    expect(todos[2]).toEqual(todosBeforeDeletion[3]);
   });
 
   test("Delete the last task", () => {
@@ -79,7 +77,7 @@ describe("deleteTask()", () => {
 
     expect(todos[0]).toEqual(todosBeforeDeletion[0]);
     expect(todos[1]).toEqual(todosBeforeDeletion[1]);
-    expect(todos[2]).toEqual(todosBeforeDeletion[2]);        
+    expect(todos[2]).toEqual(todosBeforeDeletion[2]);
   });
 
   test("Delete a non-existing task", () => {
@@ -94,7 +92,6 @@ describe("deleteTask()", () => {
 });
 
 describe("toggleCompletedOnTask()", () => {
-
   test("Expect the 'completed' property to toggle on an existing task", () => {
     const todos = createMockTodos();
     const taskIndex = 1;
@@ -111,12 +108,11 @@ describe("toggleCompletedOnTask()", () => {
     const todos = createMockTodos();
     const todosBeforeToggle = createMockTodos();
     Todos.toggleCompletedOnTask(todos, 1);
-    
-    expect(todos[0]).toEqual(todosBeforeToggle[0]);    
+
+    expect(todos[0]).toEqual(todosBeforeToggle[0]);
     expect(todos[2]).toEqual(todosBeforeToggle[2]);
     expect(todos[3]).toEqual(todosBeforeToggle[3]);
   });
-
 
   test("Expect no change when toggling on a non-existing task", () => {
     const todos = createMockTodos();
@@ -130,3 +126,60 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
+describe("deleteCompleted()", () => {
+  test("Removes all completed tasks", () => {
+    const todos = createMockTodos();
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(2);
+    expect(todos.every((task) => !task.completed)).toBe(true);
+  });
+
+  test("Keeps the remaining tasks in their original order", () => {
+    const todos = createMockTodos();
+    const before = createMockTodos();
+    Todos.deleteCompleted(todos);
+
+    expect(todos[0]).toEqual(before[1]);
+    expect(todos[1]).toEqual(before[3]);
+  });
+
+  test("Empties the list when every task is completed", () => {
+    const todos = [
+      { task: "A", completed: true },
+      { task: "B", completed: true },
+    ];
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([]);
+  });
+
+  test("Changes nothing when no task is completed", () => {
+    const todos = [{ task: "A", completed: false }];
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([{ task: "A", completed: false }]);
+  });
+});
+
+describe("daysLeft()", () => {
+  const today = new Date(2026, 10, 12);
+
+  test("Future date", () => {
+    expect(Todos.daysLeft("2026-11-15", today)).toBe(3);
+  });
+  test("Today", () => {
+    expect(Todos.daysLeft("2026-11-12", today)).toBe(0);
+  });
+  test("Past date is negative", () => {
+    expect(Todos.daysLeft("2026-11-10", today)).toBe(-2);
+  });
+});
+
+describe("addTask() with deadline", () => {
+  test("Stores the deadline when given", () => {
+    const todos = [];
+    Todos.addTask(todos, "Wash car", false, "2026-12-01");
+    expect(todos[0].deadline).toBe("2026-12-01");
+  });
+});
