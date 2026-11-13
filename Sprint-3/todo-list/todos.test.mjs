@@ -132,7 +132,7 @@ describe("deleteCompleted()", () => {
     Todos.deleteCompleted(todos);
 
     expect(todos).toHaveLength(2);
-    expect(todos.every((t) => !t.completed)).toBe(true);
+    expect(todos.every((task) => !task.completed)).toBe(true);
   });
 
   test("Keeps the remaining tasks in their original order", () => {
@@ -144,7 +144,7 @@ describe("deleteCompleted()", () => {
     expect(todos[1]).toEqual(before[3]);
   });
 
-  test("Keeps the remaining tasks in their original order", () => {
+  test("Empties the list when every task is completed", () => {
     const todos = [
       { task: "A", completed: true },
       { task: "B", completed: true },
