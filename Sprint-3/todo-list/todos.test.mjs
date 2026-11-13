@@ -169,3 +169,11 @@ describe("daysLeft()", () => {
     expect(Todos.daysLeft("2026-11-15", today)).toBe(3);
   });
 });
+
+describe("addTask() with deadline", () => {
+  test("Stores the deadline when given", () => {
+    const todos = [];
+    Todos.addTask(todos, "Wash car", false, "2026-12-01");
+    expect(todos[0].deadline).toBe("2026-12-01");
+  });
+});
