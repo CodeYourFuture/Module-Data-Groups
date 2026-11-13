@@ -20,7 +20,7 @@ function setAlarm() {
     if (seconds === 0) {
       clearInterval(timer);
       playAlarm();
-      setInterval(() => {
+      flashTimer = setInterval(() => {
         document.body.style.backgroundColor =
           document.body.style.backgroundColor === "red" ? "white" : "red";
       }, 500);
