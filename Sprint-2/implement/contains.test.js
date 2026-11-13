@@ -19,6 +19,11 @@ as an array isn't an object
 // Given a contains function
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
+it("When contains is passed object and property name, should return true or false", () => {
+    expect(contains({ a: 1, b: 2 }, "a")).toEqual(true);
+    expect(contains({ a: 1, b: 2 }, "c")).toEqual(false);
+    expect(contains({ a: 1, b: 2 }, 1)).toEqual(false);
+})
 
 // Given an empty object
 // When passed to contains
