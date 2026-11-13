@@ -1,4 +1,41 @@
-function setAlarm() {}
+let flashTimer;
+let timer;
+window.addEventListener("load", () => {
+  document.getElementById("stop").addEventListener("click", () => {
+    clearInterval(flashTimer);
+  });
+  document.getElementById("pause").addEventListener("click", () => {
+    clearInterval(timer);
+  });
+});
+function setAlarm() {
+  let seconds = document.getElementById("alarmSet").value;
+  let minutes = Math.floor(seconds / 60);
+  let remainingSeconds = seconds % 60;
+  document.getElementById("timeRemaining").textContent =
+    "Time Remaining: " +
+    String(minutes).padStart(2, "0") +
+    ":" +
+    String(remainingSeconds).padStart(2, "0");
+  timer = setInterval(() => {
+    seconds--;
+    minutes = Math.floor(seconds / 60);
+    remainingSeconds = seconds % 60;
+    document.getElementById("timeRemaining").textContent =
+      "Time Remaining: " +
+      String(minutes).padStart(2, "0") +
+      ":" +
+      String(remainingSeconds).padStart(2, "0");
+    if (seconds === 0) {
+      clearInterval(timer);
+      playAlarm();
+      flashTimer = setInterval(() => {
+        document.body.style.backgroundColor =
+          document.body.style.backgroundColor === "red" ? "white" : "red";
+      }, 500);
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
