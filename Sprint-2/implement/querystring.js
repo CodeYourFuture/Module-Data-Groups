@@ -11,20 +11,18 @@ function parseQueryString(queryString) {
     if (!pair) {
       continue;
     }
-    const [key, ...rest] = pair.split("=");
-    const value = rest.join("=");
-    const keyDecode = decodeURIComponent(key);
-    const valueDecode = decodeURIComponent(value);
-    let keyDecodeWithout = keyDecode;
-    let valueDecodeWithout = valueDecode;
-    if (keydecode)
-      if (keyDecode.includes("+")) {
-        keyDecodeWithout = keyDecode.replace("+", " ");
-      }
-    if (valueDecode.includes("+")) {
-      valueDecodeWithout = valueDecode.replace("+", " ");
+    let [key, ...rest] = pair.split("=");
+    let value = rest.join("=");
+
+    const lastThreeCharKey = key.slice(-3);
+    if (!lastThreeCharKey.includes("+") || key.includes("%")) {
+      key = decodeURIComponent(key.replace("+", " "));
     }
-    queryParams[keyDecodeWithout] = valueDecodeWithout;
+    const lastThreeCharVal = value.slice(-3);
+    if (!lastThreeCharVal.includes("+")) {
+      value = decodeURIComponent(value.replace("+", " "));
+    }
+    queryParams[key] = value;
   }
   return queryParams;
 }
