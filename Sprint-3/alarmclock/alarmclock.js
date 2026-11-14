@@ -1,5 +1,8 @@
-function setAlarm() {}
-
+function setAlarm() {
+  const input = document.querySelector("#alarmSet");
+  const timeRemaining = document.querySelector("#timeRemaining");
+  timeRemaining.innerText = `Time Remaining ${input.value}:00`;
+}
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
