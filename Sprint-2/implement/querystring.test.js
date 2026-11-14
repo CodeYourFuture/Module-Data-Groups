@@ -43,6 +43,13 @@ test("should replace '+' by ' '", () => {
   });
 });
 
+test("should replace multiple plus'+' by ' '", () => {
+  expect(parseQueryString("name=John+Doe+Foo&age=30&city=New+York")).toEqual({
+    name: "John Doe Foo",
+    age: "30",
+    city: "New York",
+  });
+});
 // Stretch exercise: Handling query strings that contain identical keys
 
 // Delete this test if you are not working on this optional case
