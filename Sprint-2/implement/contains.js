@@ -11,9 +11,13 @@ function contains(obj, propertyName) {
   if (obj === null) {
     throw new Error("contains requires an object");
   }
+  if (obj === undefined) {
+    throw new Error("contains requires an object");
+  }
   if (Object.keys(obj).length === 0) {
     return false;
   }
+
   return Object.keys(obj).includes(propertyName);
 }
 module.exports = contains;
