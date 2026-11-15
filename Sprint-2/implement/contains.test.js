@@ -49,3 +49,6 @@ test("throws an error when given a string", () => {
 test("throws an error when given a number", () => {
   expect(() => contains(42, "a")).toThrow("contains requires an object");
 });
+test("throws an error when given null", () => {
+  expect(() => contains(null, "a")).toThrow("contains requires an object");
+});
