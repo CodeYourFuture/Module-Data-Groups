@@ -22,6 +22,10 @@ as an array isn't an object
 test("returns true when given an object and property name that contains property", () => {
   expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
 });
+
+test("returns false when given an object and property name that doesn't contain the property", () => {
+  expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+});
 // Given an empty object
 // When passed to contains
 // Then it should return false
