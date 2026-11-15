@@ -9,6 +9,9 @@ test("given currency code pairs returns an object with the country and its curre
   ).toEqual({ JP: "JPY", GB: "GBP" });
 });
 
+test("given an empty array returns an empty object", () => {
+  expect(createLookup([])).toEqual({});
+});
 /*
 
 Create a lookup object of key value pairs from an array of code pairs
