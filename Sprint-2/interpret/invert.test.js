@@ -21,6 +21,10 @@ test("invert on multiple properties object returns inverted properties object", 
 })
 
 // String values
+test("invert on string value object returns inverted key-value object", () => {
+    expect(invert({a: "hello"})).toEqual({"hello": "a"});
+})
+
 // Duplicate values
 //
 
