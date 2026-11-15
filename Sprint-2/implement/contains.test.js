@@ -42,3 +42,9 @@ test("returns false when given an empty object", () => {
 test("throws an error when given an array", () => {
   expect(() => contains([1, 2, 3], "a")).toThrow("contains requires an object");
 });
+
+test("throws an error when given a string", () => {
+  expect(() => contains("hello", "a")).toThrow(
+    "contains requires an object"
+  );
+});
