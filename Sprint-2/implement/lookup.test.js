@@ -2,6 +2,10 @@ const createLookup = require("./lookup.js");
 
 test.todo("creates a country currency code lookup for multiple codes");
 
+test("given currency code pairs returns an object with the country and its currency code", () => {
+  expect(createLookup([["JP", "JPY"],["GB","GBP"]])).toEqual({ JP: "JPY", GB: "GBP" });
+});
+
 /*
 
 Create a lookup object of key value pairs from an array of code pairs
