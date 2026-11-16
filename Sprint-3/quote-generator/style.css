@@ -1,1 +1,26 @@
 /** Write your CSS in here **/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d0d015;
+  text-align: center;
+  padding: 40px;
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-top: 40px;
+}
+
+#author {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#new-quote {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-top: 30px;
+  cursor: pointer;
+}
