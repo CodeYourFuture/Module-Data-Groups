@@ -1,1 +1,35 @@
 /** Write your CSS in here **/
+body {
+  background-color: rgb(236, 157, 12);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+
+.quote-container {
+  background-color: white;
+  padding: 50px;
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+#quote {
+  color: #333333;
+  font-size: 23px;
+  margin-bottom: 30px;
+}
+
+#author {
+  color: #555555;
+  font-size: 16px;
+  text-align: center;
+}
+
+#new-quote {
+  background-color: rgb(43, 42, 41);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
