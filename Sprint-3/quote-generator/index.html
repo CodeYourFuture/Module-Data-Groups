@@ -5,27 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quote Generator app</title>
     <script defer src="quotes.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Quote</h1>
+    <div class = "quote-box">
     <p id="quote"></p>
     <script>
+      let selectedQuote;
       document.addEventListener("DOMContentLoaded", () => {
-        document.getElementById("quote").innerText =
-          pickFromArray(quotes).quote;
-        document.getElementById("author").innerText =
-          pickFromArray(quotes).author;
+        selectedQuote = pickFromArray(quotes)
+        document.getElementById("quote").innerText = selectedQuote.quote;
+        document.getElementById("author").innerText = selectedQuote.author;
       });
     </script>
     <p id="author"></p>
+  </div>
     <button
       type="button"
       id="new-quote"
       onclick="
-        document.getElementById('quote').innerText =
-          pickFromArray(quotes).quote;
-        document.getElementById('author').innerText =
-          pickFromArray(quotes).author;
+        selectedQuote = pickFromArray(quotes);
+        document.getElementById('quote').innerText = selectedQuote.quote;
+        document.getElementById('author').innerText = selectedQuote.author;
       "
     >
       New quote
