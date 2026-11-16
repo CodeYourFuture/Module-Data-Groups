@@ -499,7 +499,7 @@ function showQuote() {
 showQuote();
 
 document.getElementById("new-quote").addEventListener("click", showQuote);
-
+document.getElementById("new quote").addElementListener("click", showQuote);
 
 
 // call pickFromArray with the quotes array to check you get a random quote
