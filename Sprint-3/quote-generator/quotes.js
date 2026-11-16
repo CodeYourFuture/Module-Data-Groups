@@ -499,7 +499,7 @@ function showQuote() {
 showQuote();
 
 document.getElementById("new-quote").addEventListener("click", showQuote);
-document.getElementById("autoplay").addEventListening("click", () => {
+document.getElementById("autoplay").addEventListener("click", () => {
   setInterval(showQuote, 5000);
 }, {once: true});
 
