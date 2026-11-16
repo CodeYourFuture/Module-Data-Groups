@@ -496,4 +496,8 @@ function displayQuote() {
   document.querySelector("#author").textContent = selectedQuote.author;
 }
 
+document
+  .querySelector("#new-quote")
+  .addEventListener("click", displayQuote);
+
 displayQuote();
