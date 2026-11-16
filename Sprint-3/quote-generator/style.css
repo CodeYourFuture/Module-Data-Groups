@@ -1,1 +1,7 @@
 /** Write your CSS in here **/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f1ea;
+  text-align: center;
+  padding: 40px;
+}
