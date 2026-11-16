@@ -7,6 +7,9 @@ const todos = [];
 // Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
+  document
+    .getElementById("delete-completed-btn")
+    .addEventListener("click", deleteCompletedTodos);
 
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false); 
@@ -20,13 +23,20 @@ window.addEventListener("load", () => {
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("new-task-deadline");
   const task = taskInput.value.trim();
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadlineInput.value);
     render();
   }
 
   taskInput.value = "";
+  deadlineInput.value = "";
+}
+
+function deleteCompletedTodos() {
+  Todos.deleteCompleted(todos);
+  render();
 }
 
 // Note:
@@ -58,6 +68,7 @@ function createListItem(todo, index) {
   const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
 
   li.querySelector(".description").textContent = todo.task;
+  li.querySelector(".deadline").textContent = todo.deadline ?? "";
   if (todo.completed) {
     li.classList.add("completed");
   }

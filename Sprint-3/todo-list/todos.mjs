@@ -3,15 +3,28 @@
   the following manner:
 
   [
-    { task: "Description of task 1", completed: false},
+    { task: "Description of task 1", completed: false, deadline: "2026-12-01"},
     { task: "Description of task 2", completed: true}
   ]
 
 */
 
 // Append a new task to todos[]
-export function addTask(todos, task, completed = false) {
-  todos.push({ task, completed });
+export function addTask(todos, task, completed = false, deadline = "") {
+  const todo = { task, completed };
+  if (deadline) {
+    todo.deadline = deadline;
+  }
+  todos.push(todo);
+}
+
+// Delete all completed tasks from todos[]
+export function deleteCompleted(todos) {
+  for (let index = todos.length - 1; index >= 0; index--) {
+    if (todos[index].completed) {
+      todos.splice(index, 1);
+    }
+  }
 }
 
 // Delete todos[taskIndex] if it exists
