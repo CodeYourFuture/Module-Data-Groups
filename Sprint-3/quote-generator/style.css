@@ -1,8 +1,4 @@
 /** Write your CSS in here **/
-h1 {
-  color: white;
-}
-
 body {
   background-color: rgb(236, 157, 12);
   font-family: Arial, sans-serif;
@@ -18,13 +14,13 @@ body {
 }
 
 #quote {
-  color: rgb(240, 239, 235);
+  color: #333333;
   font-size: 23px;
   margin-bottom: 30px;
 }
 
 #author {
-  color: rgb(240, 238, 235);
+  color: #555555;
   font-size: 16px;
   text-align: center;
 }
