@@ -9,6 +9,7 @@ window.addEventListener("load", () => {
   });
   document.getElementById("pause").addEventListener("click", () => {
     clearInterval(timer);
+    paused = true;
   });
 });
 function setAlarm() {
