@@ -3,6 +3,7 @@ let timer;
 window.addEventListener("load", () => {
   document.getElementById("stop").addEventListener("click", () => {
     clearInterval(flashTimer);
+    document.body.style.backgroundColor = "";
   });
   document.getElementById("pause").addEventListener("click", () => {
     clearInterval(timer);
@@ -33,6 +34,9 @@ function setAlarm() {
         document.body.style.backgroundColor =
           document.body.style.backgroundColor === "red" ? "white" : "red";
       }, 500);
+      setTimeout(() => {
+        clearInterval(flashTimer);
+      }, 3000);
     }
   }, 1000);
 }
