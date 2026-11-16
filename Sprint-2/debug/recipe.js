@@ -11,5 +11,18 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+ingredients:
+${recipe.ingredients.join("\n")}`);
+
+// prediction: the above code prints:
+// bruschetta
+// serves 2
+// ingredients:
+
+//On a new line it prints:
+// title: "bruschetta",
+// serves: 2,
+// ingredients: "olive oil", "tomatoes", "salt", "pepper"
+
+// Explain: on line 15 recipe is missing .ingredients.
+// As a result it will print the whole property of recipe object.

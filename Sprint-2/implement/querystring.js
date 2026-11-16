@@ -4,12 +4,19 @@ function parseQueryString(queryString) {
     return queryParams;
   }
   const keyValuePairs = queryString.split("&");
-
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    if (!pair) {
+      continue;
+    }
+    const everything = pair.split("=");
+    const key = decodeURIComponent(everything.shift().replace(/\+/g, " "));
+    const value = decodeURIComponent(everything.join("=").replace(/\+/g, " "));
+    if (queryParams[key]) {
+      queryParams[key] = [].concat(queryParams[key], value);
+    } else {
+      queryParams[key] = value;
+    }
   }
-
   return queryParams;
 }
 

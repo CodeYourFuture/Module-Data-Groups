@@ -11,6 +11,9 @@ const author = {
   alive: true,
 };
 
-for (const value of author) {
+for (const value of Object.values(author)) {
   console.log(value);
 }
+
+// Predict: it will return undefined.
+// Explain: objects values are accessed by including Object.values(author)
