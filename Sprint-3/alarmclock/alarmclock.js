@@ -13,7 +13,11 @@ window.addEventListener("load", () => {
   });
 });
 function setAlarm() {
-  seconds = document.getElementById("alarmSet").value;
+  clearInterval(timer);
+  if (!paused) {
+    seconds = document.getElementById("alarmSet").value;
+  }
+  paused = false;
   let minutes = Math.floor(seconds / 60);
   let remainingSeconds = seconds % 60;
   document.getElementById("timeRemaining").textContent =
