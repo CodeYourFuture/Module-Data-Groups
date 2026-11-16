@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
   });
 });
 function startAlarmEffects() {
-  document.body.style.backgroundColor = "red"
+  document.body.style.backgroundColor = "red";
   playAlarm();
   flashTimer = setInterval(() => {
     document.body.style.backgroundColor =
