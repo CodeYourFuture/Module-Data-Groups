@@ -18,7 +18,7 @@ function startCountdown() {
 function setAlarm() {
   clearInterval(timerId);
   document.body.classList.remove("finished");
-  document.getElementById("pause").innerText = "Pause Alarm"
+  document.getElementById("pause").innerText = "Pause Alarm";
   remaining = Number(document.getElementById("alarmSet").value);
   showTime(remaining);
   startCountdown();
@@ -41,7 +41,7 @@ function togglePause() {
   if (timerId !== null) {
     clearInterval(timerId);
     timerId = null;
-    pauseButton.innerText = "Resume";
+    pauseButton.innerText = "Resume Alarm";
   } else if (remaining > 0) {
     startCountdown();
     pauseButton.innerText = "Pause Alarm";
