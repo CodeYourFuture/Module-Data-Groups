@@ -1,6 +1,7 @@
 let flashTimer;
 let timer;
 let seconds;
+let paused = false;
 window.addEventListener("load", () => {
   document.getElementById("stop").addEventListener("click", () => {
     clearInterval(flashTimer);
