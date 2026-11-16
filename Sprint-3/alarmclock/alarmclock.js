@@ -18,6 +18,7 @@ function startCountdown() {
 function setAlarm() {
   clearInterval(timerId);
   document.body.classList.remove("finished");
+  document.getElementById("pause").innerText = "Pause Alarm"
   remaining = Number(document.getElementById("alarmSet").value);
   showTime(remaining);
   startCountdown();
