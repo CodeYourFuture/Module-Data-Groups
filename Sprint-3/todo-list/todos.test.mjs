@@ -39,6 +39,53 @@ describe("addTask()", () => {
     // New task should be appended to the todos
     expect(todos[todos.length - 1]).toEqual(theTask);
   });
+
+  test("stores a deadline when provided", () => {
+    const todos = [];
+
+    Todos.addTask(todos, "Submit coursework", false, "2026-12-01");
+
+    expect(todos).toEqual([
+      {
+        task: "Submit coursework",
+        completed: false,
+        deadline: "2026-12-01",
+      },
+    ]);
+  });
+
+  test("omits a deadline when none is provided", () => {
+    const todos = [];
+
+    Todos.addTask(todos, "Submit coursework");
+
+    expect(todos).toEqual([{ task: "Submit coursework", completed: false }]);
+  });
+});
+
+describe("deleteCompleted()", () => {
+  test("removes all completed tasks and preserves incomplete task order", () => {
+    const todos = createMockTodos();
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([
+      { task: "Task 2 description", completed: false },
+      { task: "Task 4 description", completed: false },
+    ]);
+  });
+
+  test("leaves the list unchanged when no tasks are completed", () => {
+    const todos = [
+      { task: "Task 1 description", completed: false },
+      { task: "Task 2 description", completed: false },
+    ];
+    const todosBeforeDeletion = [...todos];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual(todosBeforeDeletion);
+  });
 });
 
 describe("deleteTask()", () => {
