@@ -490,4 +490,22 @@ const quotes = [
   },
 ];
 
-// call pickFromArray with the quotes array to check you get a random quote
+let currentQuote;
+
+function displayQuote() {
+  let selectedQuote = pickFromArray(quotes);
+  if (selectedQuote === currentQuote) {
+    const currentIndex = quotes.indexOf(currentQuote);
+    selectedQuote = quotes[(currentIndex + 1) % quotes.length];
+  }
+  currentQuote = selectedQuote;
+
+  document.querySelector("#quote").textContent = selectedQuote.quote;
+  document.querySelector("#author").textContent = selectedQuote.author;
+}
+
+document
+  .querySelector("#new-quote")
+  .addEventListener("click", displayQuote);
+
+displayQuote();
