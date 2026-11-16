@@ -7,6 +7,9 @@
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
 function invert(obj) {
+  if (typeof obj !== "object") {
+    throw new Error("invert requires a valid input");
+  }
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
@@ -16,13 +19,13 @@ function invert(obj) {
   return invertedObj;
 }
 
-console.log(invert({ x: 10, y: 20 }));
+module.exports = invert;
 
 // a) What is the current return value when invert is called with { a : 1 }
-//  - undefined.     
+//  - undefined.
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
-//  - undefined. 
+//  - undefined.
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
 //  - "{1" : "a", ""2": "b"}
