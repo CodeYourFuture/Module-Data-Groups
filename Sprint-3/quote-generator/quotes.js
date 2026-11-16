@@ -490,8 +490,16 @@ const quotes = [
   },
 ];
 
+let currentQuote;
+
 function displayQuote() {
-  const selectedQuote = pickFromArray(quotes);
+  let selectedQuote = pickFromArray(quotes);
+  if (selectedQuote === currentQuote) {
+    const currentIndex = quotes.indexOf(currentQuote);
+    selectedQuote = quotes[(currentIndex + 1) % quotes.length];
+  }
+  currentQuote = selectedQuote;
+
   document.querySelector("#quote").textContent = selectedQuote.quote;
   document.querySelector("#author").textContent = selectedQuote.author;
 }
