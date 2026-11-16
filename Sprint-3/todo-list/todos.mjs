@@ -44,6 +44,15 @@ export function deleteCompleted(todos) {
 export function daysLeft(deadline, today = new Date()) {
   const [year, month, day] = deadline.split("-").map(Number);
   const deadlineDate = new Date(year, month - 1, day);
+
+  if (
+    deadlineDate.getFullYear() !== year ||
+    deadlineDate.getMonth() !== month ||
+    deadlineDate.getDate() !== day
+  ) {
+    return NaN;
+  }
+
   const todaysDate = new Date(
     today.getFullYear(),
     today.getMonth(),
