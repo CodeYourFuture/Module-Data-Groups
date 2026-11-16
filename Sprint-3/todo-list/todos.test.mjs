@@ -174,6 +174,10 @@ describe("daysLeft()", () => {
   test("Past date is negative", () => {
     expect(Todos.daysLeft("2026-11-10", today)).toBe(-2);
   });
+  test("Returns NaN for a date that does not exist", () => {
+    const today = new Date(2026, 10, 16);
+    expect(Number.isNaN(Todos.daysLeft("2026-02-31", today))).toBe(true);
+  });
 });
 
 describe("addTask() with deadline", () => {

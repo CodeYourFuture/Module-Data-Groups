@@ -47,7 +47,7 @@ export function daysLeft(deadline, today = new Date()) {
 
   if (
     deadlineDate.getFullYear() !== year ||
-    deadlineDate.getMonth() !== month ||
+    deadlineDate.getMonth() !== month - 1 ||
     deadlineDate.getDate() !== day
   ) {
     return NaN;
