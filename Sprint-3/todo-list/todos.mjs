@@ -67,7 +67,7 @@ export function describeDeadline(deadline, today = new Date()) {
   const days = daysLeft(deadline, today);
 
   if (Number.isNaN(days)) return "Invalid date";
-  if (days < 0) return `Overdue by ${-days} days${days === -1 ? "" : "s"}`;
+  if (days < 0) return `Overdue by ${-days} day${days === -1 ? "" : "s"}`;
   if (days === 0) return "Due today";
   if (days === 1) return "Due tomorrow";
 
