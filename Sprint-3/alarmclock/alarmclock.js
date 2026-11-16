@@ -1,4 +1,60 @@
-function setAlarm() {}
+let flashTimer;
+let timer;
+let seconds;
+let paused = false;
+window.addEventListener("load", () => {
+  document.getElementById("stop").addEventListener("click", () => {
+    clearInterval(flashTimer);
+    document.body.style.backgroundColor = "";
+  });
+  document.getElementById("pause").addEventListener("click", () => {
+    clearInterval(timer);
+    paused = true;
+  });
+});
+function startAlarmEffects() {
+  document.body.style.backgroundColor = "red";
+  playAlarm();
+  flashTimer = setInterval(() => {
+    document.body.style.backgroundColor =
+      document.body.style.backgroundColor === "red" ? "white" : "red";
+  }, 500);
+  setTimeout(() => {
+    clearInterval(flashTimer);
+  }, 3000);
+}
+function setAlarm() {
+  clearInterval(timer);
+  if (!paused) {
+    seconds = document.getElementById("alarmSet").value;
+  }
+  paused = false;
+  let minutes = Math.floor(seconds / 60);
+  let remainingSeconds = seconds % 60;
+  document.getElementById("timeRemaining").textContent =
+    "Time Remaining: " +
+    String(minutes).padStart(2, "0") +
+    ":" +
+    String(remainingSeconds).padStart(2, "0");
+  if (seconds <= 0) {
+    startAlarmEffects();
+    return;
+  }
+  timer = setInterval(() => {
+    seconds--;
+    minutes = Math.floor(seconds / 60);
+    remainingSeconds = seconds % 60;
+    document.getElementById("timeRemaining").textContent =
+      "Time Remaining: " +
+      String(minutes).padStart(2, "0") +
+      ":" +
+      String(remainingSeconds).padStart(2, "0");
+    if (seconds === 0) {
+      clearInterval(timer);
+      startAlarmEffects();
+    }
+  }, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
