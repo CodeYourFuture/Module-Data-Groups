@@ -494,3 +494,6 @@ const quotes = [
 const randomQuote = pickFromArray(quotes);
 const quoteElement = document.querySelector("#quote");
 const authorElement = document.querySelector("#author");
+
+quoteElement.innerText = randomQuote.quote;
+authorElement.innerText = randomQuote.author;
