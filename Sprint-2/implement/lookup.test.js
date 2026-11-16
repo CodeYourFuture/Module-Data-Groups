@@ -60,4 +60,3 @@ describe("createLookup()", () => {
     expect(createLookup(pairs)).toEqual(expected);
   });
 });
-

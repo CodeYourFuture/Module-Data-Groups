@@ -50,7 +50,9 @@ describe("contains()", () => {
   // Then it should throw Error("contains requires an object")
   // (careful: typeof [] and typeof null are both "object")
   test("throws an error when passed an array", () => {
-    expect(() => contains([1, 2, 3], "a")).toThrow("contains requires an object");
+    expect(() => contains([1, 2, 3], "a")).toThrow(
+      "contains requires an object"
+    );
   });
 
   test("throws an error when passed a string", () => {
