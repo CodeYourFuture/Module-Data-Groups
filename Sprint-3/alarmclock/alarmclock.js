@@ -50,14 +50,7 @@ function setAlarm() {
       String(remainingSeconds).padStart(2, "0");
     if (seconds === 0) {
       clearInterval(timer);
-      playAlarm();
-      flashTimer = setInterval(() => {
-        document.body.style.backgroundColor =
-          document.body.style.backgroundColor === "red" ? "white" : "red";
-      }, 500);
-      setTimeout(() => {
-        clearInterval(flashTimer);
-      }, 3000);
+      startAlarmEffects();
     }
   }, 1000);
 }
