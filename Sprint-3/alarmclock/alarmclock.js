@@ -14,8 +14,12 @@ function setAlarm() {
 
   const input = document.getElementById("alarmSet");
   let remaining = Number(input.value);
-  const heading = document.getElementById("timeRemaining");
 
+  if (!Number.isFinite(remaining) || remaining <= 0) {
+    return;
+  }
+
+  const heading = document.getElementById("timeRemaining");
   heading.textContent = `Time Remaining: ${formatTime(remaining)}`;
   input.value = "";
 
