@@ -12,6 +12,16 @@ window.addEventListener("load", () => {
     paused = true;
   });
 });
+function startAlarmEffects() {
+  playAlarm();
+  flashTimer = setInterval(() => {
+    document.body.style.backgroundColor =
+      document.body.style.backgroundColor === "red" ? "white" : "red";
+  }, 500);
+  setTimeout(() => {
+    clearInterval(flashTimer);
+  }, 3000);
+}
 function setAlarm() {
   clearInterval(timer);
   if (!paused) {
