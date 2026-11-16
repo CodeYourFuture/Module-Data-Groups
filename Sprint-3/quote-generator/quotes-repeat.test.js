@@ -20,9 +20,11 @@ test("does not repeat the displayed quote", async () => {
     },
   });
 
-  await new Promise((resolve) => {
-    page.window.document.addEventListener("load", resolve);
-  });
+  if (page.window.document.readyState !== "complete") {
+    await new Promise((resolve) => {
+      page.window.addEventListener("load", resolve, { once: true });
+    });
+  }
 
   const quote = page.window.document.querySelector("#quote");
   const author = page.window.document.querySelector("#author");
