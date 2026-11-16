@@ -1,7 +1,7 @@
 function tally(arrayItems) {
   const countItem = {};
   if (!Array.isArray(arrayItems)) {
-    throw new Error("tally rquires an input");
+    throw new Error("tally rquires an array");
   }
   for (const item of arrayItems) {
     if (countItem[item]) {
