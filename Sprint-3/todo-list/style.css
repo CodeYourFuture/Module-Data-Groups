@@ -30,6 +30,17 @@ h1 {
   margin-bottom: 20px;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+}
+
 .todo-input input {
   flex: 1;
   padding: 10px;
@@ -41,7 +52,7 @@ h1 {
 .todo-input button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 6px;

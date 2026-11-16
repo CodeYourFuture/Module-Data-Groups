@@ -17,11 +17,15 @@
       <h1>My ToDo List</h1>
 
       <div class="todo-input">
+        <label for="new-task-input" class="visually-hidden">Task</label>
         <input
           type="text"
           id="new-task-input"
           placeholder="Enter a new task..."
         />
+        <label for="new-task-deadline" class="visually-hidden"
+          >Deadline (optional)</label
+        >
         <input type="date" id="new-task-deadline" />
         <button id="add-task-btn">Add</button>
       </div>
@@ -29,13 +33,8 @@
       <ul id="todo-list" class="todo-list"></ul>
       <button id="delete-completed-btn">Delete completed tasks</button>
 
-      <!-- 
-      This is a template for the To-do list item. 
-      It can simplify the creation of list item node in JS script.
-    -->
       <template id="todo-item-template">
         <li class="todo-item">
-          <!-- include class "completed" if the task completed state is true -->
           <span class="description">Task description</span>
           <span class="deadline"></span>
           <div class="actions">
