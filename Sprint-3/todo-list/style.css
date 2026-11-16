@@ -76,6 +76,11 @@ h1 {
   text-overflow: ellipsis;
 }
 
+.deadline {
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
 .actions {
   display: flex;
   gap: 10px;
