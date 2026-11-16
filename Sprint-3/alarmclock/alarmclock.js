@@ -36,7 +36,7 @@ function setAlarm() {
     ":" +
     String(remainingSeconds).padStart(2, "0");
   if (seconds <= 0) {
-    playAlarm();
+    startAlarmEffects();
     return;
   }
   timer = setInterval(() => {
