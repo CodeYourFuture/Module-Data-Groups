@@ -102,3 +102,4 @@ test("should play audio when the timer reaches zero", () => {
 
   expect(mockPlayAlarm).toHaveBeenCalledTimes(1);
 });
+
