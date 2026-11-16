@@ -499,7 +499,9 @@ function showQuote() {
 showQuote();
 
 document.getElementById("new-quote").addEventListener("click", showQuote);
-document.getElementById("new quote").addElementListener("click", showQuote);
+document.getElementById("autoplay").addEventListening("click", () => {
+  setInterval(showQuote, 5000);
+}, {once: true});
 
 
 // call pickFromArray with the quotes array to check you get a random quote
