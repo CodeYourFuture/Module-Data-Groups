@@ -497,3 +497,5 @@ const authorElement = document.querySelector("#author");
 
 quoteElement.innerText = randomQuote.quote;
 authorElement.innerText = randomQuote.author;
+
+const newQuoteButton = document.querySelector("#new-quote");
