@@ -57,3 +57,20 @@ test("counts down once per second and stops at zero", () => {
   expect(heading).toHaveTextContent("Time Remaining: 00:00");
   expect(jest.getTimerCount()).toBe(0);
 });
+
+test("plays the alarm and changes the background when the countdown ends", () => {
+  const heading = page.window.document.querySelector("#timeRemaining");
+  const input = page.window.document.querySelector("#alarmSet");
+  const playAlarm = jest.fn();
+  page.window.playAlarm = playAlarm;
+
+  input.value = "1";
+  page.window.document.querySelector("#set").click();
+  expect(playAlarm).not.toHaveBeenCalled();
+
+  jest.advanceTimersByTime(1000);
+
+  expect(heading).toHaveTextContent("Time Remaining: 00:00");
+  expect(playAlarm).toHaveBeenCalledTimes(1);
+  expect(page.window.document.body.style.backgroundColor).not.toBe("");
+});

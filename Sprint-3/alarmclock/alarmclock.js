@@ -7,6 +7,11 @@ function updateTime(totalSeconds) {
     `Time Remaining: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
 
+function alarmFinished() {
+  document.body.style.backgroundColor = "#f4cccc";
+  playAlarm();
+}
+
 function setAlarm() {
   let secondsRemaining = document.getElementById("alarmSet").valueAsNumber;
 
@@ -28,6 +33,7 @@ function setAlarm() {
     if (secondsRemaining === 0) {
       window.clearInterval(countdown);
       countdown = undefined;
+      alarmFinished();
     }
   }, 1000);
 }
