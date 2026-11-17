@@ -11,7 +11,10 @@ function parseQueryString(queryString) {
       continue;
     }
 
-    const splitIndex = pair.indexOf("=");
+    let splitIndex = pair.indexOf("=");
+    if (splitIndex === -1){
+      splitIndex = pair.length;
+    }
     const key = pair.substring(0, splitIndex);
     const value = pair.substring(splitIndex + 1,);
     queryParams[key] = value;
@@ -20,6 +23,6 @@ function parseQueryString(queryString) {
   return queryParams;
 }
 
-parseQueryString("key1=value1&&key2=value2&");
+parseQueryString("key");
 
 module.exports = parseQueryString;
