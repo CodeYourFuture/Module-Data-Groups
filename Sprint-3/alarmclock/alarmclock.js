@@ -1,4 +1,17 @@
-function setAlarm() {}
+let countdownInterval = null;
+
+function setAlarm() {
+  const inputEl = document.getElementById("alarmSet");
+  const heading = document.getElementById("timeRemaining");
+  let totalSeconds = parseInt(inputEl.value, 10);
+
+  if (isNaN(totalSeconds) || totalSeconds < 0) return;
+
+  // Clear any existing timer so they don't overlap
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+}
 
 // DO NOT EDIT BELOW HERE
 
