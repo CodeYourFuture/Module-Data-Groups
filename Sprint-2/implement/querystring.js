@@ -18,14 +18,14 @@ function parseQueryString(queryString) {
     if (splitIndex === -1){
       splitIndex = pair.length;
     }
-    const key = pair.substring(0, splitIndex);
-    const value = pair.substring(splitIndex + 1,);
+    const key = pair.substring(0, splitIndex).replace("+", " ");
+    const value = pair.substring(splitIndex + 1).replace("+", " ");
     queryParams[key] = value;
   }
 
   return queryParams;
 }
 
-parseQueryString("key");
+parseQueryString("full+name=John+Doe");
 
 module.exports = parseQueryString;
