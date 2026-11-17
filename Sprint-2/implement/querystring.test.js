@@ -3,9 +3,9 @@
 // Below are some test cases the implementation doesn't handle well.
 // Fix the implementation for these tests, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js")
+const parseQueryString = require("./querystring.js");
 
-test("should parse values containing '='", () => {
+test("should parse values containing '=' ", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
     equation: "a=b-2",
   });
@@ -34,6 +34,22 @@ test("should decode percent-encoded characters", () => {
 test("should replace '+' by ' '", () => {
   expect(parseQueryString("full+name=John+Doe")).toEqual({
     "full name": "John Doe",
+  });
+});
+
+test("should return an empty object for an empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
+
+test("should keep encoded separators inside a value", () => {
+  expect(parseQueryString("filter=a%26b%3Dc")).toEqual({
+    filter: "a&b=c",
+  });
+});
+
+test("should keep an encoded plus sign as a plus", () => {
+  expect(parseQueryString("language=C%2B%2B")).toEqual({
+    language: "C++",
   });
 });
 
