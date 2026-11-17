@@ -41,6 +41,15 @@ function updateDisplay(heading, seconds) {
   heading.textContent = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
 }
 
+function pauseAlarm() {
+  audio.pause();
+  audio.currentTime = 0;
+  document.body.style.backgroundColor = "";
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+}
+
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
