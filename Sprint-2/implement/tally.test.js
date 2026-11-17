@@ -38,13 +38,13 @@ test("return a list of items and count the frequency of each item", () => {
 // When passed to tally
 // Then it should throw Error("tally requires an array")
 test("throw error for 'It is a string'", () => {
-  expect(() => tally().toThrow("tally requires an array"));
+  expect(() => tally()).toThrow("tally requires an array");
 });
 
 test("throw error for 10", () => {
-  expect(() => tally(10).toThrow("tally requires an array"));
+  expect(() => tally(10)).toThrow("tally requires an array");
 });
 
 test("throw error for ''", () => {
-  expect(() => tally().toThrow("tally requires an array"));
+  expect(() => tally()).toThrow("tally requires an array");
 });
