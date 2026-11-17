@@ -11,6 +11,24 @@ function setAlarm() {
   if (countdownInterval) {
     clearInterval(countdownInterval);
   }
+
+  // Initial render
+  updateDisplay(heading, totalSeconds);
+
+  countdownInterval = setInterval(() => {
+    totalSeconds--;
+
+    if (totalSeconds >= 0) {
+      updateDisplay(heading, totalSeconds);
+    }
+
+    if (totalSeconds <= 0) {
+      clearInterval(countdownInterval);
+      playAlarm();
+      // Optional: change background color when reaching zero
+      document.body.style.backgroundColor = "pink";
+    }
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
