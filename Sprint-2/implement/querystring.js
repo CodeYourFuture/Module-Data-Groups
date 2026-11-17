@@ -18,7 +18,7 @@ function parseQueryString(queryString) {
     const decodedKey = decodeURIComponent(key.replace(/\+/g, " "));
     const decodedValue = decodeURIComponent(value.replace(/\+/g, " "));
 
-    if (decodedKey in queryParams) {
+    if (Object.hasOwn(queryParams, decodedKey)) {
       if (Array.isArray(queryParams[decodedKey])) {
         queryParams[decodedKey].push(decodedValue);
       } else {
