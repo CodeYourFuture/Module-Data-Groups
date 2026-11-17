@@ -7,13 +7,20 @@ function setAlarm() {
 
   if (isNaN(totalSeconds) || totalSeconds < 0) return;
 
-  // Clear any existing timer so they don't overlap
   if (countdownInterval) {
     clearInterval(countdownInterval);
   }
 
-  // Initial render
+  // Reset background in case a previous alarm finished
+  document.body.style.backgroundColor = "";
   updateDisplay(heading, totalSeconds);
+
+  // Trigger immediately if set to 0 without waiting 1000ms
+  if (totalSeconds === 0) {
+    playAlarm();
+    document.body.style.backgroundColor = "pink";
+    return;
+  }
 
   countdownInterval = setInterval(() => {
     totalSeconds--;
@@ -25,7 +32,6 @@ function setAlarm() {
     if (totalSeconds <= 0) {
       clearInterval(countdownInterval);
       playAlarm();
-      // Optional: change background color when reaching zero
       document.body.style.backgroundColor = "pink";
     }
   }, 1000);
@@ -41,14 +47,13 @@ function updateDisplay(heading, seconds) {
   heading.textContent = `Time Remaining: ${formattedMinutes}:${formattedSeconds}`;
 }
 
-function pauseAlarm() {
-  audio.pause();
-  audio.currentTime = 0;
+// Attach extra cleanup to #stop without modifying starter code below
+document.getElementById("stop").addEventListener("click", () => {
   document.body.style.backgroundColor = "";
   if (countdownInterval) {
     clearInterval(countdownInterval);
   }
-}
+});
 
 // DO NOT EDIT BELOW HERE
 
