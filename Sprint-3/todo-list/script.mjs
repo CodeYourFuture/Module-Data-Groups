@@ -7,6 +7,9 @@ const todos = [];
 // Set up tasks to be performed once on page load
 window.addEventListener("load", () => {
   document.getElementById("add-task-btn").addEventListener("click", addNewTodo);
+  document
+    .getElementById("delete-completed-btn")
+    .addEventListener("click", deleteAllCompletedTodos);
 
   // Populate sample data
   Todos.addTask(todos, "Wash the dishes", false);
@@ -19,9 +22,11 @@ window.addEventListener("load", () => {
 // append a new task to the todo list.
 function addNewTodo() {
   const taskInput = document.getElementById("new-task-input");
+  const deadlineInput = document.getElementById("deadline-input");
   const task = taskInput.value.trim();
+  const deadline = deadlineInput.value;
   if (task) {
-    Todos.addTask(todos, task, false);
+    Todos.addTask(todos, task, false, deadline);
     render();
   }
 
