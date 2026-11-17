@@ -497,3 +497,13 @@ const quoteText = document.querySelector;
 ("#quote");
 const quoteAuthor = document.querySelector;
 ("#author");
+
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteText.textContent = randomQuote.quote;
+  quoteAuthor.textContent = randomQuote.author;
+}
+
+showRandomQuote;
+
+button.addEventListener("click", showRandomQuote);
