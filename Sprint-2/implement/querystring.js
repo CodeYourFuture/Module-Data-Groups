@@ -1,5 +1,5 @@
 function parseQueryString(queryString) {
-  const queryParams = {};
+  const queryParams = Object.create(null);
 
   if (queryString.length === 0) {
     return queryParams;
