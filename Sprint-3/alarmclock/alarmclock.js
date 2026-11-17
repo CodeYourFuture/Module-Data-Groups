@@ -9,6 +9,7 @@ function updateTime(totalSeconds) {
 
 function alarmFinished() {
   document.body.style.backgroundColor = "#f4cccc";
+  audio.loop = true;
   playAlarm();
 }
 
@@ -20,9 +21,12 @@ function setAlarm() {
   }
 
   window.clearInterval(countdown);
+  countdown = undefined;
+  document.body.style.backgroundColor = "";
   updateTime(secondsRemaining);
 
   if (secondsRemaining === 0) {
+    alarmFinished();
     return;
   }
 

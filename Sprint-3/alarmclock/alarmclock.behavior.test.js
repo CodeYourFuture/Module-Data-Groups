@@ -74,3 +74,18 @@ test("plays the alarm and changes the background when the countdown ends", () =>
   expect(playAlarm).toHaveBeenCalledTimes(1);
   expect(page.window.document.body.style.backgroundColor).not.toBe("");
 });
+
+test("plays a looping alarm immediately when set to zero", () => {
+  const heading = page.window.document.querySelector("#timeRemaining");
+  const input = page.window.document.querySelector("#alarmSet");
+  const playAlarm = jest.fn();
+  page.window.playAlarm = playAlarm;
+
+  input.value = "0";
+  page.window.document.querySelector("#set").click();
+
+  expect(heading).toHaveTextContent("Time Remaining: 00:00");
+  expect(page.window.audio.loop).toBe(true);
+  expect(playAlarm).toHaveBeenCalledTimes(1);
+  expect(page.window.document.body.style.backgroundColor).not.toBe("");
+});
