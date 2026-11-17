@@ -16,7 +16,6 @@ export function addTask(todos, task, completed = false, deadline = "") {
     newTodo.deadline = deadline;
   }
   todos.push(newTodo);
-  // todos.push({ task, completed, deadline });
 }
 
 // Delete todos[taskIndex] if it exists
