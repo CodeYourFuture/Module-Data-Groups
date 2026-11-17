@@ -1,5 +1,10 @@
 function parseQueryString(queryString) {
   const queryParams = {};
+
+  if (queryString.startsWith("?")) {
+    queryString = queryString.slice(1);
+  }
+
   if (queryString.length === 0) {
     return queryParams;
   }

@@ -36,3 +36,7 @@ test("should replace '+' by ' '", () => {
     "full name": "John Doe",
   });
 });
+
+test("should accept a leading question mark", () => {
+  expect(parseQueryString("?name=Sam")).toEqual({ name: "Sam" });
+});
