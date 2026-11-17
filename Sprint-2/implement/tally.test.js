@@ -35,3 +35,8 @@ it("Should return an empty object when passed an empty array", () => {
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
 // Then it should throw Error("tally requires an array")
+it("Should throw when passed invalid input", () => {
+  expect(() => tally("a")).toThrow("tally requires an array");
+  expect(() => tally(5)).toThrow("tally requires an array");
+  expect(() => tally()).toThrow("tally requires an array");
+});
