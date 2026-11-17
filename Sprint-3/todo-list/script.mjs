@@ -66,7 +66,11 @@ const todoListItemTemplate =
 function createListItem(todo, index) {
   const li = todoListItemTemplate.cloneNode(true); // true => Do a deep copy of the node
 
-  li.querySelector(".description").textContent = todo.task;
+  const descriptionEl = li.querySelector(".description");
+  descriptionEl.textContent = todo.deadline
+    ? `${todo.task} (Due: ${todo.deadline})`
+    : todo.task;
+
   if (todo.completed) {
     li.classList.add("completed");
   }
@@ -80,6 +84,5 @@ function createListItem(todo, index) {
     Todos.deleteTask(todos, index);
     render();
   });
-
   return li;
 }
