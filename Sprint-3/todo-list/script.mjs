@@ -31,6 +31,7 @@ function addNewTodo() {
   }
 
   taskInput.value = "";
+  deadlineInput.value = "";
 }
 
 // Note:
