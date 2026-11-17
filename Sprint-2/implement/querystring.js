@@ -7,34 +7,32 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    if (!pair.includes("=") && pair.length > 0) {
+    if (pair.length === 0) {
+      continue;
+    }
+
+    if (!pair.includes("=")) {
+      const key = decodeURIComponent(
+        pair.slice(0, pair.indexOf("="))
+      ).replaceAll("+", " ");
+
       queryParams[pair] = "";
+
       continue;
     }
 
-    const key = decodeURIComponent(pair.slice(0, pair.indexOf("="))).replace(
-      "+",
-      " "
-    );
-    const value = decodeURIComponent(pair.slice(pair.indexOf("=") + 1)).replace(
-      "+",
-      " "
-    );
+    const equalIndex = pair.indexOf("=");
 
-    if (pair.indexOf("=") !== -1) {
-      queryParams[key] = value;
-    }
+    const rawKey = pair.slice(0, equalIndex);
+    const rawValue = pair.slice(equalIndex + 1);
 
-    if (key.length === 0 && value.length === 0) {
-      continue;
-    }
+    const key = decodeURIComponent(rawKey).replaceAll("+", " ");
+    const value = decodeURIComponent(rawValue).replaceAll("+", " ");
 
     queryParams[key] = value;
   }
 
   return queryParams;
 }
-
-console.log(parseQueryString("full+name=John+Doe"));
 
 module.exports = parseQueryString;
