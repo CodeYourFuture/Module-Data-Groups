@@ -1,4 +1,7 @@
 function parseQueryString(queryString) {
+
+  queryString = decodeURIComponent(queryString);
+
   const queryParams = {};
   if (queryString.length === 0) {
     return queryParams;
