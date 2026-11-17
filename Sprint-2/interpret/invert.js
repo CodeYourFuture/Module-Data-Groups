@@ -10,20 +10,28 @@ function invert(obj) {
   const invertedObj = {};
 
   for (const [key, value] of Object.entries(obj)) {
-    invertedObj.key = value;
+    invertedObj[value] = key;
   }
 
   return invertedObj;
 }
 
+module.exports = invert;
+
 // a) What is the current return value when invert is called with { a : 1 }
+// { key: 1 }
 
 // b) What is the current return value when invert is called with { a: 1, b: 2 }
+// { key: 2 }
 
 // c) What is the target return value when invert is called with {a : 1, b: 2}
+// {"1": "a", "2": "b"}
 
 // c) What does Object.entries return? Why is it needed in this program?
+// It returns an array of [key, value] pairs, so the loop can assign each value as a key and each key as its value.
 
 // d) Explain why the current return value is different from the target output
+// `invertedObj.key` always assigns the property literally named "key", so each loop iteration overwrites the previous one.
+// The target uses each original value as the new property name and the original key as its value.
 
 // e) Fix the implementation of invert (and write tests to prove it's fixed!)
