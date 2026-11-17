@@ -38,6 +38,11 @@ function addNewTodo() {
 // - Store the reference to the <ul> element with id "todo-list" here
 //   to avoid querying the DOM repeatedly inside render().
 // - This variable is declared here to be close to the only function that uses it.
+
+function deleteAllCompletedTodos() {
+  Todos.deleteCompletedTasks(todos);
+  render();
+}
 const todoListEl = document.getElementById("todo-list");
 
 // Render the whole todo list
