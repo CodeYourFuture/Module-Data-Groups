@@ -28,11 +28,9 @@ it("Should return the tally when given an array of items", () => {
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
-
-// Given an array with duplicate items
-// When passed to tally
-// Then it should return counts for each unique item
+it("Should return an empty object when passed an empty array", () => {
+    expect(tally([])).toEqual({});
+});
 
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally

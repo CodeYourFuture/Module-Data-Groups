@@ -12,6 +12,4 @@ function tally(items) {
     return tallyObj;
 }
 
-tally(["a"]);
-
 module.exports = tally;
