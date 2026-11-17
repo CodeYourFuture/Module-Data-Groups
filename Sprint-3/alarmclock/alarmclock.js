@@ -1,3 +1,5 @@
+let countdown;
+
 function updateTime(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
@@ -6,13 +8,28 @@ function updateTime(totalSeconds) {
 }
 
 function setAlarm() {
-  const secondsRemaining = document.getElementById("alarmSet").valueAsNumber;
+  let secondsRemaining = document.getElementById("alarmSet").valueAsNumber;
 
   if (!Number.isInteger(secondsRemaining) || secondsRemaining < 0) {
     return;
   }
 
+  window.clearInterval(countdown);
   updateTime(secondsRemaining);
+
+  if (secondsRemaining === 0) {
+    return;
+  }
+
+  countdown = window.setInterval(() => {
+    secondsRemaining -= 1;
+    updateTime(secondsRemaining);
+
+    if (secondsRemaining === 0) {
+      window.clearInterval(countdown);
+      countdown = undefined;
+    }
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE

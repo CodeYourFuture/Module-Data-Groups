@@ -42,3 +42,18 @@ test("shows the entered time in minutes and seconds", () => {
   page.window.document.querySelector("#set").click();
   expect(heading).toHaveTextContent("Time Remaining: 01:59");
 });
+
+test("counts down once per second and stops at zero", () => {
+  const heading = page.window.document.querySelector("#timeRemaining");
+  const input = page.window.document.querySelector("#alarmSet");
+
+  input.value = "2";
+  page.window.document.querySelector("#set").click();
+
+  jest.advanceTimersByTime(1000);
+  expect(heading).toHaveTextContent("Time Remaining: 00:01");
+
+  jest.advanceTimersByTime(1000);
+  expect(heading).toHaveTextContent("Time Remaining: 00:00");
+  expect(jest.getTimerCount()).toBe(0);
+});
