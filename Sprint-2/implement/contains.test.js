@@ -60,3 +60,33 @@ test("given: value that is not an object throws error: 'contains requires an obj
   const key = "k";
   expect(() => contains(input, key)).toThrow("contains requires an object");
 });
+
+test("given: value that is not an object throws error: 'contains requires an object'", () => {
+  const input = [1, 2, 2, 4];
+  const key = "k";
+  expect(() => contains(input, key)).toThrow("contains requires an object");
+});
+
+test("given: value that is not an object throws error: 'contains requires an object'", () => {
+  const input = ["one", "two", "two", "four"];
+  const key = "k";
+  expect(() => contains(input, key)).toThrow("contains requires an object");
+});
+
+test("given: value that is not an object throws error: 'contains requires an object'", () => {
+  const input = true;
+  const key = "k";
+  expect(() => contains(input, key)).toThrow("contains requires an object");
+});
+
+test("given: value that is not an object throws error: 'contains requires an object'", () => {
+  const input = null;
+  const key = "k";
+  expect(() => contains(input, key)).toThrow("contains requires an object");
+});
+
+test("given: value that is not an object throws error: 'contains requires an object'", () => {
+  const input = undefined;
+  const key = "k";
+  expect(() => contains(input, key)).toThrow("contains requires an object");
+});
