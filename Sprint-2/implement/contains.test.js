@@ -40,7 +40,7 @@ describe("contains", () => {
   // Given an object with properties
   // When passed to contains with a non-existent property name
   // Then it should return false
-  test("given an object, returns true as the object contains a key of 'a'", function () {
+  test("given an object, returns false when the object does not contain key 'c'", function () {
     const input = contains({ a: 1, b: 2 }, "c");
     const currentOutput = input;
     const targetOutput = false;
@@ -57,19 +57,19 @@ describe("contains", () => {
       new Error("contains requires an object")
     );
   });
-  it("throws when given an array containing a value that isn't an object", () => {
+  it("throws when given a number", () => {
     expect(() => contains(123)).toThrow(
       new Error("contains requires an object")
     );
   });
 
-  it("throws when given an array containing a value that isn't an object", () => {
+  it("throws when given null", () => {
     expect(() => contains(null)).toThrow(
       new Error("contains requires an object")
     );
   });
 
-  it("throws when given an array containing a value that isn't an object", () => {
+  it("throws when called without an argument", () => {
     expect(() => contains()).toThrow(new Error("contains requires an object"));
   });
 

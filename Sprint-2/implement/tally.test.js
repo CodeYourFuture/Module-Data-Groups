@@ -62,4 +62,9 @@ describe("contains", () => {
     expect(tally(["toString"])).toEqual({ toString: 1 });
     expect(tally(["constructor"])).toEqual({ constructor: 1 });
   });
+  test("counts __proto__ correctly", () => {
+    expect(tally(["__proto__"])).toEqual(
+      expect.objectContaining({ __proto__: 1 })
+    );
+  });
 });

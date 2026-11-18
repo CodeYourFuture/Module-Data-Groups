@@ -1,5 +1,5 @@
 function tally(arr) {
-  const tallyObj = {};
+  const tallyObj = Object.create(null);
   if (!Array.isArray(arr)) {
     throw new Error("tally requires an array");
   }

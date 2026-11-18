@@ -5,10 +5,5 @@ function createLookup(countryCurrencyPairs) {
   }
   return lookUp;
 }
-console.log(
-  createLookup([
-    ["US", "USD"],
-    ["CA", "CAD"],
-  ])
-);
+
 module.exports = createLookup;
