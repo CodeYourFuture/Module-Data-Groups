@@ -53,23 +53,23 @@ test("should throw an error when passed an array", () => {
 });
 
 test("should throw an error when passed a string", () => {
-  expect(() =>
-    contains("sun", "a").toThrow(new Error("contains requires an object"))
+  expect(() => contains("sun", "a")).toThrow(
+    new Error("contains requires an object")
   );
 });
 
 test("should throw an error when passed a number", () => {
-  expect(() =>
-    contains(9, "a").toThrow(new Error("contains requires an object"))
+  expect(() => contains(9, "a")).toThrow(
+    new Error("contains requires an object")
   );
 });
 
 test("should throw an error when passed a null", () => {
-  expect(() =>
-    contains("sun", null).toThrow(new Error("contains requires an object"))
+  expect(() => contains(null, "a")).toThrow(
+    new Error("contains requires an object")
   );
 });
 
 test("should throw an error when passed no argument", () => {
-  expect(() => contains().toThrow(new Error("contains requires an object")));
+  expect(() => contains()).toThrow(new Error("contains requires an object"));
 });
