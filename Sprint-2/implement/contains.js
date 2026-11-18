@@ -1,5 +1,5 @@
 function contains(input, key) {
-  if (input === null || typeof input !== "object") {
+  if (input === null || Array.isArray(input) || typeof input !== "object") {
     throw new Error("contains requires an object");
   } else {
     for (const keys in input) {
@@ -10,5 +10,4 @@ function contains(input, key) {
   }
   return false;
 }
-console.log(contains({ a: 1 }, "a"));
 module.exports = contains;
