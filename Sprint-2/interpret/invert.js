@@ -36,7 +36,6 @@ It is needed because we cannot iterate over objects with for..of. We convert the
 
 d) Explain why the current return value is different from the target output
 The original code used the literal string "key" instead of the variable key, so it didn't actually swap the values. It just assigned the word "key" as the value.
-Assign the original value as the new key, and the original key as the new value.
 
 e) Fix the implementation of invert (and write tests to prove it's fixed!)
 */
