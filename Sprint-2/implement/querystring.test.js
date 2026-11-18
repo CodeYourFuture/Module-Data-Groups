@@ -37,6 +37,18 @@ test("should replace '+' by ' '", () => {
   });
 });
 
+test("should parse values containing '='", () => {
+  expect(parseQueryString("equation=a=b-2")).toEqual({
+    equation: "a=b-2",
+  });
+});
+
+test("should handle both '+' and percent-encoded characters", () => {
+  expect(parseQueryString("a%3Db=x+y")).toEqual({
+    "a=b": "x y",
+  });
+});
+
 // Stretch exercise: Handling query strings that contain identical keys
 
 // Delete this test if you are not working on this optional case
