@@ -43,7 +43,7 @@ test("given: object with keys and values & key within object returns true", () =
 // Given an object with properties
 // When passed to contains with a non-existent property name
 // Then it should return false
-test("given: object with keys and values & key not within object returns true", () => {
+test("given: object with keys and values & key not within object returns false", () => {
   const input = { a: 1, b: 2, c: 3 };
   const key = "k";
   const result = contains(input, key);
