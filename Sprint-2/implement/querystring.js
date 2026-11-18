@@ -1,5 +1,9 @@
 function parseQueryString(queryString) {
 
+  if (typeof queryString !== "string"){
+    throw new Error("parseQueryString requires a string");
+  }
+
   queryString = decodeURIComponent(queryString);
 
   const queryParams = {};
