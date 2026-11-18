@@ -1,4 +1,10 @@
 function parseQueryString(queryString) {
+  if (typeof queryString !== "string") {
+    throw new Error("parseQueryString requires a string");
+  }
+
+  queryString = decodeURIComponent(queryString);
+
   const queryParams = {};
   if (queryString.length === 0) {
     return queryParams;
@@ -6,7 +12,16 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
+    if (pair.length === 0) {
+      continue;
+    }
+
+    let splitIndex = pair.indexOf("=");
+    if (splitIndex === -1) {
+      splitIndex = pair.length;
+    }
+    const key = pair.substring(0, splitIndex).replace("+", " ");
+    const value = pair.substring(splitIndex + 1).replace("+", " ");
     queryParams[key] = value;
   }
 
