@@ -3,7 +3,7 @@
 // Below are some test cases the implementation doesn't handle well.
 // Fix the implementation for these tests, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js")
+const parseQueryString = require("./querystring.js");
 
 test("should parse values containing '='", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
@@ -38,11 +38,13 @@ test("should replace '+' by ' '", () => {
 });
 
 test("should throw error when passed non-string", () => {
-  expect(() => parseQueryString(5)).toThrow("parseQueryString requires a string");
+  expect(() => parseQueryString(5)).toThrow(
+    "parseQueryString requires a string"
+  );
   expect(() => parseQueryString(["hi"])).toThrow(
     "parseQueryString requires a string"
   );
-  expect(() => parseQueryString({"full name": "John Doe"})).toThrow(
+  expect(() => parseQueryString({ "full name": "John Doe" })).toThrow(
     "parseQueryString requires a string"
   );
   expect(() => parseQueryString()).toThrow(
