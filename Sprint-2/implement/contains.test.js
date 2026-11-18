@@ -20,16 +20,16 @@ as an array isn't an object
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
 it("When contains is passed object and property name, should return true or false", () => {
-    expect(contains({ a: 1, b: 2 }, "a")).toEqual(true);
-    expect(contains({ a: 1, b: 2 }, "c")).toEqual(false);
-    expect(contains({ a: 1, b: 2 }, 1)).toEqual(false);
-})
+  expect(contains({ a: 1, b: 2 }, "a")).toEqual(true);
+  expect(contains({ a: 1, b: 2 }, "c")).toEqual(false);
+  expect(contains({ a: 1, b: 2 }, 1)).toEqual(false);
+});
 
 // Given an empty object
 // When passed to contains
 // Then it should return false
 it("When contains is passed an empty object, should return false", () => {
-    expect(contains({})).toEqual(false);
+  expect(contains({})).toEqual(false);
 });
 
 // Given a value that isn't an object - an array, a string, a number,
@@ -38,9 +38,9 @@ it("When contains is passed an empty object, should return false", () => {
 // Then it should throw Error("contains requires an object")
 // (careful: typeof [] and typeof null are both "object")
 it("Throws error when contains passed non-object", () => {
-    expect(() => contains([2, 4, 5], 5)).toThrow("contains requires an object");
-    expect(() => contains("hello", "h")).toThrow("contains requires an object");
-    expect(() => contains(5, 5)).toThrow("contains requires an object");
-    expect(() => contains(null, 5)).toThrow("contains requires an object");
-    expect(() => contains()).toThrow("contains requires an object");
+  expect(() => contains([2, 4, 5], 5)).toThrow("contains requires an object");
+  expect(() => contains("hello", "h")).toThrow("contains requires an object");
+  expect(() => contains(5, 5)).toThrow("contains requires an object");
+  expect(() => contains(null, 5)).toThrow("contains requires an object");
+  expect(() => contains()).toThrow("contains requires an object");
 });
