@@ -19,3 +19,7 @@ test("object with 0 key-value pair. returns empty object.", () => {
 test("object with invalid input. throw error: 'invert requires an object.", () => {
   expect(() => invert("bones")).toThrow("invert requires an object.");
 });
+
+test("throws an error when passed null", () => {
+  expect(() => invert(null)).toThrow("invert requires an object.");
+});

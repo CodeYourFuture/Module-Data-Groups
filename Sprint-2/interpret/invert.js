@@ -7,7 +7,7 @@
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
 function invert(obj) {
-  if (typeof obj !== "object") {
+  if (obj === null || typeof obj !== "object") {
     throw new Error("invert requires an object.");
   }
   const invertedObj = {};
@@ -35,8 +35,8 @@ It returns an array of key value pairs from the object.
 It is needed because we cannot iterate over objects with for..of. We convert the obj to array (key-value pairs) using Object.entries and then we can iterate.
 
 d) Explain why the current return value is different from the target output
-We dont swop the key value pairs after they are in array form, we only place them back into the object as they were before.
-invertedObj also returns uses key as a property name, not a placeholder. When we call the function key is overwritten with more than one key-value pair as well so only the last k-v pair shows but with "key" as the key name.
+The original code used the literal string "key" instead of the variable key, so it didn't actually swap the values. It just assigned the word "key" as the value.
+Assign the original value as the new key, and the original key as the new value.
 
 e) Fix the implementation of invert (and write tests to prove it's fixed!)
 */
