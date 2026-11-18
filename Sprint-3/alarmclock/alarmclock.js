@@ -4,8 +4,16 @@ let currentSeconds;
 
 function setAlarm() {
   clearInterval(countdownTimer);
+  clearInterval(flashTimer);
+
+  pauseAlarm();
+  document.querySelector(".centre").classList.remove("red-bg");
+
   // fetch seconds input
-  currentSeconds = Number(document.getElementById("alarmSet").value);
+  currentSeconds = Math.max(
+    0,
+    Number(document.getElementById("alarmSet").value)
+  );
   document.body.style.backgroundImage = "url('alarmsethamster.jfif')";
   document.body.style.backgroundPosition = "centre";
   // set time remaining to seconds input
@@ -24,7 +32,7 @@ function setAlarm() {
       playAlarm();
       document.getElementById("timeRemaining").textContent =
         `Time Remaining: 00:00`;
-      
+
       // img change
       document.body.style.backgroundImage = "url('alarmplaysoundhamster.jfif')";
       document.body.style.backgroundPosition = "center";
@@ -34,8 +42,8 @@ function setAlarm() {
       const box = document.querySelector(".centre");
       flashTimer = setInterval(() => {
         box.classList.toggle("red-bg");
-        flashCount++
-        if (flashCount >= 20){
+        flashCount++;
+        if (flashCount >= 20) {
           clearInterval(flashTimer);
         }
       }, 500);
@@ -81,4 +89,5 @@ document.getElementById("stop").addEventListener("click", () => {
   document.body.style.backgroundPosition = "center";
   clearInterval(countdownTimer);
   clearInterval(flashTimer);
+  document.querySelector(".centre").classList.remove("red-bg");
 });
