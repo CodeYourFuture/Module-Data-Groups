@@ -53,8 +53,8 @@ test("should decode a key that has no equals sign", () => {
   expect(parseQueryString("%24half")).toEqual({ $half: "" });
 });
 
-test("should decode a key without an equals sign", () => {
-  expect(parseQueryString("%24half")).toEqual({ $half: "" });
+test("should handle a mix of '+' and percent-encoded characters", () => {
+  expect(parseQueryString("a%3Db=x+y")).toEqual({ "a=b": "x y" });
 });
 
 // Stretch exercise: Handling query strings that contain identical keys
