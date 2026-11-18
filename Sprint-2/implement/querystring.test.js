@@ -49,6 +49,14 @@ test("should handle both '+' and percent-encoded characters", () => {
   });
 });
 
+test("should decode a key that has no equals sign", () => {
+  expect(parseQueryString("%24half")).toEqual({ $half: "" });
+});
+
+test("should decode a key without an equals sign", () => {
+  expect(parseQueryString("%24half")).toEqual({ $half: "" });
+});
+
 // Stretch exercise: Handling query strings that contain identical keys
 
 // Delete this test if you are not working on this optional case

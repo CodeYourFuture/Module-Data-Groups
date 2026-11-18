@@ -9,7 +9,8 @@ function parseQueryString(queryString) {
     if (pair === "") continue;
     const eqIndex = pair.indexOf("=");
     if (eqIndex === -1) {
-      queryParams[pair] = "";
+      const decodedKey = decodeURIComponent(pair.replaceAll("+", " "));
+      queryParams[decodedKey] = "";
     } else {
       let key = pair.slice(0, eqIndex);
       let value = pair.slice(eqIndex + 1);
