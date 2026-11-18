@@ -7,8 +7,8 @@
 // E.g. invert({x : 10, y : 20}), target output: {"10": "x", "20": "y"}
 
 function invert(obj) {
-  if (typeof obj !== "object"){
-    throw new Error('invert requires an object.')
+  if (typeof obj !== "object") {
+    throw new Error("invert requires an object.");
   }
   const invertedObj = {};
 

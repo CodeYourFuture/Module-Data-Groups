@@ -15,9 +15,8 @@ const recipe = {
 };
 
 console.log(`${recipe.title} serves ${recipe.serves}
-ingredients: `)
+ingredients: `);
 
-for (let i=0; i < recipe.ingredients.length; i++) {
-  console.log(`${recipe.ingredients[i]}`)
+for (let i = 0; i < recipe.ingredients.length; i++) {
+  console.log(`${recipe.ingredients[i]}`);
 }
-

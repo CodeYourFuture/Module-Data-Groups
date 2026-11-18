@@ -9,11 +9,12 @@ function parseQueryString(queryString) {
     keyValuePair = keyValuePairs.map((keyValuePair) =>
       keyValuePair.replaceAll("+", " ")
     );
-  } else if(queryString.includes("%")) {
+  } else if (queryString.includes("%")) {
     keyValuePair = keyValuePairs.map((keyValuePair) =>
-      decodeURIComponent(keyValuePair))
-  }; 
-  
+      decodeURIComponent(keyValuePair)
+    );
+  }
+
   for (const pair of keyValuePair) {
     if (pair === "") continue;
     const eqIndex = pair.indexOf("=");
