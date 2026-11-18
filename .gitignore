@@ -4,3 +4,5 @@ node_modules
 **/.DS_Store
 .idea
 package-lock.json
+mean.test.js
+mean.js
