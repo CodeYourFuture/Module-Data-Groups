@@ -1,1 +1,63 @@
-/** Write your CSS in here **/
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #142033;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 90%;
+  max-width: 650px;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #e5c47a;
+  text-align: center;
+}
+
+div {
+  background-color: #233149;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+#author {
+  color: #e5c47a;
+  font-size: 1rem;
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: #e5c47a;
+  color: #142033;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  background-color: #f5d995;
+}
