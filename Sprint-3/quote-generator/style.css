@@ -1,31 +1,47 @@
 /** Write your CSS in here **/
 .quote {
-  width: 600px;
-  height: 200px;
-  padding: 30px;
-  margin: 150px;
-  background-color: rgb(216, 165, 176);
-  text-align: right;
-  border: 100px;
-  border-color: rgb(10, 6, 5);
+  width: 700px;
+  height: 250px;
+  padding: 50px;
+  margin: 200px;
+  background-color: rgb(216, 165, 213);
+  text-align: left;
+  border: 1px solid rgb(28, 3, 3);
+  border-radius: 15px;
 }
 
-/*.inner-quote {
-  width: 500;
-  height: 300;
-  background-color: rgb(47, 67, 130);
-  border-color: rgb(216, 165, 176);
-}*/
+.inner-quote {
+  width: 650px;
+  height: 200px;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: rgb(221, 180, 113);
+  border: 5px;
+  border-radius: 15px;
+  position: relative;
+}
 h1 {
   text-align: center;
 }
 #new-quote {
+  padding: 12px 14px;
+  border-radius: 5px;
+  font-size: 15px;
   background-color: rgb(130, 156, 201);
   color: rgb(29, 23, 23);
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
 }
 #quote {
   color: black;
+  font-family: "Patric Hand", Sans-serif;
+  font-size: 20px;
+  font-weight: bold;
 }
 #author {
   color: black;
+  font-family: "", sans-serif;
+  font-size: 18px;
+  text-align: right;
 }
