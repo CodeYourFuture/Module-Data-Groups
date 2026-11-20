@@ -11,6 +11,7 @@ function alarmTick() {
   if (innerTime <= 0) {
     clearInterval(myInterval);
     playAlarm();
+    myInterval = null;
   }
   printTime();
 }
@@ -22,8 +23,12 @@ function printTime() {
 }
 
 function setAlarm() {
-  innerTime = Number(iAlarmSetFor.value);
+  if (myInterval !== null) {
+    clearInterval(myInterval);
+    myInterval = null;
+  }
 
+  innerTime = Number(iAlarmSetFor.value);
   printTime();
 
   timeIsTicking = true;
