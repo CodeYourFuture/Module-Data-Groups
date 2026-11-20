@@ -3,7 +3,7 @@
 // Below are some test cases the implementation doesn't handle well.
 // Fix the implementation for these tests, and try to think of as many other edge cases as possible - write tests and fix those too.
 
-const parseQueryString = require("./querystring.js")
+const parseQueryString = require("./querystring.js");
 
 test("should parse values containing '='", () => {
   expect(parseQueryString("equation=a=b-2")).toEqual({
@@ -37,12 +37,30 @@ test("should replace '+' by ' '", () => {
   });
 });
 
-// Stretch exercise: Handling query strings that contain identical keys
+test("should return an empty object for an empty query string", () => {
+  expect(parseQueryString("")).toEqual({});
+});
 
-// Delete this test if you are not working on this optional case
-test("should store values of a key in an array when the key has 2 or more values", () => {
-  expect(parseQueryString("key=value1&key=value2&key=value3&foo=bar")).toEqual({
-    key: ["value1", "value2", "value3"],
-    foo: "bar",
+test("should handle multiple equals signs", () => {
+  expect(parseQueryString("a=b=c=d")).toEqual({
+    a: "b=c=d",
+  });
+});
+
+test("should handle multiple values with empty values", () => {
+  expect(parseQueryString("name=&age=25")).toEqual({
+    name: "",
+    age: "25",
+  });
+});
+
+test("should decode spaces", () => {
+  expect(parseQueryString("first%20name=Abakar%20Souleyman")).toEqual({
+    "first name": "Abakar Souleyman",
+  });
+});
+test("should handle multiple plus signs", () => {
+  expect(parseQueryString("full+user+name=A+M+S")).toEqual({
+    "full user name": "A M S",
   });
 });
