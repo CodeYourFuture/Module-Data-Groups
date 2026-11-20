@@ -1,9 +1,10 @@
 /** Write your CSS in here **/
+
 .quote {
-  width: 700px;
+  max-width: 700px;
   height: 250px;
   padding: 50px;
-  margin: 200px;
+  margin: 0 auto;
   background-color: rgb(216, 165, 213);
   text-align: left;
   border: 1px solid rgb(28, 3, 3);
@@ -11,7 +12,7 @@
 }
 
 .inner-quote {
-  width: 650px;
+  max-width: 650px;
   height: 200px;
   padding: 15px;
   margin: 0 auto;
@@ -20,13 +21,10 @@
   border-radius: 15px;
   position: relative;
 }
-h1 {
-  text-align: center;
-}
 #new-quote {
   padding: 12px 14px;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 16px;
   background-color: rgb(130, 156, 201);
   color: rgb(29, 23, 23);
   position: absolute;
@@ -35,13 +33,12 @@ h1 {
 }
 #quote {
   color: black;
-  font-family: "Patric Hand", Sans-serif;
+  font-family: "Patrick Hand", cursive;
   font-size: 20px;
-  font-weight: bold;
 }
 #author {
   color: black;
-  font-family: "", sans-serif;
+  font-family: "Caveat", cursive;
   font-size: 18px;
   text-align: right;
 }
