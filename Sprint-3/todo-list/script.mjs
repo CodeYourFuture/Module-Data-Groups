@@ -74,3 +74,10 @@ function createListItem(todo, index) {
 
   return li;
 }
+
+const massDeletionBtn = document.getElementById("mass-deletion-btn");
+
+massDeletionBtn.addEventListener("click", () => {
+  Todos.deleteCompleted(todos);
+  render();
+})
