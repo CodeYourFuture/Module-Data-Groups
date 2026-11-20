@@ -1,6 +1,9 @@
 function setAlarm() {}
 let timer;
-function formatTime(totalSeconds) {}
+function formatTime(totalSeconds) {
+  let minutes = Math.floor(totalSeconds / 60);
+  return String(minutes).padStart(2, "0");
+}
 
 // DO NOT EDIT BELOW HERE
 
