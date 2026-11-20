@@ -1,4 +1,34 @@
-function setAlarm() {}
+let toStop = null;
+
+const inputTime = document.querySelector("#alarmSet");
+const timeRemaining = document.querySelector("#timeRemaining");
+function setAlarm() {
+  timeRemaining.textContent = `Time Remaining: ${Math.floor(
+    inputTime.value / 60
+  )
+    .toString()
+    .padStart(2, "0")}:${(inputTime.value % 60).toString().padStart(2, "0")}`;
+
+  if (toStop !== null) return;
+
+  toStop = setInterval(alarmCount, 1000);
+}
+function alarmCount() {
+  if (inputTime.value <= 0) {
+    clearInterval(toStop);
+
+    playAlarm();
+  } else {
+    inputTime.value--;
+    updateInput();
+  }
+}
+
+function updateInput() {
+  const minutes = Math.floor(inputTime.value / 60);
+  const seconds = inputTime.value % 60;
+  timeRemaining.textContent = `Time Remaining: ${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
 
 // DO NOT EDIT BELOW HERE
 
