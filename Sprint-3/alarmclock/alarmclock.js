@@ -9,6 +9,25 @@ function formatTime(totalSeconds) {
 }
 function setAlarm() {
   clearInterval(timer);
+  let seconds = Number(document.getElementById("alarmSet").value);
+  const title = document.getElementById("timeRemaining");
+
+  if (!(seconds > 0)) {
+    title.innerText = "Time Remaining: 00:00";
+    return;
+  }
+
+  title.innerText = "Time Remaining: " + formatTime(seconds);
+
+  timer = setInterval(() => {
+    seconds = seconds - 1;
+    title.innerText = "Time Remaining: " + formatTime(seconds);
+
+    if (seconds <= 0) {
+      clearInterval(timer);
+      playAlarm();
+    }
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
