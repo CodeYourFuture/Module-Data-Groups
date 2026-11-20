@@ -1,14 +1,14 @@
 function createLookup(countryCurrencyPairs) {
-  const c_Lookup = {};
+  const countryCurrencyLookup = {};
 
   for (let i = 0; i < countryCurrencyPairs.length; i++) {
     const country = countryCurrencyPairs[i][0];
     const currency = countryCurrencyPairs[i][1];
 
-    c_Lookup[country] = currency;
+    countryCurrencyLookup[country] = currency;
   }
 
-  return c_Lookup;
+  return countryCurrencyLookup;
 }
 
 module.exports = createLookup;
