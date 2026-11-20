@@ -7,7 +7,9 @@ function formatTime(totalSeconds) {
     String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0")
   );
 }
-function setAlarm() {}
+function setAlarm() {
+  clearInterval(timer);
+}
 
 // DO NOT EDIT BELOW HERE
 
