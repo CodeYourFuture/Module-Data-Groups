@@ -1,4 +1,8 @@
-function setAlarm() {}
+function setAlarm() {
+  const remainingTimeEl = document.getElementById("timeRemaining");
+  const setTimeInput = document.getElementById("alarmSet");
+  remainingTimeEl.innerText = `Time Remaining: ${setTimeInput.value}`
+}
 
 // DO NOT EDIT BELOW HERE
 
