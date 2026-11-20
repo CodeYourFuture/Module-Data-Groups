@@ -38,7 +38,7 @@ test("given an array with duplicate items returns counts for each unique item", 
 // When passed to tally
 // Then it should throw Error("tally requires an array")
 
-test("throws an error for a string", () => {
+test("given an invalid input like a string, a number, or no argument at all", () => {
   expect(() => tally("abc")).toThrow("tally requires an array");
 
   expect(() => tally(123)).toThrow("tally requires an array");
