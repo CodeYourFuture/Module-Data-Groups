@@ -1,3 +1,6 @@
+const hRemainingTime = document.getElementById("timeRemaining");
+const iAlarmSetFor = document.getElementById("alarmSet");
+
 let innerTime = 0;
 let timeIsTicking = false;
 
@@ -11,8 +14,6 @@ function alarmTick() {
   }
   printTime();
 }
-const hRemainingTime = document.getElementById("timeRemaining");
-const iAlarmSetFor = document.getElementById("alarmSet");
 
 function printTime() {
   let minutes = Math.floor(innerTime / 60);
@@ -21,12 +22,9 @@ function printTime() {
 }
 
 function setAlarm() {
-  const btnSetAlarm = document.getElementById("set");
-  const btnStopAlarm = document.getElementById("stop");
+  innerTime = Number(iAlarmSetFor.value);
 
   printTime();
-
-  innerTime = iAlarmSetFor.value * 60;
 
   timeIsTicking = true;
   iAlarmSetFor.value = null;
