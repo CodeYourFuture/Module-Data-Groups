@@ -1,5 +1,9 @@
 /** Write your CSS in here **/
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #fcc054;
@@ -7,7 +11,10 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin: 0;
+  padding: 20px;
 }
+
 button {
   background-color: #fca800;
   align-self: flex-end;
@@ -16,20 +23,35 @@ button {
   color: white;
   font-weight: bold;
 }
+
 .quote-card {
   background-color: #fcfcfc;
   border-radius: 5px;
   padding: 30px;
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   min-height: 200px;
 }
+
 #quote {
   font-family: "Playfair Display", serif;
   font-size: 28px;
   color: #333333;
+  overflow-wrap: break-word;
 }
+
 #author {
   align-self: flex-end;
+}
+
+@media (max-width: 480px) {
+  .quote-card {
+    padding: 20px;
+  }
+
+  #quote {
+    font-size: 22px;
+  }
 }
