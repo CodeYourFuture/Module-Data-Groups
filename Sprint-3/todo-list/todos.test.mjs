@@ -92,8 +92,12 @@ describe("deleteTask()", () => {
 
   test("Delete all completed ToDos from the given list", () => {
     const todos = createMockTodos();
+    const expectedIds = todos
+      .filter((todo) => !todo.completed)
+      .map((todo) => todo.id);
     Todos.deleteCompleted(todos);
     expect(todos.every((todo) => !todo.completed)).toBe(true);
+    expect(todos.map((todo) => todo.id)).toEqual(expectedIds);
   });
 });
 
