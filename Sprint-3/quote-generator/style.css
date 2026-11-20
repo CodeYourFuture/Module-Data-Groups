@@ -1,1 +1,48 @@
-/** Write your CSS in here **/
+body {
+  background-color: orange;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.quote-container {
+  background-color: white;
+  width: 70%;
+  margin: 150px auto;
+  padding: 60px;
+}
+.quote-content {
+  display: inline-flex;
+  align-items: flex-start;
+}
+
+.quote-icon {
+  font-size: 80px;
+  color: orange;
+  font-weight: bolder;
+  flex-shrink: align-self;
+}
+
+#quote {
+  font-size: 24px;
+  color: orange;
+  line-height: 1.5;
+  text-align: center;
+}
+#author {
+  text-align: right;
+  font-size: 18px;
+  color: orange;
+}
+#author::before {
+  content: "- ";
+}
+#new-quote {
+  display: block;
+  margin-left: auto;
+  margin-top: 25px;
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 18px 25px;
+  font-size: 18px;
+  cursor: pointer;
+}
