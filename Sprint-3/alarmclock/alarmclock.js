@@ -1,9 +1,9 @@
 const remainingTimeEl = document.getElementById("timeRemaining");
 const setTimeInput = document.getElementById("alarmSet");
 let interval;
-//let remainingTime = setTimeInput.value;
 
 function setAlarm() {
+  pauseAlarm();
   let remainingTime = setTimeInput.value;
   remainingTimeEl.innerText = `Time Remaining: ${remainingTime}`;
 
@@ -13,7 +13,6 @@ function setAlarm() {
     if(remainingTime === 0){
       clearInterval(interval);
       playAlarm();
-      console.log("hellooo")
     }
   }, 1000);
 }
