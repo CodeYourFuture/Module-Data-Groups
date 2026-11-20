@@ -1,12 +1,26 @@
+const remainingTimeEl = document.getElementById("timeRemaining");
+const setTimeInput = document.getElementById("alarmSet");
+let interval;
+//let remainingTime = setTimeInput.value;
+
 function setAlarm() {
-  const remainingTimeEl = document.getElementById("timeRemaining");
-  const setTimeInput = document.getElementById("alarmSet");
-  remainingTimeEl.innerText = `Time Remaining: ${setTimeInput.value}`
+  let remainingTime = setTimeInput.value;
+  remainingTimeEl.innerText = `Time Remaining: ${remainingTime}`;
+
+  interval = setInterval(() => {
+    remainingTime--;
+    remainingTimeEl.innerText = `Time Remaining: ${remainingTime}`;
+    if(remainingTime === 0){
+      clearInterval(interval);
+      playAlarm();
+      console.log("hellooo")
+    }
+  }, 1000);
 }
 
 // DO NOT EDIT BELOW HERE
 
-var audio = new Audio("alarmsound.mp3");
+var audio = new Audio("./alarmsound.mp3");
 
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
