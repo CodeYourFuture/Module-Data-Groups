@@ -1,19 +1,17 @@
 function tally(items) {
- if (!Array.isArray(items)) {
+  if (!Array.isArray(items)) {
     throw new Error("tally requires an array");
-}
-const list_of_items= Object.create(null);
-// const list_of_items= {};
+  }
+  const listOfItems = Object.create(null);
 
-for (const item of items) {
-    if (list_of_items [item]) {
-        list_of_items[item]++;
+  for (const item of items) {
+    if (listOfItems[item]) {
+      listOfItems[item]++;
     } else {
-        list_of_items[item] = 1;
+      listOfItems[item] = 1;
     }
-
-}
- return list_of_items;
+  }
+  return listOfItems;
 }
 
 module.exports = tally;
