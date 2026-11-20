@@ -1,3 +1,7 @@
+const quoteSpace = document.querySelector("#quote");
+const authorSpace = document.querySelector("#author");
+const newQuoteButton = document.querySelector("#new-quote");
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -489,5 +493,13 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+const selectedQuote = pickFromArray(quotes);
+quoteSpace.innerHTML = selectedQuote.quote;
+authorSpace.innerHTML = selectedQuote.author;
 
+newQuoteButton.addEventListener("click", function () {
+  const selectedQuote = pickFromArray(quotes);
+  quoteSpace.innerHTML = selectedQuote.quote;
+  authorSpace.innerHTML = selectedQuote.author;
+});
 // call pickFromArray with the quotes array to check you get a random quote
