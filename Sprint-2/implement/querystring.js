@@ -1,3 +1,7 @@
+function decodeFormValue(value) {
+  return decodeURIComponent(value.replaceAll("+", " "));
+}
+
 function parseQueryString(queryString) {
   const queryParams = {};
   if (queryString.length === 0) {
@@ -21,8 +25,8 @@ function parseQueryString(queryString) {
       value = pair.slice(equalsIndex + 1);
     }
 
-    key = decodeURIComponent(key.replace(/\+/g, " "));
-    value = decodeURIComponent(value.replace(/\+/g, " "));
+    key = decodeFormValue(key);
+    value = decodeFormValue(value);
 
     queryParams[key] = value;
   }
