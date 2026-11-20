@@ -21,6 +21,14 @@ export function deleteTask(todos, taskIndex) {
   }
 }
 
+export function deleteCompleted(todos) {
+  for (let i = todos.length - 1; i >= 0; i--) {
+    if (todos[i].completed) {
+      todos.splice(i, 1);
+    }
+  }
+}
+
 // Toggle the "completed" property of todos[taskIndex] if the task exists.
 export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {
