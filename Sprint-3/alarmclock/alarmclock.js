@@ -1,31 +1,34 @@
+let toStop = null;
+
+const inputTime = document.querySelector("#alarmSet");
+const timeRemaining = document.querySelector("#timeRemaining");
 function setAlarm() {
-  const inputTime = document.querySelector("#alarmSet");
-  const timeRemaining = document.querySelector("#timeRemaining");
   timeRemaining.textContent = `Time Remaining: ${Math.floor(
     inputTime.value / 60
   )
     .toString()
     .padStart(2, "0")}:${(inputTime.value % 60).toString().padStart(2, "0")}`;
 
-  const toStop = setInterval(alarmCount, 1000);
+  if (toStop !== null) return;
 
-  function alarmCount() {
-    if (inputTime.value == 0) {
-      clearInterval(toStop);
-      playAlarm();
-    } else {
-      inputTime.value--;
-      updateInput();
-    }
-  }
+  toStop = setInterval(alarmCount, 1000);
+}
+function alarmCount() {
+  if (inputTime.value <= 0) {
+    clearInterval(toStop);
 
-  function updateInput() {
-    const minutes = Math.floor(inputTime.value / 60);
-    const seconds = inputTime.value % 60;
-    timeRemaining.textContent = `Time Remaining: ${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    playAlarm();
+  } else {
+    inputTime.value--;
+    updateInput();
   }
 }
-//const toStop = setInterval(alarmCount, 1000);
+
+function updateInput() {
+  const minutes = Math.floor(inputTime.value / 60);
+  const seconds = inputTime.value % 60;
+  timeRemaining.textContent = `Time Remaining: ${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
 
 // DO NOT EDIT BELOW HERE
 
