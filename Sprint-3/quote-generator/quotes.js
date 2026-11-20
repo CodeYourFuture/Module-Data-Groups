@@ -496,7 +496,7 @@ function showQuote() {
   const author = document.querySelector("#author");
   const quote = document.querySelector("#quote");
   quote.textContent = result.quote;
-  author.textContent = result.author;
+  author.textContent = ` - ${result.author}`;
 }
 button.addEventListener("click", showQuote);
 

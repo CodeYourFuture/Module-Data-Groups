@@ -1,1 +1,35 @@
 /** Write your CSS in here **/
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fcc054;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+button {
+  background-color: #fca800;
+  align-self: flex-end;
+  padding: 10px;
+  border: 0;
+  color: white;
+  font-weight: bold;
+}
+.quote-card {
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  min-height: 200px;
+}
+#quote {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  color: #333333;
+}
+#author {
+  align-self: flex-end;
+}
