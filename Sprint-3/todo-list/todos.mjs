@@ -27,3 +27,8 @@ export function toggleCompletedOnTask(todos, taskIndex) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
 }
+
+export function deleteCompleted(todoList) {
+  const remainingTodos = todoList.filter((todo) => !todo.completed);
+  todoList.splice(0, todoList.length, ...remainingTodos);
+}
