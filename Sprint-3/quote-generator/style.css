@@ -8,6 +8,7 @@ body {
   width: 70%;
   margin: 150px auto;
   padding: 60px;
+  box-sizing: border-box;
 }
 .quote-content {
   display: inline-flex;
