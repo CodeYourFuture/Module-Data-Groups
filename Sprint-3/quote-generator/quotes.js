@@ -498,13 +498,22 @@ function showQuote() {
 }
 showQuote();
 
-document.getElementById("new-quote").addEventListener("click", showQuote);
-document.getElementById("autoplay").addEventListener(
-  "click",
-  () => {
-    setInterval(showQuote, 5000);
-  },
-  { once: true }
-);
+let autoplayTimer = null;
+
+const autoplayButton = document.getElementById("autoplay");
+const autoplayStatus = document.getElementById("auto-play-status");
+
+autoplayButton.addEventListener("click", () => {
+  if (autoplayTimer === null) {
+    autoplayTimer = setInterval(showQuote, 5000);
+    autoplayButton.textContent = "Stop autoplay";
+    autoplayStatus.textContent = "Auto-play: On";
+  } else {
+    clearInterval(autoplayTimer);
+    autoplayTimer = null;
+    autoplayButton.textContent = "Start autoplay";
+    autoplayStatus.textContent = "Auto-play: Off";
+  }
+});
 
 // call pickFromArray with the quotes array to check you get a random quote
