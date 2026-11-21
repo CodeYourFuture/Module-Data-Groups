@@ -495,6 +495,11 @@ window.addEventListener("load", () => {
   const quoteEl = document.getElementById("quote");
   const authorEl = document.getElementById("author");
   const button = document.getElementById("new-quote");
+  const toggle = document.getElementById("auto-play-toggle");
+  const status = document.getElementById("auto-play-status");
+
+  const AUTO_PLAY_MS = 5000;
+  let timerId = null;
 
   function showRandomQuote() {
     const { quote, author } = pickFromArray(quotes);
@@ -502,6 +507,17 @@ window.addEventListener("load", () => {
     authorEl.textContent = `- ${author.trim()}`;
   }
 
-  showRandomQuote(); // show a quote when the page loads
-  button.addEventListener("click", showRandomQuote); // new quote on click
+  showRandomQuote(); // show one when the page loads
+  button.addEventListener("click", showRandomQuote);
+
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+      timerId = setInterval(showRandomQuote, AUTO_PLAY_MS);
+      status.textContent = "auto-play:ON";
+    } else {
+      clearInterval(timerId);
+      timerId = null;
+      status.textContent = "auto-play:OFF";
+    }
+  });
 });
