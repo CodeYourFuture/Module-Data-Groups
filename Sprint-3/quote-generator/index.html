@@ -1,15 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>Quote Generator app</title>
     <script defer src="quotes.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>hello there</h1>
+    <h1>Quote</h1>
+    <div class = "quote-box">
     <p id="quote"></p>
+    <script>
+      let selectedQuote;
+      document.addEventListener("DOMContentLoaded", () => {
+        selectedQuote = pickFromArray(quotes)
+        document.getElementById("quote").innerText = selectedQuote.quote;
+        document.getElementById("author").innerText = selectedQuote.author;
+      });
+    </script>
     <p id="author"></p>
-    <button type="button" id="new-quote">New quote</button>
+  </div>
+    <button
+      type="button"
+      id="new-quote"
+      onclick="
+        selectedQuote = pickFromArray(quotes);
+        document.getElementById('quote').innerText = selectedQuote.quote;
+        document.getElementById('author').innerText = selectedQuote.author;
+      "
+    >
+      New quote
+    </button>
   </body>
 </html>
