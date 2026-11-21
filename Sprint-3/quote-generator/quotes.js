@@ -496,14 +496,36 @@ const quoteElement = document.querySelector("#quote");
 const authorElement = document.querySelector("#author");
 const newQuoteButton = document.querySelector("#new-quote");
 
+// function displayRandomQuote() {
+//   const randomQuote = pickFromArray(quotes);
+//   quoteElement.textContent = randomQuote.quote;
+//   authorElement.textContent = randomQuote.author;
+// }
+
+const AUTO_INTERVAL_MS = 6000;
+let autoQuoteInterval = null;
+
 function displayRandomQuote() {
   const randomQuote = pickFromArray(quotes);
   quoteElement.textContent = randomQuote.quote;
   authorElement.textContent = randomQuote.author;
 }
 
+function startAutoQuotes(fetchFn) {
+  if (autoQuoteInterval) {
+    clearInterval(autoQuoteInterval);
+  }
+  autoQuoteInterval = setInterval(() => {
+    fetchFn();
+  }, AUTO_INTERVAL_MS);
+}
+
 // Display an initial random quote when the page loads
 displayRandomQuote();
+startAutoQuotes(displayRandomQuote);
 
-// Display a new random quote each time the button is clicked
-newQuoteButton.addEventListener("click", displayRandomQuote);
+// Display a new quote on click and reset the auto-timer
+newQuoteButton.addEventListener("click", () => {
+  displayRandomQuote();
+  startAutoQuotes(displayRandomQuote);
+});
