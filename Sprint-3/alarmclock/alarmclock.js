@@ -18,7 +18,7 @@ function setAlarm() {
   let timeInSeconds = parseInt(document.getElementById("alarmSet").value, 10);
 
   displayTime(timeInSeconds);
-  
+
   if (timeInSeconds === 0) {
     playAlarm();
   } else {
