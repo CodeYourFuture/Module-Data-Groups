@@ -491,3 +491,17 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+window.addEventListener("load", () => {
+  const quoteEl = document.getElementById("quote");
+  const authorEl = document.getElementById("author");
+  const button = document.getElementById("new-quote");
+
+  function showRandomQuote() {
+    const { quote, author } = pickFromArray(quotes);
+    quoteEl.textContent = `"${quote}"`;
+    authorEl.textContent = `- ${author.trim()}`;
+  }
+
+  showRandomQuote(); // show a quote when the page loads
+  button.addEventListener("click", showRandomQuote); // new quote on click
+});
