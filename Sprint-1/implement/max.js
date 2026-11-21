@@ -1,7 +1,5 @@
 function findMax(elements) {
-  //   if (elements.length == 1) {
-  //     return elements[0];
-  //   }
+
   let max = -Infinity;
   elements.forEach((element) => {
     if (typeof element !== "number") {
