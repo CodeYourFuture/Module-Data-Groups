@@ -89,18 +89,6 @@ describe("deleteTask()", () => {
     Todos.deleteTask(todos, -1);
     expect(todos).toEqual(todosBeforeDeletion);
   });
-
-  test("Delete all completed tasks", () => {
-    const todos = createMockTodos();
-    const todosBeforeDeletion = createMockTodos();
-    const lengthBeforeDeletion = todos.length;
-    Todos.deleteCompletedTasks(todos);
-
-    expect(todos).toHaveLength(lengthBeforeDeletion - 2);
-
-    expect(todos[0]).toEqual(todosBeforeDeletion[1]);
-    expect(todos[1]).toEqual(todosBeforeDeletion[3]);
-  });
 });
 
 describe("toggleCompletedOnTask()", () => {
@@ -135,5 +123,19 @@ describe("toggleCompletedOnTask()", () => {
 
     Todos.toggleCompletedOnTask(todos, -1);
     expect(todos).toEqual(todosBeforeToggle);
+  });
+});
+
+describe("deleteAllCompletedTasks()", () => {
+  test("Delete all completed tasks", () => {
+    const todos = createMockTodos();
+    const todosBeforeDeletion = createMockTodos();
+    const lengthBeforeDeletion = todos.length;
+    Todos.deleteAllCompletedTasks(todos);
+
+    expect(todos).toHaveLength(lengthBeforeDeletion - 2);
+
+    expect(todos[0]).toEqual(todosBeforeDeletion[1]);
+    expect(todos[1]).toEqual(todosBeforeDeletion[3]);
   });
 });
