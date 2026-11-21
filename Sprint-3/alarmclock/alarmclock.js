@@ -19,13 +19,13 @@ function setAlarm() {
 
   displayTime(timeInSeconds);
 
-  if (timeInSeconds === 0) {
+  if (timeInSeconds <= 0 || Number.isNaN(timeInSeconds)) {
     playAlarm();
   } else {
     intervalId = setInterval(() => {
       timeInSeconds--;
       displayTime(timeInSeconds);
-      if (timeInSeconds === 0) {
+      if (timeInSeconds <= 0) {
         playAlarm();
         clearInterval(intervalId);
       }
