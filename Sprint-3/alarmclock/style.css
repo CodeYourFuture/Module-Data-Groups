@@ -13,3 +13,40 @@
 h1 {
   text-align: center;
 }
+button {
+  padding: 12px 24px;
+  margin: 8px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  box-shadow: 6px 6px black;
+  transform: scale(1.1);
+}
+#buttonCount {
+  display: flex;
+  justify-content: center;
+}
+
+#alarmSet {
+  line-height: 2;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+  font-size: 1.5em;
+}
+input {
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+label {
+  font-size: 2em;
+  font-style: italic;
+  line-height: 1.2;
+}
