@@ -16,6 +16,7 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
+
 function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -489,5 +490,30 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+
+function showQuote() {
+  const selectedQuote = pickFromArray(quotes);
+  document.getElementById("quote").textContent = selectedQuote.quote;
+  document.getElementById("author").textContent = selectedQuote.author;
+}
+showQuote();
+
+let autoplayTimer = null;
+
+const autoplayButton = document.getElementById("autoplay");
+const autoplayStatus = document.getElementById("auto-play-status");
+
+autoplayButton.addEventListener("click", () => {
+  if (autoplayTimer === null) {
+    autoplayTimer = setInterval(showQuote, 5000);
+    autoplayButton.textContent = "Stop autoplay";
+    autoplayStatus.textContent = "Auto-play: On";
+  } else {
+    clearInterval(autoplayTimer);
+    autoplayTimer = null;
+    autoplayButton.textContent = "Start autoplay";
+    autoplayStatus.textContent = "Auto-play: Off";
+  }
+});
 
 // call pickFromArray with the quotes array to check you get a random quote
