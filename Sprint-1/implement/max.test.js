@@ -24,22 +24,48 @@ test("given an empty array, returns -Infinity", () => {
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+test("Given an array with one number, it should return that number", () => {
+  expect(findMax([5])).toBe(5);
+});
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
 // Then it should return the largest number overall
+test(
+  "Given an array with both positive and negative numbers, it should return the largest number overall",
+  () => {
+    expect(findMax([1,-9,4,89,-5])).toBe(89);
+  }
+);
 
 // Given an array with just negative numbers
 // When passed to the max function
 // Then it should return the closest one to zero
 
+  test("Given an array with just negative numbers, it should return the closest one to zero", () => {
+    expect(findMax([-2, -49, -4, -7, -3])).toBe(-2);
+  });
+
 // Given an array with decimal numbers
 // When passed to the max function
 // Then it should return the largest decimal number
+test(
+  "Given an array with decimal numbers, it should return the largest decimal number",
+  () => {
+    expect(findMax([27.33, 1.89, 5.12, 25.99, 72.1])).toBe(72.1);
+  }
+);
 
 // Given an array containing a value that isn't a number
 // When passed to the max function
 // Then it should throw Error("findMax requires an array of numbers")
+test("Given an array containing a value that isn't a number, it should throw Error('findMax requires an array of numbers')", () => {
+    expect(() => findMax([27.33, 1, true, -2.9, 12.1])).toThrow(
+        "findMax requires an array of numbers"
+    );
+});
+
+
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the max function
