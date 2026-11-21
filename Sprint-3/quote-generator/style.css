@@ -1,1 +1,52 @@
 /** Write your CSS in here **/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 48rem;
+  padding: 2rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #ffffff;
+  color: #111827;
+  line-height: 1.5;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+#quote {
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+#author {
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+  font-style: italic;
+}
+
+#new-quote {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.4rem;
+  background: #888;
+  color: #111827;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#new-quote:hover {
+  background: #f3f4f6;
+}
