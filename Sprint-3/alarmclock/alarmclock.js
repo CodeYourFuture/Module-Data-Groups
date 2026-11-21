@@ -49,19 +49,20 @@ function resumeCountdown() {
 }
 
 function setAlarm() {
+  const input = document.getElementById("alarmSet");
+
+  const newSeconds = Number(input.value);
+  if (!Number.isInteger(newSeconds) || newSeconds <= 0) {
+    alert("Please enter a positive number of seconds");
+    return;
+  }
+
   clearInterval(intervalID);
   isRunning = false;
   stopFlash();
   pauseAlarm();
 
-  const input = document.getElementById("alarmSet");
-
-  seconds = Number(input.value);
-  if (!Number.isInteger(seconds) || seconds <= 0) {
-    alert("Please enter a positive number of seconds");
-    return;
-  }
-
+  seconds = newSeconds;
   h1.textContent = `Time Remaining: ${formatTime(seconds)}`;
   startCountdown();
 }
