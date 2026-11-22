@@ -14,14 +14,9 @@ function parseQueryString(queryString) {
     let [key, ...rest] = pair.split("=");
     let value = rest.join("=");
 
-    const lastThreeCharKey = key.slice(-2);
-    if (!lastThreeCharKey.includes("+") || key.includes("%")) {
-      key = decodeURIComponent(key.replaceAll("+", " "));
-    }
-    const lastThreeCharVal = value.slice(-2);
-    if (!lastThreeCharVal.includes("+")) {
-      value = decodeURIComponent(value.replaceAll("+", " "));
-    }
+    key = decodeURIComponent(key.replaceAll("+", " "));
+    value = decodeURIComponent(value.replaceAll("+", " "));
+
     queryParams[key] = value;
   }
   return queryParams;
