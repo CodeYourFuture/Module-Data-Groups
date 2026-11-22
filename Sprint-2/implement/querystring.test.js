@@ -35,6 +35,9 @@ test("should replace '+' by ' '", () => {
   expect(parseQueryString("full+name=John+Doe")).toEqual({
     "full name": "John Doe",
   });
+  expect(parseQueryString("a+b+c=x+y+z")).toEqual({
+    "a b c": "x y z",
+  });
 });
 
 test("should replace '+' by ' '", () => {
