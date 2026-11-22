@@ -34,5 +34,4 @@ export function deleteCompleted(todos) {
       i--;
     }
   }
-  return todos;
 }
