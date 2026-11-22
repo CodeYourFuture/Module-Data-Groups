@@ -51,7 +51,7 @@ describe("deleteCompleted()", () => {
       }
     }
     Todos.deleteCompleted(todos);
-    expect(todos).toHaveLength(lengthBeforeDeletion - lengthOfCompletedTask);
+    expect(todos).toEqual(todos.filter((todos) => !todos.completed));
   });
 });
 
