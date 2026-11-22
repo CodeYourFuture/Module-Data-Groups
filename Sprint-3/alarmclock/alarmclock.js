@@ -1,4 +1,11 @@
-function setAlarm() {}
+function setAlarm() {
+  const alarmInput = document.querySelector("#alarmSet");
+  const alarmTime = document.querySelector("#timeRemaining");
+  const number = alarmInput.value;
+  let minute = number % 60;
+  let hour = Math.floor(number / 60);
+  alarmTime.innerText = `Time Remaining: ${hour}:${minute}`;
+}
 
 // DO NOT EDIT BELOW HERE
 
