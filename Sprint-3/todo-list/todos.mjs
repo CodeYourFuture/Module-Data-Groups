@@ -14,14 +14,6 @@ export function addTask(todos, task, completed = false) {
   todos.push({ task, completed });
 }
 
-export function deleteCompleted(todoList) {
-  for (let i = todoList.length - 1; i >= 0; i--) {
-    if (todoList[i].completed) {
-      todoList.splice(i, 1);
-    }
-  }
-}
-
 // Delete todos[taskIndex] if it exists
 export function deleteTask(todos, taskIndex) {
   if (todos[taskIndex]) {
