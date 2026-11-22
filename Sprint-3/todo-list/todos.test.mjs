@@ -124,7 +124,7 @@ describe("toggleCompletedOnTask()", () => {
     expect(todos).toEqual(todosBeforeToggle);
   });
 });
-test("should return the tasks that are not completed", () => {
+test("should remove completed tasks from the array", () => {
   const todos = createMockTodos();
   const todosBeforeDeleteComplet = createMockTodos();
   const lengthBeforDeleteComplete = todos.length;
