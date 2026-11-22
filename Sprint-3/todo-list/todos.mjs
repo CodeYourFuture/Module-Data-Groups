@@ -27,3 +27,12 @@ export function toggleCompletedOnTask(todos, taskIndex) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
 }
+export function deleteCompleted(todos) {
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].completed) {
+      todos.splice(i, 1);
+      i--;
+    }
+  }
+  return todos;
+}
