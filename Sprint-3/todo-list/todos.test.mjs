@@ -130,7 +130,6 @@ describe("toggleCompletedOnTask()", () => {
   });
 });
 
-
 describe("deleteCompleted()", () => {
   test("removes only completed tasks", () => {
     const todos = createMockTodos();
@@ -148,5 +147,11 @@ describe("deleteCompleted()", () => {
     ];
     Todos.deleteCompleted(todos);
     expect(todos).toHaveLength(2);
+  });
+
+  test("does nothing when the list is empty", () => {
+    const todos = [];
+    Todos.deleteCompleted(todos);
+    expect(todos).toHaveLength(0);
   });
 });
