@@ -15,8 +15,6 @@ window.addEventListener("load", () => {
   render();
 });
 
-// In `script.js`, call `deleteCompleted()` whenever the new button is clicked.
-//     - ⚠️ You should not need to modify the `render()` function.
 const dButton = document.querySelector("#Delete-completed-tasks");
 dButton.addEventListener("click", () => {
   Todos.deleteCompleted(todos);
