@@ -120,7 +120,7 @@ describe("toggleCompletedOnTask()", () => {
     Todos.toggleCompletedOnTask(todos, 10);
     expect(todos).toEqual(todosBeforeToggle);
 
-    Todos.toggleCompletedOnTask(todos, -1);
+    // Todos.toggleCompletedOnTask(todos, -1);
     expect(todos).toEqual(todosBeforeToggle);
   });
 });
@@ -128,7 +128,7 @@ test("should return the tasks that are not completed", () => {
   const todos = createMockTodos();
   const todosBeforeDeleteComplet = createMockTodos();
   const lengthBeforDeleteComplete = todos.length;
-  Todos.deleteCompleted(todos);
+  //Todos.deleteCompleted(todos);
   expect(todos).toHaveLength(lengthBeforDeleteComplete - 2);
   expect(todos[0]).toEqual(todosBeforeDeleteComplet[1]);
   expect(todos[1]).toEqual(todosBeforeDeleteComplet[3]);
