@@ -128,7 +128,7 @@ test("should return the tasks that are not completed", () => {
   const todos = createMockTodos();
   const todosBeforeDeleteComplet = createMockTodos();
   const lengthBeforDeleteComplete = todos.length;
-  //Todos.deleteCompleted(todos);
+  Todos.deleteCompleted(todos);
   expect(todos).toHaveLength(lengthBeforDeleteComplete - 2);
   expect(todos[0]).toEqual(todosBeforeDeleteComplet[1]);
   expect(todos[1]).toEqual(todosBeforeDeleteComplet[3]);
