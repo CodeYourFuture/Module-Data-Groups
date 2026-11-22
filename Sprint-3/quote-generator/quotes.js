@@ -494,6 +494,12 @@ const quotes = [
 
 const quotePara = document.getElementById(`quote`);
 const authorPara = document.getElementById("author");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const buttonReturn = pickFromArray(quotes);
+  quotePara.textContent = buttonReturn.quote;
+  authorPara.textContent = buttonReturn.author;
+});
 document.getElementById("new-quote").addEventListener("click", () => {
   const buttonReturn = pickFromArray(quotes);
   quotePara.textContent = buttonReturn.quote;
