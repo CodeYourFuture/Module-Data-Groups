@@ -1,21 +1,35 @@
+let timer;
 function setAlarm() {
   const alarmInput = document.querySelector("#alarmSet");
   const alarmTime = document.querySelector("#timeRemaining");
-  let number = Number(alarmInput.value);
-  if (number <= 0) {
+  let timeInSecond = Number(alarmInput.value);
+  if (
+    alarmInput.value.trim() === "" ||
+    !Number.isFinite(timeInSecond) ||
+    timeInSecond <= 0
+  ) {
     return;
   }
-  const timer = setInterval(() => {
-    number = number - 1;
-    if (number <= 0) {
+  clearInterval(timer);
+  alarmTime.innerText = `Time Remaining: ${formatTime(timeInSecond)}`;
+  timer = setInterval(() => {
+    timeInSecond = timeInSecond - 1;
+    if (timeInSecond <= 0) {
       clearInterval(timer);
       playAlarm();
-      document.body.style.background = "yellow";
+      document.body.style.background = "lightRed";
+      timeInSecond = 0;
+    } else {
+      alarmTime.innerText = `Time Remaining: ${formatTime(timeInSecond)}`;
     }
-    let second = number % 60;
-    let minute = Math.floor(number / 60);
-    alarmTime.innerText = `Time Remaining: ${String(minute).padStart(2, "0")}:${String(second).padStart(2, "0")}`;
+    alarmTime.innerText = `Time Remaining: ${formatTime(timeInSecond)}`;
   }, 1000);
+}
+
+function formatTime(timeInSecond) {
+  let second = timeInSecond % 60;
+  let minute = Math.floor(timeInSecond / 60);
+  return `${String(minute).padStart(2, "0")}:${String(second).padStart(2, "0")}`;
 }
 
 // DO NOT EDIT BELOW HERE
@@ -29,7 +43,7 @@ function setup() {
   });
 
   document.getElementById("stop").addEventListener("click", () => {
-    pauseAlarm();
+    stopAlarm();
   });
 }
 
@@ -39,6 +53,11 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+}
+function stopAlarm() {
+  clearInterval(timer);
+  audio.pause();
+  document.body.style.background = "pink";
 }
 
 window.onload = setup;
