@@ -499,5 +499,6 @@ function showQuote() {
   author.textContent = ` - ${result.author}`;
 }
 button.addEventListener("click", showQuote);
+showQuote();
 
 // call pickFromArray with the quotes array to check you get a random quote
