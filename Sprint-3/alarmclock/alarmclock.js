@@ -17,7 +17,7 @@ function setAlarm() {
     if (timeInSecond <= 0) {
       clearInterval(timer);
       playAlarm();
-      document.body.style.background = "lightRed";
+      document.body.style.background = "red";
       timeInSecond = 0;
     } else {
       alarmTime.innerText = `Time Remaining: ${formatTime(timeInSecond)}`;
