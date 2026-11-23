@@ -35,23 +35,31 @@ test("given a negative number array, returns the sum", () => {
 // When passed to the sum function
 // Then it should return the correct total sum
 test("given a decimal numbers array, returns the sum", () => {
-  expect(sum([1.9, 7.5, 4.91])).toBeCloseTo(14.31);
+  expect(sum([1.9, 7.5, 4.91])).toBeCloseTo(1.9 + 7.5 + 4.91);
 });
 
 // Given an array containing a value that isn't a number
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
 test("given a non-numbers array, returns sum requires an array of numbers", () => {
-  expect(() => sum(["apple", null ,3])).toThrow(
+  expect(() => sum(["apple"])).toThrow(
     new Error("sum requires an array of numbers")
   );
+  expect(() => sum([null])).toThrow(
+    new Error("sum requires an array of numbers")
+  );
+  expect(() => sum([3])).toThrow(new Error("sum requires an array of numbers"));
 });
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
 // When passed to the sum function
 // Then it should throw Error("sum requires an array of numbers")
 test("given a non-array, returns sum requires an array of numbers", () => {
-  expect(() => sum("apple", null, 3)).toThrow(
+  expect(() => sum(["apple"])).toThrow(
     new Error("sum requires an array of numbers")
   );
+  expect(() => sum([null])).toThrow(
+    new Error("sum requires an array of numbers")
+  );
+  expect(() => sum([3])).toThrow(new Error("sum requires an array of numbers"));
 });
