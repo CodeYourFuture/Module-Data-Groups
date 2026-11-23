@@ -9,7 +9,7 @@ function sum(elements) {
     }
     total += element;
   }
-  return Number(total.toFixed(2));
+  return total;
 }
 
 module.exports = sum;
