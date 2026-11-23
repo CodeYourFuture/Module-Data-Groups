@@ -6,11 +6,12 @@ function tally(items) {
   const counts = {};
 
   for (const item of items) {
-    const key = String(item);
+  const key = String(item);
 
-    if (Object.prototype.hasOwnProperty.call(counts, key)) {
-      counts[key] += 1;
-    } else {
+  if (counts.hasOwnProperty(key)) {
+    counts[key] += 1;
+  }
+} else {
       Object.defineProperty(counts, key, {
         value: 1,
         writable: true,
