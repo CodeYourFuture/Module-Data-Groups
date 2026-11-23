@@ -48,7 +48,7 @@ test("given negative numbers, return mean", () => {
 test("given decimal numbers, return mean", () => {
   const list = [7.2, 2.4, 6.8];
   const result = calculateMean(list);
-  expect(result).toBeCloseTo(5.47);
+  expect(result).toBeCloseTo(16.4 / 3, 5);
 });
 
 // Given an empty array
