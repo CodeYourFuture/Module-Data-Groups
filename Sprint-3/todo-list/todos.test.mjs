@@ -94,6 +94,7 @@ describe("deleteTask()", () => {
     const todos = createMockTodos();
     const todosBeforeDeletionCompleted = createMockTodos();
     Todos.deleteCompleted(todos);
+    expect(todos).toHaveLength(2);
     expect(todos[0]).toEqual(todosBeforeDeletionCompleted[1]);
     expect(todos[1]).toEqual(todosBeforeDeletionCompleted[3]);
   });
