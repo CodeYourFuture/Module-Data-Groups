@@ -13,4 +13,6 @@ const author = {
   alive: true,
 };
 
-console.log(Object.values(author));
+for (const value of Object.entries(author)) {
+  console.log(value);
+}
