@@ -23,7 +23,6 @@ as an array isn't an object
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
 test("contains on empty object returns false", () => {
   expect(contains({}, "name")).toBe(false);
 });
