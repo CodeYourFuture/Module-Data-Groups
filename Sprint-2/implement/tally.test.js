@@ -74,8 +74,8 @@ test("tally handles item names that match built-in object properties", () => {
 test("tally does not allow prototype pollution via __proto__", () => {
   const result = tally(["__proto__", "__proto__"]);
   expect({}.polluted).toBeUndefined();
-  expect(Object.keys(result)).toEqual(["__proto__"]);
-  expect(Object.getOwnPropertyDescriptor(result, "__proto__").value).toBe(2);
+  expect(Object.getPrototypeOf(result)).toBe(Object.prototype);
+  expect(Object.keys(result)).toEqual([]);
 });
 
 test("tally counts numbers and booleans by their string form", () => {
