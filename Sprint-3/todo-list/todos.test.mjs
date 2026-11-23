@@ -143,3 +143,32 @@ describe("deleteCompleted()", () => {
     });
   });
 });
+test("Should not delete any tasks when all tasks are incomplete", () => {
+  const todos = [
+    { task: "Task 1", completed: false },
+    { task: "Task 2", completed: false },
+  ];
+
+  Todos.deleteCompleted(todos);
+
+  expect(todos).toHaveLength(2);
+
+  expect(todos[0]).toEqual({
+    task: "Task 1",
+    completed: false,
+  });
+
+  expect(todos[1]).toEqual({
+    task: "Task 2",
+    completed: false,
+  });
+});
+
+test("Should handle an empty list", () => {
+  const todos = [];
+
+  Todos.deleteCompleted(todos);
+
+  expect(todos).toHaveLength(0);
+  expect(todos).toEqual([]);
+});
