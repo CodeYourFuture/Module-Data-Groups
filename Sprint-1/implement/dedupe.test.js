@@ -29,6 +29,7 @@ test("given an array with no duplicates, it returns a copy of the original array
   const list = ["a", "b", "c"];
   const result = dedupe(list);
   expect(dedupe(list)).toEqual(result);
+  expect(result).not.toBe(list);
 });
 
 // Given an array of strings or numbers
@@ -36,7 +37,6 @@ test("given an array with no duplicates, it returns a copy of the original array
 // Then it should return a new array with duplicates removed while preserving the
 // first occurrence of each element from the original array.
 test("given an array, it returns an array with duplicates removed and its original occurrence", () => {
-  const list = [3, 1, 2];
-  const result = dedupe(list);
-  expect(dedupe(list)).toEqual(result);
+  expect(dedupe([1, 3, 1, 2, 3])).toEqual([1, 3, 2]);
+  expect(dedupe(["a", "b", "a", "c", "b"])).toEqual(["a", "b", "c"]);
 });
