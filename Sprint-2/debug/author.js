@@ -1,4 +1,13 @@
 // Predict and explain first...
+// Prediction:
+// I think this code will produce a TypeError because
+// a regular JavaScript object is not iterable.
+
+// Explanation:
+// The for...of loop works with iterable values such as
+// arrays and strings, but it cannot loop directly over
+// a regular object. We can use Object.values() to access
+// all the property values.
 
 // This program attempts to log out all the property values in the object.
 // But it isn't working. Explain why first and then fix the problem
