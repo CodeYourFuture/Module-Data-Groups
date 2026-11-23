@@ -1,35 +1,25 @@
+const test = require("node:test");
+const assert = require("node:assert/strict");
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
+test("creates a country currency code lookup for multiple codes", () => {
+  const input = [
+    ["US", "USD"],
+    ["CA", "CAD"],
+  ];
 
-/*
+  assert.deepEqual(createLookup(input), {
+    US: "USD",
+    CA: "CAD",
+  });
+});
 
-Create a lookup object of key value pairs from an array of code pairs
+test("returns an empty object when given an empty array", () => {
+  assert.deepEqual(createLookup([]), {});
+});
 
-Acceptance Criteria:
-
-Given
- - An array of arrays representing country code and currency code pairs
-   e.g. [['US', 'USD'], ['CA', 'CAD']]
-
-When
- - createLookup function is called with the country-currency array as an argument
-
-Then
- - It should return an object where:
- - The keys are the country codes
- - The values are the corresponding currency codes
-
-Example
-Given: [['US', 'USD'], ['CA', 'CAD']]
-
-When
-createLookup(countryCurrencyPairs) is called
-
-Then
-It should return:
- {
-   'US': 'USD',
-   'CA': 'CAD'
- }
-*/
+test("creates a lookup object for a single code pair", () => {
+  assert.deepEqual(createLookup([["ZA", "ZAR"]]), {
+    ZA: "ZAR",
+  });
+});
