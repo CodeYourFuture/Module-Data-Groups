@@ -4,7 +4,7 @@ function setAlarm() {
 
   if (numberForTime <= 0 || Number.isInteger(numberForTime) === false) {
     return (document.getElementById("reminder").textContent =
-      "Value of time should be more than '0'.");
+      "Value of time should be integer and more than '0'.");
   }
 
   document.getElementById("reminder").textContent = "";
