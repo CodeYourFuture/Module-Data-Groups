@@ -11,19 +11,25 @@
 
 // Append a new task to todos[]
 export function addTask(todos, task, completed = false) {
-  todos.push({ task, completed });
+  todos.push({ task, completed }); //add one element to the array todos
 }
 
 // Delete todos[taskIndex] if it exists
 export function deleteTask(todos, taskIndex) {
   if (todos[taskIndex]) {
-    todos.splice(taskIndex, 1);
+    todos.splice(taskIndex, 1); //delete the selected element
   }
 }
 
 // Toggle the "completed" property of todos[taskIndex] if the task exists.
 export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {
-    todos[taskIndex].completed = !todos[taskIndex].completed;
+    todos[taskIndex].completed = !todos[taskIndex].completed; // Toggle completed status between true and false
   }
+}
+
+export function deleteCompleted(todoList) {
+  const remainingTasks = todoList.filter((todo) => !todo.completed);
+
+  todoList.splice(0, todoList.length, ...remainingTasks);
 }
