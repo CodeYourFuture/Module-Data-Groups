@@ -16,25 +16,67 @@ as an array isn't an object
 
 // Acceptance criteria:
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
-
 // Given an empty object
 // When passed to contains
 // Then it should return false
-test.todo("contains on empty object returns false");
+describe("contains", () => {
+  test("given an empty object, returns false", function () {
+    const input = contains({}, "");
+    const currentOutput = input;
+    const targetOutput = false;
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
+    expect(currentOutput).toEqual(targetOutput);
+  });
+  // Given a contains function
+  // When passed an object and a property name
+  // Then it should return true if the object contains the property, false otherwise
+  test("given an object, returns true as the object contains a key of 'a'", function () {
+    const input = contains({ a: 1, b: 2 }, "a");
+    const currentOutput = input;
+    const targetOutput = true;
 
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
+    expect(currentOutput).toEqual(targetOutput);
+  });
+  // Given an object with properties
+  // When passed to contains with a non-existent property name
+  // Then it should return false
+  test("given an object, returns false when the object does not contain key 'c'", function () {
+    const input = contains({ a: 1, b: 2 }, "c");
+    const currentOutput = input;
+    const targetOutput = false;
 
-// Given a value that isn't an object - an array, a string, a number,
-// null, or no argument at all
-// When passed to contains
-// Then it should throw Error("contains requires an object")
-// (careful: typeof [] and typeof null are both "object")
+    expect(currentOutput).toEqual(targetOutput);
+  });
+  // Given a value that isn't an object - an array, a string, a number,
+  // null, or no argument at all
+  // When passed to contains
+  // Then it should throw Error("contains requires an object")
+  // (careful: typeof [] and typeof null are both "object")
+  it("throws when given an array", () => {
+    expect(() => contains(["banana"], "a")).toThrow(
+      "contains requires an object"
+    );
+  });
+
+  it("throws when given a number", () => {
+    expect(() => contains(123, "a")).toThrow("contains requires an object");
+  });
+
+  it("throws when given a string", () => {
+    expect(() => contains("hello", "a")).toThrow("contains requires an object");
+  });
+
+  it("throws when given null", () => {
+    expect(() => contains(null, "a")).toThrow("contains requires an object");
+  });
+
+  it("throws when called without an object argument", () => {
+    expect(() => contains(undefined, "a")).toThrow(
+      "contains requires an object"
+    );
+  });
+
+  it("throws when given an empty array", () => {
+    expect(() => contains([], "a")).toThrow("contains requires an object");
+  });
+});
