@@ -125,3 +125,53 @@ describe("toggleCompletedOnTask()", () => {
     expect(todos).toEqual(todosBeforeToggle);
   });
 });
+
+describe("deleteCompletedTasks()", () => {
+  test("Removes only completed tasks and keeps incomplete tasks", () => {
+    const todos = [
+      { task: "Task 1", completed: true, deadline: "" },
+      { task: "Task 2", completed: false, deadline: "2026-12-01" },
+      { task: "Task 3", completed: true, deadline: "" },
+    ];
+
+    Todos.deleteCompletedTasks(todos);
+
+    expect(todos).toEqual([
+      { task: "Task 2", completed: false, deadline: "2026-12-01" },
+    ]);
+  });
+
+  test("Does not modify the list when no tasks are completed", () => {
+    const todos = [
+      { task: "Task 1", completed: false, deadline: "" },
+      { task: "Task 2", completed: false, deadline: "" },
+    ];
+
+    Todos.deleteCompletedTasks(todos);
+
+    expect(todos).toHaveLength(2);
+    expect(todos).toEqual([
+      { task: "Task 1", completed: false, deadline: "" },
+      { task: "Task 2", completed: false, deadline: "" },
+    ]);
+  });
+
+  test("Empties the list when all tasks are completed", () => {
+    const todos = [
+      { task: "Task 1", completed: true, deadline: "" },
+      { task: "Task 2", completed: true, deadline: "" },
+    ];
+
+    Todos.deleteCompletedTasks(todos);
+
+    expect(todos).toEqual([]);
+  });
+
+  test("Handles an empty todo list without errors", () => {
+    const todos = [];
+
+    Todos.deleteCompletedTasks(todos);
+
+    expect(todos).toEqual([]);
+  });
+});
