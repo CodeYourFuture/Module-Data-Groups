@@ -68,3 +68,7 @@ describe("contains", () => {
     expect(() => contains(10)).toThrow("contains requires an object");
   });
 });
+
+  test("return for no argument", () => {
+    expect(() => contains()).toThrow("contains requires an object");
+  });
