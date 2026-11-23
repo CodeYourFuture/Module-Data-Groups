@@ -20,21 +20,55 @@ as an array isn't an object
 // When passed an object and a property name
 // Then it should return true if the object contains the property, false otherwise
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
+describe("contains", () => {
+  // Given an empty object
+  // When passed to contains
+  // Then it should return false
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
+  test("return for {}", () => {
+    expect(contains({})).toBe(false);
+  });
 
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
+  // Given an object with properties
+  // When passed to contains with an existing property name
+  // Then it should return true
+  test("return for {a: 1, b: 2}, 'a'", () => {
+    expect(contains({ a: 1, b: 2 }, "a")).toBe(true);
+  });
 
-// Given a value that isn't an object - an array, a string, a number,
-// null, or no argument at all
-// When passed to contains
-// Then it should throw Error("contains requires an object")
-// (careful: typeof [] and typeof null are both "object")
+  // Given an object with properties
+  // When passed to contains with a non-existent property name
+  // Then it should return false
+  test("return for {a: 1, b: 2}, 'c'", () => {
+    expect(contains({ a: 1, b: 2 }, "c")).toBe(false);
+  });
+
+  // Given a value that isn't an object - an array, a string, a number,
+  // null, or no argument at all
+  // When passed to contains
+  // Then it should throw Error("contains requires an object")
+  // (careful: typeof [] and typeof null are both "object")
+  test("return for ['a', 'b', 'c']", () => {
+    expect(() => contains(["a", "b", "c"])).toThrow(
+      "contains requires an object"
+    );
+  });
+
+  test("return for null", () => {
+    expect(() => contains(null)).toThrow("contains requires an object");
+  });
+
+  test("return for 'It is a string.'", () => {
+    expect(() => contains("It is a string.")).toThrow(
+      "contains requires an object"
+    );
+  });
+
+  test("return for 10", () => {
+    expect(() => contains(10)).toThrow("contains requires an object");
+  });
+});
+
+  test("return for no argument", () => {
+    expect(() => contains()).toThrow("contains requires an object");
+  });
