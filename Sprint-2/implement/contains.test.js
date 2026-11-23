@@ -52,30 +52,31 @@ describe("contains", () => {
   // When passed to contains
   // Then it should throw Error("contains requires an object")
   // (careful: typeof [] and typeof null are both "object")
-  it("throws when given an array containing a value that isn't an object", () => {
-    expect(() => contains(["banana"])).toThrow(
-      new Error("contains requires an object")
+  it("throws when given an array", () => {
+    expect(() => contains(["banana"], "a")).toThrow(
+      "contains requires an object"
     );
   });
+
   it("throws when given a number", () => {
-    expect(() => contains(123)).toThrow(
-      new Error("contains requires an object")
-    );
+    expect(() => contains(123, "a")).toThrow("contains requires an object");
+  });
+
+  it("throws when given a string", () => {
+    expect(() => contains("hello", "a")).toThrow("contains requires an object");
   });
 
   it("throws when given null", () => {
-    expect(() => contains(null)).toThrow(
-      new Error("contains requires an object")
-    );
+    expect(() => contains(null, "a")).toThrow("contains requires an object");
   });
 
-  it("throws when called without an argument", () => {
-    expect(() => contains()).toThrow(new Error("contains requires an object"));
+  it("throws when called without an object argument", () => {
+    expect(() => contains(undefined, "a")).toThrow(
+      "contains requires an object"
+    );
   });
 
   it("throws when given an empty array", () => {
-    expect(() => contains([])).toThrow(
-      new Error("contains requires an object")
-    );
+    expect(() => contains([], "a")).toThrow("contains requires an object");
   });
 });

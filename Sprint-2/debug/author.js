@@ -9,9 +9,6 @@
 // a regular object. We can use Object.values() to access
 // all the property values.
 
-// This program attempts to log out all the property values in the object.
-// But it isn't working. Explain why first and then fix the problem
-
 const author = {
   firstName: "Zadie",
   lastName: "Smith",
@@ -23,6 +20,7 @@ const author = {
 for (const value of Object.values(author)) {
   console.log(value);
 }
-//author is Object and it is not iterable
-//for...of loop excepts  array and string but it not working with object type
-//we should Use for... in for object
+
+// author is an object and it is not iterable.
+// for...of works with arrays and strings, but not directly with objects.
+// We can use for...in to loop through an object's keys.

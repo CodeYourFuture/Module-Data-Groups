@@ -1,7 +1,4 @@
 function contains(cont, str) {
-  // if (cont === "") {
-  //   return false;
-  // }
   if (typeof cont !== "object" || cont === null || Array.isArray(cont)) {
     throw new Error("contains requires an object");
   }
