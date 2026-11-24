@@ -15,20 +15,12 @@ function setAlarm() {
   const input = document.getElementById("alarmSet");
   let remaining = Number(input.value);
 
-<<<<<<< Updated upstream
-  if (!Number.isFinite(remaining) || remaining <= 0) {
-=======
-   if (!Number.isFinite(remaining) || remaining < 0) {
->>>>>>> Stashed changes
+  if (!Number.isFinite(remaining) || remaining < 0) {
     return;
   }
 
   const heading = document.getElementById("timeRemaining");
   heading.textContent = `Time Remaining: ${formatTime(remaining)}`;
-<<<<<<< Updated upstream
-  input.value = "";
-=======
->>>>>>> Stashed changes
 
   intervalId = setInterval(() => {
     remaining -= 1;
