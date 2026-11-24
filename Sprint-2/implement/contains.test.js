@@ -52,3 +52,15 @@ test("Given an object with a non-existent property name, returns false", () => {
 test("Given an array, throws an error 'contains requires an object'", () => {
   expect(() => contains([])).toThrow("contains requires an object");
 });
+test("Given a string, throws an error 'contains requires an object'", () => {
+  expect(() => contains("Hello there")).toThrow("contains requires an object");
+});
+test("Given a number, throws an error 'contains requires an object'", () => {
+  expect(() => contains(123456)).toThrow("contains requires an object");
+});
+test("Given a null, throws an error 'contains requires an object'", () => {
+  expect(() => contains(null)).toThrow("contains requires an object");
+});
+test("Given no argument, throws an error 'contains requires an object'", () => {
+  expect(() => contains()).toThrow("contains requires an object");
+});
