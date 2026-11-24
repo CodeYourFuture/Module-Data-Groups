@@ -15,7 +15,13 @@ function parseQueryString(queryString) {
     const value = decodeURIComponent(
       parts.slice(1).join("=").replaceAll("+", " ")
     );
-    queryParams[key] = value;
+    if (!(key in queryParams)) {
+      queryParams[key] = value;
+    } else if (Array.isArray(queryParams[key])) {
+      queryParams[key].push(value);
+    } else {
+      queryParams[key] = [queryParams[key], value];
+    }
   }
 
   return queryParams;
