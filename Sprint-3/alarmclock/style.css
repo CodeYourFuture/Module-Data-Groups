@@ -1,4 +1,8 @@
+body {
+  background-color: aqua;
+}
 .centre {
+  background-color: chartreuse;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -12,4 +16,20 @@
 
 h1 {
   text-align: center;
+}
+.buttons {
+  text-align: center;
+}
+
+#set {
+  background-color: yellow;
+  font-weight: bold;
+}
+#start {
+  background-color: green;
+  font-weight: bold;
+}
+#stop {
+  background-color: red;
+  font-weight: bold;
 }
