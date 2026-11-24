@@ -13,6 +13,5 @@ function calculateResultingFrequency(frequencyChangeLines) {
   }
   return resultingFrequency;
 }
-console.log(lines.at(-1));        // +75784
-console.log(Number(lines.at(-1))); // 75784
+
 console.log(calculateResultingFrequency(inputText));
