@@ -15,15 +15,18 @@ function setAlarm() {
 }
 
 let countdown;
+let remainingSeconds = 0;
 
 function startAlarm() {
   const timer = document.getElementById("timeRemaining");
   const alarmInput = document.getElementById("alarmSet");
 
-  let remainingSeconds = Number(alarmInput.value);
-
-  if (alarmInput.value.trim() === "" || remainingSeconds <= 0) {
+  if (alarmInput.value.trim() === "" || Number(alarmInput.value) <= 0) {
     return;
+  }
+
+  if (remainingSeconds === 0) {
+    remainingSeconds = Number(alarmInput.value);
   }
 
   clearInterval(countdown);
@@ -39,7 +42,6 @@ function startAlarm() {
 
   countdown = setInterval(() => {
     remainingSeconds--;
-
     updateDisplay();
 
     if (remainingSeconds <= 0) {
@@ -48,7 +50,6 @@ function startAlarm() {
     }
   }, 1000);
 }
-
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
@@ -73,6 +74,7 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  clearInterval(countdown);
 }
 
 window.onload = setup;
