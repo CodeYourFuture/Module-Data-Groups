@@ -26,7 +26,6 @@ test("When passed an array of items should return object containing count for ea
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
 test("When passed an empty array should return empty object", () => {
   expect(tally([])).toEqual({});
 });
@@ -41,6 +40,12 @@ test("When passed an array of duplicate items should return object containing co
 // Given an invalid input like a string, a number, or no argument at all
 // When passed to tally
 // Then it should throw Error("tally requires an array")
-test("WGiven an invalid input  should throw error 'tally requires an array'", () => {
+test("When given a string input  should throw error 'tally requires an array'", () => {
   expect(() => tally("im a string")).toThrow("tally requires an array");
+});
+test("When given an number input  should throw error 'tally requires an array'", () => {
+  expect(() => tally(12345)).toThrow("tally requires an array");
+});
+test("When given no argument input  should throw error 'tally requires an array'", () => {
+  expect(() => tally()).toThrow("tally requires an array");
 });
