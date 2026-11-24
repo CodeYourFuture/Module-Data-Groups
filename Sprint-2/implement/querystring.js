@@ -11,8 +11,10 @@ function parseQueryString(queryString) {
     }
     const parts = pair.split("=");
 
-    const key = decodeURIComponent(parts[0]);
-    const value = decodeURIComponent(parts.slice(1).join("="));
+    const key = decodeURIComponent(parts[0].replaceAll("+", " "));
+    const value = decodeURIComponent(
+      parts.slice(1).join("=").replaceAll("+", " ")
+    );
     queryParams[key] = value;
   }
 
