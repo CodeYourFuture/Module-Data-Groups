@@ -1,10 +1,9 @@
 function calculateMean(list) {
 
-if (
-  !Array.isArray(list) ||
-  list.some((element) => typeof element !== "number")
-) {
-  throw new Error("calculateMean requires an array of numbers");
+for (let i = 0; i < elements.length; i++) {
+  if (typeof elements[i] !== "number") {
+    throw new Error("findMax requires an array of numbers");
+  }
 }
 
   if (list.length==0)
