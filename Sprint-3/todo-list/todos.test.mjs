@@ -138,4 +138,25 @@ describe("deleteCompleted()", () => {
       { task: "Task 4 description", completed: false },
     ]);
   });
+  test("should keep all tasks when none are completed", () => {
+    const todos = [
+      { task: "Task 1", completed: false },
+      { task: "Task 2", completed: false },
+    ];
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(2);
+    expect(todos).toEqual([
+      { task: "Task 1", completed: false },
+      { task: "Task 2", completed: false },
+    ]);
+  });
+
+  test("should handle an empty list", () => {
+    const todos = [];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([]);
+  });
 });
