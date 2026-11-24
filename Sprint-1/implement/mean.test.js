@@ -57,8 +57,8 @@ test("Given an empty array, it should throw Error ('calculateMean requires a non
 
 test("Given a value that isn't an array, e.g. banana ,42 , null or {} then it should throw Error ('calculateMean requires an array of numbers')", () => {
   expect(() => calculateMean({})).toThrow(
-      "culateMean requires an array of numbers"
-    );
+    "calculateMean requires an array of numbers"
+  );
 });
 
 // Given no argument at all
@@ -67,7 +67,7 @@ test("Given a value that isn't an array, e.g. banana ,42 , null or {} then it sh
 
 test("Given no argument at all then it should throw Error ('calculateMean requires an array of numbers')", () => {
   expect(() => calculateMean()).toThrow(
-    "culateMean requires an array of numbers"
+    "calculateMean requires an array of numbers"
   );
 });
 
@@ -78,8 +78,8 @@ test("Given no argument at all then it should throw Error ('calculateMean requir
 
 test("Given n array containing a non-number value, e.g. [1, '2', 3] it should throw Error('calculateMean requires an array of numbers')", () => {
    expect(() => calculateMean([1, "2", 3])).toThrow(
-      "culateMean requires an array of numbers"
-    );
+     "calculateMean requires an array of numbers"
+   );
 });
 
 
