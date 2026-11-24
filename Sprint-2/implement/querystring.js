@@ -6,8 +6,22 @@ function parseQueryString(queryString) {
   const keyValuePairs = queryString.split("&");
 
   for (const pair of keyValuePairs) {
-    const [key, value] = pair.split("=");
-    queryParams[key] = value;
+    if (pair === "") {
+      continue;
+    }
+    const parts = pair.split("=");
+
+    const key = decodeURIComponent(parts[0].replaceAll("+", " "));
+    const value = decodeURIComponent(
+      parts.slice(1).join("=").replaceAll("+", " ")
+    );
+    if (!(key in queryParams)) {
+      queryParams[key] = value;
+    } else if (Array.isArray(queryParams[key])) {
+      queryParams[key].push(value);
+    } else {
+      queryParams[key] = [queryParams[key], value];
+    }
   }
 
   return queryParams;
