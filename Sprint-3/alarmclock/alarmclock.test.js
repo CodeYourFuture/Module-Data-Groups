@@ -38,7 +38,7 @@ afterEach(() => {
 test("should set heading when button is clicked", () => {
   const heading = page.window.document.querySelector("#timeRemaining");
   const input = page.window.document.querySelector("#alarmSet");
-  const button = page.window.document.querySelector("#set");
+  const button = page.window.document.querySelector("#start");
 
   input.value = "19";
   button.click();
@@ -49,7 +49,7 @@ test("should set heading when button is clicked", () => {
 test("should split values over 60 seconds into minutes and seconds", () => {
   const heading = page.window.document.querySelector("#timeRemaining");
   const input = page.window.document.querySelector("#alarmSet");
-  const button = page.window.document.querySelector("#set");
+  const button = page.window.document.querySelector("#start");
 
   input.value = "119";
   button.click();
@@ -60,7 +60,7 @@ test("should split values over 60 seconds into minutes and seconds", () => {
 test("should update the heading while counting down", () => {
   const heading = page.window.document.querySelector("#timeRemaining");
   const input = page.window.document.querySelector("#alarmSet");
-  const button = page.window.document.querySelector("#set");
+  const button = page.window.document.querySelector("#start");
 
   input.value = "19";
   button.click();
@@ -74,7 +74,7 @@ test("should update the heading while counting down", () => {
 
 test("should count down every 1000 ms", () => {
   const input = page.window.document.querySelector("#alarmSet");
-  const button = page.window.document.querySelector("#set");
+  const button = page.window.document.querySelector("#start");
 
   const mockTimer = jest.fn();
   page.window.setTimeout = mockTimer;
@@ -89,7 +89,7 @@ test("should count down every 1000 ms", () => {
 
 test("should play audio when the timer reaches zero", () => {
   const input = page.window.document.querySelector("#alarmSet");
-  const button = page.window.document.querySelector("#set");
+  const button = page.window.document.querySelector("#start");
   const mockPlayAlarm = jest.fn();
 
   page.window.playAlarm = mockPlayAlarm;
