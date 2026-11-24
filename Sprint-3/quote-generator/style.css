@@ -1,6 +1,10 @@
 /** Write your CSS in here **/
 body {
   background-color: #8fafcb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 .quotes-box {
   background-color: #6386a5;
