@@ -135,3 +135,9 @@ describe("deleteCompleted()", () => {
     expect(todos[1].task).toBe("Task 4 description");
   });
 });
+
+test("delete completed from an empty list leaves it empty", () => {
+  const todos = [];
+  Todos.deleteCompleted(todos);
+  expect(todos).toHaveLength(0);
+});
