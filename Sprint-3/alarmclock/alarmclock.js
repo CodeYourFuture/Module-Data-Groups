@@ -6,6 +6,17 @@ function formatTime(totalSeconds) {
   return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
 }
 
+function finishAlarm() {
+  if (intervalId !== null) {
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+  const heading = document.getElementById("timeRemaining");
+  heading.textContent = "Time Remaining: 00:00";
+  playAlarm();
+  document.body.style.backgroundColor = "red";
+}
+
 function setAlarm() {
   if (intervalId !== null) {
     clearInterval(intervalId);
@@ -22,15 +33,18 @@ function setAlarm() {
   const heading = document.getElementById("timeRemaining");
   heading.textContent = `Time Remaining: ${formatTime(remaining)}`;
 
+  // 0 seconds: trigger immediately at 00:00
+  if (remaining === 0) {
+    finishAlarm();
+    return;
+  }
+
   intervalId = setInterval(() => {
     remaining -= 1;
     heading.textContent = `Time Remaining: ${formatTime(remaining)}`;
 
     if (remaining <= 0) {
-      clearInterval(intervalId);
-      intervalId = null;
-      playAlarm();
-      document.body.style.backgroundColor = "red";
+      finishAlarm();
     }
   }, 1000);
 }
@@ -38,6 +52,7 @@ function setAlarm() {
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
+audio.loop = true;
 
 function setup() {
   document.getElementById("set").addEventListener("click", () => {
@@ -56,6 +71,7 @@ function playAlarm() {
 
 function pauseAlarm() {
   audio.pause();
+  audio.currentTime = 0;
 }
 
 window.onload = setup;
