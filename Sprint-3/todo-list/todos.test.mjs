@@ -35,7 +35,7 @@ describe("addTask()", () => {
     // todos should now have one more task
     expect(todos).toHaveLength(lengthBeforeAddition + 1);
 
-    // New task should be appended to the todos
+    //New task should be appended to the todos
     expect(todos[todos.length - 1]).toEqual(theTask);
   });
 });
@@ -120,16 +120,40 @@ describe("toggleCompletedOnTask()", () => {
     Todos.toggleCompletedOnTask(todos, 10);
     expect(todos).toEqual(todosBeforeToggle);
 
-    // Todos.toggleCompletedOnTask(todos, -1);
+    Todos.toggleCompletedOnTask(todos, -1);
     expect(todos).toEqual(todosBeforeToggle);
   });
 });
 test("should remove completed tasks from the array", () => {
   const todos = createMockTodos();
-  const todosBeforeDeleteComplet = createMockTodos();
+  const todosBeforeDeleteComplete = createMockTodos();
   const lengthBeforDeleteComplete = todos.length;
   Todos.deleteCompleted(todos);
-  expect(todos).toHaveLength(lengthBeforDeleteComplete - 2);
-  expect(todos[0]).toEqual(todosBeforeDeleteComplet[1]);
-  expect(todos[1]).toEqual(todosBeforeDeleteComplet[3]);
+
+  const lengthAfterDeleteComplete = todos.length;
+  expect(todos).toHaveLength(lengthAfterDeleteComplete);
+  expect(todos[0]).toEqual(todosBeforeDeleteComplete[1]);
+  expect(todos[1]).toEqual(todosBeforeDeleteComplete[3]);
+
+  // Tests for when there is no more tasks completed
+  const todosAfterFirstDeleteComplete = [];
+  todosAfterFirstDeleteComplete.push(...todos);
+  Todos.deleteCompleted(todos);
+  expect(todos).toHaveLength(lengthAfterDeleteComplete);
+  expect(todos[0]).toEqual(todosAfterFirstDeleteComplete[0]);
+  expect(todos[1]).toEqual(todosAfterFirstDeleteComplete[1]);
+});
+test("should return the same tasks when there is no completed task", () => {
+  let todos = createMockTodos();
+  todos = todos.filter((task) => {
+    !task.completed;
+  });
+  const todosBeforeDeleteComplete = [];
+  todosBeforeDeleteComplete.push(...todos);
+  const LengthBeforeDeleteComplete = todos.length;
+  Todos.deleteCompleted(todos);
+  expect(todos).toEqual(todosBeforeDeleteComplete);
+  expect(todos).toHaveLength(LengthBeforeDeleteComplete);
+  expect(todos[0]).toEqual(todosBeforeDeleteComplete[0]);
+  expect(todos[1]).toEqual(todosBeforeDeleteComplete[1]);
 });
