@@ -27,3 +27,9 @@ export function toggleCompletedOnTask(todos, taskIndex) {
     todos[taskIndex].completed = !todos[taskIndex].completed;
   }
 }
+
+// Button toggle to delete all completed tasks in Todo
+export function deleteCompleted(todos) {
+  const remainingTodos = todos.filter((todo) => !todo.completed);
+  todos.splice(0, todos.length, ...remainingTodos);
+}
