@@ -11,6 +11,7 @@ window.addEventListener("load", () => {
     .getElementById("delete-completed-btn")
     .addEventListener("click", () => {
       Todos.deleteCompleted(todos);
+
       render();
     });
 
@@ -28,10 +29,9 @@ function addNewTodo() {
   const task = taskInput.value.trim();
   if (task) {
     Todos.addTask(todos, task, false);
+    taskInput.value = "";
     render();
   }
-
-  taskInput.value = "";
 }
 
 // Note:
