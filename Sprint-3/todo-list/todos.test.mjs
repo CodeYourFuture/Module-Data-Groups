@@ -106,6 +106,28 @@ describe("deleteCompleted()", () => {
 
     expect(todos).toEqual(incompleteTodos);
   });
+
+  test("given all tasks incomplete, it remove nothing", () => {
+    const todos = [
+      { task: "Wash the dishes", completed: false },
+      { task: "Do the shopping", completed: false },
+    ];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([
+      { task: "Wash the dishes", completed: false },
+      { task: "Do the shopping", completed: false },
+    ]);
+  });
+
+  test("given an empty list, it says empty", () => {
+    const todos = [];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([])
+  });
 });
 
 describe("toggleCompletedOnTask()", () => {
