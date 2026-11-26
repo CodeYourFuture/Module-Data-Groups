@@ -1,3 +1,5 @@
+let isCountingDown = false;
+
 function setAlarm() {
   const timeSubmitted = document.getElementById("alarmSet").value;
   let numberForTime = Number(timeSubmitted);
@@ -5,6 +7,11 @@ function setAlarm() {
   if (numberForTime <= 0 || Number.isInteger(numberForTime) === false) {
     return (document.getElementById("reminder").textContent =
       "Value of time should be integer and more than '0'.");
+  }
+
+  if (isCountingDown === true) {
+    return (document.getElementById("reminder").textContent =
+      "Alarm is counting down. Pressing 'set alarm' is disallowed.");
   }
 
   document.getElementById("reminder").textContent = "";
@@ -19,6 +26,7 @@ function setAlarm() {
   }
 
   updateDisplay(numberForTime);
+  isCountingDown = true;
 
   const countdownId = setInterval(() => {
     numberForTime -= 1;
@@ -27,6 +35,7 @@ function setAlarm() {
     if (numberForTime <= 0) {
       clearInterval(countdownId);
       playAlarm();
+      isCountingDown = false;
     }
   }, 1000);
 }
