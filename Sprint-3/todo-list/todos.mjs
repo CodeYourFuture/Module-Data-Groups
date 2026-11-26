@@ -21,6 +21,15 @@ export function deleteTask(todos, taskIndex) {
   }
 }
 
+// Removes all completed ToDos from the given list.
+export function deleteCompleted(todoList) {
+  for (let i = todoList.length - 1; i >= 0; i--) {
+    if (todoList[i].completed) {
+      todoList.splice(i, 1);
+    }
+  }
+}
+
 // Toggle the "completed" property of todos[taskIndex] if the task exists.
 export function toggleCompletedOnTask(todos, taskIndex) {
   if (todos[taskIndex]) {

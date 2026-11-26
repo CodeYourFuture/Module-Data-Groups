@@ -101,6 +101,19 @@ h1 {
   color: red;
 }
 
+#delete-completed-btn  {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+
+ }
+
 .todo-item.completed .description {
   text-decoration: line-through;
   color: gray;
