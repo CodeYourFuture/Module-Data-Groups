@@ -1,10 +1,14 @@
 // Don't change this function.
 function calculateMedian(list) {
   if (!Array.isArray(list)) {
-    throw new Error("calculateMedian requires an array of numbers");
+    throw new Error(
+      "Could not calculate a median: calculateMedian requires a non-empty array"
+    );
   }
   if (list.length === 0) {
-    throw new Error("calculateMedian requires a non-empty array");
+    throw new Error(
+      "Could not calculate a median: calculateMedian requires a non-empty array"
+    );
   }
   for (const item of list) {
     if (typeof item !== "number") {
@@ -24,7 +28,7 @@ function describeMedian(list) {
   try {
     return `The median is ${calculateMedian(list)}`;
   } catch (error) {
-    return `Could not calculate a median: calculateMedian requires a non-empty array: ${error.message}`;
+    return error.message;
   }
 }
 
