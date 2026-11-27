@@ -2,9 +2,9 @@ let isCountingDown = false;
 
 function setAlarm() {
   const timeSubmitted = document.getElementById("alarmSet").value;
-  let numberForTime = Number(timeSubmitted);
+  let totalSeconds = Number(timeSubmitted);
 
-  if (numberForTime <= 0 || Number.isInteger(numberForTime) === false) {
+  if (totalSeconds <= 0 || Number.isInteger(totalSeconds) === false) {
     return (document.getElementById("reminder").textContent =
       "Value of time should be integer and more than '0'.");
   }
@@ -15,9 +15,9 @@ function setAlarm() {
   }
 
   document.getElementById("reminder").textContent = "";
-  function updateDisplay(totalSeconds) {
-    const minutes = Math.floor(numberForTime / 60);
-    const seconds = numberForTime % 60;
+  function updateDisplay() {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
     const minutesInString = String(minutes).padStart(2, "0");
     const secondsInString = String(seconds).padStart(2, "0");
 
@@ -25,14 +25,14 @@ function setAlarm() {
       `Time Remaining: ${minutesInString}:${secondsInString}`;
   }
 
-  updateDisplay(numberForTime);
+  updateDisplay(totalSeconds);
   isCountingDown = true;
 
   const countdownId = setInterval(() => {
-    numberForTime -= 1;
-    updateDisplay(numberForTime);
+    totalSeconds -= 1;
+    updateDisplay(totalSeconds);
 
-    if (numberForTime <= 0) {
+    if (totalSeconds <= 0) {
       clearInterval(countdownId);
       playAlarm();
       isCountingDown = false;
