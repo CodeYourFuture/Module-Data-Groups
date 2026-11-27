@@ -8,7 +8,7 @@ function findMax(elements) {
       throw new Error("findMax requires an array of numbers");
     }
 
-    if (!elements.length === 1) {
+    if (elements.length === 1) {
       return element;
     }
   }
