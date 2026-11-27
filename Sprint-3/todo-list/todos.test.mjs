@@ -124,36 +124,39 @@ describe("toggleCompletedOnTask()", () => {
     expect(todos).toEqual(todosBeforeToggle);
   });
 });
-test("should remove completed tasks from the array", () => {
-  const todos = createMockTodos();
-  const todosBeforeDeleteComplete = createMockTodos();
-  const lengthBeforDeleteComplete = todos.length;
-  Todos.deleteCompleted(todos);
 
-  const lengthAfterDeleteComplete = todos.length;
-  expect(todos).toHaveLength(lengthAfterDeleteComplete);
-  expect(todos[0]).toEqual(todosBeforeDeleteComplete[1]);
-  expect(todos[1]).toEqual(todosBeforeDeleteComplete[3]);
-});
-test("should return the same tasks when there is no completed task", () => {
-  let todos = createMockTodos();
-  todos = todos.filter((task) => !task.completed);
-  const todosBeforeDeleteComplete = [];
-  todosBeforeDeleteComplete.push(...todos);
-  const lengthBeforeDeleteComplete = todos.length;
-  Todos.deleteCompleted(todos);
-  expect(todos).toEqual(todosBeforeDeleteComplete);
-  expect(todos).toHaveLength(lengthBeforeDeleteComplete);
-  expect(todos[0]).toEqual(todosBeforeDeleteComplete[0]);
-  expect(todos[1]).toEqual(todosBeforeDeleteComplete[1]);
-});
-test("should return empty array when all the task completed are deleted", () => {
-  let todos = createMockTodos();
-  todos = todos.filter((task) => task.completed);
-  const todosBeforeDeleteComplete = [];
-  todosBeforeDeleteComplete.push(...todos);
-  const LengthBeforeDeleteComplete = todos.length;
-  Todos.deleteCompleted(todos);
-  expect(todos).toEqual([]);
-  expect(todos).toHaveLength(0);
+describe("deletCompleted()", () => {
+  test("should remove completed tasks from the array", () => {
+    const todos = createMockTodos();
+    const todosBeforeDeleteComplete = createMockTodos();
+    const expectedLengthRemaing = todosBeforeDeleteComplete.filter(
+      (todo) => !todo.completed
+    ).length;
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toHaveLength(expectedLengthRemaing);
+    expect(todos[0]).toEqual(todosBeforeDeleteComplete[1]);
+    expect(todos[1]).toEqual(todosBeforeDeleteComplete[3]);
+  });
+  test("should return the same tasks when there is no completed task", () => {
+    let todos = createMockTodos();
+    todos = todos.filter((task) => !task.completed);
+    const todosBeforeDeleteComplete = [];
+    todosBeforeDeleteComplete.push(...todos);
+    const lengthBeforeDeleteComplete = todos.length;
+    Todos.deleteCompleted(todos);
+    expect(todos).toEqual(todosBeforeDeleteComplete);
+    expect(todos).toHaveLength(lengthBeforeDeleteComplete);
+    expect(todos[0]).toEqual(todosBeforeDeleteComplete[0]);
+    expect(todos[1]).toEqual(todosBeforeDeleteComplete[1]);
+  });
+  test("should return empty array when all the task completed are deleted", () => {
+    let todos = createMockTodos();
+    todos = todos.filter((task) => task.completed);
+    const todosBeforeDeleteComplete = [];
+    todosBeforeDeleteComplete.push(...todos);
+    Todos.deleteCompleted(todos);
+    expect(todos).toEqual([]);
+    expect(todos).toHaveLength(0);
+  });
 });
