@@ -12,7 +12,9 @@ function calculateMedian(list) {
   }
   for (const item of list) {
     if (typeof item !== "number") {
-      throw new Error("calculateMedian requires an array of numbers");
+      throw new Error(
+        "Could not calculate a median: calculateMedian requires a non-empty array"
+      );
     }
   }
   const middleIndex = Math.floor(list.length / 2);
