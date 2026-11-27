@@ -48,7 +48,9 @@ test("given a non-numbers array, returns sum requires an array of numbers", () =
   expect(() => sum([null])).toThrow(
     new Error("sum requires an array of numbers")
   );
-  expect(() => sum("hey,", 10, "hi", 60)).toThrow(new Error("sum requires an array of numbers"));
+  expect(() => sum("hey,", 10, "hi", 60)).toThrow(
+    new Error("sum requires an array of numbers")
+  );
 });
 
 // Given something that isn't an array at all, such as "hey", 42 or no argument
@@ -58,8 +60,6 @@ test("given a non-array, returns sum requires an array of numbers", () => {
   expect(() => sum("hey")).toThrow(
     new Error("sum requires an array of numbers")
   );
-  expect(() => sum(42)).toThrow(
-    new Error("sum requires an array of numbers")
-  );
+  expect(() => sum(42)).toThrow(new Error("sum requires an array of numbers"));
   expect(() => sum()).toThrow(new Error("sum requires an array of numbers"));
 });
