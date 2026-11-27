@@ -3,6 +3,7 @@ function contains(obj, property) {
     Array.isArray(obj) ||
     typeof obj === "string" ||
     typeof obj === "number" ||
+    typeof obj === "boolean" ||
     !obj
   ) {
     throw new Error("contains requires an object");
