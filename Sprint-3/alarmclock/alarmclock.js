@@ -57,7 +57,10 @@ function pauseAlarm() {
 function stopAlarm() {
   clearInterval(timer);
   audio.pause();
+  audio.currentTime = 0;
   document.body.style.background = "pink";
+
+  document.querySelector("#timeRemaining").innerText = "Time Remaining: 00:00";
 }
 
 window.onload = setup;
