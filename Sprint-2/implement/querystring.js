@@ -20,14 +20,12 @@ function parseQueryString(queryString) {
     if (splitIndex === -1) {
       splitIndex = pair.length;
     }
-    const key = pair.substring(0, splitIndex).replace("+", " ");
-    const value = pair.substring(splitIndex + 1).replace("+", " ");
+    const key = pair.substring(0, splitIndex).replaceAll("+", " ");
+    const value = pair.substring(splitIndex + 1).replaceAll("+", " ");
     queryParams[key] = value;
   }
 
   return queryParams;
 }
-
-console.log(parseQueryString("name=Sam%26Lee"));
 
 module.exports = parseQueryString;
