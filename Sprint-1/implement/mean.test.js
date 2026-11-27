@@ -33,7 +33,9 @@ test("given [1, 2, 6], returns 3", () => {
 // When passed to calculateMean
 // Then it should return that number
 test("given [6], returns 6", () => {
-  expect(6).toEqual(6);
+  const list = [6];
+  const result = calculateMean(list);
+  expect(6).toEqual(result);
 });
 
 // Given an array containing negative or decimal numbers
