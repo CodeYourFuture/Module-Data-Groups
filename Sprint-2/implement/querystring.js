@@ -3,18 +3,18 @@ function parseQueryString(queryString) {
     throw new Error("parseQueryString requires a string");
   }
 
-  queryString = decodeURIComponent(queryString);
-
   const queryParams = {};
   if (queryString.length === 0) {
     return queryParams;
   }
   const keyValuePairs = queryString.split("&");
 
-  for (const pair of keyValuePairs) {
+  for (let pair of keyValuePairs) {
     if (pair.length === 0) {
       continue;
     }
+
+    pair = decodeURIComponent(pair);
 
     let splitIndex = pair.indexOf("=");
     if (splitIndex === -1) {
@@ -27,5 +27,7 @@ function parseQueryString(queryString) {
 
   return queryParams;
 }
+
+console.log(parseQueryString("name=Sam%26Lee"));
 
 module.exports = parseQueryString;
