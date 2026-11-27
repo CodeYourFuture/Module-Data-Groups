@@ -135,7 +135,7 @@ describe("deleteCompleted()", () => {
     const todos = createMockTodos();
     const todosBeforeDeletion = createMockTodos();
     let lengthAfterDeletion = 0;
-    for(todo of todos){
+    for(const todo of todos){
       if(todo.completed === false){
         lengthAfterDeletion++;
       }
