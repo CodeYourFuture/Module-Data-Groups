@@ -19,9 +19,8 @@ function setAlarm() {
       playAlarm();
       document.body.style.background = "red";
       timeInSecond = 0;
-    } else {
-      alarmTime.innerText = `Time Remaining: ${formatTime(timeInSecond)}`;
     }
+
     alarmTime.innerText = `Time Remaining: ${formatTime(timeInSecond)}`;
   }, 1000);
 }
