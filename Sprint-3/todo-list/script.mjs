@@ -74,3 +74,8 @@ function createListItem(todo, index) {
 
   return li;
 }
+
+// delete all completed button
+document.getElementById("delete-completed-btn").addEventListener("click", () => {
+  ...
+});
