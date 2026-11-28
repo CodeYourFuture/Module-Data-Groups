@@ -8,7 +8,13 @@
   ]
 
 */
+// In `todos.mjs`, implement a function `deleteCompleted(todoList)` that removes all completed
+//    ToDos from the given list.
+export function deleteCompleted(todos) {
+  const remainingTodos = todos.filter((todo) => !todo.completed);
 
+  todos.splice(0, todos.length, ...remainingTodos);
+}
 // Append a new task to todos[]
 export function addTask(todos, task, completed = false) {
   todos.push({ task, completed });
