@@ -139,4 +139,29 @@ describe("toggleCompletedOnTask()", () => {
     Todos.toggleCompletedOnTask(todos, -1);
     expect(todos).toEqual(todosBeforeToggle);
   });
+
+  test("removes all ToDos when all tasks are completed.", () => {
+    const todos = [
+      { task: "Task 1", completed: true },
+      { task: "Task 2", completed: true },
+      { task: "Task 3", completed: true },
+    ];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual([]);
+  });
+  test("keeps all ToDos when no tasks are completed.", () => {
+    const todos = [
+      { task: "Task 1", completed: false },
+      { task: "Task 2", completed: false },
+      { task: "Task 3", completed: false },
+    ];
+
+    const todosBeforeDeletion = [...todos];
+
+    Todos.deleteCompleted(todos);
+
+    expect(todos).toEqual(todosBeforeDeletion);
+  });
 });
